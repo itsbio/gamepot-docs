@@ -1,68 +1,38 @@
-# Introduction
+# 소개
 
-{% api-method method="get" host="https://api.cakes.com" path="/v1/cakes/:id" %}
-{% api-method-summary %}
-Get Cakes
-{% endapi-method-summary %}
+# 게임을 위한 필수 기능을 쉽고 빠르게 구현할 수 있는 서비스
 
-{% api-method-description %}
-This endpoint allows you to get free cakes.
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" %}
-ID of the cake to get, for free of course.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-
-{% api-method-headers %}
-{% api-method-parameter name="Authentication" type="string" required=true %}
-Authentication token to track down who is emptying our stocks.
-{% endapi-method-parameter %}
-{% endapi-method-headers %}
-
-{% api-method-query-parameters %}
-{% api-method-parameter name="recipe" type="string" %}
-The API will do its best to find a cake matching the provided recipe.
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="gluten" type="boolean" %}
-Whether the cake should be gluten-free or not.
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-Cake successfully retrieved.
-{% endapi-method-response-example-description %}
-
-```javascript
-{
-    "name": "Cake's name",
-    "recipe": "Cake's recipe name",
-    "cake": "Binary cake"
-}
-```
-{% endapi-method-response-example %}
-
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
-
-```javascript
-{
-    "message": "Ain't no cake like that."
-}
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+ GAMEPOT 서비스에 포함된 SDK는 기본적인 인증과 결제 뿐만 아니라 많은 개발 리소스가 필요한 다양한 통계와 모니터링, 그리고 PUSH 등과 같은 부가 기능이 포함되어 고객이 게임 컨텐츠 개발에만 집중할 수 있는 환경을 제공합니다.
 
 
+
+## 게임팟 제품구성
+
+![](images/gamepot.ko-KR.xl.png)
+
+### 로그인
+
+
+
+### 결제
+
+
+
+### 메시지
+
+
+
+### 푸시
+
+
+
+### 쿠폰
+
+
+
+### 서비스 운영
+
+
+
+### 통계
 

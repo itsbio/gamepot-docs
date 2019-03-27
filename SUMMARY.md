@@ -12,7 +12,5 @@
 
 * [General](faq/untitled.md)
 
-## ko
-
 * [Readme](ko/README.md)
 
