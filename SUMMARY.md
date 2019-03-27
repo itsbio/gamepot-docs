@@ -12,3 +12,7 @@
 
 * [General](faq/untitled.md)
 
+## ko
+
+* [korea](ko/korea.md)
+
