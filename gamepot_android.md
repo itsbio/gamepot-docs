@@ -1,32 +1,35 @@
 ---
 search:
-  keyword: ['gamepot']
+  keyword:
+    - gamepot
 ---
 
-# 1. 시작하기
+# Android SDK
 
-## 개발 환경 구성
+## 1. 시작하기
 
-Android용 애플리케이션의 개발을 위해서는 개발 툴(Android Studio 등)을 설치해야 합니다. 사용하는 개발 툴에 따라서는 추가적으로 Java SDK와 Android SDK 등을 설치해야 할 수도 있습니다.
+### 개발 환경 구성
+
+Android용 애플리케이션의 개발을 위해서는 개발 툴\(Android Studio 등\)을 설치해야 합니다. 사용하는 개발 툴에 따라서는 추가적으로 Java SDK와 Android SDK 등을 설치해야 할 수도 있습니다.
 
 Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같습니다.
 
-[ 시스템 환경 ]
+\[ 시스템 환경 \]
 
-- 최소사항: API 15 (IceCreamSandwich, 4.0.3) 이상, gradle 2.3.0 이상
-- 개발 환경: Android Studio
+* 최소사항: API 15 \(IceCreamSandwich, 4.0.3\) 이상, gradle 2.3.0 이상
+* 개발 환경: Android Studio
 
-### 프로젝트 생성
+#### 프로젝트 생성
 
-![gamepot_android_01](./images/gamepot_android_01.png)
+![gamepot\_android\_01](.gitbook/assets/gamepot_android_01%20%281%29.png)
 
-### 라이브러리 추가
+#### 라이브러리 추가
 
 다운로드한 AOS SDK 파일을 app/libs 폴더에 추가합니다.
 
-![gamepot_android_01](./images/gamepot_android_02.png)
+![gamepot\_android\_01](.gitbook/assets/gamepot_android_02%20%281%29.png)
 
-### build.gradle 설정
+#### build.gradle 설정
 
 build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재합니다.
 
@@ -57,12 +60,11 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
            maven { url "https://jcenter.bintray.com" }
        }
    }
-
    ```
 
 2. app 폴더의 build.gradle 수정
 
-   > [xxxxx]에는 실제 적용될 값을 넣습니다.
+   > \[xxxxx\]에는 실제 적용될 값을 넣습니다.
 
    ```java
    android {
@@ -127,17 +129,14 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
    ```
 
 3. 구글에서 발급받은 google-service.json 파일을 /app/ 폴더 하위에 복사합니다.
-
 4. Gradle Sync Now
 
    Android Studio에서 아래 버튼을 클릭하여 새로고침합니다.
 
-![gamepot_android_03](./images/gamepot_android_03.png)
+![gamepot\_android\_03](.gitbook/assets/gamepot_android_03.png)
 
 * 새로고침을 누른 후 발생할 수 있는 실패
-
-  * Configuration 'compile' is obsolete and has been replaced with 'implementation' and 'api'.
-    It will be removed at the end of 2018. For more information see: <http://d.android.com/r/tools/update-dependency-configurations.html>
+  * Configuration 'compile' is obsolete and has been replaced with 'implementation' and 'api'. It will be removed at the end of 2018. For more information see: [http://d.android.com/r/tools/update-dependency-configurations.html](http://d.android.com/r/tools/update-dependency-configurations.html)
 
     > Gradle 버전을 3 이상 쓰시는 경우 compile을 implementation
 
@@ -145,13 +144,13 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
     > app의 패키지명과 google-service.json에 선언된 패키지명을 일치하도록 변경해주세요.
 
-### AndroidManifest.xml 설정
+#### AndroidManifest.xml 설정
 
 일반적으로 게임에 사용되는 설정 값을 추가합니다. 각 설정별로 자세한 설명은 코드를 참고해주세요.
 
 > 권장 사항으로 개발사 판단하에 적용 여부를 검토해주세요.
 
-```xml
+```markup
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -183,43 +182,41 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 </manifest>
 ```
 
-### Push Notification 아이콘 설정
+#### Push Notification 아이콘 설정
 
-![gamepot_android_04](./images/gamepot_android_04.png)
+![gamepot\_android\_04](.gitbook/assets/gamepot_android_04%20%281%29.png)
 
 푸시 수신 시 Notification bar에 보여줄 icon은 기본적으로 SDK 내부의 기본 이미지로 처리되며, 게임에 맞게 직접 넣을 수도 있습니다.
 
-#### icon 직접 넣기
+**icon 직접 넣기**
 
 > [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
 
 1. res/drawable 관련 폴더를 아래와 같이 생성
-   - res/drawable-mdpi/
-   - res/drawable-hdpi/
-   - res/drawable-xhdpi/
-   - res/drawable-xxhdpi/
-   - res/drawable-xxxhdpi/
-
+   * res/drawable-mdpi/
+   * res/drawable-hdpi/
+   * res/drawable-xhdpi/
+   * res/drawable-xxhdpi/
+   * res/drawable-xxxhdpi/
 2. 아래 사이즈별로 이미지 제작
-    - 24x24
-    - 36x36
-    - 48x48
-    - 72x72
-    - 96x96
-
+   * 24x24
+   * 36x36
+   * 48x48
+   * 72x72
+   * 96x96
 3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
 
-|  폴더명                 |  사이즈  |
-|  --------------------  |  -----  |
-|  res/drawable-mdpi/     |  24x24  |
-|  res/drawable-hdpi/     |  36x36  |
-|  res/drawable-xhdpi/    |  48x48  |
-|  res/drawable-xxhdpi/   |  72x72  |
-|  res/drawable-xxxhdpi/  |  96x96  |
+| 폴더명 | 사이즈 |
+| :--- | :--- |
+| res/drawable-mdpi/ | 24x24 |
+| res/drawable-hdpi/ | 36x36 |
+| res/drawable-xhdpi/ | 48x48 |
+| res/drawable-xxhdpi/ | 72x72 |
+| res/drawable-xxxhdpi/ | 96x96 |
 
-4. 이미지 파일명을 `ic_stat_gamepot_small`로 변경
+1. 이미지 파일명을 `ic_stat_gamepot_small`로 변경
 
-# 2. 초기화
+## 2. 초기화
 
 MainActivity.java 파일에 아래 부분을 추가합니다.
 
@@ -265,29 +262,29 @@ protected void onDestroy() {
 }
 ```
 
-# 3. 로그인, 로그아웃, 회원 탈퇴
+## 3. 로그인, 로그아웃, 회원 탈퇴
 
 구글, 페이스북, 네이버 등 다양한 로그인 SDK를 통합하여 사용할 수 있습니다.
 
-## 구글(Firebase) 콘솔 설정
+### 구글\(Firebase\) 콘솔 설정
 
 APK 빌드 시 사용한 Keystore의 SHA-1 값을 Firebase console에 추가합니다.
 
 > SHA-1 값은 개발사에 요청합니다.
 
-![gamepot_android_05](./images/gamepot_android_05.png)
+![gamepot\_android\_05](.gitbook/assets/gamepot_android_05.png)
 
-## 페이스북 콘솔 설정
+### 페이스북 콘솔 설정
 
 APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 추가합니다.
 
 > 키 해시 값은 개발사에 요청합니다.
 
-![gamepot_android_06](./images/gamepot_android_06.png)
+![gamepot\_android\_06](.gitbook/assets/gamepot_android_06.png)
 
-## 설정
+### 설정
 
-### MainActivity.java 파일 수정
+#### MainActivity.java 파일 수정
 
 로그인 관련 코드를 아래와 같이 선언합니다.
 
@@ -326,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-## 로그인
+### 로그인
 
 로그인 UI는 개발사에서 구현하고, 로그인 버튼 클릭 시에 연동합니다.
 
@@ -361,7 +358,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
 });
 ```
 
-## 자동 로그인
+### 자동 로그인
 
 사용자가 마지막에 로그인 했던 정보를 전달하는 API를 이용하여 자동 로그인을 구현할 수 있습니다.
 
@@ -400,7 +397,7 @@ else
 }
 ```
 
-## 로그아웃
+### 로그아웃
 
 현재 회원 계정을 로그아웃합니다.
 
@@ -422,7 +419,7 @@ GamePotChannel.getInstance().logout(this, new GamePotCommonListener() {
 });
 ```
 
-## 회원 탈퇴
+### 회원 탈퇴
 
 현재 회원 계정을 탈퇴시킵니다.
 
@@ -444,19 +441,19 @@ GamePotChannel.getInstance().deleteMember(this, new GamePotCommonListener() {
 });
 ```
 
-##검증
+### 검증
 
 로그인 완료 후 로그인 정보를 개발사 서버에서 GAMEPOT 서버로 전달하면 로그인 검증이 진행됩니다.
 
 자세한 설명은 `Server to server api` 매뉴에 `Authentication check` 항목을 참고해주세요.
 
-# 4. 계정 연동
+## 4. 계정 연동
 
-하나의 게임 계정에 복수 개의 소셜 계정(구글, 페이스북 등)을 연결/해제할 수 있는 기능입니다.(최소 연동 소셜 계정은 1가지입니다.)
+하나의 게임 계정에 복수 개의 소셜 계정\(구글, 페이스북 등\)을 연결/해제할 수 있는 기능입니다.\(최소 연동 소셜 계정은 1가지입니다.\)
 
 > 연동화면 UI는 개발사에서 구현해주세요.
 
-## 계정 연동
+### 계정 연동
 
 Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 
@@ -490,7 +487,7 @@ GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new 
 });
 ```
 
-## 연동된 리스트
+### 연동된 리스트
 
 해당 API를 통해 계정에 대해 연동 여부를 확인하실 수 있습니다.
 
@@ -510,7 +507,7 @@ boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOG
 JSONArray linking = GamePotChannel.getInstance().getLinkedList();
 ```
 
-## 연동 해제
+### 연동 해제
 
 기존에 연동되어 있는 계정을 해제합니다.
 
@@ -533,13 +530,13 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 });
 ```
 
-# 5. 광고플랫폼
+## 5. 광고플랫폼
 
 Facebook, Adjust, Adbrix 등 다양한 광고 플랫폼 SDK를 통합하여 사용할 수 있습니다.
 
-## 설정
+### 설정
 
-### MainActivity.java 파일 수정
+#### MainActivity.java 파일 수정
 
 광고 플랫폼 관련 코드를 아래와 같이 선언합니다.
 
@@ -557,13 +554,13 @@ public class MainActivity extends AppCompatActivity {
         GamePot.getInstance().setup(getApplicationContext());
 
         ...
-		// GamePot 광고 초기화. 사용하려는 광고 모듈별로 addAd 해주세요.
+        // GamePot 광고 초기화. 사용하려는 광고 모듈별로 addAd 해주세요.
         GamePotAd.getInstance().setSandbox(false); // 개발버전은 true. 배포버전은 false
         GamePotAd.getInstance().setActivity(this);
         // Facebook 초기화(사용 시 추가)
-		GamePotAd.getInstance().addAd(new GamePotAdFacebook());
+        GamePotAd.getInstance().addAd(new GamePotAdFacebook());
         // IGAWorks 초기화(사용 시 추가)
-		GamePotAd.getInstance().addAd(new GamePotAdIgaworks());
+        GamePotAd.getInstance().addAd(new GamePotAdIgaworks());
         // Adjust 초기화(사용 시 추가)
         GamePotAd.getInstance().addAd(new GamePotAdAdjust());
         ...
@@ -589,9 +586,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-### InstallReferrer 설정
+#### InstallReferrer 설정
 
-#### ReferrerCatcher.java파일 추가
+**ReferrerCatcher.java파일 추가**
 
 프로젝트에 ReferrerCatcher.java 파일을 생성 후 아래 코드를 추가해주세요.
 
@@ -649,42 +646,41 @@ public class ReferrerCatcher extends BroadcastReceiver {
 }
 ```
 
-#### AndroidManifest.xml 파일 수정
+**AndroidManifest.xml 파일 수정**
 
 AndoridManifest.xml에 아래 코드를 추가하고 `android:name`에는 위에서 만든 ReferrerCatcher 클래스의 경로를 넣어주세요.
 
-```xml
+```markup
 <manifest>
-	...
-	<application>
-		...
-		<!--IGAW / Facebook / Adjust 모듈을 사용하면 필수-->
+    ...
+    <application>
+        ...
+        <!--IGAW / Facebook / Adjust 모듈을 사용하면 필수-->
         <receiver android:name="{ReferrerCatcher의 경로}" android:exported="true">
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
         <!--[END]-->
-		...
-	</application>
-	...
+        ...
+    </application>
+    ...
 </manifest>
 ```
 
-### build.gradle 파일 수정
+#### build.gradle 파일 수정
 
 사용하려는 플랫폼에 맞게 관련 설정 값을 추가합니다.
 
 ```java
-
 android {
-	...
+    ...
     defaultConfig {
-    	...
-    	// FACEBOOK 이용 시 추가 [START]
-    	resValue "string", "facebook_app_id", "xxxxxxxxxxxxxxxx"
+        ...
+        // FACEBOOK 이용 시 추가 [START]
+        resValue "string", "facebook_app_id", "xxxxxxxxxxxxxxxx"
         resValue "string", "fb_login_protocol_scheme", "fbxxxxxxxxxxxxxxxx"
-    	// FACEBOOK 이용 시 추가 [END]
+        // FACEBOOK 이용 시 추가 [END]
 
         // Adjust 이용 시 추가 [START]
         resValue "string", "gamepot_adjust_apptoken","xxxxxxxxxxxx"
@@ -720,7 +716,7 @@ dependencies {
 }
 ```
 
-## EventTracking 전달
+### EventTracking 전달
 
 Event Tracking은 아래와 같이 경우에 따라 호출하는 코드가 다릅니다. 다음 코드를 참고하여 호출해주세요.
 
@@ -750,15 +746,15 @@ GamePotAd.getInstance().tracking(GamePotAdActions.TUTORIAL_COMPLETE, new GamePot
 // 각 builder에 존재하는 setAdjustKey api를 통해 adjust event key를 넣어주세요.
 ```
 
-# 6. 결제
+## 6. 결제
 
-## 페이스북 콘솔 설정
+### 페이스북 콘솔 설정
 
 아래 '앱 내 구매 이벤트를 자동으로 로깅' 항목을 OFF합니다.
 
-![gamepot_android_08](./images/gamepot_android_08.png)
+![gamepot\_android\_08](.gitbook/assets/gamepot_android_08.png)
 
-## 설정
+### 설정
 
 결제의 결과 값은 Listener 형태로 구현되어 있습니다.
 
@@ -777,10 +773,10 @@ public class MainActivity extends AppCompatActivity {
         GamePot.getInstance().setup(getApplicationContext());
 
         ...
-		GamePot.getInstance().setPurchaseListener(new GamePotPurchaseListener<GamePotPurchaseInfo>() {
+        GamePot.getInstance().setPurchaseListener(new GamePotPurchaseListener<GamePotPurchaseInfo>() {
             @Override
             public void onSuccess(GamePotPurchaseInfo info) {
-         		// 광고 플랫폼에 결제 이벤트를 던져주기 위한 코드로 꼭! 삽입해 주세요.
+                 // 광고 플랫폼에 결제 이벤트를 던져주기 위한 코드로 꼭! 삽입해 주세요.
                 GamePotAd.getInstance().tracking(GamePotAdActions.BILLING, info);
 
                 // 결제 성공. 아이템 지급 요청은 webhook에 설정된 주소로 server to server로 요청합니다.
@@ -802,7 +798,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-## 결제 시도
+### 결제 시도
 
 하나의 결제 API로 GooglePlay, OneStore 모두 결제가 가능합니다
 
@@ -813,21 +809,21 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().purchase("product id");
 ```
 
-##결제 아이템 지급
+### 결제 아이템 지급
 
 GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증까지 모두 마친 후 개발사 서버에 지급 요청을 하기 때문에 불법 결제가 불가능합니다.
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase` 항목을 참고하여 처리하셔야 합니다.
 
-# 7. 기타 API
+## 7. 기타 API
 
-## 네이버 카페 SDK
+### 네이버 카페 SDK
 
 해당 기능을 사용하려면 네이버 카페 SDK와 선행해서 연동에 필요한 값을 획득해야 합니다.
 
-### 설정
+#### 설정
 
-#### build.gradle파일 수정
+**build.gradle파일 수정**
 
 ```java
 android {
@@ -862,7 +858,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.java 수정
+**MainActivity.java 수정**
 
 ```java
 import io.gamepot.navercafe.GamePotNaverCafe;
@@ -881,7 +877,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-### 카페 호출
+#### 카페 호출
 
 네이버 카페 SDK는 다음과 같이 호출합니다.
 
@@ -895,7 +891,7 @@ GamePotNaverCafe.getInstance().startHome(this);
 GamePotNaverCafe.getInstance().setUserId(this, GamePot.getInstance().getMemberId());
 ```
 
-## 쿠폰
+### 쿠폰
 
 사용자에게 입력받은 쿠폰을 사용할 때 아래 코드를 호출해 주세요.
 
@@ -919,13 +915,13 @@ GamePot.getInstance().coupon(/*사용자에게 입력받은 쿠폰*/, new GamePo
 });
 ```
 
-###아이템 지급
+#### 아이템 지급
 
 쿠폰 사용이 성공하면 개발사 서버에 Server to server api를 통해 아이템 지급을 요청합니다.
 
 이를 위해선 `Server to server api` 메뉴에 `Item` 항목을 참고하여 처리하셔야 합니다.
 
-## Push on/off
+### Push on/off
 
 전체푸시, 야간푸시, 광고성푸시 3가지 종류의 푸시를 각각 on/off를 처리 할 수 있습니다.
 
@@ -996,33 +992,33 @@ import org.json.JSONObject;
 JSONObject status = GamePot.getInstance().getPushStatus();
 ```
 
-## 공지사항
+### 공지사항
 
 대시보드 - 공지사항에서 업로드한 이미지가 노출되는 기능입니다.
 
-### 호출
+#### 호출
 
 ```java
 GamePot.getInstance().showNoticeWebView(/*현재 액티비티*/);
 ```
 
-## 고객센터
+### 고객센터
 
 대시보드 - 고객센터와 연동되는 유저와 운영자간에 소통 채널입니다.
 
-### 호출
+#### 호출
 
 ```java
 GamePot.getInstance().showCSWebView(/*현재 액티비티*/);
 ```
 
-## 로컬 푸시(Local Push notification)
+### 로컬 푸시\(Local Push notification\)
 
 푸시 서버를 통하지 않고 단말기에서 자체적으로 푸시를 노출하는 기능입니다.
 
-### 호출
+#### 호출
 
-#### 푸시 등록
+**푸시 등록**
 
 정해진 시간에 로컬 푸시를 노출하는 방법은 아래와 같습니다.
 
@@ -1037,7 +1033,7 @@ GamePotLocalPushBuilder builder = new GamePotLocalPushBuilder(getActivity())
 int pushid = GamePot.getInstance().sendLocalPush(builder);
 ```
 
-#### 등록한 푸시 취소
+**등록한 푸시 취소**
 
 푸시 등록 시 얻은 pushid를 기반으로 기존에 등록된 푸시를 취소할 수 있습니다.
 
@@ -1045,15 +1041,15 @@ int pushid = GamePot.getInstance().sendLocalPush(builder);
 GamePot.getInstance().cancelLocalPush(/*현재 액티비티*/, /*푸시 등록시 얻은 pushid*/);
 ```
 
-## 점검, 강제 업데이트
+### 점검, 강제 업데이트
 
 점검이나 강제 업데이트 기능이 필요한 경우 대시보드 - 운영에서 기능을 활성화할 경우 동작합니다.
 
-### 호출
+#### 호출
 
 기존에 적용된 아래 API에서 사용이 가능합니다.
 
-#### 1. login API
+**1. login API**
 
 기존 login API에서 listener를 `GamePotAppStatusChannelListener`로 변경합니다.
 
@@ -1103,6 +1099,4 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
     }
 });
 ```
-
-
 

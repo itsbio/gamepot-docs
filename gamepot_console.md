@@ -1,8 +1,10 @@
 ---
 search:
-  keyword: ['gamepot']
+  keyword:
+    - gamepot
 ---
 
+# Console
 
 ## 사용하기 전에
 
@@ -28,71 +30,72 @@ GAMEPOT은 게임의 성장과 비례하여 비용이 증가하는 구조가 아
 
 ## GAMEPOT 이용하기
 
-#### Step 1. 프로젝트 생성하기
+### Step 1. 프로젝트 생성하기
 
 서비스를 사용하기 위해서는 우선 프로젝트를 생성해야 합니다.
 
-![gamrpot-1-101](./images/gamrpot-1-101.png)
+![gamrpot-1-101](.gitbook/assets/gamrpot-1-101%20%282%29.png)
 
-① 콘솔에서 **Game > GAMEPOT**을 선택합니다.
+① 콘솔에서 **Game &gt; GAMEPOT**을 선택합니다.
 
-![gamrpot-1-102](./images/gamrpot-1-102.png)
+![gamrpot-1-102](.gitbook/assets/gamrpot-1-102.png)
 
 ② **+프로젝트 생성** 버튼을 클릭합니다.
 
-![gamrpot-1-103](./images/gamrpot-1-103.png)
+![gamrpot-1-103](.gitbook/assets/gamrpot-1-103%20%281%29.png)
 
 ③ 게임 클러스터의 이름을 입력합니다.
 
-- 클러스터 이름은 최소 3자에서 최대 20자까지 입력할 수 있습니다.
-- 영문자, 숫자 및 '-' 기호만 가능합니다.
+* 클러스터 이름은 최소 3자에서 최대 20자까지 입력할 수 있습니다.
+* 영문자, 숫자 및 '-' 기호만 가능합니다.
 
 ④ 상품을 선택합니다.
 
 * Premium 상품을 선택하면 별도의  서비스 신청을 위한 안내 팝업이 노출됩니다.
 
-![gamrpot-1-104](./images/gamrpot-1-104.png)
+![gamrpot-1-104](.gitbook/assets/gamrpot-1-104.png)
 
 ⑤ **프로젝트 생성** 버튼을 클릭하여 프로젝트 생성을 완료하세요.
 
 * 게임 클러스터 인프라가 구성되기까지 수 분이 소요됩니다.
 
-![gamrpot-1-112](./images/gamrpot-1-112.PNG)
+![gamrpot-1-112](.gitbook/assets/gamrpot-1-112.PNG)
 
 ⑥ 프로젝트 Status 항목이 **생성중**이면 대시보드로 접근할 수 있는 URL이 비활성화 상태로 노출됩니다. Status 항목이 **운영중**으로 변경되면 대시보드로 접근할 수 있는 URL이 활성화됩니다.
 
-#### Step 2. 프로젝트 관리하기
+### Step 2. 프로젝트 관리하기
 
 프로젝트가 생성되면 게임 클러스터 이름과 상품명이 명시된 리스트 화면을 볼 수 있습니다.
 
-![gamrpot-1-105](./images/gamrpot-1-105.png)
+![gamrpot-1-105](.gitbook/assets/gamrpot-1-105.png)
 
 ① 대시보드 URL을 통해 게임 기능을 관리할 수 있는 대시보드로 진입이 가능합니다.
 
 ② 프로젝트에 체크하고 **프로젝트 관리** 버튼을 클릭하면 간단한 관리 메뉴가 나옵니다.
 
-![gamrpot-1-106](./images/gamrpot-1-106.png)
+![gamrpot-1-106](.gitbook/assets/gamrpot-1-106.png)
 
 * 상품 변경: 사용 중인 서비스 상품을 변경합니다. 일시적으로 대시보드 접근이 되지 않을 수 있습니다. **상품 변경** 버튼을 클릭하면 아래와 같은 팝업이 노출됩니다. 변경하고자 하는 상품을 선택 후 **수정** 버튼을 클릭합니다.
 
-  ![gamrpot-1-108](./images/gamrpot-1-108.png)
+  ![gamrpot-1-108](.gitbook/assets/gamrpot-1-108%20%283%29.png)
 
 * 비밀번호 초기화: 대시보드 접근 비밀번호를 분실하거나 초기화가 필요한 경우 사용합니다. 비밀번호 초기화를 한 후 대시보드에 접속하면 비밀번호를 다시 설정할 수 있습니다.
 
-  ![gamrpot-1-107](./images/gamrpot-1-107.png)
+  ![gamrpot-1-107](.gitbook/assets/gamrpot-1-107.png)
 
-#### Step 3. 프로젝트 삭제
+### Step 3. 프로젝트 삭제
 
 GAMEPOT은 프로젝트 생성이 완료된 시점부터 시간당 요금이 발생합니다. 따라서 필요하지 않는 경우 프로젝트를 삭제하여 불필요한 요금이 발생하는 것을 방지해야 합니다.
 
-![gamrpot-1-109](./images/gamrpot-1-109.png)
+![gamrpot-1-109](.gitbook/assets/gamrpot-1-109%20%281%29.png)
 
 ① 프로젝트 삭제를 위해서는 **프로젝트 삭제** 버튼을 클릭합니다. **프로젝트 삭제** 버튼을 클릭하면 아래와 같은 팝업이 노출됩니다.
 
-![gamrpot-1-110](./images/gamrpot-1-110.png)
+![gamrpot-1-110](.gitbook/assets/gamrpot-1-110%20%283%29.png)
 
 ② 삭제하기 위해서는 프로젝트의 이름을 입력해야 합니다.
 
-![gamrpot-1-111](./images/gamrpot-1-111.png)
+![gamrpot-1-111](.gitbook/assets/gamrpot-1-111%20%282%29.png)
 
 ③ 위에 같은 팝업이 노출되고 **확인** 버튼을 클릭하면 최종적으로 삭제가 진행됩니다.
+
