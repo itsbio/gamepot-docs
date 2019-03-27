@@ -14,5 +14,5 @@
 
 ## ko
 
-* [Readme](ko/korea.md)
+* [Readme](ko/README.md)
 
