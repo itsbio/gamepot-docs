@@ -7,6 +7,3 @@
 * [Unity SDK](ko/gamepot_unity.md)
 * [Android SDK](ko/gamepot_android.md)
 * [iOS SDK](ko/gamepot_ios.md)
-
-** [FAQ]
-* 
