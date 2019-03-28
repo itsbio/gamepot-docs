@@ -8,5 +8,5 @@
 * [Android SDK](gamepot_android.md)
 * [iOS SDK](gamepot_ios.md)
 
-## [FAQ]
+## FAQ
 * faq
