@@ -8,5 +8,31 @@
 * [Android SDK](gamepot_android.md)
 * [iOS SDK](gamepot_ios.md)
 
-## FAQ
-* faq
+## 한국어
+* [Introduction](README.md)
+* [Features](features.md)
+* [Console](gamepot_console.md)
+* [Dashboard](gamepot_dashboard.md)
+* [Unity SDK](gamepot_unity.md)
+* [Android SDK](gamepot_android.md)
+* [iOS SDK](gamepot_ios.md)
+
+
+## 中文
+* [Introduction](README.md)
+* [Features](features.md)
+* [Console](gamepot_console.md)
+* [Dashboard](gamepot_dashboard.md)
+* [Unity SDK](gamepot_unity.md)
+* [Android SDK](gamepot_android.md)
+* [iOS SDK](gamepot_ios.md)
+
+
+## 日本
+* [Introduction](README.md)
+* [Features](features.md)
+* [Console](gamepot_console.md)
+* [Dashboard](gamepot_dashboard.md)
+* [Unity SDK](gamepot_unity.md)
+* [Android SDK](gamepot_android.md)
+* [iOS SDK](gamepot_ios.md)
