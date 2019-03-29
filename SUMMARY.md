@@ -8,6 +8,7 @@
 * [Android SDK](gamepot_android.md)
 * [iOS SDK](gamepot_ios.md)
 * [Miscellaneous](miscellaneous.md)
+* [Change Log](changelog.md)
 * [FAQ](faq.md)
   
 ## 한국어
@@ -19,6 +20,7 @@
 * [Android SDK](ko/gamepot_android.md)
 * [iOS SDK](ko/gamepot_ios.md)
 * [Miscellaneous](ko/miscellaneous.md)
+* [Change Log](cn/changelog.md)
 * [FAQ](ko/faq.md)
 
 ## 中文
@@ -30,6 +32,7 @@
 * [Android SDK](cn/gamepot_android.md)
 * [iOS SDK](cn/gamepot_ios.md)
 * [Miscellaneous](cn/miscellaneous.md)
+* [Change Log](cn/changelog.md)
 * [FAQ](cn/faq.md)
 
 ## 日本
@@ -41,4 +44,5 @@
 * [Android SDK](jp/gamepot_android.md)
 * [iOS SDK](jp/gamepot_ios.md)
 * [Miscellaneous](jp/miscellaneous.md)
+* [Change Log](jp/changelog.md)
 * [FAQ](jp/faq.md)
