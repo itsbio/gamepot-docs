@@ -7,7 +7,7 @@
 * [Unity SDK](gamepot_unity.md)
 * [Android SDK](gamepot_android.md)
 * [iOS SDK](gamepot_ios.md)
-* [FAQ] (faq.md)
+* [FAQ](faq.md)
 
 ## 한국어
 * [Introduction](ko/README.md)
@@ -17,7 +17,7 @@
 * [Unity SDK](ko/gamepot_unity.md)
 * [Android SDK](ko/gamepot_android.md)
 * [iOS SDK](ko/gamepot_ios.md)
-* [FAQ] (faq.md)
+* [FAQ](faq.md)
 
 ## 中文
 * [Introduction](cn/README.md)
@@ -27,7 +27,7 @@
 * [Unity SDK](cn/gamepot_unity.md)
 * [Android SDK](cn/gamepot_android.md)
 * [iOS SDK](cn/gamepot_ios.md)
-* [FAQ] (faq.md)
+* [FAQ](faq.md)
 
 ## 日本
 * [Introduction](jp/README.md)
@@ -37,4 +37,4 @@
 * [Unity SDK](jp/gamepot_unity.md)
 * [Android SDK](jp/gamepot_android.md)
 * [iOS SDK](jp/gamepot_ios.md)
-* [FAQ] (faq.md)
+* [FAQ](faq.md)
