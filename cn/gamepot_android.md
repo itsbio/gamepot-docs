@@ -219,6 +219,14 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
 
 4. 将图像文件名更改为`ic_stat_gamepot_small`
 
+**危險的權限**
+
+GAMEPOT不包括[危險許可](https://developer.android.com/guide/topics/permissions/overview)，但如果您使用下面的庫，則可能會添加它。
+
+| 圖書館名稱     | 指南                                                     |
+| -------------- | -------------------------------------------------------- |
+| Naver Cafe SDK | [鏈接](https://github.com/naver/cafe-sdk-android#usages) |
+
 # 2. 初始化
 
 在MainActivity.java文件里添加下面内容。
