@@ -23,6 +23,10 @@ search:
 
 ####기본 환경 설정
 
+```d
+minSdkVersion : API 17 (Jelly Bean, 4.2) 
+```
+
 #####Gradle 환경 설정 방법
 
 /Assets/Plugin/Android/mainTemplate.gradle 파일을 에디터로 엽니다.
@@ -38,9 +42,9 @@ android {
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-		resValue "string", "facebook_app_id", "0" // optional (facebook)
-		resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
-		// resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
+				resValue "string", "facebook_app_id", "0" // optional (facebook)
+				resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
+				// resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
 	}
 	...
 }
@@ -81,7 +85,7 @@ resValue "string", "[key]", "[value]"
 | res/drawable-xxhdpi/  | 72x72 |
 | res/drawable-xxxhdpi/ | 96x96 |
 
-##### Screen Orienation 설정 방법
+##### Screen Orientation 설정 방법
 
 /Assets/Plugin/Android/AndroidManifest.xml 파일을 에디터로 엽니다.
 
@@ -125,10 +129,24 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 | gamepot_google_url_schemes       | GoogleService-Info 파일의 REVERSED_CLIENT_ID 값  |
 | gamepot_elsa_projectid           | NCLOUD ELSA 사용시 프로젝트ID                        |
 
-
 scenes를 추가한 후에 **File > Build Settings > Build And Run**을 실행하면 완료됩니다.
 
 ![](./images/gamepot_unity_07.png)
+
+
+
+XCode 빌드 후 
+
+Targets >> Info >> Custom iOS Target Properties 내에 아래 `사용자 권한 획득 옵션을 추가` 부탁드립니다.
+
+해당 사용자 권한은 GamePot 고객센터 내의 파일 업로드 기능에서 사용 됩니다. 
+
+```
+NSCameraUsageDescription
+NSPhotoLibraryUsageDescription
+```
+
+#### 
 
 ## 초기화
 
@@ -279,6 +297,31 @@ defaultConfig {
 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은  `gamepot_naver_secretid` 값에 입력합니다.
 
 #### iOS
+
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```
+gamepot_naver_clientid // 네이버에서 사용할 client 아이디
+gamepot_naver_secretid // 네이버에서 사용할 secret 아이디
+gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
+
+```xml
+...
+<key>gamepot_naver_clientid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_secretid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_urlscheme</key>
+<string>xxxxxx</string>
+...
+```
+
+Targets >> Info >> URL Types에 네이버아이디로 로그인 설정에 등록한 URL Schemes를 추가합니다.
+
+URL Schemes를 생성 할 때는 `소문자`,`.`,`_`이외의 문자를 사용하면 인식이 안될 수 있으니 주의 부탁드립니다.
 
 
 
@@ -553,7 +596,7 @@ public void onCreateLinkingFailure(NError error)
 	UI_Update();
 }
 public void onDeleteLinkingSuccess(NUserInfo userInfo)
-{	
+{
 	UI_Update();
 }
 public void onDeleteLinkingFailure(NError error)
@@ -567,10 +610,10 @@ Public void UI_Update()
 	CreateLinkManager.instance._IOS_google_state  = false;
 	CreateLinkManager.instance._IOS_gamecenter_state  = false;
 
-	List<NLinkingInfo> linkedList = GamePot.getLinkedList(); 
+	List<NLinkingInfo> linkedList = GamePot.getLinkedList();
 	foreach ( NLinkingInfo item in linkedList)
 	{
-		case NCommon.LinkingType.GOOGLE : 
+		case NCommon.LinkingType.GOOGLE :
 			CreateLinkManager.instance._IOS_google_state  = true;
 		break;
 		case NCommon.LinkingType.GAMECENTER :
@@ -584,7 +627,7 @@ Public void UI_Update()
 
 ### 인앱 상품 조회
 
-스토어에 등록된 상품 정보를 전달 합니다. 
+스토어에 등록된 상품 정보를 전달 합니다.
 
 이 기능을 활용하면 사용자에 맞게 가격, 통화, 상품명이 다르게 표시됩니다.
 
@@ -651,6 +694,30 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase Webhook` 항목을 참고하여 처리하셔야 합니다.
 
+### 외부결제
+
+외부결제를 허용하는 스토어 및 공식 스토어가 아닌 곳에서 결제를 사용할 수 있는 기능입니다.
+
+> 호출 api만 다르고 응답 및 purchase webhook등 나머지는 일반 결제와 동일합니다.
+>
+> 기능을 사용하기 위해선 설정이 필요합니다. 대시보드 메뉴얼에 '외부결제' 항목을 참고하세요.
+
+Request:
+
+```csharp
+// productId : 마켓에 등록된 상품ID
+GamePot.purchaseThirdPayments(string productId);
+```
+
+외부결제 이용 시 상품 정보 리스트는 아래 api를 사용하세요.
+
+Request:
+
+```csharp
+// 리턴되는 데이터 포멧은 getPurchaseItems()와 동일합니다.
+GamePot.getPurchaseThirdPaymentsItems();
+```
+
 ## 광고
 
 IGAWorks Unity Plugin을 기본으로 포함하고 있으므로 [IGAWorks의 가이드](http://help.igaworks.com/hc/ko/3_3/Content/Article/common_unity_aos)로 적용하시면 됩니다.
@@ -666,7 +733,7 @@ IGAWorks Unity Plugin을 기본으로 포함하고 있으므로 [IGAWorks의 가
 
 ## Push on/off
 
-전체푸시, 야간푸시, 광고 푸시 3가지 종류의 푸시를 각각 on/off를 처리 할 수 있습니다.
+푸시, 야간푸시를 각각 on/off를 처리 할 수 있습니다.
 
 > on/off설정하는 UI는 개발사에서 구현해주세요.
 
@@ -714,36 +781,14 @@ public void onPushNightFailure(NError error) {
 }
 ```
 
-### 광고 푸시 설정
+### 푸시 / 야간푸시 한번에 설정
+
+로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
 
 Request:
 
 ```csharp
-GamePot.setPushADStatus(bool adPushEnable);
-```
-
-Response:
-
-```csharp
-/// 광고 푸시 상태 변경에 대한 서버 통신 성공
-public void onPushAdSuccess() {
-}
-
-/// 광고 푸시 상태 변경에 대한 서버 통신 실패
-public void onPushAdFailure(NError error) {
-	// 광고 푸시 상태 변경을 실패하는 경우
-	// error.message를 팝업 등으로 유저에게 알려주세요.
-}
-```
-
-### 푸시 / 야간푸시 / 광고 상태를 한번에 설정
-
-로그인 전에 푸시 / 야간푸시 / 광고푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
-
-Request:
-
-```csharp
-GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable);
+GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, true);
 ```
 
 Response:
@@ -766,7 +811,6 @@ public void onPushStatusFailure(NError error) {
 NPushInfo pushInfo = GamePot.getPushStatus();
 // pushInfo.enable  푸시 허용 여부
 // pushInfo.night   야간 푸시 허용 여부
-// pushInfo.ad      광고 푸시 허용 여부
 ```
 
 ## 쿠폰
@@ -920,7 +964,7 @@ public void onAgreeDialogSuccess(NAgreeResultInfo info)
 {
     // info.agree : 필수 약관을 모두 동의한 경우 true
     // info.agreeNight : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
-    // agreeNight 값은 로그인 완료 후 setPushStatus api를 통해 전달하세요.
+    // agreeNight 값은 로그인 완료 후 setPushNightStatus api를 통해 전달하세요.
 }
 
 // 오류 발생
@@ -984,6 +1028,8 @@ GamePot.showAgreeDialog(info);
 
 이용약관 UI를 호출합니다.
 
+> 대시보드 - 고객지원 - 이용약관 설정 항목에 내용을 먼저 입력하세요.
+
 ```c#
 GamePot.showTerms();
 ```
@@ -993,6 +1039,8 @@ GamePot.showTerms();
 ## 개인정보 취급방침
 
 개인정보 취급방침 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 개인정보취급방침 설정 항목에 내용을 먼저 입력하세요.
 
 ```c#
 GamePot.showPrivacy();
