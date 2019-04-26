@@ -101,6 +101,10 @@ resValue "string", "[key]", "[value]"
 
 Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
 
+**Dangerous Permissions**
+
+GAMEPOT은 [Dangerous permission](https://developer.android.com/guide/topics/permissions/overview)을 포함하지 않습니다.
+
 **Unity Build Settings**
 
 `File > Build Settings > Build System` 메뉴에서 Gradle을 선택합니다.
