@@ -218,7 +218,11 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
 **Dangerous Permissions**
 
-GAMEPOT은 [Dangerous permission](https://developer.android.com/guide/topics/permissions/overview)을 포함하지 않습니다.
+GAMEPOT은 [Dangerous permission](https://developer.android.com/guide/topics/permissions/overview)을 포함하지 않지만 아래 라이브러리를 사용할 경우 추가될 수 있으니 가이드를 참고하세요.
+
+| 라이브러리 명  | 가이드                                                   |
+| -------------- | -------------------------------------------------------- |
+| Naver Cafe SDK | [Link](https://github.com/naver/cafe-sdk-android#usages) |
 
 ## 2. 초기화
 
