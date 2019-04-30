@@ -1108,3 +1108,126 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 });
 ```
 
+## 약관 동의
+
+'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+
+`BLUE` 테마와  `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
+
+- `BLUE` 테마 예시
+
+  ![gamepot_unity_10](./images/gamepot_unity_10.png)
+
+- `GREEN` 테마 예시
+
+  ![gamepot_unity_11](./images/gamepot_unity_11.png)
+
+### 약관 동의 호출
+
+> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
+>
+> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
+
+Request:
+
+```csharp
+// 기본 호출(BLUE 테마로 적용)
+GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), new GamePotListener<GamePotAgreeInfo>() {
+    @Override
+    public void onSuccess(GamePotAgreeInfo data) {
+        // data.agree : 필수 약관을 모두 동의한 경우 true
+        // data.agreeNight : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
+        // agreeNight 값은 로그인 완료 후 setPushNightStatus api를 통해 전달하세요.
+    }
+
+    @Override
+    public void onFailure(GamePotError error) {
+	    // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+
+// GREEN 테마로 적용시
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.GREEN);
+GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
+  ....
+}
+```
+
+### Customizing
+
+테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
+
+약관 동의를 호출하기 전에 `GamePotAgreeBuilder`에서 각 영역별로 색을 지정할 수 있습니다.
+
+```c#
+GamePotAgreeBuilder agreeBuilder= new GamePotAgreeBuilder();
+agreeBuilder.setHeaderBackGradient(new int[] {0xFF00050B,0xFF0F1B21});
+agreeBuilder.setHeaderTitleColor(0xFFFF0000);
+agreeBuilder.setHeaderBottomColor(0xFF00FF00);
+// 미사용시 ""로 설정
+agreeBuilder.setHeaderTitle("약관 동의");
+// res/drawable 객체 아이디
+agreeBuilder.setHeaderIconDrawable(R.drawable.ic_stat_gamepot_agree);
+
+agreeBuilder.setContentBackGradient(new int[] { 0xFFFF2432, 0xFF11FF32 });
+agreeBuilder.setContentIconColor(0xFF0429FF);
+agreeBuilder.setContentCheckColor(0xFFFFADB5);
+agreeBuilder.setContentIconColor(0xFF98FFC6);
+agreeBuilder.setContentShowColor(0xFF98B3FF);
+// res/drawable 객체 아이디
+agreeBuilder.setContentIconDrawable(R.drawable.ic_stat_gamepot_small);
+
+agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });
+agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
+agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
+agreeBuilder.setFooterTitleColor(0xFFFF00D5);
+agreeBuilder.setFooterTitle("게임 시작하기");
+// 야간 광고성 수신동의 버튼 노출 여부
+agreeBuilder.setShowNightPush(true);
+
+// 문구 변경
+agreeBuilder.setAllMessage("모두 동의");
+agreeBuilder.setTermMessage("필수) 이용약관");
+agreeBuilder.setPrivacyMessage("필수) 개인정보 취급 방침");
+agreeBuilder.setNightPushMessage("선택) 야간 푸시 수신 동의");
+
+GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
+  ....
+}
+```
+
+각각의 변수는 아래 영역에 적용됩니다.
+
+> contentIconDrawable의 기본 이미지는 푸시 아이콘으로 설정됩니다.
+
+![gamepot_unity_12](./images/gamepot_unity_12.png)
+
+## 이용약관
+
+이용약관 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 이용약관 설정 항목에 내용을 먼저 입력하세요.
+
+```java
+import io.gamepot.common.GamePot;
+
+// activity : 현재 액티비티
+GamePot.getInstance().showTerms(activity);
+```
+
+![gamepot_unity_16](./images/gamepot_unity_16.png)
+
+## 개인정보 취급방침
+
+개인정보 취급방침 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 개인정보취급방침 설정 항목에 내용을 먼저 입력하세요.
+
+```java
+import io.gamepot.common.GamePot;
+
+// activity : 현재 액티비티
+GamePot.getInstance().showPrivacy(activity);
+```
+
+![gamepot_unity_15](./images/gamepot_unity_15.png)
