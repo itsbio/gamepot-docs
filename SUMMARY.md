@@ -10,7 +10,7 @@
 - [Server API](gamepot_server.md)
 - [Miscellaneous](miscellaneous.md)
 - [Change Log](changelog.md)
-- [FAQ](faq.md)
+- [FAQ](gamepot_faq.md)
 
 ## 한국어
 
@@ -24,7 +24,7 @@
 - [Server API](ko/gamepot_server.md)
 - [Miscellaneous](ko/miscellaneous.md)
 - [Change Log](cn/changelog.md)
-- [FAQ](ko/faq.md)
+- [FAQ](ko/gamepot_faq.md)
 
 ## 中文
 
@@ -38,7 +38,7 @@
 - [Server API](cn/gamepot_server.md)
 - [Miscellaneous](cn/miscellaneous.md)
 - [Change Log](cn/changelog.md)
-- [FAQ](cn/faq.md)
+- [FAQ](cn/gamepot_faq.md)
 
 ## 日本
 
@@ -52,4 +52,4 @@
 - [Server API](jp/gamepot_server.md)
 - [Miscellaneous](jp/miscellaneous.md)
 - [Change Log](jp/changelog.md)
-- [FAQ](jp/faq.md)
+- [FAQ](jp/gamepot_faq.md)
