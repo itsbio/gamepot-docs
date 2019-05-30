@@ -712,6 +712,109 @@ gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
     }];
 ```
 
+## 약관 동의
+
+'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+
+`BLUE` 테마와  `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
+
+\- `BLUE` 테마 예시
+
+![gamepot_unity_10](./images/gamepot_unity_10.png)
+
+\- `GREEN` 테마 예시  ![gamepot_unity_11](./images/gamepot_unity_11.png)
+
+### 약관 동의 호출
+
+> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
+>
+> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
+
+```objective-c
+// 블루테마 [[GamePotAgreeOption alloc] init:BLUE]; 
+// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE]; 
+[[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
+   // [result agree] : 필수 약관을 모두 동의한 경우 true
+   // [result agreeNight] : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
+   // agreeNight 값은 로그인 완료 후 [[GamePot getInstance] setNightPushEnable]; api를 
+   // 통해 전달하세요.
+}];
+```
+
+
+
+### Customizing
+
+테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
+
+약관 동의를 호출하기 전에 `GamePotAgreeOption`에서 각 영역별로 색을 지정할 수 있습니다.
+
+```objective-c
+ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:GREEN];
+    
+[option setHeaderBackGradient:@[@0xFF00050B,@0xFF0F1B21]];
+[option setHeaderTitleColor:0xFF042941];
+[option setContentBackGradient:@[@0xFF112432,@0xFF112432]];
+[option setContentIconColor:0xFF042941];
+[option setContentCheckColor:0xFF91adb5];
+[option setContentTitleColor:0xFF98b3c6];
+[option setContentShowColor:0xFF98b3c6];
+[option setFooterBackGradient:@[@0xFF112432,@0xFF112432]];
+[option setFooterButtonGradient:@[@0xFF1E3A57,@0xFF57B2E2]];
+[option setFooterButtonOutlineColor:0xFF0b171a];
+[option setFooterTitleColor:0xFFFFFFD5];
+
+// 문구 변경
+[option setAllMessage:@"모두 동의"];
+[option setTermMessage:@"필수) 이용약관"];
+[option setPrivacyMessage:@"필수) 개인정보 취급 방침"];
+[option setNightPushMessage:@"선택) 약간 푸쉬 수신 동의"];
+[option setFooterTitle:@"게임 시작하기"];
+
+// 미사용시 @""로 설정
+[option setHeaderTitle:@"약관 동의"];
+
+// 야간 광고성 수신동의 버튼 노출 여부
+[option setShowNightPush:YES];
+```
+
+
+
+각각의 변수는 아래 영역에 적용됩니다.
+
+> contentIconDrawable의 이미지는 IOS에는 노출 되지 않습니다.
+
+![gamepot_unity_12](./images/gamepot_unity_12.png)
+
+## 이용약관
+
+이용약관 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 이용약관 설정 항목에 내용을 먼저 입력하세요.
+
+```java
+#import <GamePot/GamePot.h>
+
+[[GamePot getInstance] showTerms:/*ViewController*/];
+```
+
+![gamepot_unity_16](./images/gamepot_unity_16.png)
+
+## 개인정보 취급방침
+
+개인정보 취급방침 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 개인정보취급방침 설정 항목에 내용을 먼저 입력하세요.
+
+```java
+#import <GamePot/GamePot.h>
+
+[[GamePot getInstance] showPrivacy:/*ViewController*/];
+```
+
+![gamepot_unity_15](./images/gamepot_unity_15.png)
+
 ## 8. 다운로드
 
 GAMEPOT 대시보드의 **SDK 다운로드** 메뉴에서 SDK를 다운로드할 수 있습니다.
