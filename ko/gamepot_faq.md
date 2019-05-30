@@ -31,6 +31,14 @@
 
 ![gamepot_faq_16](./images/gamepot_faq_ios_3.png)
 
+#### Q. iOS에서 구글 로그인 시 팝업이 발생 되는데 게임이름이 아닌 다른 값으로 노출 됩니다.
+
+####A.  Xcode >> Targets >> build Settings >> Product Name 항목의 값을 변경 해주시면 됩니다.
+
+![gamepot_faq_5](./images/gamepot_faq_ios_5.png)
+
+
+
 ### 구글 결제가 안 돼요!
 
 #### Q. 결제 시도시 'productid was wrong!' 문구가 노출됩니다.
@@ -131,6 +139,26 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 ![gamepot_faq_14](./images/gamepot_faq_ios_1.png)
 
 ![gamepot_faq_15](./images/gamepot_faq_ios_2.png)
+
+
+
+#### Q. Adbrix Remaster 적용 후 AppStore 업로드 시 Error가 발생 됩니다.
+
+#### A. Adbrix Remaster 라이브러리가 x86_64, i386 아키텍쳐를 포함 하여 발생하는 문제 입니다. 아래와 같이 조치 후 다시 빌드 후 확인 해주세요.
+
+콘솔(터미널)에서 AdBrixRM.framework 파일 위치로 이동 후 아래 두 명령어를 입력
+lipo -remove x86_64 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
+lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
+
+![gamepot_faq_ios_4](./images/gamepot_faq_ios_4.png)
+
+
+
+## Naver Cafe
+
+#### Q. iOS Naver Cafe 노출 시 영문으로 노출 됩니다.
+
+####A. XCode >> Targets>> Info >> Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
 
 
 
