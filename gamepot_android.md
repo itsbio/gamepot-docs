@@ -1196,7 +1196,7 @@ agreeBuilder.setHeaderTitle("약관 동의");
 agreeBuilder.setHeaderIconDrawable(R.drawable.ic_stat_gamepot_agree);
 
 agreeBuilder.setContentBackGradient(new int[] { 0xFFFF2432, 0xFF11FF32 });
-agreeBuilder.setContentIconColor(0xFF0429FF);
+agreeBuilder.setContentTitleColor(0xFF0429FF);
 agreeBuilder.setContentCheckColor(0xFFFFADB5);
 agreeBuilder.setContentIconColor(0xFF98FFC6);
 agreeBuilder.setContentShowColor(0xFF98B3FF);
