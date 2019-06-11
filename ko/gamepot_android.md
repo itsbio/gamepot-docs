@@ -64,6 +64,17 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
    > [xxxxx]에는 실제 적용될 값을 넣습니다.
 
+   | 값                           | 설명                                                         |
+   | ---------------------------- | ------------------------------------------------------------ |
+   | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.        |
+   | gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                |
+   | gamepot_store                | 스토어값(`google` 또는 `one`)                                |
+   | gamepot_app_title            | 앱 제목 (FCM)                                                |
+   | gamepot_push_default_channel | 등록된 기본 채널 이름 (Default) - 변경하지 마세요.           |
+   | facebook_app_id              | 페이스북 발급 받은 앱ID                                      |
+   | fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme  fb[app_id]           |
+   | gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID ([자세히 보기](https://www.ncloud.com/product/analytics/elsa)) |
+
    ```java
    android {
        defaultConfig {
@@ -76,19 +87,20 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
            resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
            resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
            resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
+           // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
            // GamePot [END]
        }
    }
-
+   
    repositories {
        flatDir {
            dirs 'libs'
        }
    }
-
+   
    dependencies {
        compile 'com.android.support:multidex:1.0.1'
-
+   
        // GamePot common [START]
        compile(name: 'gamepot-common', ext: 'aar')
        compile('io.socket:socket.io-client:1.0.0') {
@@ -108,20 +120,20 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
        compile 'com.google.firebase:firebase-core:16.0.6'
        compile 'com.google.firebase:firebase-messaging:17.3.4'
        // GamePot common [END]
-
+   
        compile(name: 'gamepot-channel-base', ext: 'aar')
        // GamePot facebook [START]
        compile(name: 'gamepot-channel-facebook', ext: 'aar')
        compile 'com.facebook.android:facebook-android-sdk:4.39.0'
        // GamePot facebook [END]
-
+   
        // GamePot google sigin [START]
        compile(name: 'gamepot-channel-google-signin', ext: 'aar')
        compile "com.google.android.gms:play-services-base:16.0.1"
        compile "com.google.android.gms:play-services-auth:16.0.1"
        // GamePot google sigin [END]
    }
-
+   
    // ADD THIS AT THE BOTTOM
    apply plugin: 'com.google.gms.google-services'
    ```
