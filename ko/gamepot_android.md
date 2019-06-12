@@ -545,232 +545,7 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 });
 ```
 
-# 5. 광고플랫폼
-
-Facebook, Adjust, Adbrix 등 다양한 광고 플랫폼 SDK를 통합하여 사용할 수 있습니다.
-
-## 설정
-
-### MainActivity.java 파일 수정
-
-광고 플랫폼 관련 코드를 아래와 같이 선언합니다.
-
-```java
-import io.gamepot.ad.GamePotAd;
-import io.gamepot.ad.GamePotAdActions;
-import io.gamepot.ad.facebook.GamePotAdFacebook;
-import io.gamepot.ad.igaworks.GamePotAdIgaworks;
-import io.gamepot.ad.adjust.GamePotAdAdjust;
-
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // setup API는 맨 처음에 호출돼야 합니다.
-        GamePot.getInstance().setup(getApplicationContext());
-
-        ...
-		// GamePot 광고 초기화. 사용하려는 광고 모듈별로 addAd 해주세요.
-        GamePotAd.getInstance().setSandbox(false); // 개발버전은 true. 배포버전은 false
-        GamePotAd.getInstance().setActivity(this);
-        // Facebook 초기화(사용 시 추가)
-		GamePotAd.getInstance().addAd(new GamePotAdFacebook());
-        // IGAWorks 초기화(사용 시 추가)
-		GamePotAd.getInstance().addAd(new GamePotAdIgaworks());
-        // Adjust 초기화(사용 시 추가)
-        GamePotAd.getInstance().addAd(new GamePotAdAdjust());
-        ...
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        GamePotAd.getInstance().tracking(GamePotAdActions.RESUME);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        GamePotAd.getInstance().tracking(GamePotAdActions.PAUSE);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        GamePotAd.getInstance().onDestroy();
-    }
-}
-```
-
-### InstallReferrer 설정
-
-#### ReferrerCatcher.java파일 추가
-
-프로젝트에 ReferrerCatcher.java 파일을 생성 후 아래 코드를 추가해주세요.
-
-```java
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-
-import com.adjust.sdk.AdjustReferrerReceiver;
-import com.google.android.gms.analytics.CampaignTrackingReceiver;
-import com.igaworks.IgawReceiver;
-
-public class ReferrerCatcher extends BroadcastReceiver {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        if(intent != null) {
-            Bundle extras = intent.getExtras();
-            if (extras != null) {
-                Log.i("ReferrerCatcher", extras.getString("referrer"));
-            }
-        }
-
-        // TODO: Adjust를 사용하는 경우에만 아래 코드 추가
-        try {
-            Class.forName("com.adjust.sdk.AdjustReferrerReceiver");
-            Class.forName("com.google.android.gms.analytics.CampaignTrackingReceiver");
-
-            // Adjust [START]
-            new AdjustReferrerReceiver().onReceive(context, intent);
-            new CampaignTrackingReceiver().onReceive(context, intent);
-            // Adjust [END]
-
-            Log.i("ReferrerCatcher", "Adjust");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // TODO: Igaworks를 사용하는 경우에만 아래 코드 추가
-        try {
-            Class.forName("com.igaworks.IgawReceiver");
-
-            // IGAW [START]
-            IgawReceiver igawReceiver = new IgawReceiver();
-            igawReceiver.onReceive(context, intent);
-            // IGAW [END]
-
-            Log.i("ReferrerCatcher", "IGAW");
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-#### AndroidManifest.xml 파일 수정
-
-AndoridManifest.xml에 아래 코드를 추가하고 `android:name`에는 위에서 만든 ReferrerCatcher 클래스의 경로를 넣어주세요.
-
-```xml
-<manifest>
-	...
-	<application>
-		...
-		<!--IGAW / Facebook / Adjust 모듈을 사용하면 필수-->
-        <receiver android:name="{ReferrerCatcher의 경로}" android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
-        <!--[END]-->
-		...
-	</application>
-	...
-</manifest>
-```
-
-### build.gradle 파일 수정
-
-사용하려는 플랫폼에 맞게 관련 설정 값을 추가합니다.
-
-```java
-
-android {
-	...
-    defaultConfig {
-    	...
-    	// FACEBOOK 이용 시 추가 [START]
-    	resValue "string", "facebook_app_id", "xxxxxxxxxxxxxxxx"
-        resValue "string", "fb_login_protocol_scheme", "fbxxxxxxxxxxxxxxxx"
-    	// FACEBOOK 이용 시 추가 [END]
-
-        // Adjust 이용 시 추가 [START]
-        resValue "string", "gamepot_adjust_apptoken","xxxxxxxxxxxx"
-        resValue "string", "gamepot_adjust_signature","(1, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx)" // adjust sdk signature 이용 시 추가
-        // Adjust 이용 시 추가 [END]
-
-        // IGAWorks 이용 시 추가 [START]
-        resValue "string", "gamepot_igaworks_app_key", "xxxxxxxxxx"
-        resValue "string", "gamepot_igaworks_hash_key", "xxxxxxxxxx"
-        // IGAWorks 이용 시 추가 [END]
-    }
-}
-
-dependencies {
-    compile(name: 'gamepot-ad-base', ext: 'aar')
-
-    // Adjust 이용 시 추가 [START]
-    compile(name: 'gamepot-ad-adjust', ext: 'aar')
-    compile 'com.adjust.sdk:adjust-android:4.14.0'
-    compile 'com.android.installreferrer:installreferrer:1.0'
-    compile 'com.google.android.gms:play-services-analytics:16.0.1'
-    // Adjust 이용 시 추가 [END]
-
-    // FACEBOOK 이용 시 추가 [START]
-    compile(name: 'gamepot-ad-facebook', ext: 'aar')
-    compile 'com.facebook.android:facebook-android-sdk:4.39.0'
-    // FACEBOOK 이용 시 추가 [END]
-
-    // IGAWorks 이용 시 추가 [START]
-    compile(name: 'gamepot-ad-igaworks', ext: 'aar')
-    compile 'com.android.installreferrer:installreferrer:1.0'
-    // IGAWorks 이용 시 추가 [END]
-}
-```
-
-## EventTracking 전달
-
-Event Tracking은 아래와 같이 경우에 따라 호출하는 코드가 다릅니다. 다음 코드를 참고하여 호출해주세요.
-
-```java
-import io.gamepot.ad.GamePotAd;
-import io.gamepot.ad.GamePotAdActions;
-import io.gamepot.ad.builders.GamePotAdEventBuilder;
-import io.gamepot.ad.builders.GamePotAdLevelBuilder;
-import io.gamepot.ad.builders.GamePotAdTutorialBuilder;
-
-// 앱 실행
-GamePotAd.getInstance().tracking(GamePotAdActions.APPLICATION_START);
-
-// 일반
-GamePotAd.getInstance().tracking(GamePotAdActions.EVENT, new GamePotAdEventBuilder().setEvent("test").build());
-
-// 레벨 업 시
-GamePotAd.getInstance().tracking(GamePotAdActions.LEVEL, new GamePotAdLevelBuilder().setLevel(4).build());
-
-// 튜토리얼 완료 시
-GamePotAd.getInstance().tracking(GamePotAdActions.TUTORIAL_COMPLETE, new GamePotAdTutorialBuilder().setContentData("튜토리얼 완료").setContentId("1").setSuccess(true).build());
-
-// 결제 완료 시
-// '6. 결제 > 설정' 항목을 참고해주세요.
-
-// Adjust 이용 시
-// 각 builder에 존재하는 setAdjustKey api를 통해 adjust event key를 넣어주세요.
-```
-
-# 6. 결제
-
-## 페이스북 콘솔 설정
-
-아래 '앱 내 구매 이벤트를 자동으로 로깅' 항목을 OFF합니다.
-
-![gamepot_android_08](./images/gamepot_android_08.png)
-
-## 설정
+# 5. 결제
 
 결제의 결과 값은 Listener 형태로 구현되어 있습니다.
 
@@ -792,9 +567,6 @@ public class MainActivity extends AppCompatActivity {
 		GamePot.getInstance().setPurchaseListener(new GamePotPurchaseListener<GamePotPurchaseInfo>() {
             @Override
             public void onSuccess(GamePotPurchaseInfo info) {
-         		// 광고 플랫폼에 결제 이벤트를 던져주기 위한 코드로 꼭! 삽입해 주세요.
-                GamePotAd.getInstance().tracking(GamePotAdActions.BILLING, info);
-
                 // 결제 성공. 아이템 지급 요청은 webhook에 설정된 주소로 server to server로 요청합니다.
                 // 이 곳에서는 결과에 대한 처리만 해주시고 실제 아이템 지급은 하지 마세요.
             }
@@ -841,7 +613,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase` 항목을 참고하여 처리하셔야 합니다.
 
-# 7. 외부결제
+# 6. 외부결제
 
 원스토어의 경우 기본 스토어 결제 모듈이 아닌 제 3의 결제모듈을 허용하고 있습니다.
 
@@ -869,80 +641,143 @@ import io.gamepot.common.GamePot;
 GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPurchaseThirdPaymentsDetailList();
 ```
 
-# 8. 기타 API
+# 7. 기타 API
 
-## 네이버 카페 SDK
+##네이버 로그인
 
-해당 기능을 사용하려면 네이버 카페 SDK와 선행해서 연동에 필요한 값을 획득해야 합니다.
-
-### 설정
-
-#### build.gradle파일 수정
+###build.gradle 설정
 
 ```java
 android {
-    ...
     defaultConfig {
         ...
-        resValue "string", "gamepot_naver_clientid", "{네아로에서 사용할 client 아이디}"
-        resValue "string", "gamepot_naver_secretid", "{네아로에서 사용할 secret 아이디}"
-        resValue "integer", "gamepot_naver_cafeid", "{네이버 카페 아이디}"
-        // 아래는 글로벌 사용 시 추가
-        resValue "string", "gamepot_naver_global_consumerkey", "{consumerKey}"
-        resValue "string", "gamepot_naver_global_consumersecretkey", "{consumerSecretKey}"
-        resValue "integer", "gamepot_naver_global_communityno", "{communityNo}"
-        resValue "integer", "gamepot_naver_global_loungeno", "{loungeNo}"
-        ...
+        resValue "string", "gamepot_naver_clientid", "xxxxxxxx" // Naver 개발자 콘솔에서 획득
+        resValue "string", "gamepot_naver_secretid", "xxx" // Naver 개발자 콘솔에서 획득
     }
 }
-...
+
 dependencies {
-    ...
-    // naver cafe [START]
-    compile(name: 'gamepot-navercafe', ext: 'aar')
-    compile(name: 'cafeSdk-4.2.1', ext: 'aar')
-    compile(name: 'sos_library-1.1.3.4', ext: 'aar')
-    compile 'com.navercorp.volleyextensions:volleyer:2.0.1', {
-        exclude group: 'com.mcxiaoke.volley', module: 'library'
-    }
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.squareup:otto:1.3.8'
-    // naver cafe [END]
-    ...
+  ...
+  compile(name: 'gamepot-channel-naver', ext: 'aar')
+  ...
 }
 ```
 
-#### MainActivity.java 수정
+### MainActivity.java 설정
 
 ```java
-import io.gamepot.navercafe.GamePotNaverCafe;
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.naver.GamePotNaver;
 
-public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        // setup API는 맨 처음에 호출돼야 합니다.
-        GamePot.getInstance().setup(getApplicationContext());
-
-        ...
-        // GamePot setup API호출 이후에 호출해주세요.
-        GamePotNaverCafe.getInstance().init(this);
-        ...
-    }
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+		...
+		GamePotChannel.getInstance().addChannel(this, GamePotChannelType.NAVER, new GamePotNaver());
 }
 ```
 
-### 카페 호출
-
-네이버 카페 SDK는 다음과 같이 호출합니다.
+### 로그인
 
 ```java
-GamePotNaverCafe.getInstance().startHome(this);
+GamePotChannel.getInstance().login(this, GamePotChannelType.NAVER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
 ```
 
-로그인에 성공 후, 아래 코드를 추가하면 네이버 카페 관리자 메뉴에서 회원을 식별할 수 있습니다.
+## 라인 로그인
+
+### build.gradle 설정
 
 ```java
-GamePotNaverCafe.getInstance().setUserId(this, GamePot.getInstance().getMemberId());
+android {
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_line_channelid","00000000" // Line 개발자 콘솔에서 획득
+    }
+}
+
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-line', ext: 'aar')
+  compile(name: 'line-sdk-4.0.10', ext: 'aar')
+  ...
+}
+```
+
+### MainActivity.java 설정
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.line.GamePotLine;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+		...
+		GamePotChannel.getInstance().addChannel(this, GamePotChannelType.LINE, new GamePotLine());
+}
+```
+
+### 로그인
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.LINE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
+
+## 트위터 로그인
+
+### build.gradle 설정
+
+```java
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+  
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Twitter 개발자 콘솔에서 획득
+        resValue "string", "gamepot_twitter_consumersecret","xxx" // Twitter 개발자 콘솔에서 획득
+    }
+}
+
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-twitter', ext: 'aar')
+  compile('com.twitter.sdk.android:twitter-core:3.3.0@aar') {
+      transitive = true
+  }
+  ...
+}
+```
+
+### MainActivity.java 설정
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.twitter.GamePotTwitter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+		...
+		GamePotChannel.getInstance().addChannel(this, GamePotChannelType.TWITTER, new GamePotTwitter());
+}
+```
+
+### 로그인
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
 ```
 
 ## 쿠폰
