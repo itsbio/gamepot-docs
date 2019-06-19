@@ -203,7 +203,7 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
 
 #### 添加icon
 
-> [Android Asset Studio]通过(http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)制作图标时会自动创建每个文件夹的图标，就把这些放入对应的文件夹即可。
+> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)制作图标时会自动创建每个文件夹的图标，就把这些放入对应的文件夹即可。
 
 1. 创建res/drawable相关文件夹，如下。
    - res/drawable-mdpi/
