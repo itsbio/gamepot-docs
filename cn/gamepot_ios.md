@@ -13,7 +13,7 @@ search:
 
 [ 系统环境 ]
 
-- 최소사항 : IOS 9.0 이상
+- 최소사항 : IOS 10.0 이상
 - 개발 환경 : XCode
 
 #### Step 2. 添加 Freamwork
@@ -146,6 +146,18 @@ gamepot_line_url_schemes : Line URL Scheme (line3rdp.{프로젝트 번들 ID})
 gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
+
+#### Step12. Naver 登录环境设置
+
+**GamePotConfig-Info.plist 设置**
+
+```
+gamepot_naver_clientid : Naver Client Id
+gamepot_naver_secretid : Naver Secret Id
+gamepot_naver_urlscheme : Naver Url Scheme
+```
+
+
 
 ## 2. 初始化
 

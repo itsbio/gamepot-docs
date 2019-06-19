@@ -9,7 +9,7 @@ search:
 
 iOS용 애플리케이션 개발을 위해서는 개발 툴(Xcode)을 설치해야 합니다. iOS에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같습니다.
 
-- 운영체제: iOS 9.0 이상
+- 운영체제: iOS 10.0 이상
 - 개발 환경: Xcode
 
 #### Step 2. Framework 추가
@@ -125,6 +125,8 @@ gamepot_facebook_display_name : Facebook display name
 
 #### Step 10. LINE 로그인 환경 설정
 
+**GamePotConfig-Info.plist 설정**
+
 ```xml
 gamepot_line_channelid : Line Channel ID
 gamepot_line_url_schemes : Line URL Scheme (line3rdp.{프로젝트 번들 ID})
@@ -132,10 +134,24 @@ gamepot_line_url_schemes : Line URL Scheme (line3rdp.{프로젝트 번들 ID})
 
 #### Step 11. Twitter 로그인 환경 설정
 
+**GamePotConfig-Info.plist 설정**
+
 ```xml
 gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
+
+#### Step12. Naver 로그인 환경 설정
+
+**GamePotConfig-Info.plist 설정**
+
+```
+gamepot_naver_clientid : Naver Client Id
+gamepot_naver_secretid : Naver Secret Id
+gamepot_naver_urlscheme : Naver Url Scheme
+```
+
+
 
 ## 2. 초기화
 

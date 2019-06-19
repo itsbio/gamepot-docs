@@ -9,7 +9,7 @@ search:
 
 iOS용 애플리케이션 개발을 위해서는 개발 툴(Xcode)을 설치해야 합니다. iOS에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같습니다.
 
-- 운영체제: iOS 9.0 이상
+- 운영체제: iOS 10.0 이상
 - 개발 환경: Xcode
 
 #### Step 2. Framework 추가
