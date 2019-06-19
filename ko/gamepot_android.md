@@ -352,6 +352,9 @@ import io.gamepot.common.GamePotError;
 // 로그인 타입 정의
 // GamePotChannelType.GOOGLE: 구글
 // GamePotChannelType.FACEBOOK: 페이스북
+// GamePotChannelType.NAVER: 네이버
+// GamePotChannelType.LINE: 라인
+// GamePotChannelType.TWITTER: 트위터
 // GamePotChannelType.GUEST: 게스트
 
 // 구글 로그인 버튼을 눌렀을 때 호출
@@ -483,6 +486,12 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.GOOGLE
 // 페이스북 계정에 연동
 // GamePotChannelType.FACEBOOK
+// 네이버 계정에 연동
+// GamePotChannelType.NAVER
+// 라인 계정에 연동
+// GamePotChannelType.LINE
+// 트위터 계정에 연동
+// GamePotChannelType.TWITTER
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -513,6 +522,9 @@ import java.util.ArrayList;
 // 타입 정의
 // GamePotChannelType.GOOGLE
 // GamePotChannelType.FACEBOOK
+// GamePotChannelType.NAVER
+// GamePotChannelType.LINE
+// GamePotChannelType.TWITTER
 // 타입에 따른 연동 결과를 반환합니다.
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -621,7 +633,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 대시보드에 외부결제 항목을 참고하여 대시보드 설정을 먼저 진행하세요.
 
-`7. 결제` 항목을 먼저 구현했다면 추가로 설정할 부분은 없습니다.
+`5. 결제` 항목을 먼저 구현했다면 추가로 설정할 부분은 없습니다.
 
 ## 결제 시도
 

@@ -13,7 +13,7 @@ search:
 
 [ 系统环境 ]
 
-- 最低配置: API 15 (IceCreamSandwich, 4.0.3)以上, gradle 2.3.0以上
+- 最低配置: API 17 (Jelly Bean, 4.2)以上, gradle 2.3.0以上
 - 开发环境: Android Studio
 
 ### 创建项目
@@ -44,7 +44,7 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
        }
        dependencies {
           ...
-           classpath 'com.google.gms:google-services:4.0.1'
+           classpath 'com.google.gms:google-services:4.2.0'
        }
    }
 
@@ -64,6 +64,17 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
 
    > [xxxxx]里请输入实际所使用的值。
 
+   | 值                           | 說明                                                         |
+   | ---------------------------- | ------------------------------------------------------------ |
+   | gamepot_project_id           | 請輸入GAMEPOT發布的項目ID。                                  |
+   | gamepot_api_url              | 請輸入GAMEPOT發布的API URL。                                 |
+   | gamepot_store                | 商店價值（`google`或`one`）                                  |
+   | gamepot_app_title            | 應用標題（FCM）                                              |
+   | gamepot_push_default_channel | 已註冊的默認頻道名稱（默認） - 請勿更改。                    |
+   | facebook_app_id              | 發給Facebook的應用程序ID                                     |
+   | fb_login_protocol_scheme     | 在Facebook上發布的協議方案fb [app_id]                        |
+   | gamepot_elsa_projectid       | 使用NCLOUD ELSA時的項目ID([閱讀更多](https://www.ncloud.com/product/analytics/elsa)) |
+
    ```java
    android {
        defaultConfig {
@@ -76,25 +87,26 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
            resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
            resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
            resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
+           // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
            // GamePot [END]
        }
    }
-
+   
    repositories {
        flatDir {
            dirs 'libs'
        }
    }
-
+   
    dependencies {
        compile 'com.android.support:multidex:1.0.1'
-
+   
        // GamePot common [START]
        compile(name: 'gamepot-common', ext: 'aar')
        compile('io.socket:socket.io-client:1.0.0') {
            exclude group: 'org.json', module: 'json'
        }
-       compile('com.github.ihsanbal:LoggingInterceptor:2.0.5') {
+       compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
            exclude group: 'org.json', module: 'json'
        }
        compile "com.github.nisrulz:easydeviceinfo:2.4.1"
@@ -105,23 +117,23 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
        compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
        compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
        compile 'com.android.billingclient:billing:1.1'
-       compile 'com.google.firebase:firebase-core:16.0.1'
-       compile 'com.google.firebase:firebase-messaging:17.1.0'
+       compile 'com.google.firebase:firebase-core:16.0.6'
+       compile 'com.google.firebase:firebase-messaging:17.3.4'
        // GamePot common [END]
-
+   
        compile(name: 'gamepot-channel-base', ext: 'aar')
        // GamePot facebook [START]
        compile(name: 'gamepot-channel-facebook', ext: 'aar')
-       compile 'com.facebook.android:facebook-android-sdk:4.37.0'
+       compile 'com.facebook.android:facebook-android-sdk:4.39.0'
        // GamePot facebook [END]
-
+   
        // GamePot google sigin [START]
        compile(name: 'gamepot-channel-google-signin', ext: 'aar')
-       compile "com.google.android.gms:play-services-base:15.0.1"
-       compile "com.google.android.gms:play-services-auth:15.0.1"
+       compile "com.google.android.gms:play-services-base:16.0.1"
+       compile "com.google.android.gms:play-services-auth:16.0.1"
        // GamePot google sigin [END]
    }
-
+   
    // ADD THIS AT THE BOTTOM
    apply plugin: 'com.google.gms.google-services'
    ```
@@ -348,6 +360,9 @@ import io.gamepot.common.GamePotError;
 // 定义登录类型
 // GamePotChannelType.GOOGLE: Google
 // GamePotChannelType.FACEBOOK: FaceBook
+// GamePotChannelType.NAVER: Naver
+// GamePotChannelType.LINE: LINE
+// GamePotChannelType.TWITTER: Twitter
 // GamePotChannelType.GUEST: 游客
 
 // 点击Google登录按钮的时候调用
@@ -473,6 +488,12 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.GOOGLE
 // 绑定到FaceBook账户
 // GamePotChannelType.FACEBOOK
+// 绑定到Naver账户
+// GamePotChannelType.NAVER
+// 绑定到LINE账户
+// GamePotChannelType.LINE
+// 绑定到Twitter账户
+// GamePotChannelType.TWITTER
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -503,6 +524,9 @@ import java.util.ArrayList;
 // 定义类型
 // GamePotChannelType.GOOGLE
 // GamePotChannelType.FACEBOOK
+// GamePotChannelType.NAVER
+// GamePotChannelType.LINE
+// GamePotChannelType.TWITTER
 // 依照类型返回绑定结果。
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -537,225 +561,7 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 });
 ```
 
-# 5. 广告平台
-
-可以集成使用多种广告平台的SDK， 如Facebook, Adjust和Adbrix 等。
-
-## 设置
-
-### 修改MainActivity.java文件
-
-声明广告平台相关代码，如下。
-
-```java
-import io.gamepot.ad.GamePotAd;
-import io.gamepot.ad.GamePotAdActions;
-import io.gamepot.ad.facebook.GamePotAdFacebook;
-import io.gamepot.ad.igaworks.GamePotAdIgaworks;
-import io.gamepot.ad.adjust.GamePotAdAdjust;
-
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // setup API需要首先被调用。
-        GamePot.getInstance().setup(getApplicationContext());
-
-        ...
-		// GamePot 广告初始化。请依照所要使用的广告模块来addAd。
-        GamePotAd.getInstance().setActivity(this);
-        // Facebook 初始化
-		GamePotAd.getInstance().addAd(new GamePotAdFacebook());
-        // IGAWorks 初始化
-		GamePotAd.getInstance().addAd(new GamePotAdIgaworks());
-        // Adjust 初始化
-        GamePotAd.getInstance().addAd(new GamePotAdAdjust());
-        ...
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        GamePotAd.getInstance().tracking(GamePotAdActions.RESUME);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        GamePotAd.getInstance().tracking(GamePotAdActions.PAUSE);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        GamePotAd.getInstance().onDestroy();
-    }
-}
-```
-
-### 设置 InstallReferrer
-
-#### 添加 ReferrerCatcher.java文件
-
-请在项目里创建ReferrerCatcher.java文件并添加下面代码。
-
-```java
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-
-import com.adjust.sdk.AdjustReferrerReceiver;
-import com.google.android.gms.analytics.CampaignTrackingReceiver;
-import com.igaworks.IgawReceiver;
-
-public class ReferrerCatcher extends BroadcastReceiver {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        if(intent != null) {
-            Bundle extras = intent.getExtras();
-            if (extras != null) {
-                Log.i("ReferrerCatcher", extras.getString("referrer"));
-            }
-        }
-
-        // TODO : 仅在使用Adjust时添加以下代码
-        try {
-            Class.forName("com.adjust.sdk.AdjustReferrerReceiver");
-            Class.forName("com.google.android.gms.analytics.CampaignTrackingReceiver");
-
-            // Adjust [START]
-            new AdjustReferrerReceiver().onReceive(context, intent);
-            new CampaignTrackingReceiver().onReceive(context, intent);
-            // Adjust [END]
-
-            Log.i("ReferrerCatcher", "Adjust");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // TODO : 仅在使用Igaworks时添加以下代码
-        try {
-            Class.forName("com.igaworks.IgawReceiver");
-
-            // IGAW [START]
-            IgawReceiver igawReceiver = new IgawReceiver();
-            igawReceiver.onReceive(context, intent);
-            // IGAW [END]
-
-            Log.i("ReferrerCatcher", "IGAW");
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-#### 修改AndroidManifest.xml文件
-
-请在AndoridManifest.xml里添加以下代码，并在`android:name`里添加从上面所创建的ReferrerCatcher Class的路径。
-
-```xml
-<manifest>
-	...
-	<application>
-		...
-		<!--使用IGAW / Facebook / Adjust模块时必须-->
-        <receiver android:name="{ReferrerCatcher的路径}" android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
-        <!--[END]-->
-		...
-	</application>
-	...
-</manifest>
-```
-
-### 修改build.gradle文件
-
-依照所要使用的平台添加相关设置。
-
-```java
-
-android {
-	...
-    defaultConfig {
-    	...
-    	// 使用FACEBOOK时添加 [START]
-    	resValue "string", "facebook_app_id", "xxxxxxxxxxxxxxxx"
-        resValue "string", "fb_login_protocol_scheme", "fbxxxxxxxxxxxxxxxx"
-    	// 使用FACEBOOK时添加 [END]
-
-        // 使用Adjust时添加 [START]
-        resValue "string", "gamepot_adjust_apptoken","xxxxxxxxxxxx"
-        resValue "string", "gamepot_adjust_signature","(1, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx, xxxxxxxxxx)" // 使用adjust sdk signature时添加
-        // 使用Adjust时添加 [END]
-
-        // 使用IGAWorks时添加 [START]
-        resValue "string", "gamepot_igaworks_app_key", "xxxxxxxxxx"
-        resValue "string", "gamepot_igaworks_hash_key", "xxxxxxxxxx"
-        // 使用IGAWorks时添加 [END]
-    }
-}
-
-dependencies {
-    compile(name: 'gamepot-ad-base', ext: 'aar')
-
-    // 使用Adjust时添加 [START]
-    compile(name: 'gamepot-ad-adjust', ext: 'aar')
-    compile 'com.adjust.sdk:adjust-android:4.14.0'
-    compile 'com.android.installreferrer:installreferrer:1.0'
-    compile 'com.google.android.gms:play-services-analytics:16.0.1'
-    // 使用Adjust时添加 [END]
-
-    // 使用FACEBOOK时添加 [START]
-    compile(name: 'gamepot-ad-facebook', ext: 'aar')
-    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
-    // 使用FACEBOOK时添加 [END]
-
-    // 使用IGAWorks时添加 [START]
-    compile(name: 'gamepot-ad-igaworks', ext: 'aar')
-    compile 'com.android.installreferrer:installreferrer:1.0'
-    // 使用IGAWorks时添加 [END]
-}
-```
-
-## 传达EventTracking
-
-依照情况所调用的Event Tracking代码不同，请参阅如下代码之后调用。
-
-```java
-import io.gamepot.ad.GamePotAd;
-import io.gamepot.ad.GamePotAdActions;
-import io.gamepot.ad.builders.GamePotAdEventBuilder;
-import io.gamepot.ad.builders.GamePotAdLevelBuilder;
-import io.gamepot.ad.builders.GamePotAdTutorialBuilder;
-
-// 运行应用程序
-GamePotAd.getInstance().tracking(GamePotAdActions.APPLICATION_START);
-
-// 普通
-GamePotAd.getInstance().tracking(GamePotAdActions.EVENT, new GamePotAdEventBuilder().setEvent("test").build());
-
-// 升级等级时
-GamePotAd.getInstance().tracking(GamePotAdActions.LEVEL, new GamePotAdLevelBuilder().setLevel(4).build());
-
-// 完成新手教程时
-GamePotAd.getInstance().tracking(GamePotAdActions.TUTORIAL_COMPLETE, new GamePotAdTutorialBuilder().setContentData("튜토리얼 완료").setContentId("1").setSuccess(true).build());
-```
-
-# 6. 支付
-
-## 设置FaceBook Console
-
-关闭OFF下面'앱 내 구매 이벤트를 자동으로 로깅（自动记录应用内购买事件）'选项
-
-![gamepot_android_08](./images/gamepot_android_08.png)
-
-## 设置
+# 5. 支付
 
 支付的结果值以Listener形式来实现。
 
@@ -810,74 +616,187 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().purchase("product id");
 ```
 
+##獲取付款項目清單
+
+您可以獲取商店提供的應用內商品列表。
+
+```java
+import io.gamepot.common.GamePot;
+
+GamePotPurchaseDetailList details = GamePot.getInstance（）。GetPurchaseDetailList（）;
+```
+
+##付款項目付款
+
+GAMEPOT無法非法支付，因為它通過服務器到服務器api完成對支付商店收據的驗證後向開發者服務器發出支付請求。
+
+要執行此操作，請參閱“服務器”中的“購買”項目到服務器api菜單。
+
+#6. 外部付款
+
+一個商店接受第三個支付模塊而不是基本商店支付模塊。
+
+##設置
+
+請先參閱信息中心上的外部結算項目，先設置信息中心。
+
+5.如果您先實施了“付款”項目，則沒有其他設置。
+
+##付款嘗試
+
+```java
+import io.gamepot.common.GamePot;
+
+//活動：當前活動
+//產品ID：您在信息中心上註冊的付款ID
+GamePot.getInstance().PurchaseThirdPayments(活動,產品ID);
+```
+
+##獲取付款項目清單
+
+```java
+import io.gamepot.common.GamePot;
+
+GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPurchaseThirdPaymentsDetailList();
+```
+
 # 7. 其他API
 
-## Naver论坛SDK
+##Naver登錄
 
-为了使用此功能，首先需要获得对接所需要的相关设置值。
-
-### 设置
-
-#### 修改build.gradle文件
+### build.gradle設置
 
 ```java
 android {
-    ...
     defaultConfig {
         ...
-        resValue "string", "gamepot_naver_clientid", "{在Naver账号登录所要使用的client ID}"
-        resValue "string", "gamepot_naver_secretid", "{在Naver账号登录所要使用的secret ID}"
-        resValue "integer", "gamepot_naver_cafeid", "{Naver论坛ID}"
-        ...
+        resValue "string", "gamepot_naver_clientid", "xxxxxxxx"//從Naver Developer Console獲得
+        resValue "string", "gamepot_naver_secretid", "xxx" // 從Naver開發者控制台獲取
     }
 }
-...
+
 dependencies {
-    ...
-    // naver cafe [START]
-    compile(name: 'gamepot-navercafe', ext: 'aar')
-    compile(name: 'cafeSdk-3.3.1', ext: 'aar')
-    compile 'com.navercorp.volleyextensions:volleyer:2.0.1', {
-        exclude group: 'com.mcxiaoke.volley', module: 'library'
-    }
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.squareup:otto:1.3.8'
-    // naver cafe [END]
-    ...
+  ...
+  compile(name: 'gamepot-channel-naver', ext: 'aar')
+  ...
 }
 ```
 
-#### 修改MainActivity.java
+### MainActivity.java 設置
 
 ```java
-import io.gamepot.navercafe.GamePotNaverCafe;
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.naver.GamePotNaver;
 
-public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(final Bundle savedInstanceState) {
-        // setup API需要首先被调用。
-        GamePot.getInstance().setup(getApplicationContext());
-
-        ...
-        // 调用GamePot setup API之后调用。
-        GamePotNaverCafe.getInstance().init(this);
-        ...
-    }
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+		...
+		GamePotChannel.getInstance().addChannel(this, GamePotChannelType.NAVER, new GamePotNaver());
 }
 ```
 
-### 调用论坛
-
-Naver论坛SDK调用为如下。
+### 登錄
 
 ```java
-GamePotNaverCafe.getInstance().startHome(this);
+GamePotChannel.getInstance().login(this, GamePotChannelType.NAVER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
 ```
 
-登录成功之后，添加下面代码就可以在Naver论坛的管理员菜单里识别会员。
+##LINE登錄
+
+### build.gradle設置
 
 ```java
-GamePotNaverCafe.getInstance().setUserId(this, GamePot.getInstance().getMemberId());
+android {
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_line_channelid","00000000" // 從Line Developer Console獲取
+    }
+}
+
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-line', ext: 'aar')
+  compile(name: 'line-sdk-4.0.10', ext: 'aar')
+  ...
+}
+```
+
+### MainActivity.java設置
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.line.GamePotLine;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+		...
+		GamePotChannel.getInstance().addChannel(this, GamePotChannelType.LINE, new GamePotLine());
+}
+```
+
+### 登錄
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.LINE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
+
+## Twitter登錄
+
+### build.gradle設置
+
+```java
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+  
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_twitter_consumerkey","xxxxx" //從Twitter開發者控制台獲取
+        resValue "string", "gamepot_twitter_consumersecret","xxx" //從Twitter開發者控制台獲取
+    }
+}
+
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-twitter', ext: 'aar')
+  compile('com.twitter.sdk.android:twitter-core:3.3.0@aar') {
+      transitive = true
+  }
+  ...
+}
+```
+
+### MainActivity.java設置
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.twitter.GamePotTwitter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+		...
+		GamePotChannel.getInstance().addChannel(this, GamePotChannelType.TWITTER, new GamePotTwitter());
+}
+```
+
+### 登錄
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
 ```
 
 ## 优惠卷
@@ -903,6 +822,12 @@ GamePot.getInstance().coupon(/*用户所输入的优惠卷*/, new GamePotListene
     }
 });
 ```
+
+###項目付款
+
+如果成功使用優惠券，則要求開發者服務器通過服務器向服務器api支付該項目。
+
+要執行此操作，請參閱`服務器到服務器api`菜單中的`項目`項。
 
 ## Push on/off
 
@@ -937,21 +862,9 @@ GamePot.getInstance().setNightPushEnable(/*true or false*/, new GamePotCommonLis
     }
 });
 
-// 接受广告推送 On/Off
-// 设置广告推送
-GamePot.getInstance().setAdPushEnable(/*true or false*/, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-    }
-});
-
 // 一并设置推送，夜间推送，广告推送
 // 游戏如果在登录之前接受推送，夜间推送，广告推送时，必须要在登录之后调用以下代码。
-GamePot.getInstance().setPushEnable(/*true or false*/, /*true or false*/, /*true or false*/, new GamePotCommonListener() {
+GamePot.getInstance().setPushEnable(/*true or false*/, /*true or false*/, true, new GamePotCommonListener() {
     @Override
     public void onSuccess() {
     }
@@ -970,8 +883,7 @@ import org.json.JSONObject;
 
 // enable: 全体推送
 // night: 夜间推送
-// ad: 广告推送
-// {"enable":true, "night":true, "ad":false}
+// {"enable":true, "night":true}
 JSONObject status = GamePot.getInstance().getPushStatus();
 ```
 
@@ -982,7 +894,12 @@ DashBoard - 在公告栏所上传图像显示的功能。
 ### 调用
 
 ```java
-GamePot.getInstance().showNoticeWebView(/*目前Activity*/);
+GamePot.getInstance().showNotice(/*當前活動*/, new GamePotNoticeDialog.onSchemeListener() {
+    @Override
+    public void onReceive(String scheme) {
+        // TODO : 方案處理
+    }
+});
 ```
 
 ## 客户中心
@@ -1032,43 +949,7 @@ GamePot.getInstance().cancelLocalPush(/*目前Activity*/, /*注册推送时获�
 
 在现有的下面API里可以使用。
 
-#### 1. setup API
-
-在现有的setup API中添加第二个参数。
-
-```java
-GamePot.getInstance().setup(getApplicationContext(), new GamePotAppStatusListener() {
-    @Override
-    public void onNeedUpdate(GamePotAppStatus status) {
-        // TODO : 需要强制更新的时候。调用以下API就可以弹出SDK本身的弹出窗口。
-        // TODO : 如希望Customizing的时候，请不要调用下面API并对其进行Customizing就可以。
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO : 如调用showAppStatusPopup API，会在结束应用程序的情况下被调用。
-                // TODO : 处理关闭过程。
-                MainActivity.this.finish();
-            }
-        });
-    }
-
-    @Override
-    public void onMainternance(GamePotAppStatus status) {
-        // TODO : 如在维护中。调用下面API就可以弹出SDK本身的弹出窗口。
-        // TODO : 如希望Customizing的时候，请不要调用下面API并对其进行Customizing就可以。
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO : 如调用showAppStatusPopup API，会在结束应用程序的情况下被调用。
-                // TODO : 处理关闭过程。
-                MainActivity.this.finish();
-            }
-        });
-    }
-});
-```
-
-#### 2. login API
+#### 1. login API
 
 在现有login API里，把listener更改为`GamePotAppStatusChannelListener`。
 
