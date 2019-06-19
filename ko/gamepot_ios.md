@@ -234,7 +234,7 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 // Twitter Login 사용 시
 #import <GamePotTwitter/GamePotTwitter.h>
 
-// Naver Login 사용 시
+// Naver Login 사용 시 
 #import <GamePotNaver/GamePotNaver.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
