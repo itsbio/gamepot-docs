@@ -157,7 +157,11 @@ gamepot_naver_secretid : Naver Secret Id
 gamepot_naver_urlscheme : Naver Url Scheme
 ```
 
+Info >> iOS Target Property 的 LSApplicationQueriesSchemes 中添加以下项目。
 
+- naversearchapp
+- naversearchthirdlogin
+- navercafe
 
 ## 2. 初始化
 

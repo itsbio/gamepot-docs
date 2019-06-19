@@ -151,7 +151,11 @@ gamepot_naver_secretid : Naver Secret Id
 gamepot_naver_urlscheme : Naver Url Scheme
 ```
 
+**Info > iOS Target Property**의 **LSApplicationQueriesSchemes**에 아래 항목을 추가합니다.
 
+- naversearchapp
+- naversearchthirdlogin
+- navercafe
 
 ## 2. 초기화
 
