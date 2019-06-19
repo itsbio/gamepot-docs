@@ -13,8 +13,8 @@ search:
 
 [ 系统环境 ]
 
-- 최소사항 : IOS 10.0 이상
-- 개발 환경 : XCode
+- 最低：IOS 10.0或更高
+- 开发环境：XCode
 
 #### Step 2. 添加 Freamwork
 
@@ -163,7 +163,7 @@ gamepot_naver_urlscheme : Naver Url Scheme
 - naversearchthirdlogin
 - navercafe
 
-**Info > URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가
+将您在gamepot_naver_urlscheme中输入的值添加到**Info > URL Types**
 
 ## 2. 初始化
 
@@ -222,7 +222,7 @@ AppDelegate 文件里加上以下内容。
 
 Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
 
-#### Step 1. 설정
+#### Step 1. 设置
 
 ```objective-c
 // AppDelegate.m
