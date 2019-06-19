@@ -157,11 +157,13 @@ gamepot_naver_secretid : Naver Secret Id
 gamepot_naver_urlscheme : Naver Url Scheme
 ```
 
-Info >> iOS Target Property 的 LSApplicationQueriesSchemes 中添加以下项目。
+**Info >> iOS Target Property 的 LSApplicationQueriesSchemes 中添加以下项目。**
 
 - naversearchapp
 - naversearchthirdlogin
 - navercafe
+
+**Info > URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가
 
 ## 2. 初始化
 
@@ -238,6 +240,9 @@ Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
 // 使用Twitter Login的时候
 #import <GamePotTwitter/GamePotTwitter.h>
 
+// 使用Naver Login的时候
+#import <GamePotNaver/GamePotNaver.h>
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
     // GamePotSDK频道初始化，必须要对于所使用的频道别使用 addChannel才可以。
@@ -257,6 +262,11 @@ Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
     // Twitter 登录初始化
     GamePotChannelInterface* twitter = [[GamePotTwitter alloc] init];
     [[GamePotChannel getInstance] addChannelWithType:TWITTER interface:twitter];
+
+    // Naver 登录初始化
+    GamePotChannelInterface* naver = [[GamePotNaver alloc] init];
+    [[GamePotChannel getInstance] addChannelWithType:NAVER interface:naver];
+
 
     // 处理登录所需要。
     [[GamePotChannel getInstance] application:application didFinishLaunchingWithOptions:launchOptions];
@@ -284,6 +294,7 @@ Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
 // GamePotChannelType.GUEST
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.NAVER
 
 // 点击Google登录按钮的时候调用
 [[GamePotChannel getInstance] Login:GOOGLE viewController:self success:^(GamePotUserInfo* userInfo) {
@@ -381,6 +392,7 @@ else
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.NAVER
 
 [[GamePotChannel getInstance] CreateLinking:GOOGLE viewController:self success:^(GamePotUserInfo *userInfo) {
 	// TODO : 绑定完成。使用游戏内的弹窗提示绑定完成结果。 (ex. 계정 연동에 성공했습니다.)
@@ -405,6 +417,8 @@ else
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.NAVER
+
 // 返回定义类型的绑定结果
 BOOL isGoogleLinked = [[GamePotChannel getInstance] isLinked:GOOGLE];
 
@@ -481,59 +495,7 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 
 ## 6. 其他 API
 
-#### Naver 论坛 SDK
-
-为了使用此功能，首先需要对接所需要的 Naver 论坛 SDK 相关值。
-GamePotConfig-Info.plist 文件里请添加所需要的值.
-
-![gamepot-1-312](./images/gamepot-1-305.png)
-
-```objective-c
-gamepot_naver_cafeid // Naver论坛ID
-gamepot_naver_clientid // 使用naver账号登录时所使用的client ID
-gamepot_naver_secretid // 使用naver账号登录时所使用的secret ID
-gamepot_naver_urlscheme // 使用naver账号登录时所使用的urlscheme
-```
-
-参考功能别 Dependencies 表格中的 Naver Café 项目。添加 Framework 和 Dependencies。
-
-```objective-c
-// AppDelegate.m
-#import <GamePotNavarCafe/GamePotNavarCafe.h>
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    ...
-    // Naver论坛初始化
-    [[GamePotNaverCafe getInstance] setup];
-    ...
-}
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
-{
-    BOOL nChannelResult = [[GamePotChannel getInstance] application:app openURL:url options:options];
-    BOOL nNaverCafeResult = [[GamePotNaverCafe getInstance] application:app openURL:url options:options];
-
-    return nChannelResult || nNaverCafeResult;
-}
-```
-
-以下形式调用 Naver 论坛 SDK
-
-```objective-c
-#import <GamePotNavarCafe/GamePotNavarCafe.h>
-
-[[GamePotNaverCafe getInstance] start:self];
-```
-
-登录成功后，加上下面代码的化，可以在 Naver 论坛的管理员菜单识别用户。
-
-```objective-c
-#import <GamePotNavarCafe/GamePotNavarCafe.h>
-
-[[GamePotNaverCafe getInstance] setUserId:[userInfo memberid]];
-```
-
-#### 쿠폰
+#### Coupon
 
 ```objective-c
 #import <GamePot/GamePot.h>

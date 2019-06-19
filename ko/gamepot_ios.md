@@ -157,6 +157,8 @@ gamepot_naver_urlscheme : Naver Url Scheme
 - naversearchthirdlogin
 - navercafe
 
+**Info > URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가 합니다.
+
 ## 2. 초기화
 
 AppDelegate 파일에 아래 부분을 추가합니다.
@@ -232,6 +234,9 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 // Twitter Login 사용 시
 #import <GamePotTwitter/GamePotTwitter.h>
 
+// Naver Login 사용 시
+#import <GamePotNaver/GamePotNaver.h>
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
     // GamePotSDK 채널 초기화. 사용하려는 채널별로 addChannel을 사용해야만 하며,
@@ -251,6 +256,10 @@ AppDelegate 파일에 아래 부분을 추가합니다.
     // Twitter 로그인 초기화
     GamePotChannelInterface* twitter = [[GamePotTwitter alloc] init];
     [[GamePotChannel getInstance] addChannelWithType:TWITTER interface:twitter];
+  
+  	// Naver 로그인 초기화
+	  GamePotChannelInterface* naver = [[GamePotNaver alloc] init];
+	  [[GamePotChannel getInstance] addChannelWithType:NAVER interface:naver];
 
     // 로그인 처리를 위해 필요합니다.
     [[GamePotChannel getInstance] application:application didFinishLaunchingWithOptions:launchOptions];
@@ -278,6 +287,7 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 // GamePotChannelType.GUEST
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.NAVER
 
 // 구글 로그인 버튼 클릭 시에 호출
 [[GamePotChannel getInstance] Login:GOOGLE viewController:self success:^(GamePotUserInfo* userInfo) {
@@ -379,6 +389,7 @@ Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.NAVER
 
 [[GamePotChannel getInstance] CreateLinking:GOOGLE viewController:self success:^(GamePotUserInfo *userInfo) {
 	// TODO: 연동 완료. 게임 팝업으로 연동 결과에 대한 문구를 노출시켜 주세요.(예: 계정 연동에 성공했습니다.)
@@ -403,6 +414,8 @@ Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.NAVER
+
 // 타입에 따른 연동 결과를 리턴합니다.
 BOOL isGoogleLinked = [[GamePotChannel getInstance] isLinked:GOOGLE];
 
