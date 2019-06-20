@@ -367,6 +367,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
         // 로그인 완료. 게임 로직에 맞게 처리해주세요.
+        // userinfo.getMemberid() : 회원 고유 아이디
     }
 
     @Override
@@ -374,6 +375,12 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
         // 로그인 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
     }
 });
+```
+
+### 회원 고유 아이디
+
+```java
+GamePot.getInstance().getMemberId();
 ```
 
 ## 자동 로그인

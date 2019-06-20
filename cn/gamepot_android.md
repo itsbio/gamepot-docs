@@ -375,6 +375,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
         // 登录成功。依照游戏逻辑处理。
+        // userinfo.getMemberid() : 会员唯一ID
     }
 
     @Override
@@ -382,6 +383,12 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
         // 登录失败。请使用error.getMessage()来显示错误信息。
     }
 });
+```
+
+### 会员唯一ID
+
+```java
+GamePot.getInstance().getMemberId();
 ```
 
 ## 自动登录
