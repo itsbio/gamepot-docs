@@ -600,7 +600,9 @@ public class MainActivity extends AppCompatActivity {
 
 ## 결제 시도
 
-하나의 결제 API로 GooglePlay, OneStore 모두 결제가 가능합니다
+하나의 결제 API로 GooglePlay, OneStore 모두 결제가 가능합니다.
+
+> 결제 시도 ~ 결제 완료/실패 과정중에 인게임에서 사용하는 로딩 화면을 띄워 중복 호출을 하지 않도록 처리해주세요.
 
 ```java
 import io.gamepot.common.GamePot;

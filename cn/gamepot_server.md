@@ -16,18 +16,17 @@ https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
-| Attribute      | Type   | Description                                                                            |
-| -------------- | ------ | -------------------------------------------------------------------------------------- |
-| userId         | String | 用户 UID                                                                               |
+| Attribute      | Type   | Description                                                  |
+| -------------- | ------ | ------------------------------------------------------------ |
+| userId         | String | 用户 UID                                                     |
 | transactionId  | String | transaction id of Google/Apple/Onestore<br/>(ex. Google is “GPA.0000-0000-0000-00000”) |
-| store          | String | 渠道信息(ios, google, one)                                                             |
-| projectId      | String | ProjectID                                                                              |
-| productId      | String | Google/Apple/Onestore 的商品 ID                                                        |
-| platform       | String | 平台 Platform 信息 (android, ios)                                                      |
-| payment        | String | 储值方式 (apple, google, one, mycard, mol)                                             |
-| orderId        | String | 订单号 ( 自动生成 )                                                                    |
-| uniqueId       | String | Unique ID（称为 purchase API 时的 unique id）                                          |
-| gamepotOrderId | String | GAMEPOT Order id                                                                       |
+| store          | String | 渠道信息(ios, google, one)                                   |
+| projectId      | String | ProjectID                                                    |
+| productId      | String | Google/Apple/Onestore 的商品 ID                              |
+| platform       | String | 平台 Platform 信息 (android, ios)                            |
+| payment        | String | 储值方式 (apple, google, one, mycard, mol)                   |
+| uniqueId       | String | Unique ID（称为 purchase API 时的 unique id）                |
+| gamepotOrderId | String | GAMEPOT Order id                                             |
 
 ###Response
 

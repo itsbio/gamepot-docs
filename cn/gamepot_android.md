@@ -609,6 +609,8 @@ public class MainActivity extends AppCompatActivity {
 
 可以使用一个支付API来支付GooglePlay, OneStore
 
+> 请确保您在付款尝试〜付款完成/失败过程中浮动游戏中使用的加载屏幕，以确保您不会进行重复呼叫。
+
 ```java
 import io.gamepot.common.GamePot;
 

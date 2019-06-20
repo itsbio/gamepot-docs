@@ -20,18 +20,17 @@ https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
-| Attribute      | Type   | Description                                                  |
-| -------------- | ------ | ------------------------------------------------------------ |
-| userId         | String | 사용자 UID                                                   |
-| transactionId  | String | 주문번호(GPA-xxxx-xxxx-)                                     |
-| store          | String | 스토어 정보(ios, google, one)                                |
-| projectId      | String | 프로젝트ID                                                   |
-| productId      | String | 구글/애플/원스토어에 등록된 상품ID                           |
-| platform       | String | 운영 Platform 정보 (android, ios)                            |
-| payment        | String | 결제 방식 ( apple, google, one, danal, mycard, mol ... )     |
-| orderId        | String | **Deprecated** Unique id (purchase api 호출 시 넣은 unique id) |
-| uniqueId       | String | Unique id (purchase api 호출 시 넣은 unique id)              |
-| gamepotOrderId | String | GAMEPOT Order id                                             |
+| Attribute      | Type   | Description                                              |
+| -------------- | ------ | -------------------------------------------------------- |
+| userId         | String | 사용자 UID                                               |
+| transactionId  | String | 주문번호(GPA-xxxx-xxxx-)                                 |
+| store          | String | 스토어 정보(ios, google, one)                            |
+| projectId      | String | 프로젝트ID                                               |
+| productId      | String | 구글/애플/원스토어에 등록된 상품ID                       |
+| platform       | String | 운영 Platform 정보 (android, ios)                        |
+| payment        | String | 결제 방식 ( apple, google, one, danal, mycard, mol ... ) |
+| uniqueId       | String | Unique id (purchase api 호출 시 넣은 unique id)          |
+| gamepotOrderId | String | GAMEPOT Order id                                         |
 
 ###Response
 
