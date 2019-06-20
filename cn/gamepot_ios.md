@@ -13,8 +13,8 @@ search:
 
 [ 系统环境 ]
 
-- 최소사항 : IOS 10.0 이상
-- 개발 환경 : XCode
+- 最低：IOS 10.0或更高
+- 开发环境：XCode
 
 #### Step 2. 添加 Freamwork
 
@@ -163,7 +163,7 @@ gamepot_naver_urlscheme : Naver Url Scheme
 - naversearchthirdlogin
 - navercafe
 
-**Info > URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가
+将您在gamepot_naver_urlscheme中输入的值添加到**Info > URL Types**
 
 ## 2. 初始化
 
@@ -222,7 +222,7 @@ AppDelegate 文件里加上以下内容。
 
 Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
 
-#### Step 1. 설정
+#### Step 1. 设置
 
 ```objective-c
 // AppDelegate.m
@@ -547,6 +547,98 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
     <#code#>
 }];
 ```
+
+## 公告
+
+DashBoard - 在公告栏所上传图像显示的功能。
+
+### 调用
+
+```java
+[[GamePot getInstance] showNotice:/*viewController*/ setSchemeHandler:^(NSString *scheme) {
+	NSLog(@"scheme = %@", scheme);
+}];
+```
+
+## 客户中心
+
+DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗口。
+
+### 调用
+
+```java
+[[GamePot getInstance] showHelpWebView:(UIViewController *)];
+```
+
+## 本地推送(Local Push notification)
+
+不通过推送服务器，直接在设备自行推送的功能。
+
+### 调用
+
+#### 推送注册
+
+在指定时间显示本地推送的方法为如下。
+
+> 返回所传达的pushid值由开发公司来管理。
+
+```java
+ NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+ [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+
+ NSString* strDate = [formatter stringFromDate:[[NSDate date] dateByAddingTimeInterval:30]];
+
+ int pushId  = [[GamePot getInstance] sendLocalPush:@"Title" setMessage:@"Message" setDateString:strDate];
+```
+
+#### 取消注册推送
+
+可以根据注册推送时所获得的pushid来取消现有的推送。
+
+```java
+[[GamePot getInstance] cancelLocalPush:(int)pushId];
+```
+
+## 维护，强制更行
+
+需要维护或者强制更新功能的时候， DashBoard - 运营中操作激活功能就可以使用。
+
+### 调用
+
+在现有的下面API里可以使用。
+
+#### 1. login API
+
+在现有login API里，把listener更改为`GamePotAppStatusChannelListener`。
+
+```objective-c
+[[GamePotChannel getInstance] Login:GAMECENTER viewController:self
+    success:^(GamePotUserInfo* userInfo) {
+    		 // 登录成功。依照游戏逻辑处理。
+    } cancel:^{
+    		// 用户取消登录。
+    } fail:^(NSError *error) {
+		    // 登录失败。请使用[error localizedDescription]来显示错误信息。
+    } update:^(GamePotAppStatus *appStatus) {
+        // TODO : 需要强制更新的时候。 调用下面API就可以弹出SDK本身的弹出窗口。
+        // TODO : 如希望Customizing的时候，请不要调用下面API并对其进行Customizing就可以。
+        [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+         setCloseHandler:^{
+             // TODO : 如调用showAppStatusPopup API，会在结束应用程序的情况下被调用。
+             // TODO : 处理关闭过程。
+        }];
+    } maintenance:^(GamePotAppStatus *appStatus) {
+  	    // TODO : 如在维护中。调用下面API就可以弹出SDK本身的弹出窗口。
+        // TODO : 如希望Customizing的时候，请不要调用下面API并对其进行Customizing就可以。
+        [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+         setCloseHandler:^{
+						 // TODO : 如调用showAppStatusPopup API，会在结束应用程序的情况下被调用。
+             // TODO : 处理关闭过程。
+        }];
+    }];
+```
+
+## 
 
 ## 接受条款
 
