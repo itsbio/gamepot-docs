@@ -590,9 +590,6 @@ public class MainActivity extends AppCompatActivity {
 		GamePot.getInstance().setPurchaseListener(new GamePotPurchaseListener<GamePotPurchaseInfo>() {
             @Override
             public void onSuccess(GamePotPurchaseInfo info) {
-         		// 对广告平台发送支付活动所需要的代码。一定要加上。
-                GamePotAd.getInstance().tracking(GamePotAdActions.BILLING, info);
-
                 // 支付成功。物品发放请求会对webhook所设置的地址上，以server to server请求。
                 // 请在此地方只处理结果，并不要发放实际物品。
             }
