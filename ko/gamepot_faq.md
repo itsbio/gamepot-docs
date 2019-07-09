@@ -22,6 +22,10 @@
 
    1. Firebase 콘솔에서 Andorid 앱에 추가한 Package name으로 빌드 여부
    2. SHA-1을 추출한 Keystore로 빌드 여부
+   
+4. Firbase 콘솔에 지원 이메일을 설정 했는지 확인
+
+   ![gamepot_faq_16](./images/gamepot_faq_ios_3.png)
 
 #### Q. IOS에서 구글 로그인 시 오류 (401 오류 : disabled_client)가 발생 됩니다.
 
