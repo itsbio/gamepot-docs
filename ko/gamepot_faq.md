@@ -14,18 +14,18 @@
 
    > SHA-1값은 개발사에 요청합니다.
 
-   ![gamepot_faq_01](./images/gamepot_faq_01.png)
+![gamepot_faq_01](./images/gamepot_faq_01.png)
 
-   * 구글 콘솔에서 `앱 서명`을 사용하는 경우 콘솔에서 만들어진 SHA-1값도 같이 넣어주셔야 합니다.
+* 구글 콘솔에서 `앱 서명`을 사용하는 경우 콘솔에서 만들어진 SHA-1값도 같이 넣어주셔야 합니다.
 
 3. APK가 아래 내용이 적용된 빌드가 맞는지 확인
 
    1. Firebase 콘솔에서 Andorid 앱에 추가한 Package name으로 빌드 여부
    2. SHA-1을 추출한 Keystore로 빌드 여부
    
-4. Firbase 콘솔에 지원 이메일을 설정 했는지 확인 
+2. Firbase 콘솔에 지원 이메일을 설정 했는지 확인 
 
-   ![gamepot_faq_16](./images/gamepot_faq_ios_3.png)
+![gamepot_faq_16](./images/gamepot_faq_ios_3.png)
 
 #### Q. IOS에서 구글 로그인 시 오류 (401 오류 : disabled_client)가 발생 됩니다.
 
@@ -57,29 +57,29 @@
 
 1. 콘솔 > 앱정보 > 인앱 상품에 인앱이 `활성 APK` 로 돼있는지 확인
 
-   ![gamepot_faq_14](./images/gamepot_faq_14.png)
+![gamepot_faq_14](./images/gamepot_faq_14.png)
 
 2. 콘솔에 앱이 `출시됨` 상태인지 확인
 
    > `프로덕션` 트랙이 아닌 `비공개`/`내부 테스트` 트랙에 올리시면 됩니다.
 
-   ![gamepot_faq_09](./images/gamepot_faq_09.png)
+![gamepot_faq_09](./images/gamepot_faq_09.png)
 
-3. 콘솔 -> 출시 관리 -> 앱 버전 -> 트랙 -> 관리 -> 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
+1. 콘솔 -> 출시 관리 -> 앱 버전 -> 트랙 -> 관리 -> 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
 
-   ![gamepot_faq_10](./images/gamepot_faq_10.png)
+![gamepot_faq_10](./images/gamepot_faq_10.png)
 
-4. 테스트 참여 URL로 접속하여 테스트 참여를 신청했는지 확인
+1. 테스트 참여 URL로 접속하여 테스트 참여를 신청했는지 확인
 
-   ![gamepot_faq_11](./images/gamepot_faq_11.png)
+![gamepot_faq_11](./images/gamepot_faq_11.png)
 
-5. 콘솔 -> 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
+1. 콘솔 -> 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
 
-   ![gamepot_faq_12](./images/gamepot_faq_12.png)
+![gamepot_faq_12](./images/gamepot_faq_12.png)
 
-   ![gamepot_faq_13](./images/gamepot_faq_13.png)
+![gamepot_faq_13](./images/gamepot_faq_13.png)
 
-6. 단말기 -> 설정 -> 계정 메뉴에 테스트 참여한 계정만 남기고 모두 삭제 했는지 확인
+1. 단말기 -> 설정 -> 계정 메뉴에 테스트 참여한 계정만 남기고 모두 삭제 했는지 확인
 
 ## 원스토어
 
@@ -98,23 +98,23 @@
 
 1. APK의 Package name 이 원스토어에 등록된 패키지명과 동일 여부
 
-   ![gamepot_faq_02](./images/gamepot_faq_02.png)
+![gamepot_faq_02](./images/gamepot_faq_02.png)
 
-2. 원스토어 콘솔의 `라이선스 키` 적용 여부
+1. 원스토어 콘솔의 `라이선스 키` 적용 여부
 
-   ![gamepot_faq_03](./images/gamepot_faq_03.png)
+![gamepot_faq_03](./images/gamepot_faq_03.png)
 
-   위 값이 GAMEPOT 대시보드 아래 항목에 적용 여부
+위 값이 GAMEPOT 대시보드 아래 항목에 적용 여부
 
-   ![gamepot_faq_04](./images/gamepot_faq_04.png)
+![gamepot_faq_04](./images/gamepot_faq_04.png)
 
-3. 원스토어 콘솔의 `Client secret` 적용 여부
+1. 원스토어 콘솔의 `Client secret` 적용 여부
 
-   ![gamepot_faq_06](./images/gamepot_faq_06.png)
+![gamepot_faq_06](./images/gamepot_faq_06.png)
 
-   위 값이 GAMEPOT대시보드 아래 항목에 적용 여부
+위 값이 GAMEPOT대시보드 아래 항목에 적용 여부
 
-   ![gamepot_faq_05](./images/gamepot_faq_05.png)
+![gamepot_faq_05](./images/gamepot_faq_05.png)
 
 #### Q. 결제 완료 후 "영수증 검증에 실패했습니다." 문구와 함께 결제가 실패합니다.
 
