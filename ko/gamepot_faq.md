@@ -65,21 +65,29 @@
 
 ![gamepot_faq_09](./images/gamepot_faq_09.png)
 
-1. 콘솔 -> 출시 관리 -> 앱 버전 -> 트랙 -> 관리 -> 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
+3. 콘솔 -> 출시 관리 -> 앱 버전 -> 트랙 -> 관리 -> 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
 
 ![gamepot_faq_10](./images/gamepot_faq_10.png)
 
-1. 테스트 참여 URL로 접속하여 테스트 참여를 신청했는지 확인
+4. 테스트 참여 URL로 접속하여 테스트 참여를 신청했는지 확인
 
 ![gamepot_faq_11](./images/gamepot_faq_11.png)
 
-1. 콘솔 -> 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
+5. 콘솔 -> 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
 
 ![gamepot_faq_12](./images/gamepot_faq_12.png)
 
 ![gamepot_faq_13](./images/gamepot_faq_13.png)
 
-1. 단말기 -> 설정 -> 계정 메뉴에 테스트 참여한 계정만 남기고 모두 삭제 했는지 확인
+6. 단말기 -> 설정 -> 계정 메뉴에 테스트 참여한 계정만 남기고 모두 삭제 했는지 확인
+
+#### Q. 첫번째 결제 시도엔 응답이 없고, 두번째 결제 시도시에 결제가 성공했다고 응답합니다.
+
+#### A. 대시보드 - 프로젝트 설정 - 일반 - Public Key에 키가 올바르지 않은 경우입니다.
+
+`도움말 보기` 에 내용을 참고하여 키를 넣어주세요.
+
+![gamepot_faq_15](./images/gamepot_faq_15.png)
 
 ## 원스토어
 
@@ -100,7 +108,7 @@
 
 ![gamepot_faq_02](./images/gamepot_faq_02.png)
 
-1. 원스토어 콘솔의 `라이선스 키` 적용 여부
+2. 원스토어 콘솔의 `라이선스 키` 적용 여부
 
 ![gamepot_faq_03](./images/gamepot_faq_03.png)
 
@@ -108,7 +116,7 @@
 
 ![gamepot_faq_04](./images/gamepot_faq_04.png)
 
-1. 원스토어 콘솔의 `Client secret` 적용 여부
+3. 원스토어 콘솔의 `Client secret` 적용 여부
 
 ![gamepot_faq_06](./images/gamepot_faq_06.png)
 
