@@ -626,7 +626,13 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
          setCloseHandler:^{
              // TODO : 如调用showAppStatusPopup API，会在结束应用程序的情况下被调用。
              // TODO : 处理关闭过程。
-        }];
+        } setNextHandler：^（NSObject * resultPayload）{
+             // TODO：“仪表板更新设置”中的“推荐”设置显示“下一步”按钮。
+             //当用户选择它时，将调用此按钮。
+             //使用TODO：resultPayload信息处理与登录完成时相同的信息。
+             // GamePotUserInfo * userInfo =（GamePotUserInfo *）resultPayload;
+
+        }];
     } maintenance:^(GamePotAppStatus *appStatus) {
   	    // TODO : 如在维护中。调用下面API就可以弹出SDK本身的弹出窗口。
         // TODO : 如希望Customizing的时候，请不要调用下面API并对其进行Customizing就可以。

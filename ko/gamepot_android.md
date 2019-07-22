@@ -968,6 +968,14 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
                 // TODO: 종료 프로세스를 처리해주세요.
                 MainActivity.this.finish();
             }
+
+            @Override
+            public void onNext(Object obj) {
+                // TODO : Dashboard 업데이트 설정에서 권장 설정 시 "다음에 하기" 버튼이 노출 됩니다.
+                // 해당 버튼을 사용자가 선택 시 호출 됩니다.
+                // TODO : obj 정보를 이용하여 로그인 완료 시와 동일하게 처리해주세요.
+                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
+            }
         });
     }
 

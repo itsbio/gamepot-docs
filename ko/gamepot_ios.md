@@ -641,13 +641,19 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
          setCloseHandler:^{
             // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
             // TODO: 종료 프로세스를 처리해주세요.
+        } setNextHandler:^(NSObject* resultPayload) {
+            // TODO : Dashboard 업데이트 설정에서 권장 설정 시 "다음에 하기" 버튼이 노출 됩니다.
+            // 해당 버튼을 사용자가 선택 시 호출 됩니다.
+            // TODO : resultPayload 정보를 이용하여 로그인 완료 시와 동일하게 처리해주세요.
+            // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+
         }];
     } maintenance:^(GamePotAppStatus *appStatus) {
   	    // TODO: 점검 중인 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
-	      // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+	    // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
         [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
          setCloseHandler:^{
-						// TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+		    // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
             // TODO: 종료 프로세스를 처리해주세요.
         }];
     }];

@@ -972,6 +972,14 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
                 // TODO : 处理关闭过程。
                 MainActivity.this.finish();
             }
+
+            @Override
+            public void onNext（Object obj）{
+                // TODO：“仪表板更新设置”中的“推荐”设置显示“下一步”按钮。
+                //当用户选择它时，将调用此按钮。
+                // TODO：请使用obj信息处理与登录完成相同的信息。
+                // GamePotUserInfo userInfo =（GamePotUserInfo）obj;
+            }
         });
     }
 
