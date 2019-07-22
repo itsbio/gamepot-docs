@@ -13,7 +13,7 @@ search:
 
 [ 系统环境 ]
 
-- 最低：IOS 10.0或更高
+- 最低：IOS 10.0 或更高
 - 开发环境：XCode
 
 #### Step 2. 添加 Freamwork
@@ -163,7 +163,7 @@ gamepot_naver_urlscheme : Naver Url Scheme
 - naversearchthirdlogin
 - navercafe
 
-将您在gamepot_naver_urlscheme中输入的值添加到**Info > URL Types**
+将您在 gamepot_naver_urlscheme 中输入的值添加到**Info > URL Types**
 
 ## 2. 初始化
 
@@ -495,7 +495,7 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 
 ## 6. 其他 API
 
-#### Coupon
+### Coupon
 
 ```objective-c
 #import <GamePot/GamePot.h>
@@ -513,7 +513,7 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 }];
 ```
 
-#### Push
+### Push
 
 ```objective-c
 #import <GamePot/GamePot.h>
@@ -548,11 +548,11 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 }];
 ```
 
-## 公告
+### 公告
 
 DashBoard - 在公告栏所上传图像显示的功能。
 
-### 调用
+#### 调用
 
 ```java
 [[GamePot getInstance] showNotice:/*viewController*/ setSchemeHandler:^(NSString *scheme) {
@@ -560,27 +560,27 @@ DashBoard - 在公告栏所上传图像显示的功能。
 }];
 ```
 
-## 客户中心
+### 客户中心
 
 DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗口。
 
-### 调用
+#### 调用
 
 ```java
 [[GamePot getInstance] showHelpWebView:(UIViewController *)];
 ```
 
-## 本地推送(Local Push notification)
+### 本地推送(Local Push notification)
 
 不通过推送服务器，直接在设备自行推送的功能。
 
-### 调用
+#### 调用
 
 #### 推送注册
 
 在指定时间显示本地推送的方法为如下。
 
-> 返回所传达的pushid值由开发公司来管理。
+> 返回所传达的 pushid 值由开发公司来管理。
 
 ```java
  NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -593,23 +593,23 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 #### 取消注册推送
 
-可以根据注册推送时所获得的pushid来取消现有的推送。
+可以根据注册推送时所获得的 pushid 来取消现有的推送。
 
 ```java
 [[GamePot getInstance] cancelLocalPush:(int)pushId];
 ```
 
-## 维护，强制更行
+### 维护，强制更行
 
 需要维护或者强制更新功能的时候， DashBoard - 运营中操作激活功能就可以使用。
 
-### 调用
+#### 调用
 
-在现有的下面API里可以使用。
+在现有的下面 API 里可以使用。
 
 #### 1. login API
 
-在现有login API里，把listener更改为`GamePotAppStatusChannelListener`。
+在现有 login API 里，把 listener 更改为`GamePotAppStatusChannelListener`。
 
 ```objective-c
 [[GamePotChannel getInstance] Login:GAMECENTER viewController:self
@@ -644,9 +644,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
     }];
 ```
 
-## 
-
-## 接受条款
+### 接受条款
 
 我们提供用户界面，以便轻松获取“使用条款”和“收集和使用个人信息指南”。
 
@@ -655,7 +653,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 - `BLUE`主题的例子![gamepot_unity_10](./images/gamepot_unity_10.png)
 - `GREEN`主题的例子![gamepot_unity_11](./images/gamepot_unity_11.png)
 
-### 征集协议
+#### 征集协议
 
 > 请同意协议弹出窗口的条款由开发人员处理。
 >
@@ -672,7 +670,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 }];
 ```
 
-### 定制
+#### 定制
 
 在不使用主题的情况下更改游戏的颜色。
 
@@ -713,7 +711,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
-## 服务条款
+### 服务条款
 
 调用使用条款 UI。
 
@@ -727,7 +725,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_unity_16](./images/gamepot_unity_16.png)
 
-## 隐私声明
+### 隐私声明
 
 调用隐私策略 UI。
 
