@@ -234,7 +234,7 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 // Twitter Login 사용 시
 #import <GamePotTwitter/GamePotTwitter.h>
 
-// Naver Login 사용 시 
+// Naver Login 사용 시
 #import <GamePotNaver/GamePotNaver.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -256,7 +256,7 @@ AppDelegate 파일에 아래 부분을 추가합니다.
     // Twitter 로그인 초기화
     GamePotChannelInterface* twitter = [[GamePotTwitter alloc] init];
     [[GamePotChannel getInstance] addChannelWithType:TWITTER interface:twitter];
-  
+
   	// Naver 로그인 초기화
 	  GamePotChannelInterface* naver = [[GamePotNaver alloc] init];
 	  [[GamePotChannel getInstance] addChannelWithType:NAVER interface:naver];
@@ -509,7 +509,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 ## 6. 기타 API
 
-#### 쿠폰
+### 쿠폰
 
 사용자에게 입력받은 쿠폰을 사용할 때 아래 코드를 호출해 주세요.
 
@@ -531,13 +531,13 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 }];
 ```
 
-##### 아이템 지급
+#### 아이템 지급
 
 쿠폰 사용이 성공하면 개발사 서버에 Server to server api를 통해 아이템 지급을 요청합니다.
 
 이를 위해선 `Server to server api` 메뉴에 `Item` 항목을 참고하여 처리하셔야 합니다.
 
-#### Push
+### Push
 
 ```objc
 #import <GamePot/GamePot.h>
@@ -565,11 +565,11 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 }];
 ```
 
-## 공지사항
+### 공지사항
 
 대시보드 - 공지사항에서 업로드한 이미지가 노출되는 기능입니다.
 
-### 호출
+#### 호출
 
 ```objc
 [[GamePot getInstance] showNotice:/*viewController*/ setSchemeHandler:^(NSString *scheme) {
@@ -577,21 +577,21 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 }];
 ```
 
-## 고객센터
+### 고객센터
 
 대시보드 - 고객센터와 연동되는 유저와 운영자간에 소통 채널입니다.
 
-### 호출
+#### 호출
 
 ```objc
 [[GamePot getInstance] showHelpWebView:(UIViewController *)];
 ```
 
-## 로컬 푸시(Local Push notification)
+### 로컬 푸시(Local Push notification)
 
 푸시 서버를 통하지 않고 단말기에서 자체적으로 푸시를 노출하는 기능입니다.
 
-### 호출
+#### 호출
 
 #### 푸시 등록
 
@@ -616,11 +616,11 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 [[GamePot getInstance] cancelLocalPush:(int)pushId];
 ```
 
-## 점검, 강제 업데이트
+### 점검, 강제 업데이트
 
 점검이나 강제 업데이트 기능이 필요한 경우 대시보드 - 운영에서 기능을 활성화할 경우 동작합니다.
 
-### 호출
+#### 호출
 
 기존에 적용된 아래 API에서 사용이 가능합니다.
 
@@ -659,7 +659,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
     }];
 ```
 
-## 약관 동의
+### 약관 동의
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
@@ -671,7 +671,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 \- `GREEN` 테마 예시 ![gamepot_unity_11](./images/gamepot_unity_11.png)
 
-### 약관 동의 호출
+#### 약관 동의 호출
 
 > 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
 >
@@ -689,7 +689,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 }];
 ```
 
-### Customizing
+#### Customizing
 
 테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
 
@@ -730,7 +730,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
-## 이용약관
+### 이용약관
 
 이용약관 UI를 호출합니다.
 
@@ -744,7 +744,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_unity_16](./images/gamepot_unity_16.png)
 
-## 개인정보 취급방침
+### 개인정보 취급방침
 
 개인정보 취급방침 UI를 호출합니다.
 
