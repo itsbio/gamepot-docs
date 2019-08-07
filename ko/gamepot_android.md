@@ -117,6 +117,8 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
        compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
        compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
        compile 'com.android.billingclient:billing:1.1'
+       compile 'com.github.bumptech.glide:glide:3.7.0'
+       compile 'com.romandanylyk:pageindicatorview:1.0.0'
        compile 'com.google.firebase:firebase-core:16.0.6'
        compile 'com.google.firebase:firebase-messaging:17.3.4'
        // GamePot common [END]
@@ -124,7 +126,7 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
        compile(name: 'gamepot-channel-base', ext: 'aar')
        // GamePot facebook [START]
        compile(name: 'gamepot-channel-facebook', ext: 'aar')
-       compile 'com.facebook.android:facebook-android-sdk:4.39.0'
+       compile 'com.facebook.android:facebook-android-sdk:5.2.0'
        // GamePot facebook [END]
    
        // GamePot google sigin [START]
