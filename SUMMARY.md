@@ -13,6 +13,7 @@
 - [Miscellaneous](ko/miscellaneous.md)
 - [Change Log](cn/changelog.md)
 - [FAQ](ko/gamepot_faq.md)
+- [Troubleshooting](ko/gamepot_troubleshooting.md)
 
 ## 中文
 
