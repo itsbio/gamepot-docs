@@ -3,9 +3,9 @@ search:
   keyword: ['gamepot']
 ---
 
-### 储值 API 对接方法
+#GAMEPOT Server> Game Server
 
-## Purchase
+## Purchase(required)
 
 支付完成后服务器会对游戏服务器请求发放物品。游戏服务会按照以下形式传达，依照此信息发放用户相关物品即可。
 
@@ -42,7 +42,7 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 | status    | Int    | 结果值 ( 0: 失败, 1: 成功 ) |
 | message   | String | 错误内容                    |
 
-## Item
+## Item(required)
 
 使用优惠卷时会对游戏服务器请求发放物品
 会依照以下形式来请求，游戏服务器就依照传达过来的内容发放给玩家相关物品即可。
@@ -80,7 +80,9 @@ https://{domain}?itemId=[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","stor
 | status    | Int    | 结果值 ( 0: 失败, 1: 成功 ) |
 | message   | String | 错误内容                    |
 
-## Authentication check
+#Game Server > GAMEPOT Server
+
+## Authentication check(optional)
 
 请求验证用户 ID
 

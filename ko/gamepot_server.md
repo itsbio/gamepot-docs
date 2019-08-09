@@ -3,7 +3,9 @@ search:
   keyword: ['gamepot']
 ---
 
-## Purchase Webhook
+# GAMEPOT 서버 > 게임 서버
+
+## Purchase Webhook(required)
 
 결제 완료 후에 GAMEPOT서버에서 게임 서버로 아이템 지급을 위해 HTTP 요청을 합니다.
 
@@ -48,7 +50,7 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 | status    | Int    | 결과값 ( 0: 실패, 1: 성공 ) |
 | message   | String | 오류 내용                   |
 
-## Item Webhook
+## Item Webhook(required)
 
 쿠폰 사용 후 GAMEPOT서버에서 게임 서버로 아이템 지급을 위해 HTTP 요청을 합니다.
 
@@ -92,7 +94,9 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 | status    | Int    | 결과값 ( 0: 실패, 1: 성공 ) |
 | message   | String | 오류 내용                   |
 
-## Token Authentication
+# GAMEPOT 서버 > 게임 서버
+
+## Token Authentication(optional)
 
 게임에서 로그인 완료 후 얻은 정보로 GAMEPOT 서버에 로그인 검증을 할 수 있습니다.
 
