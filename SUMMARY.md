@@ -12,6 +12,7 @@
 - [Server API](ko/gamepot_server.md)
 - [FAQ](ko/gamepot_faq.md)
 - [Troubleshooting](ko/gamepot_troubleshooting.md)
+- [3rd-party SDK](ko/gamepot_3rdparty.md)
 
 ## 中文
 
