@@ -1,8 +1,8 @@
-# 3rd-party SDK 적용 가이드
+# 3rd-party SDK 应用指南
 
-GAMEPOT SDK 이외에 적용하는 3rd-party SDK를 빌드애러 없이 게임 프로젝트에 적용하기 위한 가이드입니다.
+GAMEPOT SDK 此外，本指南还将“3rd-party SDK”应用于游戏项目而不会出现构建错误。
 
-> 각 SDK의 가이드를 기준으로 기술하며, API를 적용하는 방법은 각 SDK의 가이드를 참고하세요.
+> 这些指南基于每个 SDK 的指南，并参考每个 SDK 指南以了解如何应用 API。
 
 ## Adjust
 
