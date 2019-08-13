@@ -25,6 +25,7 @@
 - [iOS SDK](cn/gamepot_ios.md)
 - [Server API](cn/gamepot_server.md)
 - [FAQ](cn/gamepot_faq.md)
+- [3rd-party SDK](cn/gamepot_3rdparty.md)
 
 ## 日本
 
