@@ -44,6 +44,11 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Unity
 
+1. 다음 경로의 라이브러리 파일을 삭제해 주세요.
+
+`Assets/Plugins/Android/libs/installreferrer-1.0.aar`
+`Assets/Plugins/Android/libs/gamepot-bridge.aar`
+
 ## Appsflyer
 
 ### Android
