@@ -42,9 +42,9 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Unity
 
-## Singular ([Link](https://developers.singular.net/docs/android-sdk))
+## Singular 
 
-### Android (SDK 9.2.0)
+### Android (SDK 9.2.0) ([Link](https://developers.singular.net/docs/android-sdk))
 
 1. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
 
