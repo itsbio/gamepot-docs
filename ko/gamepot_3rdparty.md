@@ -28,11 +28,17 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Unity
 
+> 준비중입니다.
+
 ## Adbrix
 
 ### Android
 
+> 준비중입니다.
+
 ### iOS
+
+> 준비중입니다.
 
 ### Unity
 
@@ -47,6 +53,8 @@ Gamepot과 충돌 사항이 없습니다.
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
+> 준비중입니다.
+
 ### iOS
 
 ### Unity ([Link](https://developers.singular.net/docs/unity-sdk))
@@ -59,7 +67,13 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Android
 
+> 준비중입니다.
+
 ### iOS
 
+> 준비중입니다.
+
 ### Unity
+
+> 준비중입니다.
 
