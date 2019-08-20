@@ -46,7 +46,13 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Android (SDK 9.2.0) ([Link](https://developers.singular.net/docs/android-sdk))
 
-1. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
+1. 앱 수준의 `build.gradle` 에 패키지 추가시 아래 패키지는 이미 포함되어있으니 무시하세요.
+
+```java
+compile 'com.android.installreferrer:installreferrer:1.0'
+```
+
+2. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
 
 ```java
 <uses-permission android:name="android.permission.INTERNET" />
@@ -75,3 +81,16 @@ Gamepot과 충돌 사항이 없습니다.
 
 > 준비중입니다.
 
+## AdMob
+
+### Android ([Link](https://developers.google.com/admob/android/quick-start?hl=ko))
+
+Gamepot과 충돌 사항이 없습니다.
+
+### iOS
+
+> 준비중입니다.
+
+### Unity
+
+> 준비중입니다.
