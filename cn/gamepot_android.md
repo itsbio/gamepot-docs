@@ -258,11 +258,6 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 
 @Override
-protected void attachBaseContext(Context newBase) {
-    super.attachBaseContext(GamePotLocale.onAttach(newBase));
-}
-
-@Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     GamePot.getInstance().onActivityResult(requestCode, resultCode, data);
