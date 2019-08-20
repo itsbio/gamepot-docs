@@ -36,13 +36,20 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Unity
 
-## Singular
+## Singular ([Link](https://developers.singular.net/docs/android-sdk))
 
-### Android
+### Android (SDK 9.2.0)
+
+1. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
+
+```java
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
 
 ### iOS
 
-### Unity
+### Unity ([Link](https://developers.singular.net/docs/unity-sdk))
 
 1. 다음 경로의 라이브러리 파일을 삭제해 주세요.
 
