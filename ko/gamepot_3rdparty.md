@@ -91,6 +91,9 @@ Gamepot과 충돌 사항이 없습니다.
 
 > 준비중입니다.
 
-### Unity
+### Unity ([Link](https://developers.google.com/admob/unity/start))
 
-> 준비중입니다.
+1. 위 Link를 통해 플러그인을 게임 프로젝트에 import 합니다.
+2. `mainTemplate.gradle` 에서 아래와 같이 AdMob 안드로이드 프로젝트를 추가합니다.
+
+![gamepot-3rdparty-001](./images/gamepot-3rdparty-001.png)
