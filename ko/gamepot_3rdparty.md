@@ -42,6 +42,8 @@ Gamepot과 충돌 사항이 없습니다.
 
 ### Unity
 
+> 준비중입니다.
+
 ## Singular 
 
 ### Android (SDK 9.2.0) ([Link](https://developers.singular.net/docs/android-sdk))
@@ -59,7 +61,9 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-### iOS
+### iOS (SDK 9.2.0) ([Link](https://developers.singular.net/docs/ios-sdk))
+
+Gamepot과 충돌 사항이 없습니다.
 
 ### Unity ([Link](https://developers.singular.net/docs/unity-sdk))
 
@@ -87,9 +91,9 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 Gamepot과 충돌 사항이 없습니다.
 
-### iOS
+### iOS ([Link](https://developers.google.com/admob/ios/quick-start?hl=ko))
 
-> 준비중입니다.
+Gamepot과 충돌 사항이 없습니다.
 
 ### Unity ([Link](https://developers.google.com/admob/unity/start))
 
