@@ -87,9 +87,10 @@ Gamepot과 충돌 사항이 없습니다.
 
 ## AdMob
 
-### Android ([Link](https://developers.google.com/admob/android/quick-start?hl=ko))
+### Android ([Link](https://firebase.google.com/docs/admob/android/quick-start?hl=ko))
 
-Gamepot과 충돌 사항이 없습니다.
+1. Gamepot 서비스는 Firebase Messaging 서비스를 이용합니다.
+Admob with Firebase를 통해 설정해주세요.
 
 ### iOS ([Link](https://developers.google.com/admob/ios/quick-start?hl=ko))
 
@@ -101,3 +102,35 @@ Gamepot과 충돌 사항이 없습니다.
 2. `mainTemplate.gradle` 에서 아래와 같이 AdMob 안드로이드 프로젝트를 추가합니다.
 
 ![gamepot-3rdparty-001](./images/gamepot-3rdparty-001.png)
+
+## Admob Mediation (Admob SDK 17.2.0)
+
+### Android([Link](https://developers.google.com/admob/android/mediate))
+
+#### - Vungle([Link](https://developers.google.com/admob/android/mediation/vungle))
+
+1. Gamepot과 충돌 사항이 없습니다. (vungle sdk 6.3.24)
+
+#### - Unity Ads([Link](https://developers.google.com/admob/android/mediation/unity))
+
+1. 앱 수준의 `build.gradle` 에 패키지 추가시, 해당 패키지로 추가해주세요.
+
+```java
+compile 'com.google.ads.mediation:unity:3.1.0.0'
+```
+
+#### - Facebook([Link](https://developers.google.com/admob/android/mediation/facebook))
+
+1. 앱 수준의 `build.gradle` 에 패키지 추가시, 해당 패키지로 추가해주세요.
+
+```java
+compile 'com.google.ads.mediation:facebook:5.4.0.0'
+```
+
+### iOS
+
+> 준비중입니다.
+
+### Unity
+
+> 준비중입니다.
