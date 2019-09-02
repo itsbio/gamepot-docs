@@ -103,7 +103,7 @@ Gamepot과 충돌 사항이 없습니다.
 
 ![gamepot-3rdparty-001](./images/gamepot-3rdparty-001.png)
 
-## Admob Mediation (Admob SDK 17.2.0)
+## Admob Mediation (Google Play service Ads SDK 17.2.0)
 
 ### Android([Link](https://developers.google.com/admob/android/mediate))
 
