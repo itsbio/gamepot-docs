@@ -103,9 +103,10 @@ Gamepot과 충돌 사항이 없습니다.
 
 ![gamepot-3rdparty-001](./images/gamepot-3rdparty-001.png)
 
-## Admob Mediation (Google Play service Ads SDK 17.2.0)
+## Admob Mediation 
 
-### Android([Link](https://developers.google.com/admob/android/mediate))
+### Android([Link](https://developers.google.com/admob/android/mediate)) (Google Play service Ads SDK 17.2.0)
+*androidx 패키지로의 migration 이슈로 인해, 18.0.0 이상의 버전을 사용할 수 없습니다.*
 
 #### - Vungle([Link](https://developers.google.com/admob/android/mediation/vungle))
 
