@@ -130,23 +130,23 @@
 
 1. 원스토어 결제화면이 Sandbox 환경이었나요?
 
-- 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 등록되어 있는지 확인.
+   1. 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 등록되어 있는지 확인.	
 
-![gamepot_faq_07](./images/gamepot_faq_07.png)
+      ![gamepot_faq_07](./images/gamepot_faq_07.png)
 
-* 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (테스트사용자)** 가 등록되어 있는지 확인.
+   2. 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (테스트사용자)** 가 등록되어 있는지 확인.
 
-![gamepot_faq_16](./images/gamepot_faq_16.png)
+      ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
 2. 원스토어 결제화면이 Production 환경이었나요?
 
-* 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 **미사용** 혹은 **없는지** 확인.
+   1. 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 **미사용** 혹은 **없는지** 확인.
 
-![gamepot_faq_18](./images/gamepot_faq_18.png)
+      ![gamepot_faq_18](./images/gamepot_faq_18.png)
 
-* 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (서비스)** 에 등록되어 있는지 확인.
+   2. 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (서비스)** 에 등록되어 있는지 확인.
 
-![gamepot_faq_17](./images/gamepot_faq_17.png)
+      ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
 ## Adbrix Remaster
 
