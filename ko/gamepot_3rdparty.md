@@ -110,7 +110,7 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 #### - Vungle([Link](https://developers.google.com/admob/android/mediation/vungle))
 
-- Gamepot과 충돌 사항이 없습니다. (vungle sdk 6.3.24)
+- Gamepot과 충돌 사항이 없습니다. (Vungle sdk 6.3.24)
 
 #### - Unity Ads([Link](https://developers.google.com/admob/android/mediation/unity))
 
@@ -128,9 +128,19 @@ compile 'com.google.ads.mediation:unity:3.1.0.0'
 compile 'com.google.ads.mediation:facebook:5.4.0.0'
 ```
 
-### iOS
+### iOS ([Link](https://developers.google.com/admob/ios/mediate)) (Google Mobile Ads SDK 7.49.0)
 
-> 준비중입니다.
+#### - Vungle([Link](https://developers.google.com/admob/ios/mediation/vungle))
+
+- Gamepot과 충돌 사항이 없습니다. (Vungle sdk 6.3.2)
+
+#### - Unity Ads([Link](https://developers.google.com/admob/ios/mediation/unity))
+
+- Gamepot과 충돌 사항이 없습니다. (UnityAds sdk 3.2.0)
+
+#### - Facebook([Link](https://developers.google.com/admob/ios/mediation/facebook))
+
+- Gamepot과 충돌 사항이 없습니다. (iOS Audience Network sdk 5.5.0)
 
 ### Unity ([Link](https://developers.google.com/admob/unity/mediation)) 
 
