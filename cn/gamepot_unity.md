@@ -83,11 +83,11 @@ resValue "string", "[key]", "[value]"
 
 | 文件夹名称             | 大小  |
 | --------------------- | ----- |
-| res/drawable-mdpi/    | 24x24 |
-| res/drawable-hdpi/    | 36x36 |
-| res/drawable-xhdpi/   | 48x48 |
-| res/drawable-xxhdpi/  | 72x72 |
-| res/drawable-xxxhdpi/ | 96x96 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/ | 24x24 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/ | 36x36 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/ | 48x48 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/ | 72x72 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
 ##### 如何设置屏幕定向
 
