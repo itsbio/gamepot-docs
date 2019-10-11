@@ -27,7 +27,7 @@ search:
 minSdkVersion : API 17 (Jelly Bean, 4.2) 
 ```
 
-#####Gradle 환경 설정 방법
+##### Gradle 환경 설정 방법
 
 /Assets/Plugin/Android/mainTemplate.gradle 파일을 에디터로 엽니다.
 
@@ -67,7 +67,7 @@ resValue "string", "[key]", "[value]"
 | fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme  fb[app_id]           |
 | gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID ([자세히 보기](https://www.ncloud.com/product/analytics/elsa)) |
 
-#####노티바에 푸시 아이콘 변경 방법
+##### 노티바에 푸시 아이콘 변경 방법
 
 ![](./images/gamepot_unity_05.png)
 
@@ -102,7 +102,18 @@ resValue "string", "[key]", "[value]"
 
 Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
 
-#####Unity Build Settings
+##### Android Resolver Settings
+
+`Assets > Play Services Resolver > Android Resolver > Settings` 메뉴로 이동합니다.
+
+![](./images/gamepot_unity_resolver_01.png)
+
+`Enable Resolution On Build 체크박스를 해제` 해주세요. (GamePot Unity SDK GamePotUnityWithCrashlytics-2019-10-08 기준 적용)
+
+![](./images/gamepot_unity_resolver_02.png)
+
+
+##### Unity Build Settings
 
 `File > Build Settings > Build System` 메뉴에서 Gradle을 선택합니다.
 
