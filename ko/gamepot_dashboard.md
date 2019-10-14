@@ -57,7 +57,7 @@ NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 
 지정된 기간 동안의 각종 사용자 지표를 그래프로 나타냅니다.
 
-![gamepot-1-202a](./images/gamepot-1-202a.png)
+![gamepot-1-202A](./images/gamepot-1-202A.png)
 
 ① 기본적으로는 당일 기준 30일간의 사용자 지표를 출력하며, 기간 지정을 통하여 자유롭게 선택한 기간 동안 사용자 지표를 조회할 수 있습니다.
 
