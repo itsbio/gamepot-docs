@@ -42,9 +42,9 @@ implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 
 - Gamepot과 충돌 사항이 없습니다.
 
-### Unity
+### Unity([Link](https://github.com/adjust/unity_sdk#qs-get-sdk))
 
-> 준비중입니다.
+- Gamepot과 충돌 사항이 없습니다.
 
 ## Adbrix
 
