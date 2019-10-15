@@ -121,8 +121,9 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 ## Admob Mediation 
 
+*androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전을 사용할 수 없습니다.*
+
 ### Android([Link](https://developers.google.com/admob/android/mediate)) (Google Play service Ads SDK 17.2.0)
-*androidx 패키지로의 migration 이슈로 인해, 18.0.0 이상의 버전을 사용할 수 없습니다.*
 
 #### - Vungle([Link](https://developers.google.com/admob/android/mediation/vungle))
 
@@ -158,7 +159,7 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
 
 - Gamepot과 충돌 사항이 없습니다. (iOS Audience Network sdk 5.5.0)
 
-### Unity ([Link](https://developers.google.com/admob/unity/mediation)) 
+### Unity ([Link](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)) (Google Mobile Ads Unity Plugin v3.17)
 
 #### - Vungle([Link](https://developers.google.com/admob/unity/mediation/vungle))
 
