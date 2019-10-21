@@ -41,6 +41,7 @@ android {
 		...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_api_url", "" // required
+        resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
@@ -62,6 +63,7 @@ resValue "string", "[key]", "[value]"
 | ---------------------------- | ------------------------------------------------------------ |
 | gamepot_project_id           | 输入从GamePot获取的项目ID。                                  |
 | gamepot_api_url              | 输入从GamePot获取的API URL。                                 |
+| gamepot_dash_url             | 請輸入https://dashboard.gamepot.ntruss.com                   |
 | gamepot_store                | 渠道商城值 ( google or one )                                 |
 | gamepot_app_title            | 应用标题 (FCM)                                               |
 | gamepot_push_default_channel | 已注册的默认频道名称(Default) - 请勿更改。                   |
@@ -134,6 +136,7 @@ GAMEPOT不包括[危險許可](https://developer.android.com/guide/topics/permis
 |                                  | 说明                                                 |
 | -------------------------------- | ---------------------------------------------------- |
 | gamepot_project_id               | 输入从GamePot获取的项目ID                           |
+| gamepot_dash_url | 請輸入https://dashboard.gamepot.ntruss.com |
 | gamepot_facebook_app_id          | 从Facebook获取的应用ID                              |
 | gamepot_facebook_display_name    | 在Facebook所被显示的名称                             |
 | gamepot_google_app_id		       | GoogleService-Info文件的CLIENT_ID值             |

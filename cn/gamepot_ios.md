@@ -62,6 +62,7 @@ search:
 gamepot_project_id : GAMEPOT Project Id
 gamepot_elsa_projectid : GAMEPOT Log Project Id (optional)
 gamepot_api_url : GAMEPOT API URL
+gamepot_dash_url : "https://dashboard.gamepot.ntruss.com" 輸入。
 ```
 
 #### Step 6. 添加 Build 选项
