@@ -122,11 +122,9 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 
 데이터 무결성을 위해 클라이언트가 아닌 개발사 서버에서 진행 해주세요.
 
-> {API URL} 항목은 GAMEPOT 대시보드 주소에서 `:8080` 를 제외한 주소입니다.
-
 ```web-idl
 POST
-url : https://{API URL}/loginauth
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
 Header : 'content-type: application/json'
 data: 
 {
