@@ -31,6 +31,18 @@
 
 > 간헐적으로 최초 지원 이메일 설정 시 제대로 동작하는 경우가 발생하고 있습니다. 이 경우 다른 이메일로 변경하면 위 문제가 모두 해결되었습니다.
 
+####Q. APK를 직접 설치할때는 로그인이 되나, 스토어에 올린 앱을 다운받아서 로그인할땐 로그인이 되지 않습니다.
+
+####A. Google Developer Console에서 '앱 서명' 기능을 사용해서 그렇습니다.
+
+1. 콘솔에서 APK를 업로드 할 때 '앱 서명'을 활성화 하게 되면 keystore가 콘솔에서 관리하는 키로 교체되면서 발생하는 문제로 콘솔에서 관리하는 keystore의 sha-1값을 Firebase console에 추가해주셔야 합니다.
+
+![gamepot_faq_19](./images/gamepot_faq_19.png)
+
+2. 페이스북 로그인을 사용하는 경우, Facebook developer console에도 새로운 keystore의 keyhash 값을 추가해주셔야 합니다.
+
+![gamepot_faq_20](./images/gamepot_faq_20.png)
+
 #### Q. IOS에서 구글 로그인 시 오류 (401 오류 : disabled_client)가 발생 됩니다.
 
 #### A. Firebase 콘솔 설정에 지원 이메일이 설정 되어 있지 않아 문제가 발생 할 수 있습니다. 
