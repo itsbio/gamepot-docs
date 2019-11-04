@@ -98,7 +98,7 @@ https://{domain}?itemId=[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","stor
 
 ```web-idl
 POST
-url : https://{GamePot API URL}/loginauth
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
 Header : 'content-type: application/json'
 data:
 {
@@ -113,10 +113,6 @@ data:
 | projectId | String | GamePot SDK 的 projectId |
 | memberId  | String | GamePot SDK 的 memberId  |
 | token     | String | GamePot SDK 的 Token     |
-
-GamePot API URL : GamePot Dashboard 网址的 :8080 之前的网址。
-
-Dashboard 网址为 https://xxxxxxx.gamepot.ntruss.com:8080/aaaaaaa-aaaaaaa-aaaaaa/dashboard/analysis 的时候 [xxxxxxx.gamepot.ntruss.com](https://0bmnkzvhzd.gamepot.ntruss.com:8080/d1516c57-f7b5-41cc-a22c-8c0aaff56259/dashboard/analysis)就指这部分。
 
 ###Response
 
