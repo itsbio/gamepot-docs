@@ -4,9 +4,9 @@
 
 ### 로그인이 안 돼요!
 
-####Q. 로그인 시도시 바로 로그인 취소가 리턴됩니다.
+#### Q. 로그인 시도시 바로 로그인 취소가 리턴됩니다.
 
-####A. 필요한 환경이 올바로 설정 되지 않아 발생하는 현상입니다.
+#### A. 필요한 환경이 올바로 설정 되지 않아 발생하는 현상입니다.
 
 1. Firebase 설정 파일인 `google-service.json`파일이 프로젝트에 정상적으로 포함 됐는지 확인
 
@@ -31,9 +31,9 @@
 
 > 간헐적으로 최초 지원 이메일 설정 시 제대로 동작하는 경우가 발생하고 있습니다. 이 경우 다른 이메일로 변경하면 위 문제가 모두 해결되었습니다.
 
-####Q. APK를 직접 설치할때는 로그인이 되나, 스토어에 올린 앱을 다운받아서 로그인할땐 로그인이 되지 않습니다.
+#### Q. APK를 직접 설치할때는 로그인이 되나, 스토어에 올린 앱을 다운받아서 로그인할땐 로그인이 되지 않습니다.
 
-####A. Google Developer Console에서 '앱 서명' 기능을 사용해서 그렇습니다.
+#### A. Google Developer Console에서 '앱 서명' 기능을 사용해서 그렇습니다.
 
 1. 콘솔에서 APK를 업로드 할 때 '앱 서명'을 활성화 하게 되면 keystore가 콘솔에서 관리하는 키로 교체되면서 발생하는 문제로 콘솔에서 관리하는 keystore의 sha-1값을 Firebase console에 추가해주셔야 합니다.
 
@@ -53,7 +53,7 @@
 
 #### Q. iOS에서 구글 로그인 시 팝업이 발생 되는데 게임이름이 아닌 다른 값으로 노출 됩니다.
 
-####A.  Xcode >> Targets >> build Settings >> Product Name 항목의 값을 변경 해주시면 됩니다.
+#### A.  Xcode >> Targets >> build Settings >> Product Name 항목의 값을 변경 해주시면 됩니다.
 
 ![gamepot_faq_5](./images/gamepot_faq_ios_5.png)
 
@@ -109,7 +109,7 @@
 
 ### 결제가 안 돼요!
 
-####Q. '비정상 앱에서 결제가 요청되었습니다' 문구 노출됩니다.
+#### Q. '비정상 앱에서 결제가 요청되었습니다' 문구 노출됩니다.
 
 #### A. 오픈 전에 앱은 테스트 계정만 접근이 가능합니다. 아래 사항을 확인하세요.
 
@@ -196,9 +196,13 @@ lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 
 #### Q. iOS Naver Cafe 노출 시 영문으로 노출 됩니다.
 
-####A. XCode >> Targets>> Info >> Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
+#### A. XCode >> Targets>> Info >> Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
 
 
+## 서비스 런칭
 
+#### Q. iOS 플랫폼을 대상으로 서비스를 런칭할 예정입니다. 
+
+#### A. iOS App Store 의 경우, 앱 검수 기간이 1~2 주 가량 소요되기 때문에 2주 정도 여유기간을 두시고 리얼존 대시보드로 이전을 신청하셔야 원활한 진행이 가능합니다.
 
 
