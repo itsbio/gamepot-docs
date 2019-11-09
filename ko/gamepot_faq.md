@@ -16,14 +16,14 @@
 
 ![gamepot_faq_01](./images/gamepot_faq_01.png)
 
-* 구글 콘솔에서 `앱 서명`을 사용하는 경우 콘솔에서 만들어진 SHA-1값도 같이 넣어주셔야 합니다.
+- 구글 콘솔에서 `앱 서명`을 사용하는 경우 콘솔에서 만들어진 SHA-1값도 같이 넣어주셔야 합니다.
 
 3. APK가 아래 내용이 적용된 빌드가 맞는지 확인
 
    1. Firebase 콘솔에서 Andorid 앱에 추가한 Package name으로 빌드 여부
    2. SHA-1을 추출한 Keystore로 빌드 여부
-   
-2. Firbase 콘솔에 지원 이메일을 설정 했는지 확인 
+
+4. Firbase 콘솔에 지원 이메일을 설정 했는지 확인
 
 ![gamepot_faq_16](./images/gamepot_faq_ios_3.png)
 
@@ -45,7 +45,7 @@
 
 #### Q. IOS에서 구글 로그인 시 오류 (401 오류 : disabled_client)가 발생 됩니다.
 
-#### A. Firebase 콘솔 설정에 지원 이메일이 설정 되어 있지 않아 문제가 발생 할 수 있습니다. 
+#### A. Firebase 콘솔 설정에 지원 이메일이 설정 되어 있지 않아 문제가 발생 할 수 있습니다.
 
 지원 이메일을 설정 한 후 확인해주세요.
 
@@ -53,11 +53,9 @@
 
 #### Q. iOS에서 구글 로그인 시 팝업이 발생 되는데 게임이름이 아닌 다른 값으로 노출 됩니다.
 
-#### A.  Xcode >> Targets >> build Settings >> Product Name 항목의 값을 변경 해주시면 됩니다.
+#### A. Xcode >> Targets >> build Settings >> Product Name 항목의 값을 변경 해주시면 됩니다.
 
 ![gamepot_faq_5](./images/gamepot_faq_ios_5.png)
-
-
 
 ### 구글 결제가 안 돼요!
 
@@ -146,21 +144,21 @@
 
 **A-1. 원스토어 결제화면이 Sandbox 환경이었나요?**
 
-* 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 등록되어 있는지 확인.	
+- 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 등록되어 있는지 확인.
 
 ![gamepot_faq_07](./images/gamepot_faq_07.png)
 
-* 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (테스트사용자)** 가 등록되어 있는지 확인.
+- 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (테스트사용자)** 가 등록되어 있는지 확인.
 
 ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
 **A-2. 원스토어 결제화면이 Production 환경이었나요?**
 
-* 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 **미사용** 혹은 **없는지** 확인.
+- 게임팟 대시보드 - 프로젝트 설정 - 테스트 사용자 메뉴에 **결제/쿠폰** 으로 아이피가 **미사용** 혹은 **없는지** 확인.
 
 ![gamepot_faq_18](./images/gamepot_faq_18.png)
 
-* 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (서비스)** 에 등록되어 있는지 확인.
+- 게임팟 대시보드 - 프로젝트 설정 - Webhook 항목에 **결제 아이템 (서비스)** 에 등록되어 있는지 확인.
 
 ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
@@ -178,8 +176,6 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 
 ![gamepot_faq_15](./images/gamepot_faq_ios_2.png)
 
-
-
 #### Q. Adbrix Remaster 적용 후 AppStore 업로드 시 Error가 발생 됩니다.
 
 #### A. Adbrix Remaster 라이브러리가 x86_64, i386 아키텍쳐를 포함 하여 발생하는 문제 입니다. 아래와 같이 조치 후 다시 빌드 후 확인 해주세요.
@@ -190,19 +186,44 @@ lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 
 ![gamepot_faq_ios_4](./images/gamepot_faq_ios_4.png)
 
-
-
 ## Naver Cafe
 
 #### Q. iOS Naver Cafe 노출 시 영문으로 노출 됩니다.
 
 #### A. XCode >> Targets>> Info >> Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
 
-
 ## 서비스 런칭
 
-#### Q. iOS 플랫폼을 대상으로 서비스를 런칭할 예정입니다. 
+#### Q. iOS 플랫폼을 대상으로 서비스를 런칭할 예정입니다.
 
 #### A. iOS App Store 의 경우, 앱 검수 기간이 1~2 주 가량 소요되기 때문에 2주 정도 여유기간을 두시고 리얼존 대시보드로 이전을 신청하셔야 원활한 진행이 가능합니다.
 
+## 푸쉬
 
+#### Q. iOS에서 푸쉬 수신이 되지 않아요.
+
+#### A. SENS 설정에 Certification에 iOS 인증서가 등록되어 있는지 확인 부탁드립니다.
+
+1. SENS 설정에 Certification에 iOS 인증서가 등록되어 있는지 확인 부탁드립니다.
+
+   iOS는 빌드 시 사용 된 프로비저닝프로파일 타입에 따라 등록해야 하는 인증서가 다릅니다.
+
+   > Developement Provisioning >> Push Development 인증서 등록 Type은 Sandbox로 설정
+
+   > Adhoc / Distribution Provisioning >> Push Distribution 인증서 등록 Type은 Production으로 설정
+
+2. 인증서 등록 후 클라이언트에서 로그인까지 완료 되었는지 확인 부탁드립니다.
+
+   Gamepot은 푸쉬토큰을 로그인 완료 시 서버로 전달 합니다.
+
+   따라서 인증서를 등록하셨으면 Client에서 로그인까지 진행 후 확인 부탁드립니다.
+
+3. 앱이 Forground 상태 인지 확인해주세요.
+
+   iOS의 경우 앱이 Forground 인 상태에서는 푸쉬 수신이 되지 않습니다.
+
+   home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부탁드립니다.
+
+4. Xcode에서 build 시 Capability에 Push Notification이 포함 되어 있는지 확인 해주세요.
+
+   Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 포함 되지 않았는지 확인 부탁드립니다.
