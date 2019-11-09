@@ -212,7 +212,7 @@ lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 
    - Adhoc / Distribution Provisioning >> Push Distribution 인증서 등록 Type은 Production으로 설정
 
-2) 인증서 등록 후 클라이언트에서 로그인까지 완료 되었는지 확인 부탁드립니다.
+2. 인증서 등록 후 클라이언트에서 로그인까지 완료 되었는지 확인 부탁드립니다.
 
    Gamepot은 푸쉬토큰을 로그인 완료 시 서버로 전달 합니다.
 
@@ -224,6 +224,6 @@ lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 
    home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부탁드립니다.
 
-4) Xcode에서 build 시 Capability에 Push Notification이 포함 되어 있는지 확인 해주세요.
+4. Xcode에서 build 시 Capability에 Push Notification이 포함 되어 있는지 확인 해주세요.
 
    Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 포함 되지 않았는지 확인 부탁드립니다.
