@@ -1,6 +1,6 @@
 ---
 search:
-  keyword: ['gamepot']
+  keyword: ["gamepot"]
 ---
 
 ## 1. 入门
@@ -30,11 +30,12 @@ search:
 
 功能别 Dependencies
 
-| Service     | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Dependencies                                                                                                                                                                                  | bundle                                                  |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| 基本(Base)  | AFNetworking.framework<br />FirebaseAnalytics.framework<br />FirebaseCore.framework<br />FirebaseCoreDiagnostics.framework<br />FirebaseInstanceID.framework<br />FirebaseMessaging.framework<br />FirebaseNanoPB.framework<br />GamePot.framework<br />GoogleToolboxForMac.framework<br />nanopb.framework<br />Protobuf.framework<br />                                                                                                                                                                                                                                     | libz.tbd<br />WebKit.framework<br />UserNotifications.framework<br />                                                                                                                         | GamePot.bundle<br />                                    |
-| 登录(Login) | [ Base ]<br />GamePotChannel.framework<br /><br />[ Google Sign In ]<br />GamePotGoogleSignIn.framework<br/>GoogleSignIn.framework<br />GTMOAuth2.framework<br />GTMSessionFetcher.framework<br /><br />[ Facebook ]<br />Bolts.framework<br/>FBSDKCoreKit.framework<br />FBSDKLoginKit.framework<br />GamePotFacebook.framework<br /><br />[ LINE ]<br/>GamePotLine.framework<br/>LineSDK.framework<br/>LineSDKObjC.framework <br/><br/>[ Twitter ]<br/> GamePotTwitter.framework<br/>TwitterKit.framework (Dynamic Library)<br/>TwitterCore.framework(Dynamic Library)<br/> | [ Google Sign In ]<br />SafariServices.framework<br />[ Facebook ]<br />SafariServices.framework<br />[ LINE ]<br/>SafariServices.framework<br/>[ Twitter ]<br/>SafariServices.framework<br/> | [ Google Sign In ]<br />GoogleSignIn.bundle<br /><br /> |
-| GameCenter  | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                                               |                                                         |
+| Service     | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Dependencies                                                                                                                                                                                                                            | bundle                                                  |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| 基本(Base)  | AFNetworking.framework<br />FirebaseAnalytics.framework<br />FirebaseCore.framework<br />FirebaseCoreDiagnostics.framework<br />FirebaseInstanceID.framework<br />FirebaseMessaging.framework<br />FirebaseNanoPB.framework<br />GamePot.framework<br />GoogleToolboxForMac.framework<br />nanopb.framework<br />Protobuf.framework<br />                                                                                                                                                                                              | libz.tbd<br />WebKit.framework<br />UserNotifications.framework<br />                                                                                                                                                                   | GamePot.bundle<br />                                    |
+| 登录(Login) | [ Base ]<br />GamePotChannel.framework<br /><br />[ Google Sign In ]<br />GamePotGoogleSignIn.framework<br/>GoogleSignIn.framework<br />GoogleSignInDependencies.framework<br /><br />[ Facebook ]<br/>FBSDKCoreKit.framework<br />FBSDKLoginKit.framework<br />GamePotFacebook.framework<br /><br />[ LINE ]<br/>GamePotLine.framework<br/>LineSDK.framework<br/>LineSDKObjC.framework <br/><br/>[ Twitter ]<br/> GamePotTwitter.framework<br/>TwitterKit.framework (Dynamic Library)<br/>TwitterCore.framework(Dynamic Library)<br/> | [ Google Sign In ]<br />AuthenticationServices.framework<br/>LocalAuthentication.framework<br />[ Facebook ]<br />SafariServices.framework<br />[ LINE ]<br/>SafariServices.framework<br/>[ Twitter ]<br/>SafariServices.framework<br/> | [ Google Sign In ]<br />GoogleSignIn.bundle<br /><br /> |
+| GameCenter  | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |                                                                                                                                                                                                                                         |                                                         |
+| AppleID     | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                         |                                                         |
 
 ![gamepot-1-301](./images/gamepot-1-302.png)
 
@@ -163,6 +164,10 @@ gamepot_naver_urlscheme : Naver Url Scheme
 
 将您在 gamepot_naver_urlscheme 中输入的值添加到**Info > URL Types**
 
+#### Step13. AppleID 登录首选项
+
+**Xcode > TARGETS > Signing & Capabilities > + Capability > 添加 Sign In with Apple**
+
 ## 2. 初始化
 
 AppDelegate 文件里加上以下内容。
@@ -232,6 +237,9 @@ Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
 // 使用Facebook Login的时候
 #import <GamePotFacebook/GamePotFacebook.h>
 
+// 使用AppleID Login的时候
+#import <GamePotApple/GamePotApple.h>
+
 // 使用Line Login的时候
 #import <GamePotLine/GamePotLine.h>
 
@@ -252,6 +260,10 @@ Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
     // Facebook登录初始化
     GamePotChannelInterface* facebook   = [[GamePotFacebook alloc] init];
     [[GamePotChannelManager getInstance] addChannelWithType:FACEBOOK interface:facebook];
+
+    // AppleID 登录初始化
+    GamePotChannelInterface* apple      = [[GamePotApple alloc] init];
+    [[GamePotChannel getInstance] addChannelWithType:APPLE interface:apple];
 
     // Line 登录初始化
     GamePotChannelInterface* line = [[GamePotLine alloc] init];
@@ -293,6 +305,7 @@ Google/Facebook/Naver 等各种登录 SDK 可以集成使用。
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
 // GamePotChannelType.NAVER
+// GamePotChannelType.APPLE
 
 // 点击Google登录按钮的时候调用
 [[GamePotChannel getInstance] Login:GOOGLE viewController:self success:^(GamePotUserInfo* userInfo) {
@@ -391,6 +404,7 @@ else
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
 // GamePotChannelType.NAVER
+// GamePotChannelType.APPLE
 
 [[GamePotChannel getInstance] CreateLinking:GOOGLE viewController:self success:^(GamePotUserInfo *userInfo) {
 	// TODO : 绑定完成。使用游戏内的弹窗提示绑定完成结果。 (ex. 계정 연동에 성공했습니다.)
@@ -416,6 +430,7 @@ else
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
 // GamePotChannelType.NAVER
+// GamePotChannelType.APPLE
 
 // 返回定义类型的绑定结果
 BOOL isGoogleLinked = [[GamePotChannel getInstance] isLinked:GOOGLE];

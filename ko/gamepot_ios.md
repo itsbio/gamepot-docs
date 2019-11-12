@@ -1,6 +1,6 @@
 ---
 search:
-  keyword: ['gamepot']
+  keyword: ["gamepot"]
 ---
 
 ## 1. 시작하기
@@ -26,11 +26,12 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴(Xcode)을 설치해�
 
 서비스별 Dependencies
 
-| Service       | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Dependencies                                                                                                                                                                                  | bundle                                                  |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| 기본(Base)    | AFNetworking.framework<br />FirebaseAnalytics.framework<br />FirebaseCore.framework<br />FirebaseCoreDiagnostics.framework<br />FirebaseInstanceID.framework<br />FirebaseMessaging.framework<br />FirebaseNanoPB.framework<br />GamePot.framework<br />GoogleToolboxForMac.framework<br />nanopb.framework<br />Protobuf.framework<br />                                                                                                                                                                                                                                                   | libz.tbd<br />WebKit.framework<br />UserNotifications.framework<br />                                                                                                                         | GamePot.bundle<br />                                    |
-| 로그인(Login) | [ Base ]<br />GamePotChannel.framework<br /><br />[ Google Sign In ]<br />GamePotGoogleSignIn.framework<br/>GoogleSignIn.framework<br />GTMOAuth2.framework<br />GTMSessionFetcher.framework<br /><br />[ Facebook ]<br />Bolts.framework<br/>FBSDKCoreKit.framework<br />FBSDKLoginKit.framework<br />GamePotFacebook.framework<br /><br />[ LINE ]<br/>GamePotLine.framework<br/>LineSDK.framework<br/>LineSDKObjC.framework <br/><br/>[ Twitter ]<br/> GamePotTwitter.framework<br/>TwitterKit.framework (Dynamic Library로 추가)<br/>TwitterCore.framework(Dynamic Library로 추가)<br/> | [ Google Sign In ]<br />SafariServices.framework<br />[ Facebook ]<br />SafariServices.framework<br />[ LINE ]<br/>SafariServices.framework<br/>[ Twitter ]<br/>SafariServices.framework<br/> | [ Google Sign In ]<br />GoogleSignIn.bundle<br /><br /> |
-| GameCenter    | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                                               |                                                         |
+| Service       | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Dependencies                                                                                                                                                                                                                             | bundle                                                  |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| 기본(Base)    | AFNetworking.framework<br />FirebaseAnalytics.framework<br />FirebaseCore.framework<br />FirebaseCoreDiagnostics.framework<br />FirebaseInstanceID.framework<br />FirebaseMessaging.framework<br />FirebaseNanoPB.framework<br />GamePot.framework<br />GoogleToolboxForMac.framework<br />nanopb.framework<br />Protobuf.framework<br />                                                                                                                                                                                                             | libz.tbd<br />WebKit.framework<br />UserNotifications.framework<br />                                                                                                                                                                    | GamePot.bundle<br />                                    |
+| 로그인(Login) | [ Base ]<br />GamePotChannel.framework<br /><br />[ Google Sign In ]<br />GamePotGoogleSignIn.framework<br/>GoogleSignIn.framework<br />GoogleSignInDependencies.framework<br /><br />[ Facebook ]<br />FBSDKCoreKit.framework<br />FBSDKLoginKit.framework<br />GamePotFacebook.framework<br /><br />[ LINE ]<br/>GamePotLine.framework<br/>LineSDK.framework<br/>LineSDKObjC.framework <br/><br/>[ Twitter ]<br/> GamePotTwitter.framework<br/>TwitterKit.framework (Dynamic Library로 추가)<br/>TwitterCore.framework(Dynamic Library로 추가)<br/> | [ Google Sign In ]<br />AuthenticationServices.framework<br />LocalAuthentication.framework<br />[ Facebook ]<br />SafariServices.framework<br />[ LINE ]<br/>SafariServices.framework<br/>[ Twitter ]<br/>SafariServices.framework<br/> | [ Google Sign In ]<br />GoogleSignIn.bundle<br /><br /> |
+| GameCenter    | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                          |                                                         |
+| AppleID       | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                          |                                                         |
 
 ![gamepot-1-301](./images/gamepot-1-302.png)
 
@@ -157,6 +158,10 @@ gamepot_naver_urlscheme : Naver Url Scheme
 
 **Info > URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가 합니다.
 
+#### Step13. AppleID 로그인 환경 설정
+
+**Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple을 추가 합니다.**
+
 ## 2. 초기화
 
 AppDelegate 파일에 아래 부분을 추가합니다.
@@ -226,6 +231,9 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 // Facebook Login 사용 시
 #import <GamePotFacebook/GamePotFacebook.h>
 
+// AppleID Login 사용 시
+#import <GamePotApple/GamePotApple.h>
+
 // Line Login 사용 시
 #import <GamePotLine/GamePotLine.h>
 
@@ -246,6 +254,10 @@ AppDelegate 파일에 아래 부분을 추가합니다.
     // Facebook 로그인 초기화
     GamePotChannelInterface* facebook   = [[GamePotFacebook alloc] init];
     [[GamePotChannelManager getInstance] addChannelWithType:FACEBOOK interface:facebook];
+
+    // AppleID 로그인 초기화
+    GamePotChannelInterface* apple      = [[GamePotApple alloc] init];
+    [[GamePotChannel getInstance] addChannelWithType:APPLE interface:apple];
 
     // Line 로그인 초기화
     GamePotChannelInterface* line = [[GamePotLine alloc] init];
@@ -286,6 +298,7 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
 // GamePotChannelType.NAVER
+// GamePotChannelType.APPLE
 
 // 구글 로그인 버튼 클릭 시에 호출
 [[GamePotChannel getInstance] Login:GOOGLE viewController:self success:^(GamePotUserInfo* userInfo) {
@@ -388,6 +401,7 @@ Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
 // GamePotChannelType.NAVER
+// GamePotChannelType.APPLE
 
 [[GamePotChannel getInstance] CreateLinking:GOOGLE viewController:self success:^(GamePotUserInfo *userInfo) {
 	// TODO: 연동 완료. 게임 팝업으로 연동 결과에 대한 문구를 노출시켜 주세요.(예: 계정 연동에 성공했습니다.)
@@ -413,6 +427,7 @@ Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
 // GamePotChannelType.NAVER
+// GamePotChannelType.APPLE
 
 // 타입에 따른 연동 결과를 리턴합니다.
 BOOL isGoogleLinked = [[GamePotChannel getInstance] isLinked:GOOGLE];
