@@ -25,17 +25,17 @@ https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| userId | String | 사용자 UID |
-| transactionId | String | 주문번호\(GPA-xxxx-xxxx-\) |
-| store | String | 스토어 정보\(ios, google, one\) |
-| projectId | String | 프로젝트ID |
-| productId | String | 구글/애플/원스토어에 등록된 상품ID |
-| platform | String | 운영 Platform 정보 \(android, ios\) |
-| payment | String | 결제 방식 \( apple, google, one, danal, mycard, mol ... \) |
-| uniqueId | String | Unique id \(purchase api 호출 시 넣은 unique id\) |
-| gamepotOrderId | String | GAMEPOT Order id |
+| Attribute      | Type   | Description                                                |
+| :------------- | :----- | :--------------------------------------------------------- |
+| userId         | String | 사용자 UID                                                 |
+| transactionId  | String | 주문번호\(GPA-xxxx-xxxx-\)                                 |
+| store          | String | 스토어 정보\(ios, google, one\)                            |
+| projectId      | String | 프로젝트ID                                                 |
+| productId      | String | 구글/애플/원스토어에 등록된 상품ID                         |
+| platform       | String | 운영 Platform 정보 \(android, ios\)                        |
+| payment        | String | 결제 방식 \( apple, google, one, danal, mycard, mol ... \) |
+| uniqueId       | String | Unique id \(purchase api 호출 시 넣은 unique id\)          |
+| gamepotOrderId | String | GAMEPOT Order id                                           |
 
 #### Response
 
@@ -48,10 +48,10 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| status | Int | 결과값 \( 0: 실패, 1: 성공 \) |
-| message | String | 오류 내용 |
+| Attribute | Type   | Description                   |
+| :-------- | :----- | :---------------------------- |
+| status    | Int    | 결과값 \( 0: 실패, 1: 성공 \) |
+| message   | String | 오류 내용                     |
 
 ### Item Webhook\(required\)
 
@@ -68,18 +68,18 @@ https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| userId | String | 사용자 ID |
-| projectId | String | Project ID |
-| platform | String | 운영 Platform 정보 \(Android, IOS\) |
-| store | String | 스토어 정보\(ios, google, one\) |
-| userData | String | coupon api 호출 시 두 번째 파라미터에 넣은 값 |
-| itemId | Array | itemData Array  - itemData\(JSON\)   {"item\_id" : String, "store\_item\_id" : String, "count" : Number} |
+| Attribute | Type   | Description                                                                                        |
+| :-------- | :----- | :------------------------------------------------------------------------------------------------- |
+| userId    | String | 사용자 ID                                                                                          |
+| projectId | String | Project ID                                                                                         |
+| platform  | String | 운영 Platform 정보 \(Android, IOS\)                                                                |
+| store     | String | 스토어 정보\(ios, google, one\)                                                                    |
+| userData  | String | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
+| itemId    | Array  | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
 > ex\)
 >
-> [https://{domain}?itemId=\[{"item\_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store\_item\_id":"ttt","count":1}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb](https://{domain}?itemId=[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb)
+> [https://{domain}?itemId=\[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb](https://{domain}?itemId=[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb)
 
 #### Response
 
@@ -92,12 +92,12 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| status | Int | 결과값 \( 0: 실패, 1: 성공 \) |
-| message | String | 오류 내용 |
+| Attribute | Type   | Description                   |
+| :-------- | :----- | :---------------------------- |
+| status    | Int    | 결과값 \( 0: 실패, 1: 성공 \) |
+| message   | String | 오류 내용                     |
 
-## GAMEPOT 서버 &gt; 게임 서버
+## 게임 서버 &gt; GAMEPOT 서버
 
 ### Token Authentication\(optional\)
 
@@ -129,7 +129,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 POST
 url : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
 Header : 'content-type: application/json'
-data: 
+data:
 {
     "projectId": {GamePot SDK의 projectId},
     "memberId": {GamePot SDK의 memberId},
@@ -137,11 +137,11 @@ data:
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
+| Attribute | Type   | Description             |
+| :-------- | :----- | :---------------------- |
 | projectId | String | GamePot SDK의 projectId |
-| memberId | String | GamePot SDK의 memberId |
-| token | String | GamePot SDK의 Token |
+| memberId  | String | GamePot SDK의 memberId  |
+| token     | String | GamePot SDK의 Token     |
 
 #### Response
 
@@ -156,17 +156,16 @@ data:
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| status | Int | 결과값 \(1: 성공, 실패는 아래 Error code 참고\) |
-| message | String | 오류 내용 |
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 아래 Error code 참고\) |
+| message   | String | 오류 내용                                       |
 
 #### Error code
 
-| Code | Description |
-| :--- | :--- |
-| 0 | Body에 누락된 데이터가 있는 경우 HTTP 요청 시 projectId, memberId, token을 모두 넣었는지 확인해 주세요. |
-| -1 | Token 검증 실패 Token이 조작된 경우 |
-| -2 | MemberId 검증 실패 Token의 MemberId 정보와 body의 MemberId가 일치하지 않은 경우 |
-| -3 | Token 만료 SDK login api가 성공한 시각과 해당 Authentication check를 요청한 시각이 10분 이상 차이가 발생한 경우 |
-
+| Code | Description                                                                                                     |
+| :--- | :-------------------------------------------------------------------------------------------------------------- |
+| 0    | Body에 누락된 데이터가 있는 경우 HTTP 요청 시 projectId, memberId, token을 모두 넣었는지 확인해 주세요.         |
+| -1   | Token 검증 실패 Token이 조작된 경우                                                                             |
+| -2   | MemberId 검증 실패 Token의 MemberId 정보와 body의 MemberId가 일치하지 않은 경우                                 |
+| -3   | Token 만료 SDK login api가 성공한 시각과 해당 Authentication check를 요청한 시각이 10분 이상 차이가 발생한 경우 |
