@@ -179,7 +179,7 @@ public class GamePotLoginSampleScene : MonoBehaviour {
 }
 
 ex)
-public class GamePotSampleListener : MonoBehaviour , NSDKInterface {
+public class GamePotSampleListener : MonoBehaviour , IGamePot {
     ....
 }
 ```
