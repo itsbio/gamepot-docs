@@ -117,15 +117,17 @@ _androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0
 1. 위 Link를 통해 플러그인(v3.17.0)을 게임 프로젝트에 import 합니다.
 
 2. `mainTemplate.gradle` 에서 아래와 같이 AdMob 안드로이드 프로젝트를 추가합니다.
-    ![gamepot-3rdparty-001](../.gitbook/assets/gamepot-3rdparty-001.png)
+
+![gamepot-3rdparty-001](../.gitbook/assets/gamepot-3rdparty-001.png)
 
 3. AdMob 모바일 광고 SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다. (AdMob 가이드 참조)
 
     - Android Resolver의 Resolve 기능 사용 후, 기존 게임팟 SDK와 중복되는 라이브러리도 복사됩니다.
 
-    - 이때, AdMob SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 해당 목록은 아래와 같습니다.
-    
-    | |
+    - 이때, AdMob SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
+    - 제거해야 할 라이브러리 목록은 아래와 같습니다.
+
+   | |
    | :---  |
    | 1. core-common-1.1.0.jar |
    | 2. lifecycle-common-1.1.0.jar |
