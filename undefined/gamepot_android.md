@@ -16,18 +16,18 @@ Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같�
 
 \[ 시스템 환경 \]
 
-* 최소사항: API 17 \(Jelly Bean, 4.2\) 이상, gradle 2.3.0 이상
-* 개발 환경: Android Studio
+- 최소사항: API 17 \(Jelly Bean, 4.2\) 이상, gradle 2.3.0 이상
+- 개발 환경: Android Studio
 
 #### 프로젝트 생성
 
-![gamepot\_android\_01](../.gitbook/assets/gamepot_android_01%20%281%29.png)
+![gamepot_android_01](../.gitbook/assets/gamepot_android_01%20%281%29.png)
 
 #### 라이브러리 추가
 
 다운로드한 AOS SDK 파일을 app/libs 폴더에 추가합니다.
 
-![gamepot\_android\_01](../.gitbook/assets/gamepot_android_02%20%285%29.png)
+![gamepot_android_01](../.gitbook/assets/gamepot_android_02%20%285%29.png)
 
 #### build.gradle 설정
 
@@ -66,16 +66,17 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
    > \[xxxxx\]에는 실제 적용될 값을 넣습니다.
 
-   | 값 | 설명 |
-   | :--- | :--- |
-   | gamepot\_project\_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-   | gamepot\_api\_url | GAMEPOT에서 발급받은 API URL을 입력해 주세요. |
-   | gamepot\_store | 스토어값\(`google` 또는 `one`\) |
-   | gamepot\_app\_title | 앱 제목 \(FCM\) |
-   | gamepot\_push\_default\_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
-   | facebook\_app\_id | 페이스북 발급 받은 앱ID |
-   | fb\_login\_protocol\_scheme | 페이스북에서 발급 받은 protocol scheme  fb\[app\_id\] |
-   | gamepot\_elsa\_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+   | 값                           | 설명                                                                                           |
+   | :--------------------------- | :--------------------------------------------------------------------------------------------- |
+   | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
+   | gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                                                  |
+   | gamepot_store                | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)                                                 |
+   | gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
+   | gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
+   | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
+   | facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
+   | fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
+   | gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
    ```java
    android {
@@ -85,6 +86,7 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
            resValue "string", "gamepot_project_id", "[projectId]" // required
            resValue "string", "gamepot_api_url", "[apiUrl]" // required
            resValue "string", "gamepot_store", "[storeId]" // required
+           resValue "string", "gamepot_payment", "[storeId]" // optional
            resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
            resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
            resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
@@ -92,6 +94,10 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
            resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
            // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
            // GamePot [END]
+       }
+
+       packagingOptions {
+           exclude 'META-INF/proguard/androidx-annotations.pro'
        }
    }
 
@@ -124,6 +130,8 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
        compile 'com.romandanylyk:pageindicatorview:1.0.0'
        compile 'com.google.firebase:firebase-core:16.0.6'
        compile 'com.google.firebase:firebase-messaging:17.3.4'
+       compile 'androidx.sqlite:sqlite-framework:2.0.1'
+       compile 'com.cookpad.puree:puree:4.1.6'
        // GamePot common [END]
 
        compile(name: 'gamepot-channel-base', ext: 'aar')
@@ -148,14 +156,15 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
    Android Studio에서 아래 버튼을 클릭하여 새로고침합니다.
 
-![gamepot\_android\_03](../.gitbook/assets/gamepot_android_03%20%283%29.png)
+![gamepot_android_03](../.gitbook/assets/gamepot_android_03%20%283%29.png)
 
-* 새로고침을 누른 후 발생할 수 있는 실패
-  * Configuration 'compile' is obsolete and has been replaced with 'implementation' and 'api'. It will be removed at the end of 2018. For more information see: [http://d.android.com/r/tools/update-dependency-configurations.html](http://d.android.com/r/tools/update-dependency-configurations.html)
+- 새로고침을 누른 후 발생할 수 있는 실패
+
+  - Configuration 'compile' is obsolete and has been replaced with 'implementation' and 'api'. It will be removed at the end of 2018. For more information see: [http://d.android.com/r/tools/update-dependency-configurations.html](http://d.android.com/r/tools/update-dependency-configurations.html)
 
     > Gradle 버전을 3 이상 쓰시는 경우 compile을 implementation
 
-  * No matching client found for package name 'packagename'
+  - No matching client found for package name 'packagename'
 
     > app의 패키지명과 google-service.json에 선언된 패키지명을 일치하도록 변경해주세요.
 
@@ -165,7 +174,7 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
 > 권장 사항으로 개발사 판단하에 적용 여부를 검토해주세요.
 
-```markup
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -199,7 +208,7 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
 #### Push Notification 아이콘 설정
 
-![gamepot\_android\_04](../.gitbook/assets/gamepot_android_04%20%284%29.png)
+![gamepot_android_04](../.gitbook/assets/gamepot_android_04%20%284%29.png)
 
 푸시 수신 시 Notification bar에 보여줄 icon은 기본적으로 SDK 내부의 기본 이미지로 처리되며, 게임에 맞게 직접 넣을 수도 있습니다.
 
@@ -208,26 +217,26 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 > [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
 
 1. res/drawable 관련 폴더를 아래와 같이 생성
-   * res/drawable-mdpi/
-   * res/drawable-hdpi/
-   * res/drawable-xhdpi/
-   * res/drawable-xxhdpi/
-   * res/drawable-xxxhdpi/
+   - res/drawable-mdpi/
+   - res/drawable-hdpi/
+   - res/drawable-xhdpi/
+   - res/drawable-xxhdpi/
+   - res/drawable-xxxhdpi/
 2. 아래 사이즈별로 이미지 제작
-   * 24x24
-   * 36x36
-   * 48x48
-   * 72x72
-   * 96x96
+   - 24x24
+   - 36x36
+   - 48x48
+   - 72x72
+   - 96x96
 3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
 
-| 폴더명 | 사이즈 |
-| :--- | :--- |
-| res/drawable-mdpi/ | 24x24 |
-| res/drawable-hdpi/ | 36x36 |
-| res/drawable-xhdpi/ | 48x48 |
-| res/drawable-xxhdpi/ | 72x72 |
-| res/drawable-xxxhdpi/ | 96x96 |
+| 폴더명                | 사이즈 |
+| :-------------------- | :----- |
+| res/drawable-mdpi/    | 24x24  |
+| res/drawable-hdpi/    | 36x36  |
+| res/drawable-xhdpi/   | 48x48  |
+| res/drawable-xxhdpi/  | 72x72  |
+| res/drawable-xxxhdpi/ | 96x96  |
 
 1. 이미지 파일명을 `ic_stat_gamepot_small`로 변경
 
@@ -257,6 +266,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 protected void onStart() {
     super.onStart();
     GamePotChat.getInstance().start();
+    GamePot.getInstance().onStart(this);
 }
 
 @Override
@@ -282,7 +292,7 @@ APK 빌드 시 사용한 Keystore의 SHA-1 값을 Firebase console에 추가합�
 
 > SHA-1 값은 개발사에 요청합니다.
 
-![gamepot\_android\_05](../.gitbook/assets/gamepot_android_05%20%281%29.png)
+![gamepot_android_05](../.gitbook/assets/gamepot_android_05%20%281%29.png)
 
 ### 페이스북 콘솔 설정
 
@@ -290,7 +300,7 @@ APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 �
 
 > 키 해시 값은 개발사에 요청합니다.
 
-![gamepot\_android\_06](../.gitbook/assets/gamepot_android_06%20%285%29.png)
+![gamepot_android_06](../.gitbook/assets/gamepot_android_06%20%285%29.png)
 
 ### 설정
 
@@ -891,7 +901,10 @@ JSONObject status = GamePot.getInstance().getPushStatus();
 #### 호출
 
 ```java
-GamePot.getInstance().showNotice(/*현재 액티비티*/, new GamePotNoticeDialog.onSchemeListener() {
+/* showTodayButton : '오늘 하루 보지 않기' 버튼 노출 여부. false인 경우 무조건 노출 */
+boolean showTodayButton = true;
+
+GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
         // TODO : scheme 처리
@@ -899,14 +912,24 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, new GamePotNoticeDialo
 });
 ```
 
-### 고객센터
+### 고객지원
 
-대시보드 - 고객센터와 연동되는 유저와 운영자간에 소통 채널입니다.
+대시보드 - 고객지원 - 고객문의와 연동되는 유저와 운영자간에 소통 채널입니다.
 
 #### 호출
 
 ```java
 GamePot.getInstance().showCSWebView(/*현재 액티비티*/);
+```
+
+### FAQ
+
+대시보드 - 고객지원 - FAQ와 연동되는 FAQ 목록입니다.
+
+#### 호출
+
+```java
+GamePot.getInstance().showFaq(/*현재 액티비티*/);
 ```
 
 ### 로컬 푸시\(Local Push notification\)
@@ -1011,13 +1034,13 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 `BLUE` 테마와 `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
 
-* `BLUE` 테마 예시
+- `BLUE` 테마 예시
 
-  ![gamepot\_unity\_10](../.gitbook/assets/gamepot_unity_10%20%284%29.png)
+  ![gamepot_unity_10](../.gitbook/assets/gamepot_unity_10%20%284%29.png)
 
-* `GREEN` 테마 예시
+- `GREEN` 테마 예시
 
-  ![gamepot\_unity\_11](../.gitbook/assets/gamepot_unity_11%20%286%29.png)
+  ![gamepot_unity_11](../.gitbook/assets/gamepot_unity_11%20%286%29.png)
 
 #### 약관 동의 호출
 
@@ -1027,7 +1050,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 Request:
 
-```csharp
+```java
 // 기본 호출(BLUE 테마로 적용)
 GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), new GamePotListener<GamePotAgreeInfo>() {
     @Override
@@ -1056,7 +1079,7 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener
 
 약관 동의를 호출하기 전에 `GamePotAgreeBuilder`에서 각 영역별로 색을 지정할 수 있습니다.
 
-```text
+```java
 GamePotAgreeBuilder agreeBuilder= new GamePotAgreeBuilder();
 agreeBuilder.setHeaderBackGradient(new int[] {0xFF00050B,0xFF0F1B21});
 agreeBuilder.setHeaderTitleColor(0xFFFF0000);
@@ -1097,7 +1120,7 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotLis
 
 > contentIconDrawable의 기본 이미지는 푸시 아이콘으로 설정됩니다.
 
-![gamepot\_unity\_12](../.gitbook/assets/gamepot_unity_12%20%286%29.png)
+![gamepot_unity_12](../.gitbook/assets/gamepot_unity_12%20%286%29.png)
 
 ### 이용약관
 
@@ -1125,3 +1148,44 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().showPrivacy(activity);
 ```
 
+### 게임 로그 전송
+
+게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
+
+아래는 사용할 수 있는 예약어 정의 표 입니다.
+
+| 예약어                            | 필수 | 타입   | 설명         |
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+
+```java
+import android.text.TextUtils;
+
+import io.gamepot.common.GamePotSendLogCharacter;
+import io.gamepot.common.GamePotSendLog;
+
+String name = "케릭터명";
+String level = "10";
+String serverid = "svn_001";
+String playerid = "283282191001";
+String userdata = "";
+
+GamePotSendLogCharacter obj = new GamePotSendLogCharacter();
+if(!TextUtils.isEmpty(name))
+    obj.put(GamePotSendLogCharacter.NAME, name);
+if(!TextUtils.isEmpty(level))
+    obj.put(GamePotSendLogCharacter.LEVEL, level);
+if(!TextUtils.isEmpty(serverid))
+    obj.put(GamePotSendLogCharacter.SERVER_ID, serverid);
+if(!TextUtils.isEmpty(playerid))
+    obj.put(GamePotSendLogCharacter.PLAYER_ID, playerid);
+if(!TextUtils.isEmpty(playerid))
+    obj.put(GamePotSendLogCharacter.USERDATA, userdata);
+
+// result : 로그 전송 성공 true, 그렇지 않으면 false
+boolean result = GamePotSendLog.characterInfo(obj);
+```
