@@ -17,7 +17,8 @@ GAMEPOT SDK 이외에 적용하는 3rd-party SDK를 빌드에러 없이 게임 �
 ### Unity \([Link](https://github.com/naver/cafe-sdk-unity)\)
 
 1. Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
-    ![gamepot-3rdparty-002](../.gitbook/assets/gamepot-3rdparty-002.png)
+
+![gamepot-3rdparty-002](../.gitbook/assets/gamepot-3rdparty-002.png)
 
 ## Adjust
 
@@ -120,14 +121,15 @@ _androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0
 
 ![gamepot-3rdparty-001](../.gitbook/assets/gamepot-3rdparty-001.png)
 
-3. AdMob 모바일 광고 SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다. (AdMob 가이드 참조)
+3. AdMob SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다. (AdMob 가이드 참조)
 
-    - Android Resolver의 Resolve 기능 사용 후, 기존 게임팟 SDK와 중복되는 라이브러리도 복사됩니다.
+    - Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
+    
+    - AdMob SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
 
-    - 이때, AdMob SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
     - 제거해야 할 라이브러리 목록은 아래와 같습니다.
 
-   | |
+     | |
    | :---  |
    | 1. core-common-1.1.0.jar |
    | 2. lifecycle-common-1.1.0.jar |
@@ -143,7 +145,7 @@ _androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0
    | 12. play-services-ads-identifier-16.0.0.aar |
    | 13. play-services-basement-16.2.0.aar |
    | 14. play-services-measurement-base-16.0.5.aar |
-   | |
+
 
 ## Admob Mediation
 
