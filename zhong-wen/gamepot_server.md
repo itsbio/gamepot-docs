@@ -19,17 +19,17 @@ https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| userId | String | 用户 UID |
-| transactionId | String | transaction id of Google/Apple/Onestore \(ex. Google is “GPA.0000-0000-0000-00000”\) |
-| store | String | 渠道信息\(ios, google, one\) |
-| projectId | String | ProjectID |
-| productId | String | Google/Apple/Onestore 的商品 ID |
-| platform | String | 平台 Platform 信息 \(android, ios\) |
-| payment | String | 储值方式 \(apple, google, one, mycard, mol\) |
-| uniqueId | String | Unique ID（称为 purchase API 时的 unique id） |
-| gamepotOrderId | String | GAMEPOT Order id |
+| Attribute      | Type   | Description                                                                          |
+| :------------- | :----- | :----------------------------------------------------------------------------------- |
+| userId         | String | 用户 UID                                                                             |
+| transactionId  | String | transaction id of Google/Apple/Onestore \(ex. Google is “GPA.0000-0000-0000-00000”\) |
+| store          | String | 渠道信息\(apple, google, one\)                                                       |
+| projectId      | String | ProjectID                                                                            |
+| productId      | String | Google/Apple/Onestore 的商品 ID                                                      |
+| platform       | String | 平台 Platform 信息 \(android, ios\)                                                  |
+| payment        | String | 储值方式 \(apple, google, one, mycard, mol\)                                         |
+| uniqueId       | String | Unique ID（称为 purchase API 时的 unique id）                                        |
+| gamepotOrderId | String | GAMEPOT Order id                                                                     |
 
 #### Response
 
@@ -40,10 +40,10 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| status | Int | 结果值 \( 0: 失败, 1: 成功 \) |
-| message | String | 错误内容 |
+| Attribute | Type   | Description                   |
+| :-------- | :----- | :---------------------------- |
+| status    | Int    | 结果值 \( 0: 失败, 1: 成功 \) |
+| message   | String | 错误内容                      |
 
 ### Item\(required\)
 
@@ -56,16 +56,16 @@ https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| userId | String | 用户 UID |
-| projectId | String | ProjectID |
-| platform | String | 平台 Platform 信息 \(Android, IOS\) |
-| store | String | 渠道信息\(ios, google, one\) |
-| userData | String | User data |
-| itemID | Array | itemData Array  - itemData\(JSON\)   {"item\_id" : String, "store\_item\_id" : String, "count" : Number} |
+| Attribute | Type   | Description                                                                                        |
+| :-------- | :----- | :------------------------------------------------------------------------------------------------- |
+| userId    | String | 用户 UID                                                                                           |
+| projectId | String | ProjectID                                                                                          |
+| platform  | String | 平台 Platform 信息 \(Android, IOS\)                                                                |
+| store     | String | 渠道信息\(apple, google, one\)                                                                     |
+| userData  | String | User data                                                                                          |
+| itemID    | Array  | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
-ex\) [https://{domain}?itemId=\[{"item\_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","store\_item\_id":"000","count":1},{"item\_id":"989caae1-5f70-41d9-b797-2e27cc838cb0","store\_item\_id":"rrr","count":2}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userData=abcdefg&userId=25dcea66-0719-4d18-8dcd-9b7f638f85e4](https://{domain}?itemId=[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","store_item_id":"000","count":1},{"item_id":"989caae1-5f70-41d9-b797-2e27cc838cb0","store_item_id":"rrr","count":2}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userData=abcdefg&userId=25dcea66-0719-4d18-8dcd-9b7f638f85e4)
+ex\) [https://{domain}?itemId=\[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","store_item_id":"000","count":1},{"item_id":"989caae1-5f70-41d9-b797-2e27cc838cb0","store_item_id":"rrr","count":2}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userData=abcdefg&userId=25dcea66-0719-4d18-8dcd-9b7f638f85e4](https://{domain}?itemId=[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","store_item_id":"000","count":1},{"item_id":"989caae1-5f70-41d9-b797-2e27cc838cb0","store_item_id":"rrr","count":2}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userData=abcdefg&userId=25dcea66-0719-4d18-8dcd-9b7f638f85e4)
 
 #### Response
 
@@ -76,10 +76,10 @@ ex\) [https://{domain}?itemId=\[{"item\_id":"d892ee43-d516-43c2-b16f-3ca5672e816
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| status | Int | 结果值 \( 0: 失败, 1: 成功 \) |
-| message | String | 错误内容 |
+| Attribute | Type   | Description                   |
+| :-------- | :----- | :---------------------------- |
+| status    | Int    | 结果值 \( 0: 失败, 1: 成功 \) |
+| message   | String | 错误内容                      |
 
 ## Game Server &gt; GAMEPOT Server
 
@@ -109,11 +109,11 @@ data:
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
+| Attribute | Type   | Description              |
+| :-------- | :----- | :----------------------- |
 | projectId | String | GamePot SDK 的 projectId |
-| memberId | String | GamePot SDK 的 memberId |
-| token | String | GamePot SDK 的 Token |
+| memberId  | String | GamePot SDK 的 memberId  |
+| token     | String | GamePot SDK 的 Token     |
 
 #### Response
 
@@ -124,17 +124,16 @@ data:
 }
 ```
 
-| Attribute | Type | Description |
-| :--- | :--- | :--- |
-| status | Int | 结果值 \(1: 成功, 请参阅下面的错误代码以了解错误。\) 如果不是 1，请限制登录。 |
-| message | String | 错误内容 |
+| Attribute | Type   | Description                                                                   |
+| :-------- | :----- | :---------------------------------------------------------------------------- |
+| status    | Int    | 结果值 \(1: 成功, 请参阅下面的错误代码以了解错误。\) 如果不是 1，请限制登录。 |
+| message   | String | 错误内容                                                                      |
 
 #### 错误代码
 
-| Code | Description |
-| :--- | :--- |
-| 0 | 缺少数据 确保包含 projectId，memberId 和 token。 |
-| -1 | 令牌验证失败 令牌已被篡改。 |
-| -2 | MemberId 验证失败 如果令牌的 MemberId 与正文的 MemberId 不匹配 |
-| -3 | 过期令牌 SDK 登录 api 通话时间和认证检查请求时间差超过 10 分钟 |
-
+| Code | Description                                                    |
+| :--- | :------------------------------------------------------------- |
+| 0    | 缺少数据 确保包含 projectId，memberId 和 token。               |
+| -1   | 令牌验证失败 令牌已被篡改。                                    |
+| -2   | MemberId 验证失败 如果令牌的 MemberId 与正文的 MemberId 不匹配 |
+| -3   | 过期令牌 SDK 登录 api 通话时间和认证检查请求时间差超过 10 分钟 |

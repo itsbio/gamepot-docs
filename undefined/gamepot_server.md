@@ -29,7 +29,7 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 | :------------- | :----- | :--------------------------------------------------------- |
 | userId         | String | 사용자 UID                                                 |
 | transactionId  | String | 주문번호\(GPA-xxxx-xxxx-\)                                 |
-| store          | String | 스토어 정보\(ios, google, one\)                            |
+| store          | String | 스토어 정보\(apple, google, one\)                          |
 | projectId      | String | 프로젝트ID                                                 |
 | productId      | String | 구글/애플/원스토어에 등록된 상품ID                         |
 | platform       | String | 운영 Platform 정보 \(android, ios\)                        |
@@ -73,7 +73,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 | userId    | String | 사용자 ID                                                                                          |
 | projectId | String | Project ID                                                                                         |
 | platform  | String | 운영 Platform 정보 \(Android, IOS\)                                                                |
-| store     | String | 스토어 정보\(ios, google, one\)                                                                    |
+| store     | String | 스토어 정보\(apple, google, one\)                                                                  |
 | userData  | String | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
 | itemId    | Array  | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
