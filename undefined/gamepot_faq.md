@@ -2,6 +2,8 @@
 
 ## 로그인이 안 돼요!
 
+ > 소셜 로그인 기능의 경우, 기본적으로 해당 플랫폼의 개발 가이드를 기준으로 합니다. 문제 발생 시, 해당 플랫폼의 로그인 개발 가이드를 먼저 확인 해주세요.
+ 
 ### 1. Google 로그인
 
 #### 1-1)
@@ -10,10 +12,12 @@
     # A. 필요한 환경이 올바로 설정 되지 않아 발생하는 현상입니다. 
 
 1. Firebase 설정 파일인 `google-service.json`파일이 프로젝트에 정상적으로 포함 됐는지 확인
+
 2. (AOS) APK 빌드 시 사용한 Keystore의 SHA-1값을 Firebase Console에 추가했는지 확인
 
    > SHA-1값은 개발사에 요청합니다.
-    ![gamepot\_faq\_01](../.gitbook/assets/gamepot_faq_01%20%281%29.png)
+
+![gamepot\_faq\_01](../.gitbook/assets/gamepot_faq_01%20%281%29.png)
 
 3. Firebase Console에서 프로젝트 설정이 정상적으로 되어있는지 확인
 
@@ -23,7 +27,8 @@
         2. (AOS) SHA-1을 추출한 Keystore로 빌드했는지 여부
 
     * Firbase Conosole에 지원 이메일을 설정 했는지 확인
-    ![gamepot\_faq\_16](../.gitbook/assets/gamepot_faq_ios_3%20%281%29.png)
+
+![gamepot\_faq\_16](../.gitbook/assets/gamepot_faq_ios_3%20%281%29.png)
 
     * (AOS) Google Console에서 `앱 서명`을 사용하는 경우, Console에서 만들어진 SHA-1 값도 추가로 넣어주셔야 합니다.
 
@@ -33,14 +38,18 @@
 
 #### 1-2)
 
-    #Q. APK를 직접 설치할때는 로그인이 되나, 스토어에 올린 앱을 다운받아서 로그인할땐 로그인이 되지 않습니다. (AOS)
-    #A. Google Developer Console에서 '앱 서명' 기능을 사용해서 그렇습니다.
+    # Q. APK를 직접 설치할때는 로그인이 되나, 스토어에 올린 앱을 다운받아서 로그인할땐 로그인이 되지 않습니다. (AOS)
+    # A. Google Developer Console에서 '앱 서명' 기능을 사용해서 그렇습니다.
 
-1. 콘솔에서 APK를 업로드 할 때 '앱 서명'을 활성화 하게 되면 keystore가 콘솔에서 관리하는 키로 교체되면서 발생하는 문제로, 콘솔에서 관리하는 keystore의 sha-1값을 Firebase console에 추가해주셔야 합니다.
-    ![gamepot\_faq\_19](../.gitbook/assets/gamepot_faq_19.png)
 
-    * 이 때 페이스북 로그인을 사용하는 경우, Facebook developer console에도 새로운 keystore의 keyhash 값을 추가해주셔야 합니다.
-    ![gamepot\_faq\_20](../.gitbook/assets/gamepot_faq_20.png)
+콘솔에서 APK를 업로드 할 때 '앱 서명'을 활성화 하게 되면 keystore가 콘솔에서 관리하는 키로 교체되면서 발생하는 문제로, 콘솔에서 관리하는 keystore의 sha-1값을 Firebase console에 추가해주셔야 합니다.
+
+![gamepot\_faq\_19](../.gitbook/assets/gamepot_faq_19.png)
+
+
+> 이 때 페이스북 로그인을 사용하는 경우, Facebook developer console에도 또한 새로운 keystore의 keyhash 값을 추가해주셔야 합니다.
+
+![gamepot\_faq\_20](../.gitbook/assets/gamepot_faq_20.png)
 
 #### 1-3)
 
@@ -48,6 +57,7 @@
     # A. Firebase 콘솔 설정에 지원 이메일이 설정 되어 있지 않아 문제가 발생 할 수 있습니다.
 
 지원 이메일을 설정 한 후 확인해주세요.
+
 ![gamepot\_faq\_16](../.gitbook/assets/gamepot_faq_ios_3%20%281%29.png)
 
 #### 1-4)
@@ -60,10 +70,10 @@
   
 ### 2. Facebook 로그인
 
-    # Q. Facebook 앱이 스마트폰에 설치되어 있을 때, 정상적으로 로그인 할 수 없습니다.
+    # Q. Facebook 앱이 스마트폰에 설치되어 있을 때, 정상적으로 로그인 할 수 없습니다. (AOS, iOS)
     # A. Facebook Developer Console의 환경설정이 올바르지 않아 문제가 발생할 수 있습니다.
 
-1. APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 추가합니다.
+APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 추가합니다.
 
 ![gamepot_android_06](../.gitbook/assets/gamepot_android_06%20%285%29.png)
 
@@ -83,10 +93,38 @@
 
 ![gamepot\_faq\_ios\_login_1](../.gitbook/assets/gamepot_faq_ios_login_1.png)
 
-### 4. Line 로그인
 
-    # Q. 라인 로그인 시 오류 \(400 오류 : Bad\_Request\)가 발생 합니다.
+### 4. Naver 로그인(네아로)
+
+#### 4-1)
+
+    # Q. 네이버 로그인 시 오류가 발생 합니다. (AOS, iOS)
+    # A. NAVER Developers Console의 환경설정이 빌드설정과 달라 문제가 발생할 수 있습니다.
+
+NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인해주세요. 
+
+![gamepot\_faq\_line](../.gitbook/assets/gamepot_faq_naver_login_1.png)
+
+#### 4-2)
+
+    # Q. 네이버 카페 SDK 연동 시, 웹뷰를 통한 네아로(네이버 아이디로 로그인)을 할 수 없습니다. (iOS)
+    # A. 네아로 SDK와 카페 SDK의 로그인 모듈이 공존하여 발생하는 이슈입니다.
+
+1. 해당 링크의 패치를 다운받아 주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/Patch_GamePotNaverLogin_20191220.zip)\)
+
+2. 기존에 프로젝트 내 존재하는 2개의 framework를 삭제해주세요.
+    - GamePotNaver.framework
+    - NaverThirdPartyLogin.framework
+
+3. 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요. 
+
+
+### 5. Line 로그인
+
+    # Q. 라인 로그인 시 오류 \(400 오류 : Bad\_Request\)가 발생 합니다. (AOS, iOS)
     # A. LINE Developers Console의 환경설정이 올바르지 않아 문제가 발생할 수 있습니다.
+
+Line Developer Console의 설정이 올바른지 확인해주세요. 
 
 ![gamepot\_faq\_line](../.gitbook/assets/gamepot_faq_line_1.png)
 
@@ -114,7 +152,7 @@
 
 ### 2. Google Play Store
 
-2-1)
+#### 2-1)
 
     # Q. 구글 결제 팝업은 노출되나 결제가 진행되지 않아요.
     # A. 구글 결제를 할 수 있는 환경이 올바로 설정되지 않아 발생하는 경우입니다. 아래 항목을 하나씩 체크하세요.
@@ -148,7 +186,7 @@
 
 ### 3. ONEStore
 
-3-1)
+#### 3-1)
 
     # Q. '비정상 앱에서 결제가 요청되었습니다' 문구 노출됩니다.
     # A. 오픈 전에 앱은 테스트 계정만 접근이 가능합니다. 아래 사항을 확인하세요.
@@ -157,7 +195,7 @@
 
 2. 단말기에 설치된 원스토어 앱이 1번에서 등록한 테스트 계정으로 로그인 여부
 
-3-2)    
+#### 3-2)    
     
     # Q. 결제시 \[package\] doesn't exist or wrong secret. 문구 노출됩니다.
     # A. GAMEPOT 대시보드에 원스토어 관련 키값이 정상 적용됐는지 다시 확인하세요.
@@ -170,7 +208,7 @@
 
 ![gamepot\_faq\_03](../.gitbook/assets/gamepot_faq_03%20%281%29.png)
 
-위 값이 GAMEPOT 대시보드 아래 항목에 적용 여부
+>해당 값이 GAMEPOT 대시보드 아래 항목에 적용되었는지 여부
 
 ![gamepot\_faq\_04](../.gitbook/assets/gamepot_faq_04%20%281%29.png)
 
@@ -178,11 +216,11 @@
 
 ![gamepot\_faq\_06](../.gitbook/assets/gamepot_faq_06%20%281%29.png)
 
-위 값이 GAMEPOT대시보드 아래 항목에 적용 여부
+>해당 값이 GAMEPOT대시보드 아래 항목에 적용되었는지 여부
 
 ![gamepot\_faq\_05](../.gitbook/assets/gamepot_faq_05%20%281%29.png)
 
-3-3)
+#### 3-3)
 
     # Q. 결제 완료 후 "조회된 결과 값이 존재하지 않습니다. \(9001\)" 문구와 함께 결제가 실패합니다.
     # A. 원스토어에 영수증 검증 요청 시 리얼/테스트 환경의 문제가 발생한 경우입니다.
