@@ -31,7 +31,7 @@ implementation 'com.android.installreferrer:installreferrer:1.0'
 implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 ```
 
-1. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
+2. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
 
 ```java
 <uses-permission android:name="android.permission.INTERNET" />
@@ -56,13 +56,25 @@ implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 
 > 준비중입니다.
 
-### Unity
+### Unity  \([Link](https://developers.singular.net/docs/android-sdk)\)
 
-> 준비중입니다.
+1. Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
+
+![gamepot-3rdparty-adbrix_1](../ko/images/gamepot-3rdparty-adbrix_1.png)
+
+2. 다음 패치를 다운로드 받아주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/gamepot-bridge.aar.zip)\)
+
+3. 다운로드 받은 'gamepot-bridge.aar' 파일을 다음 경로의 파일과 교체해주세요.
+    
+    > /Assets/Android/libs/gamepot-bridge.aar
+
+4. /Assets/Plugins/Android/AndroidManifest.xml에 Adbrix에서 필요한 설정을 가져와 삽입해야 합니다.
+해당 부분은 Adbrix SDK 가이드를 참조해주세요. \([Link](https://help.adbrix.io/hc/ko/articles/360007861793-%EC%95%A0%EB%93%9C%EB%B8%8C%EB%A6%AD%EC%8A%A4-Android-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0-Unity-#toc6)\)
+
 
 ## Singular
 
-### Android \(SDK 9.2.0\) \([Link](https://developers.singular.net/docs/android-sdk)\)
+### Android \([SDK 9.2.0](https://developers.singular.net/docs/android-sdk)\)
 
 1. 앱 수준의 `build.gradle` 에 패키지 추가시 아래 패키지는 이미 포함되어있으니 무시하세요.
 
@@ -70,22 +82,22 @@ implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 compile 'com.android.installreferrer:installreferrer:1.0'
 ```
 
-1. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
+2. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
 
 ```java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-### iOS \(SDK 9.2.0\) \([Link](https://developers.singular.net/docs/ios-sdk)\)
+### iOS \([SDK 9.2.0](https://developers.singular.net/docs/ios-sdk)\)
 
 * Gamepot과 충돌 사항이 없습니다.
 
-### Unity \([Link](https://developers.singular.net/docs/unity-sdk)\)
+### Unity \([SDK 9.2.0](https://developers.singular.net/docs/unity-sdk)\)
 
 * 다음 경로의 라이브러리 파일을 삭제해 주세요.
 
-`Assets/Plugins/Android/libs/installreferrer-1.0.aar`
+>`Assets/Plugins/Android/libs/installreferrer-1.0.aar`
 
 ## Appsflyer
 
