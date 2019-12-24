@@ -287,6 +287,49 @@ Capabilities 설정에서 Game Center를 ON으로 설정합니다.\(앱스토어
 
 ![](../.gitbook/assets/gamepot_unity_09%20%284%29.png)
 
+
+### 라인 로그인
+
+#### Line Developer Console \([Link](https://developers.line.biz/console)\)
+
+라인 개발자 콘솔에 패키지명, APK 빌드 시 사용한 Keystore의 키 해시 값, URL scheme 값을 등록합니다.
+
+#### Android
+
+mainTemplate.gradle 수정
+
+
+발급받은 Client ID를 `gamepot_line_channelid` 값에 입력합니다.
+```java
+...
+defaultConfig {
+    resValue "string", "gamepot_line_channelid","xxxxxxx"
+}
+...
+```
+
+
+
+#### iOS
+
+/Assets/Plugins/IOS/GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_line_channelid // 네이버에서 사용할 client 아이디
+gamepot_line_url_schemes // Line URL Scheme (line3rdp.{프로젝트 번들 identifier}) 
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가하면 됩니다.
+
+```markup
+...
+<key>gamepot_line_channelid</key>
+<string>xxxxxx</string>
+<key>gamepot_line_url_schemes</key>
+<string>xxxxxx</string>
+...
+```
+
 ### 네이버 로그인
 
 #### Naver Developer Console
