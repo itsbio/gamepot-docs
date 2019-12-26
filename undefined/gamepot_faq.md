@@ -129,18 +129,34 @@ Line Developer Console의 설정이 올바른지 확인해주세요.
 ![gamepot\_faq\_line](../.gitbook/assets/gamepot_faq_line_1.png)
 
 
+### 6. Twitter 로그인
+
+    # Q. 트위터 로그인 시 오류 \(Error Code - 1011\)가 발생 합니다. (AOS, iOS)
+    # A. Twitter Developers Console의 환경설정이 올바르지 않아 문제가 발생할 수 있습니다.
+
+Twitter Developer Console의 설정이 올바른지 확인해주세요. 
+
+1. Sign in with Twitter가 Enabled 상태인지 확인해주세요.
+
+2. Callback URL 설정이 올바른지 확인해주세요.
+    - 첫째줄 (AOS 사용) : twittersdk://
+    - 둘째줄 (iOS 사용) : twitterkit-{twitter_consumerkey}://
+
+![gamepot\_faq\_twitter](../.gitbook/assets/gamepot_faq_twitter_login_1.png)
+
+
 ## 결제가 안 돼요!
 
 ### 1. 공통
 
-1-1)
+#### 1-1)
 
     # Q. 결제 시도시 'productid was wrong!' 문구가 노출됩니다.
     # A. GAMEPOT 대시보드 -> 결제 -> IAP에 스토어의 상품 아이디를 추가해주세요.
 
 ![gamepot\_faq\_08](../.gitbook/assets/gamepot_faq_08.png)
 
-1-2)
+#### 1-2)
 
     # Q. 첫번째 결제 시도엔 응답이 없고, 두번째 결제 시도시에 결제가 성공했다고 응답합니다. (Play Store, ONEStore)
     # A. 대시보드 - 프로젝트 설정 - 일반 - Public Key에 키가 올바르지 않은 경우입니다.
