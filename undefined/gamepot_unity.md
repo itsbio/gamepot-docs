@@ -6,7 +6,7 @@ search:
 
 # Unity SDK
 
-## 시작하기
+## 1. 시작하기
 
 ### Step 1. GAMEPOT 플러그인 가져오기
 
@@ -161,7 +161,7 @@ NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
-## 초기화
+## 2. 초기화
 
 게임을 시작할때 로드되는 첫 장면에 사용되는 개체에 다음 코드를 추가합니다.
 
@@ -184,7 +184,7 @@ public class GamePotSampleListener : MonoBehaviour , IGamePot {
 }
 ```
 
-## 오류 코드
+## 3. 오류 코드
 
 ```csharp
 public class NError
@@ -227,7 +227,7 @@ public class NError
 }
 ```
 
-## 로그인 환경 설정
+## 4. 로그인 환경 설정
 
 ### 구글 로그인
 
@@ -288,97 +288,7 @@ Capabilities 설정에서 Game Center를 ON으로 설정합니다.\(앱스토어
 ![](../.gitbook/assets/gamepot_unity_09%20%284%29.png)
 
 
-### 라인 로그인
-
-#### Line Developer Console \([Link](https://developers.line.biz/console)\)
-
-라인 개발자 콘솔에 패키지명, APK 빌드 시 사용한 Keystore의 키 해시 값, URL scheme 값을 등록합니다.
-
-#### Android
-
-mainTemplate.gradle 수정
-
-
-발급받은 Client ID를 `gamepot_line_channelid` 값에 입력합니다.
-```java
-...
-defaultConfig {
-    resValue "string", "gamepot_line_channelid","xxxxxxx"
-}
-...
-```
-
-
-
-#### iOS
-
-/Assets/Plugins/IOS/GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
-
-```text
-gamepot_line_channelid // 네이버에서 사용할 client 아이디
-gamepot_line_url_schemes // Line URL Scheme (line3rdp.{프로젝트 번들 identifier}) 
-```
-
-GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가하면 됩니다.
-
-```markup
-...
-<key>gamepot_line_channelid</key>
-<string>xxxxxx</string>
-<key>gamepot_line_url_schemes</key>
-<string>xxxxxx</string>
-...
-```
-
-### 네이버 로그인
-
-#### Naver Developer Console
-
-사용 API를 `네아로`로 선택 후 애플리케이션 등록
-
-#### Android
-
-mainTemplate.gradle 수정
-
-```java
-...
-defaultConfig {
-    resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
-    resValue "string", "gamepot_naver_secretid", "hijklmn"
-}
-...
-```
-
-발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
-
-#### iOS
-
-GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
-
-```text
-gamepot_naver_clientid // 네이버에서 사용할 client 아이디
-gamepot_naver_secretid // 네이버에서 사용할 secret 아이디
-gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
-```
-
-GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
-
-```markup
-...
-<key>gamepot_naver_clientid</key>
-<string>xxxxxx</string>
-<key>gamepot_naver_secretid</key>
-<string>xxxxxx</string>
-<key>gamepot_naver_urlscheme</key>
-<string>xxxxxx</string>
-...
-```
-
-Targets &gt;&gt; Info &gt;&gt; URL Types에 네이버아이디로 로그인 설정에 등록한 URL Schemes를 추가합니다.
-
-URL Schemes를 생성 할 때는 `소문자`,`.`,`_`이외의 문자를 사용하면 인식이 안될 수 있으니 주의 부탁드립니다.
-
-## 로그인/로그아웃/탈퇴/검증
+## 5. 로그인/로그아웃/탈퇴/검증
 
 ### 로그인
 
@@ -538,7 +448,7 @@ public void  onDeleteMemberFailure(NError error) {
 
 자세한 설명은 Server to server api 메뉴에 `Token Authentication` 항목을 참고해주세요.
 
-## 계정 연동
+## 6. 계정 연동
 
 하나의 게임 계정에 복수 개의 소셜계정\(구글/페이스북 등\)을 연결/해제할 수 있는 기능입니다.\(최소 연동 소셜 계정은 1가지입니다.\)
 
@@ -675,7 +585,7 @@ Public void UI_Update()
 }
 ```
 
-## 결제
+## 7. 결제
 
 ### 인앱 상품 조회
 
@@ -770,102 +680,90 @@ Request:
 GamePot.getPurchaseThirdPaymentsItems();
 ```
 
-## 광고
+## 8. 기타 API
 
-IGAWorks Unity Plugin을 기본으로 포함하고 있으므로 [IGAWorks의 가이드](http://help.igaworks.com/hc/ko/3_3/Content/Article/common_unity_aos)로 적용하시면 됩니다.
+### 라인 로그인
 
-> IGAWorks 외에 라이브러리를 사용하고자 하시는 경우에는 저희가 포함하는 방법을 안내해 드리도록 하겠습니다.
+#### Android
 
-포함된 버전은 아래와 같습니다.
+mainTemplate.gradle 수정
 
-| 플랫폼 | 버전 |
-| :--- | :--- |
-| Android | IGAWorks\_Unity\_Android\_Full\_Package\_2018-12-05 |
-| iOS | IGAWorks\_Unity\_iOS\_Full\_Package\_2018-10-02 |
-
-## Push on/off
-
-푸시, 야간푸시를 각각 on/off를 처리 할 수 있습니다.
-
-> on/off설정하는 UI는 개발사에서 구현해주세요.
-
-### 푸시 설정
-
-Request:
-
-```csharp
-GamePot.setPushStatus(bool pushEnable);
-```
-
-Response:
-
-```csharp
-/// 푸시 상태 변경에 대한 서버 통신 성공
-public void onPushSuccess() {
+발급받은 Client ID를 `gamepot_line_channelid` 값에 입력합니다.
+```java
+...
+defaultConfig {
+    resValue "string", "gamepot_line_channelid","xxxxxxx"
 }
+...
+```
 
-/// 푸시 상태 변경에 대한 서버 통신 실패
-public void onPushFailure(NError error) {
-    // 푸시 상태 변경을 실패하는 경우
-    // error.message를 팝업 등으로 유저에게 알려주세요.
+#### iOS
+
+/Assets/Plugins/IOS/GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_line_channelid // 네이버에서 사용할 client 아이디
+gamepot_line_url_schemes // Line URL Scheme (line3rdp.{프로젝트 번들 identifier}) 
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가하면 됩니다.
+
+```markup
+...
+<key>gamepot_line_channelid</key>
+<string>xxxxxx</string>
+<key>gamepot_line_url_schemes</key>
+<string>xxxxxx</string>
+...
+```
+
+### 네이버 로그인
+
+사용 API를 `네아로`로 선택 후 애플리케이션 등록
+
+#### Android
+
+mainTemplate.gradle 수정
+
+```java
+...
+defaultConfig {
+    resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
+    resValue "string", "gamepot_naver_secretid", "hijklmn"
 }
+...
 ```
 
-### 야간 푸시 설정
+발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
 
-Request:
+#### iOS
 
-```csharp
-GamePot.setPushNightStatus(bool nightPushEnable);
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_naver_clientid // 네이버에서 사용할 client 아이디
+gamepot_naver_secretid // 네이버에서 사용할 secret 아이디
+gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
 ```
 
-Response:
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
 
-```csharp
-/// 야간 푸시 상태 변경에 대한 서버 통신 성공
-public void onPushNightSuccess() {
-}
-
-/// 야간 푸시 상태 변경에 대한 서버 통신 실패
-public void onPushNightFailure(NError error) {
-    // 야간 푸시 상태 변경을 실패하는 경우
-    // error.message를 팝업 등으로 유저에게 알려주세요.
-}
+```markup
+...
+<key>gamepot_naver_clientid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_secretid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_urlscheme</key>
+<string>xxxxxx</string>
+...
 ```
 
-### 푸시 / 야간푸시 한번에 설정
+Targets &gt;&gt; Info &gt;&gt; URL Types에 네이버아이디로 로그인 설정에 등록한 URL Schemes를 추가합니다.
 
-로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
+URL Schemes를 생성 할 때는 `소문자`,`.`,`_`이외의 문자를 사용하면 인식이 안될 수 있으니 주의 부탁드립니다.
 
-Request:
-
-```csharp
-GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, true);
-```
-
-Response:
-
-```csharp
-/// 야간 푸시 상태 변경에 대한 서버 통신 성공
-public void onPushStatusSuccess() {
-}
-
-/// 야간 푸시 상태 변경에 대한 서버 통신 실패
-public void onPushStatusFailure(NError error) {
-    // 야간 푸시 상태 변경을 실패하는 경우
-    // error.message를 팝업 등으로 유저에게 알려주세요.
-}
-```
-
-### 푸시 상태 조회
-
-```csharp
-NPushInfo pushInfo = GamePot.getPushStatus();
-// pushInfo.enable  푸시 허용 여부
-// pushInfo.night   야간 푸시 허용 여부
-```
-
-## 쿠폰
+### 쿠폰
 
 #### 쿠폰 사용
 
@@ -897,13 +795,95 @@ public void onCouponFailure(NError error) {
 
 이를 위해선 Server to server api 메뉴에 `Item Webhook` 항목을 참고하여 처리하셔야 합니다.
 
-## 네이버 카페 SDK
+### Push on/off
+
+푸시, 야간푸시를 각각 on/off를 처리 할 수 있습니다.
+
+> on/off설정하는 UI는 개발사에서 구현해주세요.
+
+#### 푸시 설정
+
+Request:
+
+```csharp
+GamePot.setPushStatus(bool pushEnable);
+```
+
+Response:
+
+```csharp
+/// 푸시 상태 변경에 대한 서버 통신 성공
+public void onPushSuccess() {
+}
+
+/// 푸시 상태 변경에 대한 서버 통신 실패
+public void onPushFailure(NError error) {
+    // 푸시 상태 변경을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+```
+
+#### 야간 푸시 설정
+
+Request:
+
+```csharp
+GamePot.setPushNightStatus(bool nightPushEnable);
+```
+
+Response:
+
+```csharp
+/// 야간 푸시 상태 변경에 대한 서버 통신 성공
+public void onPushNightSuccess() {
+}
+
+/// 야간 푸시 상태 변경에 대한 서버 통신 실패
+public void onPushNightFailure(NError error) {
+    // 야간 푸시 상태 변경을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+```
+
+#### 푸시 / 야간푸시 한번에 설정
+
+로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
+
+Request:
+
+```csharp
+GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, true);
+```
+
+Response:
+
+```csharp
+/// 야간 푸시 상태 변경에 대한 서버 통신 성공
+public void onPushStatusSuccess() {
+}
+
+/// 야간 푸시 상태 변경에 대한 서버 통신 실패
+public void onPushStatusFailure(NError error) {
+    // 야간 푸시 상태 변경을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+```
+
+#### 푸시 상태 조회
+
+```csharp
+NPushInfo pushInfo = GamePot.getPushStatus();
+// pushInfo.enable  푸시 허용 여부
+// pushInfo.night   야간 푸시 허용 여부
+```
+
+### 네이버 카페 SDK
 
 네이버 카페 SDK\(4.0.4\)를 포함한 plugin을 사용하시면 [네이버 카페 SDK 가이드](https://github.com/naver/cafe-sdk-unity/blob/master/README.md#usages)를 참고하여 적용하시면 됩니다.
 
 > 네이버 카페 SDK의 용량이 큰 관계로 포함/미포함한 버전 두 가지로 제공됩니다. 필요에 따라 택일하시면 됩니다.
 
-## 공지사항
+### 공지사항
 
 GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로 노출하는 기능입니다.
 
@@ -934,7 +914,7 @@ public void onReceiveScheme(string scheme)
 }
 ```
 
-## 고객지원
+### 고객지원
 
 고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
 
@@ -946,17 +926,15 @@ public void onReceiveScheme(string scheme)
 
   ![gamepot\_unity\_14](../.gitbook/assets/gamepot_unity_14%20%284%29.png)
 
-### 호출
+#### 호출
 
 ```csharp
 GamePot.showCSWebView();
 ```
 
-## 로컬 푸시\(Local Push notification\)
+### 로컬 푸시\(Local Push notification\)
 
 푸시 서버를 통하지 않고 단말기에서 푸시를 노출하는 기능입니다.
-
-### 호출
 
 #### 푸시 등록
 
@@ -976,7 +954,7 @@ int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title
 GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 ```
 
-## 약관 동의
+### 약관 동의
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
@@ -990,7 +968,7 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 
   ![gamepot\_unity\_11](../.gitbook/assets/gamepot_unity_11%20%286%29.png)
 
-### 약관 동의 호출
+#### 약관 동의 호출
 
 > 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
 >
@@ -1026,7 +1004,7 @@ public void onAgreeDialogFailure(NError error)
 }
 ```
 
-### Customizing
+#### Customizing
 
 테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
 
@@ -1076,7 +1054,7 @@ GamePot.showAgreeDialog(info);
 
 ![gamepot\_unity\_12](../.gitbook/assets/gamepot_unity_12%20%286%29.png)
 
-## 이용약관
+### 이용약관
 
 이용약관 UI를 호출합니다.
 
@@ -1088,7 +1066,7 @@ GamePot.showTerms();
 
 ![gamepot\_unity\_16](../.gitbook/assets/gamepot_unity_16.png)
 
-## 개인정보 취급방침
+### 개인정보 취급방침
 
 개인정보 취급방침 UI를 호출합니다.
 
