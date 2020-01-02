@@ -115,7 +115,7 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 ## AdMob
 
-_androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전이 포함된 sdk는 사용할 수 없습니다._
+**_`androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전이 포함된 sdk는 사용할 수 없습니다.`_**
 
 ### Android \([Link](https://firebase.google.com/docs/admob/android/quick-start?hl=ko)\)
 
@@ -161,7 +161,7 @@ _androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0
 
 ## Admob Mediation
 
-_androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전이 포함된 sdk는 사용할 수 없습니다._
+**_`androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전이 포함된 sdk는 사용할 수 없습니다.`_**
 
 ### Android\([Link](https://developers.google.com/admob/android/mediate)\) \(Google Play service Ads SDK 17.2.0\)
 

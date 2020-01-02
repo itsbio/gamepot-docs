@@ -105,7 +105,9 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
 ![gamepot\_faq\_line](../.gitbook/assets/gamepot_faq_naver_login_1.png)
 
-#### 4-2)
+#### 4-2) 
+
+**_`해당 사항은 네이버 카페 SDK를 함께 연동하는 경우에만 적용됩니다.`_**
 
     # Q. 네이버 카페 SDK 연동 시, 웹뷰를 통한 네아로(네이버 아이디로 로그인)을 할 수 없습니다. (iOS)
     # A. 네아로 SDK와 카페 SDK의 로그인 모듈이 공존하여 발생하는 이슈입니다.
