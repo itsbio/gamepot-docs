@@ -125,7 +125,7 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 * Gamepot과 충돌 사항이 없습니다.
 
-### Unity \([Guide](https://developers.google.com/admob/unity/start)\) \([Google Mobile Ads v3.17.0](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)\)
+### Unity \([Link](https://developers.google.com/admob/unity/start)\) - *[Google Mobile Ads v3.17.0](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)*
 
 1. 위 Link를 통해 플러그인(v3.17.0)을 게임 프로젝트에 import 합니다.
 
@@ -163,7 +163,7 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 **_`androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전이 포함된 sdk는 사용할 수 없습니다.`_**
 
-### Android\([Link](https://developers.google.com/admob/android/mediate)\) \(Google Play service Ads SDK 17.2.0\)
+### Android\([Link](https://developers.google.com/admob/android/mediate)\) - *Google Play service Ads SDK 17.2.0*
 
 #### - Vungle\([Link](https://developers.google.com/admob/android/mediation/vungle)\)
 
@@ -185,7 +185,7 @@ compile 'com.google.ads.mediation:unity:3.1.0.0'
 compile 'com.google.ads.mediation:facebook:5.4.0.0'
 ```
 
-### iOS \([Link](https://developers.google.com/admob/ios/mediate)\) \(Google Mobile Ads SDK 7.49.0\)
+### iOS \([Link](https://developers.google.com/admob/ios/mediate)\) \- *Google Mobile Ads SDK 7.49.0*
 
 #### - Vungle\([Link](https://developers.google.com/admob/ios/mediation/vungle)\)
 
@@ -199,7 +199,7 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
 
 * Gamepot과 충돌 사항이 없습니다. \(iOS Audience Network sdk 5.5.0\)
 
-### Unity \([Link](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)\) \(Google Mobile Ads Unity Plugin v3.17\)
+### Unity \([Link](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)\) - *Google Mobile Ads Unity Plugin v3.17.0*
 
 #### - Vungle\([Link](https://developers.google.com/admob/unity/mediation/vungle)\)
 
@@ -213,3 +213,42 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
 
 * Gamepot과 충돌 사항이 없습니다.
 
+## Facebook SDK (Unity Plugin)
+
+### Unity \([Link](https://developers.facebook.com/docs/unity/downloads)\) - *Facebook Package ver 7.18.0*
+
+1. Unity Package를 import한 다음, Unity Play Services Resolver를 적용해주세요.
+
+![gamepot-3rdparty-FB_001](../ko/images/gamepot-3rdparty-FB-001.png)
+
+- Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
+
+- Facebook SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
+
+- 제거해야 할 라이브러리 목록은 아래와 같습니다.
+
+     |  |    |
+   | :------  | :------  |
+   | 1. animated-vector-drawable-27.1.1.aar | 2. appcompat-v7-27.1.1.aar |
+   | 3. bolts-android-1.4.0.jar | 4. bolts-applinks-1.4.0.jar |
+   | 5. bolts-tasks-1.4.0.jar | 6. cardview-v7-27.0.2.aar |
+   | 7. core-3.3.0.jar |  8. core-common-1.1.0.jar |
+   | 9. customtabs-27.1.1.aar |  10. facebook-android-sdk-5.2.0.aar |
+   | 11. facebook-applinks-5.2.0.aar |  12. facebook-common-5.2.0.aar |
+   | 13. facebook-core-5.2.0.aar | 14. facebook-login-5.2.0.aar |
+   | 15. facebook-messenger-5.2.0.aar | 16.facebook-places-5.2.0.aar |
+   | 17. facebook-share-5.2.0.aar | 18. lifecycle-runtime-1.1.0.aar |
+   | 19. lifecycle-common-1.1.0.jar | 20. support-compat-27.1.1.aar |
+   | 21. support-core-ui-27.1.1.aar | 22. support-core-utils-27.1.1.aar |
+   | 23. support-fragment-27.1.1.aar | 24. support-media-compat-27.1.1.aar |
+   | 25. support-v4-27.1.1.aar | 26. support-vector-drawable-27.1.1.aar |
+   | 27. support-annotations-27.1.1.jar |
+   ||
+
+2. UnityEditer 상의 FacebookSettings에 Facebook App Id를 입력한 다음, 붉은색 표시된 버튼을 눌러 AndroidManifest를 Regenerate 해주세요.
+
+![gamepot-3rdparty-FB_002](../ko/images/gamepot-3rdparty-FB-002.png)
+
+3. /Assets/Plugins/Android/AndroidManifest.xml를 편집기에서 열고, 붉은색 표시된 라인(Facebook App ID)를 제거해주세요.
+
+![gamepot-3rdparty-FB_003](../ko/images/gamepot-3rdparty-FB-003.png)
