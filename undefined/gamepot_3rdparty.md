@@ -16,7 +16,7 @@ GAMEPOT SDK 이외에 적용하는 3rd-party SDK를 빌드에러 없이 게임 �
 
 ### Unity \([Link](https://github.com/naver/cafe-sdk-unity)\)
 
-1. Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
+⒈ Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
 
 ![gamepot-3rdparty-002](../.gitbook/assets/gamepot-3rdparty-002.png)
 
@@ -24,14 +24,14 @@ GAMEPOT SDK 이외에 적용하는 3rd-party SDK를 빌드에러 없이 게임 �
 
 ### Android \([Link](https://github.com/adjust/android_sdk/blob/master/doc/korean/README.md#qs-getting-started)\)
 
-1. `build.gradle` 에 패키지 추가시 아래 두 패키지는 이미 포함되어있으니 무시하세요.
+⒈ `build.gradle` 에 패키지 추가시 아래 두 패키지는 이미 포함되어있으니 무시하세요.
 
 ```java
 implementation 'com.android.installreferrer:installreferrer:1.0'
 implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 ```
 
-2. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
+⒉ `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
 
 ```java
 <uses-permission android:name="android.permission.INTERNET" />
@@ -58,42 +58,48 @@ implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 
 ### Unity  \([Link](https://developers.singular.net/docs/android-sdk)\)
 
-1. Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
+⒈ Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
 
 ![gamepot-3rdparty-adbrix_1](../ko/images/gamepot-3rdparty-adbrix_1.png)
 
-2. 다음 패치를 다운로드 받아주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/gamepot-bridge.aar.zip)\)
+⒉ 다음 패치를 다운로드 받아주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/gamepot-bridge.aar.zip)\)
 
-3. 다운로드 받은 'gamepot-bridge.aar' 파일을 다음 경로의 파일과 교체해주세요.
+⒊ 다운로드 받은 'gamepot-bridge.aar' 파일을 다음 경로의 파일과 교체해주세요.
     
-    > /Assets/Android/libs/gamepot-bridge.aar
+  > /Assets/Android/libs/gamepot-bridge.aar
 
-4. /Assets/Plugins/Android/AndroidManifest.xml에 Adbrix에서 필요한 설정을 가져와 삽입해야 합니다.
-해당 부분은 Adbrix SDK 가이드를 참조해주세요. \([Link](https://help.adbrix.io/hc/ko/articles/360007861793-%EC%95%A0%EB%93%9C%EB%B8%8C%EB%A6%AD%EC%8A%A4-Android-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0-Unity-#toc6)\)
+⒋ /Assets/Plugins/Android/AndroidManifest.xml에 Adbrix에서 필요한 설정을 가져와 삽입해야 합니다.
+자세한 사항은 Adbrix SDK 가이드를 참조해주세요. \([Guide](https://help.adbrix.io/hc/ko/articles/360007861793-%EC%95%A0%EB%93%9C%EB%B8%8C%EB%A6%AD%EC%8A%A4-Android-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0-Unity-#toc6)\)
 
 
 ## Singular
 
-### Android \([SDK 9.2.0](https://developers.singular.net/docs/android-sdk)\)
+### Android \([Link](https://developers.singular.net/docs/android-sdk)\)
 
-1. 앱 수준의 `build.gradle` 에 패키지 추가시 아래 패키지는 이미 포함되어있으니 무시하세요.
+*`[sdk v9.2.0]`*
+
+⒈ 앱 수준의 `build.gradle` 에 패키지 추가시 아래 패키지는 이미 포함되어있으니 무시하세요.
 
 ```java
 compile 'com.android.installreferrer:installreferrer:1.0'
 ```
 
-2. `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
+⒉ `AndroidManifest.xml` 에 이미 권한이 추가 되어있으니 무시하세요.
 
 ```java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-### iOS \([SDK 9.2.0](https://developers.singular.net/docs/ios-sdk)\)
+### iOS \([Link](https://developers.singular.net/docs/ios-sdk)\)
+
+*`[sdk v9.2.0]`*
 
 * Gamepot과 충돌 사항이 없습니다.
 
-### Unity \([SDK 9.2.0](https://developers.singular.net/docs/unity-sdk)\)
+### Unity \([Link](https://developers.singular.net/docs/unity-sdk)\)
+
+*`[sdk v9.2.0]`*
 
 * 다음 경로의 라이브러리 파일을 삭제해 주세요.
 
@@ -125,45 +131,42 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
 * Gamepot과 충돌 사항이 없습니다.
 
-### Unity \([Link](https://developers.google.com/admob/unity/start)\) - *[Google Mobile Ads v3.17.0](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)*
+### Unity \([Link](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)\)
 
-1. 위 Link를 통해 플러그인(v3.17.0)을 게임 프로젝트에 import 합니다.
+*`[Google Mobile Ads v3.17.0]`*
 
-2. `mainTemplate.gradle` 에서 아래와 같이 AdMob 안드로이드 프로젝트를 추가합니다.
+⒈ 위 Link를 통해 플러그인(v3.17.0)을 게임 프로젝트에 import 합니다.
+
+⒉ `mainTemplate.gradle` 에서 아래와 같이 AdMob 안드로이드 프로젝트를 추가합니다.
 
 ![gamepot-3rdparty-001](../.gitbook/assets/gamepot-3rdparty-001.png)
 
-3. AdMob SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다. (AdMob 가이드 참조)
+⒊ AdMob SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다. (AdMob 가이드 참조)
 
-    - Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
+  - Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
     
-    - AdMob SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
+  - AdMob SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
 
-    - 제거해야 할 라이브러리 목록은 아래와 같습니다.
+  - 제거해야 할 라이브러리 목록은 아래와 같습니다.
 
-      | |
-      | :---  |
-      | 1. core-common-1.1.0.jar |
-      | 2. lifecycle-common-1.1.0.jar |
-      | 3. lifecycle-runtime-1.1.0.aar |
-      | 4. customtabs-27.1.1.aar |
-      | 5. support-annotations-27.1.1.jar |
-      | 6. support-compat-27.1.1.aar |
-      | 7. support-core-ui-27.1.1.aar |
-      | 8. support-core-utils-27.1.1.aar |
-      | 9. support-fragment-27.1.1.aar |
-      | 10. support-media-compat-27.1.1.aar |
-      | 11. support-v4-27.1.1.aar |
-      | 12. play-services-ads-identifier-16.0.0.aar |
-      | 13. play-services-basement-16.2.0.aar |
-      | 14. play-services-measurement-base-16.0.5.aar |
-      | |
+    | | |
+    | :--- | :--- |
+    | 1. core-common-1.1.0.jar | 2. lifecycle-common-1.1.0.jar |
+    | 3. lifecycle-runtime-1.1.0.aar | 4. customtabs-27.1.1.aar |
+    | 5. support-annotations-27.1.1.jar | 6. support-compat-27.1.1.aar |
+    | 7. support-core-ui-27.1.1.aar | 8. support-core-utils-27.1.1.aar |
+    | 9. support-fragment-27.1.1.aar | 10. support-media-compat-27.1.1.aar |
+    | 11. support-v4-27.1.1.aar | 12. play-services-ads-identifier-16.0.0.aar |
+    | 13. play-services-basement-16.2.0.aar | 14. play-services-measurement-base-16.0.5.aar |
+    | | |
 
 ## Admob Mediation
 
 **_`androidx 패키지로의 migration 이슈로 인해, Google Play Service 18.0.0 이상의 버전이 포함된 sdk는 사용할 수 없습니다.`_**
 
-### Android\([Link](https://developers.google.com/admob/android/mediate)\) - *Google Play service Ads SDK 17.2.0*
+### Android\([Link](https://developers.google.com/admob/android/mediate)\)
+
+*`[Google Play service Ads SDK 17.2.0]`*
 
 #### - Vungle\([Link](https://developers.google.com/admob/android/mediation/vungle)\)
 
@@ -185,7 +188,9 @@ compile 'com.google.ads.mediation:unity:3.1.0.0'
 compile 'com.google.ads.mediation:facebook:5.4.0.0'
 ```
 
-### iOS \([Link](https://developers.google.com/admob/ios/mediate)\) \- *Google Mobile Ads SDK 7.49.0*
+### iOS \([Link](https://developers.google.com/admob/ios/mediate)\)
+
+*`[Google Mobile Ads SDK 7.49.0]`*
 
 #### - Vungle\([Link](https://developers.google.com/admob/ios/mediation/vungle)\)
 
@@ -199,7 +204,9 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
 
 * Gamepot과 충돌 사항이 없습니다. \(iOS Audience Network sdk 5.5.0\)
 
-### Unity \([Link](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)\) - *Google Mobile Ads Unity Plugin v3.17.0*
+### Unity \([Link](https://github.com/googleads/googleads-mobile-unity/releases/tag/3.17.0)\) 
+
+*`[Google Mobile Ads Unity Plugin v3.17.0]`*
 
 #### - Vungle\([Link](https://developers.google.com/admob/unity/mediation/vungle)\)
 
@@ -215,18 +222,20 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
 
 ## Facebook SDK (Unity Plugin)
 
-### Unity \([Link](https://developers.facebook.com/docs/unity/downloads)\) - *Facebook Package ver 7.18.0*
+### Unity \([Link](https://developers.facebook.com/docs/unity/downloads)\) 
 
-1. Unity Package를 import한 다음, Unity Play Services Resolver를 적용해주세요.
+*`[FB UnityPackage ver 7.18.0]`*
+
+⒈ Unity Package를 import한 다음, Unity Play Services Resolver를 적용해주세요.
 
 ![gamepot-3rdparty-FB_001](../ko/images/gamepot-3rdparty-FB-001.png)
 
   - Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
-
+  
   - Facebook SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
-
+  
   - 제거해야 할 라이브러리 목록은 아래와 같습니다.
-
+  
      |||
       | :------  | :------  |
       | 1. animated-vector-drawable-27.1.1.aar | 2. appcompat-v7-27.1.1.aar |
@@ -245,10 +254,10 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
       | 27. support-annotations-27.1.1.jar |
      |||
 
-2. UnityEditer 상의 FacebookSettings에 Facebook App Id를 입력한 다음, 붉은색 표시된 버튼을 눌러 AndroidManifest를 Regenerate 해주세요.
+⒉ UnityEditer 상의 FacebookSettings에 Facebook App Id를 입력한 다음, 붉은색 표시된 버튼을 눌러 AndroidManifest를 Regenerate 해주세요.
 
 ![gamepot-3rdparty-FB_002](../ko/images/gamepot-3rdparty-FB-002.png)
 
-3. /Assets/Plugins/Android/AndroidManifest.xml를 편집기에서 열고, 붉은색 표시된 라인(Facebook App ID)를 제거해주세요.
+⒊ /Assets/Plugins/Android/AndroidManifest.xml를 편집기에서 열고, 붉은색 표시된 라인(Facebook App ID)를 제거해주세요.
 
 ![gamepot-3rdparty-FB_003](../ko/images/gamepot-3rdparty-FB-003.png)
