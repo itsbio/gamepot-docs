@@ -141,23 +141,23 @@ compile 'com.android.installreferrer:installreferrer:1.0'
 
     - 제거해야 할 라이브러리 목록은 아래와 같습니다.
 
-     | |
-   | :---  |
-   | 1. core-common-1.1.0.jar |
-   | 2. lifecycle-common-1.1.0.jar |
-   | 3. lifecycle-runtime-1.1.0.aar |
-   | 4. customtabs-27.1.1.aar |
-   | 5. support-annotations-27.1.1.jar |
-   | 6. support-compat-27.1.1.aar |
-   | 7. support-core-ui-27.1.1.aar |
-   | 8. support-core-utils-27.1.1.aar |
-   | 9. support-fragment-27.1.1.aar |
-   | 10. support-media-compat-27.1.1.aar |
-   | 11. support-v4-27.1.1.aar |
-   | 12. play-services-ads-identifier-16.0.0.aar |
-   | 13. play-services-basement-16.2.0.aar |
-   | 14. play-services-measurement-base-16.0.5.aar |
-
+      | |
+      | :---  |
+      | 1. core-common-1.1.0.jar |
+      | 2. lifecycle-common-1.1.0.jar |
+      | 3. lifecycle-runtime-1.1.0.aar |
+      | 4. customtabs-27.1.1.aar |
+      | 5. support-annotations-27.1.1.jar |
+      | 6. support-compat-27.1.1.aar |
+      | 7. support-core-ui-27.1.1.aar |
+      | 8. support-core-utils-27.1.1.aar |
+      | 9. support-fragment-27.1.1.aar |
+      | 10. support-media-compat-27.1.1.aar |
+      | 11. support-v4-27.1.1.aar |
+      | 12. play-services-ads-identifier-16.0.0.aar |
+      | 13. play-services-basement-16.2.0.aar |
+      | 14. play-services-measurement-base-16.0.5.aar |
+      | |
 
 ## Admob Mediation
 
@@ -221,29 +221,29 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
 
 ![gamepot-3rdparty-FB_001](../ko/images/gamepot-3rdparty-FB-001.png)
 
-- Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
+  - Resolve 기능 적용 시, 기존 게임팟 SDK에서 사용중인 라이브러리와 중복되는 라이브러리도 함께 복사됩니다.
 
-- Facebook SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
+  - Facebook SDK와 중복되는 라이브러리 목록을 /Assets/Plugins/Android/libs/ 에서 제거해주세요. 
 
-- 제거해야 할 라이브러리 목록은 아래와 같습니다.
+  - 제거해야 할 라이브러리 목록은 아래와 같습니다.
 
-     |  |    |
-   | :------  | :------  |
-   | 1. animated-vector-drawable-27.1.1.aar | 2. appcompat-v7-27.1.1.aar |
-   | 3. bolts-android-1.4.0.jar | 4. bolts-applinks-1.4.0.jar |
-   | 5. bolts-tasks-1.4.0.jar | 6. cardview-v7-27.0.2.aar |
-   | 7. core-3.3.0.jar |  8. core-common-1.1.0.jar |
-   | 9. customtabs-27.1.1.aar |  10. facebook-android-sdk-5.2.0.aar |
-   | 11. facebook-applinks-5.2.0.aar |  12. facebook-common-5.2.0.aar |
-   | 13. facebook-core-5.2.0.aar | 14. facebook-login-5.2.0.aar |
-   | 15. facebook-messenger-5.2.0.aar | 16.facebook-places-5.2.0.aar |
-   | 17. facebook-share-5.2.0.aar | 18. lifecycle-runtime-1.1.0.aar |
-   | 19. lifecycle-common-1.1.0.jar | 20. support-compat-27.1.1.aar |
-   | 21. support-core-ui-27.1.1.aar | 22. support-core-utils-27.1.1.aar |
-   | 23. support-fragment-27.1.1.aar | 24. support-media-compat-27.1.1.aar |
-   | 25. support-v4-27.1.1.aar | 26. support-vector-drawable-27.1.1.aar |
-   | 27. support-annotations-27.1.1.jar |
-   ||
+     |||
+      | :------  | :------  |
+      | 1. animated-vector-drawable-27.1.1.aar | 2. appcompat-v7-27.1.1.aar |
+      | 3. bolts-android-1.4.0.jar | 4. bolts-applinks-1.4.0.jar |
+      | 5. bolts-tasks-1.4.0.jar | 6. cardview-v7-27.0.2.aar |
+      | 7. core-3.3.0.jar |  8. core-common-1.1.0.jar |
+      | 9. customtabs-27.1.1.aar |  10. facebook-android-sdk-5.2.0.aar |
+      | 11. facebook-applinks-5.2.0.aar |  12. facebook-common-5.2.0.aar |
+      | 13. facebook-core-5.2.0.aar | 14. facebook-login-5.2.0.aar |
+      | 15. facebook-messenger-5.2.0.aar | 16.facebook-places-5.2.0.aar |
+      | 17. facebook-share-5.2.0.aar | 18. lifecycle-runtime-1.1.0.aar |
+      | 19. lifecycle-common-1.1.0.jar | 20. support-compat-27.1.1.aar |
+      | 21. support-core-ui-27.1.1.aar | 22. support-core-utils-27.1.1.aar |
+      | 23. support-fragment-27.1.1.aar | 24.   support-media-compat-27.1.1.aar |
+      | 25. support-v4-27.1.1.aar | 26. support-vector-drawable-27.1.1.aar |
+      | 27. support-annotations-27.1.1.jar |
+     |||
 
 2. UnityEditer 상의 FacebookSettings에 Facebook App Id를 입력한 다음, 붉은색 표시된 버튼을 눌러 AndroidManifest를 Regenerate 해주세요.
 
