@@ -254,6 +254,14 @@ compile 'com.google.ads.mediation:facebook:5.4.0.0'
       | 27. support-annotations-27.1.1.jar |
      |||
 
+  - (iOS의 경우) 중복되는 프레임워크 목록을 /Assets/Plugins/IOS/Frameworks/ 에서 제거해주세요.
+
+    |||
+     | :------  | :------  |
+     | 1. FBSDKCoreKit.framework |
+     | 2. FBSDKLoginKit.framework |
+    |||
+
 ⒉ UnityEditer 상의 FacebookSettings에 Facebook App Id를 입력한 다음, 붉은색 표시된 버튼을 눌러 AndroidManifest를 Regenerate 해주세요.
 
 ![gamepot-3rdparty-FB_002](../ko/images/gamepot-3rdparty-FB-002.png)
