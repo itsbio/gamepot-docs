@@ -1,10 +1,28 @@
 # Troubleshooting
 
-## Unity plugin
+## 64-bit 환경에서 빌드 할 때, 네아로(네이버 아이디 로그인)시도 시 크래시가 발생. (API 28 이상의 Android 빌드)
 
-### Unity 2018.4.4이상, Unity 2019.2.0이상에서 Android 빌드 이슈
+⒈ `AndroidManifest.xml` 파일에 다음 코드를 추가
 
-#### 1. `mainTemplate.gradle` 파일을 아래와 같이 수정
+> Unity의 경우, /Assets/Plugins/Android/AndroidManifest.xml를 수정
+
+```java
+// TODO : <application> 태그 안에 넣어주세요.
+
+<application>
+
+...
+
+   <uses-library android:name="org.apache.http.legacy" android:required="false" />
+
+...
+
+</application>
+```
+
+## Unity 2018.4.4이상, Unity 2019.2.0이상에서 Android 빌드 이슈
+
+⒈ `mainTemplate.gradle` 파일을 아래와 같이 수정
 
 > TODO 항목을 참고하세요.
 
@@ -72,20 +90,21 @@ fileTree(dir: 'libs', include: ['*.aar'])
 }
 ```
 
-#### 2. Firebase 관련 파일을 수정
+⒉ Firebase 관련 파일을 수정
 
-1. [링크](https://kr.object.ncloudstorage.com/gamepot/Firebase_patch.zip)를 통해 패치파일을 다운로드
-2. 아래와 같이 파일 복사
+- ⒈ [링크](https://kr.object.ncloudstorage.com/gamepot/Firebase_patch.zip)를 통해 패치파일을 다운로드
 
-```java
-/Firebase_patch/Assets/Firebase/Editor
-위 경로의 파일을 아래 경로에 복사
-{unity project}/Assets/Firebase/Editor
+- ⒉ 아래와 같이 파일 복사
 
-{unity project}/Assets/PlayServicesResolver/Editor
-위 경로의 파일을 모두 삭제 후 아래 경로에 파일을 복사
-/Firebase_patch/Assets/PlayServicesResolver/Editor
-```
+    ```java
+    /Firebase_patch/Assets/Firebase/Editor
+     위 경로의 파일을 아래 경로에 복사
+    -> {unity project}/Assets/Firebase/Editor
 
-1. /Assets/Plugins/Android/Firebase/res 폴더가 생성되지 않았다면 Unity 재실행
+    {unity project}/Assets/PlayServicesResolver/Editor
+     위 경로의 파일을 모두 삭제 후 아래 경로에 파일을 복사
+    -> /Firebase_patch/Assets/PlayServicesResolver/Editor
+    ```
+
+- ⒊ /Assets/Plugins/Android/Firebase/res 폴더가 생성되지 않았다면 Unity 재실행
 
