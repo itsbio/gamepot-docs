@@ -113,7 +113,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 ![](../.gitbook/assets/gamepot_unity_resolver_01.png)
 
-`Enable Resolution On Build 체크박스를 해제` 해주세요. \(GamePot Unity SDK GamePotUnityWithCrashlytics-2019-10-08 기준 적용\)
+`Enable Resolution On Build 체크박스를 해제` 해주세요. 
 
 ![](../.gitbook/assets/gamepot_unity_resolver_02.png)
 
@@ -138,7 +138,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 | 환경 변수 | 설명 |
 | :--- | :--- |
 | gamepot\_project\_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot\_api\_url | GAMEPOT에서 발급받은 API URL을 입력해 주세요. |
+| gamepot\_api\_url | 공백 값으로 지정해 주세요. |
 | gamepot\_dash\_url | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
 | gamepot\_facebook\_app\_id | 페이스북 발급 받은 앱ID |
 | gamepot\_facebook\_display\_name | 페이스북에 보여지는 이름 |
@@ -682,7 +682,61 @@ GamePot.getPurchaseThirdPaymentsItems();
 
 ## 8. 기타 API
 
+### 네이버 로그인
+
+#### Naver Developers
+
+사용 API를 `네아로`로 선택 후 애플리케이션 등록
+
+#### Android
+
+mainTemplate.gradle 수정
+
+```java
+...
+defaultConfig {
+    resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
+    resValue "string", "gamepot_naver_secretid", "hijklmn"
+}
+...
+```
+
+Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
+
+#### iOS
+
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_naver_clientid // 네이버에서 사용할 client 아이디
+gamepot_naver_secretid // 네이버에서 사용할 secret 아이디
+gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
+
+```markup
+...
+<key>gamepot_naver_clientid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_secretid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_urlscheme</key>
+<string>xxxxxx</string>
+...
+```
+
+Targets &gt;&gt; Info &gt;&gt; URL Types에 네이버아이디로 로그인 설정에 등록한 URL Schemes를 추가합니다.
+
+URL Schemes를 생성 할 때는 `소문자`,`.`,`_`이외의 문자를 사용하면 인식이 안될 수 있으니 주의 부탁드립니다.
+
+
 ### 라인 로그인
+
+#### LINE Developers
+
+APK 빌드 시 사용한 패키지 이름과 keystore의 SHA값, url Scheme 값을 라인 콘솔에 추가합니다.
+
 
 #### Android
 
@@ -717,9 +771,12 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 ...
 ```
 
-### 네이버 로그인
+### 트위터 로그인
 
-사용 API를 `네아로`로 선택 후 애플리케이션 등록
+#### Twitter Developers
+
+APK 빌드 시 사용한 패키지 이름과 keystore의 SHA값, url Scheme 값을 라인 콘솔에 추가합니다.
+
 
 #### Android
 
@@ -728,40 +785,29 @@ mainTemplate.gradle 수정
 ```java
 ...
 defaultConfig {
-    resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
-    resValue "string", "gamepot_naver_secretid", "hijklmn"
+        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Twitter 개발자 콘솔에서 획득
+        resValue "string", "gamepot_twitter_consumersecret","xxx" // Twitter 개발자 콘솔에서 획득
 }
 ...
 ```
-
-발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
 
 #### iOS
 
 GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
 
 ```text
-gamepot_naver_clientid // 네이버에서 사용할 client 아이디
-gamepot_naver_secretid // 네이버에서 사용할 secret 아이디
-gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
+gamepot_twitter_consumerkey : Twitter Consumer Key
+gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
 
 GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
 
 ```markup
 ...
-<key>gamepot_naver_clientid</key>
-<string>xxxxxx</string>
-<key>gamepot_naver_secretid</key>
-<string>xxxxxx</string>
-<key>gamepot_naver_urlscheme</key>
+<key>gamepot_twitter_consumerkey</key>
 <string>xxxxxx</string>
 ...
 ```
-
-Targets &gt;&gt; Info &gt;&gt; URL Types에 네이버아이디로 로그인 설정에 등록한 URL Schemes를 추가합니다.
-
-URL Schemes를 생성 할 때는 `소문자`,`.`,`_`이외의 문자를 사용하면 인식이 안될 수 있으니 주의 부탁드립니다.
 
 ### 쿠폰
 
@@ -818,6 +864,7 @@ public void onPushSuccess() {
 
 /// 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushFailure(NError error) {
+  
     // 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
@@ -840,6 +887,7 @@ public void onPushNightSuccess() {
 
 /// 야간 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushNightFailure(NError error) {
+    
     // 야간 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
@@ -864,6 +912,7 @@ public void onPushStatusSuccess() {
 
 /// 야간 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushStatusFailure(NError error) {
+   
     // 야간 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
@@ -873,15 +922,10 @@ public void onPushStatusFailure(NError error) {
 
 ```csharp
 NPushInfo pushInfo = GamePot.getPushStatus();
+
 // pushInfo.enable  푸시 허용 여부
 // pushInfo.night   야간 푸시 허용 여부
 ```
-
-### 네이버 카페 SDK
-
-네이버 카페 SDK\(4.0.4\)를 포함한 plugin을 사용하시면 [네이버 카페 SDK 가이드](https://github.com/naver/cafe-sdk-unity/blob/master/README.md#usages)를 참고하여 적용하시면 됩니다.
-
-> 네이버 카페 SDK의 용량이 큰 관계로 포함/미포함한 버전 두 가지로 제공됩니다. 필요에 따라 택일하시면 됩니다.
 
 ### 공지사항
 
@@ -900,7 +944,10 @@ GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로
 Request:
 
 ```csharp
-GamePot.showNotice();
+GamePot.showNotice(bool Flag = true);
+
+// true : 오늘 하루 보지 않기 적용
+// false : 오늘 하루 보지 않기 관계없이, 강제 노출
 ```
 
 Response:
