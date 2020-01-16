@@ -336,3 +336,108 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 구글 로그인을 이용중이라면 `SHA-1`값을 firebase console에 추가하시고,
 
 페이스북 로그인을 이용중이라면 위 `SHA-1`값의 `keyhash`를 페이스북 콘솔에 추가하세요.
+
+## - Casebook
+
+### 대시보드
+
+#### 대시보드에서 원격기능 구성기능을 사용하는 방법 \[[reference](https://docs.gamepot.io/undefined/gamepot_dashboard#undefined-17)\]
+
+
+    원격구성이란, 대시보드로 등록한 매개변수 값들을 클라이언트 상에서 가져올 수 있는 기능 입니다. 
+     해당 값은 게임팟 대시보드 상에서, 설정 >> 원격구성 화면에서 매개변수 형태로 추가/확인 할 수 있습니다. 
+     추가한 매개변수는 로그인 시점에 로드되며, 이후 시점에 getConfig 메소드 호출로 확인할 수 있습니다. 
+
+#### 1. Push 메시지가 수신되지 않을 때
+
+    대시보드 >> 프로젝트설정 >> ncloud API 인증키의 AccessKey, Secret Key, SENS-PUSH, SENS-SMS 값을 확인해주세요.
+     해당 인증키에 대해 SENS 프로젝트의 Certificate 설정을 했는지 확인해주세요.
+
+![gamepot\_faq\_casebook](../.gitbook/assets/Casebook_Dashboard_01.png)
+
+
+#### 2. 사용자 지표 Retention 계산방식에 대해
+
+    example) 
+     2020-01-07 기준으로 했을 때, 해당 날짜에 생성된 5명의 New User 중에서
+      Day 2(다음 날)에 1명 접속 / Day 3에 0명 접속 / Day 4에 1명 접속을 한 상태를 보여줍니다. 
+     5명의 유저 중, n Day에 카운트 되는 방식이기때문에 중간에 0%로 빠지는 구간이 생깁니다.
+
+![gamepot\_faq\_casebook](../.gitbook/assets/Casebook_Dashboard_02.png)
+
+#### 3. 회원의 이용정지를 비활성화 했을 때
+
+    이용정지 리스트에 사용자 아이디가 비활성화 상태일 때, 구글 환불을 진행 한다고 하더라도 자동으로 해당 리스트가 다시 활성화 되지는 않습니다. 
+     또한 비활성화 된 사용자 아이디에 대해서는 계정 접근을 막지 않고 있습니다. 
+
+
+### ETC
+
+#### 1. Firebase Console에서 google-service.json 추출 시
+
+    Firebase Console 상에서, SHA 지문이 등록된 상태여야 google-service.json이 정상적으로 추출될 수 있습니다. 
+     그렇지 않을 경우, json 파일의 일부 값이 누락되어 추출됩니다.
+
+![gamepot\_faq\_casebook](../.gitbook/assets/Casebook_ETC_01.png)
+
+#### 2. 게임팟 로그인 검증 시, Token authentication failed 오류가 발생
+
+    베타존을 사용 중인 업체에서 발생할 수 있는 이슈입니다.
+     request url이 'gamepot.apigw.ntruss.com'로 설정되어 있으면, https://cloud-api.gamepot.io/loginauth 으로 변경해주세요. 
+
+    gamepot.apigw.ntruss.com (리얼존) / https://cloud-api.gamepot.io/loginauth (베타존)
+
+#### 3. 빌드 실행 시, '비정상적으로 앱이 실행되었습니다. 스토어에서 다운로드 받으세요' 메시지 팝업이 발생
+
+    대시보드 >> 프로젝트 설정 >> 일반 탭에서, 해시키가 잘못 설정되어 발생할 수 있습니다. 
+     해당 해시키를 삭제후 확인해보세요.
+
+![gamepot\_faq\_casebook](../.gitbook/assets/Casebook_ETC_02.png)
+
+
+#### 4. 결제 시도 시, Gamepot 성공 응답을 받았지만 대시보드 등록 안되고, 게임서버에 req 전달안됨
+
+    대시보드 >> 프로젝트 설정 >> 일반 탭에서, 구글 API Key의 Json 값이 등록되어 있는지 확인헤보세요.
+     구글 API Key 설정이 version 2로 되어있을 때, 해당 key 값이 없어도 결제가 가능했지만 version 3부터는 key 값을 입력해야 합니다.
+
+![gamepot\_faq\_casebook](../.gitbook/assets/Casebook_ETC_03.png)
+
+
+#### 5. 결제 완료 후, Google Play Developer API not linked 오류가 발생
+
+    구글 영수증 검증을 version 2 -> version 3로 교체했을 때, 발생할 수 있는 케이스.
+     Google Console에서 기존의 계정은 그대로 둔 채, 새로운 서비스 계정을 발급받고 key 값을 추출하여 대시보드 API Key에 넣어줘야 합니다.
+
+![gamepot\_faq\_casebook](../.gitbook/assets/Casebook_ETC_04.png)
+
+    ref.) 새로 계정을 발급받고 key 값을 추출해 넣었을 때, 새로운 키가 갱신 적용되기까지는 약 하루가량 시간이 소요됩니다.
+
+#### 6. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-channel-naver.aar)\]
+
+    1. SENS 설정에 Certification에 인증키 및 인증서가 등록되어 있는지 확인 부탁드립니다.
+
+    2. IOS는 빌드 시 사용 된 프로비저닝프로파일 타입에 따라 등록해야 하는 인증서가 다릅니다. 
+   
+     [Development] 
+    Provisioning >> Push Development 인증서를 업로드 해주시고 Type은 Sandbox로 설정해주세요.
+
+     [Adhoc / Distribution]
+    Provisioning >> Push Distribution 인증서를 업로드 해주시고 Type은 Production으로 설정해주세요. 
+    
+    3. Gamepot은 Push Token을 로그인 완료 시 서버로 전달 합니다. 따라서 인증서를 등록 후, 클라이언트에서 로그인까지 진행 확인 부탁드립니다.
+
+    4. IOS의 경우, 앱이 Forground 상태에서는 푸쉬 수신이 되지 않습니다. home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부탁드립니다.
+
+    5. IOS의 경우, Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 추가 되지 않았는지 확인 부탁드립니다.
+
+#### 7. IOS 결제 테스트 방법
+
+    1. 테스트 하려는 기기의 설정 >> iTunse 및 Store >> Apple ID : XXXX 를 터치 >> 로그아웃
+    2. 앱 실행
+    3. 앱의 유료 결제 항목 선택
+    4. 팝업 발생 시 기존 appleID 사용으로 선택
+    5. 테스트 계정 ID / PW 넣고 로그인 (가끔 상태에 따라 팝업이 여러번 뜨는 경우 있으나 특별히 신경 쓰지 않아도 됩니다.)
+    6. 유료 결제 항목의 가격 및 이름이 팝업 형태로 노출 되며 [Environment : Sandbox] 문구 노출
+    7. 구입 선택
+
+    * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 돈은 나가지 않으니 특별히 신경안쓰셔도 됩니다.
