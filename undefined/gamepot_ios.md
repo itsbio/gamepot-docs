@@ -771,6 +771,26 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot\_unity\_15](../.gitbook/assets/gamepot_unity_15%20%284%29.png)
 
+
+### 원격 구성
+
+대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
+    
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요. 
+
+추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
+
+```java
+#import <GamePot/GamePot.h>
+
+//key : 매개변수 string
+NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
+
+//대시보드에 추가한 모든 매개변수를 json 형태로 가져옵니다. 
+NSArray *json_value = [[GamePot getInstance] getConfigs];
+```
+
+
 ## 7. 다운로드
 
 GAMEPOT 대시보드의 **SDK 다운로드** 메뉴에서 SDK를 다운로드할 수 있습니다.

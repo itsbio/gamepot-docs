@@ -514,7 +514,7 @@ public class NLinkingInfo
 
 Request :
 
-```text
+```csharp
 void GamePot.deleteLinking(NCommon.LinkType.XXXXX);
 ```
 
@@ -987,7 +987,7 @@ GamePot.showCSWebView();
 
 > 리턴 값으로 전달되는 pushId는 개발사에서 관리합니다.
 
-```java
+```csharp
 int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title", "content");
 ```
 
@@ -995,7 +995,7 @@ int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title
 
 푸시 등록 시 얻은 pushId를 기반으로 기존에 등록된 푸시를 취소할 수 있습니다.
 
-```java
+```csharp
 GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 ```
 
@@ -1055,7 +1055,7 @@ public void onAgreeDialogFailure(NError error)
 
 약관 동의를 호출하기 전에 `NAgreeInfo`에서 각 영역별로 색을 지정할 수 있습니다.
 
-```text
+```csharp
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "green";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
@@ -1105,7 +1105,7 @@ GamePot.showAgreeDialog(info);
 
 > 대시보드 - 고객지원 - 이용약관 설정 항목에 내용을 먼저 입력하세요.
 
-```text
+```csharp
 GamePot.showTerms();
 ```
 
@@ -1117,9 +1117,29 @@ GamePot.showTerms();
 
 > 대시보드 - 고객지원 - 개인정보취급방침 설정 항목에 내용을 먼저 입력하세요.
 
-```text
+```csharp
 GamePot.showPrivacy();
 ```
 
 ![gamepot\_unity\_15](../.gitbook/assets/gamepot_unity_15%20%284%29.png)
+
+### 원격 구성
+
+대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
+    
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 추가합니다. 
+
+![gamepot\_unity\_16](../.gitbook/assets/gamepot_unity_remote_config_01.png)
+
+> 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
+
+```csharp
+//"test_01" : 매개변수 string
+var str_value = GamePot.getConfig("test_01");
+
+//대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다.
+var json_value = GamePot.getConfigs();
+```
+
+![gamepot\_unity\_17](../.gitbook/assets/gamepot_unity_remote_config_02.png)
 

@@ -1148,6 +1148,26 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().showPrivacy(activity);
 ```
 
+
+### 원격 구성
+
+대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
+    
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요. 
+
+추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
+
+```java
+import io.gamepot.common.GamePot;
+
+//key : 매개변수 string
+String str_value = GamePot.getInstance().getConfig(key);
+
+//대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다. 
+String json_value = GamePot.getInstance().getConfigs();
+```
+
+
 ### 게임 로그 전송
 
 게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.

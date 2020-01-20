@@ -339,15 +339,6 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
 ## - Casebook
 
-### 대시보드
-
-#### 대시보드에서 원격기능 구성기능을 사용하는 방법 \[[reference](https://docs.gamepot.io/undefined/gamepot_dashboard#undefined-17)\]
-
-
-    원격구성이란, 대시보드로 등록한 매개변수 값들을 클라이언트 상에서 가져올 수 있는 기능 입니다. 
-     해당 값은 게임팟 대시보드 상에서, 설정 >> 원격구성 화면에서 매개변수 형태로 추가/확인 할 수 있습니다. 
-     추가한 매개변수는 로그인 시점에 로드되며, 이후 시점에 getConfig 메소드 호출로 확인할 수 있습니다. 
-
 #### 1. Push 메시지가 수신되지 않을 때
 
     대시보드 >> 프로젝트설정 >> ncloud API 인증키의 AccessKey, Secret Key, SENS-PUSH, SENS-SMS 값을 확인해주세요.
@@ -424,20 +415,26 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
      [Adhoc / Distribution]
     Provisioning >> Push Distribution 인증서를 업로드 해주시고 Type은 Production으로 설정해주세요. 
     
-    3. Gamepot은 Push Token을 로그인 완료 시 서버로 전달 합니다. 따라서 인증서를 등록 후, 클라이언트에서 로그인까지 진행 확인 부탁드립니다.
+    3. Gamepot은 Push Token을 로그인 완료 시 서버로 전달 합니다. 따라서 인증서를 등록 후, 클라이언트에서 로그인까지 진행 확인해주세요.
 
-    4. IOS의 경우, 앱이 Forground 상태에서는 푸쉬 수신이 되지 않습니다. home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부탁드립니다.
+    4. IOS의 경우, 앱이 Forground 상태에서는 푸쉬 수신이 되지 않습니다. home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인해주세요.
 
-    5. IOS의 경우, Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 추가 되지 않았는지 확인 부탁드립니다.
+    5. IOS의 경우, Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않을 경우, 빌드 시 해당부분이 추가 되지 않았는지 확인해주세요.
 
 #### 7. IOS 결제 테스트 방법
 
     1. 테스트 하려는 기기의 설정 >> iTunse 및 Store >> Apple ID : XXXX 를 터치 >> 로그아웃
+    
     2. 앱 실행
+
     3. 앱의 유료 결제 항목 선택
+
     4. 팝업 발생 시 기존 appleID 사용으로 선택
+
     5. 테스트 계정 ID / PW 넣고 로그인 (가끔 상태에 따라 팝업이 여러번 뜨는 경우 있으나 특별히 신경 쓰지 않아도 됩니다.)
+
     6. 유료 결제 항목의 가격 및 이름이 팝업 형태로 노출 되며 [Environment : Sandbox] 문구 노출
+    
     7. 구입 선택
 
-    * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 돈은 나가지 않으니 특별히 신경안쓰셔도 됩니다.
+    * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 요금은 부과되지 않습니다.
