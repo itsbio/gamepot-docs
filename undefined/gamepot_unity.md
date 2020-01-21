@@ -272,6 +272,13 @@ defaultConfig {
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.framework
 
+
+### APPLE 로그인
+
+> iOS에만 해당하는 기능입니다.  
+
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
+
 ### 게임센터 로그인
 
 > iOS에만 해당하는 기능입니다.  
@@ -354,6 +361,7 @@ public enum LoginType
      FACEBOOK,
      GAMECENTER,
      NAVER,
+     APPLE,
      GUEST
 }
 ```
@@ -460,7 +468,8 @@ public enum LinkingType
       GAMECENTER,
       GOOGLE,
       FACEBOOK,
-      NAVER
+      NAVER,
+      APPLE
 }
 ```
 
@@ -504,7 +513,7 @@ List<NLinkingInfo> linkedList = GamePot.getLinkedList();
 ```csharp
 public class NLinkingInfo
 {
-    public LinkingType provider { get; set; }  // google, facebook, naver
+    public LinkingType provider { get; set; }  // google, facebook, naver, apple
 }
 ```
 

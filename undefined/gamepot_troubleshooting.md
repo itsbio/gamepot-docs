@@ -23,7 +23,7 @@
 ref.) 해당 부분이 패치된 라이브러리로 교체할 수 있습니다. \[[gamepot-channel-naver.aar](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-channel-naver.aar)\]
 
 
-## 플레이 스토어에 APK 업로드 시, com.nhncorp.nelo2.android.util 암호화패턴 보안알림 발생
+## 플레이 스토어 APK 업로드 시, com.nhncorp.nelo2.android.util 암호화패턴 보안알림 발생
 
 ⒈ logging 기능 관련 라이브러리가 obsolete여서 발생하는 문제
 
@@ -40,32 +40,38 @@ ref.) 해당 부분이 패치된 라이브러리로 교체할 수 있습니다. 
 
 ⒈ 콘솔(터미널)에서 LineSDK.framework 파일 위치로 이동 후, 아래 명령어를 하나씩 입력 해주세요.
 
-    (허용되지 않은 아키텍쳐를 제거하는 코드 입니다.) 
+```text
+(허용되지 않은 아키텍쳐를 제거하는 코드 입니다.) 
 
-    lipo -remove x86_64 ./LineSDK.framework/LineSDK -o ./LineSDK.framework/LineSDK
-    lipo -remove i386 ./LineSDK.framework/LineSDK -o ./LineSDK.framework/LineSDK
-    lipo -remove x86_64 ./LineSDKObjC.framework/LineSDKObjC -o ./LineSDKObjC.framework/LineSDKObjC
-    lipo -remove i386 ./LineSDKObjC.framework/LineSDKObjC -o ./LineSDKObjC.framework/LineSDKObjC
+lipo -remove x86_64 ./LineSDK.framework/LineSDK -o ./LineSDK.framework/LineSDK
+lipo -remove i386 ./LineSDK.framework/LineSDK -o ./LineSDK.framework/LineSDK
+lipo -remove x86_64 ./LineSDKObjC.framework/LineSDKObjC -o ./LineSDKObjC.framework/LineSDKObjC
+lipo -remove i386 ./LineSDKObjC.framework/LineSDKObjC -o ./LineSDKObjC.framework/LineSDKObjC
+```
 
 ## Twitter i386 x86_64 IOS 빌드 이슈
 
 ⒈ 콘솔(터미널)에서 TwitterCore.framework 파일 위치로 이동 후, 아래 명령어를 하나씩 입력 해주세요.
 
-    (허용되지 않은 아키텍쳐를 제거하는 코드 입니다.) 
-    
-    lipo -remove x86_64 ./TwitterCore.framework/TwitterCore -o ./TwitterCore.framework/TwitterCore
-    lipo -remove i386 ./TwitterCore.framework/TwitterCore -o ./TwitterCore.framework/TwitterCore
-    lipo -remove x86_64 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/TwitterKit
-    lipo -remove i386 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/TwitterKit
+```text
+(허용되지 않은 아키텍쳐를 제거하는 코드 입니다.)  
+
+lipo -remove x86_64 ./TwitterCore.framework/TwitterCore -o ./TwitterCore.framework/TwitterCore
+lipo -remove i386 ./TwitterCore.framework/TwitterCore -o ./TwitterCore.framework/TwitterCore
+lipo -remove x86_64 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/TwitterKit
+lipo -remove i386 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/TwitterKit
+```
 
 ## AdbrixRM i386 x86_64 IOS 빌드 이슈
 
 ⒈ 콘솔(터미널)에서 AdBrixRM.framework 파일 위치로 이동 후, 아래 명령어를 하나씩 입력 해주세요.
 
-    (허용되지 않은 아키텍쳐를 제거하는 코드 입니다.) 
-    
-    lipo -remove x86_64 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
-    lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
+```text
+(허용되지 않은 아키텍쳐를 제거하는 코드 입니다.) 
+
+lipo -remove x86_64 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
+lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
+```
 
 ## Unity 2018.4.4이상, Unity 2019.2.0이상에서 Android 빌드 이슈
 
