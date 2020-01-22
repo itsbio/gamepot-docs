@@ -349,6 +349,8 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
 #### 2. 사용자 지표 Retention 계산방식에 대해
 
+   광고 등의 경로를 통해 유입된 허수를 제하기 위해, 첫 날 접속 후 그 다음 날 접속한 유저를 New User로 간주하여 Counting 합니다.
+
     example) 
      2020-01-07 기준으로 했을 때, 해당 날짜에 생성된 5명의 New User 중에서
       Day 2(다음 날)에 1명 접속 / Day 3에 0명 접속 / Day 4에 1명 접속을 한 상태를 보여줍니다. 
