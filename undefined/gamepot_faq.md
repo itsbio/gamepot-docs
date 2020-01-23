@@ -337,7 +337,9 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
 페이스북 로그인을 이용중이라면 위 `SHA-1`값의 `keyhash`를 페이스북 콘솔에 추가하세요.
 
-## - Casebook
+## Casebook
+
+### - Dashboard
 
 #### 1. Push 메시지가 수신되지 않을 때
 
@@ -364,7 +366,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
      또한 비활성화 된 사용자 아이디에 대해서는 계정 접근을 막지 않고 있습니다. 
 
 
-### ETC
+### - etc
 
 #### 1. Firebase Console에서 google-service.json 추출 시
 
