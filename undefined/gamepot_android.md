@@ -1148,12 +1148,11 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().showPrivacy(activity);
 ```
 
-
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
-    
-> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요. 
+
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요.
 
 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -1163,10 +1162,9 @@ import io.gamepot.common.GamePot;
 //key : 매개변수 string
 String str_value = GamePot.getInstance().getConfig(key);
 
-//대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다. 
+//대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다.
 String json_value = GamePot.getInstance().getConfigs();
 ```
-
 
 ### 게임 로그 전송
 
@@ -1208,4 +1206,106 @@ if(!TextUtils.isEmpty(playerid))
 
 // result : 로그 전송 성공 true, 그렇지 않으면 false
 boolean result = GamePotSendLog.characterInfo(obj);
+```
+
+# 부록
+
+### 3rd party SDK 연동 지원
+
+TODO : 설명
+
+## 로그인
+
+TODO : 설명
+
+> 자동 로그인을 지원하지 않음. 매번 호출 필요.
+
+| 파라미터명 | 필수 | 타입   | 설명               |
+| :--------- | :--- | :----- | :----------------- |
+| activity   | 필수 | String | 현재 Activity      |
+| userid     | 필수 | String | 유저 유니크 아이디 |
+| listener   | 필수 | String | 요청 결과          |
+
+```java
+String memberId = "memberid of 3rd party sdk";
+
+GamePotChannel.getInstance().loginByThirdPartySDK(getActivity(), memberId, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status) {
+        // TODO: 강제 업데이트가 필요한 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
+        // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+                // TODO: 종료 프로세스를 처리해주세요.
+                MainActivity.this.finish();
+            }
+
+            @Override
+            public void onNext(Object obj) {
+                // TODO : Dashboard 업데이트 설정에서 권장 설정 시 "다음에 하기" 버튼이 노출 됩니다.
+                // 해당 버튼을 사용자가 선택 시 호출 됩니다.
+                // TODO : obj 정보를 이용하여 로그인 완료 시와 동일하게 처리해주세요.
+                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
+            }
+        });
+    }
+
+    @Override
+    public void onMainternance(GamePotAppStatus status) {
+        // TODO: 점검 중인 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
+        // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+                // TODO: 종료 프로세스를 처리해주세요.
+                MainActivity.this.finish();
+            }
+        });
+    }
+
+    @Override
+    public void onCancel() {
+        // 사용자가 로그인을 취소한 상황.
+    }
+
+    @Override
+    public void onSuccess(GamePotUserInfo userinfo) {
+        // 로그인 완료. 게임 로직에 맞게 처리해주세요.
+    }
+
+    @Override
+    public void onFailure(GamePotError error) {
+        // 로그인 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+    }
+});
+```
+
+## 결제
+
+TODO : 설명
+
+> 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
+
+| 파라미터명    | 필수 | 타입   | 설명                                    |
+| :------------ | :--- | :----- | :-------------------------------------- |
+| productid     | 필수 | String | 게임팟 대시보드에 등록된 아이템 아이디  |
+| transactionid | 필수 | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)     |
+| currency      | 선택 | String | 통화(KRW, USD)                          |
+| price         | 선택 | double | 결제 아이템 금액                        |
+| paymentid     | 선택 | String | 결제 스토어(google, apple, one, galaxy) |
+| uniqueid      | 선택 | String | 개발사에서 사용하는 고유 아이디         |
+| listener      | 선택 | String | 요청 결과                               |
+
+```java
+String productId = "purchase_001";
+String transactionId = "GPA-xxx-xxxx-xxxx";
+String currency = "KRW";
+double price = 1000;
+String paymentId = "google";
+String uniqueId = "developer unique id";
+
+GamePot.getInstance().sendPurchaseByThirdPartySDK(productId, transactionId, currency, price, paymentId, uniqueId, null);
 ```
