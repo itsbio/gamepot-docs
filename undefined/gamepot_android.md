@@ -1220,11 +1220,11 @@ TODO : 설명
 
 > 자동 로그인을 지원하지 않음. 매번 호출 필요.
 
-| 파라미터명 | 필수 | 타입   | 설명               |
-| :--------- | :--- | :----- | :----------------- |
-| activity   | 필수 | String | 현재 Activity      |
-| userid     | 필수 | String | 유저 유니크 아이디 |
-| listener   | 필수 | String | 요청 결과          |
+| 파라미터명 | 필수 | 타입                                                     | 설명               |
+| :--------- | :--- | :------------------------------------------------------- | :----------------- |
+| activity   | 필수 | String                                                   | 현재 Activity      |
+| userid     | 필수 | String                                                   | 유저 유니크 아이디 |
+| listener   | 필수 | GamePotChannelListener / GamePotAppStatusChannelListener | 요청 결과          |
 
 ```java
 String memberId = "memberid of 3rd party sdk";
@@ -1289,21 +1289,21 @@ TODO : 설명
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
-| 파라미터명    | 필수 | 타입   | 설명                                    |
-| :------------ | :--- | :----- | :-------------------------------------- |
-| productid     | 필수 | String | 게임팟 대시보드에 등록된 아이템 아이디  |
-| transactionid | 필수 | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)     |
-| currency      | 선택 | String | 통화(KRW, USD)                          |
-| price         | 선택 | double | 결제 아이템 금액                        |
-| paymentid     | 선택 | String | 결제 스토어(google, apple, one, galaxy) |
-| uniqueid      | 선택 | String | 개발사에서 사용하는 고유 아이디         |
-| listener      | 선택 | String | 요청 결과                               |
+| 파라미터명    | 필수 | 타입            | 설명                                    |
+| :------------ | :--- | :-------------- | :-------------------------------------- |
+| productid     | 필수 | String          | 게임팟 대시보드에 등록된 아이템 아이디  |
+| transactionid | 필수 | String          | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)     |
+| currency      | 선택 | String          | 통화(KRW, USD)                          |
+| price         | 선택 | double          | 결제 아이템 금액                        |
+| paymentid     | 선택 | String          | 결제 스토어(google, apple, one, galaxy) |
+| uniqueid      | 선택 | String          | 개발사에서 사용하는 고유 아이디         |
+| listener      | 선택 | GamePotListener | 요청 결과                               |
 
 ```java
 String productId = "purchase_001";
 String transactionId = "GPA-xxx-xxxx-xxxx";
 String currency = "KRW";
-double price = 1000;
+double price = 1200;
 String paymentId = "google";
 String uniqueId = "developer unique id";
 
