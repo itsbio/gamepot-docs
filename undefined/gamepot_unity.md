@@ -356,13 +356,16 @@ LoginType 정의
 ```csharp
 public enum LoginType
 {
-     NONE,
-     GOOGLE,
-     FACEBOOK,
-     GAMECENTER,
-     NAVER,
-     APPLE,
-     GUEST
+    NONE,
+    GOOGLE,
+    GOOGLEPLAY,
+    FACEBOOK,
+    NAVER,
+    GAMECENTER,
+    TWITTER,
+    LINE,
+    APPLE,
+    GUEST
 }
 ```
 
@@ -375,7 +378,8 @@ public class NUserInfo
     public string name { get; set; }            // 이름
     public string profileUrl { get; set; }      // 프로필 URL(존재 시)
     public string email { get; set; }           // 이메일(존재 시)
-    public string socialid { get; set; }        // Social ID(google, facebook ...)
+    public string token { get; set; }           // 유저 광고 ID
+    public string userid { get; set; }          // Social ID(google, facebook ...)
 }
 ```
 
@@ -465,11 +469,14 @@ public void  onDeleteMemberFailure(NError error) {
 ```csharp
 public enum LinkingType
 {
-      GAMECENTER,
-      GOOGLE,
-      FACEBOOK,
-      NAVER,
-      APPLE
+    GOOGLEPLAY,
+    GAMECENTER,
+    GOOGLE,
+    FACEBOOK,
+    NAVER,
+    TWITTER,
+    LINE,
+    APPLE
 }
 ```
 
