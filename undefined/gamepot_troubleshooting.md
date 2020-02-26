@@ -161,3 +161,9 @@ fileTree(dir: 'libs', include: ['*.aar'])
 
 - ⒊ /Assets/Plugins/Android/Firebase/res 폴더가 생성되지 않았다면 Unity 재실행
 
+
+## 네이버 플러그 SDK (plug_sdk_4_4_7.unitypackage.unitypackage) 를 적용시 IOS 빌드 오류 발생.
+
+- ⒈ [링크](https://kr.object.ncloudstorage.com/itsb/GamePotNaver.framework.zip)를 통해 패치파일을 다운로드 및 압축 해제  (GamePotNaver.framework)
+
+- 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요.
