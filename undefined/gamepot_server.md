@@ -55,7 +55,7 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 
 ### Item Webhook\(required\)
 
-쿠폰 사용 후 GAMEPOT서버에서 게임 서버로 아이템 지급을 위해 HTTP 요청을 합니다.
+쿠폰/대량 아이템 발송 기능 사용 시 GAMEPOT서버에서 게임 서버로 아이템 지급을 위해 HTTP 요청을 합니다.
 
 #### Request
 
@@ -63,19 +63,25 @@ HTTP 요청 시 정보는 아래와 같은 내용으로 전달드리고 해당 �
 
 > `{domain}` 항목은 개발사에서 작업 완료 후 알려주어야 하며, 이 값은 GAMEPOT 대시보드 - 프로젝트 설정 - 일반 - Webhook 항목에 추가해야 합니다.
 
+> `GAMEPOT 대시보드 - 게임 - 아이템` 에서 아이템 발송 시 전체 보내기 기능이 있습니다.
+> 이 기능을 사용하면 `target` / `userId`가 `all`로 전송되므로 개발사에서 모든 유저에게 아이템을 지급할 수 있도록 처리해야 합니다.
+
 ```text
 https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| Attribute | Type   | Description                                                                                        |
-| :-------- | :----- | :------------------------------------------------------------------------------------------------- |
-| userId    | String | 사용자 ID                                                                                          |
-| projectId | String | Project ID                                                                                         |
-| platform  | String | 운영 Platform 정보 \(Android, IOS\)                                                                |
-| store     | String | 스토어 정보\(apple, google, one\)                                                                  |
-| userData  | String | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
-| itemId    | Array  | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| Attribute | Type   | Description                                                                                                        |
+| :-------- | :----- | :----------------------------------------------------------------------------------------------------------------- |
+| userId    | String | 사용자 ID                                                                                                          |
+| projectId | String | Project ID                                                                                                         |
+| platform  | String | 운영 Platform 정보 \(Android, IOS, job\)                                                                           |
+| store     | String | 스토어 정보\(apple, google, one\)                                                                                  |
+| userData  | String | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                                      |
+| itemId    | Array  | itemData Array<br /><br />- itemData(JSON) <br /> {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| target    | String | 유저/전체 \(user, all\)                                                                                            |
+| title     | String | 우편함에 보여질 제목                                                                                               |
+| content   | String | 우편함에 보여질 내용                                                                                               |
 
 > ex\)
 >

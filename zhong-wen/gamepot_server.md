@@ -47,23 +47,33 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 
 ### Item\(required\)
 
-使用优惠卷时会对游戏服务器请求发放物品 会依照以下形式来请求，游戏服务器就依照传达过来的内容发放给玩家相关物品即可。
+使用优惠券/散装物品发送功能时，会发出 HTTP 请求以将物品从 GAMEPOT 服务器发送到游戏服务器。
 
 #### Request
+
+当 HTTP 请求时，信息将按以下方式交付，并根据该信息将商品支付给用户。
+
+> 开发人员完成任务后，应通知`{domain}`条目，该值应添加到 GAMEPOT 仪表板-项目设置-常规-Webhook。
+
+> `GAMEPOT仪表板-游戏-物品`现在具有发送物品时的全部发送功能。
+> 如果您使用此功能，则将`target` / `userId`发送给`all`，因此开发人员应将该项目处理给所有用户。
 
 ```text
 https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| Attribute | Type   | Description                                                                                        |
-| :-------- | :----- | :------------------------------------------------------------------------------------------------- |
-| userId    | String | 用户 UID                                                                                           |
-| projectId | String | ProjectID                                                                                          |
-| platform  | String | 平台 Platform 信息 \(Android, IOS\)                                                                |
-| store     | String | 渠道信息\(apple, google, one\)                                                                     |
-| userData  | String | User data                                                                                          |
-| itemID    | Array  | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| Attribute | Type   | Description                                                                                                        |
+| :-------- | :----- | :----------------------------------------------------------------------------------------------------------------- |
+| userId    | String | 用户 UID                                                                                                           |
+| projectId | String | ProjectID                                                                                                          |
+| platform  | String | 平台 Platform 信息 \(Android, IOS, job\)                                                                           |
+| store     | String | 渠道信息\(apple, google, one\)                                                                                     |
+| userData  | String | User data                                                                                                          |
+| itemID    | Array  | itemData Array<br /><br />- itemData(JSON) <br /> {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| target    | String | 用户/全部 \(user, all\)                                                                                            |
+| title     | String | 要显示在邮箱中的标题                                                                                               |
+| content   | String | 要显示在邮箱中的内容                                                                                               |
 
 ex\) [https://{domain}?itemId=\[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","store_item_id":"000","count":1},{"item_id":"989caae1-5f70-41d9-b797-2e27cc838cb0","store_item_id":"rrr","count":2}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userData=abcdefg&userId=25dcea66-0719-4d18-8dcd-9b7f638f85e4](https://{domain}?itemId=[{"item_id":"d892ee43-d516-43c2-b16f-3ca5672e8166","store_item_id":"000","count":1},{"item_id":"989caae1-5f70-41d9-b797-2e27cc838cb0","store_item_id":"rrr","count":2}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userData=abcdefg&userId=25dcea66-0719-4d18-8dcd-9b7f638f85e4)
 
