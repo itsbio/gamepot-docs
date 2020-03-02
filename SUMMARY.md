@@ -17,6 +17,19 @@
 - [Troubleshooting](undefined/gamepot_troubleshooting.md)
 - [3rd-party SDK](undefined/gamepot_3rdparty.md)
 
+## English
+
+- [Introduction](en/en.md)
+- [Features](en/features.md)
+- [Console](en/gamepot_console.md)
+- [Dashboard](en/gamepot_dashboard.md)
+- [Unity SDK](en/gamepot_unity.md)
+- [Android SDK](en/gamepot_android.md)
+- [iOS SDK](en/gamepot_ios.md)
+- [Server API](en/gamepot_server.md)
+- [FAQ](en/faq.md)
+- [3rd-party SDK](en/gamepot_3rdparty.md)
+
 ## 中文
 
 - [Introduction](zhong-wen/cn.md)
