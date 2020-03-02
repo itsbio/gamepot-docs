@@ -1138,7 +1138,19 @@ GamePot.showTerms();
 GamePot.showPrivacy();
 ```
 
-![gamepot_unity_15](../.gitbook/assets/gamepot_unity_15%20%284%29.png)
+![gamepot_unity_16](../.gitbook/assets/gamepot_unity_16.png)
+
+### 환불규정
+
+환불규정 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 환불규정 설정 항목에 내용을 먼저 입력하세요.
+
+```csharp
+GamePot.showRefund();
+```
+
+![gamepot_unity_15_1](../.gitbook/assets/gamepot_unity_15_1.jpg)
 
 ### 원격 구성
 
