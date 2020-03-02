@@ -790,6 +790,38 @@ NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
 NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```
 
+### 게임 로그 전송
+
+게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
+
+아래는 사용할 수 있는 예약어 정의 표 입니다.
+
+| 예약어                            | 필수 | 타입   | 설명         |
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+
+```java
+#import <GamePot/GamePotSendLog.h>
+#import <GamePot/GamePotSendLogCharacter.h>
+  
+GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
+    
+[info put:@"name" forKey:GAMEPOT_NAME];
+[info put:@"playerid" forKey:GAMEPOT_PLAYER_ID];
+[info put:@"serverid" forKey:GAMEPOT_SERVER_ID];
+[info put:@"level" forKey:GAMEPOT_LEVEL];
+[info put:@"userdata" forKey:GAMEPOT_USERDATA];
+
+BOOL result = [GamePotSendLog characterInfo:info];
+
+// Result is TRUE : validation success. Logs will send to GamePot Server
+// Result is FALSE : validation was failed. Please check logcat
+
+```
 
 ## 7. 다운로드
 

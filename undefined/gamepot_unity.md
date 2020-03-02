@@ -1159,3 +1159,32 @@ var json_value = GamePot.getConfigs();
 ```
 
 ![gamepot_unity_17](../.gitbook/assets/gamepot_unity_remote_config_02.png)
+
+### 게임 로그 전송
+
+게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
+
+아래는 사용할 수 있는 예약어 정의 표 입니다.
+
+| 예약어                            | 필수 | 타입   | 설명         |
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+
+```csharp
+GamePotSendLogCharacter characterLog = new GamePotSendLogCharacter();
+characterLog.put(GamePotSendLogCharacter.NAME, "Character Name");
+characterLog.put(GamePotSendLogCharacter.PLAYER_ID, "Player_id");
+characterLog.put(GamePotSendLogCharacter.LEVEL, "Character Level");
+characterLog.put(GamePotSendLogCharacter.SERVER_ID, "Current Serverid");
+characterLog.put(GamePotSendLogCharacter.USERDATA, "User data");
+        
+Boolean result = GamePot.characterInfo(characterLog);
+
+// Result is TRUE : validation success. Logs will send to GamePot Server
+// Result is FALSE : validation was failed. Please check logcat
+
+```

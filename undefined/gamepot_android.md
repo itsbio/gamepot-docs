@@ -1167,7 +1167,6 @@ String str_value = GamePot.getInstance().getConfig(key);
 String json_value = GamePot.getInstance().getConfigs();
 ```
 
-
 ### 게임 로그 전송
 
 게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
