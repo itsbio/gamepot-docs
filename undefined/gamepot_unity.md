@@ -1175,16 +1175,21 @@ var json_value = GamePot.getConfigs();
 | GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
 
 ```csharp
+String name = "케릭터명";
+String level = "10";
+String serverid = "svn_001";
+String playerid = "283282191001";
+String userdata = "";
+
 GamePotSendLogCharacter characterLog = new GamePotSendLogCharacter();
-characterLog.put(GamePotSendLogCharacter.NAME, "Character Name");
-characterLog.put(GamePotSendLogCharacter.PLAYER_ID, "Player_id");
-characterLog.put(GamePotSendLogCharacter.LEVEL, "Character Level");
-characterLog.put(GamePotSendLogCharacter.SERVER_ID, "Current Serverid");
-characterLog.put(GamePotSendLogCharacter.USERDATA, "User data");
-        
+characterLog.put(GamePotSendLogCharacter.NAME, name);
+characterLog.put(GamePotSendLogCharacter.PLAYER_ID, playerid);
+characterLog.put(GamePotSendLogCharacter.LEVEL, level);
+characterLog.put(GamePotSendLogCharacter.SERVER_ID, serverid);
+characterLog.put(GamePotSendLogCharacter.USERDATA, userdata);
+
 Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
-
 ```
