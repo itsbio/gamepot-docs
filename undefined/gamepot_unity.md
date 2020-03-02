@@ -362,7 +362,8 @@ public enum LoginType
      GAMECENTER,
      NAVER,
      APPLE,
-     GUEST
+     GUEST,
+     THIRDPARTYSDK
 }
 ```
 
