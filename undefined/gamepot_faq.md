@@ -117,6 +117,8 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
 3. 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요.
 
+   ( 유니티 플러그인 버전이 plug_sdk_4_4_6 이전 버전 기준 ) 
+
 ### 5. Line 로그인
 
     # Q. 라인 로그인 시 오류 \(400 오류 : Bad\_Request\)가 발생 합니다. (AOS, iOS)
@@ -279,7 +281,7 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 ## Naver Cafe
 
     # Q. iOS Naver Cafe 노출 시 영문으로 노출 됩니다.
-    # A. XCode &gt;&gt; Targets&gt;&gt; Info &gt;&gt; Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
+    # A. XCode >> Targets >> Info >> Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
 
 ## 서비스 런칭
 
