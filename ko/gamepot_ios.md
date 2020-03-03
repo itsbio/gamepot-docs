@@ -682,7 +682,9 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 ![gamepot_ios_12](./images/gamepot_ios_12.png)
 
-- `GREEN` 테마 예시 ![gamepot_ios_13](./images/gamepot_ios_13.png)
+- `GREEN` 테마 예시
+
+![gamepot_ios_13](./images/gamepot_ios_13.png)
 
 #### 약관 동의 호출
 

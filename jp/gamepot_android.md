@@ -18,13 +18,13 @@ AndroidでGAMEPOTを使用するためのシステム環境は以下の通りで
 
 ### プロジェクトの生成
 
-![gamepot_android_01](../.gitbook/assets/gamepot_android_01.png)
+![gamepot_android_01](./images/gamepot_android_01.png)
 
 ### ライブラリーの追加
 
 ダウンロードしたAOS SDKファイルを`app/libs` フォルダに追加します。
 
-![gamepot_android_01](../.gitbook/assets/gamepot_android_02.png)
+![gamepot_android_02](./images/gamepot_android_02.png)
 
 ### build.gradleの設定
 
@@ -132,7 +132,7 @@ AndroidでGAMEPOTを使用するためのシステム環境は以下の通りで
 
    Android Studioで下のボタンをクリックしてリロードします。
 
-![gamepot_android_03](../.gitbook/assets/gamepot_android_03.png)
+![gamepot_android_03](./images/gamepot_android_03.png)
 
 * リロードをクリックしてから発生し得る失敗
 
@@ -185,7 +185,7 @@ AndroidでGAMEPOTを使用するためのシステム環境は以下の通りで
 
 ### Push Notificationアイコンの設定
 
-![gamepot_android_04](../.gitbook/assets/gamepot_android_04.png)
+![gamepot_android_04](./images/gamepot_android_04.png)
 
 プッシュ受信の際にNotification barに表示するアイコン(Icon)は基本的にSDK内部の基本イメージで処理され、ゲームに適した形で直接入れることもできます。
 
@@ -275,7 +275,7 @@ APKビルドの際に使用したKeystoreのSHA-1値をFirebaseコンソールCo
 
 > SHA-1 の値はデベロッパー社にリクエストします。
 
-![gamepot_android_05](../.gitbook/assets/gamepot_android_05.png)
+![gamepot_android_05](./images/gamepot_android_05.png)
 
 ## フェイスブックコンソールの設定
 
@@ -283,7 +283,7 @@ APKビルドの際に使用したKeystoreのキーハッシュ値をフェイス
 
 > キーハッシュ値はデベロッパー社にリクエストします。
 
-![gamepot_android_06](../.gitbook/assets/gamepot_android_06.png)
+![gamepot_android_06](./images/gamepot_android_06.png)
 
 ## 設定
 
@@ -757,7 +757,7 @@ GamePotAd.getInstance().tracking(GamePotAdActions.TUTORIAL_COMPLETE, new GamePot
 
 以下の’アプリ内購入イベントを自動でロギング’項目をOFFにします。
 
-![gamepot_android_08](../.gitbook/assets/gamepot_android_08.png)
+![gamepot_android_10](./images/gamepot_android_10.png)
 
 ## 設定
 
@@ -1143,11 +1143,11 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 - `BLUE` テーマの例
 
-  ![gamepot_unity_10](../.gitbook/assets/gamepot_unity_10.png)
+  ![gamepot_android_07](./images/gamepot_android_07.png)
 
 - `GREEN` テーマの例
 
-  ![gamepot_unity_11](../.gitbook/assets/gamepot_unity_11.png)
+  ![gamepot_android_08](./images/gamepot_android_08.png)
 
 ### 約款同意の呼び出し
 
@@ -1227,7 +1227,7 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotLis
 
 > contentIconDrawableの基本イメージはプッシュアイコンで設定されます。
 
-![gamepot_unity_12](../.gitbook/assets/gamepot_unity_12.png)
+![gamepot_android_09](./images/gamepot_android_09.png)
 
 ## 利用約款
 
