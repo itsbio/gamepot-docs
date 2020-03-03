@@ -5,17 +5,17 @@
 
 ## 한국어
 
-- [Introduction](undefined/ko.md)
-- [Features](undefined/features.md)
-- [Console](undefined/gamepot_console.md)
-- [Dashboard](undefined/gamepot_dashboard.md)
-- [Unity SDK](undefined/gamepot_unity.md)
-- [Android SDK](undefined/gamepot_android.md)
-- [iOS SDK](undefined/gamepot_ios.md)
-- [Server API](undefined/gamepot_server.md)
-- [FAQ](undefined/gamepot_faq.md)
-- [Troubleshooting](undefined/gamepot_troubleshooting.md)
-- [3rd-party SDK](undefined/gamepot_3rdparty.md)
+- [Introduction](ko/ko.md)
+- [Features](ko/features.md)
+- [Console](ko/gamepot_console.md)
+- [Dashboard](ko/gamepot_dashboard.md)
+- [Unity SDK](ko/gamepot_unity.md)
+- [Android SDK](ko/gamepot_android.md)
+- [iOS SDK](ko/gamepot_ios.md)
+- [Server API](ko/gamepot_server.md)
+- [FAQ](ko/gamepot_faq.md)
+- [Troubleshooting](ko/gamepot_troubleshooting.md)
+- [3rd-party SDK](ko/gamepot_3rdparty.md)
 
 ## English
 
