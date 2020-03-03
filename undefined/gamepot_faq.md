@@ -437,3 +437,46 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
     7. 구입 선택
 
     * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 요금은 부과되지 않습니다.
+
+
+#### 9. Push 앱 이름은 클라이언트 빌드시 결정이 됩니다.
+
+    언어에 맞게 앱 이름을 변경하고자 한다면 아래와 같은 방식으로 진행하시면 됩니다.
+
+    [안드로이드]
+
+    app/src/main/res/values-국가코드/strings.xml
+
+    app/src/main/res/values-en/strings.xml
+
+    [유니티 안드로이드]
+
+    Assets/Plugins/Android/GamePotResources/res/values-국가코드/strings.xml
+
+    ex)
+    Assets/Plugins/Android/GamePotResources/res/values-ko/strings.xml
+
+
+    [strings.xml]
+    <?xml version="1.0" encoding="utf-8"?>
+        <resources>
+            <string name="app_name">언어에 맞게 앱 이름을  설정</string>
+        </resources>
+
+    [IOS]
+
+    1. XCode >> Targets >> Info >> Localization >> 추가하고자 하는 언어 추가
+
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_01.png)
+
+    2. Xcode >> File >> file >> Strings File 아이콘 클릭 >> next > 파일명 InfoPlist 으로 정의 후 파일 생성
+
+    3. 생성된 파일된 파일을 선택후  Localization 설정 부여
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_02.png)
+
+    4. 언어을 선택하면 관련 파일들이 생성이 되며 해당 파일에 각각 언어에 맞는 앱 이름을 부여하면 됩니다.
+
+    [InfoPlist.string]
+    CFBundleDisplayName="언어에 맞게 앱 이름을  설정";
+
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_03.png)
