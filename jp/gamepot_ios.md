@@ -412,7 +412,7 @@ Facebook, Adjust, Adbrix などの多様な広告プラットフォーム SDK �
 
 GamePotConfig-Info.plist에 Adbrix キーの値を入力します。
 
-![gamepot_ios_12](./images/gamepot_ios_11.png)
+![gamepot_ios_11](./images/gamepot_ios_11.png)
 
 ```
 gamepot_adbrix_appid : AdbrixアプリID
@@ -452,7 +452,7 @@ TrackerTutorial* tutorialEvent = [[TrackerTutorial alloc] init];
 
 **Inpo.plist > URL types** 項目に URL Schemes を追加します。
 
-![gamepot_ios_12](./images/gamepot_ios_09.png)
+![gamepot_ios_09](./images/gamepot_ios_09.png)
 
 AppDelegate.m ファイル内に以下のように追加します。
 
@@ -548,7 +548,7 @@ GAMEPOT は Server to server api を通じて決済ストアに領収書の検�
 
 GamePotConfig-Info.plist ファイルの使用に必要な値を追加してください。
 
-![gamepot_ios_12](./images/gamepot_ios_11.png)
+![gamepot_ios_11](./images/gamepot_ios_11.png)
 
 ```objc
 gamepot_naver_cafeid // NAVERカフェのID
@@ -749,7 +749,8 @@ NAVER カフェの SDK は以下のように呼び出します。
 
 ![gamepot_ios_12](./images/gamepot_ios_12.png)
 
-\- `GREEN` テーマの例 
+\- `GREEN` テーマの例
+
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
 ### 約款同意の呼び出し
