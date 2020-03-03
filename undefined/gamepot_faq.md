@@ -117,6 +117,8 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
 3. 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요.
 
+   ( 유니티 플러그인 버전이 plug_sdk_4_4_6 이전 버전 기준 ) 
+
 ### 5. Line 로그인
 
     # Q. 라인 로그인 시 오류 \(400 오류 : Bad\_Request\)가 발생 합니다. (AOS, iOS)
@@ -279,7 +281,7 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 ## Naver Cafe
 
     # Q. iOS Naver Cafe 노출 시 영문으로 노출 됩니다.
-    # A. XCode &gt;&gt; Targets&gt;&gt; Info &gt;&gt; Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
+    # A. XCode >> Targets >> Info >> Localization native development region 을 korea로 변경 후 확인 부탁드립니다.
 
 ## 서비스 런칭
 
@@ -395,7 +397,12 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
 ![gamepot_faq_casebook](../.gitbook/assets/Casebook_ETC_04.png)
 
-#### 6. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-channel-naver.aar)\]
+#### 6. 신규 서비스 계정 발급 후 Key값을 적용했음에도, 결제 API가 실패할 경우
+
+    (구글 서비스 계정 이관 시) 신규 Key를 발급받아 적용했음에도, 결제 API가 실패하는 구글 콘솔 측 버그 레포트가 유입되었습니다. (2020.02.13)
+    이 경우 구글 콘솔에서 임의로 인앱상품을 하나 생성한 다음, 문제가 해결되는지 확인해보세요.
+
+#### 7. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
 
     1. SENS 설정에 Certification에 인증키 및 인증서가 등록되어 있는지 확인 부탁드립니다.
 
@@ -413,7 +420,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
     5. IOS의 경우, Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않을 경우, 빌드 시 해당부분이 추가 되지 않았는지 확인해주세요.
 
-#### 7. IOS 결제 테스트 방법
+#### 8. IOS 결제 테스트 방법
 
     1. 테스트 하려는 기기의 설정 >> iTunse 및 Store >> Apple ID : XXXX 를 터치 >> 로그아웃
 
@@ -430,3 +437,55 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
     7. 구입 선택
 
     * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 요금은 부과되지 않습니다.
+
+
+#### 9. Push 메시지의 앱 이름은 클라이언트 빌드시 결정이 됩니다.
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_00.png)
+
+
+언어에 맞게 앱 이름을 변경하고자 한다면 아래와 같은 방식으로 진행하시면 됩니다.
+
+
+    [안드로이드]
+
+    app/src/main/res/values-국가코드/strings.xml
+    
+    ex) 디바이스 언어가 영어일 때 앱 이름을 변경하고자 할 때
+    app/src/main/res/values-en/strings.xml
+
+    [유니티 안드로이드]
+
+    Assets/Plugins/Android/GamePotResources/res/values-국가코드/strings.xml
+
+    ex) 디바이스 언어가 한국어일 때 앱 이름을 변경하고자 할 때
+    Assets/Plugins/Android/GamePotResources/res/values-ko/strings.xml
+
+
+    [strings.xml]
+    <?xml version="1.0" encoding="utf-8"?>
+        <resources>
+            <string name="app_name">언어에 맞게 앱 이름을  설정</string>
+        </resources>
+
+
+
+IOS 설정은 아래와 같이 진행을 합니다. 
+
+1. XCode >> Targets >> Info >> Localization >> 추가하고자 하는 언어 추가
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_01.png)
+
+2. Xcode >> File >> file >> Strings File 아이콘 클릭 >> next > 파일명 InfoPlist 으로 정의 후 파일 생성
+3. 생성된 파일된 파일을 선택후  Localization 설정 부여
+
+
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_02.png)
+
+
+4. 언어을 선택하면 관련 파일들이 생성이 되며 해당 파일에 각각 언어에 맞는 앱 이름을 부여하면 됩니다.
+
+    [InfoPlist.string]
+    CFBundleDisplayName="언어에 맞게 앱 이름을  설정";
+
+
+![gamepot_faq_casebook](../.gitbook/assets/Gamepot_faq_appname_03.png)
+

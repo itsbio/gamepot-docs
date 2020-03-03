@@ -60,17 +60,17 @@ android {
 resValue "string", "[key]", "[value]"
 ```
 
-| 값 | 설명 |
-| :--- | :--- |
-| gamepot\_project\_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot\_api\_url | GAMEPOT에서 발급받은 API URL을 입력해 주세요. |
-| gamepot\_dash\_url | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
-| gamepot\_store | 스토어값\(`google` 또는 `one`\) |
-| gamepot\_app\_title | 앱 제목 \(FCM\) |
-| gamepot\_push\_default\_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
-| facebook\_app\_id | 페이스북 발급 받은 앱ID |
-| fb\_login\_protocol\_scheme | 페이스북에서 발급 받은 protocol scheme  fb\[app\_id\] |
-| gamepot\_elsa\_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+| 값                           | 설명                                                                                           |
+| :--------------------------- | :--------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
+| gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                                                  |
+| gamepot_dash_url             | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
+| gamepot_store                | 스토어값\(`google` 또는 `one`\)                                                                |
+| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
+| facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
+| fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
+| gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
 **노티바에 푸시 아이콘 변경 방법**
 
@@ -80,14 +80,14 @@ resValue "string", "[key]", "[value]"
 
 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
 
-이미지 파일명은 ic\_stat\_gamepot\_small이어야 합니다.
+이미지 파일명은 ic_stat_gamepot_small이어야 합니다.
 
-| 폴더명 | 크기 |
-| :--- | :--- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/ | 24x24 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/ | 36x36 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/ | 48x48 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/ | 72x72 |
+| 폴더명                                                         | 크기  |
+| :------------------------------------------------------------- | :---- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 48x48 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
 **Screen Orientation 설정 방법**
@@ -113,7 +113,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 ![](../.gitbook/assets/gamepot_unity_resolver_01.png)
 
-`Enable Resolution On Build 체크박스를 해제` 해주세요. 
+`Enable Resolution On Build 체크박스를 해제` 해주세요.
 
 ![](../.gitbook/assets/gamepot_unity_resolver_02.png)
 
@@ -135,16 +135,16 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 ![](../.gitbook/assets/gamepot_unity_06%20%284%29.png)
 
-| 환경 변수 | 설명 |
-| :--- | :--- |
-| gamepot\_project\_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot\_api\_url | 공백 값으로 지정해 주세요. |
-| gamepot\_dash\_url | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
-| gamepot\_facebook\_app\_id | 페이스북 발급 받은 앱ID |
-| gamepot\_facebook\_display\_name | 페이스북에 보여지는 이름 |
-| gamepot\_google\_app\_id | GoogleService-Info 파일의 CLIENT\_ID 값 |
-| gamepot\_google\_url\_schemes | GoogleService-Info 파일의 REVERSED\_CLIENT\_ID 값 |
-| gamepot\_elsa\_projectid | NCLOUD ELSA 사용시 프로젝트ID |
+| 환경 변수                     | 설명                                                                                           |
+| :---------------------------- | :--------------------------------------------------------------------------------------------- |
+| gamepot_project_id            | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
+| gamepot_api_url               | 공백 값으로 지정해 주세요.                                                                     |
+| gamepot_dash_url              | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
+| gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                                                                        |
+| gamepot_facebook_display_name | 페이스북에 보여지는 이름                                                                       |
+| gamepot_google_app_id         | GoogleService-Info 파일의 CLIENT_ID 값                                                         |
+| gamepot_google_url_schemes    | GoogleService-Info 파일의 REVERSED_CLIENT_ID 값                                                |
+| gamepot_elsa_projectid        | NCLOUD ELSA 사용시 프로젝트ID                                                                  |
 
 scenes를 추가한 후에 **File &gt; Build Settings &gt; Build And Run**을 실행하면 완료됩니다.
 
@@ -264,7 +264,7 @@ defaultConfig {
 
 페이스북 개발자 센터에서 발급받은 앱 ID를 `facebook_app_id` 값에 입력하고 `fb_login_protocol_scheme` 값에 `fb{facebook_app_id}`를 입력합니다.
 
-> app\_id가 1234567890인 경우 fb1234567890이 `fb_login_protocol_scheme` 값입니다.
+> app_id가 1234567890인 경우 fb1234567890이 `fb_login_protocol_scheme` 값입니다.
 
 #### iOS
 
@@ -272,17 +272,15 @@ defaultConfig {
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.framework
 
-
 ### APPLE 로그인
 
-> iOS에만 해당하는 기능입니다.  
+> iOS에만 해당하는 기능입니다.
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
 
 ### 게임센터 로그인
 
-> iOS에만 해당하는 기능입니다.  
->
+> iOS에만 해당하는 기능입니다.
 >
 > GameCenter Login을 `사용하지 않으실 경우`에는 아래 위치해서 해당 파일을 삭제 해주세요.  
 >  &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`  
@@ -293,7 +291,6 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.f
 Capabilities 설정에서 Game Center를 ON으로 설정합니다.\(앱스토어 콘솔에서도 Game Center이 ON으로 설정되어 있어야 합니다.\)
 
 ![](../.gitbook/assets/gamepot_unity_09%20%284%29.png)
-
 
 ## 5. 로그인/로그아웃/탈퇴/검증
 
@@ -356,14 +353,16 @@ LoginType 정의
 ```csharp
 public enum LoginType
 {
-     NONE,
-     GOOGLE,
-     FACEBOOK,
-     GAMECENTER,
-     NAVER,
-     APPLE,
-     GUEST,
-     THIRDPARTYSDK
+    NONE,
+    GOOGLE,
+    GOOGLEPLAY,
+    FACEBOOK,
+    NAVER,
+    GAMECENTER,
+    TWITTER,
+    LINE,
+    APPLE,
+    GUEST
 }
 ```
 
@@ -372,11 +371,12 @@ NUserInfo 정의
 ```csharp
 public class NUserInfo
 {
-    public string id { get; set; }              // 맴버 ID(유저의 유니크 아이디)
+    public string memberid { get; set; }        // 맴버 ID(유저의 유니크 아이디)
     public string name { get; set; }            // 이름
     public string profileUrl { get; set; }      // 프로필 URL(존재 시)
     public string email { get; set; }           // 이메일(존재 시)
-    public string socialid { get; set; }        // Social ID(google, facebook ...)
+    public string token { get; set; }           // 유저 광고 ID
+    public string userid { get; set; }          // Social ID(google, facebook ...)
 }
 ```
 
@@ -466,11 +466,14 @@ public void  onDeleteMemberFailure(NError error) {
 ```csharp
 public enum LinkingType
 {
-      GAMECENTER,
-      GOOGLE,
-      FACEBOOK,
-      NAVER,
-      APPLE
+    GOOGLEPLAY,
+    GAMECENTER,
+    GOOGLE,
+    FACEBOOK,
+    NAVER,
+    TWITTER,
+    LINE,
+    APPLE
 }
 ```
 
@@ -514,7 +517,7 @@ List<NLinkingInfo> linkedList = GamePot.getLinkedList();
 ```csharp
 public class NLinkingInfo
 {
-    public LinkingType provider { get; set; }  // google, facebook, naver, apple
+    public LinkingType provider { get; set; }  // google, facebook, naver, apple..
 }
 ```
 
@@ -585,12 +588,18 @@ Public void UI_Update()
     List<NLinkingInfo> linkedList = GamePot.getLinkedList();
     foreach ( NLinkingInfo item in linkedList)
     {
+        switch(item.provider)
+        {
         case NCommon.LinkingType.GOOGLE :
             CreateLinkManager.instance._IOS_google_state  = true;
-        break;
+            break;
         case NCommon.LinkingType.GAMECENTER :
             CreateLinkManager.instance._IOS_gamecenter_state  = true;
-        break;
+            break;
+
+        ...
+
+        }
     }
 }
 ```
@@ -740,19 +749,18 @@ Targets &gt;&gt; Info &gt;&gt; URL Types에 네이버아이디로 로그인 설�
 
 URL Schemes를 생성 할 때는 `소문자`,`.`,`_`이외의 문자를 사용하면 인식이 안될 수 있으니 주의 부탁드립니다.
 
-
 ### 라인 로그인
 
 #### LINE Developers
 
 APK 빌드 시 사용한 패키지 이름과 keystore의 SHA값, url Scheme 값을 라인 콘솔에 추가합니다.
 
-
 #### Android
 
 mainTemplate.gradle 수정
 
 발급받은 Client ID를 `gamepot_line_channelid` 값에 입력합니다.
+
 ```java
 ...
 defaultConfig {
@@ -767,7 +775,7 @@ defaultConfig {
 
 ```text
 gamepot_line_channelid // 네이버에서 사용할 client 아이디
-gamepot_line_url_schemes // Line URL Scheme (line3rdp.{프로젝트 번들 identifier}) 
+gamepot_line_url_schemes // Line URL Scheme (line3rdp.{프로젝트 번들 identifier})
 ```
 
 GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가하면 됩니다.
@@ -784,7 +792,6 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 ### 트위터 로그인
 
 #### Twitter Developers
-
 
 #### Android
 
@@ -872,7 +879,7 @@ public void onPushSuccess() {
 
 /// 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushFailure(NError error) {
-  
+
     // 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
@@ -895,7 +902,7 @@ public void onPushNightSuccess() {
 
 /// 야간 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushNightFailure(NError error) {
-    
+
     // 야간 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
@@ -920,7 +927,7 @@ public void onPushStatusSuccess() {
 
 /// 야간 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushStatusFailure(NError error) {
-   
+
     // 야간 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
@@ -939,15 +946,15 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로 노출하는 기능입니다.
 
-![gamepot\_unity\_17](../.gitbook/assets/gamepot_unity_17.png)
+![gamepot_unity_17](../.gitbook/assets/gamepot_unity_17.png)
 
 이미지 권장 스펙은 아래와 같습니다.
 
-* 사이즈 : 720  _1200\(Portrait\) / 1280_  640\(Landscape\)
+- 사이즈 : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
 
   > 위 사이즈를 준수하지 않을 경우 center crop으로 이미지를 처리합니다.
 
-* 용량 : 250KB 이하
+- 용량 : 250KB 이하
 
 Request:
 
@@ -973,13 +980,13 @@ public void onReceiveScheme(string scheme)
 
 고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
 
-* 문의 등록 화면
+- 문의 등록 화면
 
-  ![gamepot\_unity\_13](../.gitbook/assets/gamepot_unity_13%20%284%29.png)
+  ![gamepot_unity_13](../.gitbook/assets/gamepot_unity_13%20%284%29.png)
 
-* 내 문의 내역 화면
+- 내 문의 내역 화면
 
-  ![gamepot\_unity\_14](../.gitbook/assets/gamepot_unity_14%20%284%29.png)
+  ![gamepot_unity_14](../.gitbook/assets/gamepot_unity_14%20%284%29.png)
 
 #### 호출
 
@@ -1015,13 +1022,13 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 
 `BLUE` 테마와 `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
 
-* `BLUE` 테마 예시
+- `BLUE` 테마 예시
 
-  ![gamepot\_unity\_10](../.gitbook/assets/gamepot_unity_10%20%284%29.png)
+  ![gamepot_unity_10](../.gitbook/assets/gamepot_unity_10%20%284%29.png)
 
-* `GREEN` 테마 예시
+- `GREEN` 테마 예시
 
-  ![gamepot\_unity\_11](../.gitbook/assets/gamepot_unity_11%20%286%29.png)
+  ![gamepot_unity_11](../.gitbook/assets/gamepot_unity_11%20%286%29.png)
 
 #### 약관 동의 호출
 
@@ -1107,7 +1114,7 @@ GamePot.showAgreeDialog(info);
 
 > contentIconDrawable은 AOS에만 보여지며, 기본 값은 푸시 아이콘으로 설정됩니다.
 
-![gamepot\_unity\_12](../.gitbook/assets/gamepot_unity_12%20%286%29.png)
+![gamepot_unity_12](../.gitbook/assets/gamepot_unity_12%20%286%29.png)
 
 ### 이용약관
 
@@ -1119,7 +1126,7 @@ GamePot.showAgreeDialog(info);
 GamePot.showTerms();
 ```
 
-![gamepot\_unity\_16](../.gitbook/assets/gamepot_unity_16.png)
+![gamepot_unity_16](../.gitbook/assets/gamepot_unity_16.png)
 
 ### 개인정보 취급방침
 
@@ -1131,15 +1138,15 @@ GamePot.showTerms();
 GamePot.showPrivacy();
 ```
 
-![gamepot\_unity\_15](../.gitbook/assets/gamepot_unity_15%20%284%29.png)
+![gamepot_unity_15](../.gitbook/assets/gamepot_unity_15%20%284%29.png)
 
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
-    
-> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 추가합니다. 
 
-![gamepot\_unity\_16](../.gitbook/assets/gamepot_unity_remote_config_01.png)
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 추가합니다.
+
+![gamepot_unity_16](../.gitbook/assets/gamepot_unity_remote_config_01.png)
 
 > 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -1151,7 +1158,7 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
-![gamepot\_unity\_17](../.gitbook/assets/gamepot_unity_remote_config_02.png)
+![gamepot_unity_17](../.gitbook/assets/gamepot_unity_remote_config_02.png)
 
 # 부록
 
@@ -1165,9 +1172,9 @@ TODO : 설명
 
 > 자동 로그인을 지원하지 않음. 매번 호출 필요.
 
-| 파라미터명 | 필수 | 타입                                                     | 설명               |
-| :--------- | :--- | :------------------------------------------------------- | :----------------- |
-| userid     | 필수 | String                                                   | 유저 유니크 아이디 |
+| 파라미터명 | 필수 | 타입   | 설명               |
+| :--------- | :--- | :----- | :----------------- |
+| userid     | 필수 | String | 유저 유니크 아이디 |
 
 ```csharp
 String userid = "memberid of 3rd party sdk";
@@ -1181,14 +1188,14 @@ TODO : 설명
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
-| 파라미터명    | 필수 | 타입            | 설명                                    |
-| :------------ | :--- | :-------------- | :-------------------------------------- |
-| productid     | 필수 | String          | 게임팟 대시보드에 등록된 아이템 아이디  |
-| transactionid | 필수 | String          | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)     |
-| currency      | 선택 | String          | 통화(KRW, USD)                          |
-| price         | 선택 | double          | 결제 아이템 금액                        |
-| paymentid     | 선택 | String          | 결제 스토어(google, apple, one, galaxy) |
-| uniqueid      | 선택 | String          | 개발사에서 사용하는 고유 아이디         |
+| 파라미터명    | 필수 | 타입   | 설명                                    |
+| :------------ | :--- | :----- | :-------------------------------------- |
+| productid     | 필수 | String | 게임팟 대시보드에 등록된 아이템 아이디  |
+| transactionid | 필수 | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)     |
+| currency      | 선택 | String | 통화(KRW, USD)                          |
+| price         | 선택 | double | 결제 아이템 금액                        |
+| paymentid     | 선택 | String | 결제 스토어(google, apple, one, galaxy) |
+| uniqueid      | 선택 | String | 개발사에서 사용하는 고유 아이디         |
 
 ```csharp
 String productId = "purchase_001";
