@@ -453,7 +453,8 @@ SMS/LMS 발송, 이력 및 결과 조회 등의 기능을 사용할 수 있습�
 
 #### - 아이템
 
-아이템 메뉴에서는 쿠폰을 통해 획득 가능한 쿠폰 아이템을 생성할 수 있는 메뉴입니다. **아이템 추가** 버튼을 클릭하여 아이템을 추가할 수 있습니다. ![gamepot_dashboard_39](./images/gamepot_dashboard_39.png)
+아이템 메뉴에서는 쿠폰을 통해 획득 가능한 쿠폰 아이템을 생성할 수 있는 메뉴입니다. **아이템 추가** 버튼을 클릭하여 아이템을 추가할 수 있습니다.
+![gamepot_dashboard_39](./images/gamepot_dashboard_39.png)
 
 ① 아이템을 추가 할 수 있습니다.
 
@@ -839,7 +840,7 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 대시보드를 이용할 수 있는 사용자를 그룹 단위로 관리하는 기능으로, 각 역할마다 다른 권한을 부여할 수 있습니다.
 
-![gamepot_dashboard_84](./images/gamepot_dashboard_85.png)
+![gamepot_dashboard_84](./images/gamepot_dashboard_84.png)
 
 **톱니바퀴** 버튼을 클릭합니다. 아래와 같은 화면에서, 해당 역할에 대한 설정을 할 수 있습니다.
 
