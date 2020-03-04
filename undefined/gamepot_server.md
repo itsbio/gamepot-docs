@@ -178,7 +178,7 @@ data:
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/thirdparty/purchase
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/thirdparty/purchase
 Header : 'content-type: application/json'
 Header : 'x-api-key: xxxxxxxxxxx'
 data:
