@@ -14,7 +14,7 @@ iOS 用アプリケーションの開発のためには開発ツール(Xcode)を
 
 #### Step 2. Framework の追加
 
-![gamepot-1-301](../.gitbook/assets/gamepot-1-301.png)
+![gamepot_ios_01](./images/gamepot_ios_01.png)
 
 ダウンロードした iOS SDK ファイルを Xcode プロジェクトフォルダターゲットにマウスで引っ張ってきて追加します。
 
@@ -35,7 +35,7 @@ iOS 用アプリケーションの開発のためには開発ツール(Xcode)を
 | NaverCafe       | AFNetworking.framework<br />GamePotNavarCafe.framework<br />NaverCafeSDK.framework<br />                                                                                                                                                                                                                                                       | AVKit.framework<br />AVFoundation.framework<br />MediaPlayer.framework<br />CoreMedia.framework<br />AssetsLibrary.framework<br />ImageIO.framework<br />QuartzCore.framework<br />ReplayKit.framework(Optional に設定)<br />MobileCoreServices.framework<br />SystemConfiguration.framework<br />Security.framework<br />WebKit.framework<br />libNaverLogin.a<br />NaverThirdPartyConstantsForApp.h<br />NaverThirdPartyLoginConnection.h<br />NLoginThirdPartyOAuth20InAppBrowserViewController.h<br />NLoginThirdPartyOAuth20InAppBrowserViewController.m<br /> | NaverAuth.bundle<br />NaverCafeSDK.bundle<br />         |
 |                 |                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                         |
 
-![gamepot-1-301](../.gitbook/assets/gamepot-1-302.png)
+![gamepot_ios_02](./images/gamepot_ios_02.png)
 
 #### Step 4. Bundle Resource の追加
 
@@ -43,11 +43,11 @@ iOS 用アプリケーションの開発のためには開発ツール(Xcode)を
 
 サービス別 Dependencies 表を参考にして Bundle Resource ファイルを追加します。
 
-![gamepot-1-302](../.gitbook/assets/gamepot-1-303.png)
+![gamepot_ios_03](./images/gamepot_ios_03.png)
 
 #### Step 5. InfoPlist の追加
 
-![gamepot-1-303](../.gitbook/assets/gamepot-1-304.png)
+![gamepot_ios_04](./images/gamepot_ios_04.png)
 
 GAMEPOT SDK は Google Firebase を使用して Google Firebase を設定して生成された GoogleService-Info.plist をプロジェクトに追加します。
 
@@ -55,7 +55,7 @@ GAMEPOT SDK の基本設定値を含めている GamePotConfig-Info.plist ファ
 
 **GamePotConfig-Info.plist の設定**
 
-![gamepot-1-303](../.gitbook/assets/gamepot-1-305.png)
+![gamepot_ios_05](./images/gamepot_ios_05.png)
 
 ```xml
 gamepot_project_id : GAMEPOTプロジェクトID
@@ -67,7 +67,7 @@ gamepot_api_url : GAMEPOT API URL
 
 **Build Settings > Linking > Other Linker Flags** セクションに-ObjC オプションを追加します。
 
-![gamepot-1-304](../.gitbook/assets/gamepot-1-306.png)
+![gamepot_ios_06](./images/gamepot_ios_06.png)
 
 #### Step 7. Info.plist の修正
 
@@ -86,11 +86,11 @@ NSPhotoLibraryUsageDescription
 
 GoogleService-Info.plist ファイルの `REVERSED_CLIENT_ID` 値をコピーして **Info > URL Types**に項目を追加して URL Schemes に値を入力します。
 
-![gamepot-1-305](../.gitbook/assets/gamepot-1-307.png)
+![gamepot_ios_07](./images/gamepot_ios_07.png)
 
 **GamePotConfig-Info.plist の設定**
 
-![gamepot-1-306](../.gitbook/assets/gamepot-1-305.png)
+![gamepot_ios_08](./images/gamepot_ios_08.png)
 
 ```xml
 gamepot_google_app_id : GoogleService-Info.plistファイルの CLIENT_ID値
@@ -103,7 +103,7 @@ gamepot_google_url_schemes : GoogleService-Info.plistファイルのREVERSED_CLI
 
 フェイスブック App ID を **Info > URL Types**に fb+フェイスブック App ID の形で追加します。
 
-![gamepot-1-307](../.gitbook/assets/gamepot-1-307.png)
+![gamepot_ios_09](./images/gamepot_ios_09.png)
 
 **Info > iOS Target Property**の **LSApplicationQueriesSchemes**に以下の項目を追加します。
 
@@ -112,11 +112,11 @@ gamepot_google_url_schemes : GoogleService-Info.plistファイルのREVERSED_CLI
 - fbauth2
 - fbshareextension
 
-![gamepot-1-308](../.gitbook/assets/gamepot-1-308.png)
+![gamepot_ios_10](./images/gamepot_ios_10.png)
 
 **GamePotConfig-Info.plist の設定**
 
-![gamepot-1-309](../.gitbook/assets/gamepot-1-305.png)
+![gamepot_ios_11](./images/gamepot_ios_11.png)
 
 ```xml
 gamepot_facebook_app_id : Facebook App ID
@@ -412,7 +412,7 @@ Facebook, Adjust, Adbrix などの多様な広告プラットフォーム SDK �
 
 GamePotConfig-Info.plist에 Adbrix キーの値を入力します。
 
-![gamepot-1-310](../.gitbook/assets/gamepot-1-305.png)
+![gamepot_ios_11](./images/gamepot_ios_11.png)
 
 ```
 gamepot_adbrix_appid : AdbrixアプリID
@@ -452,7 +452,7 @@ TrackerTutorial* tutorialEvent = [[TrackerTutorial alloc] init];
 
 **Inpo.plist > URL types** 項目に URL Schemes を追加します。
 
-![gamepot-1-311](../.gitbook/assets/gamepot-1-307.png)
+![gamepot_ios_09](./images/gamepot_ios_09.png)
 
 AppDelegate.m ファイル内に以下のように追加します。
 
@@ -548,7 +548,7 @@ GAMEPOT は Server to server api を通じて決済ストアに領収書の検�
 
 GamePotConfig-Info.plist ファイルの使用に必要な値を追加してください。
 
-![gamepot-1-312](../.gitbook/assets/gamepot-1-305.png)
+![gamepot_ios_11](./images/gamepot_ios_11.png)
 
 ```objc
 gamepot_naver_cafeid // NAVERカフェのID
@@ -747,9 +747,11 @@ NAVER カフェの SDK は以下のように呼び出します。
 
 \- `BLUE` テーマの例
 
-![gamepot_unity_10](../.gitbook/assets/gamepot_unity_10.png)
+![gamepot_ios_12](./images/gamepot_ios_12.png)
 
-\- `GREEN` テーマの例 ![gamepot_unity_11](../.gitbook/assets/gamepot_unity_11.png)
+\- `GREEN` テーマの例
+
+![gamepot_ios_13](./images/gamepot_ios_13.png)
 
 ### 約款同意の呼び出し
 
@@ -808,7 +810,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 > contentIconDrawable のイメージは IOS には表示されません。
 
-![gamepot_unity_12](../.gitbook/assets/gamepot_unity_12.png)
+![gamepot_ios_14](./images/gamepot_ios_14.png)
 
 ## 利用約款
 
@@ -822,7 +824,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showTerms:/*ViewController*/];
 ```
 
-![gamepot_unity_16](../.gitbook/assets/gamepot_unity_16.png)
+![gamepot_ios_15](./images/gamepot_ios_15.png)
 
 ## 個人情報取り扱いに関する方針
 
@@ -836,7 +838,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showPrivacy:/*ViewController*/];
 ```
 
-![gamepot_unity_15](../.gitbook/assets/gamepot_unity_15.png)
+![gamepot_ios_16](./images/gamepot_ios_16.png)
 
 ## 8. ダウンロード
 

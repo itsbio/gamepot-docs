@@ -13,11 +13,11 @@ search:
 
 **Assets > Import Package > Custom Package** メニューからダウンロードした `GamePotUnityPlugin-xxxx.unitypackage` ファイルを選択します。
 
-![](../.gitbook/assets/gamepot_unity_01.png)
+![gamepot_unity_01](./images/gamepot_unity_01.png)
 
 プラグインを確認して Import すると当該プロジェクトに追加されます。
 
-![](../.gitbook/assets/gamepot_unity_02.png)
+![gamepot_unity_02](./images/gamepot_unity_02.png)
 
 ### Step 3. Android
 
@@ -69,7 +69,7 @@ resValue "string", "[key]", "[value]"
 
 ##### Notification bar のプッシュアイコン変更方法
 
-![](../.gitbook/assets/gamepot_unity_05.png)
+![gamepot_unity_03](./images/gamepot_unity_03.png)
 
 プッシュを受信の際、Android Notification bar に表示する Small icon は SDK 内部で基本イメージとして表示され、直接追加することもできます。
 
@@ -106,7 +106,7 @@ Main Activity に screenOrientation を追加してゲームに合わせて`sens
 
 `File > Build Settings > Build System` メニューから Gradle を選択します。
 
-![](../.gitbook/assets/gamepot_unity_04.png)
+![gamepot_unity_06](./images/gamepot_unity_06.png)
 
 ### Step 4. iOS
 
@@ -117,7 +117,7 @@ Main Activity に screenOrientation を追加してゲームに合わせて`sens
 
 `/Assets/Plugin/IOS/GamePotConfig-Info.plist` 内に必要な環境変数を追加してください。
 
-![](../.gitbook/assets/gamepot_unity_06.png)
+![gamepot_unity_07](./images/gamepot_unity_07.png)
 
 | 環境変数                      | 説明                                                                                      |
 | ----------------------------- | ----------------------------------------------------------------------------------------- |
@@ -131,7 +131,7 @@ Main Activity に screenOrientation を追加してゲームに合わせて`sens
 
 Scenes を追加してから **File > Build Settings > Build And Run**を実行すると完了します。
 
-![](../.gitbook/assets/gamepot_unity_07.png)
+![gamepot_unity_08](./images/gamepot_unity_08.png)
 
 XCode ビルド後
 
@@ -271,7 +271,7 @@ GamePotFacebook.framework
 
 Capabilities 設定で Game Center を ON に設定します。(アプリストアコンソールでも Game Center が ON に設定されていなければなりません。)
 
-![](../.gitbook/assets/gamepot_unity_09.png)
+![gamepot_unity_09](./images/gamepot_unity_09.png)
 
 ### NAVER ログイン
 
@@ -851,7 +851,7 @@ NAVER カフェ SDK(4.0.4)を含む plugin を使用する際は[NAVER カフェ
 
 GAMEPOT ダッシュボードで’案内事項’に追加したイメージを順番に表示する機能です。
 
-![gamepot_unity_17](../.gitbook/assets/gamepot_unity_17.png)
+![gamepot_unity_10](./images/gamepot_unity_10.png)
 
 イメージのお勧めスペックは以下の通りです。
 
@@ -884,11 +884,11 @@ public void onReceiveScheme(string scheme)
 
 - お問い合わせ登録画面
 
-  ![gamepot_unity_13](../.gitbook/assets/gamepot_unity_13.png)
+  ![gamepot_unity_11](./images/gamepot_unity_11.png)
 
 - マイお問い合わせ内訳画面
 
-  ![gamepot_unity_14](../.gitbook/assets/gamepot_unity_14.png)
+  ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
 ### 呼び出し
 
@@ -928,11 +928,11 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に得たpushId*/);
 
 - `BLUE` テーマの例
 
-  ![gamepot_unity_10](../.gitbook/assets/gamepot_unity_10.png)
+  ![gamepot_unity_13](./images/gamepot_unity_13.png)
 
 - `GREEN` テーマの例
 
-  ![gamepot_unity_11](../.gitbook/assets/gamepot_unity_11.png)
+  ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
 ### 約款同意の呼び出し
 
@@ -1018,7 +1018,7 @@ GamePot.showAgreeDialog(info);
 
 > contentIconDrawable は AOS にのみ表示され、基本値はプッシュアイコンで設定されます。
 
-![gamepot_unity_12](../.gitbook/assets/gamepot_unity_12.png)
+![gamepot_unity_15](./images/gamepot_unity_15.png)
 
 ## 利用約款
 
@@ -1030,7 +1030,7 @@ GamePot.showAgreeDialog(info);
 GamePot.showTerms();
 ```
 
-![gamepot_unity_16](../.gitbook/assets/gamepot_unity_16.png)
+![gamepot_unity_16](./images/gamepot_unity_16.png)
 
 ## 個人情報取り扱いに関する方針
 
@@ -1042,4 +1042,4 @@ GamePot.showTerms();
 GamePot.showPrivacy();
 ```
 
-![gamepot_unity_15](../.gitbook/assets/gamepot_unity_15.png)
+![gamepot_unity_17](./images/gamepot_unity_17.png)

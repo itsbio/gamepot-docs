@@ -28,15 +28,15 @@ GAMEPOT はゲームの成長と比例してコストが増加するシステム
 
 サービスを使用するためにはまずプロジェクトを生成する必要があります。
 
-![gamepot-1-101](../.gitbook/assets/gamepot-1-101.png)
+![gamepot_console_01](./images/gamepot_console_01.png)
 
 ① コンソールから **Game > GAMEPOT**を選択します。
 
-![gamepot-1-102](../.gitbook/assets/gamepot-1-102.png)
+![gamepot_console_02](./images/gamepot_console_02.png)
 
 ② **+プロジェクトを生成** ボタンをクリックします。
 
-![gamepot-1-103](../.gitbook/assets/gamepot-1-103.png)
+![gamepot_console_03](./images/gamepot_console_03.png)
 
 ③ ゲームプロジェクト名を入力します。
 
@@ -50,7 +50,7 @@ GAMEPOT はゲームの成長と比例してコストが増加するシステム
 
 ⑤ 商品を選択します。
 
-![gamepot-1-104](../.gitbook/assets/gamepot-1-104.png)
+![gamepot_console_04](./images/gamepot_console_04.png)
 
 - Managed 商品を選択すると別途のサービス申込みのためのポップアップが表示されます。
 
@@ -58,11 +58,11 @@ GAMEPOT はゲームの成長と比例してコストが増加するシステム
 
 - プロジェクトを生成すると基本 DAU が含まれた時間当たりの料金が付加されます。プロジェクトを生成後は使わなくても料金が発生するので慎重に選択する必要があります。
 
-![gamepot-1-105](../.gitbook/assets/gamepot-1-105.png)
+![gamepot_console_05](./images/gamepot_console_05.png)
 
 ⑦ プロジェクトが生成されたらダッシュボードにアクセスできる URL が表示されます。管理者 ID で入力したメールを確認して管理者認証を完了させます。
 
-![gamepot-1-113](../.gitbook/assets/gamepot-1-113.png)
+![gamepot_console_06](./images/gamepot_console_06.png)
 
 ⑧ メール認証が完了したら初期パスワードを入力できるダッシュボードウィンドウに接続します。初期パスワードを設定してからログインします。
 
@@ -70,33 +70,34 @@ GAMEPOT はゲームの成長と比例してコストが増加するシステム
 
 プロジェクトが生成されたらゲームプロジェクト名と商品名が表示されたリストを画面で確認できます。
 
-![gamepot-1-106](../.gitbook/assets/gamepot-1-106.png)
+![gamepot_console_07](./images/gamepot_console_07.png)
 
 ① ダッシュボード URL を通じてゲーム機能を管理できるダッシュボードに入ることができます。
 
 ② プロジェクトにチェックして **プロジェクト管理** ボタンをクリックすると簡単な管理メニューが表示されます。
 
-![gamepot-1-107](../.gitbook/assets/gamepot-1-107.png)
+![gamepot_console_08](./images/gamepot_console_08.png)
 
 - 商品の変更：使用しているサービス商品を変更します。一時的にダッシュボードアクセスができないことがあります。**商品を変更** ボタンをクリックすると以下のようなポップアップが表示されます。変更しようとする商品を選択して **修正** ボタンをクリックします。
 
-![gamepot-1-108](../.gitbook/assets/gamepot-1-108.png)
+![gamepot_console_09](./images/gamepot_console_09.png)
 
 - アカウントの変更：プロジェクトの生成の際に入力した管理者 ID を変更できます。変更の申込みが完了したら変更されたアカウントのメールアドレスに認証メールが送信されます。
 
 - パスワードの初期化：ダッシュボードのアクセスパスワードを失くしたり初期化が必要な場合に使います。パスワードを初期化した後にダッシュボードにアクセスするとパスワードを再度設定できます。
 
-![gamepot-1-109](../.gitbook/assets/gamepot-1-109.png)
+![gamepot_console_10](./images/gamepot_console_10.png)
 
 ## Step 3. プロジェクトの削除
 
 GAMEPOT はプロジェクト生成が完了した時点から時間当たりの料金が発生します。従って、不要な場合はプロジェクトを削除して余計な料金が発生するのを防ぐ必要があります。
 
-![gamepot-1-110](../.gitbook/assets/gamepot-1-110.png)
+![gamepot_console_11](./images/gamepot_console_11.png)
 
 ① プロジェクト削除のためには **プロジェクトを削除** ボタンをクリックします。 **プロジェクトを削除** ボタンをクリックすると以下のようなポップアップが表示されます。
 
-![gamepot-1-111](../.gitbook/assets/gamepot-1-111.png)
+![gamepot_console_12](./images/gamepot_console_12.png)
+![gamepot_console_13](./images/gamepot_console_13.png)
 
 ② 削除するためにはプロジェクト名を入力してください。
 
