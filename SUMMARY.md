@@ -1,7 +1,6 @@
 # Table of contents
 
 - [Introduction](README.md)
-- [API Documentation](webhook.md)
 
 ## 한국어
 
