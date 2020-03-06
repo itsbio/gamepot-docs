@@ -1171,3 +1171,32 @@ var json_value = GamePot.getConfigs();
 ```
 
 ![gamepot_unity_17](../.gitbook/assets/gamepot_unity_remote_config_02.png)
+
+### 결제 취소 악용자 자동 해지 기능
+
+결제 취소 악용자 자동 해지 기능의 UI를 제공합니다. 각 영역별로 커스터마이징 할 수 있습니다.
+
+> 구글 결제에 한해 유저가 임의로 구글에 요청하여 결제를 취소 할 경우, '구글 결제 취소' 기능을 통해 해당 유저를 이용정지 시킬 수 있습니다. 
+>
+> 이 때 해당 유저가 로그인 시, SDK 내에서 팝업을 노출하여 해당 결제 아이템을 재결재하도록 유도하고
+> 결제 시, 다시 정상적으로 접속이 가능하도록 하는 기능을 제공합니다.
+
+
+![gamepot_unity_20](../.gitbook/assets/gamepot_unity_20.png)
+
+
+```csharp
+
+NVoidInfo info = new NVoidInfo();
+
+// 문구 변경
+info.headerTitle = "Header Title Section!";
+
+info.descHTML = "descHTML Section!";
+
+info.listHeaderTitle = "listHeaderTitle Section!";
+
+info.footerTitle = "footerTitle Section!";
+
+GamePot.setVoidBuilder(info);
+```
