@@ -8,8 +8,6 @@ GAMEPOT 서비스에 포함된 SDK는 기본적인 인증과 결제 뿐만 아�
 
 ### 게임팟 제품구성
 
-![gamepot_ko](.gitbook/assets/gamepot_ko.png)
-
 #### 로그인
 
 #### 결제

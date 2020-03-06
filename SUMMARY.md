@@ -32,16 +32,16 @@
 
 ## 中文
 
-- [Introduction](zhong-wen/cn.md)
-- [Features](zhong-wen/features.md)
-- [Console](zhong-wen/gamepot_console.md)
-- [Dashboard](zhong-wen/gamepot_dashboard.md)
-- [Unity SDK](zhong-wen/gamepot_unity.md)
-- [Android SDK](zhong-wen/gamepot_android.md)
-- [iOS SDK](zhong-wen/gamepot_ios.md)
-- [Server API](zhong-wen/gamepot_server.md)
-- [FAQ](zhong-wen/faq.md)
-- [3rd-party SDK](zhong-wen/gamepot_3rdparty.md)
+- [Introduction](cn/cn.md)
+- [Features](cn/features.md)
+- [Console](cn/gamepot_console.md)
+- [Dashboard](cn/gamepot_dashboard.md)
+- [Unity SDK](cn/gamepot_unity.md)
+- [Android SDK](cn/gamepot_android.md)
+- [iOS SDK](cn/gamepot_ios.md)
+- [Server API](cn/gamepot_server.md)
+- [FAQ](cn/faq.md)
+- [3rd-party SDK](cn/gamepot_3rdparty.md)
 
 ## 日本
 
