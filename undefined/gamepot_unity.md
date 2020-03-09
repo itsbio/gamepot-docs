@@ -298,6 +298,8 @@ Capabilities 설정에서 Game Center를 ON으로 설정합니다.\(앱스토어
 
 별도의 가입 없이 사용자 계정이 생성됩니다. 모든 신원 확인을 위한 MemberId가 생성되며, 생성된 정보는 NUserInfo 구조체에 저장되어 리턴됩니다.
 
+- Case 1
+
 Request:
 
 ```csharp
@@ -346,6 +348,33 @@ public void onAppClose()
     // TODO: 강제 업데이트나 점검 기능을 case 2 방식으로 구현하는 경우
     // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.login(NCommon.LoginType, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        case NCommon.ResultLogin.CANCELLED:
+        // login cancel
+        break;
+        case NCommon.ResultLogin.FAILED:
+        // login fail
+        break;
+        default:
+        break;
+    }
+});
 ```
 
 LoginType 정의
@@ -405,9 +434,11 @@ else
 
 사용자를 로그아웃시킵니다. 계정이 삭제되지 않으며, 동일한 계정으로 로그인이 가능합니다.
 
+- Case 1
+
 Request:
 
-```text
+```csharp
 GamePot.logout();
 ```
 
@@ -422,14 +453,38 @@ public void onLogoutSuccess()
 /// 로그아웃 실패
 public void onLogoutFailure(NError error)
 {
-       // 로그아웃을 실패하는 경우
+    // 로그아웃을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.logout(GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.logout((success, error) => {
+   if(success)
+   {
+       // 로그아웃 성공
+   }
+   else
+   {
+        // 로그아웃을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 ### 탈퇴
 
 회원을 탈퇴하며, 복구가 불가능합니다.
+
+- Case 1
 
 Request:
 
@@ -446,9 +501,31 @@ public void onDeleteMemberSuccess() {
 
 /// 회원 탈퇴 실패
 public void  onDeleteMemberFailure(NError error) {
-       // 회원 탈퇴를 실패하는 경우
+    // 회원 탈퇴를 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.deleteMember(GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.deleteMember((success, error) => {
+   if(success)
+   {
+        // 회원 탈퇴 성공
+   }
+   else
+   {
+        // 회원 탈퇴를 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 ### 검증
@@ -481,10 +558,12 @@ public enum LinkingType
 
 Google / Facebook 등의 아이디로 계정을 연동 하실 수 있습니다.
 
+- Case 1
+
 Request:
 
 ```csharp
-GamePot.createLinking(NCommon.LinkingType.XXXXX);
+void GamePot.createLinking(NCommon.LinkingType.XXXXX);
 ```
 
 Response:
@@ -506,6 +585,33 @@ public void onCreateLinkingFailure(NError error) {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.createLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_CreateLinking);
+```
+
+```csharp
+GamePot.createLinking(NCommon.LinkingType.XXXXX, (resultState, userInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultLinking.SUCCESS:
+        // 계정 연동 성공
+        break;
+        case NCommon.ResultLinking.CANCELLED:
+        // 계정 연동 취소
+        break;
+        case NCommon.ResultLinking.FAILED:
+        // 계정 연동 실패
+        break;
+        default:
+        break;
+    }
+});
+```
+
 현재 연동된 모든 계정 정보를 가져올 수 있습니다.
 
 ```csharp
@@ -525,10 +631,12 @@ public class NLinkingInfo
 
 기존에 연동 되어 있는 계정을 해제합니다.
 
+- Case 1
+
 Request :
 
 ```csharp
-void GamePot.deleteLinking(NCommon.LinkType.XXXXX);
+void GamePot.deleteLinking(NCommon.LinkingType.XXXXX);
 ```
 
 Response:
@@ -543,6 +651,28 @@ public void onDeleteLinkingFailure(NError error) {
     // 연동 해제를 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.deleteLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.deleteLinking(NCommon.LinkingType.XXXXX, (success, error) => {
+    if(success)
+    {
+       // 계정 연동 해제 성공
+    }
+   else
+   {
+        // 연동 해제를 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
 ```
 
 #### 계정 연동 상태에 대한 결과 처리 예제
@@ -626,11 +756,17 @@ foreach(NPurchaseItem item in items) {
 
 아래 함수 하나로 구글, 애플, 앱스토어 결제가 가능합니다.
 
+- Case 1
+
 Request:
 
 ```csharp
 // productId : 마켓에 등록된 상품ID
-GamePot.purchase(string productId)
+GamePot.purchase(string productId);
+
+GamePot.purchase(string productId, string uniqueId);
+
+GamePot.purchase(string productId, string uniqueId, string serverId, string playerId, string etc);
 ```
 
 Response:
@@ -651,6 +787,39 @@ public void onPurchaseCancel() {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+// productId : 마켓에 등록된 상품ID
+GamePot.purchase(string productId, GamePotCallbackDelegate.CB_Purchase);
+
+GamePot.purchase(string productId, string uniqueId, GamePotCallbackDelegate.CB_Purchase);
+
+GamePot.purchase(string productId, string uniqueId, string serverId, string playerId, string etc, GamePotCallbackDelegate.CB_Purchase);
+
+```
+
+```csharp
+GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultPurchase.SUCCESS:
+        // purchase success
+        break;
+        case NCommon.ResultPurchase.CANCELLED:
+        // purchase cancel
+        break;
+        case NCommon.ResultPurchase.FAILED:
+        // purchase fail
+        break;
+        default:
+        break;
+    }
+});
+```
+
 ### NPurchaseInfo 정의
 
 결제 성공 후 결제한 아이템의 정보입니다. 참고용으로 사용하시면 됩니다.
@@ -658,7 +827,7 @@ public void onPurchaseCancel() {
 ```csharp
 public class NPurchaseInfo
 {
-    public string price { get; set; }                  // 결제 아이템의 가격
+    public string price { get; set; }               // 결제 아이템의 가격
     public string productId { get; set; }           // 결제 아이템 ID
     public string currency { get; set; }            // 결제 가격 통화(KRW/USD)
     public string orderId { get; set; }             // 스토어 Order ID
@@ -830,10 +999,14 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 
 > 쿠폰을 입력받는 UI는 개발사에서 구현해주세요.
 
+- Case 1
+
 Request:
 
 ```csharp
 GamePot.coupon(string couponNumber); // 쿠폰번호
+
+GamePot.coupon(string couponNumber, string userData); // 쿠폰번호, 사용자정보
 ```
 
 Response:
@@ -848,6 +1021,30 @@ public void onCouponFailure(NError error) {
     // 쿠폰 사용을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.coupon(string couponNumber, GamePotCallbackDelegate.CB_Common); // 쿠폰번호
+
+GamePot.coupon(string couponNumber, string userData, GamePotCallbackDelegate.CB_Common);    // 쿠폰번호, 사용자정보
+```
+
+```csharp
+GamePot.coupon(couponNumber, (success, error) => {
+   if(success)
+   {
+       // 쿠폰 사용 성공
+   }
+   else
+   {
+        // 쿠폰 사용을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 #### 아이템 지급
@@ -1176,14 +1373,12 @@ var json_value = GamePot.getConfigs();
 
 결제 취소 악용자 자동 해지 기능의 UI를 제공합니다. 각 영역별로 커스터마이징 할 수 있습니다.
 
-> 구글 결제에 한해 유저가 임의로 구글에 요청하여 결제를 취소 할 경우, '구글 결제 취소' 기능을 통해 해당 유저를 이용정지 시킬 수 있습니다. 
+> 구글 결제에 한해 유저가 임의로 구글에 요청하여 결제를 취소 할 경우, '구글 결제 취소' 기능을 통해 해당 유저를 이용정지 시킬 수 있습니다.
 >
 > 이 때 해당 유저가 로그인 시, SDK 내에서 팝업을 노출하여 해당 결제 아이템을 재결재하도록 유도하고
 > 결제 시, 다시 정상적으로 접속이 가능하도록 하는 기능을 제공합니다.
 
-
 ![gamepot_unity_20](../.gitbook/assets/gamepot_unity_20.png)
-
 
 ```csharp
 
