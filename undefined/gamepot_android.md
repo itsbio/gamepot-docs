@@ -922,6 +922,16 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new G
 GamePot.getInstance().showCSWebView(/*현재 액티비티*/);
 ```
 
+외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
+
+#### 호출
+
+```java
+String url = "게임팟에서 발급받은 외부고객지원 URL";
+
+GamePot.getInstance().showWebView(/*현재 액티비티*/, url, true);
+```
+
 ### FAQ
 
 대시보드 - 고객지원 - FAQ와 연동되는 FAQ 목록입니다.

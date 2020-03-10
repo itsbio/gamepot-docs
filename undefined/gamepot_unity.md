@@ -994,6 +994,16 @@ public void onReceiveScheme(string scheme)
 GamePot.showCSWebView();
 ```
 
+외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
+
+#### 호출
+
+```csharp
+// url : 게임팟에서 발급받은 외부고객지원 URL
+
+GamePot.showWebView(string url);
+```
+
 ### 로컬 푸시\(Local Push notification\)
 
 푸시 서버를 통하지 않고 단말기에서 푸시를 노출하는 기능입니다.

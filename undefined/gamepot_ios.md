@@ -600,6 +600,18 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 [[GamePot getInstance] showHelpWebView:(UIViewController *)];
 ```
 
+외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
+
+#### 호출
+
+```text
+// showWebView Type
+    // WEBVIEW_NORMAL // 뒤로가기 버튼 없음.
+    // WEBVIEW_NORMALWITHBACK // 뒤로가기 버튼 존재
+
+    [[GamePot getInstance] showWebView:/*현재 ViewController*/ setType:/*Type*/ setURL:/*외부문의 접속 URL*/];
+```
+
 ### 로컬 푸시\(Local Push notification\)
 
 푸시 서버를 통하지 않고 단말기에서 자체적으로 푸시를 노출하는 기능입니다.
