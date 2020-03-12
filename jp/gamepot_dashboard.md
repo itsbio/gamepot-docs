@@ -21,7 +21,7 @@ NAVER CLOUD PLATFORM の GAMEPOT から提供するダッシュボードに関�
 
 NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリックしてダッシュボードにアクセスします。
 
-![gamepot-1-200](../.gitbook/assets/gamepot-1-200.png)
+![gamepot_dashboard_01](./images/gamepot_dashboard_01.png)
 
 #### STEP 2. 会員登録
 
@@ -31,7 +31,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 管理者アカウントがダッシュボード管理の全ての権限を有するマスターアカウントになります。
 
-![gamepot-1-201](../.gitbook/assets/gamepot-1-201.png)
+![gamepot_dashboard_02](./images/gamepot_dashboard_02.png)
 
 ## ダッシュボードメニューを活用する
 
@@ -39,7 +39,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 ダッシュボードでは登録の現況、売り上げ、アクセス、統計などのゲームの全般的な運営状況を一目に把握できます。
 
-![gamepot-1-203](../.gitbook/assets/gamepot-1-203.png)
+![gamepot_dashboard_03](./images/gamepot_dashboard_03.png)
 
 ① 通貨を選択して各通貨に対する全体の売り上げを確認できます。
 
@@ -51,13 +51,13 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 指定された期間の間の各種ユーザー指標をグラフで表示します。
 
-![gamepot-1-202A](../.gitbook/assets/gamepot-1-202A.png)
+![gamepot_dashboard_04](./images/gamepot_dashboard_04.png)
 
 ① 基本的には当日基準で 30 日間のユーザー指標を出力し、期間を指定して自由に選択した期間の間のユーザー指標を照会できます。
 
 ② 各グラフを拡大して詳細な情報を確認できます。
 
-![gamepot-1-202b](../.gitbook/assets/gamepot-1-202b.png)
+![gamepot_dashboard_05](./images/gamepot_dashboard_05.png)
 
 ① 現在表示されるグラフの RAW データを CSV ファイルの形態にダウンロードできます。
 
@@ -65,13 +65,13 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 指定された期間の間の各種売り上げ指標をグラフで表示します。
 
-![gamepot-1-202c](../.gitbook/assets/gamepot-1-202c.png)
+![gamepot_dashboard_06](./images/gamepot_dashboard_06.png)
 
 ① 基本的には当日基準で 30 日間の売り上げ指標を出力し、期間を指定して自由に選択した期間の間の売り上げ指標を照会できます。
 
 ② 各グラフを拡大して詳細情報を確認できます。
 
-![gamepot-1-202d](../.gitbook/assets/gamepot-1-202d.png)
+![gamepot_dashboard_07](./images/gamepot_dashboard_07.png)
 
 ① 現在表示されるグラフの RAW データを CSV ファイルの形態にダウンロードできます。
 
@@ -83,7 +83,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 登録した会員リストが表示されます。
 
-![gamepot-1-208](../.gitbook/assets/gamepot-1-208.png)
+![gamepot_dashboard_08](./images/gamepot_dashboard_08.png)
 
 ① 登録日の範囲を指定して、特定期間の間に登録した会員を照会できます。
 
@@ -93,7 +93,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 ④ ユーザー ID をクリックすると以下のような詳細ページが表示されます。
 
-![gamepot-1-209](../.gitbook/assets/gamepot-1-209.png)
+![gamepot_dashboard_09](./images/gamepot_dashboard_09.png)
 
 ① 会員に関する基本情報を表示します。
 
@@ -113,7 +113,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 基本的には当日基準で 30 日間の日別アクセス者数を出力し、期間指定を通じて自由に選択した期間の間の日別アクセス者数を照会できます。
 
-![gamepot-1-210a](../.gitbook/assets/gamepot-1-210a.png)
+![gamepot_dashboard_10](./images/gamepot_dashboard_10.png)
 
 ① 現在表示されるグラフの RAW データを CSV ファイルの形態にダウンロードできます。
 
@@ -123,7 +123,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 基本的には当日基準で 30 日間の日別新規登録者数を出力し、期間を指定して自由に選択した期間の間の日別新規登録者数を照会できます。
 
-![gamepot-1-210B](../.gitbook/assets/gamepot-1-210B.png)
+![gamepot_dashboard_11](./images/gamepot_dashboard_11.png)
 
 ① 現在表示されるグラフの RAW データを CSV ファイルの形態にダウンロードできます。
 
@@ -131,7 +131,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 ゲームにアクセスした会員数を 1 分単位で、最大 3 日間について同時に照会できます。
 
-![gamepot-1-210](../.gitbook/assets/gamepot-1-210.png)
+![gamepot_dashboard_12](./images/gamepot_dashboard_12.png)
 
 ① 選択した(3 つの)日別同時アクセス者数を 1 分単位のグラフで表示します。
 
@@ -145,7 +145,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 利用停止は会員のユーザー ID を基準に適用されます。
 
-![gamepot-1-210C](../.gitbook/assets/gamepot-1-210C.png)
+![gamepot_dashboard_13](./images/gamepot_dashboard_13.png)
 
 ① 利用停止を適用するため、追加ボタンを利用します。
 
@@ -164,7 +164,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 会員が Google Play store, APPSTORE, ONE Store で決済を試みた内訳を確認できます。
 
-![gamepot-1-218](../.gitbook/assets/gamepot-1-218.png)
+![gamepot_dashboard_14](./images/gamepot_dashboard_14.png)
 
 ① 通貨を選択して各通貨ごとに決済リストを確認できます。
 
@@ -177,7 +177,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 - Y: 決済の取り消し状態
 - N: 決済の未取り消し状態
 
-![gamepot-1-218D](../.gitbook/assets/gamepot-1-218D.png)
+![gamepot_dashboard_15](./images/gamepot_dashboard_15.png)
 
 決済状態をクリックして試みた決済に関する詳細な内訳を確認でき、失敗した決済については再支給ボタンを利用してアイテムを再支給できます。
 
@@ -185,7 +185,7 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 In-App 購入の際に商品情報を管理する機能です。グーグルプレイ、アップストア、ワンストアなどの商品を全て登録する必要があります。
 
-![gamepot-1-221](../.gitbook/assets/gamepot-1-221.png)
+![gamepot_dashboard_16](./images/gamepot_dashboard_16.png)
 
 ① **In-App アイテムを追加** 버ボタンをクリックするとストア、商品名、商品 ID を入力して有料アイテムを生成できます。
 
@@ -195,7 +195,7 @@ In-App 購入の際に商品情報を管理する機能です。グーグルプ�
 
 日別単位で決済金額データをグラフで表示する機能です。
 
-![gamepot-1-239](../.gitbook/assets/gamepot-1-239.png)
+![gamepot_dashboard_17](./images/gamepot_dashboard_17.png)
 
 ① ストアを指定してグラフを確認できます。
 
@@ -209,11 +209,11 @@ In-App 購入の際に商品情報を管理する機能です。グーグルプ�
 
 正常決済の件について会員が任意で決済を取り消した場合を知らせてくれます。
 
-![gamepot-1-239B](../.gitbook/assets/gamepot-1-239B.png)
+![gamepot_dashboard_18](./images/gamepot_dashboard_18.png)
 
 ① 任意でグーグル決済を取り消す会員のゲームアクセスについて、一定の条件を設定して利用停止措置をすることができます。
 
-![gamepot-1-239C](../.gitbook/assets/gamepot-1-239C.png)
+![gamepot_dashboard_19](./images/gamepot_dashboard_19.png)
 
 ① 会員が任意で決済取り消しを悪用した部分について停止可否を決められます。有効化の際は 1 時間間隔で設定したオプションによって自動で決済取り消し悪用者を利用停止させます。
 
@@ -237,7 +237,7 @@ In-App 購入の際に商品情報を管理する機能です。グーグルプ�
 
 API 認証キーは**ポータル > マイページ > アカウント管理 > 認証キー管理** メニューから生成できます。
 
-![gamepot-1-204](../.gitbook/assets/gamepot-1-204.png)
+![gamepot_dashboard_20](./images/gamepot_dashboard_20.png)
 
 ① API 認証キーを生成するために**新規 API 認証キーを生成**をクリックしてください。
 
@@ -247,7 +247,7 @@ API 認証キーは**ポータル > マイページ > アカウント管理 > �
 
 発行された認証キーをダッシュボードと連動すると Object Storage のバケットが生成されて案内事項機能を使えるようになります。ダッシュボードの**プロジェクトを設定 > Ncloud** メニューへ移動して API 認証キーに接続します。
 
-![gamepot-1-205](../.gitbook/assets/gamepot-1-205.png)
+![gamepot_dashboard_21](./images/gamepot_dashboard_21.png)
 
 API 認証キーが接続されたら Object Storage のバケットが自動で生成されます。案内事項に使われた全てのイメージは当該バケットに保存されます。
 
@@ -255,7 +255,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 案内事項を追加する際は **案内事項**メニューへ移動します。
 
-![gamepot-1-206](../.gitbook/assets/gamepot-1-206.png)
+![gamepot_dashboard_22](./images/gamepot_dashboard_22.png)
 
 ① **案内事項を追加**ボタンを通じてイメージを追加できます。
 
@@ -263,7 +263,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 次に以下のようなポップアップメニューが表示されたら必要な値を入力して **保存** ボタンをクリックすると案内事項が追加されます。
 
-![gamepot-1-207](../.gitbook/assets/gamepot-1-207.png)
+![gamepot_dashboard_23](./images/gamepot_dashboard_23.png)
 
 ① 当該案内事項の有効化可否を選択します。
 
@@ -277,7 +277,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 ⑥ 表示される案内事項のイメージをマウスで引っ張てくるか、直接ファイルを選択できます。
 
-![gamepot-1-207-2](../.gitbook/assets/gamepot-1-207-2.png)
+![gamepot_dashboard_24](./images/gamepot_dashboard_24.png)
 
 言語の設定別に表示するそれぞれ異なるイメージを追加登録できます。
 
@@ -291,7 +291,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 メンテナンス時間とメッセージを入力した後に保存するとゲーム内のメンテナンスに関する案内が表示されます。
 
-![gamepot-1-230](../.gitbook/assets/gamepot-1-230.png)
+![gamepot_dashboard_25](./images/gamepot_dashboard_25.png)
 
 ① ストアを指定できます。全体メンテナンスの場合は全体のストアを指定してください。
 
@@ -309,7 +309,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 最新バージョンではない場合はアップデートのご案内を表示してグーグルプレイやアップストアのようなストアのアップデート画面へ移動します。
 
-![gamepot-1-231](../.gitbook/assets/gamepot-1-231.png)
+![gamepot_dashboard_26](./images/gamepot_dashboard_26.png)
 
 ① ストア別に設定します。
 
@@ -323,7 +323,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 別のメッセージサーバの構築なしに SMS, PUSH などを通じてメッセージ通知機能を実装できるサービスです。当該機能を使うためには NAVER Cloud Plaform の Simple & Easy Notification Service(SENS)を申込む必要があります。
 
-![gamepot-1-211](../.gitbook/assets/gamepot-1-211.png)
+![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
 
 ① SENS と連動するためにはまずサービスキーを発行します。 **サービスキーの発行** ボタンをクリックして [SENS 共通ガイド](../sens/sens-1-2.md)を参考にしてサービスキーを発行します。
 
@@ -331,17 +331,17 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 ③ **設定** ボタンをクリックして以下の画面に移動して PUSH サービス ID の値を入力します。
 
-![gamepot-1-212](../.gitbook/assets/gamepot-1-212.png)
+![gamepot_dashboard_28](./images/gamepot_dashboard_28.png)
 
 #### プッシュメッセージ
 
 **メッセージ> プッシュメッセージ** メニューをクリックすると送信状態、予約時間、送信時間などを確認できるリスト画面が表示されます。
 
-![gamepot-1-213](../.gitbook/assets/gamepot-1-213.png)
+![gamepot_dashboard_29](./images/gamepot_dashboard_29.png)
 
 **プッシュメッセージ** メニューから **+メッセージを追加** ボタンをクリックすると以下のようなポップアップが表示されます。当該ポップアップメニューからメッセージを送信できます。
 
-![gamepot-1-214](../.gitbook/assets/gamepot-1-214.png)
+![gamepot_dashboard_30](./images/gamepot_dashboard_30.png)
 
 ① プッシュメッセージの送信スケジュールを指定できます。(今すぐ送信/予約送信/予約送信(グローバル現地時間))
 
@@ -357,17 +357,17 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 SMS/LMS の発送、履歴及び結果の照会などの機能を使用できます。SMS/LMS を発送するためにはまず NAVER CLOUD PLATFORM の SENS でサービスキーの発行と発信番号を登録する必要があります。
 
-![gamepot-1-215](../.gitbook/assets/gamepot-1-215.png)
+![gamepot_dashboard_31](./images/gamepot_dashboard_31.png)
 
 ① SENS と連動するためにはまずサービスキーの発行と発信番号の登録が必要です。**サービスキーの発行**ボタンをクリックして [SENS 共通ガイド](../sens/sens-1-2.md)と [SENS SMS 使用ガイド](../sens/sens-1-3.md)を参考にしてサービスキーの発行と発信番号を登録します。
 
 ② **設定** ボタンをクリックしてサービス ID と Secret Key を入力してください。
 
-![gamepot-1-216](../.gitbook/assets/gamepot-1-216.png)
+![gamepot_dashboard_32](./images/gamepot_dashboard_32.png)
 
 **メッセージを追加**ボタンをクリックします。以下のようなポップアップが表示されます。
 
-![gamepot-1-217](../.gitbook/assets/gamepot-1-217.png)
+![gamepot_dashboard_33](./images/gamepot_dashboard_33.png)
 
 ① SMS は短文メッセージ、LMS は長文メッセージです。メッセージの種類によって価格が異なります。
 
@@ -391,7 +391,7 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 一般クーポンは一般的にコード形式になっているクーポンです。ゲーム内で使われるクーポンを簡単に生成及び管理できます。. **+クーポンを生成**をクリックすると以下のようなポップアップが表示され、これを通じてクーポンを生成できます。
 
-![gamepot-1-224](../.gitbook/assets/gamepot-1-224.png)
+![gamepot_dashboard_34](./images/gamepot_dashboard_34.png)
 
 ① 使用期間を指定して当該期間以外にはクーポンが使えないようにします。
 
@@ -405,13 +405,13 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 クーポン生成が完了したら生成されたクーポンリストが以下のように表示されます。
 
-![gamepot-1-225](../.gitbook/assets/gamepot-1-225.png)
+![gamepot_dashboard_35](./images/gamepot_dashboard_35.png)
 
 クーポンの現在の状態と使用量の制限数量などを確認できます。
 
 リストで以前生成されたクーポン数量を変更できるので簡単にクーポンの数量を増やせます。
 
-![gamepot-1-226](../.gitbook/assets/gamepot-1-226.png)
+![gamepot_dashboard_36](./images/gamepot_dashboard_36.png)
 
 ① リストで一番前の青色のアイコンをクリックするとクーポンの追加ポップアップが表示されます。
 
@@ -423,7 +423,7 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 **+クーポンを生成**をクリックします。
 
-![gamepot-1-227](../.gitbook/assets/gamepot-1-227.png)
+![gamepot_dashboard_37](./images/gamepot_dashboard_37.png)
 
 ① クーポンの使用可能な期間を指定します。
 
@@ -437,7 +437,7 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 発行されたクーポン番号の全体を照会できます。
 
-![gamepot-1-228](../.gitbook/assets/gamepot-1-228.png)
+![gamepot_dashboard_38](./images/gamepot_dashboard_38.png)
 
 ① 期間、クーポン番号、ユーザー ID などで指定してクーポンの使用可否を検索できます。
 
@@ -451,13 +451,13 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 アイテムメニューではクーポンを通じて獲得できるクーポンアイテムを生成できるメニューです。 **アイテムを追加**ボタンをクリックしてアイテムを追加できます。
 
-![gamepot-1-229A](../.gitbook/assets/gamepot-1-229A.png)
+![gamepot_dashboard_39](./images/gamepot_dashboard_39.png)
 
 ① アイテムを追加できます。
 
 ② **大量入力**ボタンをクリックするとアイテムを CSV ファイルに一度に登録できます。
 
-![gamepot-1-229](../.gitbook/assets/gamepot-1-229.png)
+![gamepot_dashboard_40](./images/gamepot_dashboard_40.png)
 
 ① アイテム名を入力します。
 
@@ -471,11 +471,11 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 顧客が問い合わせた内訳を確認できます。
 
-![gamepot-1-222](../.gitbook/assets/gamepot-1-222.png)
+![gamepot_dashboard_41](./images/gamepot_dashboard_41.png)
 
 **会員 ID**をクリックします。
 
-![gamepot-1-222a](../.gitbook/assets/gamepot-1-222a.png)
+![gamepot_dashboard_42](./images/gamepot_dashboard_42.png)
 
 ① 問い合わせた顧客の情報を確認できます。(回答満足度は問い合せ終了後に顧客が満足度を選択すると表示されます。)
 
@@ -491,15 +491,15 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 お客様の問い合わせに関するテンプレートを予め設定しておく機能です。
 
-![gamepot-1-222b](../.gitbook/assets/gamepot-1-222b.png)
+![gamepot_dashboard_43](./images/gamepot_dashboard_43.png)
 
 **分類の設定**をクリックします。
 
-![gamepot-1-222c](../.gitbook/assets/gamepot-1-222c.png)
+![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
 
 **分類を追加**からお客様問い合わせに関する分類名を追加して管理できます。
 
-![gamepot-1-222d](../.gitbook/assets/gamepot-1-222d.png)
+![gamepot_dashboard_45](./images/gamepot_dashboard_45.png)
 
 ① 状態をチェックすると当該分類名が有効化されます。
 
@@ -513,11 +513,11 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 顧客に回答する場合、顧客にプッシュを送信する機能です。
 
-![gamepot-1-222e](../.gitbook/assets/gamepot-1-222e.png)
+![gamepot_dashboard_43](./images/gamepot_dashboard_43.png)
 
 **プッシュ設定**をクリックします。
 
-![gamepot-1-222f](../.gitbook/assets/gamepot-1-222f.png)
+![gamepot_dashboard_46](./images/gamepot_dashboard_46.png)
 
 ① 使用可否をチェックすると機能が作動します。
 
@@ -527,11 +527,11 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 FAQ の内訳を登録して確認できます。
 
-![gamepot-1-223a](../.gitbook/assets/gamepot-1-223a.png)
+![gamepot_dashboard_47](./images/gamepot_dashboard_47.png)
 
 **追加**をクリックします。
 
-![gamepot-1-223b](../.gitbook/assets/gamepot-1-223b.png)
+![gamepot_dashboard_48](./images/gamepot_dashboard_48.png)
 
 ① 状態をチェックすると当該質問が有効化されて確認できます。
 
@@ -547,15 +547,15 @@ FAQ の内訳を登録して確認できます。
 
 FAQ の分類を設定しておく機能です。
 
-![gamepot-1-223c](../.gitbook/assets/gamepot-1-223c.png)
+![gamepot_dashboard_49](./images/gamepot_dashboard_49.png)
 
 **分類設定**をクリックします。
 
-![gamepot-1-223d](../.gitbook/assets/gamepot-1-223d.png)
+![gamepot_dashboard_50](./images/gamepot_dashboard_50.png)
 
 **分類を追加**でお客様問い合わせに関する分類名を追加して管理できます。
 
-![gamepot-1-223e](../.gitbook/assets/gamepot-1-223e.png)
+![gamepot_dashboard_51](./images/gamepot_dashboard_51.png)
 
 ① 状態をチェックすると当該分類名が有効化されます。
 
@@ -569,7 +569,7 @@ FAQ の分類を設定しておく機能です。
 
 社内の利用約款を入力できます。この内容は SDK を通じてユーザーに表示することができます。
 
-![gamepot-1-223_1](../.gitbook/assets/gamepot-1-223_1.png)
+![gamepot_dashboard_52](./images/gamepot_dashboard_52.png)
 
 ① デバイスの言語設定によって異なる形で表示される利用約款の内容で基本言語を指定します。
 
@@ -581,7 +581,7 @@ FAQ の分類を設定しておく機能です。
 
 社内の個人情報の取り扱いに関する方針内容を入力できます。この内容は SDK を通じてユーザーに表示できます。
 
-![gamepot-1-223_2](../.gitbook/assets/gamepot-1-223_2.png)
+![gamepot_dashboard_53](./images/gamepot_dashboard_53.png)
 
 ① デバイスの言語設定によって異なる形で表示される個人情報の取り扱いに関する方針内容で基本言語を指定します。
 
@@ -593,21 +593,21 @@ FAQ の分類を設定しておく機能です。
 
 一定期間に対するお客様問い合わせの統計を確認できます。
 
-![gamepot-1-223_3](../.gitbook/assets/gamepot-1-223_3.png)
+![gamepot_dashboard_54](./images/gamepot_dashboard_54.png)
 
 ### 事前予約
 
 事前予約機能は事前予約のウェブページを通じて登録したユーザーの統計を表示してくれる機能です。
 
-![gamepot-1-501](../.gitbook/assets/gamepot-1-501.png)
+![gamepot_dashboard_55](./images/gamepot_dashboard_55.png)
 
 ① 事前予約を追加できます。事前予約名は統計算出のための ID として活用されます。
 
-![gamepot-1-500](../.gitbook/assets/gamepot-1-500.png)
+![gamepot_dashboard_56](./images/gamepot_dashboard_56.png)
 
 ② 事前予約名を修正できます。
 
-![gamepot-1-501a](../.gitbook/assets/gamepot-1-501a.png)
+![gamepot_dashboard_57](./images/gamepot_dashboard_57.png)
 
 ③ 事前予約の申込み者をダウンロードできます。
 
@@ -619,11 +619,11 @@ FAQ の分類を設定しておく機能です。
 
 遠隔構成機能はアプリをアップデートせずにアプリの動作と形を変更できるようにする機能です。サーバに媒介変数を追加して当該値を GAMEPOT SDK で呼び出して使用できます。従って、ゲーム内の機能をサーバで制御しようとする場合はこの機能を利用すると簡単に適用及び制御できます。
 
-![gamepot-1-232](../.gitbook/assets/gamepot-1-232.png)
+![gamepot_dashboard_58](./images/gamepot_dashboard_58.png)
 
 **追加** ボタンをクリックします。以下のようなポップアップウィンドウが表示されたら、媒介変数と値を入力します。
 
-![gamepot-1-233](../.gitbook/assets/gamepot-1-233.png)
+![gamepot_dashboard_59](./images/gamepot_dashboard_59.png)
 
 当該媒介変数と値が反映される時点は新たにアプリを実行するユーザーから反映されます。
 
@@ -633,7 +633,7 @@ FAQ の分類を設定しておく機能です。
 
 アプリの全般的な環境を設定してアプリを運営するための多様なキー値を入力できます。
 
-![gamepot-1-234a](../.gitbook/assets/gamepot-1-234a.png)
+![gamepot_dashboard_60](./images/gamepot_dashboard_60.png)
 
 ① ゲーム名を記入します。
 
@@ -645,7 +645,7 @@ FAQ の分類を設定しておく機能です。
 
 ⑤ 使用言語を選択できます。
 
-![gamepot-1-234b](../.gitbook/assets/gamepot-1-234b.png)
+![gamepot_dashboard_61](./images/gamepot_dashboard_61.png)
 
 グーグルストアとワンストアと連動するため設定する項目です。
 
@@ -657,14 +657,14 @@ FAQ の分類を設定しておく機能です。
 
 ④ ワンストアで同じゲームを 2 つのバージョンでリリースする場合(例えば、12 歳、18 歳)、パッケージ名を前に入れて後ろに Public key 値を入れます。
 
-![gamepot-1-234g](../.gitbook/assets/gamepot-1-234g.png)
+![gamepot_dashboard_62](./images/gamepot_dashboard_62.png)
 
 グーグル API 連動(グーグルストア決済取り消し者リストの確認及び最新バージョンの決済領収証の検証)に必要な設定項目です。
 
 1. グーグルから提供する JSON データを入力します。’ヘルプをみる’をご参照ください。
 2. 決済の領収証の検証バージョンです。1 番項目にデータを入力したら 'Version 3'を選択してください。
 
-![gamepot-1-234c](../.gitbook/assets/gamepot-1-234c.png)
+![gamepot_dashboard_63](./images/gamepot_dashboard_63.png)
 
 ① グーグルストア ID を入力します。
 
@@ -672,7 +672,7 @@ FAQ の分類を設定しておく機能です。
 
 ③ アップストア ID を入力します。
 
-![gamepot-1-234d](../.gitbook/assets/gamepot-1-234d.png)
+![gamepot_dashboard_64](./images/gamepot_dashboard_64.png)
 
 ワンストアで In-App 決済をしてアイテムの支給をリクエストするために事前に設定すべき情報です。
 
@@ -680,7 +680,7 @@ FAQ の分類を設定しておく機能です。
 
 ② 2 つのバージョンでリリースする場合、異なるバージョンのライセンスキーを入力します。(2 つのバージョンではない場合は入力しなくて結構です。)
 
-![gamepot-1-234e](../.gitbook/assets/gamepot-1-234e.png)
+![gamepot_dashboard_65](./images/gamepot_dashboard_65.png)
 
 Auth Key 項目はグーグル、フェイスブックログインの際にトックンの検証に使われ、トックン検証に失敗した際はゲームユーザーのログインを制限します。ログインが制限されたゲームユーザーは利用停止メニューに自動で登録されます。
 
@@ -690,7 +690,7 @@ Auth Key 項目はグーグル、フェイスブックログインの際にト�
 
 ③ フェイスブックの App Secret Key 値を入力します。
 
-![gamepot-1-234F](../.gitbook/assets/gamepot-1-234F.png)
+![gamepot_dashboard_66](./images/gamepot_dashboard_66.png)
 
 WebHook 項目の決済アイテムは決済成功の際にアイテム支給をリクエストするアドレスを入力します。
 
@@ -711,13 +711,13 @@ WebHook 項目の決済アイテムは決済成功の際にアイテム支給を
 NAVER クラウドプラットフォームと連動させるためのキー値を追加変更できます。
 詳しい使用法は緑色のボックス部分をクリックしてユーザーガイドを参照。
 
-![gamepot-1-235](../.gitbook/assets/gamepot-1-235.png)
+![gamepot_dashboard_67](./images/gamepot_dashboard_67.png)
 
 #### CDN
 
 CDN を利用しようとする場合は以下の CDN アドレスを入力してください。
 
-![gamepot-1-236](../.gitbook/assets/gamepot-1-236.png)
+![gamepot_dashboard_68](./images/gamepot_dashboard_68.png)
 
 **CDN アドレス入力の際の注意事項**
 
@@ -734,13 +734,13 @@ CDN を利用しようとする場合は以下の CDN アドレスを入力し�
 
 決済手段別に必要な値はダナルを通じて取得し、**Store Secret key**ではワンストはコンソールの **Client secret**値を入力します。
 
-![gamepot-1-236a](../.gitbook/assets/gamepot-1-236a.png)
+![gamepot_dashboard_69](./images/gamepot_dashboard_69.png)
 
 ##### [価格入力]
 
 決済 - IAP メニューで In-App アイテム別にユーザーが支払う価格を入力します。
 
-![gamepot-1-236b](../.gitbook/assets/gamepot-1-236b.png)
+![gamepot_dashboard_70](./images/gamepot_dashboard_70.png)
 
 #### ホワイトユーザー
 
@@ -750,21 +750,21 @@ CDN を利用しようとする場合は以下の CDN アドレスを入力し�
 - メンテナンス：メンテナンス機能が有効化されているとしても無視して進みます。
 - アップデート：アップデート機能が有効化されているとしても無視して進みます。
 
-![gamepot-1-240](../.gitbook/assets/gamepot-1-240.png)
+![gamepot_dashboard_71](./images/gamepot_dashboard_71.png)
 
 **追加** ボタンをクリックします。以下のようなポップアップウィンドウが表示されたら、媒介変数と値を入力します。
 
-![gamepot-1-240a](../.gitbook/assets/gamepot-1-240a.png)
+![gamepot_dashboard_72](./images/gamepot_dashboard_72.png)
 
 #### アクセス遮断
 
 登録された IP、国コードでアクセスするユーザーを遮断します。
 
-![gamepot-1-600](../.gitbook/assets/gamepot-1-600.png)
+![gamepot_dashboard_73](./images/gamepot_dashboard_73.png)
 
 **追加** ボタンをクリックします。以下のようなポップアップウィンドウが表示されたら、該当する値を入力します。
 
-![gamepot-1-601](../.gitbook/assets/gamepot-1-601.png)
+![gamepot_dashboard_74](./images/gamepot_dashboard_74.png)
 
 ① 状態をチェックするとアクセス遮断が有効化されます。
 
@@ -786,23 +786,23 @@ CDN を利用しようとする場合は以下の CDN アドレスを入力し�
 
 GAMEPOT ダッシュボードの使用ガイドページへ移動します。
 
-![gamepot-1-238B](../.gitbook/assets/gamepot-1-238B.png)
+![gamepot_dashboard_75](./images/gamepot_dashboard_75.png)
 
 ### 言語の変更
 
 ダッシュボードの各メニューなどが選択した言語に変更されます。
 
-![gamepot-1-238C](../.gitbook/assets/gamepot-1-238C.png)
+![gamepot_dashboard_76](./images/gamepot_dashboard_76.png)
 
 ### 会員情報の修正
 
 ダッシュボード利用のアカウント名、パスワードを変更できます。
 
-![gamepot-1-237](../.gitbook/assets/gamepot-1-237.png)
+![gamepot_dashboard_77](./images/gamepot_dashboard_77.png)
 
 ① ダッシュボード右上のアイコンをクリックすると表示されるドロップダウンメニューの中から会員情報の修正を選択できます。
 
-![gamepot-1-238](../.gitbook/assets/gamepot-1-238.png)
+![gamepot_dashboard_78](./images/gamepot_dashboard_78.png)
 
 ② ユーザー名を変更できます。
 
@@ -812,19 +812,19 @@ GAMEPOT ダッシュボードの使用ガイドページへ移動します。
 
 GAMEPOT ダッシュボード管理のためのユーザー管理、アップデート、システム機能などがあります。
 
-![gamepot-1-502](../.gitbook/assets/gamepot-1-502.png)
+![gamepot_dashboard_79](./images/gamepot_dashboard_79.png)
 
 #### ユーザー
 
 ダッシュボードを利用できるユーザーを管理するメニューで、ユーザーを追加/削除できます。
 
-![gamepot-1-503](../.gitbook/assets/gamepot-1-503.png)
+![gamepot_dashboard_80](./images/gamepot_dashboard_80.png)
 
 ① 状態をチェックすると当該ユーザーが有効化されます。
 
 **登録** ボタンをクリックします。以下のようなポップアップウィンドウが表示されたら、該当する値を入力します。
 
-![gamepot-1-504](../.gitbook/assets/gamepot-1-504.png)
+![gamepot_dashboard_81](./images/gamepot_dashboard_81.png)
 
 ① 登録するユーザー ID です。メール形式のみ使用できます。
 
@@ -834,11 +834,11 @@ GAMEPOT ダッシュボード管理のためのユーザー管理、アップデ
 
 ダッシュボードを利用できるユーザーをグループ単位で管理する機能で、各役割ごとに異なる権限を与えることができます。
 
-![gamepot-1-505](../.gitbook/assets/gamepot-1-505.png)
+![gamepot_dashboard_82](./images/gamepot_dashboard_82.png)
 
 **歯車** ボタンをクリックします。以下のような画面から、当該役割に関する設定をすることができます。
 
-![gamepot-1-506](../.gitbook/assets/gamepot-1-506.png)
+![gamepot_dashboard_83](./images/gamepot_dashboard_83.png)
 
 ① 当該役割に含めるユーザーを位置させます。
 
@@ -850,4 +850,4 @@ GAMEPOT ダッシュボード管理のためのユーザー管理、アップデ
 
 GAMEPOT システムのアップデート内訳を確認できます。
 
-![gamepot-1-507](../.gitbook/assets/gamepot-1-507.png)
+![gamepot_dashboard_84](./images/gamepot_dashboard_84.png)
