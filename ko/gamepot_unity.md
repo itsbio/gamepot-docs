@@ -852,6 +852,8 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 >
 > 기능을 사용하기 위해선 설정이 필요합니다. 대시보드 메뉴얼에 '외부결제' 항목을 참고하세요.
 
+- Case 1
+
 Request:
 
 ```csharp
@@ -866,6 +868,35 @@ Request:
 ```csharp
 // 리턴되는 데이터 포멧은 getPurchaseItems()와 동일합니다.
 GamePot.getPurchaseThirdPaymentsItems();
+```
+
+- Case 2
+
+Request:
+
+```csharp
+// productId : 마켓에 등록된 상품ID
+GamePot.purchaseThirdPayments(string productId, GamePotCallbackDelegate.CB_Purchase);
+```
+
+```csharp
+// 리턴되는 데이터 포멧은 getPurchaseItems()와 동일합니다.
+GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultPurchase.SUCCESS:
+        // purchase success
+        break;
+        case NCommon.ResultPurchase.CANCELLED:
+        // purchase cancel
+        break;
+        case NCommon.ResultPurchase.FAILED:
+        // purchase fail
+        break;
+        default:
+        break;
+    }
+});
 ```
 
 ## 8. 기타 API
@@ -1061,6 +1092,8 @@ GamePot.coupon(couponNumber, (success, error) => {
 
 #### 푸시 설정
 
+- Case 1
+
 Request:
 
 ```csharp
@@ -1082,7 +1115,31 @@ public void onPushFailure(NError error) {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushStatus(bool pushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushStatus(pushEnable, (success, error) => {
+    if(success)
+    {
+        // 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+```
+
 #### 야간 푸시 설정
+
+- Case 1
 
 Request:
 
@@ -1105,29 +1162,122 @@ public void onPushNightFailure(NError error) {
 }
 ```
 
-#### 푸시 / 야간푸시 한번에 설정
-
-로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
+- Case 2
 
 Request:
 
 ```csharp
-GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, true);
+void GamePot.setPushNightStatus(bool nightPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushNightStatus(nightPushEnable, (success, error) => {
+    if(success)
+    {
+        // 야간 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 야간 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+```
+
+#### 광고 푸시 설정
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.setPushADStatus(bool adPushEnable);
 ```
 
 Response:
 
 ```csharp
-/// 야간 푸시 상태 변경에 대한 서버 통신 성공
+/// 광고 푸시 상태 변경에 대한 서버 통신 성공
+public void onPushAdSuccess() {
+}
+
+/// 광고 푸시 상태 변경에 대한 서버 통신 실패
+public void onPushAdFailure(NError error) {
+
+    // 광고 푸시 상태 변경을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushADStatus(bool adPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushADStatus(adPushEnable, (success, error) => {
+    if(success)
+    {
+        // 광고 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 광고 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+```
+
+#### 푸시 / 야간푸시 / 광고푸시 한번에 설정
+
+로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable);
+```
+
+Response:
+
+```csharp
+/// 푸시 상태 변경에 대한 서버 통신 성공
 public void onPushStatusSuccess() {
 }
 
-/// 야간 푸시 상태 변경에 대한 서버 통신 실패
+/// 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushStatusFailure(NError error) {
 
-    // 야간 푸시 상태 변경을 실패하는 경우
+    // 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushADStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushADStatus(pushEnable, nightPushEnable, adPushEnable, (success, error) => {
+    if(success)
+    {
+        // 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
 ```
 
 #### 푸시 상태 조회
@@ -1243,6 +1393,8 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 >
 > '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
 
+- Case 1
+
 Request:
 
 ```csharp
@@ -1271,6 +1423,34 @@ public void onAgreeDialogFailure(NError error)
 {
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+// 기본 호출(BLUE 테마로 적용)
+showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
+
+// GREEN 테마로 적용시
+NAgreeInfo info = new NAgreeInfo();
+info.theme = "green";
+GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
+```
+
+```csharp
+GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError error) => {  
+   if(success)
+   {
+        // 약관에 동의한 경우
+   }
+   else
+   {
+        // 오류 발생
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 #### Customizing
