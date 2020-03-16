@@ -785,6 +785,19 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_ios_16](./images/gamepot_ios_16.png)
 
+### 환불규정
+
+환불규정 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 환불규정 설정 항목에 내용을 먼저 입력하세요.
+
+```java
+#import <GamePot/GamePot.h>
+
+[[GamePot getInstance] showRefund:/*ViewController*/];
+```
+
+![gamepot_ios_16](./images/gamepot_ios_16.png)
 
 ### 원격 구성
 
