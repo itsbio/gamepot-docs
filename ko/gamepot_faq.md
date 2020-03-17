@@ -489,3 +489,17 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 ![gamepot_faq_43](./images/gamepot_faq_43.png)
 
+
+
+#### 10. 인앱 리스트 정보를 가져올 때 스토어마다 GamePot.getPurchaseItems() API의 Price 값이 다릅니다. 
+
+	인앱 리스트 정보를 가져올 때 각 스토어 인앱 SDK에서 전달을 주는 값을 공유드립니다.
+
+	구글 스토어 : price의 값은 화폐단위 + 인앱 가격 
+	ex)  ₩1,000
+
+	애플 스토어 : price의 값은 인앱 가격
+	ex) 1000
+
+	IOS에서 화폐 단위를 표기하기 위해서는  price_currency_code 값을 참조하시면 됩니다.
+	ex) price_currency_code : KRW
