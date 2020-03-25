@@ -46,9 +46,9 @@ android {
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-                resValue "string", "facebook_app_id", "0" // optional (facebook)
-                resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
-                // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
+        resValue "string", "facebook_app_id", "0" // optional (facebook)
+        resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
     }
     ...
 }
