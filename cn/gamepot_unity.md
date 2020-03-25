@@ -43,8 +43,6 @@ android {
     defaultConfig {
         ...
         resValue "string", "gamepot_project_id", "" // required
-        resValue "string", "gamepot_api_url", "" // required
-        resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
@@ -65,8 +63,6 @@ resValue "string", "[key]", "[value]"
 | 值 | 说明 |
 | :--- | :--- |
 | gamepot\_project\_id | 输入从GamePot获取的项目ID。 |
-| gamepot\_api\_url | 输入从GamePot获取的API URL。 |
-| gamepot\_dash\_url | 請輸入[https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) |
 | gamepot\_store | 渠道商城值 \( google or one \) |
 | gamepot\_app\_title | 应用标题 \(FCM\) |
 | gamepot\_push\_default\_channel | 已注册的默认频道名称\(Default\) - 请勿更改。 |
@@ -140,13 +136,11 @@ GAMEPOT不包括[危險許可](https://developer.android.com/guide/topics/permis
 |  | 说明 |
 | :--- | :--- |
 | gamepot\_project\_id | 输入从GamePot获取的项目ID |
-| gamepot\_dash\_url | 請輸入[https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) |
 | gamepot\_facebook\_app\_id | 从Facebook获取的应用ID |
 | gamepot\_facebook\_display\_name | 在Facebook所被显示的名称 |
 | gamepot\_google\_app\_id | GoogleService-Info文件的CLIENT\_ID值 |
 | gamepot\_google\_url\_schemes | GoogleService-Info文件的REVERSED\_CLIENT\_ID值 |
 | gamepot\_elsa\_projectid | 使用NCLOUD ELSA时项目ID |
-| gamepot\_api\_url | API URL |
 
 添加scenes之后
 

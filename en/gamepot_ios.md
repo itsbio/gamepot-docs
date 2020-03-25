@@ -64,7 +64,6 @@ Also, add GamePotConfig-Info.plist containing default settings of the GAMEPOT SD
 ```xml
 gamepot_project_id: GAMEPOT project ID
 gamepot_elsa_projectid: GAMEPOT log project ID (optional)
-gamepot_api_url: GAMEPOT API URL
 ```
 
 

@@ -69,7 +69,6 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
    | 값                           | 설명                                                                                           |
    | :--------------------------- | :--------------------------------------------------------------------------------------------- |
    | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
-   | gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                                                  |
    | gamepot_store                | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)                                                 |
    | gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
    | gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
@@ -84,10 +83,8 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
            ...
            // GamePot [START]
            resValue "string", "gamepot_project_id", "[projectId]" // required
-           resValue "string", "gamepot_api_url", "[apiUrl]" // required
            resValue "string", "gamepot_store", "[storeId]" // required
            resValue "string", "gamepot_payment", "[storeId]" // optional
-           resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
            resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
            resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
            resValue "string", "facebook_app_id", "[Facebook ID]" // facebook

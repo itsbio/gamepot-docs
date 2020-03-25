@@ -70,7 +70,6 @@ AndroidでGAMEPOTを使用するためのシステム環境は以下の通りで
            ...
            // GamePot [START]
            resValue "string", "gamepot_project_id", "[projectId]" // required
-           resValue "string", "gamepot_api_url", "[apiUrl]" // required
            resValue "string", "gamepot_store", "[storeId]" // required
            resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
            resValue "string", "gamepot_push_default_channel","Default" // required (fcm)

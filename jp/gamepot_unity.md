@@ -38,13 +38,12 @@ android {
 	defaultConfig {
 		...
         resValue "string", "gamepot_project_id", "" // required
-        resValue "string", "gamepot_api_url", "" // required
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-				resValue "string", "facebook_app_id", "0" // optional (facebook)
-				resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
-				// resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
+        resValue "string", "facebook_app_id", "0" // optional (facebook)
+        resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
 	}
 	...
 }
@@ -59,7 +58,6 @@ resValue "string", "[key]", "[value]"
 | 値                           | 説明                                                                                                                                                        |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | gamepot_project_id           | GAMEPOT で発行されたプロジェクト ID を入力してください。                                                                                                    |
-| gamepot_api_url              | GAMEPOT で発行された API URL を入力してください。                                                                                                           |
 | gamepot_store                | ストア値(`google` または `one`)                                                                                                                             |
 | gamepot_app_title            | アプリのタイトル (FCM)                                                                                                                                      |
 | gamepot_push_default_channel | 登録された基本チャンネル名(Default) - 変更しないでください。                                                                                                |
@@ -122,7 +120,6 @@ Main Activity に screenOrientation を追加してゲームに合わせて`sens
 | 環境変数                      | 説明                                                                                      |
 | ----------------------------- | ----------------------------------------------------------------------------------------- |
 | gamepot_project_id            | GAMEPOT で発行されてプロジェクト ID を入力してください。                                  |
-| gamepot_api_url               | GAMEPOT で発行された API URL を入力してください。                                         |
 | gamepot_facebook_app_id       | フェイスブックで発行されたアプリ ID                                                       |
 | gamepot_facebook_display_name | フェイスブックに表示される名前                                                            |
 | gamepot_google_app_id         | GoogleService-Info ファイルの CLIENT_ID 値                                                |

@@ -60,7 +60,6 @@ GAMEPOT SDK の基本設定値を含めている GamePotConfig-Info.plist ファ
 ```xml
 gamepot_project_id : GAMEPOTプロジェクトID
 gamepot_elsa_projectid : GAMEPOT ログプロジェクトID(optional)
-gamepot_api_url : GAMEPOT API URL
 ```
 
 #### Step 6. ビルドオプションの追加
