@@ -41,14 +41,12 @@ android {
     defaultConfig {
         ...
         resValue "string", "gamepot_project_id", "" // required
-        resValue "string", "gamepot_api_url", "" // required
-        resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-                resValue "string", "facebook_app_id", "0" // optional (facebook)
-                resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
-                // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
+        resValue "string", "facebook_app_id", "0" // optional (facebook)
+        resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
     }
     ...
 }
@@ -63,8 +61,6 @@ resValue "string", "[key]", "[value]"
 | 값                           | 설명                                                                                           |
 | :--------------------------- | :--------------------------------------------------------------------------------------------- |
 | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
-| gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                                                  |
-| gamepot_dash_url             | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
 | gamepot_store                | 스토어값\(`google` 또는 `one`\)                                                                |
 | gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
 | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
@@ -138,8 +134,6 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 | 환경 변수                     | 설명                                                                                           |
 | :---------------------------- | :--------------------------------------------------------------------------------------------- |
 | gamepot_project_id            | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
-| gamepot_api_url               | 공백 값으로 지정해 주세요.                                                                     |
-| gamepot_dash_url              | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
 | gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                                                                        |
 | gamepot_facebook_display_name | 페이스북에 보여지는 이름                                                                       |
 | gamepot_google_app_id         | GoogleService-Info 파일의 CLIENT_ID 값                                                         |

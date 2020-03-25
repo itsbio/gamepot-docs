@@ -61,8 +61,6 @@ GAMEPOT SDK의 기본설정 값을 포함하고 있는 GamePotConfig-Info.plist 
 ```markup
 gamepot_project_id : GAMEPOT 프로젝트 아이디
 gamepot_elsa_projectid : GAMEPOT 로그 프로젝트 아이디(optional)
-gamepot_api_url : 게임팟 API URL
-gamepot_dash_url : "https://dashboard.gamepot.ntruss.com" 입력
 ```
 
 #### Step 6. 빌드 옵션 추가
