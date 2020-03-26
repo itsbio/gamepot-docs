@@ -41,14 +41,12 @@ android {
     defaultConfig {
         ...
         resValue "string", "gamepot_project_id", "" // required
-        resValue "string", "gamepot_api_url", "" // required
-        resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-                resValue "string", "facebook_app_id", "0" // optional (facebook)
-                resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
-                // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
+        resValue "string", "facebook_app_id", "0" // optional (facebook)
+        resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
     }
     ...
 }
@@ -60,18 +58,18 @@ android {
 resValue "string", "[key]", "[value]"
 ```
 
-| 값                           | 설명                                                                                            |
-| :--------------------------- | :--------------------------------------------------------------------------------------------- |
-| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                             |
-| gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                                                    |
-| gamepot_dash_url             | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
-| gamepot_store                | 스토어 (`google`/`one`/`gallaxy`) 별로 나누어, 빌드 시 해당 스토어를 결제스토어로 지정합니다.      |
-| gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
-| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
-| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                             |
-| facebook_app_id              | 페이스북 발급 받은 앱ID                                                                         |
-| fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                             |
-| gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\)  |
+| 값  | 설명 |
+| :-- | :--- |
+
+
+| gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
+| gamepot_store | 스토어값\(`google` 또는 `one`\) |
+
+| gamepot_app_title | 앱 제목 \(FCM\) |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
+| facebook_app_id | 페이스북 발급 받은 앱ID |
+| fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
+| gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
 **노티바에 푸시 아이콘 변경 방법**
 
@@ -126,9 +124,9 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 ### Step 4. iOS
 
-> GameCenter Login을 `사용하지 않으실 경우`에는 아래 위치해서 해당 파일을 삭제 해주세요.  
->  &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`  
->  해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
+> GameCenter Login을 `사용하지 않으실 경우`에는 아래 위치해서 해당 파일을 삭제 해주세요.
+> &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
+> 해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
 
 구글 파이어베이스에서 다운로드한 `GoogleService-Info.plist` 파일을 `/Assets/Plugins/IOS/`에 복사합니다.
 
@@ -136,16 +134,14 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 ![gamepot_unity_07](./images/gamepot_unity_07.png)
 
-| 환경 변수                     | 설명                                                                                           |
-| :---------------------------- | :--------------------------------------------------------------------------------------------- |
-| gamepot_project_id            | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
-| gamepot_api_url               | 공백 값으로 지정해 주세요.                                                                     |
-| gamepot_dash_url              | [https://dashboard.gamepot.ntruss.com](https://dashboard.gamepot.ntruss.com) 를 입력해 주세요. |
-| gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                                                                        |
-| gamepot_facebook_display_name | 페이스북에 보여지는 이름                                                                       |
-| gamepot_google_app_id         | GoogleService-Info 파일의 CLIENT_ID 값                                                         |
-| gamepot_google_url_schemes    | GoogleService-Info 파일의 REVERSED_CLIENT_ID 값                                                |
-| gamepot_elsa_projectid        | NCLOUD ELSA 사용시 프로젝트ID                                                                  |
+| 환경 변수                     | 설명                                                  |
+| :---------------------------- | :---------------------------------------------------- |
+| gamepot_project_id            | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
+| gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                               |
+| gamepot_facebook_display_name | 페이스북에 보여지는 이름                              |
+| gamepot_google_app_id         | GoogleService-Info 파일의 CLIENT_ID 값                |
+| gamepot_google_url_schemes    | GoogleService-Info 파일의 REVERSED_CLIENT_ID 값       |
+| gamepot_elsa_projectid        | NCLOUD ELSA 사용시 프로젝트ID                         |
 
 scenes를 추가한 후에 **File &gt; Build Settings &gt; Build And Run**을 실행하면 완료됩니다.
 
@@ -283,9 +279,9 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.f
 
 > iOS에만 해당하는 기능입니다.
 >
-> GameCenter Login을 `사용하지 않으실 경우`에는 아래 위치해서 해당 파일을 삭제 해주세요.  
->  &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`  
->  해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
+> GameCenter Login을 `사용하지 않으실 경우`에는 아래 위치해서 해당 파일을 삭제 해주세요.
+> &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
+> 해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
 
 /Assets/Plugins/IOS/Frameworks/ 경로에 Gamekit.framwork를 복사합니다. **General &gt; Linked Frameworks and Libraries** 내에 복사한 프레임워크를 추가합니다.
 
@@ -298,6 +294,8 @@ Capabilities 설정에서 Game Center를 ON으로 설정합니다.\(앱스토어
 ### 로그인
 
 별도의 가입 없이 사용자 계정이 생성됩니다. 모든 신원 확인을 위한 MemberId가 생성되며, 생성된 정보는 NUserInfo 구조체에 저장되어 리턴됩니다.
+
+- Case 1
 
 Request:
 
@@ -347,6 +345,33 @@ public void onAppClose()
     // TODO: 강제 업데이트나 점검 기능을 case 2 방식으로 구현하는 경우
     // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.login(NCommon.LoginType, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        case NCommon.ResultLogin.CANCELLED:
+        // login cancel
+        break;
+        case NCommon.ResultLogin.FAILED:
+        // login fail
+        break;
+        default:
+        break;
+    }
+});
 ```
 
 LoginType 정의
@@ -406,9 +431,11 @@ else
 
 사용자를 로그아웃시킵니다. 계정이 삭제되지 않으며, 동일한 계정으로 로그인이 가능합니다.
 
+- Case 1
+
 Request:
 
-```text
+```csharp
 GamePot.logout();
 ```
 
@@ -423,14 +450,38 @@ public void onLogoutSuccess()
 /// 로그아웃 실패
 public void onLogoutFailure(NError error)
 {
-       // 로그아웃을 실패하는 경우
+    // 로그아웃을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.logout(GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.logout((success, error) => {
+   if(success)
+   {
+       // 로그아웃 성공
+   }
+   else
+   {
+        // 로그아웃을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 ### 탈퇴
 
 회원을 탈퇴하며, 복구가 불가능합니다.
+
+- Case 1
 
 Request:
 
@@ -447,9 +498,31 @@ public void onDeleteMemberSuccess() {
 
 /// 회원 탈퇴 실패
 public void  onDeleteMemberFailure(NError error) {
-       // 회원 탈퇴를 실패하는 경우
+    // 회원 탈퇴를 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.deleteMember(GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.deleteMember((success, error) => {
+   if(success)
+   {
+        // 회원 탈퇴 성공
+   }
+   else
+   {
+        // 회원 탈퇴를 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 ### 검증
@@ -482,10 +555,12 @@ public enum LinkingType
 
 Google / Facebook 등의 아이디로 계정을 연동 하실 수 있습니다.
 
+- Case 1
+
 Request:
 
 ```csharp
-GamePot.createLinking(NCommon.LinkingType.XXXXX);
+void GamePot.createLinking(NCommon.LinkingType.XXXXX);
 ```
 
 Response:
@@ -507,6 +582,33 @@ public void onCreateLinkingFailure(NError error) {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.createLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_CreateLinking);
+```
+
+```csharp
+GamePot.createLinking(NCommon.LinkingType.XXXXX, (resultState, userInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultLinking.SUCCESS:
+        // 계정 연동 성공
+        break;
+        case NCommon.ResultLinking.CANCELLED:
+        // 계정 연동 취소
+        break;
+        case NCommon.ResultLinking.FAILED:
+        // 계정 연동 실패
+        break;
+        default:
+        break;
+    }
+});
+```
+
 현재 연동된 모든 계정 정보를 가져올 수 있습니다.
 
 ```csharp
@@ -526,10 +628,12 @@ public class NLinkingInfo
 
 기존에 연동 되어 있는 계정을 해제합니다.
 
+- Case 1
+
 Request :
 
 ```csharp
-void GamePot.deleteLinking(NCommon.LinkType.XXXXX);
+void GamePot.deleteLinking(NCommon.LinkingType.XXXXX);
 ```
 
 Response:
@@ -544,6 +648,28 @@ public void onDeleteLinkingFailure(NError error) {
     // 연동 해제를 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.deleteLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.deleteLinking(NCommon.LinkingType.XXXXX, (success, error) => {
+    if(success)
+    {
+       // 계정 연동 해제 성공
+    }
+   else
+   {
+        // 연동 해제를 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
 ```
 
 #### 계정 연동 상태에 대한 결과 처리 예제
@@ -627,11 +753,17 @@ foreach(NPurchaseItem item in items) {
 
 아래 함수 하나로 구글, 애플, 앱스토어 결제가 가능합니다.
 
+- Case 1
+
 Request:
 
 ```csharp
 // productId : 마켓에 등록된 상품ID
-GamePot.purchase(string productId)
+GamePot.purchase(string productId);
+
+GamePot.purchase(string productId, string uniqueId);
+
+GamePot.purchase(string productId, string uniqueId, string serverId, string playerId, string etc);
 ```
 
 Response:
@@ -652,6 +784,39 @@ public void onPurchaseCancel() {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+// productId : 마켓에 등록된 상품ID
+GamePot.purchase(string productId, GamePotCallbackDelegate.CB_Purchase);
+
+GamePot.purchase(string productId, string uniqueId, GamePotCallbackDelegate.CB_Purchase);
+
+GamePot.purchase(string productId, string uniqueId, string serverId, string playerId, string etc, GamePotCallbackDelegate.CB_Purchase);
+
+```
+
+```csharp
+GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultPurchase.SUCCESS:
+        // purchase success
+        break;
+        case NCommon.ResultPurchase.CANCELLED:
+        // purchase cancel
+        break;
+        case NCommon.ResultPurchase.FAILED:
+        // purchase fail
+        break;
+        default:
+        break;
+    }
+});
+```
+
 ### NPurchaseInfo 정의
 
 결제 성공 후 결제한 아이템의 정보입니다. 참고용으로 사용하시면 됩니다.
@@ -659,7 +824,7 @@ public void onPurchaseCancel() {
 ```csharp
 public class NPurchaseInfo
 {
-    public string price { get; set; }                  // 결제 아이템의 가격
+    public string price { get; set; }               // 결제 아이템의 가격
     public string productId { get; set; }           // 결제 아이템 ID
     public string currency { get; set; }            // 결제 가격 통화(KRW/USD)
     public string orderId { get; set; }             // 스토어 Order ID
@@ -684,6 +849,8 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 >
 > 기능을 사용하기 위해선 설정이 필요합니다. 대시보드 메뉴얼에 '외부결제' 항목을 참고하세요.
 
+- Case 1
+
 Request:
 
 ```csharp
@@ -698,6 +865,35 @@ Request:
 ```csharp
 // 리턴되는 데이터 포멧은 getPurchaseItems()와 동일합니다.
 GamePot.getPurchaseThirdPaymentsItems();
+```
+
+- Case 2
+
+Request:
+
+```csharp
+// productId : 마켓에 등록된 상품ID
+GamePot.purchaseThirdPayments(string productId, GamePotCallbackDelegate.CB_Purchase);
+```
+
+```csharp
+// 리턴되는 데이터 포멧은 getPurchaseItems()와 동일합니다.
+GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultPurchase.SUCCESS:
+        // purchase success
+        break;
+        case NCommon.ResultPurchase.CANCELLED:
+        // purchase cancel
+        break;
+        case NCommon.ResultPurchase.FAILED:
+        // purchase fail
+        break;
+        default:
+        break;
+    }
+});
 ```
 
 ## 8. 기타 API
@@ -831,10 +1027,14 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 
 > 쿠폰을 입력받는 UI는 개발사에서 구현해주세요.
 
+- Case 1
+
 Request:
 
 ```csharp
 GamePot.coupon(string couponNumber); // 쿠폰번호
+
+GamePot.coupon(string couponNumber, string userData); // 쿠폰번호, 사용자정보
 ```
 
 Response:
@@ -851,6 +1051,30 @@ public void onCouponFailure(NError error) {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+GamePot.coupon(string couponNumber, GamePotCallbackDelegate.CB_Common); // 쿠폰번호
+
+GamePot.coupon(string couponNumber, string userData, GamePotCallbackDelegate.CB_Common);    // 쿠폰번호, 사용자정보
+```
+
+```csharp
+GamePot.coupon(couponNumber, (success, error) => {
+   if(success)
+   {
+       // 쿠폰 사용 성공
+   }
+   else
+   {
+        // 쿠폰 사용을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
+```
+
 #### 아이템 지급
 
 쿠폰 사용이 성공하면 개발사 서버에 Server to server api를 통해 아이템 지급을 요청합니다.
@@ -864,6 +1088,8 @@ public void onCouponFailure(NError error) {
 > on/off설정하는 UI는 개발사에서 구현해주세요.
 
 #### 푸시 설정
+
+- Case 1
 
 Request:
 
@@ -886,7 +1112,31 @@ public void onPushFailure(NError error) {
 }
 ```
 
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushStatus(bool pushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushStatus(pushEnable, (success, error) => {
+    if(success)
+    {
+        // 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+```
+
 #### 야간 푸시 설정
+
+- Case 1
 
 Request:
 
@@ -909,29 +1159,122 @@ public void onPushNightFailure(NError error) {
 }
 ```
 
-#### 푸시 / 야간푸시 한번에 설정
-
-로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
+- Case 2
 
 Request:
 
 ```csharp
-GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, true);
+void GamePot.setPushNightStatus(bool nightPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushNightStatus(nightPushEnable, (success, error) => {
+    if(success)
+    {
+        // 야간 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 야간 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+```
+
+#### 광고 푸시 설정
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.setPushADStatus(bool adPushEnable);
 ```
 
 Response:
 
 ```csharp
-/// 야간 푸시 상태 변경에 대한 서버 통신 성공
+/// 광고 푸시 상태 변경에 대한 서버 통신 성공
+public void onPushAdSuccess() {
+}
+
+/// 광고 푸시 상태 변경에 대한 서버 통신 실패
+public void onPushAdFailure(NError error) {
+
+    // 광고 푸시 상태 변경을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushADStatus(bool adPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushADStatus(adPushEnable, (success, error) => {
+    if(success)
+    {
+        // 광고 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 광고 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
+```
+
+#### 푸시 / 야간푸시 / 광고푸시 한번에 설정
+
+로그인 전에 푸시 / 야간푸시 허용 여부를 받는 게임이라면 로그인 후에 아래 코드로 필히 호출합니다.
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable);
+```
+
+Response:
+
+```csharp
+/// 푸시 상태 변경에 대한 서버 통신 성공
 public void onPushStatusSuccess() {
 }
 
-/// 야간 푸시 상태 변경에 대한 서버 통신 실패
+/// 푸시 상태 변경에 대한 서버 통신 실패
 public void onPushStatusFailure(NError error) {
 
-    // 야간 푸시 상태 변경을 실패하는 경우
+    // 푸시 상태 변경을 실패하는 경우
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushADStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushADStatus(pushEnable, nightPushEnable, adPushEnable, (success, error) => {
+    if(success)
+    {
+        // 푸시 상태 변경에 대한 서버 통신 성공
+    }
+   else
+   {
+        // 푸시 상태 변경을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+    }
+});
 ```
 
 #### 푸시 상태 조회
@@ -995,6 +1338,16 @@ public void onReceiveScheme(string scheme)
 GamePot.showCSWebView();
 ```
 
+외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
+
+#### 호출
+
+```csharp
+// url : 게임팟에서 발급받은 외부고객지원 URL
+
+GamePot.showWebView(string url);
+```
+
 ### 로컬 푸시\(Local Push notification\)
 
 푸시 서버를 통하지 않고 단말기에서 푸시를 노출하는 기능입니다.
@@ -1037,6 +1390,8 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 >
 > '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
 
+- Case 1
+
 Request:
 
 ```csharp
@@ -1065,6 +1420,34 @@ public void onAgreeDialogFailure(NError error)
 {
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
+```
+
+- Case 2
+
+Request:
+
+```csharp
+// 기본 호출(BLUE 테마로 적용)
+showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
+
+// GREEN 테마로 적용시
+NAgreeInfo info = new NAgreeInfo();
+info.theme = "green";
+GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
+```
+
+```csharp
+GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError error) => {
+   if(success)
+   {
+        // 약관에 동의한 경우
+   }
+   else
+   {
+        // 오류 발생
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
 ```
 
 #### Customizing
@@ -1141,6 +1524,18 @@ GamePot.showPrivacy();
 
 ![gamepot_unity_17](./images/gamepot_unity_17.png)
 
+### 환불규정
+
+환불규정 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 환불규정 설정 항목에 내용을 먼저 입력하세요.
+
+```csharp
+GamePot.showRefund();
+```
+
+![gamepot_unity_21](./images/gamepot_unity_21.png)
+
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
@@ -1159,6 +1554,33 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
+![gamepot_unity_22](./images/gamepot_unity_22.png)
+
+### 결제 취소 악용자 자동 해지 기능
+
+결제 취소 악용자 자동 해지 기능의 UI를 제공합니다. 각 영역별로 커스터마이징 할 수 있습니다.
+
+> 구글 결제에 한해 유저가 임의로 구글에 요청하여 결제를 취소 할 경우, '구글 결제 취소' 기능을 통해 해당 유저를 이용정지 시킬 수 있습니다.
+>
+> 이 때 해당 유저가 로그인 시, SDK 내에서 팝업을 노출하여 해당 결제 아이템을 재결재하도록 유도하고
+> 결제 시, 다시 정상적으로 접속이 가능하도록 하는 기능을 제공합니다.
+
+![gamepot_unity_23](./images/gamepot_unity_23.png)
+
+````csharp
+
+NVoidInfo info = new NVoidInfo();
+
+// 문구 변경
+info.headerTitle = "Header Title Section!";
+
+info.descHTML = "descHTML Section!";
+
+info.listHeaderTitle = "listHeaderTitle Section!";
+
+info.footerTitle = "footerTitle Section!";
+
+GamePot.setVoidBuilder(info);
 ![gamepot_unity_19](./images/gamepot_unity_19.png)
 
 ### 게임 로그 전송
@@ -1193,4 +1615,4 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
-```
+````

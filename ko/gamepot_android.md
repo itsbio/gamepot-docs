@@ -66,17 +66,17 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
    > \[xxxxx\]에는 실제 적용될 값을 넣습니다.
 
-   | 값                           | 설명                                                                                           |
-   | :--------------------------- | :--------------------------------------------------------------------------------------------- |
-   | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
-   | gamepot_api_url              | GAMEPOT에서 발급받은 API URL을 입력해 주세요.                                                  |
-   | gamepot_store                | 스토어 (`google`/`one`/`gallaxy`) 별로 나누어, 빌드 시 해당 스토어를 결제스토어로 지정합니다.     |
-   | gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
-   | gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
-   | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
-   | facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
-   | fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
-   | gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+   | 값                 | 설명                                                  |
+   | :----------------- | :---------------------------------------------------- |
+   | gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
+   | gamepot_store      | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)        |
+
+   | gamepot_payment | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\) |
+   | gamepot_app_title | 앱 제목 \(FCM\) |
+   | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
+   | facebook_app_id | 페이스북 발급 받은 앱ID |
+   | fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
+   | gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
    ```java
    android {
@@ -84,10 +84,8 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
            ...
            // GamePot [START]
            resValue "string", "gamepot_project_id", "[projectId]" // required
-           resValue "string", "gamepot_api_url", "[apiUrl]" // required
            resValue "string", "gamepot_store", "[storeId]" // required
            resValue "string", "gamepot_payment", "[storeId]" // optional
-           resValue "string", "gamepot_dash_url", "https://dashboard.gamepot.ntruss.com" // required
            resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
            resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
            resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
@@ -922,6 +920,16 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new G
 GamePot.getInstance().showCSWebView(/*현재 액티비티*/);
 ```
 
+외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
+
+#### 호출
+
+```java
+String url = "게임팟에서 발급받은 외부고객지원 URL";
+
+GamePot.getInstance().showWebView(/*현재 액티비티*/, url, true);
+```
+
 ### FAQ
 
 대시보드 - 고객지원 - FAQ와 연동되는 FAQ 목록입니다.
@@ -1148,12 +1156,24 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().showPrivacy(activity);
 ```
 
+### 환불규정
+
+환불규정 UI를 호출합니다.
+
+> 대시보드 - 고객지원 - 환불규정 설정 항목에 내용을 먼저 입력하세요.
+
+```java
+import io.gamepot.common.GamePot;
+
+// activity : 현재 액티비티
+GamePot.getInstance().showRefund(activity);
+```
 
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
-    
-> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요. 
+
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요.
 
 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -1163,7 +1183,7 @@ import io.gamepot.common.GamePot;
 //key : 매개변수 string
 String str_value = GamePot.getInstance().getConfig(key);
 
-//대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다. 
+//대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다.
 String json_value = GamePot.getInstance().getConfigs();
 ```
 
