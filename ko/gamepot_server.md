@@ -169,3 +169,71 @@ data:
 | -1   | Token 검증 실패 Token이 조작된 경우                                                                             |
 | -2   | MemberId 검증 실패 Token의 MemberId 정보와 body의 MemberId가 일치하지 않은 경우                                 |
 | -3   | Token 만료 SDK login api가 성공한 시각과 해당 Authentication check를 요청한 시각이 10분 이상 차이가 발생한 경우 |
+
+### ThirdParty Purchase
+
+> 이 기능은 일반적으로 사용되지 않는 기능이므로 적용 전 GAMEPOT에 문의해주세요.
+
+#### Request
+
+```text
+POST
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/thirdparty/purchase
+Header : 'content-type: application/json'
+Header : 'x-api-key: xxxxxxxxxxx'
+data:
+{
+	"projectId": "e948e5bc-dccd-4729-b9b0-b547ae34b85d",
+	"store": "tpay",
+	"productId": "purchase_001",
+	"transactionId": "t-123412812-sadl-2384-75847",
+	"memberId":"89a907ed-0e1d-42fb-ae4d-75e95581220d",
+	"currency": "KRW",
+	"price":1000,
+	"paymentId": "prepaid",
+	"uniqueId": ""
+}
+```
+
+| Header    | Type   | Required | Description                  |
+| :-------- | :----- | :------- | :--------------------------- |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
+
+<br/>
+
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | O        | GamePot SDK의 projectId |
+| store         | String | O        | 결제 스토어             |
+| productId     | String | O        | 결제 아이템 아이디      |
+| transactionId | String | O        | 결제 고유 아이디        |
+| memberId      | String | O        | GamePot SDK의 memberId  |
+| currency      | String | X        | 결제 통화               |
+| price         | Number | X        | 결제 금액               |
+| paymentId     | String | X        | 결제 수단               |
+| uniqueId      | String | X        | 게임내 결제 고유 아이디 |
+
+#### Response
+
+```javascript
+{
+    "status": 1,
+    "message" : ""
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 아래 Error code 참고\) |
+| message   | String | 오류 내용                                       |
+
+#### Error code
+
+| Code | Description                                                                                                              |
+| :--- | :----------------------------------------------------------------------------------------------------------------------- |
+| -1   | Body에 누락된 데이터가 있는 경우 <br/> projectId, transactionId, productId, store, memberId을 모두 넣었는지 확인하세요.  |
+| -2   | price 값이 number타입이 아닌 경우<br/> number타입으로 넣으세요.                                                          |
+| -3   | projectId가 없는 경우<br/> 입력한 projectId를 다시 확인하세요.                                                           |
+| -4   | 프로젝트가 해당 api를 지원하지 않는 경우<br/> GAMEPOT에 문의해주세요.                                                    |
+| -5   | transactionId가 이미 존재하는 경우                                                                                       |
+| -6   | DB오류. GAMEPOT에 문의해주세요.                                                                                          |

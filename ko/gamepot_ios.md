@@ -12,8 +12,8 @@ search:
 
 iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치해야 합니다. iOS에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같습니다.
 
-* 운영체제: iOS 10.0 이상
-* 개발 환경: Xcode
+- 운영체제: iOS 10.0 이상
+- 개발 환경: Xcode
 
 #### Step 2. Framework 추가
 
@@ -29,12 +29,12 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치�
 
 서비스별 Dependencies
 
-| Service | Framework | Dependencies | bundle |
-| :--- | :--- | :--- | :--- |
-| 기본\(Base\) | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework  | libz.tbd WebKit.framework UserNotifications.framework  | GamePot.bundle  | 
-| 로그인\(Login\) | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework  <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br>  \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br>  GamePotTwitter.framework<br> TwitterKit.framework \(Dynamic Library로 추가\)<br> TwitterCore.framework \(Dynamic Library로 추가\)  | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework  | \[ Google Sign In \] GoogleSignIn.bundle   |
-| GameCenter | GamePotGameCenter.framework |  |  |
-| AppleID | GamePotApple.framework |  |  |
+| Service         | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Dependencies                                                                                                                                                                                                                      | bundle                                   |
+| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| 기본\(Base\)    | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework                                                                                                                                                                                                                                                                                                                    | libz.tbd WebKit.framework UserNotifications.framework                                                                                                                                                                             | GamePot.bundle                           |
+| 로그인\(Login\) | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br> \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br> GamePotTwitter.framework<br> TwitterKit.framework \(Dynamic Library로 추가\)<br> TwitterCore.framework \(Dynamic Library로 추가\) | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework | \[ Google Sign In \] GoogleSignIn.bundle |
+| GameCenter      | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
+| AppleID         | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
 ![gamepot_ios_02](./images/gamepot_ios_02.png)
 
@@ -107,10 +107,10 @@ Facebook App ID를 **Info &gt; URL Types**에 fb+Facebook App ID 형태로 추�
 
 **Info &gt; iOS Target Property**의 **LSApplicationQueriesSchemes**에 아래 항목을 추가합니다.
 
-* fbapi
-* fb-messenger-share-api
-* fbauth2
-* fbshareextension
+- fbapi
+- fb-messenger-share-api
+- fbauth2
+- fbshareextension
 
 ![gamepot_ios_10](./images/gamepot_ios_10.png)
 
@@ -153,11 +153,11 @@ gamepot_naver_urlscheme : Naver Url Scheme
 
 **Info &gt; iOS Target Property**의 **LSApplicationQueriesSchemes**에 아래 항목을 추가합니다.
 
-* naversearchapp
-* naversearchthirdlogin
-* navercafe
+- naversearchapp
+- naversearchthirdlogin
+- navercafe
 
-**Info &gt; URL Types**에 gamepot\_naver\_urlscheme에 입력한 값을 추가 합니다.
+**Info &gt; URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가 합니다.
 
 #### Step13. AppleID 로그인 환경 설정
 
@@ -800,8 +800,8 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
-    
-> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요. 
+
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요.
 
 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -811,7 +811,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 //key : 매개변수 string
 NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
 
-//대시보드에 추가한 모든 매개변수를 json 형태로 가져옵니다. 
+//대시보드에 추가한 모든 매개변수를 json 형태로 가져옵니다.
 NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```
 
@@ -832,9 +832,9 @@ NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```java
 #import <GamePot/GamePotSendLog.h>
 #import <GamePot/GamePotSendLogCharacter.h>
-  
+
 GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
-    
+
 [info put:@"name" forKey:GAMEPOT_NAME];
 [info put:@"playerid" forKey:GAMEPOT_PLAYER_ID];
 [info put:@"serverid" forKey:GAMEPOT_SERVER_ID];
@@ -852,3 +852,88 @@ BOOL result = [GamePotSendLog characterInfo:info];
 
 GAMEPOT 대시보드의 **SDK 다운로드** 메뉴에서 SDK를 다운로드할 수 있습니다.
 
+# 부록
+
+### 3rd party SDK 연동 지원
+
+TODO : 설명
+
+## 로그인
+
+TODO : 설명
+
+> 자동 로그인을 지원하지 않음. 매번 호출 필요.
+
+| 파라미터명     | 필수 | 타입             | 설명                      |
+| :------------- | :--- | :--------------- | :------------------------ |
+| viewController | 필수 | UIViewController | 현재 ViewContoller        |
+| userid         | 필수 | NSString         | 유저 유니크 아이디        |
+| success        | 필수 | String           | 성공시 콜백               |
+| fail           | 필수 | String           | 실패시 콜백               |
+| update         | 선택 | String           | 업데이트 기능 동작시 콜백 |
+| maintenance    | 선택 | String           | 점검 기능 동작시 콜백     |
+
+```text
+NSString userid = @"memberid of 3rd party sdk";
+
+[[GamePotChannel getInstance] loginByThirdPartySDK:self uId:userid success:^(GamePotUserInfo* userInfo) {
+    // 로그인 완료. 게임 로직에 맞게 처리해주세요.
+} cancel:^{
+    // 사용자가 로그인을 취소한 상황.
+} fail:^(NSError *error) {
+    // 로그인 실패. [error localizedDescription]를 이용해서 오류 메시지를 보여주세요.
+} update:^(GamePotAppStatus *appStatus) {
+    // TODO: 강제 업데이트가 필요한 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
+    // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+        // TODO: 종료 프로세스를 처리해주세요.
+    } setNextHandler:^(NSObject* resultPayload) {
+        // TODO : Dashboard 업데이트 설정에서 권장 설정 시 "다음에 하기" 버튼이 노출 됩니다.
+        // 해당 버튼을 사용자가 선택 시 호출 됩니다.
+        // TODO : resultPayload 정보를 이용하여 로그인 완료 시와 동일하게 처리해주세요.
+        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+
+    }];
+} maintenance:^(GamePotAppStatus *appStatus) {
+    // TODO: 점검 중인 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
+    // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+        // TODO: 종료 프로세스를 처리해주세요.
+    }];
+}];
+```
+
+## 결제
+
+TODO : 설명
+
+> 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
+
+| 파라미터명    | 필수 | 타입                 | 설명                                   |
+| :------------ | :--- | :------------------- | :------------------------------------- |
+| productid     | 필수 | NSString             | 게임팟 대시보드에 등록된 아이템 아이디 |
+| transactionid | 필수 | NSString             | 결제 영수증 번호(xxxxxxxxxxx)          |
+| currency      | 선택 | NSString             | 통화(KRW, USD)                         |
+| price         | 선택 | NSDecimalNumber      | 결제 아이템 금액                       |
+| paymentid     | 선택 | NSString             | 결제 스토어(apple)                     |
+| success       | 선택 | GamePotCommonSuccess | 성공시 콜백                            |
+| fail          | 선택 | GamePotCommonFail    | 실패시 콜백                            |
+
+```text
+NSString* productId = @"purchase_001";
+NSString* transactionId = @"xxxxxxxxxxx";
+NSString* currency = @"USD";
+NSDecimalNumber* price = [[NSDecimalNumber alloc] initWithString:@"1.09"];
+NSString* paymentId = "apple";
+NSString* uniqueId = "developer unique id";
+
+[[GamePot getInstance] sendPurchaseByThirdPartySDK:productId transactionId:transactionId currency:currency price:price paymentId:paymentId uniqueId:uniqueId success:^{
+    // success
+} fail:^(NSError *error) {
+    // fail
+}];
+```
