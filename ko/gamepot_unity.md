@@ -1567,7 +1567,7 @@ var json_value = GamePot.getConfigs();
 
 ![gamepot_unity_23](./images/gamepot_unity_23.png)
 
-````csharp
+```csharp
 
 NVoidInfo info = new NVoidInfo();
 
@@ -1581,6 +1581,9 @@ info.listHeaderTitle = "listHeaderTitle Section!";
 info.footerTitle = "footerTitle Section!";
 
 GamePot.setVoidBuilder(info);
+
+```
+
 ![gamepot_unity_19](./images/gamepot_unity_19.png)
 
 ### 게임 로그 전송
@@ -1615,4 +1618,4 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
-````
+```
