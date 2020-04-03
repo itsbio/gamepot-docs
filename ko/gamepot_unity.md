@@ -388,7 +388,8 @@ public enum LoginType
     TWITTER,
     LINE,
     APPLE,
-    GUEST
+    GUEST,
+    THIRDPARTYSDK
 }
 ```
 
@@ -1619,8 +1620,6 @@ Boolean result = GamePot.characterInfo(characterLog);
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
 ```
-
-![gamepot_unity_20](./images/gamepot_unity_20.png)
 
 # 부록
 
