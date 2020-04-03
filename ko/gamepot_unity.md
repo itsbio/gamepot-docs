@@ -1625,11 +1625,7 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 ### 3rd party SDK 연동 지원
 
-TODO : 설명
-
 ## 로그인
-
-TODO : 설명
 
 > 자동 로그인을 지원하지 않음. 매번 호출 필요.
 
@@ -1644,8 +1640,6 @@ GamePot.loginByThirdPartySDK("userid");
 ```
 
 ## 결제
-
-TODO : 설명
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
