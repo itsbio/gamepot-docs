@@ -503,3 +503,18 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 	IOS에서 화폐 단위를 표기하기 위해서는  price_currency_code 값을 참조하시면 됩니다.
 	ex) price_currency_code : KRW
+
+
+#### 11. 대시보드 관리자 계정이 비밀번호 5회 실패로 로그인이 안되요. ( V2 대시보드 사용자 대상) 
+
+1. https://console.ncloud.com/gamepot 사이트에 admin 계정으로 접속을 합니다.
+
+2. 비밀번호를 초기화 하고자 하는 대시보드를 선택한 후 프로젝트 관리 항목을 클릭시 비밀번호 초기화 메뉴가 보여지게 됩니다.
+
+3. 비밀번호 초기화 메뉴를 선택시 관리자 계정을 입력하는 팝업이 발생하며 내용을 입력시 관련 메일로 초기화 할 수 있는 메일이 전달됩니다.
+
+![gamepot_faq_43](./images/gamepot_faq_44.png)
+
+![gamepot_faq_43](./images/gamepot_faq_45.png)
+
+![gamepot_faq_43](./images/gamepot_faq_46.png)
