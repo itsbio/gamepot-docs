@@ -190,9 +190,9 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 5. 콘솔 -&gt; 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
 
-![gamepot_faq_18](./image/gamepot_faq_18.png)
+![gamepot_faq_18](./images/gamepot_faq_18.png)
 
-![gamepot_faq_19](./image/gamepot_faq_19.png)
+![gamepot_faq_19](./images/gamepot_faq_19.png)
 
 6. 단말기 -&gt; 설정 -&gt; 계정 메뉴에 테스트 참여한 계정만 남기고 모두 삭제 했는지 확인
 
