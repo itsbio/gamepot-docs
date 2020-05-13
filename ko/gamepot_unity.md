@@ -830,7 +830,8 @@ public class NPurchaseInfo
     public string currency { get; set; }            // 결제 가격 통화(KRW/USD)
     public string orderId { get; set; }             // 스토어 Order ID
     public string productName { get; set; }         // 결제 아이템 이름
-    public string uniqueId { get; set; }            // purchase api호출 시 두번째 파라미터 값
+    public string gamepotOrderId { get; set; }      // GAMEPOT에서 생성한 order id
+    public string uniqueId { get; set; }            // 개발사 unique ID
     public string signature { get; set; }           // 결제 Signature
     public string originalJSONData { get; set; }    // 영수증 Data
 }
@@ -1643,14 +1644,15 @@ GamePot.loginByThirdPartySDK("userid");
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
-| 파라미터명    | 필수 | 타입   | 설명                                    |
+| 파라미터명       | 필수  | 타입    | 설명                                     |
 | :------------ | :--- | :----- | :-------------------------------------- |
-| productid     | 필수 | String | 게임팟 대시보드에 등록된 아이템 아이디  |
-| transactionid | 필수 | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)     |
-| currency      | 선택 | String | 통화(KRW, USD)                          |
-| price         | 선택 | double | 결제 아이템 금액                        |
-| paymentid     | 선택 | String | 결제 스토어(google, apple, one, galaxy) |
-| uniqueid      | 선택 | String | 개발사에서 사용하는 고유 아이디         |
+| productid     | 필수  | String | 게임팟 대시보드에 등록된 아이템 아이디            |
+| transactionid | 필수  | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)         |
+| store         | 필수  | String | (결제 스토어 - google, apple, one, galaxy) |
+| currency      | 선택  | String | 통화(KRW, USD)                           |
+| price         | 선택  | double | 결제 아이템 금액                            |
+| paymentid     | 선택  | String | 결제 payment (일반적으로 store_id와 동일)    |
+| uniqueid      | 선택  | String | 개발사에서 사용하는 고유 아이디                 |
 
 ```csharp
 String productId = "purchase_001";
@@ -1660,5 +1662,5 @@ double price = 1200;
 String paymentId = "google";
 String uniqueId = "developer unique id";
 
-GamePot.sendPurchaseByThirdPartySDK(productId, transactionId, currency, price, paymentId, uniqueId);
+sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
 ```
