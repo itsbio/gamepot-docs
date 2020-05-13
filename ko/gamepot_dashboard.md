@@ -276,6 +276,20 @@ NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 
 공지사항 기능을 사용하기 위해서는 먼저 NAVER CLOUD PLATFORM의 API 인증키와 Object Storage 서비스가 필요합니다. 공지사항 기능 사용 시, Object Storage 비용은 별도로 발생합니다.
 
+#### Step 0. 서브계정을 생성해, Object Storage 서비스 사용권한 부여
+
+①  API 인증키를 발급받기 전 서브계정을 생성해 Object Storage 사용권한을 부여한 다음, 해당 계정을 통해 API 인증키를 발급받기를 권장합니다.
+
+②  [Sub Account 사용 가이드](https://docs.ncloud.com/ko/management/management-4-1.html)를 참고하여 서브계정을 생성합니다. (서브 계정 생성 시, **API Gateway Access**를 체크해주세요.)
+
+![gamepot_dashboard_20_01](./images/gamepot_dashboard_20_01.png)
+
+③ 생성한 서브계정에  Object Storage 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_OBJECT_STORAGE_MANAGER** 권한을 부여합니다. (혹은 오브젝트 스토리지 권한을 포함한 권한)
+
+![gamepot_dashboard_20_02](./images/gamepot_dashboard_20_02.png)
+
+③ 생성한 서브계정으로 접속한 다음, API 인증키를 발급받습니다.
+
 #### Step 1. API 인증키 준비
 
 공지사항 메뉴는 API를 통해 Object Storage를 연동하여 사용합니다. 따라서 NAVER CLOUD PLATFORM의 API 인증키를 사전에 준비해야 합니다.
@@ -368,13 +382,19 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 
 별도의 메시지 서버 구축 없이 SMS, PUSH 등을 통해 메시지 알림 기능을 구현할 수 있는 서비스입니다. 해당 기능을 사용하기 위해서는 NAVER Cloud Plaform의 Simple & Easy Notification Service\(SENS\)를 신청해야만 합니다.
 
+① 서브계정을 생성하여, SENS 서비스를 신청하기를 권장합니다. 본문의 **공지사항 -> Step 0** 를  참고하여, 서브계정을 생성합니다. (**Step 0** 와 마찬가지로, API 인증키 또한 서브계정에서 발급 받아주세요.)
+
+② 생성한 서브계정에 SENS 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_SENS_MANAGER** (를 포함하는) 권한을 부여합니다.
+
+![gamepot_dashboard_27_01](./images/gamepot_dashboard_27_01.png)
+
+③ SENS와 연동하기 위해서는 서비스 키를 발급해야 합니다.  **서비스 키 발급** 버튼을 클릭하고, 생성한 서브계정으로 접속한 다음 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-2.html)를 참고하여 서비스 키를 발급 받습니다.
+
 ![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
 
-① SENS와 연동하기 위해서는 우선 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고 [SENS 공통 가이드](https://github.com/itsbio/gamepot-docs/tree/72bacea0f90bb37ca31d04ae58ef49667918b3e0/sens/sens-1-2.md)를 참고하여 서비스 키를 발급 받습니다.
+④ **인증서 등록 가이드** 버튼을 클릭하여 **SENS 웹 콘솔 사용 가이드**에 따라 인증서를 등록합니다.
 
-② **인증서 등록 가이드** 버튼을 클릭하여 **SENS 웹 콘솔 사용 가이드**에 따라 인증서를 등록합니다.
-
-③ **설정** 버튼을 클릭하여 아래의 화면으로 이동하여 PUSH 서비스 ID 값을 입력합니다.
+⑤ **설정** 버튼을 클릭하여 아래의 화면으로 이동하여 PUSH 서비스 ID 값을 입력합니다.
 
 ![gamepot_dashboard_28](./images/gamepot_dashboard_28.png)
 
