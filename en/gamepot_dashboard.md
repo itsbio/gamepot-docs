@@ -714,7 +714,7 @@ Click the **Add** button. When the following pop-up window is exposed, enter the
 
 ### Log
 
-This feature works with NAVER CLOUD PLATFORM’s Effective Log Search & Analytics to allow you to collect game logs or crash logs. Refer to [How to Use Effective Log Search & Analytics](../elsa/elsa-1-1.md) for details.
+This feature works with NAVER CLOUD PLATFORM’s Effective Log Search & Analytics to allow you to collect game logs or crash logs. Refer to [How to Use Effective Log Search & Analytics](https://docs.ncloud.com/en/elsa/elsa-1-1.html) for details.
 
 
 

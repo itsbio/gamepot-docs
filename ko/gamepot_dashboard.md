@@ -925,7 +925,7 @@ CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
 ### 로그
 
-로그는 NAVER CLOUD PLATFORM의 ELSA를 연동하여 게임 내 로그나 크래시 로그 등을 수집하실 수 있는 기능입니다. ELSA의 사용법은 [ELSA 이용 가이드](https://github.com/itsbio/gamepot-docs/tree/72bacea0f90bb37ca31d04ae58ef49667918b3e0/elsa/elsa-1-1.md)를 참고하세요.
+로그는 NAVER CLOUD PLATFORM의 ELSA를 연동하여 게임 내 로그나 크래시 로그 등을 수집하실 수 있는 기능입니다. ELSA의 사용법은 [ELSA 이용 가이드](https://docs.ncloud.com/ko/elsa/elsa-1-1.html)를 참고하세요.
 
 ### 사용자 가이드
 

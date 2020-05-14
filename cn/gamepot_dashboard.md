@@ -567,5 +567,5 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ### 로그
 
-로그는 NAVER CLOUD PLATFORM의 ELSA를 연동하여 게임 내 로그나 크래시 로그 등을 수집하실 수 있는 기능입니다. ELSA의 사용법은 [ELSA 이용 가이드](https://github.com/itsbio/gamepot-docs/tree/01adc6133c1a2fc551dcae9d4258f0bbb23a35c0/elsa/elsa-1-1.md)를 참고하세요.
+로그는 NAVER CLOUD PLATFORM의 ELSA를 연동하여 게임 내 로그나 크래시 로그 등을 수집하실 수 있는 기능입니다. ELSA의 사용법은 [ELSA 이용 가이드](https://docs.ncloud.com/en/elsa/elsa-1-1.html)를 참고하세요.
 

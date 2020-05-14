@@ -780,7 +780,7 @@ CDN を利用しようとする場合は以下の CDN アドレスを入力し�
 
 ### ログ
 
-ログは NAVER CLOUD PLATFORM의 ELSA を連動してゲーム内のログやクラッシュログなどを収集できる機能です。ELSA の使用法は [ELSA 利用ガイド](../elsa/elsa-1-1.md)をご参照ください。
+ログは NAVER CLOUD PLATFORM의 ELSA を連動してゲーム内のログやクラッシュログなどを収集できる機能です。ELSA の使用法は [ELSA 利用ガイド](https://docs.ncloud.com/ja/elsa/elsa-1-1.html)をご参照ください。
 
 ### ユーザーガイド
 
