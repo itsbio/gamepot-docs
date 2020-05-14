@@ -325,7 +325,7 @@ API 認証キーが接続されたら Object Storage のバケットが自動で
 
 ![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
 
-① SENS と連動するためにはまずサービスキーを発行します。 **サービスキーの発行** ボタンをクリックして [SENS 共通ガイド](../sens/sens-1-2.md)を参考にしてサービスキーを発行します。
+① SENS と連動するためにはまずサービスキーを発行します。 **サービスキーの発行** ボタンをクリックして [SENS 共通ガイド](https://docs.ncloud.com/ja/sens/sens-1-1.html)を参考にしてサービスキーを発行します。
 
 ② **証明書登録ガイド** ボタンをクリックして **SENS ウェブコンソール使用ガイド**に沿って証明書を登録します。
 
@@ -359,7 +359,7 @@ SMS/LMS の発送、履歴及び結果の照会などの機能を使用できま
 
 ![gamepot_dashboard_31](./images/gamepot_dashboard_31.png)
 
-① SENS と連動するためにはまずサービスキーの発行と発信番号の登録が必要です。**サービスキーの発行**ボタンをクリックして [SENS 共通ガイド](../sens/sens-1-2.md)と [SENS SMS 使用ガイド](../sens/sens-1-3.md)を参考にしてサービスキーの発行と発信番号を登録します。
+① SENS と連動するためにはまずサービスキーの発行と発信番号の登録が必要です。**サービスキーの発行**ボタンをクリックして [SENS 共通ガイド](https://docs.ncloud.com/ja/sens/sens-1-1.html)と [SENS SMS 使用ガイド](https://docs.ncloud.com/ja/sens/sens-1-3.html)を参考にしてサービスキーの発行と発信番号を登録します。
 
 ② **設定** ボタンをクリックしてサービス ID と Secret Key を入力してください。
 

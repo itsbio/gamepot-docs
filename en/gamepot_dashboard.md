@@ -325,7 +325,7 @@ This service helps you implement notification features by using SMS and Push, wi
 
 ![gamepot-1-211](./images/gamepot-1-211.png)
 
-① For using Simple & Easy Notification Service, you need to get a service key. Click **Get service key** and get a service key by referring to [Simple & Easy Notification Service Common Guide](../sens/sens-1-2.md).
+① For using Simple & Easy Notification Service, you need to get a service key. Click **Get service key** and get a service key by referring to [Simple & Easy Notification Service Common Guide](https://docs.ncloud.com/en/sens/sens-1-1.html).
 
 ② Click **Certificate registration** and add a certificate by referring to **Simple & Easy Notification Service Web Console Guide**.
 
@@ -359,7 +359,7 @@ Helps you send SMS/LMS messages and view history and results. To send SMS/LMS me
 
 ![gamepot-1-215](./images/gamepot-1-215.png)
 
-① For using Simple & Easy Notification Service, you should get a service key and register a caller ID. Click **Get service key**, and get a service key and register a caller ID by referring to [Simple & Easy Notification Service Common Guide](../sens/sens-1-2.md) and [How to Use Simple & Easy Notification Service SMS](../sens/sens-1-3.md).
+① For using Simple & Easy Notification Service, you should get a service key and register a caller ID. Click **Get service key**, and get a service key and register a caller ID by referring to [Simple & Easy Notification Service Common Guide](https://docs.ncloud.com/en/sens/sens-1-1.html) and [How to Use Simple & Easy Notification Service SMS](https://docs.ncloud.com/en/sens/sens-1-3.html).
 
 ② Click **Settings**, and enter the service ID and secret key.
 

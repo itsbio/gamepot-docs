@@ -56,7 +56,7 @@ implementation 'com.google.android.gms:play-services-analytics:16.0.4'
 
 > 준비중입니다.
 
-### Unity  \([Link](https://developers.singular.net/docs/android-sdk)\)
+### Unity  \([Link](https://help.adbrix.io/hc/ko/articles/360007861793-%EC%95%A0%EB%93%9C%EB%B8%8C%EB%A6%AD%EC%8A%A4-Android-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0-Unity-#toc2)\)
 
 ⒈ Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
 

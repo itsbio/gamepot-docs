@@ -370,7 +370,7 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 
 ![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
 
-① SENS와 연동하기 위해서는 우선 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고 [SENS 공통 가이드](https://github.com/itsbio/gamepot-docs/tree/72bacea0f90bb37ca31d04ae58ef49667918b3e0/sens/sens-1-2.md)를 참고하여 서비스 키를 발급 받습니다.
+① SENS와 연동하기 위해서는 우선 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-1.html)를 참고하여 서비스 키를 발급 받습니다.
 
 ② **인증서 등록 가이드** 버튼을 클릭하여 **SENS 웹 콘솔 사용 가이드**에 따라 인증서를 등록합니다.
 
@@ -404,7 +404,7 @@ SMS/LMS 발송, 이력 및 결과 조회 등의 기능을 사용할 수 있습�
 
 ![gamepot_dashboard_31](./images/gamepot_dashboard_31.png)
 
-① SENS와 연동하기 위해서는 우선 서비스 키를 발급과 발신번호 등록을 해야 합니다. **서비스 키 발급** 버튼을 클릭하여 [SENS 공통 가이드](https://github.com/itsbio/gamepot-docs/tree/72bacea0f90bb37ca31d04ae58ef49667918b3e0/sens/sens-1-2.md)와 [SENS SMS 사용 가이드](https://github.com/itsbio/gamepot-docs/tree/72bacea0f90bb37ca31d04ae58ef49667918b3e0/sens/sens-1-3.md)를 참고하여 서비스 키 발급과 발신 번호를 등록합니다.
+① SENS와 연동하기 위해서는 우선 서비스 키를 발급과 발신번호 등록을 해야 합니다. **서비스 키 발급** 버튼을 클릭하여 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-1.html)와 [SENS SMS 사용 가이드](https://docs.ncloud.com/ko/sens/sens-1-3.html)를 참고하여 서비스 키 발급과 발신 번호를 등록합니다.
 
 ② **설정** 버튼을 클릭하여 서비스 ID와 Secret Key를 입력하여 주세요.
 
