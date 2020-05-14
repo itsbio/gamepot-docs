@@ -108,7 +108,7 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
     # Q. 네이버 카페 SDK 연동 시, 웹뷰를 통한 네아로(네이버 아이디로 로그인)을 할 수 없습니다. (iOS)
     # A. 네아로 SDK와 카페 SDK의 로그인 모듈이 공존하여 발생하는 이슈입니다.
 
-1. 해당 링크의 패치를 다운받아 주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/Patch_GamePotNaverLogin_20191220.zip)\)
+1. 해당 링크의 패치를 다운받아 주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip)\)
 
 2. 기존에 프로젝트 내 존재하는 2개의 framework를 삭제해주세요.
 
@@ -117,7 +117,14 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
 3. 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요.
 
-   ( 유니티 플러그인 버전이 plug_sdk_4_4_6 이전 버전 기준 ) 
+   IOS UIWebview 이슈 떄문에 네이버 카페 SDK는 4.4.7 이후 버전을 사용 부탁드립니다.
+
+4. (UNITY ONLY)네이버 카페 초기화 시, url scheme 명시적으로 삽입
+
+    ../Assets/NCSDK/Plugins/iOS/NCSDKUnityManager.mm
+
+    ![gamepot_faq_47](./images/gamepot_faq_47.png)
+
 
 ### 5. Line 로그인
 
@@ -345,8 +352,10 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 첫 날 계정을 생성한 후, 그 다음 날 접속한 유저를 New User로 간주하여 Counting 합니다. (광고 등의 경로를 통해 유입된 허수를 제하기 위해서입니다.)
 
     example)
-     2020-01-07 기준으로 살펴봤을 때, 해당 날짜에 생성된 5명의 New User 중에서
-      Day 2(다음 날)에 1명 접속 / Day 3에 0명 접속 / Day 4에 1명 접속을 한 상태를 보여줍니다.
+     아래의 이미지 장표에서 2020-01-07 기준으로 살펴봤을 때,
+     2020-01-07에 신규 유저 중 2020-01-08일에 접속한 인원이 5명이며 
+     해당 날짜(2020-01-07)에 New User을 5명으로 판단합니다. (Day1 값과 같습니다.)
+     해당 인원 기준으로 Day 2(다음 날 2020-01-09)에 1명 접속 / Day 3에 0명 접속 / Day 4에 1명 접속을 한 상태를 보여줍니다.
      5명의 유저 중, n Day에 카운트 되는 방식이기때문에 중간에 0%로 빠지는 구간이 생깁니다.
 
 ![gamepot_faq_35](./images/gamepot_faq_35.png)
