@@ -36,7 +36,7 @@ ref.) 해당 부분이 패치된 라이브러리의 교체로 대신할 수 있�
  | 3. nelo2-android-sdk-https-0.10.2.jar |
  |||
 
-## Line i386 x86_64 IOS 빌드 이슈
+## Line i386 x86_64 IOS Archive 업로드 이슈
 
 ⒈ 콘솔(터미널)에서 LineSDK.framework 파일 위치로 이동 후, 아래 명령어를 하나씩 입력 해주세요.
 
@@ -72,6 +72,16 @@ lipo -remove i386 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/Tw
 lipo -remove x86_64 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 ```
+
+
+## 네아로 NaverThirdPartyLogin.framework i386 x86_64 이슈
+```text
+(허용되지 않은 아키텍쳐를 제거하는 코드 입니다.) 
+
+lipo -remove x86_64 ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin -o ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin
+lipo -remove i386 ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin -o ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin
+```
+
 
 ## Unity 2018.4.4이상, Unity 2019.2.0이상에서 Android 빌드 이슈
 

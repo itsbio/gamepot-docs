@@ -123,7 +123,7 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
     ../Assets/NCSDK/Plugins/iOS/NCSDKUnityManager.mm
 
-    ![gamepot_faq_47](./images/gamepot_faq_47.png)
+![gamepot_faq_47](./images/gamepot_faq_47.png)
 
 
 ### 5. Line 로그인
@@ -380,7 +380,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
     로그인 검증 Request URL이 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth'로 설정되어 있으면, https://cloud-api.gamepot.io/loginauth 으로 변경하여 확인 부탁드립니다.
 
     리얼존 : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
-    베타존 : https://cloud-api.gamepot.io/loginauth
+    베타존 : https://cloud-api.gamepot.io/loginauth ( 서비스 종료 예정 )
 
 #### 3. 빌드 실행 시, '비정상적으로 앱이 실행되었습니다. 스토어에서 다운로드 받으세요' 메시지 팝업이 발생
 
@@ -522,8 +522,8 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 3. 비밀번호 초기화 메뉴를 선택시 관리자 계정을 입력하는 팝업이 발생하며 내용을 입력시 관련 메일로 초기화 할 수 있는 메일이 전달됩니다.
 
-![gamepot_faq_43](./images/gamepot_faq_44.png)
+![gamepot_faq_44](./images/gamepot_faq_44.png)
 
-![gamepot_faq_43](./images/gamepot_faq_45.png)
+![gamepot_faq_45](./images/gamepot_faq_45.png)
 
-![gamepot_faq_43](./images/gamepot_faq_46.png)
+![gamepot_faq_46](./images/gamepot_faq_46.png)
