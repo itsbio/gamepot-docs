@@ -1326,6 +1326,8 @@ public void onReceiveScheme(string scheme)
 
 고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
 
+고객문의 UI는 디바이스 언어에 맞게 변경됩니다. 한국어, 영어, 일어, 중국어(간체, 번체)를 지원하며 그 외 언어는 영어로 보여집니다.
+
 - 문의 등록 화면
 
   ![gamepot_unity_11](./images/gamepot_unity_11.png)
