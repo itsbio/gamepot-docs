@@ -25,17 +25,17 @@ https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
-| Attribute      | Type   | Description                                                |
-| :------------- | :----- | :--------------------------------------------------------- |
-| userId         | String | 사용자 UID                                                 |
-| transactionId  | String | 주문번호\(GPA-xxxx-xxxx-\)                                 |
-| store          | String | 스토어 정보\(apple, google, one\)                          |
-| projectId      | String | 프로젝트ID                                                 |
-| productId      | String | 구글/애플/원스토어에 등록된 상품ID                         |
-| platform       | String | 운영 Platform 정보 \(android, ios\)                        |
-| payment        | String | 결제 방식 \( apple, google, one, danal, mycard, mol ... \) |
-| uniqueId       | String | Unique id \(purchase api 호출 시 넣은 unique id\)          |
-| gamepotOrderId | String | GAMEPOT Order id                                           |
+| Attribute      | Type   | Max Length | Description                                                |
+| :------------- | :----- | :--------- | :--------------------------------------------------------- |
+| userId         | String | 128        | 사용자 UID                                                 |
+| transactionId  | String | 512        | 주문번호\(GPA-xxxx-xxxx-\)                                 |
+| store          | String | 64         | 스토어 정보\(apple, google, one\)                          |
+| projectId      | String | 128        | 프로젝트ID                                                 |
+| productId      | String | 256        | 구글/애플/원스토어에 등록된 상품ID                         |
+| platform       | String | 128        | 운영 Platform 정보 \(android, ios\)                        |
+| payment        | String | 64         | 결제 방식 \( apple, google, one, danal, mycard, mol ... \) |
+| uniqueId       | String | 512        | Unique id \(purchase api 호출 시 넣은 unique id\)          |
+| gamepotOrderId | String | 512        | GAMEPOT Order id                                           |
 
 #### Response
 
@@ -68,14 +68,14 @@ https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| Attribute | Type   | Description                                                                                        |
-| :-------- | :----- | :------------------------------------------------------------------------------------------------- |
-| userId    | String | 사용자 ID                                                                                          |
-| projectId | String | Project ID                                                                                         |
-| platform  | String | 운영 Platform 정보 \(Android, IOS\)                                                                |
-| store     | String | 스토어 정보\(apple, google, one\)                                                                  |
-| userData  | String | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
-| itemId    | Array  | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| Attribute | Type   | Max Length | Description                                                                                        |
+| :-------- | :----- | :--------- | :------------------------------------------------------------------------------------------------- |
+| userId    | String | 128        | 사용자 ID                                                                                          |
+| projectId | String | 128        | Project ID                                                                                         |
+| platform  | String | 128        | 운영 Platform 정보 \(Android, IOS\)                                                                |
+| store     | String | 64         | 스토어 정보\(apple, google, one\)                                                                  |
+| userData  | String |            | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
+| itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
 > ex\)
 >
@@ -137,11 +137,11 @@ data:
 }
 ```
 
-| Attribute | Type   | Description             |
-| :-------- | :----- | :---------------------- |
-| projectId | String | GamePot SDK의 projectId |
-| memberId  | String | GamePot SDK의 memberId  |
-| token     | String | GamePot SDK의 Token     |
+| Attribute | Type   | Max Length | Description             |
+| :-------- | :----- | :--------- | :---------------------- |
+| projectId | String | 128        | GamePot SDK의 projectId |
+| memberId  | String | 128        | GamePot SDK의 memberId  |
+| token     | String | 2048       | GamePot SDK의 Token     |
 
 #### Response
 
@@ -195,23 +195,23 @@ data:
 }
 ```
 
-| Header    | Type   | Required | Description                  |
-| :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
+| Header    | Type   | Max Length | Required | Description                  |
+| :-------- | :----- | :--------- | :------- | ---------------------------- |
+| x-api-key | String |            | O        | GamePot에서 발급하는 인증 키 |
 
 <br/>
 
-| Attribute     | Type   | Required | Description             |
-| :------------ | :----- | :------- | :---------------------- |
-| projectId     | String | O        | GamePot SDK의 projectId |
-| store         | String | O        | 결제 스토어             |
-| productId     | String | O        | 결제 아이템 아이디      |
-| transactionId | String | O        | 결제 고유 아이디        |
-| memberId      | String | O        | GamePot SDK의 memberId  |
-| currency      | String | X        | 결제 통화               |
-| price         | Number | X        | 결제 금액               |
-| paymentId     | String | X        | 결제 수단               |
-| uniqueId      | String | X        | 게임내 결제 고유 아이디 |
+| Attribute     | Type   | Max Length | Required | Description             |
+| :------------ | :----- | :--------- | :------- | :---------------------- |
+| projectId     | String | 128        | O        | GamePot SDK의 projectId |
+| store         | String | 64         | O        | 결제 스토어             |
+| productId     | String | 256        | O        | 결제 아이템 아이디      |
+| transactionId | String | 512        | O        | 결제 고유 아이디        |
+| memberId      | String | 128        | O        | GamePot SDK의 memberId  |
+| currency      | String |            | X        | 결제 통화               |
+| price         | Number | -          | X        | 결제 금액               |
+| paymentId     | String |            | X        | 결제 수단               |
+| uniqueId      | String | 512        | X        | 게임내 결제 고유 아이디 |
 
 #### Response
 
