@@ -30,6 +30,7 @@ search:
 웹페이지 로딩이 완료될 때 실행할 수 있도록 `window.onload = function() {...}` 또는 jQuery를 사용하는 경우 `$(ducement).ready(function() {...})` 블록 내에서 초기화합니다.
 
 ```html
+
 <html>
 <head></head>
 <body>
@@ -106,6 +107,7 @@ search:
 #### 이메일 로그인
 
 ```javascript
+
 // <input>태그 등에서 사용자로 부터 입력
 var email_id = $("#input-email-id").val();
 var email_password = $("#input-email-password").val();
@@ -154,6 +156,62 @@ GamePotChannel.login(GamePotChannelType.EMAIL, email_id, email_password, new Gam
 }));
 ```
 
+
+#### 이메일 가입
+
+```javascript
+
+// <input>태그 등에서 사용자로 부터 입력
+var new_email_id = $("#input-email-new-id").val();
+var new_email_password = $("#input-email-new-password").val();
+
+$("#email-result-status2").html("");
+
+GamePotChannel.emailRegister(new_email_id, new_email_password, new GamePotAppStatusChannelListener({
+
+    onSuccess: function (gamepotUserInfo) {
+      console.log("이메일 가입 성공", gamepotUserInfo);
+    },
+    onCancel: function () {
+      console.log("이메일 가입 취소");
+    },
+    onFailure: function (gamePotError) {
+      console.log("이메일 가입 실패: " + gamePotError.toString());
+    
+      var msg = "";
+      switch (gamePotError.getCode()) {
+        case GamePotError.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
+          msg = "이메일 형식이 올바르지 않습니다.";
+          break;
+        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
+          msg = "비밀번호를 입력해주세요.";
+          break;
+        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
+          msg = "비밀번호는 최소 8자, 최대 32자 까지 입력할 수 있습니다.";
+          break;
+        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD:
+          msg = "비밀번호가 일치하지 않습니다.";
+          break;
+        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
+          msg = "비밀번호 오류 횟수 초과로 로그인할 수 없습니다.";
+          break;
+        case GamePotError.EMAIL_AUTH_NOT_FOUND:
+          msg = "연결 계정이 존재하지 않습니다.";
+          break;
+        case GamePotError.EMAIL_AUTH_ALREADY_IN_USE:
+          msg = "이미 사용 중인 계정입니다.";
+          break;
+        default:
+          msg = "알 수 없는 오류가 발생했습니다.";
+          break;
+      }
+      $("#email-result-status2").html(msg);
+    }
+}));
+```
+
+
+
 #### 회원 고유 아이디
 
 ```javascript
@@ -165,6 +223,7 @@ GamePot.getMemberId();
 사용자가 마지막에 로그인 했던 정보를 전달하는 API를 이용하여 자동 로그인을 구현할 수 있습니다.
 
 ```javascript
+
 // 사용자가 마지막에 로그인했던 정보를 전달하는 API
 var lastLoginType = GamePotChannel.getLastLoginType();
 if(lastLoginType !== GamePotChannelType.NONE) {
@@ -203,6 +262,7 @@ else
 현재 회원 계정을 로그아웃합니다.
 
 ```javascript
+
 GamePotChannel.logout(new GamePotCommonListener({
     onSuccess() {
          console.log("로그아웃 완료.");
@@ -218,6 +278,7 @@ GamePotChannel.logout(new GamePotCommonListener({
 현재 회원 계정을 탈퇴시킵니다.
 
 ```javascript
+
 GamePotChannel.deleteMember(new GamePotCommonListener({
     onSuccess: function() {
         console.log("회원탈퇴 성공. 초기화면으로 이동해주세요.");
