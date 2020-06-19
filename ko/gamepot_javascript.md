@@ -295,10 +295,10 @@ var linking = GamePotChannel.getLinkedList();
 ```javascript
 
 GamePotChannel.deleteLinking(GamePotChannelType.GOOGLE, new GamePotCommonListener({
-    onSuccess() {
+    onSuccess: function() {
         // 연동 해제 완료. 연동 결과에 대한 문구를 노출시켜 주세요. (예: 계정 연동을 해지했습니다.)
     },
-    onFailure(error) {
+    onFailure: function(error) {
         // 연동 해제 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
     }
 }));
