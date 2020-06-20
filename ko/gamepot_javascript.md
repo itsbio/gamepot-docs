@@ -314,11 +314,11 @@ Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 ```javascript
 
 // 구글 계정에 연동
-// GamePotChannelType.GOOGLE
+// GP.ChannelType.GOOGLE
 // 페이스북 계정에 연동
-// GamePotChannelType.FACEBOOK
+// GP.ChannelType.FACEBOOK
 // 이메일 계정에 연동
-// GamePotChannelType.EMAIL
+// GP.ChannelType.EMAIL
 
 GP.createLinking(GP.ChannelType.GOOGLE, {
     onSuccess: function(userInfo) {
@@ -343,9 +343,9 @@ GP.createLinking(GP.ChannelType.GOOGLE, {
 ```javascript
 
 // 타입 정의
-// GamePotChannelType.GOOGLE
-// GamePotChannelType.FACEBOOK
-// GamePotChannelType.EMAIL
+// GP.ChannelType.GOOGLE
+// GP.ChannelType.FACEBOOK
+// GP.ChannelType.EMAIL
 // 타입에 따른 연동 결과를 반환합니다.
 var isLinked = GP.isLinked(GP.ChannelType.GOOGLE);
 
