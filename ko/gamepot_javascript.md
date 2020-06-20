@@ -19,10 +19,10 @@ search:
 #### 자바스크립트 추가
 
 다운로드한 Javascript SDK 파일을 `<header>`블록 또는 `<body>` 블록 내에 추가합니다.
-> `GamePot`, `GamePotChannel`, `GamePotChannelType`, `GamePotCommonListener`, `GamePotAppStatusChannelListener`, `GamePotError`, `GamePotGoogleSignin`, `GamePotFacebook`, `GamePotEmail`
-> 객체를 사용할 수 있습니다. 게임팟 스크립트 로드 후 해당 변수가 재 선언되지 않도록 주의해주세요. 
+> `GP` global variable을 통해 기능을 사용할 수 있습니다\
+> 게임팟 스크립트 로드 후 동일한 변수명으로 재 선언되지 않도록 주의해주세요. 
    ```html
-   <script src="/js/GamePot.min.js"></script>
+   <script src="/js/GamePot-2.1.0.js"></script>
    ```
 
 ## 2. 초기화
@@ -49,13 +49,14 @@ search:
               facebook_app_id: "149535310821467"
             };
             // 게임팟 초기화
-            GamePot.setup(project_id, gamepotConfig);
+            GP.setup(project_id, gamepotConfig);
         }
     </script>
 
     <!-- YOUR WEB HTML CODES -->
 </body>
 </html>
+
 ```
 
 ## 3. 로그인, 로그아웃, 회원 탈퇴
@@ -64,7 +65,7 @@ search:
 
 ### 구글\(API CONSOLE\) 콘솔 설정
 
-[Google API Console](https://console.developers.google.com){:target="_blank"}에서 프로젝트를 생성 > 사용자 인증정보 만들기 > OAuth 클라이언트 ID > 웹 어플리케이션 유형으로 생성 후 클라이언트 ID 값을 사용합니다.
+[Google API Console](https://console.developers.google.com) 에서 프로젝트를 생성 > 사용자 인증정보 만들기 > OAuth 클라이언트 ID > 웹 어플리케이션 유형으로 생성 후 클라이언트 ID 값을 사용합니다.
 
 > 예시) 533847112608-qv8149tijkoh0vljrpeashk0udf39eoe.apps.googleusercontent.com
 
@@ -72,7 +73,7 @@ search:
 
 ### 페이스북 콘솔 설정
 
-[Facebook Developers](https://developers.facebook.com/apps){:target="_blank"}에서 앱 생성 후 앱 ID 사용
+[Facebook Developers](https://developers.facebook.com/apps) 에서 앱 생성 후 앱 ID 사용
 
 > 예시) 149235210820417
 
@@ -82,26 +83,27 @@ search:
 
 #### 소셜 플랫폼 로그인
 
-```html
+```javascript
 
-    // 로그인 타입 정의
-    // GamePotChannelType.GOOGLE: 구글
-    // GamePotChannelType.FACEBOOK: 페이스북
-    // GamePotChannelType.EMAIL: 이메일
-    
-    // 구글 로그인 버튼을 눌렀을 때 호출
-    GamePotChannel.login(GamePotChannelType.FACEBOOK, new GamePotAppStatusChannelListener({
-    	    
-        onSuccess: function(userInfo) {
-          console.log("로그인 성공. memberid: " + userInfo.memberid + ", userid: " + userInfo.userid);
-        },
-        onCancel: function() {
-          console.log("로그인 취소");
-        },
-        onFailure: function(gamePotError) {
-          console.log("로그인 실패: " + gamePotError.toString());
-        }
-    }));
+// 로그인 타입 정의
+// GP.ChannelType.GOOGLE: 구글
+// GP.ChannelType.FACEBOOK: 페이스북
+// GP.ChannelType.EMAIL: 이메일
+
+// 페이스북 로그인 버튼을 눌렀을 때 호출
+GP.login(GP.ChannelType.FACEBOOK, {
+        
+    onSuccess: function(userInfo) {
+      console.log("로그인 성공. memberid: " + userInfo.memberid + ", userid: " + userInfo.userid);
+    },
+    onCancel: function() {
+      console.log("로그인 취소");
+    },
+    onFailure: function(gamePotError) {
+      console.log("로그인 실패: " + gamePotError.toString());
+    }
+});
+
 ```
 
 #### 이메일 로그인
@@ -114,7 +116,7 @@ var email_password = $("#input-email-password").val();
 
 $("#email-result-status").html("");
 
-GamePotChannel.login(GamePotChannelType.EMAIL, email_id, email_password, new GamePotAppStatusChannelListener({
+GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
 
     onSuccess: function (gamepotUserInfo) {
         console.log("이메일 로그인 성공", gamepotUserInfo);
@@ -128,22 +130,22 @@ GamePotChannel.login(GamePotChannelType.EMAIL, email_id, email_password, new Gam
   
         var msg = "";
         switch (gamePotError.getCode()) {
-        case GamePotError.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
+        case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
             msg = "이메일 형식이 올바르지 않습니다.";
             break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
             msg = "비밀번호를 입력해주세요.";
             break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
             msg = "비밀번호는 최소 8자, 최대 32자 까지 입력할 수 있습니다.";
             break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD:
             msg = "비밀번호가 일치하지 않습니다.";
             break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
             msg = "비밀번호 오류 횟수 초과로 로그인할 수 없습니다.";
             break;
-        case GamePotError.EMAIL_AUTH_NOT_FOUND:
+        case GP.Error.EMAIL_AUTH_NOT_FOUND:
             msg = "연결 계정이 존재하지 않습니다.";
             break;
         default:
@@ -153,7 +155,8 @@ GamePotChannel.login(GamePotChannelType.EMAIL, email_id, email_password, new Gam
         
         $("#email-result-status").html(msg); // 결과 표시 예.
     }
-}));
+});
+
 ```
 
 
@@ -167,7 +170,7 @@ var new_email_password = $("#input-email-new-password").val();
 
 $("#email-result-status2").html("");
 
-GamePotChannel.emailRegister(new_email_id, new_email_password, new GamePotAppStatusChannelListener({
+GP.Channel.emailRegister(new_email_id, new_email_password, {
 
     onSuccess: function (gamepotUserInfo) {
       console.log("이메일 가입 성공", gamepotUserInfo);
@@ -180,25 +183,25 @@ GamePotChannel.emailRegister(new_email_id, new_email_password, new GamePotAppSta
     
       var msg = "";
       switch (gamePotError.getCode()) {
-        case GamePotError.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
+        case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
           msg = "이메일 형식이 올바르지 않습니다.";
           break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
           msg = "비밀번호를 입력해주세요.";
           break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
           msg = "비밀번호는 최소 8자, 최대 32자 까지 입력할 수 있습니다.";
           break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD:
           msg = "비밀번호가 일치하지 않습니다.";
           break;
-        case GamePotError.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
+        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
           msg = "비밀번호 오류 횟수 초과로 로그인할 수 없습니다.";
           break;
-        case GamePotError.EMAIL_AUTH_NOT_FOUND:
+        case GP.Error.EMAIL_AUTH_NOT_FOUND:
           msg = "연결 계정이 존재하지 않습니다.";
           break;
-        case GamePotError.EMAIL_AUTH_ALREADY_IN_USE:
+        case GP.Error.EMAIL_AUTH_ALREADY_IN_USE:
           msg = "이미 사용 중인 계정입니다.";
           break;
         default:
@@ -207,7 +210,7 @@ GamePotChannel.emailRegister(new_email_id, new_email_password, new GamePotAppSta
       }
       $("#email-result-status2").html(msg);
     }
-}));
+});
 ```
 
 
@@ -215,7 +218,7 @@ GamePotChannel.emailRegister(new_email_id, new_email_password, new GamePotAppSta
 #### 회원 고유 아이디
 
 ```javascript
-GamePot.getMemberId();
+GP.getMemberId();
 ```
 
 ### 자동 로그인
@@ -225,10 +228,10 @@ GamePot.getMemberId();
 ```javascript
 
 // 사용자가 마지막에 로그인했던 정보를 전달하는 API
-var lastLoginType = GamePotChannel.getLastLoginType();
-if(lastLoginType !== GamePotChannelType.NONE) {
+var lastLoginType = GP.getLastLoginType();
+if(lastLoginType !== GP.ChannelType.NONE) {
     console.log("자동 로그인. lastLoginType: " + lastLoginType);
-    GamePotChannel.login(lastLoginType, new GamePotAppStatusChannelListener({
+    GP.login(lastLoginType, {
     
         onSuccess: function (gameUserInfo) {
           console.log("자동 로그인 - 완료. memberid: " + gameUserInfo.memberid + ", userid: " + gameUserInfo.userid);
@@ -249,7 +252,7 @@ if(lastLoginType !== GamePotChannelType.NONE) {
         onMainternance: function (status) {
             console.log("자동 로그인 - 점검중: " + status);
         },
-    }));
+    });
 }
 else
 {
@@ -263,14 +266,15 @@ else
 
 ```javascript
 
-GamePotChannel.logout(new GamePotCommonListener({
+GP.logout({
     onSuccess() {
          console.log("로그아웃 완료.");
      },
      onFailure(gamepotError) {
          console.log("로그아웃 실패. 로그인된 상태가 아니거나 이미 세션이 종료된 경우.");
      }
-}));
+});
+
 ```
 
 ### 회원 탈퇴
@@ -279,7 +283,7 @@ GamePotChannel.logout(new GamePotCommonListener({
 
 ```javascript
 
-GamePotChannel.deleteMember(new GamePotCommonListener({
+GP.deleteMember({
     onSuccess: function() {
         console.log("회원탈퇴 성공. 초기화면으로 이동해주세요.");
     },
@@ -287,7 +291,8 @@ GamePotChannel.deleteMember(new GamePotCommonListener({
         // 회원탈퇴 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
         console.log(error.getMessage());
     }
-}));
+});
+
 ```
 
 ### 검증
@@ -315,7 +320,7 @@ Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 // 이메일 계정에 연동
 // GamePotChannelType.EMAIL
 
-GamePotChannel.createLinking(GamePotChannelType.GOOGLE, new GamePotChannelListener({
+GP.createLinking(GP.ChannelType.GOOGLE, {
     onSuccess: function(userInfo) {
         // 연동 완료. 연동 결과에 대한 문구를 노출시켜 주세요.(예: 계정 연동에 성공했습니다.)
     },
@@ -327,7 +332,8 @@ GamePotChannel.createLinking(GamePotChannelType.GOOGLE, new GamePotChannelListen
     onFailure: function(error) {
         // 연동 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
     }
-}));
+});
+
 ```
 
 ### 연동된 리스트
@@ -341,12 +347,13 @@ GamePotChannel.createLinking(GamePotChannelType.GOOGLE, new GamePotChannelListen
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.EMAIL
 // 타입에 따른 연동 결과를 반환합니다.
-var isLinked = GamePotChannel.isLinked(GamePotChannelType.GOOGLE);
+var isLinked = GP.isLinked(GP.ChannelType.GOOGLE);
 
 // 연동되어 있는 모든 타입에 대해 json object로 반환합니다.
 // 만약 GOOGLE과 FACEBOOK에 연동된 경우 아래와 같이 반환됩니다.
 // [{“provider”:”google”},{“provider”:”facebook”}]
-var linking = GamePotChannel.getLinkedList();
+var linking = GP.getLinkedList();
+
 ```
 
 ### 연동 해제
@@ -355,12 +362,13 @@ var linking = GamePotChannel.getLinkedList();
 
 ```javascript
 
-GamePotChannel.deleteLinking(GamePotChannelType.GOOGLE, new GamePotCommonListener({
+GP.deleteLinking(GP.ChannelType.GOOGLE, {
     onSuccess: function() {
         // 연동 해제 완료. 연동 결과에 대한 문구를 노출시켜 주세요. (예: 계정 연동을 해지했습니다.)
     },
     onFailure: function(error) {
         // 연동 해제 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
     }
-}));
+});
+
 ```
