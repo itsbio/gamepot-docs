@@ -74,7 +74,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 | projectId | String | 128        | Project ID                                                                                         |
 | platform  | String | 128        | 운영 Platform 정보 \(Android, IOS\)                                                                |
 | store     | String | 64         | 스토어 정보\(apple, google, one\)                                                                  |
-| userData  | String |            | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
+| userData  | String | -          | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
 | itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
 > ex\)
@@ -195,9 +195,9 @@ data:
 }
 ```
 
-| Header    | Type   | Max Length | Required | Description                  |
-| :-------- | :----- | :--------- | :------- | ---------------------------- |
-| x-api-key | String |            | O        | GamePot에서 발급하는 인증 키 |
+| Header    | Type   | Required | Description                  |
+| :-------- | :----- | :------- | ---------------------------- |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
 <br/>
 
@@ -208,9 +208,9 @@ data:
 | productId     | String | 256        | O        | 결제 아이템 아이디      |
 | transactionId | String | 512        | O        | 결제 고유 아이디        |
 | memberId      | String | 128        | O        | GamePot SDK의 memberId  |
-| currency      | String |            | X        | 결제 통화               |
+| currency      | String | 64         | X        | 결제 통화               |
 | price         | Number | -          | X        | 결제 금액               |
-| paymentId     | String |            | X        | 결제 수단               |
+| paymentId     | String | 64         | X        | 결제 수단               |
 | uniqueId      | String | 512        | X        | 게임내 결제 고유 아이디 |
 
 #### Response
