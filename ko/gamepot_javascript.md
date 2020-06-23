@@ -307,7 +307,7 @@ GP.deleteMember({
 
 > 연동화면 UI는 개발사에서 구현해주세요.
 
-### 계정 연동
+### 소셜 계정 연동
 
 Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
 
@@ -327,6 +327,24 @@ GP.createLinking(GP.ChannelType.GOOGLE, {
 
     onCancel: function() {
         // 사용자가 취소한 경우
+    },
+
+    onFailure: function(error) {
+        // 연동 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+    }
+});
+
+```
+
+### 이메일 계정 연동
+
+소셜계정으로 연동된 계정에 이메일 아이디로 추가 연동할 수 있습니다.
+
+```javascript
+
+GP.createEmailLinking("some@example.com", "some_my_password", {
+    onSuccess: function(userInfo) {
+        // 연동 완료. 연동 결과에 대한 문구를 노출시켜 주세요.(예: 계정 연동에 성공했습니다.)
     },
 
     onFailure: function(error) {
