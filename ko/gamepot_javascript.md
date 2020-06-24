@@ -21,9 +21,9 @@ search:
 다운로드한 Javascript SDK 파일을 `<header>`블록 또는 `<body>` 블록 내에 추가합니다.
 > `GP` global variable을 통해 기능을 사용할 수 있습니다\
 > 게임팟 스크립트 로드 후 동일한 변수명으로 재 선언되지 않도록 주의해주세요. 
-   ```html
-   <script src="/js/GamePot-2.1.0.js"></script>
-   ```
+```html
+<script src="/js/GamePot-2.1.0b.js"></script>
+```
 
 ## 2. 초기화
 
@@ -99,8 +99,8 @@ GP.login(GP.ChannelType.FACEBOOK, {
     onCancel: function() {
       console.log("로그인 취소");
     },
-    onFailure: function(gamePotError) {
-      console.log("로그인 실패: " + gamePotError.toString());
+    onFailure: function(gamepotError) {
+      console.log("로그인 실패: " + gamepotError.toString());
     }
 });
 
@@ -125,11 +125,11 @@ GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
     onCancel: function () {
         console.log("이메일 로그인 취소");
     },
-    onFailure: function (gamePotError) {
-        console.log("이메일 로그인 실패: " + gamePotError.toString());
+    onFailure: function (gamepotError) {
+        console.log("이메일 로그인 실패: " + gamepotError.toString());
   
         var msg = "";
-        switch (gamePotError.getCode()) {
+        switch (gamepotError.getCode()) {
         case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
             msg = "이메일 형식이 올바르지 않습니다.";
             break;
@@ -149,7 +149,7 @@ GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
             msg = "연결 계정이 존재하지 않습니다.";
             break;
         default:
-            msg = "ERROR: " + gamePotError.getMessage();
+            msg = gamepotError.getMessage();
             break;
         }
         
@@ -178,11 +178,11 @@ GP.Channel.emailRegister(new_email_id, new_email_password, {
     onCancel: function () {
       console.log("이메일 가입 취소");
     },
-    onFailure: function (gamePotError) {
-      console.log("이메일 가입 실패: " + gamePotError.toString());
+    onFailure: function (gamepotError) {
+      console.log("이메일 가입 실패: " + gamepotError.toString());
     
       var msg = "";
-      switch (gamePotError.getCode()) {
+      switch (gamepotError.getCode()) {
         case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
           msg = "이메일 형식이 올바르지 않습니다.";
           break;
@@ -205,7 +205,7 @@ GP.Channel.emailRegister(new_email_id, new_email_password, {
           msg = "이미 사용 중인 계정입니다.";
           break;
         default:
-          msg = "알 수 없는 오류가 발생했습니다.";
+          msg = gamepotError.getMessage();
           break;
       }
       $("#email-result-status2").html(msg);
@@ -242,7 +242,7 @@ if(lastLoginType !== GP.ChannelType.NONE) {
         },
         
         onFailure: function (gamepotError) {
-          console.log("자동 로그인 - 실패: " + gamepotError.getMessage());
+          console.log("자동 로그인 - 실패: " + gamepotError.toString());
         },
         
         onNeedUpdate: function (status) {
@@ -271,7 +271,7 @@ GP.logout({
          console.log("로그아웃 완료.");
      },
      onFailure(gamepotError) {
-         console.log("로그아웃 실패. 로그인된 상태가 아니거나 이미 세션이 종료된 경우.");
+         console.log("로그아웃 실패. 로그인된 상태가 아니거나 이미 세션이 종료된 경우: " + gamepotError.toString());
      }
 });
 
