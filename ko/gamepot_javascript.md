@@ -277,6 +277,23 @@ GP.logout({
 
 ```
 
+### 이메일 비밀번호 변경
+
+현재 로그인한 이메일 계정의 비밀번호를 변경합니다.
+
+```javascript
+
+GP.changeEmailPassword("my_old_password", "my_new_password", {
+    onSuccess: function() {
+        // 비밀번호 변경 완료. 연동 결과에 대한 문구를 노출시켜 주세요. (예: 계정 연동을 해지했습니다.)
+    },
+    onFailure: function(error) {
+        // 이메일 비밀번호 변경 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+    }
+});
+
+```
+
 ### 회원 탈퇴
 
 현재 회원 계정을 탈퇴시킵니다.
@@ -386,23 +403,6 @@ GP.deleteLinking(GP.ChannelType.GOOGLE, {
     },
     onFailure: function(error) {
         // 연동 해제 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
-    }
-});
-
-```
-
-### 이메일 비밀번호 변경
-
-현재 로그인한 이메일 계정의 비밀번호를 변경합니다.
-
-```javascript
-
-GP.changeEmailPassword("my_old_password", "my_new_password", {
-    onSuccess: function() {
-        // 비밀번호 변경 완료. 연동 결과에 대한 문구를 노출시켜 주세요. (예: 계정 연동을 해지했습니다.)
-    },
-    onFailure: function(error) {
-        // 이메일 비밀번호 변경 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
     }
 });
 
