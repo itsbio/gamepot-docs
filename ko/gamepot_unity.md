@@ -275,6 +275,8 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.f
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
 
+![gamepot_unity_24](./images/gamepot_unity_24.png)
+
 ### 게임센터 로그인
 
 > iOS에만 해당하는 기능입니다.
@@ -285,7 +287,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.f
 
 /Assets/Plugins/IOS/Frameworks/ 경로에 Gamekit.framwork를 복사합니다. **General &gt; Linked Frameworks and Libraries** 내에 복사한 프레임워크를 추가합니다.
 
-Capabilities 설정에서 Game Center를 ON으로 설정합니다.\(앱스토어 콘솔에서도 Game Center이 ON으로 설정되어 있어야 합니다.\)
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Game Center을 추가 합니다.**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
 
@@ -760,7 +762,7 @@ Request:
 
 ```csharp
 // productId : 스토어에 등록된 상품ID를 입력해 주시면 됩니다.
-// uniqueId  : 별도로 관리하실는 영수증 번호를 넣으시면 됩니다.
+// uniqueId  : 별도로 관리하는 영수증 번호를 넣으시면 됩니다.
 // serverId  : 결제를 진행한 캐릭터의 서버아이디를 입력해 주시면 됩니다.
 // playerId  : 결제를 진행한 캐릭터의 캐릭터 아이디를 입력해 주시면 됩니다.
 // etc       : 결제를 진행한 캐릭터 기타 정보를 넣으시면 됩니다.
