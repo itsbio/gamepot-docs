@@ -614,11 +614,37 @@ public class MainActivity extends AppCompatActivity {
 > 결제 시도 ~ 결제 완료/실패 과정중에 인게임에서 사용하는 로딩 화면을 띄워 중복 호출을 하지 않도록 처리해주세요.
 
 ```java
+CASE 1 : 일반적인 결제시
+
 import io.gamepot.common.GamePot;
 
-// productId는 스토어에 등록된 상품ID를 입력해 주시면 됩니다.
+// productId : 스토어에 등록된 상품ID를 입력해 주시면 됩니다.
 GamePot.getInstance().purchase("product id");
 ```
+
+```java
+CASE 2 : 결제시 진행되는 영수증 번호를 별도로 관리하고자 할 때 :  
+
+import io.gamepot.common.GamePot;
+
+// productId : 스토어에 등록된 상품ID를 입력해 주시면 됩니다.
+// uniqueId  : 별도로 관리하실는 영수증 번호를 넣으시면 됩니다.
+GamePot.getInstance().purchase("product id", "uniqueId");
+```
+
+```java
+CASE 3 : 결제시 진행되는 영수증 번호 / 서버아이디 / 캐릭터아이디 / 기타 정보를 webhook으로 전달 하고자 할때 :
+
+import io.gamepot.common.GamePot;
+
+// productId : 스토어에 등록된 상품ID를 입력해 주시면 됩니다.
+// uniqueId  : 별도로 관리하실는 영수증 번호를 넣으시면 됩니다.
+// serverId  : 결제를 진행한 캐릭터의 서버아이디를 입력해 주시면 됩니다.
+// playerId  : 결제를 진행한 캐릭터의 캐릭터 아이디를 입력해 주시면 됩니다.
+// etc       : 결제를 진행한 캐릭터 기타 정보를 넣으시면 됩니다.
+GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","etc");
+```
+
 
 ### 결제 아이템 리스트 획득
 
