@@ -108,18 +108,20 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
     # Q. 네이버 카페 SDK 연동 시, 웹뷰를 통한 네아로(네이버 아이디로 로그인)을 할 수 없습니다. (iOS)
     # A. 네아로 SDK와 카페 SDK의 로그인 모듈이 공존하여 발생하는 이슈입니다.
 
+![gamepot_faq_48](./images/gamepot_faq_48.png)
+
 1. 해당 링크의 패치를 다운받아 주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip)\)
 
 2. 기존에 프로젝트 내 존재하는 2개의 framework를 삭제해주세요.
 
    - GamePotNaver.framework
-   - NaverThirdPartyLogin.framework
+   - NaverThirdPartyLogin.framework (존재할 경우)
 
 3. 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요.
 
    IOS UIWebview 이슈 떄문에 네이버 카페 SDK는 4.4.7 이후 버전을 사용 부탁드립니다.
 
-4. (UNITY ONLY)네이버 카페 초기화 시, url scheme 명시적으로 삽입
+4. (UNITY ONLY) 네이버 카페 초기화 단계에서, url scheme 명시적으로 삽입
 
     ../Assets/NCSDK/Plugins/iOS/NCSDKUnityManager.mm
 

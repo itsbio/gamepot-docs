@@ -172,8 +172,16 @@ fileTree(dir: 'libs', include: ['*.aar'])
 - ⒊ /Assets/Plugins/Android/Firebase/res 폴더가 생성되지 않았다면 Unity 재실행
 
 
-## 네이버 플러그 SDK (plug_sdk_4_4_7.unitypackage.unitypackage) 를 적용시 IOS 빌드 오류 발생.
+## (Unity) 네이버 플러그 SDK (plug_sdk_4_4_7.unitypackage.unitypackage 이상) 를 적용 시, IOS 빌드 오류 발생.
 
-- ⒈ [링크](https://kr.object.ncloudstorage.com/itsb/GamePotNaver.framework.zip)를 통해 패치파일을 다운로드 및 압축 해제  (GamePotNaver.framework)
+- [링크](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip)를 통해 패치파일을 다운로드 및 압축 해제  (GamePotNaver.framework)
 
-- 다운받은 패치(GamePotNaver.framework)를 기존 동일한 경로에 넣어주세요.
+- 다운받은 패치(GamePotNaver.framework)를 기존 경로의 framework와 교체해주세요.
+
+## (Unity) 네이버 플러그 SDK를 적용 시, IOS에서 웹뷰를 통해 네이버 아이디 로그인 불가. 
+
+- 1.  XCode의 info.plist를 열어주세요.
+
+ - 2. 다음과 같이, Naver Cafe의 URLScheme 값을 해당 Array의 가장 첫번째 인덱스로 올려 저장한 다음 로그인 정상동작을 확인해주세요.  
+ 
+![gamepot_troubleshooting_01](./images/gamepot_troubleshooting_01.png)
