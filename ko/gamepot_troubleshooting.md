@@ -178,10 +178,10 @@ fileTree(dir: 'libs', include: ['*.aar'])
 
 - 다운받은 패치(GamePotNaver.framework)를 기존 경로의 framework와 교체해주세요.
 
-## (Unity) 네이버 플러그 SDK를 적용 시, IOS에서 웹뷰를 통해 네이버 아이디 로그인 불가. 
+## (IOS) 네이버 플러그 SDK를 적용 시, 웹뷰를 통해 네이버 아이디 로그인 불가. 
 
-- 1.  XCode의 info.plist를 열어주세요.
+- XCode에서 info.plist를 열어주세요.
 
- - 2. 다음과 같이, Naver Cafe의 URLScheme 값을 해당 Array의 가장 첫번째 인덱스로 올려 저장한 다음 로그인 정상동작을 확인해주세요.  
+ - 다음과 같이, Naver Cafe의 URLScheme 값을 해당 Array의 가장 첫번째 인덱스로 올려 저장한 다음 로그인 정상동작을 확인해주세요.  
  
 ![gamepot_troubleshooting_01](./images/gamepot_troubleshooting_01.png)

@@ -127,6 +127,8 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
 ![gamepot_faq_47](./images/gamepot_faq_47.png)
 
+5. info.plist의 URL Scheme 값 우선순위를 첫번째로 수정해주세요. \([Link](https://docs.gamepot.io/undefined/gamepot_troubleshooting#unity-sdk-ios)\)
+
 
 ### 5. Line 로그인
 
