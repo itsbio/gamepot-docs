@@ -60,11 +60,8 @@ resValue "string", "[key]", "[value]"
 
 | 값  | 설명 |
 | :-- | :--- |
-
-
 | gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot_store | 스토어값\(`google` 또는 `one`\) |
-
+| gamepot_store      | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)        |
 | gamepot_app_title | 앱 제목 \(FCM\) |
 | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
 | facebook_app_id | 페이스북 발급 받은 앱ID |
