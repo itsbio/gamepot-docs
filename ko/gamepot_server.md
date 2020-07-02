@@ -1,7 +1,6 @@
 ---
 search:
-  keyword:
-    - gamepot
+  keyword: ['gamepot']
 ---
 
 # Server API

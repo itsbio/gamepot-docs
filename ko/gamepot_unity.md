@@ -1,7 +1,6 @@
 ---
 search:
-  keyword:
-    - gamepot
+  keyword: ['gamepot']
 ---
 
 # Unity SDK
@@ -61,7 +60,7 @@ resValue "string", "[key]", "[value]"
 | 값  | 설명 |
 | :-- | :--- |
 | gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot_store      | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)        |
+| gamepot_store | 스토어값\(`google` 또는 `one` 또는 `galaxy`\) |
 | gamepot_app_title | 앱 제목 \(FCM\) |
 | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
 | facebook_app_id | 페이스북 발급 받은 앱ID |
@@ -264,13 +263,13 @@ defaultConfig {
 
 /Assets/Plugins/IOS/Frameworks 경로에 아래 프레임 워크를 추가합니다.
 
-FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.framework
+FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE 로그인
 
 > iOS에만 해당하는 기능입니다.
 
-**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.** 
 
 ![gamepot_unity_24](./images/gamepot_unity_24.png)
 
@@ -278,15 +277,22 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework Bolts.framework GamePotFacebook.f
 
 > iOS에만 해당하는 기능입니다.
 >
-> GameCenter Login을 `사용하지 않으실 경우`에는 아래 위치해서 해당 파일을 삭제 해주세요.
-> &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
+> GameCenter Login을 사용하시는 경우에는 아래 위치해서 이미지와 같이 설정 해주세요.
+> &gt; `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
+
+![gamepot_unity_25](./images/gamepot_unity_25.png)
+
 > 해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
 
-/Assets/Plugins/IOS/Frameworks/ 경로에 Gamekit.framwork를 복사합니다. **General &gt; Linked Frameworks and Libraries** 내에 복사한 프레임워크를 추가합니다.
+**Xcode &gt; Build Phases &gt; Linked Binary With Libraries** 내에 Gamekit.framework 를 추가합니다.
 
-**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Game Center을 추가 합니다.**
+![gamepot_unity_26](./images/gamepot_unity_26.png)
+
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; GameCenter을 추가 합니다.**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
+
+
 
 ## 5. 로그인/로그아웃/탈퇴/검증
 

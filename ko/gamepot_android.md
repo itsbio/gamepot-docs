@@ -1,7 +1,6 @@
 ---
 search:
-  keyword:
-    - gamepot
+  keyword: ['gamepot']
 ---
 
 # Android SDK
@@ -66,16 +65,16 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
    > \[xxxxx\]에는 실제 적용될 값을 넣습니다.
 
-   | 값                 | 설명                                                  |
-   | :----------------- | :---------------------------------------------------- |
-   | gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-   | gamepot_store      | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)        |
-   | gamepot_payment | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\) |
-   | gamepot_app_title | 앱 제목 \(FCM\) |
-   | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
-   | facebook_app_id | 페이스북 발급 받은 앱ID |
-   | fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
-   | gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+| 값                 | 설명                                                  |
+| :----------------- | :---------------------------------------------------- |
+| gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
+| gamepot_store      | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)        |
+| gamepot_payment | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\) |
+| gamepot_app_title | 앱 제목 \(FCM\) |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
+| facebook_app_id | 페이스북 발급 받은 앱ID |
+| fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
+| gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
    ```java
    android {
