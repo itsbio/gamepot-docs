@@ -16,7 +16,7 @@ search:
 
 > 您可以使用仪表板发出的允许的 API 密钥进行调用，还可以指定是否使用它以及到期日期。
 
-## API Key 발급
+## API Key
 
 要调用 Open API，您必须首先在信息中心中创建一个 API 密钥。
 
@@ -568,7 +568,7 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 | :--------- | :----- | :---------------------------------------- |
 | status     | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
 | totalCount | Int    | ccu 搜索结果（数量）                      |
-| createdAt  | String | 집계 일시                                 |
+| createdAt  | String | 计算日期和时间                            |
 | one        | Int    | （第一个日期）的并发用户数                |  |
 | two        | Int    | （第二个日期）的并发用户数                |  |
 | three      | Int    | （第三个日期）的并发用户数                |  |
@@ -790,7 +790,7 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 | Attribute   | Type    | Description                                                              |
 | :---------- | :------ | :----------------------------------------------------------------------- |
 | status      | Int     | 结果值(1：有关成功和失败，请参见错误代码)                                |
-| id          | String  | 取消付款아이디                                                           |
+| id          | String  | 取消付款                                                                 |
 | member_id   | String  | 用户 UID                                                                 |
 | package_id  | String  | 包裹名字                                                                 |
 | price       | int     | 付款金额                                                                 |

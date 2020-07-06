@@ -32,7 +32,7 @@ userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&produc
 
 | Attribute      | Type   | Max Length | Description                                             |
 | :------------- | :----- | :--------- | :------------------------------------------------------ |
-| userId         | String | 128        | 사용자ID                                                |
+| userId         | String | 128        | 用户 ID                                                 |
 | transactionId  | String | 512        | 订单号(GPA-xxxx-xxxx-)                                  |
 | store          | String | 64         | 储存信息(apple, google, one)                            |
 | projectId      | String | 128        | 项目编号                                                |
@@ -78,7 +78,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 
 | Attribute | Type   | Max Length | Description                                                                                      |
 | :-------- | :----- | :--------- | :----------------------------------------------------------------------------------------------- |
-| userId    | String | 128        | 사용자ID                                                                                         |
+| userId    | String | 128        | 用户 ID                                                                                          |
 | projectId | String | 128        | Project ID                                                                                       |
 | platform  | String | 128        | 操作平台信息 (Android, IOS)                                                                      |
 | store     | String | 64         | 储存信息(apple, google, one)                                                                     |
@@ -147,11 +147,11 @@ data:
 }
 ```
 
-| Attribute | Type   | Max Length | Description                      |
-| :-------- | :----- | :--------- | :------------------------------- |
-| projectId | String | 128        | GamePot SDK의 projectId          |
-| memberId  | String | 128        | GamePot SDK의 memberid(사용자ID) |
-| token     | String | 2048       | GamePot SDK의 Token              |
+| Attribute | Type   | Max Length | Description                   |
+| :-------- | :----- | :--------- | :---------------------------- |
+| projectId | String | 128        | GamePot SDK projectId         |
+| memberId  | String | 128        | GamePot SDK memberid(用户 ID) |
+| token     | String | 2048       | GamePot SDK Token             |
 
 #### Response
 

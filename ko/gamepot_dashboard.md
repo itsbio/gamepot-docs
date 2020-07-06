@@ -1,6 +1,6 @@
 ---
 search:
-  keyword: ['gamepot']
+  keyword: ["gamepot"]
 ---
 
 # Dashboard
@@ -125,7 +125,7 @@ Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일�
 
 ⑥ 회원이 연동한 소셜 계정을 모두 보여줍니다.
 
-* 소셜 계정을 추가하거나 연결을 취소할 수 있습니다.
+- 소셜 계정을 추가하거나 연결을 취소할 수 있습니다.
 
 ⑦ 회원의 이용정지 내역을 표시합니다.
 
@@ -215,8 +215,8 @@ Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일�
 
 ⑤ 이용정지 회원 내역이 출력됩니다.
 
-* 활성 : 현재 이용 정지 상태가 적용된 경우
-* 비활성 : 현재 이용 정지 상태가 해제된 경우
+- 활성 : 현재 이용 정지 상태가 적용된 경우
+- 비활성 : 현재 이용 정지 상태가 해제된 경우
 
 ### 결제
 
@@ -296,13 +296,13 @@ Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일�
 
 #### Step 0. 서브계정을 생성해, Object Storage 서비스 사용권한 부여
 
-①  API 인증키를 발급받기 전 서브계정을 생성해 Object Storage 사용권한을 부여한 다음, 해당 계정을 통해 API 인증키를 발급받기를 권장합니다.
+① API 인증키를 발급받기 전 서브계정을 생성해 Object Storage 사용권한을 부여한 다음, 해당 계정을 통해 API 인증키를 발급받기를 권장합니다.
 
-②  [Sub Account 사용 가이드](https://docs.ncloud.com/ko/management/management-4-1.html)를 참고하여 서브계정을 생성합니다. (서브 계정 생성 시, **API Gateway Access**를 체크해주세요.)
+② [Sub Account 사용 가이드](https://docs.ncloud.com/ko/management/management-4-1.html)를 참고하여 서브계정을 생성합니다. (서브 계정 생성 시, **API Gateway Access**를 체크해주세요.)
 
 ![gamepot_dashboard_20_01](./images/gamepot_dashboard_20_01.png)
 
-③ 생성한 서브계정에  Object Storage 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_OBJECT_STORAGE_MANAGER** 권한을 부여합니다. (혹은 오브젝트 스토리지 권한을 포함한 권한)
+③ 생성한 서브계정에 Object Storage 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_OBJECT_STORAGE_MANAGER** 권한을 부여합니다. (혹은 오브젝트 스토리지 권한을 포함한 권한)
 
 ![gamepot_dashboard_20_02](./images/gamepot_dashboard_20_02.png)
 
@@ -318,7 +318,7 @@ API 인증키는 **포털 &gt; 마이페이지 &gt; 계정관리 &gt; 인증키 
 
 ① API 인증키를 생성하기 위해서 **신규 API 인증키 생성**을 클릭하세요.
 
-* API 인증키는 계정당 2개까지 생성할 수 있습니다.
+- API 인증키는 계정당 2개까지 생성할 수 있습니다.
 
 #### Step 2. 대시보드와 API 인증키 연동하기
 
@@ -405,13 +405,13 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 
 별도의 메시지 서버 구축 없이 SMS, PUSH 등을 통해 메시지 알림 기능을 구현할 수 있는 서비스입니다. 해당 기능을 사용하기 위해서는 NAVER Cloud Plaform의 Simple & Easy Notification Service\(SENS\)를 신청해야만 합니다.
 
-① 서브계정을 생성하여, SENS 서비스를 신청하기를 권장합니다. 본문의 **공지사항 -> Step 0** 를  참고하여, 서브계정을 생성합니다. (**Step 0** 와 마찬가지로, API 인증키 또한 서브계정에서 발급 받아주세요.)
+① 서브계정을 생성하여, SENS 서비스를 신청하기를 권장합니다. 본문의 **공지사항 -> Step 0** 를 참고하여, 서브계정을 생성합니다. (**Step 0** 와 마찬가지로, API 인증키 또한 서브계정에서 발급 받아주세요.)
 
 ② 생성한 서브계정에 SENS 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_SENS_MANAGER** (를 포함하는) 권한을 부여합니다.
 
 ![gamepot_dashboard_27_01](./images/gamepot_dashboard_27_01.png)
 
-① SENS와 연동하기 위해서는 서비스 키를 발급해야 합니다.  **서비스 키 발급** 버튼을 클릭하고, 생성한 서브계정으로 접속한 다음 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-2.html)를 참고하여 서비스 키를 발급 받습니다.
+① SENS와 연동하기 위해서는 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고, 생성한 서브계정으로 접속한 다음 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-2.html)를 참고하여 서비스 키를 발급 받습니다.
 
 ![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
 
@@ -829,7 +829,7 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ⑦ 기준 통화를 변경할 수 있습니다.
 
-* 운영 중에 기준 통화를 변경하여도 지난 결제 금액은 변경되지 않습니다. 신중하게 선택해주세요.
+- 운영 중에 기준 통화를 변경하여도 지난 결제 금액은 변경되지 않습니다. 신중하게 선택해주세요.
 
 ##### Public Key
 
@@ -953,8 +953,8 @@ CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
 **CDN 주소 입력 시 주의 사항**
 
-* 반드시 CDN의 원본은 \[공지사항\] 기능에 사용되는 Object Storage가 설정되어야 합니다.
-* 입력한 CDN이 없거나 URL 오타, 또는 원본 설정이 잘못되었을 경우, 업로드된 이미지가 게임상에 정상적으로 보이지 않게 됩니다.
+- 반드시 CDN의 원본은 \[공지사항\] 기능에 사용되는 Object Storage가 설정되어야 합니다.
+- 입력한 CDN이 없거나 URL 오타, 또는 원본 설정이 잘못되었을 경우, 업로드된 이미지가 게임상에 정상적으로 보이지 않게 됩니다.
 
 #### - 외부결제
 
@@ -968,21 +968,15 @@ CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
 ![gamepot_dashboard_71](./images/gamepot_dashboard_71.png)
 
-**\[가격 입력\]**
-
-결제 - IAP 메뉴에서 인앱 아이템 별로 사용자가 지불할 가격을 입력하세요.
-
-![gamepot_dashboard_72](./images/gamepot_dashboard_72.png)
-
 #### - 화이트 유저
 
 등록된 아이피로 접속하는 경우 지정된 종류에 따라 아래 기능이 활성화됩니다.
 
-* 개발 : SDK 로그가 활성화 되어 로그가 노출됩니다.
-* 결제/쿠폰 : 결제 및 쿠폰 사용 시 Webhook 테스트로 설정된 주소가 호출됩니다.
-* 점검 : 점검 기능이 활성화 되어있더라도 무시하고 진행됩니다.
-* 업데이트 : 업데이트 기능이 활성화 되어있더라도 무시하고 진행됩니다.
-* 회원 : 접속차단에 포함된 국가 또는 IP를 무시하고 진행됩니다.
+- 개발 : SDK 로그가 활성화 되어 로그가 노출됩니다.
+- 결제/쿠폰 : 결제 및 쿠폰 사용 시 Webhook 테스트로 설정된 주소가 호출됩니다.
+- 점검 : 점검 기능이 활성화 되어있더라도 무시하고 진행됩니다.
+- 업데이트 : 업데이트 기능이 활성화 되어있더라도 무시하고 진행됩니다.
+- 회원 : 접속차단에 포함된 국가 또는 IP를 무시하고 진행됩니다.
 
 ![gamepot_dashboard_73](./images/gamepot_dashboard_73.png)
 
