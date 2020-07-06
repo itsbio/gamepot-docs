@@ -600,8 +600,6 @@ SMS/LMS 발송, 이력 및 결과 조회 등의 기능을 사용할 수 있습�
 
 고객문의에 대한 템플릿을 미리 설정해놓는 기능입니다.
 
-![gamepot_dashboard_43](./images/gamepot_dashboard_43.png)
-
 **분류 설정**을 클릭합니다.
 
 ![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)

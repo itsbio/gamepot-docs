@@ -28,7 +28,7 @@
 - [Server API](en/gamepot_server.md)
 - [Open API](en/gamepot_api.md)
 - [Troubleshooting](en/gamepot_troubleshooting.md)
-- [FAQ](en/faq.md)
+- [FAQ](en/gamepot_faq.md)
 
 ## 日本
 
@@ -43,7 +43,7 @@
 - [Server API](jp/gamepot_server.md)
 - [Open API](jp/gamepot_api.md)
 - [Troubleshooting](jp/gamepot_troubleshooting.md)
-- [FAQ](jp/faq.md)
+- [FAQ](jp/gamepot_faq.md)
 
 ## 中文
 
@@ -58,4 +58,4 @@
 - [Server API](cn/gamepot_server.md)
 - [Open API](cn/gamepot_api.md)
 - [Troubleshooting](cn/gamepot_troubleshooting.md)
-- [FAQ](cn/faq.md)
+- [FAQ](cn/gamepot_faq.md)
