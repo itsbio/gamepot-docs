@@ -1,5 +1,11 @@
 # 3rd-party SDK
 
+> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
+>
+> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
+>
+> We will make every effort to further enhance our services.
+
 This is a guide for applying 3rd-party SDK applied in addition to GAMEPOT SDK to game projects without build errors.
 
 > It is described based on the guide of each SDK, and refer to the guide of each SDK for how to apply the API.

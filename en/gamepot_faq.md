@@ -1,5 +1,11 @@
 # FAQ
 
+> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
+>
+> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
+>
+> We will make every effort to further enhance our services.
+
 ## I can't log in!
 
 > For social login function, it is basically based on the development guide of the platform. In case of problems, please check the login development guide of the platform first.

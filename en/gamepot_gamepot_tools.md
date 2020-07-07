@@ -6,6 +6,12 @@ search:
 
 # GamePot Tools - Beta
 
+> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
+>
+> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
+>
+> We will make every effort to further enhance our services.
+
 This is a guide to GamePot Tools provided by GAMEPOT of NAVER CLOUD PLATFORM.
 
 ## Introduction to GAMEPOT Tools

@@ -1,5 +1,11 @@
 # Troubleshooting
 
+> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
+>
+> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
+>
+> We will make every effort to further enhance our services.
+
 ## When building in 64-bit environment, a crash occurs when attempting Nearo (Naver ID login). (Android build of API 28 or higher)
 
 ⒈ Add the following code to the `AndroidManifest.xml` file

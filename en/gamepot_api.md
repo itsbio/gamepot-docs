@@ -6,6 +6,12 @@ search:
 
 # Open API
 
+> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
+>
+> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
+>
+> We will make every effort to further enhance our services.
+
 It is a function that can call some functions provided by the game pod with a prescribed API.
 
 > You can use the allowed API Key issued by the dashboard to make calls, and you can specify whether to use it and the expiration date.
