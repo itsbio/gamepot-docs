@@ -36,15 +36,15 @@ GAMEPOT 不是一种会随着游戏的增长而增加成本的结构。现有的
 
 要使用该服务，您必须首先创建一个项目。
 
-![](./images/gamepot_console_01.png)
+![gamepot_console_01](./images/gamepot_console_01.png)
 
 ① 从控制台中选择 **Game > GAMEPOT**。
 
-![](./images/gamepot_console_02.png)
+![gamepot_console_02](./images/gamepot_console_02.png)
 
 ② 单击 **+创建项目**按钮。
 
-![](./images/gamepot_console_03.png)
+![gamepot_console_03](./images/gamepot_console_03.png)
 
 ③ 输入游戏项目的名称。
 
@@ -58,7 +58,7 @@ GAMEPOT 不是一种会随着游戏的增长而增加成本的结构。现有的
 
 ⑤ 选择一个产品。
 
-![](./images/gamepot_console_04.png)
+![gamepot_console_04](./images/gamepot_console_04.png)
 
 - 如果选择被管理产品，则会显示一个用于请求单独服务的弹出窗口。
 
@@ -66,45 +66,41 @@ GAMEPOT 不是一种会随着游戏的增长而增加成本的结构。现有的
 
 - 创建项目时，您需要按小时收费，其中包括基本 DAU。创建项目后，即使不使用它也要收费，因此必须仔细选择。
 
-![](./images/gamepot_console_05.png)
+创建项目后，将显示访问仪表板的 URL。您必须通过检查输入的带有管理员 ID 的电子邮件来完成管理员身份验证。
 
-⑦ 创建项目后，将显示访问仪表板的 URL。您必须通过检查输入的带有管理员 ID 的电子邮件来完成管理员身份验证。
-
-![](./images/gamepot_console_12.png)
-
-⑧ 电子邮件验证完成后，您将被定向到仪表板窗口，您可以在其中输入初始密码。 设置初始密码后，请登录。
+电子邮件验证完成后，您将被定向到仪表板窗口，您可以在其中输入初始密码。 设置初始密码后，请登录。
 
 ## Step 2. 管理项目
 
 创建项目后，您会看到带有游戏项目名称和产品名称的列表屏幕。
 
-![](./images/gamepot_console_06.png)
+![gamepot_console_06](./images/gamepot_console_06.png)
 
 ① 您可以通过仪表板 URL 进入仪表板来管理游戏功能。
 
 ② 检查项目，然后单击**项目管理**按钮以显示简单的管理菜单。
 
-![](./images/gamepot_console_07.png)
+![gamepot_console_07](./images/gamepot_console_07.png)
 
 - 更改产品：更改正在使用的服务产品。 您可能无法暂时访问仪表板。 如果单击**更改产品**按钮，则会显示以下弹出窗口。 选择要更改的产品，然后单击**编辑**按钮。
 
-![](./images/gamepot_console_08.png)
+![gamepot_console_08](./images/gamepot_console_08.png)
 
 - 更改帐户：您可以更改在创建项目时输入的管理员 ID。 更改请求完成后，身份验证电子邮件将发送到更改帐户的电子邮件地址。
 
 - 密码重置：当访问仪表板的密码丢失或需要重置时使用。 初始化密码后，访问仪表板以重置密码。
 
-![](./images/gamepot_console_09.png)
+![gamepot_console_09](./images/gamepot_console_09.png)
 
 ## Step 3. 删除专案
 
 从创建项目开始，GAMEPOT 将按小时收费。 因此，如果您不需要它，则应删除该项目，以避免产生不必要的费用。
 
-![](./images/gamepot_console_10.png)
+![gamepot_console_10](./images/gamepot_console_10.png)
 
 ① 要删除项目，请单击**删除项目**按钮。 如果单击**删除项目**按钮，则会显示以下弹出窗口。
 
-![](./images/gamepot_console_11.png)
+![gamepot_console_11](./images/gamepot_console_11.png)
 
 ② 要删除，必须输入项目名称。
 
