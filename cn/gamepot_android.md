@@ -15,14 +15,14 @@ search:
 
 ### 配置开发环境
 
-为了开发安卓用应用程序，提前需要安装开发工具\(例如Android Studio\)。根据所使用的开发工具也许可能需要安装其他Java SDK和Android SDK。
+为了开发安卓用应用程序，提前需要安装开发工具\(例如 Android Studio\)。根据所使用的开发工具也许可能需要安装其他 Java SDK 和 Android SDK。
 
-在Android上使用GAMEPOT所需要的系统环境为如下。
+在 Android 上使用 GAMEPOT 所需要的系统环境为如下。
 
 \[ 系统环境 \]
 
-* 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 2.3.0以上
-* 开发环境: Android Studio
+- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 2.3.0 以上
+- 开发环境: Android Studio
 
 #### 创建项目
 
@@ -30,15 +30,15 @@ search:
 
 #### 添加库
 
-请把下载的AOS SDK文档添加到app/libs文件夹里。
+请把下载的 AOS SDK 文档添加到 app/libs 文件夹里。
 
 ![gamepot_android_02](./images/gamepot_android_02.png)
 
-#### 设置build.gradle
+#### 设置 build.gradle
 
-build.gradle文件同时存在于项目root文件夹和app文件夹中
+build.gradle 文件同时存在于项目 root 文件夹和 app 文件夹中
 
-1. 修改项目root文件夹的build.gradle文件
+1. 修改项目 root 文件夹的 build.gradle 文件
 
    ```java
    buildscript {
@@ -67,7 +67,7 @@ build.gradle文件同时存在于项目root文件夹和app文件夹中
    }
    ```
 
-2. 修改app文件夹的build.gradle
+2. 修改 app 文件夹的 build.gradle
 
    > \[xxxxx\]里请输入实际所使用的值。
 
@@ -170,7 +170,7 @@ apply plugin: 'com.google.gms.google-services'
 
     > 更改应用程序的软件包名称，使其与 google-service.json 中声明的软件包名称匹配。
 
-#### AndroidManifest.xml 설정
+#### AndroidManifest.xml 设定值
 
 添加游戏中常用的设置。 请参阅代码以获取每种设置的详细说明。
 
@@ -208,7 +208,7 @@ apply plugin: 'com.google.gms.google-services'
 </manifest>
 ```
 
-#### 设置Push Notification图标
+#### 设置 Push Notification 图标
 
 ![gamepot_android_04](./images/gamepot_android_04.png)
 
@@ -286,13 +286,13 @@ protected void onDestroy() {
 
 ## 3. 登录，退出，注销
 
-可以集成使用各种登录SDK。如Google，FaceBook，Naver等。
+可以集成使用各种登录 SDK。如 Google，FaceBook，Naver 等。
 
-### 设置Google\(Firebase\) Console
+### 设置 Google\(Firebase\) Console
 
-编译APK时所使用的Keystore的SHA-1值添加到Firebase console。
+编译 APK 时所使用的 Keystore 的 SHA-1 值添加到 Firebase console。
 
-> 请求开发公司提供SHA-1值。
+> 请求开发公司提供 SHA-1 值。
 
 ![gamepot_android_05](./images/gamepot_android_05.png)
 
@@ -614,7 +614,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### 尝试支付
 
-可以使用一个支付API来支付GooglePlay, OneStore
+可以使用一个支付 API 来支付 GooglePlay, OneStore
 
 > 请确保您在付款尝试〜付款完成/失败过程中浮动游戏中使用的加载屏幕，以确保您不会进行重复呼叫。
 
@@ -662,9 +662,9 @@ GamePotPurchaseDetailList details = GamePot.getInstance（）。GetPurchaseDetai
 
 ### 付款項目付款
 
-GAMEPOT無法非法支付，因為它通過服務器到服務器api完成對支付商店收據的驗證後向開發者服務器發出支付請求。
+GAMEPOT 無法非法支付，因為它通過服務器到服務器 api 完成對支付商店收據的驗證後向開發者服務器發出支付請求。
 
-要執行此操作，請參閱“服務器”中的“購買”項目到服務器api菜單。
+要執行此操作，請參閱“服務器”中的“購買”項目到服務器 api 菜單。
 
 ## 6. 外部付款
 
@@ -694,11 +694,11 @@ import io.gamepot.common.GamePot;
 GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPurchaseThirdPaymentsDetailList();
 ```
 
-## 7. 其他API
+## 7. 其他 API
 
-### Naver登錄
+### Naver 登錄
 
-#### build.gradle設置
+#### build.gradle 設置
 
 ```java
 android {
@@ -782,9 +782,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.LINE, new GamePotApp
 });
 ```
 
-### Twitter登錄
+### Twitter 登錄
 
-#### build.gradle設置
+#### build.gradle 設置
 
 ```java
 android {
@@ -810,7 +810,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.java設置
+#### MainActivity.java 設置
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -837,7 +837,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 
 使用用户输入的优惠卷时调用下面代码。
 
-> 输入优惠卷的UI界面，请由开发公司支持实现。
+> 输入优惠卷的 UI 界面，请由开发公司支持实现。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -859,15 +859,15 @@ GamePot.getInstance().coupon(/*用户所输入的优惠卷*/, new GamePotListene
 
 #### 項目付款
 
-如果成功使用優惠券，則要求開發者服務器通過服務器向服務器api支付該項目。
+如果成功使用優惠券，則要求開發者服務器通過服務器向服務器 api 支付該項目。
 
 要執行此操作，請參閱`服務器到服務器api`菜單中的`項目`項。
 
 ### Push on/off
 
-全体推送，夜间推送和广告推送的这3种类型的推送可以各个设置开关。
+全体推送，夜间推送和广告推送的这 3 种类型的推送可以各个设置开关。
 
-> 设置开关on/off的UI界面，请由开发公司来支持实现。
+> 设置开关 on/off 的 UI 界面，请由开发公司来支持实现。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -981,7 +981,7 @@ GamePot.getInstance().showCSWebView(/*目前Activity*/);
 
 在指定时间显示本地推送的方法为如下。
 
-> 返回所传达的pushid值由开发公司来管理。
+> 返回所传达的 pushid 值由开发公司来管理。
 
 ```java
 String date = "2018-09-27 20:00:00";
@@ -994,7 +994,7 @@ int pushid = GamePot.getInstance().sendLocalPush(builder);
 
 **取消注册推送**
 
-可以根据注册推送时所获得的pushid来取消现有的推送。
+可以根据注册推送时所获得的 pushid 来取消现有的推送。
 
 ```java
 GamePot.getInstance().cancelLocalPush(/*目前Activity*/, /*注册推送时获得的pushid*/);
@@ -1006,11 +1006,11 @@ GamePot.getInstance().cancelLocalPush(/*目前Activity*/, /*注册推送时获�
 
 #### 调用
 
-在现有的下面API里可以使用。
+在现有的下面 API 里可以使用。
 
 **1. login API**
 
-在现有login API里，把listener更改为`GamePotAppStatusChannelListener`。
+在现有 login API 里，把 listener 更改为`GamePotAppStatusChannelListener`。
 
 ```java
 GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {

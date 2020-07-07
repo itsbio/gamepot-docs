@@ -304,8 +304,6 @@ Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일�
 
 ③ 생성한 서브계정에 Object Storage 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_OBJECT_STORAGE_MANAGER** 권한을 부여합니다. (혹은 오브젝트 스토리지 권한을 포함한 권한)
 
-![gamepot_dashboard_20_02](./images/gamepot_dashboard_20_02.png)
-
 ③ 생성한 서브계정으로 접속한 다음, API 인증키를 발급받습니다.
 
 #### Step 1. API 인증키 준비
@@ -408,8 +406,6 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 ① 서브계정을 생성하여, SENS 서비스를 신청하기를 권장합니다. 본문의 **공지사항 -> Step 0** 를 참고하여, 서브계정을 생성합니다. (**Step 0** 와 마찬가지로, API 인증키 또한 서브계정에서 발급 받아주세요.)
 
 ② 생성한 서브계정에 SENS 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_SENS_MANAGER** (를 포함하는) 권한을 부여합니다.
-
-![gamepot_dashboard_27_01](./images/gamepot_dashboard_27_01.png)
 
 ① SENS와 연동하기 위해서는 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고, 생성한 서브계정으로 접속한 다음 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-2.html)를 참고하여 서비스 키를 발급 받습니다.
 
