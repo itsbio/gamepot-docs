@@ -268,6 +268,18 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
+### 3. Galaxy Store
+
+#### 3-1)
+
+    # Q. 로그인시 '삼성 인앱결제  선택한 상품이 없어요' 문구 노출됩니다.
+    # A. 앱이 배포가 안 된 경우 발생합니다.
+         앱 배포 전에 테스트 인앱 결제를 하기 위해서는 아래와 같이 진행되어야 합니다. 
+         대시보드 > 프로젝트 설정 > 화이트 유저 추가 (종류 : 개발 / 테스트 기기 IP) 설정을 합니다.
+
+![gamepot_faq_49](./images/gamepot_faq_49.png)
+
+
 ## Adbrix Remaster
 
     # Q. Adbrix Remaster 적용 후 IOS 빌드 시 Crash가 발생되요.
