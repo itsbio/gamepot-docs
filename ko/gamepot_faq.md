@@ -368,8 +368,11 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 7. 이전 시킬 사용자ID로 로그인된 클라이언트에서 로그아웃을 한 후 다시 로그인 과정을 진행
 
 ex) 4번 항목 예시 
+
 ![gamepot_faq_50](./images/gamepot_faq_50.png)
+
 ex) 6번 항목 예시
+
 ![gamepot_faq_51](./images/gamepot_faq_51.png)
 
 ## Casebook
