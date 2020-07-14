@@ -357,7 +357,6 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
 > 사용자ID 이관은 소셜 계정으로 연결된 사용자ID에서만 다른 사용자ID로 이관을 할 수 있습니다. 
 
-
     1. 이전을 시킬 사용자ID와 이전을 받을 사용자ID를 확보합니다.
     2. 이전을 시킬 사용자ID를 게임팟 대시보드 > 회원 > 목록 화면에서 사용자ID를 조회 후
        사용자ID를 클릭하여 상세 화면으로 이동합니다.
@@ -383,11 +382,156 @@ ex) 6번 항목 예시
     1. 게임팟 대시보드 > 회원 > 목록 화면에서 사용자ID를 조회 후
        사용자ID를 클릭하여 상세 화면으로 이동합니다.
     2. 회원 복구 버튼을 클릭 > 확인 버튼을 클릭합니다.
-
+    
     단. 사용자가 탈퇴 후 동일한 소셜 계정으로 로그인 과정을 진행하여 신규 사용자ID를 발급 받았다면
     1.2번 과정을 진행한 이후 사용자ID 이전하는 방법을 이용하여 사용자ID 이전 절차를 진행해야 합니다.   
- 
+
 ![gamepot_faq_52](./images/gamepot_faq_52.png)
+
+
+## 대시보드 사전예약 페이지 연동 방법
+
+### 1. 발신번호 신청 [[SMS 발신번호 신청 가이드](https://docs.ncloud.com/ko/sens/sens-1-3.html#%EB%B0%9C%EC%8B%A0%EB%B2%88%ED%98%B8-%EB%93%B1%EB%A1%9D%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)]
+
+> 발신번호 신청 및 해당 번호의 승인이 된 이후에 문자를 발송 할수 있습니다.
+
+
+### 2. 사전예약 페이지 연동 API 설명
+
+> API는  SMS 인증문자 발송 > SMS 인증완료 > SMS 사전예약 신청완료 순으로 진행이 되어야 합니다.
+
+#### 공통 사항 :  게임 > 사전예약 > 추가 > 명칭을 입력 후 저장한 상태
+GamePot 사전예약 페이지의 Category Id : 저장한 명칭을 선택 후 옆의 복사 아이콘을 클릭
+![gamepot_faq_53](./images/gamepot_faq_53.png)
+
+
+#### 3-1 SMS 인증문자 발송
+
+##### Request
+
+```text
+POST
+url : https://alpha-api.gamepot.io/v1/phone/request
+Header : 'content-type: application/json'
+data:
+{
+	"projectId":"ab2775b4-cf09-4794-9480-XXXXXXXXXXXX",
+	"categoryId":"b062a3f3-0a37-44d1-9e8f-XXXXXXXXXXXX",
+	"from":"XXXXXXX",
+	"to":"010XXXXXXX",
+	"store":"google"
+}
+```
+
+
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | -        | GamePot SDK의 projectId  |
+| categoryId    | String | -        | GamePot 사전예약 페이지의 categoryId    |
+| from          | String | -        | 승인 받은 발신번호                |
+| to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
+| store         | String | -        | 스토어 ( google, one, apple )  |
+
+#### Response
+
+```javascript
+{
+    "code": 200,
+    "message" : ""
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| code      | Int    | 결과값 \(200: 성공, 404 :실패 \)                    |
+| error     | String | 상황별 오류 내용 전달                                |
+
+#### 3-2 SMS 인증완료
+
+##### Request
+
+```text
+POST
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/phone/verify
+Header : 'content-type: application/json'
+data:
+{
+	"projectId":"ab2775b4-cf09-4794-9480-XXXXXXXXXXXX",
+	"categoryId":"b062a3f3-0a37-44d1-9e8f-XXXXXXXXXXXX",
+	"code":"6137",
+	"to":"010XXXXXXX",
+	"store":"google"
+}
+```
+
+
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | -        | GamePot SDK의 projectId  |
+| categoryId    | String | -        | GamePot 사전예약 페이지의 categoryId    |
+| code          | String | -        | 수신 받은 인증번호                |
+| to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
+| store         | String | -        | 스토어 ( google, one, apple )  |
+
+#### Response
+
+```javascript
+{
+    "code": 200,
+    "message" : ""
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| code      | Int    | 결과값 \(200: 성공, 404 :실패 \)                    |
+| error     | String | 상황별 오류 내용 전달                                |
+
+
+#### 3-3 SMS 사전예약 신청완료
+
+##### Request
+
+```text
+POST
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/phone/join
+Header : 'content-type: application/json'
+data:
+{
+	"projectId":"ab2775b4-cf09-4794-9480-XXXXXXXXXXXX",
+	"categoryId":"b062a3f3-0a37-44d1-9e8f-XXXXXXXXXXXX",
+	"code":"6137",
+    "from":"025228877",
+	"to":"010XXXXXXX",
+	"store":"google",
+    "tag":""
+}
+```
+
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | -        | GamePot SDK의 projectId  |
+| categoryId    | String | -        | GamePot 사전예약 페이지의 categoryId    |
+| code          | String | -        | 수신 받은 인증번호                |
+| from          | String | -        | 승인 받은 발신번호                 |
+| to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
+| store         | String | -        | 스토어 ( google, one, apple )  |
+| tag           | String | -        | 기타정보 ( 유입 경로 같은 정보  )   |
+
+#### Response
+
+```javascript
+{
+    "code": 200,
+    "message" : ""
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| code      | Int    | 결과값 \(200: 성공, 404 :실패 \)                    |
+| error     | String | 상황별 오류 내용 전달                                |
+
 
 ## Casebook
 
