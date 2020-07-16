@@ -79,7 +79,7 @@ search:
 
 ### Facebook 控制台设置
 
-[Facebook Developers](https://developers.facebook.com/apps) 에서 앱 생성 후 앱 ID 사용
+在[Facebook Developers](https://developers.facebook.com/apps)中创建应用并使用应用 ID
 
 > 例) 149235210820417
 
