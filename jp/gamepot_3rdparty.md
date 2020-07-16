@@ -256,16 +256,14 @@ _`[FB UnityPackage ver 7.18.0]`_
 | 21. support-core-ui-27.1.1.aar         | 22. support-core-utils-27.1.1.aar      |
 | 23. support-fragment-27.1.1.aar        | 24. support-media-compat-27.1.1.aar    |
 | 25. support-v4-27.1.1.aar              | 26. support-vector-drawable-27.1.1.aar |
-| 27. support-annotations-27.1.1.jar     |
-|                                        |                                        |
+| 27. support-annotations-27.1.1.jar     |                                        |
 
 - （iOS の場合）重複しているフレームワークのリストを/ Assets/ Plugins/ IOS/ Frameworks/削除してください。
 
-  |                            |     |
-  | :------------------------- | :-- |
+  |                            |
+  | :------------------------- |
   | 1. FBSDKCoreKit.framework  |
   | 2. FBSDKLoginKit.framework |
-  |                            |     |
 
 ⒉ UnityEditer 上 FacebookSettings に Facebook App Id を入力して、赤表示されたボタンを押して AndroidManifest を Regenerate ください。
 

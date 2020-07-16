@@ -7,7 +7,7 @@ search:
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 
@@ -71,16 +71,16 @@ build.gradle 文件同时存在于项目 root 文件夹和 app 文件夹中
 
    > \[xxxxx\]里请输入实际所使用的值。
 
-| 值                           | 说明                                                                                         |
-| :--------------------------- | :------------------------------------------------------------------------------------------- |
-| gamepot_project_id           | 请输入 GAMEPOT 发布的项目 ID。                                                               |
-| gamepot_store                | 储值（`google`或`one`或`银河`)                                                               |
-| gamepot_payment              | 付款方式值（仅在商店为 google 时适用，当前支持`mycard` ）                                    |
-| gamepot_app_title            | 应用标题（FCM ）                                                                             |
-| gamepot_push_default_channel | 注册的默认频道名称（默认）-请勿更改。                                                        |
-| facebook_app_id              | Facebook 应用程序 ID                                                                         |
-| fb_login_protocol_scheme     | Facebook 发布的协议方案 fb \[app_id \]                                                       |
-| gamepot_elsa_projectid       | 使用 NCLOUD ELSA 时的项目 ID （[阅读更多]（https://www.ncloud.com/product/analytics/elsa）） |
+| 值                           | 说明                                                                                      |
+| :--------------------------- | :---------------------------------------------------------------------------------------- |
+| gamepot_project_id           | 请输入 GAMEPOT 发布的项目 ID。                                                            |
+| gamepot_store                | 储值（`google`或`one`或`银河`)                                                            |
+| gamepot_payment              | 付款方式值（仅在商店为 google 时适用，当前支持`mycard` ）                                 |
+| gamepot_app_title            | 应用标题（FCM ）                                                                          |
+| gamepot_push_default_channel | 注册的默认频道名称（默认）-请勿更改。                                                     |
+| facebook_app_id              | Facebook 应用程序 ID                                                                      |
+| fb_login_protocol_scheme     | Facebook 发布的协议方案 fb \[app_id \]                                                    |
+| gamepot_elsa_projectid       | 使用 NCLOUD ELSA 时的项目 ID （[阅读更多](https://www.ncloud.com/product/analytics/elsa)) |
 
 ```java
 android {
@@ -1224,13 +1224,13 @@ String json_value = GamePot.getInstance().getConfigs();
 
 以下是可用保留字定义的表。
 
-| 예약어                            | 필수 | 타입   | 설명         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
-| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
-| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
-| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
-| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+| 保留字                            | 必填 | 类型   | 描述      |
+| :-------------------------------- | :--- | :----- | :-------- |
+| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名字  |
+| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 水平      |
+| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID |
+| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   |
+| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       |
 
 ```java
 import android.text.TextUtils;

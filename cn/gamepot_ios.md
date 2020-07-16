@@ -8,7 +8,7 @@ search:
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 

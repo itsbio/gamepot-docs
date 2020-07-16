@@ -7,7 +7,7 @@ search:
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 
@@ -137,14 +137,14 @@ resValue "string", "[key]", "[value]"
 
 ![gamepot_unity_07](./images/gamepot_unity_07.png)
 
-| 环境变量| 描述
-| ：---------------------------- | ：------------------------------------------------- --- |
-| gamepot_project_id | 请输入 GAMEPOT 发布的项目 ID。 |
-| gamepot_facebook_app_id | Facebook 应用程序 ID |
-| gamepot_facebook_display_name | Facebook 上显示的名称|
-| gamepot_google_app_id | GoogleService-Info 文件中的 CLIENT_ID 值|
-| gamepot_google_url_schemes | GoogleService-Info 文件中的 REVERSED_CLIENT_ID 值|
-| gamepot_elsa_projectid | 使用 NCLOUD ELSA 时的项目 ID |
+| 环境变量                      | 描述                                              |
+| ----------------------------- | ------------------------------------------------- |
+| gamepot_project_id            | 请输入 GAMEPOT 发布的项目 ID。                    |
+| gamepot_facebook_app_id       | Facebook 应用程序 ID                              |
+| gamepot_facebook_display_name | Facebook 上显示的名称                             |
+| gamepot_google_app_id         | GoogleService-Info 文件中的 CLIENT_ID 值          |
+| gamepot_google_url_schemes    | RoogleService-Info 文件中的 REVERSED_CLIENT_ID 值 |
+| gamepot_elsa_projectid        | 使用 NCLOUD ELSA 时的项目 ID                      |
 
 添加场景后，运行“文件”>“构建设置”>“构建并运行”，操作就完成了。
 
@@ -296,7 +296,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ![gamepot_unity_26](./images/gamepot_unity_26.png)
 
-**添加 Xcode>目标>签名和功能> +功能> GameCenter。\*\***在 Xcode 中添加 Gamekit.framework>构建阶段>库链接二进制\*\*。
+**添加 Xcode>目标>签名和功能> +功能> GameCenter。**在 Xcode 中添加 Gamekit.framework>构建阶段>库链接二进制。
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
 

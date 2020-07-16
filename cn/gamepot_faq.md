@@ -2,7 +2,7 @@
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 
@@ -264,7 +264,7 @@
 
 ![gamepot_faq_26](./images/gamepot_faq_26.png)
 
-**A-2. 원스토어 결제화면이 Production 환경인 경우**
+**A-2. 当单店付款屏幕处于生产环境中时**
 
 - Gamepot 仪表板-项目设置-在测试用户菜单中，通过`付款/优惠券`检查 IP 是`未使用`还是`未注册`。
 
@@ -439,7 +439,7 @@ iOS 需要根据构建时使用的配置文件的类型来注册不同的证书�
 
     5.对于IOS，在Xcode中构建时，推送通知应包含在功能中。如果无法收到，请检查在构建过程中是否未添加相关部分。
 
-#### 8. IOS 결제 테스트 방법
+#### 8. iOS 付款测试方法
 
     iOS付款测试方法
 
@@ -483,7 +483,7 @@ iOS 需要根据构建时使用的配置文件的类型来注册不同的证书�
     [strings.xml]
     <?xml version="1.0" encoding="utf-8"?>
         <resources>
-            <string name="app_name">언어에 맞게 앱 이름을  설정</string>
+            <string name="app_name">根据语言设置应用名称</string>
         </resources>
 
 IOS 设置如下。
@@ -499,7 +499,7 @@ IOS 设置如下。
 4. 选择一种语言后，将创建相关文件，并且可以为每个文件指定相应的应用程序名称。
 
    [InfoPlist.string]
-   CFBundleDisplayName="언어에 맞게 앱 이름을 설정";
+   CFBundleDisplayName="根据语言设置应用名称";
 
 ![gamepot_faq_43](./images/gamepot_faq_43.png)
 

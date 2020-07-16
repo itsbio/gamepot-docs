@@ -2,7 +2,7 @@
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 
@@ -256,16 +256,14 @@ _`[FB UnityPackage ver 7.18.0]`_
   | 21. support-core-ui-27.1.1.aar         | 22. support-core-utils-27.1.1.aar      |
   | 23. support-fragment-27.1.1.aar        | 24. support-media-compat-27.1.1.aar    |
   | 25. support-v4-27.1.1.aar              | 26. support-vector-drawable-27.1.1.aar |
-  | 27. support-annotations-27.1.1.jar     |
-  |                                        |                                        |
+  | 27. support-annotations-27.1.1.jar     |                                        |
 
 - （对于 iOS）从/ Assets / Plugins / IOS / Frameworks /中删除重叠的框架列表。
 
-  |                            |     |
-  | :------------------------- | :-- |
+  |                            |
+  | :------------------------- |
   | 1. FBSDKCoreKit.framework  |
   | 2. FBSDKLoginKit.framework |
-  |                            |     |
 
 ⒉ U 在 UnityEditer 的 FacebookSettings 中输入 Facebook 应用 ID，然后单击红色按钮以重新生成 AndroidManifest。
 

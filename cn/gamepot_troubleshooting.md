@@ -2,7 +2,7 @@
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 
@@ -34,12 +34,11 @@ logging제与日志记录功能相关的过时库引起的问题
 
 ⒉（如果您不使用仪表板日志功能）从 Gamepot SDK 的库中删除下面列出的库
 
-|                                        |     |
-| :------------------------------------- | :-- |
+|                                        |
+| :------------------------------------- |
 | 1. gamepot-logger.aar                  |
 | 2. nelo2-android-sdk-common-0.10.2.jar |
 | 3. nelo2-android-sdk-https-0.10.2.jar  |
-|                                        |     |
 
 ## Line i386 x86_64 IOS Archive 上传问题
 
@@ -179,7 +178,7 @@ fileTree(dir: 'libs', include: ['*.aar'])
 
 ## （统一）在应用 Naver Plug SDK（plug_sdk_4_4_7.unitypackage.unitypackage 或更高版本）时，会发生 IOS 构建错误。
 
-- 通过[链接]下载并提取补丁文件（https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip）（GamePotNaver.framework）
+- 通过[链接](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip）（GamePotNaver.framework)下载并提取补丁文件
 
 - 将下载的补丁（GamePotNaver.framework）替换为现有路径的框架。
 

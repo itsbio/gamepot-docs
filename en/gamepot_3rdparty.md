@@ -256,16 +256,14 @@ _`[FB UnityPackage ver 7.18.0]`_
   | 21. support-core-ui-27.1.1.aar         | 22. support-core-utils-27.1.1.aar      |
   | 23. support-fragment-27.1.1.aar        | 24. support-media-compat-27.1.1.aar    |
   | 25. support-v4-27.1.1.aar              | 26. support-vector-drawable-27.1.1.aar |
-  | 27. support-annotations-27.1.1.jar     |
-  |                                        |                                        |
+  | 27. support-annotations-27.1.1.jar     |                                        |
 
 - (For iOS) Remove the overlapping framework list from /Assets/Plugins/IOS/Frameworks/.
 
-  |                            |     |
-  | :------------------------- | :-- |
+  |                            |
+  | :------------------------- |
   | 1. FBSDKCoreKit.framework  |
   | 2. FBSDKLoginKit.framework |
-  |                            |     |
 
   ⒉ Enter Facebook App Id in FacebookSettings on UnityEditer, and click the red button to regenerate AndroidManifest.
 

@@ -8,7 +8,7 @@ search:
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
 >
-> #### 如有任何疑问，请[联系我们]（https://www.ncloud.com/support/question）。
+> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
 >
 > 我们将尽一切努力进一步改善我们的服务。
 
@@ -949,9 +949,9 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
   "status": 1,
   "result": {
     "id": "xxxxxxxxxxxxxxx",
-    "player_id": "테스트아이디",
-    "server_id": "테스트서버",
-    "name": "테스트이름",
+    "player_id": "测试编号",
+    "server_id": "测试服务器",
+    "name": "测试名称",
     "level": "12",
     "userdata": "dododo",
     "ip": "xxx.xxx.xxx.xxx",
