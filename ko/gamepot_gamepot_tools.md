@@ -124,7 +124,7 @@ IOS Bulid에 관한 Gamepot 프로젝트 환경을 설정합니다.
 
 ⑤ 선택한 모듈 목록에  대해, 필요한 의존성 패키지를 구성합니다.
 
- - 모듈을 처음 선택시, 노란색은 의존성 패키지 호환성이 완료되지않았음을 의미합니다. 이 때, '해결' 기능을 통해, 패키지 호환성을 맞춰주어야 합니다. (일부 써드파티 모듈의 경우, 사전에 play resolver를 먼저 수행해야 합니다.)
+ - 모듈을 처음 선택시, 노란색은 '의존성 패키지 호환성이 완료되지 않았음' 을 의미합니다. 이 때, '해결' 기능을 통해, 패키지 호환성을 맞춰주어야 합니다. (일부 써드파티 모듈의 경우, 사전에 android play resolver를 먼저 수행해야 합니다.)
 
 ![gamepot_unitools_11_1](./images/gamepot_unitools_11_2.png)
 
@@ -132,18 +132,17 @@ IOS Bulid에 관한 Gamepot 프로젝트 환경을 설정합니다.
 
  - 프로젝트 내에, 해당 패키지가 없기 때문에, CDN 서버에서 다운로드합니다.
  
- ![gamepot_unitools_12_1](./images/gamepot_unitools_12_1.png) 
+![gamepot_unitools_12_1](./images/gamepot_unitools_12_1.png) 
 
- - 로컬에 패키지가 없습니다. 표시된 경로에 다운로드가 진행됩니다. 
- 
+ - 로컬에 패키지가 없는 경우입니다. 표시 경로에 다운로드가 진행됩니다. 
+
  ![gamepot_unitools_12_2](./images/gamepot_unitools_12_2.png) 
 
-- 중복된 패키지가 존재합니다. 권장버전의 패키지만 남기고 나머지는 삭제됩니다.
- 
+- 중복된 패키지가 존재하는 경우입니다. 권장버전의 패키지만 남기고 나머지는 삭제됩니다.
 
 ![gamepot_unitools_12_3](./images/gamepot_unitools_12_3.png)
 
- - 최신버전의 패키지가 설치되어 있습니다. 현재 상태를 유지합니다.
+ - 권장버전의 패키지가 설치되어 있는 경우입니다. 현재 상태를 유지합니다.
 <br>모든 '선택됨' 버튼을 재클릭하여 선택 해제하면, 기존 패키지를 삭제하고 CDN 서버에서 다시 다운로드 할 수 있습니다.
 
 ![gamepot_unitools_12_4](./images/gamepot_unitools_12_4.png)
@@ -155,7 +154,6 @@ IOS Bulid에 관한 Gamepot 프로젝트 환경을 설정합니다.
 - Resolving이 완료되면, 해당 모듈 항목이 초록색으로 변합니다.
 
 ![gamepot_unitools_12_6](./images/gamepot_unitools_12_6.png) 
-
 
 ### 언어변경
 
