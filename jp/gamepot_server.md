@@ -1,228 +1,189 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
 
-## Purchase Webhook
 
-決済完了後に GAMEPOT サーバからゲームサーバにアイテム支給のために HTTP リクエストをします。
+#### **NAVERクラウドプラットフォーム商品の使用方法をより詳細に提供し、様々なAPIの活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[APIリファレンス]</a>を分けて提供しています。**
 
-> GAMEPOT はクライアントから転送された決済情報を基にストア領収証の検証まで進めるため違法決済の試しを防ぎます。
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT APIリファレンスへ >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT説明書へ >></a>
 
-### Request
 
-HTTP リクエストの際の情報は以下のような内容で転送し、当該情報を基にユーザーにアイテムを支給してください。
+# Server API
 
-> `{domain}` 項目はデベロッパー社で作業完了後知らせる必要があり、この値は**GAMEPOT ダッシュボード - プロジェクト設定 - 一般 - Webhook** 項目に追加する必要があります。
+## GAMEPOTサーバ &gt; ゲームサーバ
+
+### Purchase Webhook\(required\)
+
+決済が完了すると、GAMEPOTサーバからゲームサーバにアイテム支給のためのHTTPリクエストを行います。
+
+> GAMEPOTは、ユーザーから伝達された決済情報をもとにストア領収証の検証まで行って不正決済を防いでいます。
+
+#### Request
+
+HTTPリクエストの際に以下のような内容の情報を伝えます。その情報をもとにユーザーにアイテムを支給してください。
+
+> `{domain}`項目は開発会社で操作を完了してから知らせてください。この値はGAMEPOTダッシュボード - プロジェクトの設定 - 一般 - Webhook項目に追加する必要があります。
 
 ```java
 https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
-| Attribute      | Type   | Description                                                            |
-| -------------- | ------ | ---------------------------------------------------------------------- |
-| userId         | String | ユーザー UID                                                           |
-| transactionId  | String | 注文番号(GPA-xxxx-xxxx-)                                               |
-| store          | String | ストア情報(ios, google, one)                                           |
-| projectId      | String | プロジェクト ID                                                        |
-| productId      | String | グーグル/アップル/ワンストアに登録された商品 ID                        |
-| platform       | String | オペレーティング Platform 情報 (android, ios)                          |
-| payment        | String | 決済方法 ( apple, google, one, danal, mycard, mol ... )                |
-| orderId        | String | **Deprecated** Unique id (purchase api 呼び出しの際に入れた unique id) |
-| uniqueId       | String | Unique id (purchase api 呼び出しの際に入れた unique id)                |
-| gamepotOrderId | String | GAMEPOT Order id                                                       |
+| Attribute| Type| Max Length| Description|
+| :------------- | :----- | :--------- | :--------------------------------------------------------|
+| userId| String| 128| ユーザーID|
+| transactionId| String| 512| 注文番号\(GPA-xxxx-xxxx-\)|
+| store| String| 64| ストア情報\(apple、google、one\)|
+| projectId| String| 128| プロジェクトID|
+| productId| String| 256| Google/Apple/ONE Storeに登録された商品ID|
+| platform| String| 128| 運用プラットフォーム情報\(android、ios\)|
+| payment| String| 64| 決済方法 \( apple、google、one、danal、mycard、mol...\) |
+| uniqueId| String| 512| Unique id \(purchase api呼び出しの際に入れたunique id\)|
+| gamepotOrderId| String| 512| GAMEPOT Order id|
+| serverId| String| -| serverId \(purchase api呼び出しの際に入れたserverId\)|
+| playerId| String| -| playerId \(purchase api呼び出しの際に入れたplayerId\)|
+| etc| String| -| etc \(purchase api呼び出しの際に入れたetc\)|
 
-### Response
+#### Response
 
-レスポンスは以下のような形式にしてください。
+レスポンスは以下のような形式で行ってください。
 
-```json
+```javascript
 {
-  "status": 1,
-  "message": ""
+    "status": 1,
+    "message" : ""
 }
 ```
 
-| Attribute | Type   | Description                 |
-| --------- | ------ | --------------------------- |
-| status    | Int    | 結果値 ( 0: 失敗, 1: 成功 ) |
-| message   | String | エラー内容                  |
+| Attribute| Type| Description|
+| :-------- | :----- | :---------------------------- |
+| status| Int| 結果値\( 0：失敗、1：成功 \)|
+| message| String| エラー内容|
 
-## Item Webhook
+### Item Webhook\(required\)
 
-クーポン使用後 GAMEPOT サーバからゲームサーバにアイテム支給のために HTTP リクエストをします。
+クーポンを使用すると、GAMEPOTサーバからゲームサーバにアイテム支給のためのHTTPリクエストを行います。
 
-### Request
+#### Request
 
-HTTP リクエストの際の情報は以下のような内容で転送し、当該情報を基にユーザーにアイテムを支給してください。
+HTTPリクエストの際に以下のような内容の情報を伝えます。その情報をもとにユーザーにアイテムを支給してください。
 
-> `{domain}` 項目はデベロッパー社で作業完了後知らせる必要があり、この値は**GAMEPOT ダッシュボード - プロジェクト設定 - 一般 - Webhook** 項目に追加する必要があります。
+> `{domain}`項目は開発会社で操作を完了してから知らせてください。この値はGAMEPOTダッシュボード - プロジェクトの設定 - 一般 - Webhook項目に追加する必要があります。
 
-```web-idl
+```text
 https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| Attribute | Type            | Description                                                                                                        |
-| --------- | --------------- | ------------------------------------------------------------------------------------------------------------------ |
-| userId    | String          | ユーザー ID                                                                                                        |
-| projectId | String          | Project ID                                                                                                         |
-| platform  | String          | オペレーティング Platform 情報 (Android, IOS)                                                                      |
-| store     | String          | ストア情報(ios, google, one)                                                                                       |
-| userData  | String          | coupon api 呼び出しの際に二番目のパラメータに入れた値                                                              |
-| itemId    | Array<itemData> | itemData Array<br /><br />- itemData(JSON) <br /> {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| Attribute| Type| Max Length| Description|
+| :-------- | :----- | :--------- | :------------------------------------------------------------------------------------------------- |
+| userId| String| 128| ユーザーID|
+| projectId| String| 128| Project ID|
+| platform| String| 128| 運用プラットフォーム情報 \(Android、IOS\)|
+| store| String| 64| ストア情報\(apple、google、one\)|
+| title| String| -| GAMEPOTダッシュボード > ゲーム > プレゼントする > 件名に入力した値|
+| content| String| -| GAMEPOTダッシュボード > ゲーム > プレゼントする > 説明に入力した値|
+| userData| String| -| coupon api呼び出しの際に、二番目のパラメータに入力した値|
+| itemId| Array| -| itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number}|
 
-> ex)
+> ex\)
 >
-> https://{domain}?itemId=[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb
+> [https://{domain}?itemId=\[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb](https://{domain}?itemId=[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb)
 
-### Response
+#### Response
 
-レスポンスは以下のような形式にしてください。
+レスポンスは以下のような形式で行ってください。
 
-```json
+```javascript
 {
-  "status": 1,
-  "message": ""
+    "status": 1,
+    "message" : ""
 }
 ```
 
-| Attribute | Type   | Description                |
-| --------- | ------ | -------------------------- |
-| status    | Int    | 結果値( 0: 失敗, 1: 成功 ) |
-| message   | String | エラー内容                 |
+| Attribute| Type| Description|
+| :-------- | :----- | :---------------------------- |
+| status| Int| 結果値\( 0：失敗、1：成功 \)|
+| message| String| エラー内容|
 
-## Token Authentication
+## ゲームサーバ &gt; GAMEPOTサーバ
 
-ゲームにログイン完了後に得た情報で GAMEPOT サーバにログイン検証をすることができます。
+### Token Authentication\(optional\)
 
-トックン検証は 2 段階で進められ、1 段階の GAMEPOT トックン(Token)検証後 2 段階のソーシャルトックンの検証が進められます。
+ゲームログイン完了後に取得した情報を用いて、GAMEPOTサーバでログイン検証ができます。
 
-> 2 段階の検証は **GAMEPOT ダッシュボード - プロジェクト設定 - Auth key**に値が入力されていなければなりません。
+トークン検証は2段階で行われ、第1段階のGAMEPOTトークン検証の後、第2段階のソーシャルトークン検証が行われます。
 
-1 段階の GAMEPOT トックンの検証はログイン後に得た MemberID, Token で同期トックン検証を進め、
+> 第2段階の検証ではGAMEPOTダッシュボード - プロジェクトの設定 - Auth keyに値を入力する必要があります。
 
-2 段階のソーシャルトックン検証はグーグルログインやフェイスブックログインを通じて獲得したソーシャルアカウントのトックンでソーシャル非同期トックン検証を進めます。
+第1段階のGAMEPOTトークン検証では、ログイン後に取得したMemberID(ユーザーID)、Tokenで同期トークン検証を行い、
 
-2 段階で検証に失敗した場合には GAMEPOT 利用停止機能が作動されてその後再ログインの際にログインできません。
+第2段階のソーシャルトークン検証では、GoogleログインやFacebookログイン時に取得したソーシャルアカウントのトークンでソーシャル非同期トークン検証を行います。
 
-> 検証失敗による利用停止は**GAMEPOT ダッシュボード - プロジェクト設定 - Auth key**項目でスイッチが ON になっている場合のみ作動し、利用停止対象者は **GAMEPOT ダッシュボード - 会員 - 利用停止**メニューで確認できます。
+第2段階で検証に失敗した場合はGAMEPOTの利用停止機能が作動し、その後再ログインはできません。
 
-### Request
+> 検証失敗による利用停止は、GAMEPOTダッシュボード - プロジェクトの設定 - Auth key項目でスイッチがONになっている場合にのみ作動し、利用停止対象者はGAMEPOTダッシュボード - 会員 - 利用停止メニューで確認できます。
 
-データインテグリティのためにクライアントではなくデベロッパー社のサーバで進めてください。
+**第1段階の検証を同期処理しないでください!**
 
-> {API URL} 項目は GAMEPOT ダッシュボードアドレスで `:8080`を除いたアドレスです。
+ユーザーがログインするプロセスですが、この機能を同期処理するとネットワーク通信による遅延が発生してゲーム利用の妨げになります。また、当該ネットワーク通信が物理的に分離されている状況なので、それによってネットワーク通信が不安定になる場合が多々あります。
 
-```web-idl
+この機能は非同期処理し、その後にゲーム利用を制限する形で機能を実装してください。
+
+#### Request
+
+データ完全性のために、ゲームクライアントではなく開発会社のサーバで行ってください。
+
+```text
 POST
-url : https://{API URL}/loginauth
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
 Header : 'content-type: application/json'
 data:
 {
-	"projectId": {GAMEPOT SDKのprojectId},
-	"memberId": {GAMEPOT SDKのmemberId},
-	"token": {GAMEPOT SDKのToken}
+    「projectId」：{GamePot SDKのprojectId}、
+    「memberId」：{GamePot SDKのmemberid(メンバーID)}、
+    「token」：{GamePot SDKのToken}
 }
 ```
 
-| Attribute | Type   | Description              |
-| --------- | ------ | ------------------------ |
-| projectId | String | GAMEPOT SDK の projectId |
-| memberId  | String | GAMEPOT SDK の memberId  |
-| token     | String | GAMEPOT SDK の Token     |
+| Attribute| Type| Max Length| Description|
+| :-------- | :----- | :--------- | :---------------------- |
+| projectId| String| 128| GamePot SDKのprojectId|
+| memberId| String| 128| GamePot SDKのmemberid(メンバーID)|
+| token| String| 2048| GamePot SDKのToken|
 
-### Response
+#### Response
 
-1 段階の検証で検証失敗した場合は Status が 1 ではない値が入力されます。
+第1段階検証で検証に失敗した場合、statusに1ではない値が入力されます。
 
-この場合はゲームへのアクセスを制限してください。
+この場合はゲーム入場を制限してください。
 
-```json
+```javascript
 {
-  "status": 1,
-  "message": ""
+    "status": 1,
+    "message" : ""
 }
 ```
 
-| Attribute | Type   | Description                                        |
-| --------- | ------ | -------------------------------------------------- |
-| status    | Int    | 結果値 (1: 成功, 失敗は以下の Error code をご参照) |
-| message   | String | エラー内容                                         |
+| Attribute| Type| Description|
+| :-------- | :----- | :---------------------------------------------- |
+| status| Int| 結果値\(1：成功、失敗は以下のError code参照\)|
+| message| String| エラー内容|
 
-### Error code
+#### Error code
 
-| Code | Description                                                                                                              |
-| ---- | ------------------------------------------------------------------------------------------------------------------------ |
-| 0    | Body に欠落したデータがある場合<br />HTTP リクエストの際 projectId, memberId, token を全て入れたか確認してください。     |
-| -1   | Token 検証の失敗<br />Token が捏造された場合                                                                             |
-| -2   | MemberId 検証失敗<br />Token の MemberId 情報と Body の MemberId が一致しない場合                                        |
-| -3   | Token の満了<br />SDK Login API が成功した時刻と当該 Authentication check をリクエストした時刻が 10 分以上差が生じた場合 |
-
-## Push notification
-
-ゲームサーバからユーザーにプッシュを送信しようとする場合に使用できるサーバプッシュです。
-
-NAVER クラウドプラットフォームの Simple & Easy Notification Service を通じてユ―ザーに通知メッセージを発送するため、Simple & Easy Notification Service 商品に関する設定が先行されていなければなりません。
-
-### Request
-
-`{API URL}`は GAMEPOT ダッシュボードアドレスで `:8080`を除いたアドレスであり
-
-`{API KEY}`は **ダッシュボード - プロジェクト設定 - NCloud - API 認証キー - Access Key**を入れてください。
-
-```web-idl
-POST
-url : https://{API URL}/push
-Header : 'content-type: application/json'
-Header : 'x-api-key: {API KEY}'
-data:
-{
-	"projectId": {GAMEPOT SDKのprojectId},
-	"message": {ユーザーに送信するプッシュメッセージ},
-	"title": {ユーザーに送信するプッシュのタイトル},
-	"target": {プッシュを受け取るユーザーのmemberId 配列}
-}
-```
-
-| Attribute | Type         | Description                                                                                                                                                 |
-| --------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| projectId | String       | GAMEPOT SDK の projectId                                                                                                                                    |
-| message   | String       | ユーザーに送信するプッシュメッセージ                                                                                                                        |
-| title     | String       | ユーザーに送信するプッシュのタイトル(基本値はアプリのタイトル)                                                                                              |
-| target    | String Array | プッシュを受け取るユーザーの memberId 配列 **(最大 100 個)**<br />["e87b3a....","d28a30...."]<br />ユーザー全体に送信する際は空欄の配列[]を入れてください。 |
-
-### Response
-
-この場合はゲームへのアクセスを制限してください。
-
-```json
-{
-  "status": 1,
-  "message": "success"
-}
-```
-
-| Attribute | Type   | Description                                      |
-| --------- | ------ | ------------------------------------------------ |
-| status    | Int    | 結果値 (1: 成功, 失敗は以下の Error code を参照) |
-| message   | String | エラー内容                                       |
-
-### Error code
-
-| Code | Description                                                                                                                                                      |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Body またはヘッダーに欠落したデータがある場合<br />Request にあるデータを全て盛り込んだか確認してください。                                                      |
-| -1   | Request の target 値のエラー<br />String Array に値を入れたか確認してください。 ["e87b3a....","d28a30...."]                                                      |
-| -2   | ヘッダーで X-API-KEY 値のエラー<br />ダッシュボード - プロジェクト設定 - NCloud - API 認証キー - Access Key とヘッダーで `X-API-KEY`が一致しなければなりません。 |
-| -3   | ダッシュボードに Access Key がない場合<br />ダッシュボード - プロジェクト設定 - NCloud - API 認証キー - Access Key を入れてください。                            |
-| -4   | Request の `projectId`値のエラー<br />`projectId` 値が正しいか確認してください。                                                                                 |
-| -5   | DB エラー<br /> GAMEPOT に問い合わせてください。                                                                                                                 |
+| Code| Description|
+| :--- | :-------------------------------------------------------------------------------------------------------------- |
+| 0| Bodyに漏れデータがある場合、HTTPリクエストの際にprojectId、memberId、tokenをすべて入力したか確認してください。|
+| -1| Token検証失敗Tokenが捏造された場合|
+| -2| MemberId検証失敗TokenのMemberId情報とbodyのMemberIdが一致しない場合|
+| -3| Token満了SDK login apiが成功した時刻とそのAuthentication checkをリクエストした時刻の間に10分以上の差が生じた場合|
 
 ### ThirdParty Purchase
 
-> この機能は、一般的に使用されていない機能であるため、適用前 GAMEPOT にお問い合わせください。
+> この機能は一般的には使用されない機能なので、適用前にGAMEPOTまでお問い合わせください。
 
 #### Request
 
@@ -245,23 +206,23 @@ data:
 }
 ```
 
-| Header    | Type   | Required | Description                |
-| :-------- | :----- | :------- | :------------------------- |
-| x-api-key | String | O        | GamePot で発行する認証キー |
+| Header| Type| Required| Description|
+| :-------- | :----- | :------- | ---------------------------- |
+| x-api-key| String| O| GamePotで発行する認証キー|
 
 <br/>
 
-| Attribute     | Type   | Required | Description              |
-| :------------ | :----- | :------- | :----------------------- |
-| projectId     | String | O        | GamePot SDK の projectId |
-| store         | String | O        | 決済ストア               |
-| productId     | String | O        | 決済アイテム名           |
-| transactionId | String | O        | 決済一意の ID            |
-| memberId      | String | O        | GamePot SDK の memberId  |
-| currency      | String | X        | 決済通貨                 |
-| price         | Number | X        | 決済金額                 |
-| paymentId     | String | X        | 決済手段                 |
-| uniqueId      | String | X        | ゲーム内課金一意の ID    |
+| Attribute| Type| Max Length| Required| Description|
+| :------------ | :----- | :--------- | :------- | :---------------------- |
+| projectId| String| 128| O| GamePot SDKのprojectId|
+| store| String| 64| O| 決済ストア|
+| productId| String| 256| O| 決済アイテムID|
+| transactionId| String| 512| O| 決済固有ID|
+| memberId| String| 128| O| GamePot SDKのmemberid(メンバーID)|
+| currency| String| 64| X| 決済通貨|
+| price| Number| -| X| 決済金額|
+| paymentId| String| 64| X| 決済方法|
+| uniqueId| String| 512| X| ゲーム内決済の固有ID|
 
 #### Response
 
@@ -272,18 +233,18 @@ data:
 }
 ```
 
-| Attribute | Type   | Description                                   |
-| :-------- | :----- | :-------------------------------------------- |
-| status    | Int    | 結果\(1：成功、失敗は以下の Error code 参考\) |
-| message   | String | エラーの内容                                  |
+| Attribute| Type| Description|
+| :-------- | :----- | :---------------------------------------------- |
+| status| Int| 結果値\(1：成功、失敗は以下のError code参照\)|
+| message| String| エラー内容|
 
 #### Error code
 
-| Code | Description                                                                                                                         |
-| :--- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| -1   | Body に不足しているデータがある場合<br/> projectId、transactionId、productId、store、memberId をすべて入れたのか確認してください。  |
-| -2   | price の値が number 型ではない場合<br/> number 型に入れてください。                                                                 |
-| -3   | projectId がない場合は<br/>入力し projectId を再確認してください。                                                                  |
-| -4   | プロジェクトがその api をサポートしていない場合は、<br/> GAMEPOT にお問い合わせください。                                           |
-| -5   | transactionId が既に存在する場合                                                                                                    |
-| -6   | DB エラー。GAMEPOT にお問い合わせください。                                                                                         |
+| Code| Description|
+| :--- | :----------------------------------------------------------------------------------------------------------------------- |
+| -1| Bodyに漏れデータがある場合、<br/>projectId、transactionId、productId、store、memberIdをすべて入力したか確認してください。¬ |
+| -2| price値がnumberタイプではない場合、<br/>numberタイプで入力してください。|
+| -3| projectIdがない場合、<br/>入力したprojectIdをもう一度確認してください。|
+| -4| プロジェクトが当該apiに対応していない場合、<br/>GAMEPOTまでお問い合わせください。|
+| -5| transactionIdが既に存在している場合|
+| -6| DBエラー。GAMEPOTまでお問い合わせください。|

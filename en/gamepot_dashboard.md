@@ -1,7 +1,16 @@
 ---
 search:
-  keyword: ['gamepot']
+  keyword: ["gamepot"]
 ---
+
+
+#### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
+
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
+
+
+# Dashboard
 
 This document describes how to use the dashboard provided by NAVER CLOUD PLATFORM’s GAMEPOT.
 
@@ -13,9 +22,7 @@ A dashboard helps you run and manage games.
 
 **Q. What kind of features does the dashboard provide?**
 
-It provides statistical data regarding user access and payment, and works with NAVER CLOUD PLATFORM’s other services to enable you to control various features including Push, SMS, and log analysis. It also provides operation features required for games, such as coupons and updates, allowing you to manage games more effectively.
-
-
+It provides statistical data regarding member access and payment, and works with NAVER CLOUD PLATFORM’s other services to enable you to control various features including Push, SMS, and log analysis. It also provides operation features required for games, such as coupons and updates, allowing you to manage games more effectively.
 
 ## Get started with GAMEPOT dashboard
 
@@ -23,31 +30,25 @@ It provides statistical data regarding user access and payment, and works with N
 
 #### Step 1. Access dashboard
 
-Click the dashboard URL in NAVER CLOUD PLATFORM’s Console to access the dashboard.
+Click the dashboard URL in NAVER CLOUD PLATFORM’s console to access the dashboard.
 
-![gamepot-1-200](./images/gamepot-1-200.png)
+![gamepot_dashboard_01](./images/gamepot_dashboard_01.png)
 
+#### Step 2. Sign up
 
-#### STEP 2. Sign up
+An email to reset the password is sent to the admin account registered at the time of creating a project.
 
-When you first access the dashboard, you need to click **Join GAMEPOT** to create an account.
+#### Step 3. Login
 
-The account created at first becomes the master account that has all permissions for dashboard management.
+The admin account becomes a master account that includes all permissions for dashboard management.
 
-![gamepot-1-201](./images/gamepot-1-201.png)
+![gamepot_dashboard_02](./images/gamepot_dashboard_02.png)
 
-Create an account for the dashboard. The account you created first is automatically assigned as “master.”
+① Set the password to be used in the admin account.
 
-![gamepot-1-202](./images/gamepot-1-202.png)
+② Select a reference currency of the dashboard. The selected currency is used for sales indices, payment statistics, etc. <i>Previous data does not change even if the reference currency is changed during the operation, so make a careful choice.</i>
 
-
-#### STEP 3. Log in
-
-Log in with your account to access the dashboard.
-
-![gamepot-1-202A](./images/gamepot-1-202A.png)
-
-
+③ Select a time zone for the dashboard.
 
 ## How to use dashboard menus
 
@@ -55,379 +56,472 @@ Log in with your account to access the dashboard.
 
 The dashboard helps you view the overall operation status of your games, including signup status, sales, access and statistics at a glance.
 
-![gamepot-1-203](./images/gamepot-1-203.png)
+![gamepot_dashboard_03](./images/gamepot_dashboard_03.png)
 
-① You can select a currency to see the total revenue for each call.
+① Check a graph for a date.
 
-② You can view a sales graph for each call by selecting a currency.
+## Statistics
+
+### User Indicators
+
+Displays a graph of various user indicators for a specified period.
+
+![gamepot_dashboard_04](./images/gamepot_dashboard_04.png)
+
+① Displays user indicators for the last 30 days by default, and also allows you to specify a period during which you want to view user indicators.
+
+② View details by zooming in to each graph.
+
+③ Check the last updated time.
+
+![gamepot_dashboard_05](./images/gamepot_dashboard_05.png)
+
+① Download RAW data of current graph as a CSV file.
+
+#### Retention
+
+![gamepot_dashboard_98](./images/gamepot_dashboard_98.png)
+
+Check the retention data. [Retention D+0] is displayed on indicators from the date of sign-up. [Retention D+1] will be displayed to members the day after the subscription date.
+
+### Sales index
+
+Displays a graph of various sales indices for a specified period.
+
+![gamepot_dashboard_06](./images/gamepot_dashboard_06.png)
+
+① Displays sales indices for the last 30 days by default, and also allows you to specify a period during which you want to view sales indices.
+
+② View details by zooming in to each graph.
+
+③ Check the last updated time.
+
+![gamepot_dashboard_07](./images/gamepot_dashboard_07.png)
+
+① Download RAW data of current graph as a CSV file.
+
+## Operate
 
 ### Member
 
-#### List
+#### - List
 
-Shows the list of users who signed up.
+Displays the list of members who signed up.
 
-![gamepot-1-208](./images/gamepot-1-208.png)
+![gamepot_dashboard_08](./images/gamepot_dashboard_08.png)
 
-① Specify a period to view users who signed up during the specified period.
+① Specify a time period to view when members signed up.
 
-② Specify a user ID or IP address to view specific users.
+② Specify a user ID or IP address to view specific members.
 
-③ Download users as a CSV file.
+③ Download members as a CSV file.
 
-④ Click a user ID to view the details of the user as in the figure below.
+④ The page displaying the details of a member is displayed in the figure below.
 
-![gamepot-1-209](./images/gamepot-1-209.png)
+![gamepot_dashboard_09](./images/gamepot_dashboard_09.png)
 
-① Shows the basic information of the user.
+① Displays the basic information of the member.
 
-② Sends push notifications to individual users.
+② Displays access\(login\) information of the member.
 
-③ Shows login information of the user.
+③ Displays your information such as player ID, level.
 
-④ Shows the payment details of the user.
+④ Displays payment details of the member.
 
-⑤ Shows questions and answers of the user.
+⑤ Displays questions and answers of the member.
 
-⑥ Shows connected social media accounts of the user.
+⑥ Displays connected social media accounts of the member.
 
-- You can connect or disconnect social media accounts.
+- Connect or disconnect social media accounts.
 
+⑦ Display blocking details of the member.
 
+⑧ Displays details of the provided items.
 
-#### DAU
+Click **Send individual push** to send push messages to certain members.
 
-Shows a graph of daily active users (DAUs) for a specified period. 
+![gamepot_dashboard_95](./images/gamepot_dashboard_95.png)
 
-It displays daily DAUs for the last 30 days by default, and also allows you to specify a period during which you want to view daily DAUs.
+① Specify a default language of push messages to be sent.
 
-![gamepot-1-210a](./images/gamepot-1-210a.png)
+② Enter a message to send.
 
-① RAW data of the current graph can be downloaded as a CSV file.
+③ Select a language to send.
 
+⑤ Click **Block** to block certain members.
 
+![gamepot_dashboard_96](./images/gamepot_dashboard_96.png)
 
-#### New user
+① Select a blocking status.
 
-Shows a graph of daily new users who joined your game for a specified period.
+② Select a blocking category registered.
 
-It displays daily new users for the last 30 days by default, and also allows you to specify a period during which you want to view daily new users.
+③ Specified user ID is entered.
 
-![gamepot-1-210B](./images/gamepot-1-210B.png)
+④ Select a default language to display a reason for blocking.
 
-① RAW data of the current graph can be downloaded as a CSV file.
+⑤ Enter the reason for blocking and specify a language.
 
+⑥ Specify the blocking period.
 
-#### CCU
+Click **Delete member** to delete certain members.
 
-Shows the number of concurrent users (CCUs) who accessed your game, in minutes for up to 3 days.
+![gamepot_dashboard_97](./images/gamepot_dashboard_97.png)
 
-![gamepot-1-210](./images/gamepot-1-210.png)
+#### - DAU
 
-① Shows a graph of CCUs in minutes for the specified 3 days.
+Displays a graph of daily active users (DAUs) for a specified period.
 
-② The period is specified as the last three days, today, yesterday, and the day before yesterday, by default, and you can change the period as needed. Click **Initialize** to get back to the default period.
+Displays DAUs for the last 30 days by default and allows you to specify a period during which you want to view daily DAUs.
 
-③ Shows a graph of CCUs in minutes for the specified period.
+![gamepot_dashboard_10](./images/gamepot_dashboard_10.png)
 
+① Download RAW data of current graph as a CSV file.
 
+② Check the last updated time.
 
-#### Block
+#### - New user
 
-Blocks a user from accessing your game for a specified period.
+Displays a graph of daily new users who joined your game for a specified period.
 
-This features works based on a user ID.
+Displays daily new users for the last 30 days by default, and also allows you to specify a period during which you want to view daily new users.
 
-![gamepot-1-210C](./images/gamepot-1-210C.png)
+![gamepot_dashboard_11](./images/gamepot_dashboard_11.png)
 
-① Click **Add** to block a user.
+① Download RAW data of current graph as a CSV file.
 
-② Specify the period during which you want to view block information.
+② Check the last updated time.
 
-③ Specify a user ID you want to view blocking details of.
+#### - CCU
 
-④ Shows the details of blocked users.
+Displays the number of concurrent users (CCUs) who accessed your game, in minutes for up to 3 days.
+
+![gamepot_dashboard_12](./images/gamepot_dashboard_12.png)
+
+① The period is specified as the last three days, today, yesterday, and the day before yesterday, by default, and you can select \(change\) the period as needed. Click **Initialize** to return to the default period.
+
+② Download RAW data of the current graph as a CSV file.
+
+③ Check the last updated time.
+
+#### - Block
+
+Block a member from accessing your game for a specified period.
+
+This feature works based on a user ID.
+
+![gamepot_dashboard_13](./images/gamepot_dashboard_13.png)
+
+① Click Add to block a user.
+
+② Set blocking categories to register response message templates.
+
+③ Specify the period for which you want to view blocked information.
+
+④ Specify a user ID you want to view blocking details of.
+
+⑤ Displays the details of blocked users.
 
 - Enabled: The blocking is enabled.
 - Disabled: The blocking is disabled.
 
+### Payment
 
+#### - List
 
-### Purchase
+Check payments attempted in Google Play Store, App Store, ONE Store, and Galaxy Store.
 
-#### List
+![gamepot_dashboard_14](./images/gamepot_dashboard_14.png)
 
-Shows payments attempted in Google Play, App Store and ONE store.
+① View the failures only.
 
-![gamepot-1-218](./images/gamepot-1-218.png)
+② Select a currency to check the payment list for each call.
 
-① Cancels payments that were successfully made. The canceled payments are excluded from the sales.
+③ Cancel payments that were made successfully. The canceled payments are excluded from the sales.
 
-② Shows whether a payment attempt was successful. Items can be re-provided for failed payment attempts.
+④ Display whether or not a payment attempt was successful. Items can be provided again for failed payment attempts.
 
-③ Shows whether a payment attempts was canceled.
+![gamepot_dashboard_15](./images/gamepot_dashboard_15.png)
 
-- Y: Payment canceled.
-- N: Payment not canceled.
+Click the payment status to check the payment details. For failed payments, click Provide again to give items again.
 
-![gamepot-1-218D](./images/gamepot-1-218D.png)
+#### - IAP
 
-You can click the payment status to see the payment details, and for failed payments, you can click **Re-provide** to re-provide items.
+Manages product information when an in-app purchase is made. You must add all products from Google Play, App Store, ONE Store, and Galaxy Store.
 
-
-
-#### IAP
-
-Manages product information when an in-app purchase is made. You should add all products of Google Play, App Store and ONE store.
-
-![gamepot-1-221](./images/gamepot-1-221.png)
+![gamepot_dashboard_16](./images/gamepot_dashboard_16.png)
 
 ① Click **Add in-app item** and enter a store, product name and product ID to create a paid item.
 
 ② Click **Mass input** to add multiple in-app items as a CSV file.
 
-#### Statistics
+#### - Statistics
 
-Provides a graph showing payments on a daily basis.
+Provides a graph displaying payments on a daily basis.
 
-![gamepot-1-239](./images/gamepot-1-239.png)
+![gamepot_dashboard_17](./images/gamepot_dashboard_17.png)
 
-① Specify a store which you want to view payments data.
+① Specify the store where you want to view payment data.
 
-② Specify a currency which you want to view payments data.
+② Download RAW data of the current graph as a CSV file.
 
-② Specify the period during which you want to view payments data.
+③ Check the last updated time.
 
-#### Cancel the Google payment
+#### - Cancel a payment
 
-Regularly refers to the status of payment receipts in the Google Console, and shows the payments that were successfully made but arbitrarily canceled by users.
+① You can block a member's access to your game who arbitrarily cancels his/her payment by comparing the payment receipt status in the store. The member will be unblocked when he/she makes a payment for the item again. Supports receipt verification from Google Play Store and the Apple App Store.
 
-![gamepot-1-239B](./images/gamepot-1-239B.png)
+![gamepot_dashboard_18](./images/gamepot_dashboard_18.png)
 
-① Specify conditions to block users who arbitrarily cancel Google payments from accessing your game. 
+① Set the blocking conditions for users who cancel payments.
 
-![gamepot-1-239C](./images/gamepot-1-239C.png)
+② Download RAW data of the current graph as a CSV file.
 
-① Set whether to block users who arbitrarily cancel Google payments. When it is enabled, those who meet the following conditions will be automatically blocked on an hourly basis.
+③ Check the last updated time.
 
-② Blocks the users who canceled Google payments more times than specified.
+![gamepot_dashboard_19](./images/gamepot_dashboard_19.png)
 
-③ Blocks the users who canceled Google payments the amount of which is greater than specified.
+① Set whether you'd like to block members who arbitrarily cancel payments. When it is enabled, those who meet the following conditions will be automatically blocked on an hourly basis.
 
-④ It is a message that is displayed when a blocked user attempts to access the game.
+② Blocks members who canceled Google payments more times than specified.
 
-⑤ Enter a Google API key to get the list of Google payments canceled.
+③ Blocks members who canceled Google payments if the amount is greater than specified.
 
+④ Select a default language for a message that is displayed when a blocked member attempts to access the game.
 
+⑤ A message that is displayed when a blocked member attempts to access the game.
 
+⑥ A Google API key must be entered to see the list of canceled Google payments. Click Test to check if the functions are working properly.
 
+⑦ Click Copy address to copy a URL and paste it in the App Store to access the payment cancel list from App Store.
 
-### Notice
+### Notices
 
+Notice images registered in the dashboard appear for users who are logged in to your game. Specify the store and the period during which those images will be displayed.
 
-Notice images registered in the dashboard are shown to the logged-in users of your game. You can specify the store and the period during which those images will be shown.
+To use this feature, you need NAVER CLOUD PLATFORM’s API authentication key and Object Storage. Note that when using the announcement function, the Object Storage cost is incurred separately.
 
-To use this feature, you need NAVER CLOUD PLATFORM’s API authentication key and Object Storage. Note that additional charges will apply for using Object Storage.  
+#### Step 0. Create a sub account to grant permission to use Object Storage services
 
-#### Step 1. Get API authentication key
+① It is recommended that you create a sub account and get the account key before issuing API authentication keys or granting permission to use Object Storage.
 
-Notice menus work with Object Storage, by using APIs. Therefore, you need to get an API authentication key of NAVER CLOUD PLATFORM.
+② Create a sub account by referring to [Sub Account User Guide](https://docs.ncloud.com/ko/management/management-4-1.html). (Check **API Gateway Access** when you create a sub account.)
 
-Go to **My Page > Manage Account > Manage Auth Key** in the portal to create an API authentication key.
+![gamepot_dashboard_20_01](./images/gamepot_dashboard_20_01.png)
 
-![gamepot-1-204](./images/gamepot-1-204.png)
+③ Grant permission to use Object Storage services in the created sub account. Refer to [System Managed Policy Manual](https://docs.ncloud.com/ko/management/management-4-2.html) to grant permission as **NCP_OBJECT_STORAGE_MANAGER** to the sub account. (Or permission including Object Storage)
+
+③ Access with the sub account created and get an API authentication key.
+
+#### Step 1. Prepare an API authentication key
+
+Notice menus work with Object Storage by using APIs. Therefore, you must get an API authentication key from the NAVER CLOUD PLATFORM.
+
+Go to **My Page &gt; Manage Account &gt; Manage Auth Key** in the portal to create an API authentication key.
+
+![gamepot_dashboard_20](./images/gamepot_dashboard_20.png)
 
 ① Click **Create a New API Authentication Key**.
 
-- An account can have up to two API authentication keys.
-
-
+- An account can have a maximum of two API authentication keys.
 
 #### Step 2. Connect dashboard with API auth key
 
-You should connect your API authentication key with the dashboard to create a bucket in Object Storage and use dashboard features. Go to **Project settings > NAVER CLOUD PLATFORM** in the dashboard and connect your API authentication key.
+You must connect your API authentication key with the dashboard to create a bucket in Object Storage and use dashboard features. Go to **Project settings &gt; Ncloud** in the dashboard and connect your API authentication key.
 
-![gamepot-1-205](./images/gamepot-1-205.png)
-
-
+![gamepot_dashboard_21](./images/gamepot_dashboard_21.png)
 
 Once your API authentication key is connected, a bucket in Object Storage is automatically created. All the notice images are stored in the bucket.
 
+#### Step 3. Add a notice
 
+Go to **Notice** to add a notice.
 
-#### Step 3. Add notice
+![gamepot_dashboard_22](./images/gamepot_dashboard_22.png)
 
-To add a notice, go to **Notice** on the left and click **Add**.
+① Click **Add notice** to add images.
 
-![gamepot-1-206](./images/gamepot-1-206.png)
+② Specify the order of images that users can see.
 
-① Images can be added via the **Add notice** button.
+Specify the fields in the following pop-up window and click **Save**; a notice will be added.
 
-② Specify the sequence of images you want to expose to your users.
+![gamepot_dashboard_23](./images/gamepot_dashboard_23.png)
 
-Specify the fields in the following popup window and click **Save**, and a notice is added.
+① Select whether to enable the notice or not.
 
-![gamepot-1-207](./images/gamepot-1-207.png)
+② Specify the start and end date during which you want to display the notice.
 
-① Select whether to activate the notice.
+③ Select all stores or a specific store where you want to display the notice.
 
-① Specify the start date and the end date during which you want to show the notice.
+④ If users touch images displayed in the notice, the URL opens in an external browser and a SCHEME returns the value with callback function.
 
-② Select all stores or a specific store which you want to show the notice to.
+⑤ Specify a default language among images displayed in the notice for each language setting.
 
-③ Specify a URL to display an additional web page if needed.
+⑥ Drag and drop images displayed in the notice or directly select them to upload image files.
 
-④ Drag and drop images or directly select them to upload image files.
+Register additional images displayed for each language setting.
 
+![gamepot_dashboard_24](./images/gamepot_dashboard_24.png)
 
-### Check and update  
+### Check and update
 
-Helps you easily check and update your game.
+It allows you to easily check and update your game.
 
-
-#### Check
+#### - Check
 
 During the game check period, this feature automatically displays check messages and prevents users from accessing your game.
 
-Enter the check period and message and click **Save**, and the check notice is displayed in the game.
+Enter the check period and message and click Save, then the check notice will be displayed in the game.
 
-![gamepot-1-230](./images/gamepot-1-230.png)
+![gamepot_dashboard_25](./images/gamepot_dashboard_25.png)
 
-① Select a store.  Select all if all of them should be inspected.
+① Select a store. Select all if all of them must be inspected.
 
 ② Specify the period during which checks will be performed.
 
-③ Enter the URL to be redirected when users click **View more** of the check.
+③ Specify a default language among check messages displayed for the device's language setting.
 
-**Example:  Notice of a cafe or self-created check information page**
+④ Register additional images displayed for each language setting.
 
+⑤ Enter the URL to be redirected when users click View more of the check.
 
+**e.g. Notice of a cafe or self-created check information page**
 
-#### Update
+#### - Update
 
-If a user’s game is not up-to-date, this feature forcibly shows update information and redirects the user to the game’s update page in Google Play or App Store.
+If a user’s game is not up-to-date, this feature displays updated information and redirects the user to the game’s update page in Google Play or Apple Store.
 
-![gamepot-1-231](./images/gamepot-1-231.png)
+![gamepot_dashboard_26](./images/gamepot_dashboard_26.png)
 
 ① Set by store.
 
-② Select whether to activate the function.
+② Select whether to enable the feature.
 
-③ If you select **Force**, you will not be able to use the game until you make an update in the store, and if you choose **recommended**, you will still be able to use the game without updating from the store.
+③ If you select **Forced**, users cannot play the game until they update the game in the store. If you select **Recommended**, they can play the game without updating in the store.
 
-④ Enter the version information. If it is different from the input version, the function will work.
+④ Enter version information. The feature works if the version is lower or different from the one entered.
 
+⑤ Enter a URL to move when Update is selected.
 
+- Enter custom URL: Move to a custom URL set when selecting Update from the client update pop-up
+- Don't enter custom URL: Move to a default store set when selecting Update from the client update pop-up
 
 ### Message
 
-This service helps you implement notification features by using SMS and Push, with no message server. To do so, you should sign up for NAVER CLOUD PLATFORM’s Simple & Easy Notification Service .
+This service helps you implement notification features by using SMS and Push, without a message server. To do so, you must sign up for NAVER CLOUD PLATFORM’s Simple & Easy Notification Service \(SENS\).
 
-![gamepot-1-211](./images/gamepot-1-211.png)
+① It is recommended to create a sub account and request the SENS service. Refer to **Notice -&gt; Step 0** in the body to make a sub account. (Like **Step 0**, get an API authentication key from a sub account.)
 
-① For using Simple & Easy Notification Service, you need to get a service key. Click **Get service key** and get a service key by referring to [Simple & Easy Notification Service Common Guide](https://docs.ncloud.com/en/sens/sens-1-1.html).
+② Grant permission to use SENS services to the sub account created. Refer to [System Managed Policy Manual](https://docs.ncloud.com/ko/management/management-4-2.html) to grant permission (including) **NCP_SENS_MANAGER** to the sub account.
 
-② Click **Certificate registration** and add a certificate by referring to **Simple & Easy Notification Service Web Console Guide**.
+① For using SENS, you must get a service key. Click **Get service key**, access with the sub account created, and get a service key by referring to [SENS Common Guide](https://docs.ncloud.com/ko/sens/sens-1-2.html).
+
+![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
+
+② Click **Certificate registration guide** and add a certificate by referring to **SENS Web Console Guide**.
 
 ③ Click **Settings** to go to the following window and enter the Push service ID.
 
-![gamepot-1-212](./images/gamepot-1-212.png)
+![gamepot_dashboard_28](./images/gamepot_dashboard_28.png)
 
+#### - Push message
 
+Click **Message &gt; Push message** to view information including sending status, scheduled date and time and sent date and time.
 
-#### Push message
+![gamepot_dashboard_29](./images/gamepot_dashboard_29.png)
 
-Click **Message > Push message** to view information including sending status, scheduled date and time and sent date and time.
+Click **Add message** from **Push message**, and the following pop-up window appears. On this pop-up window, you can send messages.
 
-![gamepot-1-213](./images/gamepot-1-213.png)
+![gamepot_dashboard_30](./images/gamepot_dashboard_30.png)
 
-Click **Add message**, and the following popup window appears. On this popup window, you can send messages.
+① Specify a schedule for sending push messages. \(Send immediately / Send as scheduled / Send as scheduled \(Global local time\)\)
 
-![gamepot-1-214](./images/gamepot-1-214.png)
+② Select a platform so that you can send the push message only to the specified users.
 
-① Enter a push message.
+③ Specify a default language among check messages sent for the device's language setting.
 
-② Enter a title if necessary. If not specified, it is displayed as the app name.
+④ Enter a title as needed. The title will be the app's name if nothing is entered.
 
-③ Select a platform so that you can send the push message only to the specified users.
+⑤ Add different push messages to the device's language setting.
 
+![gamepot_dashboard_100](./images/gamepot_dashboard_100.png)
 
+Send bulk push messages by uploading csv files.
 
-#### Text message
+- Set up to 100 pushes with bulk add. (Max capacity for csv files: 20 MB)
+- Download csv samples, set, and click Register CSV file to register them.
+- Register csv files by saving them as UTF-8 format.
+- Bulk add does not support sending pushes immediately.
 
-Helps you send SMS/LMS messages and view history and results. To send SMS/LMS messages, you should first get a service key and register a caller ID in Simple & Easy Notification Service.
+#### - Text message
 
-![gamepot-1-215](./images/gamepot-1-215.png)
+It helps you send SMS/LMS messages and view history and results. To send SMS/LMS messages, you must first get a service key and register a caller ID in SENS.
 
-① For using Simple & Easy Notification Service, you should get a service key and register a caller ID. Click **Get service key**, and get a service key and register a caller ID by referring to [Simple & Easy Notification Service Common Guide](https://docs.ncloud.com/en/sens/sens-1-1.html) and [How to Use Simple & Easy Notification Service SMS](https://docs.ncloud.com/en/sens/sens-1-3.html).
+![gamepot_dashboard_31](./images/gamepot_dashboard_31.png)
+
+① For using SENS, you must get a service key and register a caller ID. Click **Get service key**, and get a service key and register a caller ID by referring to [SENS Common Guide](https://docs.ncloud.com/ko/sens/sens-1-1.html) and [How to Use SENS SMS](https://docs.ncloud.com/ko/sens/sens-1-3.html).
 
 ② Click **Settings**, and enter the service ID and secret key.
 
-![gamepot-1-216](./images/gamepot-1-216.png)
+![gamepot_dashboard_32](./images/gamepot_dashboard_32.png)
 
-Click **Add message**. Then, the following popup window appears.
+Click **Add message**. Then, the following pop-up window appears.
 
-![gamepot-1-217](./images/gamepot-1-217.png)
+![gamepot_dashboard_33](./images/gamepot_dashboard_33.png)
 
 ① Select between SMS and LMS. Charges differ depending on the message type.
 
-② Enter the calling number registered in the Console. (Messages will not be sent if the calling number is not registered.)
+② Enter the calling number registered in the console.\(Messages will not be sent if the calling number is not registered.\)
 
-③ Enter a called number. 
+③ Enter a called number.
 
-④ Download a sample file which is used to bulk add called numbers and random coupon numbers as a CSV file.
+④ Download a sample file to bulk add called numbers and random coupon numbers as a CSV file.
 
 ⑤ Upload a CSV file to bulk add called numbers and random coupon numbers. The uploaded called numbers and random coupon numbers are automatically added to send messages specified in ⑥.
 
 ⑥ Enter a message to send as an SMS or LMS.
 
-⑦ You can schedule a time at which the message will be sent.
-
-
+⑦ Schedule a time at which the message will be sent.
 
 ### Coupon
 
 Coupons are an essential element in games. Two types of coupons are supported: common and keyword.
 
-#### Common coupon
+#### - Common coupon
 
-A common coupon is generally provided to users as a coupon code. This feature allows you to easily create and manage coupons in your game. Click **Create coupon** to create a coupon in the following popup window.
+A common coupon is generally provided to users as a coupon code. This feature allows you to easily create and manage coupons in your game. Click **Create coupon** to create a coupon in the following pop-up window.
 
-![gamepot-1-224](./images/gamepot-1-224.png)
+![gamepot_dashboard_34](./images/gamepot_dashboard_34.png)
 
 ① Specify the period during which the coupon is available.
 
-② Limit the length of the coupon. Usually, 8-10 characters are recommended.
+② Limit the length of the coupon. Usually, between 8-10 characters is recommended.
 
-③ You can specify the prefix and suffix, which will be added to your coupon code when it is created.
+③ Specify the ③ Prefix\(\) and \(suffix\), which will be added to your coupon code when it is created.
 
-④ You can add up to 100,000 coupons, the number of which can be increased later. (The maximum number of coupons is 500,000.)
+④ Add up to 100,000 coupons, the number can be increased later. \(The maximum number of coupons is 500,000.\)
 
 ⑤ Specify an item to be offered for a coupon and the number of items. Click + button to provide multiple items.
 
 When a coupon is created, the list of coupons created is displayed as shown in the figure below.
 
-![gamepot-1-225](./images/gamepot-1-225.png)
+![gamepot_dashboard_35](./images/gamepot_dashboard_35.png)
 
-You can check the current status and quantity of each coupon from the list.
+Check the current status and limited quantity of each coupon from the list.
 
-You can also edit the number of coupons previously created.
+Also edit the number of coupons previously created.
 
-![gamepot-1-226](./images/gamepot-1-226.png)
+① Click the blue icon on the left side of the list to increase the quantity.
 
-① Click the blue icon on the left of the list to increase the quantity.
+② Check the coupon usage statistics.
 
-② Enter the number of coupons to add, and click **OK**.
+#### - Keyword coupon
 
+This feature allows you to create keywords such as “Christmas”, “open event”, and “new year”, and provide items when users enter such keywords in the coupon window. Recently, keyword coupons are much preferred over common coupons as it is difficult to enter a coupon code.
 
+Click **+Create coupon**.
 
-#### Keyword coupon
-
-This feature allows you to create keywords, such as “Christmas,” “open event,” and “new year,” and provide items when users enter such keywords in the coupon window.  Recently, keyword coupons are much preferred over common coupons as it is hard to enter a coupon code.
-
-Click **Create coupon**.
-
-![gamepot-1-227](./images/gamepot-1-227.png)
+![gamepot_dashboard_37](./images/gamepot_dashboard_37.png)
 
 ① Specify the period during which the coupon is available.
 
@@ -437,134 +531,290 @@ Click **Create coupon**.
 
 ④ Specify an item to be offered for a coupon and the number of items. Click + button to provide multiple items.
 
+#### - Usage history
 
+Displays all issued coupon codes.
 
-#### Usage history
+![gamepot_dashboard_38](./images/gamepot_dashboard_38.png)
 
-Shows all coupon codes issued. 
+① View the failures only.
 
-![gamepot-1-228](./images/gamepot-1-228.png)
+② Specify a period, coupon number, and user ID to check whether the coupon has been used.
 
-① Specify a period, coupon number, and user ID to check whether the coupon is used.
+③ It will display whether or not a coupon has been used.
 
-② Shows whether a coupon is used.
-
--  Success: The coupon was successfully used.
+- Success: The coupon was successfully used.
 - Not used: The coupon was not used.
 
+### Customer Support
 
+Enables you to answer questions asked by users. If there is a customer support menu in your game where users can enter their basic information, you can view the information in GAMEPOT.
 
-#### Item
+#### - Inquiries
+
+It displays inquiries made by users.
+Satisfaction appears when the customer selects it after the inquiry.
+
+![gamepot_dashboard_41](./images/gamepot_dashboard_41.png)
+
+Click **User ID**.
+
+![gamepot_dashboard_42](./images/gamepot_dashboard_42.png)
+
+> Translation features for inquiries appear after setting Set project > NCloud > Papago value. Set default translation language, automatic language detection, and automatic translation features in Edit user information.
+
+① Specify an owner. Users other than the specified owner cannot answer the inquiries.
+
+② Translate the inquiry's title. It is translated from the detected language to the default translation language.
+
+③ Translate the answer. Only languages supported by Papago appear in the list.
+
+④ Only upload an image file required for the answer.
+
+⑤ Translate the inquiry. It is translated from the detected language to the default translation language.
+
+⑥ It displays all the basic information about the user.
+
+**\[Notifications\]**
+
+Send push messages and emails to users when you answer their questions.
+
+![gamepot_dashboard_47](./images/gamepot_dashboard_47.png)
+
+① Set whether to enable Push notification feature.
+
+② Specify a default language among push messages displayed differently for the device's language setting.
+
+③ Push messages appear differently for the device's language setting.
+
+④ Set whether to enable email notification feature.
+
+⑤ Enter an address of an email to send.
+
+⑥ Enter a name of the email to send.
+
+⑦ Enter a header of the email. A default description will be sent if you don't enter anything.
+
+⑧ Enter a footer of the email. A default description will be sent if you don't enter anything.
+
+⑨ Preview the email template to be sent.
+
+**\[Set category\]**
+
+Presets a template for inquiries.
+
+Click **Set category.**
+
+![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
+
+**Set category** enables you to add and manage categories for inquiries..
+
+![gamepot_dashboard_45](./images/gamepot_dashboard_45.png)
+
+① Check the status to activate the category.
+
+② Specify a default language among inquiry categories displayed differently for the device's language setting.
+
+③ Add different categories and templates for the device's language setting.
+
+④ Enter templates for the specified language's category and the category's inquiry.
+
+**\[Set remote access\]**
+
+Enables users to register inquiries with remote access without logging in. Answers are sent via email.
+
+![gamepot_dashboard_91](./images/gamepot_dashboard_91.png)
+
+Click **Set remote access** to save external inquiry's URL in the clipboard.
+
+#### - FAQ
+
+Register and check FAQs.
+
+![gamepot_dashboard_48](./images/gamepot_dashboard_48.png)
+
+Click **Add**.
+
+![gamepot_dashboard_49](./images/gamepot_dashboard_49.png)
+
+① Check the status to enable the inquiry.
+
+② Select the FAQ's category.
+
+③ Specify a default language among FAQs displayed differently for the device's language setting.
+
+④ Register different questions and answers for the device's language setting.
+
+⑤ Enter a question and a corresponding answer.
+
+**\[Set category\]**
+
+It categorizes FAQs.
+
+![gamepot_dashboard_50](./images/gamepot_dashboard_50.png)
+
+Click **Set category.**
+
+![gamepot_dashboard_51](./images/gamepot_dashboard_51.png)
+
+**Set category** enables you to add and manage categories for inquiries..
+
+![gamepot_dashboard_52](./images/gamepot_dashboard_52.png)
+
+① Check the status to activate the category.
+
+② Specify a default language among FAQ categories displayed differently for the device's language setting.
+
+③ Add different FAQ categories for the device's language setting.
+
+④ Enter a category for the specified language.
+
+#### - Set terms of service
+
+Enter the contents of internal terms of service. Users can view this via SDK.
+
+![gamepot_dashboard_53](./images/gamepot_dashboard_53.png)
+
+① Specify a default language among the contents of terms of service displayed differently for the device's language setting.
+
+② Check the terms of service from a webpage. Click to copy the URL. Add <b><i>&language=ko</i> (refer to ISO 639-1 codes)</b> after the URL to access in a different language.
+
+③ Enter different contents of terms of service for the device's language setting.
+
+④ Enter the contents of the terms of service for the specified language.
+
+#### - Set terms and conditions of the privacy policy
+
+Enter the contents of internal terms and conditions of the privacy policy. Users can view this via SDK.
+
+![gamepot_dashboard_54](./images/gamepot_dashboard_54.png)
+
+① Specify a default language among the contents of terms and conditions of the privacy policy displayed differently for the device's language setting.
+
+② Check the terms and conditions of the privacy policy from a webpage. Click to copy the URL. Add <b><i>&language=ko</i> (refer to ISO 639-1 codes)</b> after the URL to access in a different language.
+
+③ Enter different contents of terms and conditions of the privacy policy for the device's language setting.
+
+④ Enter the contents of the terms and conditions of the privacy policy for the specified language.
+
+#### - Set refund policy
+
+Enter the contents of internal refund policy. Users can view this via SDK.
+
+![gamepot_dashboard_93](./images/gamepot_dashboard_93.png)
+
+① Specify a default language among the contents of the refund policy displayed differently for the device's language setting.
+
+② Check the refund policy from a webpage. Click to copy the URL. Add <b><i>&language=ko</i> (refer to ISO 639-1 codes)</b> after the URL to access in a different language.
+
+③ Enter different contents of refund policy for the device's language setting.
+
+④ Enter the contents of the refund policy for the specified language.
+
+#### - Statistics
+
+Check the inquiry statistics for a specified period.
+
+![gamepot_dashboard_55](./images/gamepot_dashboard_55.png)
+
+#### - Page
+
+Create a web document and provides an access address.
+
+![gamepot_dashboard_87](./images/gamepot_dashboard_87.png)
+
+① Create and edit a webpage.
+
+② Enter the contents of a page for the specified language.
+
+## Game
+
+### Player
+
+SDK enables you to send in-game character information and check it on the dashboard.
+
+![gamepot_dashboard_94](./images/gamepot_dashboard_94.png)
+
+### Present
+
+Webhook enables you to send items to game servers.
+
+![gamepot_dashboard_88](./images/gamepot_dashboard_88.png)
+
+② Click **Send gifts**.
+
+![gamepot_dashboard_89](./images/gamepot_dashboard_89.png)
+
+① Check to test without sending to the actual game server.
+
+② Select a target.
+
+③ Enter a target ID.
+
+④ Enter the data to be sent as UserData values when sending items.
+
+⑤ Enter a title to be displayed.
+
+⑥ Enter a description to be displayed.
+
+⑦ Specify items and their quantity to be sent.
+
+#### - Item
 
 This menu allows you to create an item that can be obtained by the coupon. Click **Add item** to add an item.
-![gamepot-1-229A](./images/gamepot-1-229A.png)
+![gamepot_dashboard_39](./images/gamepot_dashboard_39.png)
 
 ① Add an item.
 
 ② Click **Mass input** to add multiple items as a CSV file.
 
-![gamepot-1-229](./images/gamepot-1-229.png)
+![gamepot_dashboard_40](./images/gamepot_dashboard_40.png)
 
 ① Enter an item name.
 
-② Enter an item ID. An item ID must be unique among items.
+② Enter an item ID. The item ID must be unique for each item.
 
+### Pre-Reservation
 
+Displays statistical data of the users who register via the advance reservation web page.
 
-### Customer support
+![gamepot_dashboard_57](./images/gamepot_dashboard_57.png)
 
-Enables you to answer the questions asked by users. If there is a customer support menu in your game where users can enter their basic information, you can view the information in GAMEPOT.
+① Add an advance reservation. The name will be used as an ID for statistical data.
 
-
-
-#### Customer support
-
-Shows inquiries made by users.
-
-![gamepot-1-222](./images/gamepot-1-222.png)
-
-Click **User ID**.
-
-![gamepot-1-223](./images/gamepot-1-223.png)
-
-① You can see the information of the customer who inquired. (Answering satisfaction is revealed only after the customer finishes the inquiry.)
-
-② You can respond to inquiries.
-
-③ You can upload the images and text files needed for your answers.
-
-④ It is the history of the inquiry/answer with the customer. You can see all the contents in the chat format.
-
-⑤ Answer registration If you set the alarm, you will be exposed. You can choose whether or not to send the push when registering the answer.
-
-⑥ All information about this member is displayed by default.
-
-
-
-##### Push
-
-Sends push messages to users when you answer their questions.
-
-![gamepot-1-223a](./images/gamepot-1-223a.png)
-
-① Set whether to enable Push.
-
-② Enter a push message to send.
-
-#### Terms of Use
-
-You can enter the terms of use of the company. This content can be exposed to users through the SDK.
-
-![gamepot-1-223b](./images/gamepot-1-223b.png)
-
-#### Set up privacy policy
-
-You can enter your company's privacy policy. This content can be exposed to users through the SDK.
-
-![gamepot-1-223c](./images/gamepot-1-223c.png)
-
-
-### Advance reservation
-
-Shows statistical data of the users who register via the advance reservation web page. 
-
-![gamepot-1-501](./images/gamepot-1-501.png)
-
-① Add an advance reservation. The name will be used as an ID for statistical data. 
-
-![gamepot-1-500](./images/gamepot-1-500.png)
+![gamepot_dashboard_58](./images/gamepot_dashboard_58.png)
 
 ② Edit an advance reservation name.
 
-![gamepot-1-501a](./images/gamepot-1-501a.png)
+![gamepot_dashboard_59](./images/gamepot_dashboard_59.png)
 
 ③ Download users who made an advance reservation.
 
 The feature to send bulk messages to the users will be added later.
 
-
+## Settings
 
 ### Remote configurations
 
-Enables you to change how your app works and looks without updating it. You can add parameters to the server and import them in the GAMEPOT SDK. Using this feature, you can remotely control game features in the server. 
+Enables you to change how your app works and looks without updating it. Add parameters to the server and import them in the GAMEPOT SDK. Using this feature, you can remotely control game features in the server.
 
-![gamepot-1-232](./images/gamepot-1-232.png)
+![gamepot_dashboard_60](./images/gamepot_dashboard_60.png)
 
-Click **Add**. When the popup window shown below appears, add a parameter and value.
+Click **Add**. When the pop-up window displayed below appears, add a parameter and value.
 
-![gamepot-1-233](./images/gamepot-1-233.png)
+![gamepot_dashboard_61](./images/gamepot_dashboard_61.png)
 
-The parameter and value will apply since users newly run the app.
-
-
+The parameter and value will apply since users recently ran the app.
 
 ### Project settings
 
-#### General
+#### - General
 
-Helps you set the overall environment of the app and specify various keys required to run the app.
+Set the overall environment of the app and specify various keys required to run the app.
 
-![gamepot-1-234a](./images/gamepot-1-234a.png)
+##### Basic information
+
+![gamepot_dashboard_62](./images/gamepot_dashboard_62.png)
 
 ① Enter a game name.
 
@@ -572,216 +822,295 @@ Helps you set the overall environment of the app and specify various keys requir
 
 ③ Select a category.
 
-④ Add a hash key. 
+④ Enter a project description.
 
+⑤ Add a hash key.
 
+⑥ Select a language to be used.
 
-![gamepot-1-234b](./images/gamepot-1-234b.png)
+⑦ Change the reference currency.
 
-It is needed to connect with Google Play and ONE store.
+- Previous payment amount is not changed even if reference currency is changed during the operation, so make a careful choice.
 
-① Enter a public key of Google Play.
+##### Public Key
 
-② If you need to release your game in two different versions (e.g., for those over 12 years old and 18 years old) in Google Play, enter a package name followed by a public key.
+![gamepot_dashboard_63](./images/gamepot_dashboard_63.png)
 
-③ Enter a public key of ONE store.
+It is needed to connect with Google Play Store and ONE Store.
 
-④ If you need to release your game in two different versions (e.g., for those over 12 years old and 18 years old) in ONE store, enter a package name followed by a public key.
+① Enter a public key of Google Play Store.
 
+② If you need to release your game in two different versions\((e.g., for those over 12 years old and 18 years old)\)in Google Play Store, enter a package name followed by a public key.
 
+③ Enter a public key for ONE Store.
 
-![gamepot-1-234g](./images/gamepot-1-234g.png)
+④ If you need to release your game in two different versions\((e.g., for those over 12 years old and 18 years old)\)in ONE Store, enter a package name followed by a public key.
 
-It is needed to connect with the Google API (to check users who canceled their payments made in Google Play and verify the latest payment receipts).
+##### Google API key
 
-1. Enter JSON data provided by Google. View Help.
-2. It is the version of verified payment receipts. If you enter data in 1 above, select “Version 3.”
+![gamepot_dashboard_64](./images/gamepot_dashboard_64.png)
 
+It is needed to connect with the Google API \(to check users who canceled their payments made in Google Play and verify the latest payment receipts\).
 
+① Enter JSON data provided by Google. Refer to "View Help."
 
-![gamepot-1-234c](./images/gamepot-1-234c.png)
+② The version for verified payment receipts. If you enter data in 1 above, select “Version 3.”
 
-① Enter your Google Play ID.
+③ Perform Google's receipt verification test to check if Google's JSON value entered is correct.
 
-② Enter your ONE store ID.
+![gamepot_dashboard_99](./images/gamepot_dashboard_99.png)
 
-③ Enter your App Store ID.
+① Enter Google receipt's package name.
 
+② Enter Google receipt's product name.
 
+③ Enter Google receipt's purchase token.
 
-![gamepot-1-234d](./images/gamepot-1-234d.png)
+④ Check the result of viewing Google receipt.
 
-It is the information that needs to be specified to make in-app payments in ONE store and get items.
+##### App ID
 
-① Enter a license key of ONE store.
+![gamepot_dashboard_65](./images/gamepot_dashboard_65.png)
 
-② If you app is in two versions, enter a license key of the other version. (It can be omitted if there is only one version.)
+These are settings required when transferring among stores with forced updates. - Click View Help to check how to get an ID. Enter a value for distinguishing versions in the first box and a value to be sent to the store in the second box.
 
+① Enter a package name for Google Play Store.
 
+② If you need to release your game in two different versions\((e.g., for those over 12 years old and 18 years old)\), enter an additional package name for Google Play Store.
 
-![gamepot-1-234e](./images/gamepot-1-234e.png)
+③ ② Enter a package name and a PID for ONE Store.
 
-**Auth Key** is used to verify a token when a user logs in to Google or Facebook; if a token verification fails, the user will be blocked from logging into the game. The blocked users are automatically registered to the Block menu. 
+④ If you need to release your game in two different versions, enter an additional package name and a PID for ONE Store.
+
+⑤ Enter a package name for Galaxy Store.
+
+⑥ If you need to release your game in two different versions, enter an additional package name for Galaxy Store.
+
+⑦ Enter a bundle ID and an Apple ID for Apple App Store.
+
+⑧ If you need to release your game in two different versions, enter a bundle ID and an Apple ID for Apple App Store.
+
+##### Server key
+
+![gamepot_dashboard_66](./images/gamepot_dashboard_66.png)
+
+The information that needs to be specified to make in-app payments in ONE store and get items.
+
+① Enter the license key from ONE Store.
+
+② If there are two versions of your app, enter a license key of the other version.\( (It can be omitted if there is only one version.\)
+
+##### Auth Key
+
+![gamepot_dashboard_67](./images/gamepot_dashboard_67.png)
+
+Auth Key is used to verify a token when a user logs in to Google or Facebook; if a token verification fails, the user will be blocked from logging into the game. The blocked users are automatically registered to the Block menu.
 
 ① Enter a Google Client ID.
 
-② Enter a Facebook App ID. 
+② Enter a Facebook App ID.
 
 ③ Enter a Facebook App Secret Key.
 
+④ Enter an Apple private key.
 
+⑤ Enter an Apple key ID.
 
-![gamepot-1-234F](./images/gamepot-1-234F.png)
+⑥ Enter an Apple team ID.
 
-For **Purchased item** under **WebHook**, add an address to request items when the payment is successfully made.
+##### WebHook
 
-For **Coupon item**, add an address for the SDK server to request items from the developer server when a coupon is successfully used.
-There are two types of addresses: service address used for the live service and test user address for testing environment.
-If you need to use a test user address, add it in **Project settings > Test user**.
+![gamepot_dashboard_68](./images/gamepot_dashboard_68.png)
 
-① Enter a service URL for purchased items.
+For Purchased item under WebHook, add an address to request items when the payment is successfully made.
 
-② Enter a test user URL for purchased items.
+For Coupon item, add an address for the SDK server to request \(items\) from the developer server when a coupon is successfully used. There are two types of addresses: \(service\) address used for the live service and \(test user\) address for testing environment. If you need to use a test user address, add it in Project settings &gt; Test user.
 
-③ Enter a service URL for coupon items.
+① Check Help.
 
-④ Enter a test user URL for coupon items.
+② Test for applying WebHook easily.
 
+③ Display a list of IPs required to be permitted when calling game servers via Webhook.
 
+④ Enter a service URL for purchased items.
 
-#### Ncloud
+⑤ Enter a test user URL for purchased items.
 
-Allows you to change keys required to work with NAVER CLOUD PLATFORM.
-For more information, refer to Manual.
+⑥ Enter a service URL for coupon items.
 
-![gamepot-1-235](./images/gamepot-1-235.png)
+⑦ Enter a test user URL for coupon items.
 
+#### - Ncloud
 
+Allows you to change keys required to work with NAVER CLOUD PLATFORM. For more information, refer to each item's User Guide.
 
-#### CDN+
+![gamepot_dashboard_69](./images/gamepot_dashboard_69.png)
 
-Add a CDN+(Content Delivery Network) address if you want to use CDN+.
+#### - CDN
 
-![gamepot-1-236](./images/gamepot-1-236.png)
+Add a CDN address if you want to use CDN.
 
-**Notice when adding a CDN+ address**
+![gamepot_dashboard_70](./images/gamepot_dashboard_70.png)
 
-* Make sure that the source of CDN+ must be located in the same Object Storage bucket as the one used for the Notice feature.
-* If no CDN+ is specified, the URL has typos, or the source settings are not correct, the uploaded images are not properly displayed in the game.
+**Notice when adding a CDN address**
 
-#### External payment
+- Be sure that the source of CDN must be located in the same Object Storage bucket as the one used for the \[Notice\] feature.
+- If no CDN is specified, the URL has typos, the source settings are not correct, or the uploaded images are not properly displayed in the game.
 
-One store accepts a third payment module rather than a basic store payment module.
+#### - External payment
 
-Supported PG is Danal and will be added continuously.
+ONE Store allows third-party payment modules other than the default store payment module.
 
-##### Setting
+We're supporting Danal as a PG company, and more PG companies will be added continuously.
 
-The required value for each payment method is obtained through Danal and the **Store Secret key** is entered into the OneStore console as **Client secret**.
+**\[Settings\]**
 
-![gamepot-1-236a](./images/gamepot-1-236a.png)
+Get required values for each payment method via Danal and enter **Client secret** in ONE Store console for **Store Secret key**.
 
-##### Enter Price
+![gamepot_dashboard_71](./images/gamepot_dashboard_71.png)
 
-In the Billing - IAP menu, enter the price you want to pay for each in-app item.
+**\[Enter price\]**
 
-![gamepot-1-236b](./images/gamepot-1-236b.png)
+Enter the amount to be paid by a user for each in-app item in Payment > IAP.
 
-
-#### Test user
+#### - White user
 
 When a test user with the registered IP address accesses the game, the following features are activated depending on the specified type.
 
-* Development: SDK logs are activated and displayed.
-* Check: The game proceeds even if checks are activated.
-* Update: The game proceeds even if updates are activated.
+- Development: SDK logs are activated and displayed.
+- Payment/Coupon: The address set by Webhook is called in payment and coupon usage.
+- Check: The game proceeds even if checks are activated.
+- Update: The game proceeds even if updates are activated.
+- Member: The game proceeds even if there are countries or IPs blocked.
 
-![gamepot-1-240](./images/gamepot-1-240.png)
+![gamepot_dashboard_73](./images/gamepot_dashboard_73.png)
 
-Click **Add**. When the popup window shown below appears, add a parameter and value.
+Click **Add**. When the pop-up window displayed below appears, add a parameter and value.
 
-![gamepot-1-241](./images/gamepot-1-241.png)
+![gamepot_dashboard_74](./images/gamepot_dashboard_74.png)
 
-#### Blocking access
+#### - Block
 
-Blocks users who connect with registered IP and country code.
+Block users accessing with registered IPs and country codes.
 
-![gamepot-1-600](./images/gamepot-1-600.png)
+![gamepot_dashboard_75](./images/gamepot_dashboard_75.png)
 
-Click the **Add** button. When the following pop-up window is exposed, enter the corresponding value.
+Click **Add**. When the pop-up window displayed below appears, add a corresponding value.
 
-![gamepot-1-601](./images/gamepot-1-601.png)
+![gamepot_dashboard_76](./images/gamepot_dashboard_76.png)
+
+① Check the status to activate blocking.
+
+② Specify an input value of a target to block.
+
+③ Add a target to block.
+
+④ Specify a default language among messages displayed differently for the device's language setting of the target to be blocked.
+
+⑤ Register different messages for the device's language setting.
+
+#### - API Key
+
+It manages keys used in authentications for using open APIs.
+Click [+Add] to create a key and enter the key value created in the header as x-api-key value when calling open APIs.
+Click the key created to access Edit. Edit the key status, key expiration date, and description or delete the key.
+
+## Others
+
+### Job management
+
+Download the output result of csv files from each menu for a month.
+
+![gamepot_dashboard_90](./images/gamepot_dashboard_90.png)
 
 ### Log
 
-This feature works with NAVER CLOUD PLATFORM’s Effective Log Search & Analytics to allow you to collect game logs or crash logs. Refer to [How to Use Effective Log Search & Analytics](https://docs.ncloud.com/en/elsa/elsa-1-1.html) for details.
-
-
+This feature works with NAVER CLOUD PLATFORM’s ELSA to allow you to collect game logs or crash logs. Refer to [How to Use ELSA](https://docs.ncloud.com/ko/elsa/elsa-1-1.html) for details.
 
 ### User Guide
 
 Go to the GAMEPOT Dashboard User Guide page.
 
-![gamepot-1-238B](./images/gamepot-1-238B.png)
-
-
+![gamepot_dashboard_77](./images/gamepot_dashboard_77.png)
 
 ### Change language
 
-Changes the display language of the dashboard to the selected language.
+Change the display language of the dashboard to the selected language.
 
-![gamepot-1-238C](./images/gamepot-1-238C.png)
-
-
+![gamepot_dashboard_78](./images/gamepot_dashboard_78.png)
 
 ### Edit member info
 
-Enables you to edit the name and password of the dashboard account.
+It enables you to edit the name and password of the dashboard account.
 
-![gamepot-1-237](./images/gamepot-1-237.png)
+![gamepot_dashboard_79](./images/gamepot_dashboard_79.png)
 
-① Click the icon on the upper right side of the dash board and click **Edit member info**.
+Click the icon on the upper right side of the dash board and then click **Edit member info**.
 
-![gamepot-1-238](./images/gamepot-1-238.png)
+![gamepot_dashboard_80](./images/gamepot_dashboard_80.png)
 
-② Edit the user name.
+① Edit the user name.
 
-③ Change the password.
+② Select a standard time zone of the dashboard.
 
+③ Select a target language when using inquiry translations.
 
+④ Set whether or not to detect the languages of inquiries automatically when using inquiry translations.
 
-### Environment settings
+⑤ Set whether or not to translate the languages of inquiries automatically when using inquiry translations.
 
-Enables you to manage users, updates and system features for your GAMEPOT dashboard.
+⑥ Change the password.
 
-#### User
+### Settings
 
-Allows you to add or delete users of the dashboard.
+Enables you to manage users, role management, and update features for your GAMEPOT dashboard.
 
-![gamepot-1-504](./images/gamepot-1-504.png)
+![gamepot_dashboard_81](./images/gamepot_dashboard_81.png)
 
-① Registered user IDs.
+#### - User
 
-② Registered user names.
+Add or delete users of the dashboard.
 
+![gamepot_dashboard_82](./images/gamepot_dashboard_82.png)
 
+① Check the status to activate the user.
 
-#### Update
+Click **Register**. When the pop-up window displayed below appears, add a corresponding value.
 
-Updates the GAMEPOT system to the latest version.
+![gamepot_dashboard_83](./images/gamepot_dashboard_83.png)
 
-![gamepot-1-502](./images/gamepot-1-502.png)
+① A user ID to register. Use email formats only.
 
+② A user name to register.
 
+③ A user password to register.
 
-#### System
+④ Select a standard time zone for the user dashboard.
 
-You can check the current disk status and backup status as well as the last backup time.
+⑤ Select a target language when using customer support translations.
 
-![gamepot-1-503](./images/gamepot-1-503.png)
+⑥ Set whether or not to detect the languages of inquiries automatically when using customer support translations.
 
-① It is the current disk usage of the system.
+⑦ Set whether or not to translate the languages of inquiries automatically when using customer support translations.
 
-② If enabled, it backs up the entire database once a day, and the backup data is automatically stored in Object Storage.
+#### - Role
 
-※ Backup is performed every 12 hours after being enabled.
+It allows you to manage dashboard users in unit and grant different permissions for each role.
+
+![gamepot_dashboard_84](./images/gamepot_dashboard_84.png)
+
+Click **Gears**. Set roles in the screen below.
+
+![gamepot_dashboard_85](./images/gamepot_dashboard_85.png)
+
+① Locates the user to be included in the role.
+
+② Locates the user to be included in a basic role. Basic roles are provided all permissions.
+
+③ Select a feature to be permitted to the role.
+
+#### - Update
+
+Check GAMEPOT system's update history.
+
+![gamepot_dashboard_86](./images/gamepot_dashboard_86.png)

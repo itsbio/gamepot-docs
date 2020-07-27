@@ -1,42 +1,51 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
 
-## スタートする
 
-### Step 1. GAMEPOT プラグインを持ち込む
+#### **NAVERクラウドプラットフォーム商品の使用方法をより詳細に提供し、様々なAPIの活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[APIリファレンス]</a>を分けて提供しています。**
 
-生成された GAMEPOT ダッシュボードにアクセスして最新のプラグインをダウンロードします。
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT APIリファレンスへ >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT説明書へ >></a>
 
-### Step 2. プラグインを持ち込む
 
-**Assets > Import Package > Custom Package** メニューからダウンロードした `GamePotUnityPlugin-xxxx.unitypackage` ファイルを選択します。
+# Unity SDK
+
+## 1. 始める
+
+### Step 1. GAMEPOTプラグインをダウンロードする
+
+作成したGAMEPOTダッシュボードにアクセスして、最新プラグインをダウンロードします。
+
+### Step 2. プラグインをインポートする
+
+**Assets > Import Package > Custom Package**メニューでダウンロードしたGamePotUnityPlugin-xxxx.unitypackageファイルを選択します。
 
 ![gamepot_unity_01](./images/gamepot_unity_01.png)
 
-プラグインを確認して Import すると当該プロジェクトに追加されます。
+プラグインを確認してインポートすると、当該プロジェクトに追加されます。
 
 ![gamepot_unity_02](./images/gamepot_unity_02.png)
 
 ### Step 3. Android
 
-#### 基本環境の設定
+#### 基本環境設定
 
-```
+```d
 minSdkVersion : API 17 (Jelly Bean, 4.2)
 ```
 
-##### Gradle 環境の設定方法
+**Gradle環境の設定方法**
 
-`/Assets/Plugin/Android/mainTemplate.gradle` ファイルをエディターで開きます。
+/Assets/Plugin/Android/mainTemplate.gradleファイルをエディタで開きます。
 
 ```java
 ...
 android {
-	...
-	defaultConfig {
-		...
+    ...
+    defaultConfig {
+        ...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_store", "google" // required
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
@@ -44,50 +53,50 @@ android {
         resValue "string", "facebook_app_id", "0" // optional (facebook)
         resValue "string", "fb_login_protocol_scheme", "fb0" // optional (facebook)
         // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
-	}
-	...
+    }
+    ...
 }
 ```
 
-以下の必須値を探して修正します。以下の値を修正すると正常に作動します。
+以下の必須値を探して修正します。以下の値を修正しないと正常に動作しません。
 
 ```java
 resValue "string", "[key]", "[value]"
 ```
 
-| 値                           | 説明                                                                                                                                                        |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| gamepot_project_id           | GAMEPOT で発行されたプロジェクト ID を入力してください。                                                                                                    |
-| gamepot_store                | ストア値(`google` または `one`)                                                                                                                             |
-| gamepot_app_title            | アプリのタイトル (FCM)                                                                                                                                      |
-| gamepot_push_default_channel | 登録された基本チャンネル名(Default) - 変更しないでください。                                                                                                |
-| facebook_app_id              | フェイスブックで発行されたアプリ ID                                                                                                                         |
-| fb_login_protocol_scheme     | フェイスブックで発行された protocol scheme fb[app_id]                                                                                                       |
-| gamepot_elsa_projectid       | NAVER クラウドプラットフォーム Effective Log Search & Analytics 商品使用の際のプロジェクト ID ([詳しくみる](https://www.ncloud.com/product/analytics/elsa)) |
+| 値| 説明|
+| :-- | :--- |
+| gamepot_project_id| GAMEPOTから発行されたプロジェクトIDを入力してください。|
+| gamepot_store| ストア値 \(`google`または`one`または`galaxy`\)|
+| gamepot_app_title| アプリのタイトル \(FCM\)|
+| gamepot_push_default_channel| 登録された基本チャンネル名 \(Default\) - 変更しないでください。|
+| facebook_app_id| Facebookで発行されたアプリID|
+| fb_login_protocol_scheme| Facebookで発行されたprotocol scheme fb\[app_id\]|
+| gamepot_elsa_projectid| NCLOUD ELSA使用時のプロジェクトID \([詳しく見る](https://www.ncloud.com/product/analytics/elsa)\)|
 
-##### Notification bar のプッシュアイコン変更方法
+**Notibarのプッシュアイコン変更方法**
 
 ![gamepot_unity_03](./images/gamepot_unity_03.png)
 
-プッシュを受信の際、Android Notification bar に表示する Small icon は SDK 内部で基本イメージとして表示され、直接追加することもできます。
+プッシュ通知を受ける際にAndroid Notification barに表示するSmall iconはSDK内部の基本画像が用いられ、直接追加することもできます。
 
-直接追加するためには `drawable` フォルダ別にイメージを入れる必要があります。( [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)を利用して作成すると自動でフォルダ別にイメージが作成されて便利です。)
+直接追加するには`drawable`フォルダ別に画像を作成する必要があります。\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)を用いて作成すると、自動的にフォルダ別に画像が追加されるため便利です。\)
 
-イメージファイル名は `ic_stat_gamepot_small`でなければなりません。
+画像ファイル名はic_stat_gamepot_smallにしてください。
 
-| フォルダ名            | サイズ |
-| --------------------- | ------ |
-| res/drawable-mdpi/    | 24x24  |
-| res/drawable-hdpi/    | 36x36  |
-| res/drawable-xhdpi/   | 48x48  |
-| res/drawable-xxhdpi/  | 72x72  |
-| res/drawable-xxxhdpi/ | 96x96  |
+| フォルダ名| サイズ|
+| :------------------------------------------------------------- | :---- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 48x48 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
-##### Screen Orientation の設定方法
+**Screen Orientationの設定方法**
 
-`/Assets/Plugin/Android/AndroidManifest.xml` ファイルをエディターで開きます。
+/Assets/Plugin/Android/AndroidManifest.xmlファイルをエディタで開きます。
 
-```xml
+```markup
 ...
     <activity android:screenOrientation="sensorLandscape">
       <intent-filter>
@@ -98,54 +107,63 @@ resValue "string", "[key]", "[value]"
 ...
 ```
 
-Main Activity に screenOrientation を追加してゲームに合わせて`sensorLandscape` または `sensorPortrait`を入力してください。
+Main ActivityにscreenOrientationを追加し、ゲームに応じて`sensorLandscape`もしくは`sensorPortrait`を入力してください。
 
-##### Unity Build Settings
+**Android Resolver Settings**
 
-`File > Build Settings > Build System` メニューから Gradle を選択します。
+`Assets > Play Services Resolver > Android Resolver > Settings`メニューに移動します。
+
+![gamepot_unity_04](./images/gamepot_unity_04.png)
+
+`Enable Resolution On BuildチェックボックスのチェックをOFF`にしてください。
+
+![gamepot_unity_05](./images/gamepot_unity_05.png)
+
+**Unity Build Settings**
+
+`File > Build Settings > Build System`メニューでGradleを選択します。
 
 ![gamepot_unity_06](./images/gamepot_unity_06.png)
 
 ### Step 4. iOS
 
-> GameCenter Login を `使用しない場合`には以下の位置で当該ファイルを削除してください。<br> > `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`<br>
-> 当該ライブラリーが含まれた場合 `Capabilities設定からGameCenterを必ず有効化` する必要があります。<br>
+> GameCenter Loginを`使用しない場合`は、以下の位置から当該ファイルを削除してください。>
+> `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
+> 当該ライブラリが含まれている場合、`Capabilities設定でGameCenterを必ず有効化`してください。
 
-グーグルファイアベースでダウンロードした `GoogleService-Info.plist`ファイルを `/Assets/Plugins/IOS/`にコピーします。
+Google Firebaseからダウンロードした`GoogleService-Info.plist`ファイルを`/Assets/Plugins/IOS/`にコピーします。
 
-`/Assets/Plugin/IOS/GamePotConfig-Info.plist` 内に必要な環境変数を追加してください。
+`/Assets/Plugin/IOS/GamePotConfig-Info.plist`に必要な環境変数を追加してください。
 
 ![gamepot_unity_07](./images/gamepot_unity_07.png)
 
-| 環境変数                      | 説明                                                                                      |
-| ----------------------------- | ----------------------------------------------------------------------------------------- |
-| gamepot_project_id            | GAMEPOT で発行されてプロジェクト ID を入力してください。                                  |
-| gamepot_facebook_app_id       | フェイスブックで発行されたアプリ ID                                                       |
-| gamepot_facebook_display_name | フェイスブックに表示される名前                                                            |
-| gamepot_google_app_id         | GoogleService-Info ファイルの CLIENT_ID 値                                                |
-| gamepot_google_url_schemes    | GoogleService-Info ファイルの REVERSED_CLIENT_ID 値                                       |
-| gamepot_elsa_projectid        | NAVER クラウドプラットフォーム Effective Log Search & Analytics 使用の際のプロジェクト ID |
+| 環境変数| 説明|
+| :---------------------------- | :---------------------------------------------------- |
+| gamepot_project_id| GAMEPOTから発行されたプロジェクトIDを入力してください。|
+| gamepot_facebook_app_id| Facebookで発行されたアプリID|
+| gamepot_facebook_display_name| Facebookに表示される名前|
+| gamepot_google_app_id| GoogleService-InfoファイルのCLIENT_ID値|
+| gamepot_google_url_schemes| GoogleService-InfoファイルのREVERSED_CLIENT_ID値|
+| gamepot_elsa_projectid| NCLOUD ELSA利用時のプロジェクトID|
 
-Scenes を追加してから **File > Build Settings > Build And Run**を実行すると完了します。
+scenesを追加してから**File > Build Settings > Build And Run**を実行すると完了します。
 
 ![gamepot_unity_08](./images/gamepot_unity_08.png)
 
-XCode ビルド後
+XCodeをビルドしてから
 
-Targets >> Info >> Custom iOS Target Properties 内に以下の `ユーザーの権限獲得オプションを追加` してください。
+Targets >> Info >> Custom iOS Target Propertiesに以下の`ユーザー権限取得オプションを追加`してください。
 
-当該ユーザー権限は GAMEPOT お客様センター内のファイルアップロード機能で使われます。
+このユーザー権限はGAMEPOTサポートセンター内のファイルアップロード機能で使用されます。
 
-```
+```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
-####
+## 2. 初期化
 
-## 初期化
-
-ゲームを開始する際にロードされる最初の画面に使用される個体に次のコードを追加します。
+ゲームを始める際にロードされる最初の画面に使用されるインスタンスに、次のコードを追加します。
 
 ```csharp
 using GamePotUnity;
@@ -154,52 +172,52 @@ public class GamePotLoginSampleScene : MonoBehaviour {
         GamePot.initPlugin();
     }
     void Start () {
-        GamePot.setListener(  GamePotInterface.cs相続されたclass );
+        GamePot.setListener(  GamePotInterface.cs 継承されたclass );
          // ex) GamePot.setListener(new GamePotSampleListener());
     }
 
 }
 
 ex)
-public class GamePotSampleListener : MonoBehaviour , NSDKInterface {
+public class GamePotSampleListener : MonoBehaviour , IGamePot {
     ....
 }
 ```
 
-## エラーコード
+## 3. エラーコード
 
 ```csharp
 public class NError
 {
-    // 分からない Error
+    // 不明なError
     public static readonly int CODE_UNKNOWN_ERROR           = 0;
-    // 初期化の失敗
+    // 初期化失敗
     public static readonly int CODE_NOT_INITALIZE           = 1;
     // パラメータが正しくない場合
     public static readonly int CODE_INVAILD_PARAM           = 2;
-    // メンバーIDデータがない時
+    // メンバーIDデータがない場合
     public static readonly int CODE_MEMBERID_IS_EMPTY       = 3;
     // ログインされていない状態
     public static readonly int CODE_NOT_SIGNIN              = 4;
-    // ネットワークモジュールが初期化されていない時
+    // ネットワークモジュールが初期化されなかった場合
     public static readonly int CODE_NETWORK_MODULE_NOT_INIT = 3000;
-    // ネットワーク接続エラー及びタイムアウト発生の際
+    // ネットワークコネクションエラー及びタイムアウト発生時
     public static readonly int CODE_NETWORK_ERROR           = 3001;
     // server-sideで発生するエラー
     public static readonly int CODE_SERVER_ERROR            = 4000;
-    // http response codeが成功でない場合
+    // http response codeが成功していない場合
     public static readonly int CODE_SERVER_HTTP_ERROR       = 4001;
-    // ネットワーク接続エラー及びタイムアウト発生の際
+    // ネットワークコネクションエラー及びタイムアウト発生時
     public static readonly int CODE_SERVER_NETWORK_ERROR    = 4002;
-    // サーバで受け取ったデータをパースする時のエラー
+    // サーバから取得したデータをパースする際のエラー
     public static readonly int CODE_SERVER_PARSING_ERROR    = 4003;
-    // 決済で分からないエラー発生及びストア側でErrorを転送する時
+    // 決済で不明なエラー発生及びストア側からError伝達時
     public static readonly int CODE_CHARGE_UNKNOWN_ERROR    = 5000;
-    // product idを入れていない場合
+    // product idを入力しなかった場合
     public static readonly int CODE_CHARGE_PRODUCTID_EMPTY  = 5001;
-    // product idを誤って入れた場合
+    // product idを正しく入力しなかった場合
     public static readonly int CODE_CHARGE_PRODUCTID_WRONG  = 5002;
-    // consumeの際のエラー
+    // consume時のエラー
     public static readonly int CODE_CHARGE_CONSUME_ERROR    = 5003;
 
     // error Code
@@ -209,120 +227,87 @@ public class NError
 }
 ```
 
-## ログイン環境の設定
+## 4. ログイン環境設定
 
-### グーグルログイン
+### Googleログイン
 
-#### Google Firebase コンソール
+#### Google Firebase Console
 
-1. Google Firebase コンソールから Android 用 google-service.json ファイルをダウンロードした後に `/Assets/Plugins/Android/`にコピーします。
-2. APK ビルドの際に使用した Keystore の SHA-1 値を Google Firebase console に追加します。
-3. Google Firebase コンソールから iOS 用 GoogleService-Info.plist ファイルをダウンロードした後に`/Assets/Plugins/IOS/`にコピーします。
+1.Google Firebase ConsoleでAndroid用google-service.jsonファイルをダウンロードしてから`/Assets/Plugins/Android/`にコピーします。
+2.APKをビルドする際に使用したKeystoreのSHA-1値をGoogle Firebase consoleに追加します。
+3.Google Firebase ConsoleでiOS用GoogleService-Info.plistファイルをダウンロードしてから`/Assets/Plugins/IOS/`にコピーします。
 
-**グーグルログインの際 onCancel がレスポンスし、ログインできない場合** 以下の内容をチェックしてください。
+**Googleログイン時にonCancelがレスポンスしてログインできない場合、** 以下の内容をチェックしてください。
 
-1. 上で適用リクエストした google-service.json ファイルが正常に適用されたか確認
-2. ビルドの際に使用したキーストアが Firebase console で登録した sha-1 を抽出したキーストアであるかを確認
-3. Firebase console に登録したパッケージ名でビルドされたか確認
+1.上記で適用リクエストしたgoogle-service.jsonファイルを正常に適用したか確認
+2.ビルドする際に使用したキーストアが、Firebase consoleに登録したsha-1を抽出したキーストアなのか確認
+3.Firebase consoleに登録したパッケージ名でビルドしたか確認
 
-### フェイスブックログイン
+### Facebookログイン
 
-#### Facebook Developer コンソール
+#### Facebook Developer Console
 
-APK ビルドの際に使用した Keystore のキーハッシュ値をフェイスブックコンソールに追加します。
+APKをビルドする際に使用したKeystoreのキーハッシュ値をFacebookコンソールに追加します。
 
 #### Android
 
-mainTemplate.gradle の修正
+mainTemplate.gradle修正
 
 ```java
 ...
 defaultConfig {
-	resValue "string", "facebook_app_id", "1234567890"
-	resValue "string", "fb_login_protocol_scheme", "fb1234567890"
+    resValue "string", "facebook_app_id", "1234567890"
+    resValue "string", "fb_login_protocol_scheme", "fb1234567890"
 }
 ...
 ```
 
-フェイスブックデベロッパーセンターで発行されたアプリ ID を`facebook_app_id` 値に入力して `fb_login_protocol_scheme` 値に`fb{facebook_app_id}`を入力します。
+Facebook開発者センターで発行されたアプリIDを`facebook_app_id`値に入力し、`fb_login_protocol_scheme`値に`fb{facebook_app_id}`を入力します。
 
-> app_id が 1234567890 の場合 fb1234567890 が `fb_login_protocol_scheme` 値です。
+> app_idが1234567890である場合、fb1234567890が`fb_login_protocol_scheme`値です。
 
 #### iOS
 
-/Assets/Plugins/IOS/Frameworks ルートに以下のフレームワークを追加します。
+/Assets/Plugins/IOS/Frameworksのパスに以下のフレームワークを追加します。
 
-FBSDKLoginKit.framework
-FBSDKCoreKit.framework
-Bolts.framework
-GamePotFacebook.framework
+FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
+
+### APPLEログイン
+
+> iOSにのみ該当する機能です。
+
+**Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Appleを追加します。**
+
+![gamepot_unity_24](./images/gamepot_unity_24.png)
 
 ### ゲームセンターログイン
 
-> iOS にのみ該当する機能です。<br>
+> iOSにのみ該当する機能です。
 >
-> GameCenter Login を `使用しない場合`には以下の位置で当該ファイルを削除してください。<br> > `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`<br />
-> 当該ライブラリーが含まれた場合 `Capabilities設定から GameCenterを必ず有効化` してください。<br />
+> GameCenter Loginを使用する場合は、以下の画像のように設定してください。>
+> `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
 
-/Assets/Plugins/IOS/Frameworks/ ルートに Gamekit.framwork をコピーします。 **General > Linked Frameworks and Libraries** 内にコピーしたフレームワークを追加します。
+![gamepot_unity_25](./images/gamepot_unity_25.png)
 
-Capabilities 設定で Game Center を ON に設定します。(アプリストアコンソールでも Game Center が ON に設定されていなければなりません。)
+> 当該ライブラリが含まれている場合、`Capabilities設定でGameCenterを必ず有効化`してください。
+
+**Xcode > Build Phases > Linked Binary With Libraries**にGamekit.frameworkを追加します。
+
+![gamepot_unity_26](./images/gamepot_unity_26.png)
+
+**Xcode > TARGETS > Signing & Capabilities > + Capability > GameCenterを追加します。**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
 
-### NAVER ログイン
 
-#### Naver Developer コンソール
 
-使用 API を `ネアロ`に選択してアプリケーションを登録
-
-#### Android
-
-mainTemplate.gradle の修正
-
-```java
-...
-defaultConfig {
-	resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
-	resValue "string", "gamepot_naver_secretid", "hijklmn"
-}
-...
-```
-
-発行された Client ID を`gamepot_naver_clientid` 値に入力して Client Secret は `gamepot_naver_secretid` 値に入力します。
-
-#### iOS
-
-GamePotConfig-Info.plist ファイルに以下の項目を追加して当該値を入力します。
-
-```
-gamepot_naver_clientid // NAVERで使用するclient ID
-gamepot_naver_secretid // NAVERで使用する secret ID
-gamepot_naver_urlscheme // NAVERで使用する urlscheme
-```
-
-GamePotConfig-Info.plist ファイルを SourceCode でみる際は以下のように追加
-
-```xml
-...
-<key>gamepot_naver_clientid</key>
-<string>xxxxxx</string>
-<key>gamepot_naver_secretid</key>
-<string>xxxxxx</string>
-<key>gamepot_naver_urlscheme</key>
-<string>xxxxxx</string>
-...
-```
-
-Targets >> Info >> URL Types で NAVER ID でログイン設定に登録した URL Schemes を追加します。
-
-URL Schemes を生成する際には `小文字`,`.`,`_`以外の文字を使用すると読み取れない場合がありますのでご注意ください。
-
-## ログイン/ログアウト/脱会/検証
+## 5. ログイン/ログアウト/退会/検証
 
 ### ログイン
 
-別途の登録なしにユーザーアカウントが生成されます。全ての身分確認のための MemberId が生成され、生成された情報は NUserInfo 構造体に保存されてリターンされます。
+別途の登録なしにユーザーアカウントが作成されます。すべての身元確認のためのMemberIdが作成され、作成された情報はNUserInfo構造体に保存され、返却されます。
+
+- Case 1
 
 Request:
 
@@ -340,72 +325,104 @@ public void onLoginSuccess(NUserInfo userInfo)
 // ログイン失敗
 public void onLoginFailure(NError error)
 {
-	// ログインに失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+    // ログインに失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
-// ログインの取り消し
+// ログインキャンセル
 public void onLoginCancel()
 {
-	// ユーザーが任意でログインを取り消した場合
+    // ユーザーが任意にログインをキャンセルした場合
 }
-// 強制アップデート(ストアバージョンとクライアントバージョンが異なる場合に呼び出し)
+// 強制アップデート(ストアバージョンとゲームクライアントバージョンが異なる場合に呼び出す)
 public void onNeedUpdate(NAppStatus status)
 {
-	// TODO: パラメータに転送されたstatus情報を基にポップアップを作成してユーザーに知らせる必要があります。
-	// TODO: 以下の二つの方法の中の一つを選択してください。
-    // case 1: インゲームポップアップを通じてデベロッパー社で直接UIを実装
-    // case 2: SDKのポップアップを使用(この場合は以下のコードを呼び出してください。)
+    // TODO: パラメータに渡されたstatus情報をもとにポップアップを作り、ユーザーに知らせてください。
+    // TODO: 以下の二つの方式のうち一つを選択してください。
+    // case 1：ゲーム内ポップアップを通じて開発会社で直接UIを実装
+    // case 2：SDKのポップアップを使用(この場合は以下のコードを呼び出してください。)
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// メンテナンス(ダッシュボードにメンテナンスが有効化されている場合に呼び出し)
+// メンテナンス(ダッシュボードでメンテナンスが有効化している場合に呼び出す)
 public void onMainternance(NAppStatus status)
 {
-   	// TODO: パラメータに転送されたstatus 情報を基にポップアップを作成してユーザーに知らせる必要があります。
-	// TODO: 以下の二つの方法の中の一つを選択してください。
-    // case 1: インゲームポップアップを通じてデベロッパー社で直接UIを実装
-    // case 2: SDKのポップアップを使用(この場合は以下のコードを呼び出してください。)
+       // TODO: パラメータに渡されたstatus情報をもとにポップアップを作り、ユーザーに知らせてください。
+    // TODO: 以下の二つの方式のうち一つを選択してください。
+    // case 1：ゲーム内ポップアップを通じて開発会社で直接UIを実装
+    // case 2：SDKのポップアップを使用(この場合は以下のコードを呼び出してください。)
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// アプリの終了
+// アプリ終了
 public void onAppClose()
 {
-    // TODO: 強制アップデートやメンテナンス機能をcase 2方式で実装する場合
-    // TODO: アプリを強制終了することができるため、ここにアプリを終了できるように実装してください。
+    // TODO: 強制アップデートやメンテナンス機能をcase 2の方式で実装する場合
+    // TODO: アプリを強制終了できるため、ここでアプリを終了できるように実装してください。
 }
 ```
 
-LoginType の定義
+- Case 2
+
+Request:
+
+```csharp
+GamePot.login(NCommon.LoginType, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        case NCommon.ResultLogin.CANCELLED:
+        // login cancel
+        break;
+        case NCommon.ResultLogin.FAILED:
+        // login fail
+        break;
+        default:
+        break;
+    }
+});
+```
+
+LoginTypeの定義
 
 ```csharp
 public enum LoginType
 {
-     NONE,
-     GOOGLE,
-     FACEBOOK,
-     GAMECENTER,
-     NAVER,
-     GUEST
+    NONE,
+    GOOGLE,
+    GOOGLEPLAY,
+    FACEBOOK,
+    NAVER,
+    GAMECENTER,
+    TWITTER,
+    LINE,
+    APPLE,
+    GUEST,
+    THIRDPARTYSDK
 }
-
 ```
 
-NUserInfo の定義
+NUserInfoの定義
 
 ```csharp
 public class NUserInfo
 {
-    public string id { get; set; }              // メンバーID(ユーザーのユニークID)
+    public string memberid { get; set; }        // メンバーID(ユーザーの固有ID)
     public string name { get; set; }            // 名前
-    public string profileUrl { get; set; }      // プロフィールURL(存在する場合)
-    public string email { get; set; }           // メール(存在する場合)
-    public string socialid { get; set; }        // Social ID(google, facebook ...)
+    public string profileUrl { get; set; }      // プロフィールURL(ある場合)
+    public string email { get; set; }           // メール(ある場合)
+    public string token { get; set; }           // ユーザー広告ID
+    public string userid { get; set; }          // Social ID(google、facebook...)
 }
 ```
 
-### ログイン情報を持ち込む
+### ログイン情報をインポートする
 
 ```csharp
-GamePot.getMemberId(); // メンバーID(ユーザーのユニークID)
+GamePot.getMemberId(); // メンバーID(ユーザーの固有ID)
 ```
 
 ### 自動ログイン
@@ -419,112 +436,193 @@ if(type != NCommon.LoginType.NONE) {
 }
 else
 {
-    // 初めてゲームを実行したりログアウトした状態。ログインできるログイン画面に移動してください。
+    // 初めてゲームを実行したか、ログアウトした状態。ログインできるログイン画面に移動してください。
 }
 ```
 
 ### ログアウト
 
-ユーザーをログアウトさせます。アカウントが削除されず、同じアカウントでログインできます。
+ユーザーをログアウトさせます。アカウントは削除されず、同じアカウントでログインできます。
+
+- Case 1
 
 Request:
 
-```
+```csharp
 GamePot.logout();
 ```
 
 Response:
 
 ```csharp
-/// ログアウトの成功
+/// ログアウト成功
 public void onLogoutSuccess()
 {
 }
 
-/// ログアウトの失敗
+/// ログアウト失敗
 public void onLogoutFailure(NError error)
 {
-   	// ログアウトに失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+    // ログアウトに失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-### 脱会
-
-会員を脱会させ、リカバリーできません。
+- Case 2
 
 Request:
 
+```csharp
+GamePot.logout(GamePotCallbackDelegate.CB_Common);
 ```
+
+```csharp
+GamePot.logout((success, error) => {
+   if(success)
+   {
+       // ログアウト成功
+   }
+   else
+   {
+        // ログアウトに失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+   }
+});
+```
+
+### 退会
+
+会員退会します。復旧はできません。
+
+- Case 1
+
+Request:
+
+```text
 GamePot.deleteMember();
 ```
 
 Response:
 
 ```csharp
-/// 会員脱会の成功
+/// 会員退会成功
 public void onDeleteMemberSuccess() {
 }
 
-/// 会員脱会の失敗
+/// 会員退会失敗
 public void  onDeleteMemberFailure(NError error) {
-   	// 会員脱会に失敗する場合
-	// error.messageをポップアップなででユーザーに知らせてください。
+    // 会員退会に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-### 検証
-
-ログイン完了後、ログイン情報をデベロッパー社サーバから GAMEPOT サーバに転送するとログイン検証が進みます。
-
-詳しい説明は Server to server API メニューの `Token Authentication` 項目をご参照ください。
-
-## アカウントの連動
-
-一つのゲームアカウントに複数のソーシャルアカウント(グーグル、フェイスブックなど)を接続/解除できる機能です。(最小連動ソーシャルアカウントは 1 つです。)
-
-> 連動画面の UI はデベロッパー社で実装してください。
-
-```csharp
-public enum LinkingType
-{
-      GAMECENTER,
-      GOOGLE,
-      FACEBOOK,
-      NAVER
-}
-```
-
-### 連動
-
-Google / Facebook などの ID にアカウントを連動できます。
+- Case 2
 
 Request:
 
 ```csharp
-GamePot.createLinking(NCommon.LinkingType.XXXXX);
+GamePot.deleteMember(GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.deleteMember((success, error) => {
+   if(success)
+   {
+        // 会員退会成功
+   }
+   else
+   {
+        // 会員退会に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+   }
+});
+```
+
+### 検証
+
+ログイン完了後、ログイン情報を開発会社のサーバからGAMEPOTサーバに伝達するとログイン検証が行われます。
+
+詳しい説明はServer to server apiメニューの`Token Authentication`項目を参考にしてください。
+
+## 6. アカウント連携
+
+一つのゲームアカウントに複数のソーシャルアカウント\(Google/Facebookなど\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
+
+> 連携画面のUIは開発会社で実装してください。
+
+```csharp
+public enum LinkingType
+{
+    GOOGLEPLAY,
+    GAMECENTER,
+    GOOGLE,
+    FACEBOOK,
+    NAVER,
+    TWITTER,
+    LINE,
+    APPLE
+}
+```
+
+### 連携
+
+Google / FacebookなどのIDでアカウントを連携できます。
+
+- Case 1
+
+Request:
+
+```csharp
+void GamePot.createLinking(NCommon.LinkingType.XXXXX);
 ```
 
 Response:
 
 ```csharp
-/// アカウント連動の取り消し
+/// アカウント連携キャンセル
 public void onCreateLinkingCancel() {
-    // ユーザーがアカウント連動を取り消した場合
+    // ユーザーがアカウント連携をキャンセルした場合
 }
 
-/// アカウント連動の成功
+/// アカウント連携成功
 public void onCreateLinkingSuccess(NUserInfo userInfo) {
 }
 
-/// アカウント連動の失敗
+/// アカウント連携失敗
 public void onCreateLinkingFailure(NError error) {
-	// アカウント連動に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+    // アカウント連携に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-現在連動された全てのアカウント情報を持ってくることができます。
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.createLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_CreateLinking);
+```
+
+```csharp
+GamePot.createLinking(NCommon.LinkingType.XXXXX, (resultState, userInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultLinking.SUCCESS:
+        // アカウント連携成功
+        break;
+        case NCommon.ResultLinking.CANCELLED:
+        // アカウント連携キャンセル
+        break;
+        case NCommon.ResultLinking.FAILED:
+        // アカウント連携失敗
+        break;
+        default:
+        break;
+    }
+});
+```
+
+現在連携されているすべてのアカウント情報を取得できます。
 
 ```csharp
 List<NLinkingInfo> linkedList = GamePot.getLinkedList();
@@ -535,202 +633,481 @@ List<NLinkingInfo> linkedList = GamePot.getLinkedList();
 ```csharp
 public class NLinkingInfo
 {
-    public LinkingType provider { get; set; }  // google, facebook, naver
+    public LinkingType provider { get; set; }  // google, facebook, naver, apple..
 }
 ```
 
-### 連動の解除
+### 連携解除
 
-以前連動されているアカウントを解除します。
+現在連携されているアカウントを解除します。
+
+- Case 1
 
 Request :
 
-```
-void GamePot.deleteLinking(NCommon.LinkType.XXXXX);
+```csharp
+void GamePot.deleteLinking(NCommon.LinkingType.XXXXX);
 ```
 
 Response:
 
 ```csharp
-/// アカウント連動解除の成功
+/// アカウント連携の解除成功
 public void onDeleteLinkingSuccess() {
 }
 
-/// アカウント連動解除の失敗
+/// アカウント連携の解除失敗
 public void onDeleteLinkingFailure(NError error) {
-	// 連動解除に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+    // 連携解除に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-#### アカウントの連動状態に関する結果処理の例題
+- Case 2
 
-createLinking / deleteLinking の結果によって現在連動されているアカウント情報を受け取って連動状態に対する UI をアップデートします。
+Request:
+
+```csharp
+void GamePot.deleteLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.deleteLinking(NCommon.LinkingType.XXXXX, (success, error) => {
+    if(success)
+    {
+       // アカウント連携の解除成功
+    }
+   else
+   {
+        // 連携解除に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+    }
+});
+```
+
+#### アカウント連携状況に関する結果処理の例
+
+createLinking / deleteLinkingの結果に応じて現在連携されているアカウント情報を取得し、連携状態に対するUIをアップデートします。
 
 ```csharp
 public void onInit()
 {
-	UI_Update();
+    UI_Update();
 }
 public void onCreateLink_GAMECENTER_Click()
 {
-	GamePot.createLinking(NCommon.LinkingType.GAMECENTER);
+    GamePot.createLinking(NCommon.LinkingType.GAMECENTER);
 }
 public void onCreateLink_GOOGLE_Click()
 {
-	GamePot.createLinking(NCommon.LinkingType.GOOGLE);
+    GamePot.createLinking(NCommon.LinkingType.GOOGLE);
 }
 public void onCreateLinkingSuccess(NUserInfo userInfo)
 {
-	UI_Update();
+    UI_Update();
 }
 public void onCreateLinkingFailure(NError error)
 {
-	UI_Update();
+    UI_Update();
 }
 public void onDeleteLinkingSuccess(NUserInfo userInfo)
 {
-	UI_Update();
+    UI_Update();
 }
 public void onDeleteLinkingFailure(NError error)
 {
-	UI_Update();
+    UI_Update();
 }
 
 Public void UI_Update()
 {
-	// Ui Update in GAME
-	CreateLinkManager.instance._IOS_google_state  = false;
-	CreateLinkManager.instance._IOS_gamecenter_state  = false;
+    // Ui Update in GAME
+    CreateLinkManager.instance._IOS_google_state  = false;
+    CreateLinkManager.instance._IOS_gamecenter_state  = false;
 
-	List<NLinkingInfo> linkedList = GamePot.getLinkedList();
-	foreach ( NLinkingInfo item in linkedList)
-	{
-		case NCommon.LinkingType.GOOGLE :
-			CreateLinkManager.instance._IOS_google_state  = true;
-		break;
-		case NCommon.LinkingType.GAMECENTER :
-			CreateLinkManager.instance._IOS_gamecenter_state  = true;
-		break;
-	}
+    List<NLinkingInfo> linkedList = GamePot.getLinkedList();
+    foreach ( NLinkingInfo item in linkedList)
+    {
+        switch(item.provider)
+        {
+        case NCommon.LinkingType.GOOGLE :
+            CreateLinkManager.instance._IOS_google_state  = true;
+            break;
+        case NCommon.LinkingType.GAMECENTER :
+            CreateLinkManager.instance._IOS_gamecenter_state  = true;
+            break;
+
+        ...
+
+        }
+    }
 }
 ```
 
-## 決済
+## 7. 決済
 
-### In-App 商品の照会
+### In-App商品照会
 
-ストアに登録された商品情報を転送します。
+ストアに登録された商品情報を伝達します。
 
-この機能を活用するとユーザーに見合った価格、通貨、商品名がそれぞれ異なる形で表示されます。
+この機能を用いると、各ユーザに応じた料金、通貨、商品名が表示されます。
 
 ```csharp
 NPurchaseItem[] items = GamePot.getPurchaseItems();
 foreach(NPurchaseItem item in items) {
-    Debug.Log(item.productId);		// 商品ID
-    Debug.Log(item.price);			// 価格
-    Debug.Log(item.title);			// タイトル
-    Debug.Log(item.description);	// 説明
+    Debug.Log(item.productId);        // 商品ID
+    Debug.Log(item.price);            // 料金
+    Debug.Log(item.title);            // タイトル
+    Debug.Log(item.description);    // 説明
 }
 ```
 
-### In-App 商品の決済
+### In-App商品決済
 
-以下の関数一つでグーグル、アップル、アプリストアの決済が可能です。
+以下の関数一つでGoogle、Apple、APPSTORE決済が可能になります。
+
+- Case 1
 
 Request:
 
 ```csharp
-// productId : マーケットに登録された商品ID
-GamePot.purchase(string productId)
+// productId：ストアに登録されている商品IDを入力してください。
+// uniqueId：別途管理する領収証番号を入力します。
+// serverId：決済を行ったキャラクターのサーバIDを入力します。
+// playerId ：決済を行ったキャラクターのキャラクターIDを入力します。
+// etc      ：決済を行ったキャラクターのその他の情報を入力します。
+GamePot.purchase(string productId);
+
+GamePot.purchase(string productId, string uniqueId);
+
+GamePot.purchase(string productId, string uniqueId, string serverId, string playerId, string etc);
 ```
 
 Response:
 
 ```csharp
-/// In-App決済の成功
+/// In-App決済成功
 public void onPurchaseSuccess(NPurchaseInfo purchase) {
 }
 
-/// In-App決済の失敗
+/// In-App決済失敗
 public void onPurchaseFailure(NError error) {
-	// 決済に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+    // 決済に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 
-/// In-App決済のの失敗
+/// In-App決済失敗
 public void onPurchaseCancel() {
 }
 ```
 
-### NPurchaseInfo の定義
+- Case 2
 
-決済成功後に決済したアイテムの情報です。参考用にご利用ください。
+Request:
+
+```csharp
+// productId：マーケットに登録された商品ID
+GamePot.purchase(string productId, GamePotCallbackDelegate.CB_Purchase);
+
+GamePot.purchase(string productId, string uniqueId, GamePotCallbackDelegate.CB_Purchase);
+
+GamePot.purchase(string productId, string uniqueId, string serverId, string playerId, string etc, GamePotCallbackDelegate.CB_Purchase);
+
+```
+
+```csharp
+GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultPurchase.SUCCESS:
+        // purchase success
+        break;
+        case NCommon.ResultPurchase.CANCELLED:
+        // purchase cancel
+        break;
+        case NCommon.ResultPurchase.FAILED:
+        // purchase fail
+        break;
+        default:
+        break;
+    }
+});
+```
+
+### NPurchaseInfoの定義
+
+決済成功後に決済したアイテム情報です。参考用にしてください。
 
 ```csharp
 public class NPurchaseInfo
 {
-    public string price { get; set; }  				// 決済アイテムの価格
-    public string productId { get; set; }           // 決済アイテムのID
-    public string currency { get; set; }            // 決済価格の通貨(KRW/USD)
+    public string price { get; set; }               // 決済アイテムの料金
+    public string productId { get; set; }           // 決済アイテムID
+    public string currency { get; set; }            // 決済料金の通貨(KRW/USD)
     public string orderId { get; set; }             // ストアOrder ID
-    public string productName { get; set; }         // 決済アイテムの名前
-    public string uniqueId { get; set; }            // purchase api呼び出しの際、2番目のパラメータ値
+    public string productName { get; set; }         // 決済アイテム名
+    public string gamepotOrderId { get; set; }      // GAMEPOTで作成したorder id
+    public string uniqueId { get; set; }            // 開発会社のunique ID
     public string signature { get; set; }           // 決済Signature
-    public string originalJSONData { get; set; }    // 領収書Data
+    public string originalJSONData { get; set; }    // 領収証Data
 }
 ```
 
-### 決済アイテムの支給
+### 決済アイテム支給
 
-GAMEPOT は Server to server api を通じて決済ストアに領収書の検証まで全て終わらせてからデベロッパー社のサーバに支給リクエストをするため、違法決済は不可能です。
+GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
 
-そのためには `Server to server api` メニューの `Purchase Webhook` 項目を参考にして処理してください。
+このためには`Server to server api`メニューの`Purchase Webhook`項目を参考にして処理してください。
 
 ### 外部決済
 
-外部決済を許可するストア及び公式ストアではない所で決済を使用できる機能です。
+外部決済を許可しているストアと、公式ストアではないところで決済を使用できる機能です。
 
-> 呼び出し API のみ異なり、レスポンス及び Purchase webhook などその他は一般決済と同じです。
+> 呼び出しapiだけが異なり、レスポンスやpurchase webhookなどその他は一般決済と同じです。
 >
-> 機能を使用するためには設定が必要です。ダッシュボードマニュアルの’外部決済’項目をご参照ください。
+> 機能を使用するには設定が必要です。ダッシュボードマニュアルの｢外部決済｣項目を参考にしてください。
+
+- Case 1
 
 Request:
 
 ```csharp
-// productId : マーケットに登録された商品ID
+// productId：マーケットに登録された商品ID
 GamePot.purchaseThirdPayments(string productId);
 ```
 
-外部決済利用の際の商品情報リストは以下の API をご利用ください。
+外部決済を利用する場合、商品情報リストは以下のapiを使用してください。
 
 Request:
 
 ```csharp
-// リターンされるデータフォーマットはgetPurchaseItems()と同じです。
+// 返却されるデータ形式はgetPurchaseItems()と同じです。
 GamePot.getPurchaseThirdPaymentsItems();
 ```
 
-## 広告
+- Case 2
 
-IGAWorks Unity Plugin を基本として含んでいるため、[IGAWorks のガイド](http://help.igaworks.com/hc/ko/3_3/Content/Article/common_unity_aos)で適用してください。
+Request:
 
-> IGAWorks 以外にライブラリーを使用しようとする場合は私共が盛り込む方法をご案内致します。
+```csharp
+// productId：マーケットに登録された商品ID
+GamePot.purchaseThirdPayments(string productId, GamePotCallbackDelegate.CB_Purchase);
+```
 
-盛り込まれたバージョンは以下の通りです。
+```csharp
+// 返却されるデータ形式はgetPurchaseItems()と同じです。
+GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
+      switch (resultState)
+    {
+        case NCommon.ResultPurchase.SUCCESS:
+        // purchase success
+        break;
+        case NCommon.ResultPurchase.CANCELLED:
+        // purchase cancel
+        break;
+        case NCommon.ResultPurchase.FAILED:
+        // purchase fail
+        break;
+        default:
+        break;
+    }
+});
+```
 
-| プラットフォーム | バージョン                                     |
-| ---------------- | ---------------------------------------------- |
-| Android          | IGAWorks_Unity_Android_Full_Package_2018-12-05 |
-| iOS              | IGAWorks_Unity_iOS_Full_Package_2018-10-02     |
+## 8. その他のAPI
 
-## Push On/Off
+### NAVERログイン
 
-プッシュ、夜間プッシュをそれぞれ On/Off に処理することができます。
+#### Naver Developers
 
-> On/Off を設定する UI はデベロッパー社で実装してください。
+使用APIを`ネアロ(NAVER IDでログイン)`にしてからアプリケーション登録
 
-### プッシュ設定
+#### Android
+
+mainTemplate.gradle修正
+
+```java
+...
+defaultConfig {
+    resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
+    resValue "string", "gamepot_naver_secretid", "hijklmn"
+}
+...
+```
+
+Consoleで発行されたClient IDを`gamepot_naver_clientid`値に入力し、Client Secretは`gamepot_naver_secretid`値に入力します。
+
+#### iOS
+
+GamePotConfig-Info.plistファイルに以下の項目を追加してその値を入力します。
+
+```text
+gamepot_naver_clientid // NAVERで使用するClient ID
+gamepot_naver_secretid // NAVERで使用するSecret ID
+gamepot_naver_urlscheme // NAVERで使用するurlscheme
+```
+
+GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下のとおり追加
+
+```markup
+...
+<key>gamepot_naver_clientid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_secretid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_urlscheme</key>
+<string>xxxxxx</string>
+...
+```
+
+Targets >> Info >> URL TypesにNAVER IDでログイン設定に登録したURL Schemesを追加します。
+
+URL Schemesを作成する際に`アルファベットの小文字`、`ピリオド(.)`、`アンダースコア(_)`以外の文字を使用すると認識できない場合があるため、ご注意ください。
+
+### LINEログイン
+
+#### LINE Developers
+
+APKにビルドする際に使用したパッケージ名とkeystoreのSHA値、url Scheme値をLINEのコンソールに追加します。
+
+#### Android
+
+mainTemplate.gradle修正
+
+発行されたClient IDを`gamepot_line_channelid`値に入力します。
+
+```java
+...
+defaultConfig {
+    resValue "string", "gamepot_line_channelid","xxxxxxx"
+}
+...
+```
+
+#### iOS
+
+/Assets/Plugins/IOS/GamePotConfig-Info.plistファイルに以下の項目を追加してその値を入力します。
+
+```text
+gamepot_line_channelid // NAVERで使用するClient ID
+gamepot_line_url_schemes // Line URL Scheme (line3rdp.{プロジェクトバンドルidentifier})
+```
+
+GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下のとおり追加します。
+
+```markup
+...
+<key>gamepot_line_channelid</key>
+<string>xxxxxx</string>
+<key>gamepot_line_url_schemes</key>
+<string>xxxxxx</string>
+...
+```
+
+### Twitterログイン
+
+#### Twitter Developers
+
+#### Android
+
+mainTemplate.gradle修正
+
+```java
+...
+defaultConfig {
+        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Twitter開発者コンソールで取得
+        resValue "string", "gamepot_twitter_consumersecret","xxx" // Twitter開発者コンソールで取得
+}
+...
+```
+
+#### iOS
+
+GamePotConfig-Info.plistファイルに以下の項目を追加してその値を入力します。
+
+```text
+gamepot_twitter_consumerkey : Twitter Consumer Key
+gamepot_twitter_consumersecret :  Twitter Consumer Secret
+```
+
+GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下のとおり追加
+
+```markup
+...
+<key>gamepot_twitter_consumerkey</key>
+<string>xxxxxx</string>
+...
+```
+
+### クーポン
+
+#### クーポン使用
+
+> クーポンを入力するUIは開発会社で実装してください。
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.coupon(string couponNumber); // クーポン番号
+
+GamePot.coupon(string couponNumber, string userData); // クーポン番号、ユーザー情報
+```
+
+Response:
+
+```csharp
+/// クーポン使用に成功
+public void onCouponSuccess() {
+}
+
+/// クーポン使用に失敗
+public void onCouponFailure(NError error) {
+    // クーポン使用に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.coupon(string couponNumber, GamePotCallbackDelegate.CB_Common); // クーポン番号
+
+GamePot.coupon(string couponNumber, string userData, GamePotCallbackDelegate.CB_Common);    // クーポン番号、ユーザー情報
+```
+
+```csharp
+GamePot.coupon(couponNumber, (success, error) => {
+   if(success)
+   {
+       // クーポン使用に成功
+   }
+   else
+   {
+        // クーポン使用に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+   }
+});
+```
+
+#### アイテム支給
+
+クーポンの使用に成功すると、開発会社のサーバにServer to server apiを通じてアイテム支給をリクエストします。
+
+このためにはServer to server apiメニューの`Item Webhook`項目を参考にして処理してください。
+
+### Push on/off
+
+プッシュ、夜間プッシュ通知をそれぞれon/offにできます。
+
+> on/offを設定するUIは開発会社で実装してください。
+
+#### プッシュ通知設定
+
+- Case 1
 
 Request:
 
@@ -741,18 +1118,43 @@ GamePot.setPushStatus(bool pushEnable);
 Response:
 
 ```csharp
-/// プッシュ状態の変更に関するサーバ通信の成功
+/// プッシュ通知の状態変更に関するサーバ通信成功
 public void onPushSuccess() {
 }
 
-/// プッシュ状態の変更に関するサーバ通信の失敗
+/// プッシュ通知の状態変更に関するサーバ通信失敗
 public void onPushFailure(NError error) {
-	// プッシュ状態の変更に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+
+    // プッシュ通知の状態変更に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-### 夜間プッシュの設定
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushStatus(bool pushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushStatus(pushEnable, (success, error) => {
+    if(success)
+    {
+        // プッシュ通知の状態変更に関するサーバ通信成功
+    }
+   else
+   {
+        // プッシュ通知の状態変更に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+    }
+});
+```
+
+#### 夜間プッシュ通知設定
+
+- Case 1
 
 Request:
 
@@ -763,187 +1165,260 @@ GamePot.setPushNightStatus(bool nightPushEnable);
 Response:
 
 ```csharp
-/// 夜間プッシュ状態の変更に関するサーバ通信の成功
+/// 夜間プッシュ通知の状態変更に関するサーバ通信成功
 public void onPushNightSuccess() {
 }
 
-/// 夜間プッシュ状態の変更に関するサーバ通信の失敗
+/// 夜間プッシュ通知の状態変更に関するサーバ通信失敗
 public void onPushNightFailure(NError error) {
-	// 夜間プッシュ状態の変更に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+
+    // 夜間プッシュ通知の状態変更に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-### プッシュ/夜間プッシュを一度に設定
-
-ログイン前にプッシュ/夜間プッシュの許可可否を受け取るゲームである場合、ログイン後に以下のコードを必ず呼び出します。
+- Case 2
 
 Request:
 
 ```csharp
-GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, true);
+void GamePot.setPushNightStatus(bool nightPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushNightStatus(nightPushEnable, (success, error) => {
+    if(success)
+    {
+        // 夜間プッシュ通知の状態変更に関するサーバ通信成功
+    }
+   else
+   {
+        // 夜間プッシュ通知の状態変更に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+    }
+});
+```
+
+#### プッシュ型広告設定
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.setPushADStatus(bool adPushEnable);
 ```
 
 Response:
 
 ```csharp
-/// 夜間プッシュ状態の変更に関するサーバ通信の成功
+/// プッシュ型広告の状態変更に関するサーバ通信成功
+public void onPushAdSuccess() {
+}
+
+/// プッシュ型広告の状態変更に関するサーバ通信失敗
+public void onPushAdFailure(NError error) {
+
+    // プッシュ型広告の状態変更に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushADStatus(bool adPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushADStatus(adPushEnable, (success, error) => {
+    if(success)
+    {
+        // プッシュ型広告の状態変更に関するサーバ通信成功
+    }
+   else
+   {
+        // プッシュ型広告の状態変更に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+    }
+});
+```
+
+#### プッシュ通知 / 夜間プッシュ通知 / プッシュ型広告を一度に設定
+
+ログイン前にプッシュ/夜間プッシュ通知のOn/Offを設定するゲームの場合、ログインの後に以下のコードを必ず呼び出します。
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable);
+```
+
+Response:
+
+```csharp
+/// プッシュ通知の状態変更に関するサーバ通信成功
 public void onPushStatusSuccess() {
 }
 
-/// 夜間プッシュ状態の変更に関するサーバ通信の失敗
+/// プッシュ通知の状態変更に関するサーバ通信失敗
 public void onPushStatusFailure(NError error) {
-	// 夜間プッシュ状態の変更に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
+
+    // プッシュ通知の状態変更に失敗した場合
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-### プッシュ状態の照会
+- Case 2
+
+Request:
+
+```csharp
+void GamePot.setPushADStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable, GamePotCallbackDelegate.CB_Common);
+```
+
+```csharp
+GamePot.setPushADStatus(pushEnable, nightPushEnable, adPushEnable, (success, error) => {
+    if(success)
+    {
+        // プッシュ通知の状態変更に関するサーバ通信成功
+    }
+   else
+   {
+        // プッシュ通知の状態変更に失敗した場合
+        // error.messageをポップアップなどでユーザーに知らせてください。
+    }
+});
+```
+
+#### プッシュ通知の状態照会
 
 ```csharp
 NPushInfo pushInfo = GamePot.getPushStatus();
-// pushInfo.enable  プッシュの許可可否
-// pushInfo.night   夜間プッシュの許可可否
+
+// pushInfo.enable プッシュ通知のOn/Off
+// pushInfo.night 夜間のプッシュ通知のOn/Off
 ```
 
-## クーポン
+### 案内事項
 
-#### クーポンの使用
-
-> クーポンを入力される UI はデベロッパー社で実装してください。
-
-Request:
-
-```csharp
-GamePot.coupon(string couponNumber); // クーポン番号
-```
-
-Response:
-
-```csharp
-/// クーポン使用の成功
-public void onCouponSuccess() {
-}
-
-/// クーポン使用の失敗
-public void onCouponFailure(NError error) {
-	// クーポンの使用に失敗した場合
-	// error.messageをポップアップなどでユーザーに知らせてください。
-}
-```
-
-#### アイテムの支給
-
-クーポン使用に成功したらデベロッパー社のサーバを通じてアイテムの支給をリクエストします。
-
-そのためには Server to server API メニューの`Item Webhook` 項目を参考にして処理してください。
-
-## NAVER カフェ SDK
-
-NAVER カフェ SDK(4.0.4)を含む plugin を使用する際は[NAVER カフェ SDK ガイド](https://github.com/naver/cafe-sdk-unity/blob/master/README.md#usages)を参考にして適用してください。
-
-> NAVER カフェの SDK の容量が大きいため、盛り込む/盛り込まないの二つのバージョンで提供します。必要に応じて選択してください。
-
-## 案内事項
-
-GAMEPOT ダッシュボードで’案内事項’に追加したイメージを順番に表示する機能です。
+GAMEPOTダッシュボードで｢案内事項｣に追加した画像を順番に表示する機能です。
 
 ![gamepot_unity_10](./images/gamepot_unity_10.png)
 
-イメージのお勧めスペックは以下の通りです。
+画像推奨スペックは以下のとおりです。
 
-- サイズ : 720 _ 1200(Portrait) / 1280 _ 640(Landscape)
+- サイズ : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
 
-  > 上のサイズを守らない場合は center crop でイメージを処理します。
+  > 上記のサイズを守らない場合、center cropで画像を処理します。
 
-- 容量 : 250KB 以下
+- 容量：250KB以下
 
 Request:
 
 ```csharp
-GamePot.showNotice();
+GamePot.showNotice(bool Flag = true);
+
+// true：「今日は表示しない」を適用
+// false：「今日は表示しない」とは関係なしに強制表示
 ```
 
 Response:
 
-GAMEPOT ダッシュボードで `クリックアクション`を`SCHEME`に設定した場合、当該イメージをクリックすると `SCHEME`値を転送します。
+GAMEPOTダッシュボードで`クリックアクション`を`SCHEME`に設定した場合、当該画像をクリックすると`SCHEME`値を伝達します。
 
 ```csharp
 public void onReceiveScheme(string scheme)
 {
-    // GAMEPOT ダッシュボードで設定したscheme値を転送
+    // GAMEPOTダッシュボードで設定したscheme値を伝達
 }
 ```
 
-## お客様センター
+### サポートセンター
 
-お客様が運営者にお問い合わせを登録して回答を得ることのできる機能です。
+顧客が運営者に問い合わせを登録して返答を受け取れる機能です。
 
-- お問い合わせ登録画面
+問い合わせのUIはデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
+
+- 問い合わせ登録画面
 
   ![gamepot_unity_11](./images/gamepot_unity_11.png)
 
-- マイお問い合わせ内訳画面
+- マイ問い合わせ履歴画面
 
   ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
-### 呼び出し
+#### 呼び出し
 
 ```csharp
 GamePot.showCSWebView();
 ```
 
-## ローカルプッシュ(Local Push notification)
+外部リンクをサポートし、ログインしていない顧客も問い合わせを登録できます。
 
-プッシュサーバを通じずに端末機からプッシュを表示する機能です。
+#### 呼び出し
 
-### 呼び出し
+```csharp
+// url：GAMEPOTから発行された外部サポートセンターURL
 
-#### プッシュの登録
+GamePot.showWebView(string url);
+```
 
-決まった時間にローカルプッシュを表示する方法は以下の通りです。
+### ローカルプッシュ\(Local Push notification\)
 
-> リターン値で転送される pushid はデベロッパー社で管理します。
+プッシュサーバを介さずに端末にプッシュを表示する機能です。
 
-```Java
+#### プッシュ登録
+
+決められた時間にローカルプッシュを表示する方法は以下のとおりです。
+
+> 戻り値として返ってくるpushIdは開発会社で管理します。
+
+```csharp
 int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title", "content");
 ```
 
-#### 登録したプッシュの取り消し
+#### 登録プッシュキャンセル
 
-プッシュ登録の際に得た pushid に基づいて以前登録したプッシュを取り消すことができます。
+プッシュ登録の際に取得したpushIdをもとに、これまでに登録したプッシュをキャンセルできます。
 
-```Java
-GamePot.cancelLocalPush(/*プッシュ登録の際に得たpushId*/);
+```csharp
+GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 ```
 
-## 約款の同意
+### 規約同意
 
-'利用約款’及び’個人情報の収集及び利用案内’の同意を簡単に受け取れるよう UI を提供します。
+｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるようにUIを提供します。
 
-`BLUE` テーマと `GREEN` テーマの 2 種類を提供し、各領域別に Customizing も可能です。
+`BLUE`テーマと`GREEN`テーマの2種類を提供し、各領域別にカスタマイズもできます。
 
-- `BLUE` テーマの例
+- `BLUE`テーマの例
 
   ![gamepot_unity_13](./images/gamepot_unity_13.png)
 
-- `GREEN` テーマの例
+- `GREEN`テーマの例
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
-### 約款同意の呼び出し
+#### 規約同意を呼び出す
 
-> 約款同意のポップアップ表示可否はデベロッパー社でゲームに合わせて処理してください。
+> 規約同意のポップアップ表示の有無は、開発会社でゲームに合わせて処理してください。
 >
-> ’みる’ボタンをクリックすると表示される内容はダッシュボードで適用及び修正できます。
+> ｢見る｣ボタンをクリックすると表示される内容は、ダッシュボードで適用及び修正できます。
+
+- Case 1
 
 Request:
 
 ```csharp
-// 基本呼び出し(BLUEテーマに適用)
+// 基本呼び出し(BLUEテーマを適用)
 GamePot.showAgreeDialog();
 
-// GREENテーマに適用の際
+// GREENテーマ適用時
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "green";
 GamePot.showAgreeDialog(info);
@@ -952,37 +1427,65 @@ GamePot.showAgreeDialog(info);
 Response:
 
 ```csharp
-// 約款に同意した場合
+// 規約に同意した場合
 public void onAgreeDialogSuccess(NAgreeResultInfo info)
 {
-    // info.agree : 必須約款に全て同意した場合は true
-    // info.agreeNight : 夜間広告性受信同意をチェックした場合はtrue, そうでない場合はfalse
-    // agreeNight値はログイン完了後にsetPushNightStatus apiを通じて転送してください。
+    // info.agree：規約の必須事項にすべて同意した場合、true
+    // info.agreeNight：夜間プッシュ型広告の通知を許可した場合はtrue、そうでない場合はfalse
+    // agreeNight値はログイン完了後、setPushNightStatus apiを通じて伝達してください。
 }
 
-// エラーの発生
+// エラー発生
 public void onAgreeDialogFailure(NError error)
 {
-	// error.messageをポップアップなどでユーザーに知らせてください。
+    // error.messageをポップアップなどでユーザーに知らせてください。
 }
 ```
 
-### Customizing
+- Case 2
 
-テーマを使用せずにゲームに合わせてカラーを変更します。
+Request:
 
-約款の同意を呼び出す前に `NAgreeInfo`でそれぞれの領域別にカラーを指定できます。
+```csharp
+// 基本呼び出し(BLUEテーマを適用)
+showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
-```c#
+// GREENテーマ適用時
+NAgreeInfo info = new NAgreeInfo();
+info.theme = "green";
+GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
+```
+
+```csharp
+GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError error) => {
+   if(success)
+   {
+        // 規約に同意した場合
+   }
+   else
+   {
+        // エラー発生
+        // error.messageをポップアップなどでユーザーに知らせてください。
+   }
+});
+```
+
+#### Customizing
+
+テーマを使わずにゲームに合わせてカラーを変更します。
+
+規約同意を呼び出す前に、`NAgreeInfo`で各領域別にカラーを指定できます。
+
+```csharp
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "green";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
 info.headerTitleColor = "0xFFFF0000";
 info.headerBottomColor = "0xFF00FF00";
-// 未使用の際に ""に設定
-info.headerTitle = "約款の同意";
-// Android : res/drawable 客体ID(ファイル名)
-// iOS : asset 客体ID(ファイル名)
+// 未使用時は""に設定
+info.headerTitle = 「規約同意」;
+// Android：res/drawableオブジェクトID(ファイル名)
+// iOS：assetオブジェクトID(ファイル名)
 info.headerIconDrawable = "ic_stat_gamepot_agree";
 
 info.contentBackGradient = new string[] { "0xFFFF2432", "0xFF11FF32" };
@@ -990,53 +1493,193 @@ info.contentIconColor = "0xFF0429FF";
 info.contentCheckColor = "0xFFFFADB5";
 info.contentTitleColor = "0xFF98FFC6";
 info.contentShowColor = "0xFF98B3FF";
-// Android : res/drawable 客体ID(ファイル名)
-// iOS : asset 客体ID(ファイル名)
+// Android：res/drawableオブジェクトID(ファイル名)
+// iOS：assetオブジェクトID(ファイル名)
 info.contentIconDrawable = "ic_stat_gamepot_small";
 
 info.footerBackGradient = new string[] { "0xFFFFFFFF", "0xFF112432" };
 info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
-info.footerTitle = "ゲームをスタートする";
-// 夜間広告性受信同意ボタンの表示可否
+info.footerTitle = 「ゲームを始める」;
+// 夜間プッシュ型広告通知許可ボタンの表示の有無
 info.showNightPush = true;
 
-// 文の変更
-info.allMessage = "全て同意";
-info.termMessage = "必須) 利用約款";
-info.privacyMessage = "必須) 個人情報取り扱いに関する方針";
-info.nightPushMessage = "選択) 夜間プッシュの受信同意";
+// メッセージ変更
+info.allMessage = 「すべて同意」;
+info.termMessage = 「必須) 利用規約」;
+info.privacyMessage = 「必須) 個人情報の取扱方針」;
+info.nightPushMessage = 「任意) 夜間プッシュ通知を許可」;
 
 GamePot.showAgreeDialog(info);
 ```
 
 それぞれの変数は以下の領域に適用されます。
 
-> contentIconDrawable は AOS にのみ表示され、基本値はプッシュアイコンで設定されます。
+> contentIconDrawableはAOSでのみ表示され、基本値はプッシュアイコンとして設定されます。
 
 ![gamepot_unity_15](./images/gamepot_unity_15.png)
 
-## 利用約款
+### 利用規約
 
-利用約款 UI を呼び出します。
+利用規約UIを呼び出します。
 
-> ダッシュボード-お客様サポート－利用約款の設定項目に内容をまず入力してください。
+> ダッシュボード - サポートセンター - 利用規約の設定項目にまず内容を入力してください。
 
-```c#
+```csharp
 GamePot.showTerms();
 ```
 
 ![gamepot_unity_16](./images/gamepot_unity_16.png)
 
-## 個人情報取り扱いに関する方針
+### 個人情報の取扱方針
 
-個人情報取り扱いに関する方針 UI を呼び出します。
+個人情報の取扱方針UIを呼び出します。
 
-> ダッシュボード-お客様サポート－個人情報の取り扱いに関する方針の設定項目に内容をまず入力してください。
+> ダッシュボード - サポートセンター - 個人情報の取扱方針の設定項目にまず内容を入力してください。
 
-```c#
+```csharp
 GamePot.showPrivacy();
 ```
 
 ![gamepot_unity_17](./images/gamepot_unity_17.png)
+
+### 払い戻し規約
+
+払い戻し規約UIを呼び出します。
+
+> ダッシュボード - サポートセンター - 払い戻し規約の設定項目にまず内容を入力してください。
+
+```csharp
+GamePot.showRefund();
+```
+
+![gamepot_unity_21](./images/gamepot_unity_21.png)
+
+### Remote Config
+
+ダッシュボードで登録したパラメータ値をゲームクライアントから取得します。
+
+> ダッシュボード - 設定 - Remote Config画面でパラメータを追加します。
+
+![gamepot_unity_18](./images/gamepot_unity_18.png)
+
+> 追加したパラメータはログイン時にロードされ、その後から呼び出すことができます。
+
+```csharp
+//"test_01"：パラメータstring
+var str_value = GamePot.getConfig("test_01");
+
+//ダッシュボードに追加したすべてのパラメータをjson string形式で取得します。
+var json_value = GamePot.getConfigs();
+```
+
+![gamepot_unity_22](./images/gamepot_unity_22.png)
+
+### 決済キャンセルを悪用するユーザーを自動的に解除する機能
+
+決済キャンセルを悪用するユーザーを自動的に解除する機能のUIを提供します。各領域別にカスタマイズできます。
+
+> Google決済に限って、ユーザーが任意にGoogleにリクエストして決済をキャンセルした場合、｢Google決済キャンセル｣機能を通じてそのユーザーを利用停止させることができます。
+>
+> この時、当該ユーザーがログインするとSDK内でポップアップを表示し、当該決済アイテムを再決済するように誘導し、
+> 決済したら再び正常にアクセスできるようにする機能を提供します。
+>
+> キャンセルした決済をすべて再決済すると、自動的に利用停止が解除されます。
+
+![gamepot_unity_23](./images/gamepot_unity_23.png)
+
+```csharp
+
+NVoidInfo info = new NVoidInfo();
+
+// メッセージ変更
+info.headerTitle = "Header Title Section!";
+
+info.descHTML = "descHTML Section!";
+
+info.listHeaderTitle = "listHeaderTitle Section!";
+
+info.footerTitle = "footerTitle Section!";
+
+GamePot.setVoidBuilder(info);
+
+```
+
+
+### ゲームログ伝送
+
+ゲームで使用される情報を入れて呼び出すと、`ダッシュボード` - `ゲーム`で照会できます。
+
+以下は使用できる予約語の定義表です。
+
+| 予約語| 必須| タイプ| 説明|
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME| 必須| String| キャラクター名|
+| GamePotSendLogCharacter.LEVEL| 任意| String| レベル|
+| GamePotSendLogCharacter.SERVER_ID| 任意| String| サーバID|
+| GamePotSendLogCharacter.PLAYER_ID| 任意| String| キャラクターID|
+| GamePotSendLogCharacter.USERDATA| 任意| String| ETC|
+
+```csharp
+String name = 「キャラクター名」;
+String level = "10";
+String serverid = "svn_001";
+String playerid = "283282191001";
+String userdata = "";
+
+GamePotSendLogCharacter characterLog = new GamePotSendLogCharacter();
+characterLog.put(GamePotSendLogCharacter.NAME, name);
+characterLog.put(GamePotSendLogCharacter.PLAYER_ID, playerid);
+characterLog.put(GamePotSendLogCharacter.LEVEL, level);
+characterLog.put(GamePotSendLogCharacter.SERVER_ID, serverid);
+characterLog.put(GamePotSendLogCharacter.USERDATA, userdata);
+
+Boolean result = GamePot.characterInfo(characterLog);
+
+// Result is TRUE : validation success.Logs will send to GamePot Server
+// Result is FALSE : validation was failed.Please check logcat
+```
+
+# 付録
+
+### 3rd party SDK連携サポート
+
+## ログイン
+
+> 自動ログインに対応しない。毎回呼び出しが必要。
+
+| パラメータ名| 必須| タイプ| 説明|
+| :--------- | :--- | :----- | :----------------- |
+| userid| 必須| String| ユーザーの固有ID|
+
+```csharp
+String userid = "memberid of 3rd party sdk";
+
+GamePot.loginByThirdPartySDK("userid");
+```
+
+## 決済
+
+> 決済アイテムがGAMEPOTのダッシュボードに登録されている必要があります。
+
+| パラメータ名| 必須| タイプ| 説明|
+| :------------ | :--- | :----- | :-------------------------------------- |
+| productid| 必須| String| GAMEPOTのダッシュボードに登録されたアイテムID|
+| transactionid| 必須| String| 決済領収証番号(GPA-xxx-xxxx-xxxx)|
+| store| 必須| String| (決済ストア - google、apple、one、galaxy)|
+| currency| 任意| String| 通貨(KRW、USD)|
+| price| 任意| double| 決済アイテム金額|
+| paymentid| 任意| String| 決済payment (一般的にはstore_idと同じ)|
+| uniqueid| 任意| String| 開発会社で使用する固有ID|
+
+```csharp
+String productId = "purchase_001";
+String transactionId = "GPA-xxx-xxxx-xxxx";
+String currency = "KRW";
+double price = 1200;
+String paymentId = "google";
+String uniqueId = "developer unique id";
+
+sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
+```

@@ -1,107 +1,106 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
 
-> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
->
-> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
->
-> We will make every effort to further enhance our services.
 
-## Before use
+#### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
-GAME Platform On the Real Time (hereinafter referred to as GAMEPOT) is a cloud service that enables you to easily implement the functions needed to develop and service games without incurring additional development costs. In particular, it is a fully managed service that allows users to concentrate on game development by providing essential functions and various additional functions required for game operation as well as common SDK. You don't have to develop operational tools or SDK servers and operate your infrastructure, so you can streamline resources.
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
 
-**Unique features of NAVER CLOUD PLATFORM GAMEPOT**
 
-- It provides various functions which is necessary for game operation.<br />
-- A separate "dashboard" is provided for convenient management and statistics. Dashboards provide high data security because you don't just divide every customer by account.<br />
-- Dashboard access to game operations is more secure because you can manage your own accounts.<br />
-- You can easily link with various product of NAVER CLOUD PLATFORM. In addition, the price of the linked product is reasonable.<br />
+# Before use
 
-**Q. Competitor's services increase cost as the game grows. What about GAMEPOT?**
+GAMEPOT Platform On the real Time (hereinafter called "GAMEPOT") is a cloud service that helps you easily implement functions required to develop and service games without additional costs. In particular, it is a fully-managed service providing essential functions necessary for developing games as well as common SDK. GAMEPOT eliminates the need to develop operation tools or SDK servers and operate infrastructure so that you can efficiently manage resources.
 
-GAMEPOT is not a structure that increases costs in proportion to the growth of the game. Existing domestic and foreign similar services have an inefficient structure, in which the cost increases as the game enters the box, resulting in an unexpected additional cost. However, GAMEPOT has a hybrid plan that includes a flat rate plan that includes a base DAU and a pay-as-you-go plan that goes beyond the base DAU. The default DAU is 50,000 DAU / day, which is never small.
+**GAMEPOT characteristics**
 
-**Q. Please describe your dashboard security.**
+- GAMEPOT provides a variety of functions for game operations.
+- GAMEPOT provides a “Dashboard” that helps you conveniently use management and statistics features. Dashboard supports stronger data security as it does not simply rely on accounts to identify customers.
+- The dashboard is more secure because customers can directly manage accounts for game operations.
+- GAMEPOT can easily be linked with various NAVER CLOUD PLATFORMS. The price of the connected services is also affordable.
 
-If you access a common dashboard through a client account, all stored account information may be leaked if the client account information is leaked. The security of NAVER CLOUD PLATFORM prevents the leakage of external information at the origin level, but for added security, all of GAMEPOT's customers are provided with different access domains and dashboard systems to keep their data safer.
+**Q. Competitors’ services cost more as games grow. How about GAMEPOT?**
 
-## How to use GAMEPOT
+The cost of GAMEPOT does not increase in proportion to the growth of your game. Similar existing services worldwide have an ineffective structure that increases costs as the game becomes more popular, incurring unexpected extra costs. GAMEPOT has a hybrid payment plan that includes a flat rate plan, which includes a base DAU, and a usage-based plan that only incurs excess charges if the base DAU is exceeded. The basic DAU is 50,000 DAU/day, which is never a small amount.
 
-#### Step 1. Create a project
+**Q. I’d like to learn about dashboard security.**
 
-To use the service, you must first create a project.
+When a customer accesses the shared dashboard using their account, leaks of their account information can lead to exposure of all data stored in the dashboard. Although NAVER CLOUD PLATFORM fundamentally prevents information leaks, GAMEPOT provides each and every customer with a different access domain and dashboard system to ensure stronger security.
 
-![](./images/gamepot-1-101.png)
+# How to use GAMEPOT
 
-① In the console, select **Game > GAMEPOT**.
+## Step 1. Create a project
 
-![](./images/gamepot-1-102.png)
+First, you must create a project.
 
-② Select **+Create project** button.
+![gamepot_console_01](./images/gamepot_console_01.png)
 
-![](./images/gamepot-1-103.png)
+① Click **Game &gt; GAMEPOT** in your console.
 
-③ Enter a name for the game project.
+![gamepot_console_02](./images/gamepot_console_02.png)
 
-- The name can be from 3 to 30 characters long.
-- Only letters, numbers, and the '-' sign are allowed.
+② Click **+Create project**.
 
-④ Enter the administrator ID to be used for the dashboard.
+![gamepot_console_03](./images/gamepot_console_03.png)
 
-- Enter the administrator ID in the form of e-mail.
-- Mail required for ID authentication will be delivered to the mail you entered.
+③ Enter a game project name.
 
-⑤ Choose a product
+- The name can be between 3 and 30 characters in length.
+- Only English alphabet, numbers and '-' are allowed.
 
-![](./images/gamepot-1-104.png)
+④ Enter an admin ID to be used in the dashboard.
 
-- When you select a Managed product, you will be presented with a pop-up to request a separate service.
+- Enter the administrator ID in the form of an email address.
+- An ID authentication email is sent to the email address provided.
 
-⑥ Click the **Create Project** button to complete the project creation.
+⑤ Select a service.
 
-- When you create a project, you are charged an hourly rate with a default DAU. After creating a project, you will be charged even if you do not use it, so choose carefully.
+![gamepot_console_04](./images/gamepot_console_04.png)
 
-![](./images/gamepot-1-105.png)
+- Selecting a Managed service will provide a prompt for a separate service application.
 
-⑦ Once the project is created, you will see a URL that you can access with the dashboard. You will need to verify the email you entered with your administrator ID to complete administrator verification.
+⑥ Click **Create project** to create a project.
 
-Once email verification is complete, you will be taken to a dashboard window where you can enter your initial password. Please login after setting the initial password.
+- Once you create a project, an hourly fee including the basic DAU is charged. Fees are charged even if you don't use the service after creating a project, so be sure to select your choice carefully.
 
-#### Step 2. How to manage project
+Once a project is created, a URL to access the dashboard appears. You must complete admin authentication by checking the email address entered by the admin ID.
 
-Once the project is created, you will see a list screen with the game project name and product name.
+Once you complete email authentication, you'll be directed to a dashboard pane where you can enter your initial password. Log in after setting your initial password.
 
-![](./images/gamepot-1-106.png)
+## Step 2. Manage a project
 
-① You can enter the dashboard to manage game features through the dashboard URL.
+When a project is created, the list indicating your game project name and product name is displayed.
 
-② Check the project and click the **Project Management** button to display a simple management menu.
+![gamepot_console_06](./images/gamepot_console_06.png)
 
-![](./images/gamepot-1-107.png)
+① Once you have access to your dashboard, you can manage game features using the dashboard URL.
 
-- Product change : Change the service product you're using. You may temporarily lose access to the dashboard. Click the **Change product** button to display the following popup. Select the product you want to change and click the **Edit** button.
+② Select your project and click **Project Management** to check simple management menus.
 
-![](./images/gamepot-1-108.png)
+![gamepot_console_07](./images/gamepot_console_07.png)
 
-- Change account : You can change the administrator ID that you entered when creating the project. Once you complete the change request, a verification email will be sent to the email address of the changed account.
+- Change products: Change the service product in use. This may temporarily prevent you from accessing your dashboard. When you click **Change products**, the following pop-up window will appear. Select a product to change and click **Edit**.
 
-- Reset password : This function is used when you lose the dashboard access password or need to reset. After resetting the password, you can reset the password by accessing the dashboard.
+![gamepot_console_08](./images/gamepot_console_08.png)
 
-![](./images/gamepot-1-109.png)
+- Change accounts: You can change the admin ID you entered at the time of creating a project. Once you complete a change request, an authentication email is sent to the email address of the changed account.
 
-#### Step 3. Delete project
+- Reset password: Use this menu if you forget your password for the dashboard or need to reset it. After resetting your password, access the dashboard and change the password.
 
-GAMEPOT will incur an hourly rate from the time the project is created. Therefore, if you do not need it, you should delete the project to avoid incurring unnecessary charges.
+![gamepot_console_09](./images/gamepot_console_09.png)
 
-![](./images/gamepot-1-110.png)
+## Step 3. Delete a project
 
-① To delete a project, click **Delete Project** button. Click the **Delete Project** button to display the following popup.
+Hourly charges apply as soon as a GAMEPOT project has been created. Therefore, you should delete unnecessary projects to avoid excessive charges.
 
-![](./images/gamepot-1-111.png)
+![gamepot_console_10](./images/gamepot_console_10.png)
 
-② You must enter a project name to delete it.
+① Click **Delete project** to delete a project. Once you click **Delete project**, the following pop-up window will appear.
 
-③ When the same popup is displayed above, click the **OK** button to finalize the deletion.
+![gamepot_console_11](./images/gamepot_console_11.png)
+
+② Enter the name of the project to delete.
+
+③ Click **OK** on the pop-up window shown above and the project will be deleted.
