@@ -752,3 +752,70 @@ IOS 설정은 아래와 같이 진행을 합니다.
 | 고객지원        | O            | O            |
 | 게임 > 플레이어  | O            | O            |
 | 게임 > 선물하기  | O            | O            |
+
+
+### Migration
+
+####  Ver Unity 2.1.1 To Ver Unity 2.1.2
+
+    Unity 엔진 버전에 따라 유니티 플러그인 패키지가 분기되었던 부분에 대해 수정 작업을 진행하였으며
+    Firebase 및 Google Resolver 버전이 1.2.116.0에서 1.2.155 으로 업데이트가 있었습니다.
+
+하기 작업이 필요합니다.
+
+
+    1. 기존 프로젝트에서 하기 폴더 및 내부 파일 삭제를 선행으로 진행
+
+    [삭제해야 하는 폴더 및 파일]
+
+    ../Assets/PlayServicesResolver
+
+    ../Assets/Firebase
+
+    2. v2.1.2 유니티 플러그인 패키지 추가시 하기 항목들은 필수로 추가
+
+    [추가되는 폴더 및 파일]
+
+    ../Assets/ExternalDependencyManager
+
+    ../Assets/Firebase
+
+
+[ Unity 2019.02.XX 버전 또는 이전 버전 ]
+    
+    - 기존과 동일한 방식으로 업데이트 진행
+
+
+[ Unity 2019.3.0~2019.3.6]  
+
+    - 기존에 사용한 settingsTemplate.gradle / mainTemplate.gradle 파일을 유지합니다.
+    해당 버전의 엔진 특성상 외부 라이브러리 탑재시 제약 사항이 발생하는 버전이므로 
+    다른 버전의 유니티 플러그인 버전을 사용할 것을 권유 드립니다.
+
+[ Unity 2019.3.7 이상 버전 또는 이후 버전 (신규로 작업하는 경우) ]
+
+    1. baseProjectTemplate.gradle을 추가합니다.
+
+    일반적으로 하기 파일을 rename 해서 사용하시면 됩니다.
+    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    => baseProjectTemplate.gradle 
+
+    2. settingsTemplate.gradle 삭제 합니다.
+    ../Assets/Plugins/Android/settingsTemplate.gradle 
+
+    3. mainTemplate.gradle 파일에 정의 했던 gamepot_project_id 같은 환경 변수 정의를 launcherTemplate.gradle에 정의합니다.
+
+    일반적으로 하기 파일을 rename한 후 게임팟 환경 변수 값을 정의 합니다.
+    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    => launcherTemplate.gradle 
+
+    4. mainTemplate_GAMEPOT_UNITY2019_3.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
+    gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
+
+
+####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
+
+    Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
+
+    빈 프로젝트 > 최신 Unity Tools 1.0.1 설치 > Unity Unity Tools 실행 
+    > 다운로드 SDK ver2.1.2 버튼을 클릭하여 유니티 플러그인 패키지를 설치 후 작업을 진행이 필요합니다.
