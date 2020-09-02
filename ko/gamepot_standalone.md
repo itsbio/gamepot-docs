@@ -15,7 +15,7 @@ search:
 
 **_GamePot Unity SDK v2.1.2를 기준으로 튜닝된 패키지 입니다. (2020.09.02)_**
 
-GAMEPOT SDK for PC (Unity) [\[Unity(PC) SDK v2.1.2(BETA)\]](hhttps://kr.object.ncloudstorage.com/itsb/sdk/GamePotUnityPluginV2_v2.1.2_forStandalone%28Alpha%29_20200902.unitypackage)
+GAMEPOT SDK for PC (Unity) [\[Unity(PC) SDK v2.1.2(BETA)\]](https://kr.object.ncloudstorage.com/itsb/sdk/GamePotUnityPluginV2_v2.1.2_forStandalone%28Alpha%29_20200902.unitypackage)
 
 
 
