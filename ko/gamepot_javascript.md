@@ -22,7 +22,7 @@ search:
 > `GP` global variable을 통해 기능을 사용할 수 있습니다\
 > 게임팟 스크립트 로드 후 동일한 변수명으로 재 선언되지 않도록 주의해주세요. 
 ```html
-<script src="/js/GamePot-2.1.0b.js"></script>
+<script src="https://cdn.gamepot.io/v1/release/gamepot-sdk.min.js"></script>
 ```
 
 ## 2. 초기화
@@ -32,50 +32,45 @@ search:
 ```html
 
 <html>
-<head></head>
+<head>
+  <title>Gamepot Javscript</title>
+</head>
 <body>
-    <!-- YOUR WEB HTML CODES -->
-    
+    <!-- YOUR WEB HTML CODES -->    
     <script>
         window.onload = function() {
-            
             // 프로젝트 ID는 게임팟 대시보드에서 확인할 수 있습니다.
-            var project_id = "f2c4f50b-2546-280e-913b-a7cea5548384"; 
-            
-            var gamepotConfig = {
-              // 구글 로그인을 사용하는 경우 아래와 같이 구글 API 클라이언트 ID를 입력
-              google_signin_client_id: "403241810604-fv81........apps.googleusercontent.com",
-              // 페이스북 로그인 사용하는 경우 아래와 같이 Facebook 앱 ID를 입력
-              facebook_app_id: "149535310821467"
+            var project_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxx";
+            var gamepotConfig = {              
+              // 옵션
             };
-            // 게임팟 초기화
-            GP.setup(project_id, gamepotConfig);
+            GP.initialize(project_id, gamepotConfig);
         }
     </script>
-
     <!-- YOUR WEB HTML CODES -->
 </body>
 </html>
 
 ```
 
+### 오류 처리
+
+오류처리 방법은 모두 동일하며, function (user, error) { } 과 같이 error 가 있을 경우에는 메시지를 보여주고 에러가 없을 경우에는 성공으로 리턴한다.
+
+```html
+GP.login(GP.ChannelType.EMAIL, function (user, error) {
+  if(error) { // 로그인 실패
+		alert(error); // 실패 메시지 
+  } else {   // 로그인 성공
+    alert(user);  
+  }
+});
+
+```
+
 ## 3. 로그인, 로그아웃, 회원 탈퇴
 
-구글, 페이스북, 이메일 등 다양한 로그인 SDK를 통합하여 사용할 수 있습니다.
-
-### 구글\(API CONSOLE\) 콘솔 설정
-
-[Google API Console](https://console.developers.google.com) 에서 프로젝트를 생성 > 사용자 인증정보 만들기 > OAuth 클라이언트 ID > 웹 어플리케이션 유형으로 생성 후 클라이언트 ID 값을 사용합니다.
-
-> 예시) 533847112608-qv8149tijkoh0vljrpeashk0udf39eoe.apps.googleusercontent.com
-
-![gamepot_js_01](images/gamepot_js_01.png)
-
-### 페이스북 콘솔 설정
-
-[Facebook Developers](https://developers.facebook.com/apps) 에서 앱 생성 후 앱 ID 사용
-
-> 예시) 149235210820417
+구글, 페이스북, 네이버, 애플ID, 라인, 트위터, 이메일 등 다양한 로그인 SDK를 통합하여 사용할 수 있습니다. 대시보드 환경설정에서 설정해 주시기 바랍니다.
 
 ### 로그인
 
@@ -88,20 +83,17 @@ search:
 // 로그인 타입 정의
 // GP.ChannelType.GOOGLE: 구글
 // GP.ChannelType.FACEBOOK: 페이스북
-// GP.ChannelType.EMAIL: 이메일
+// GP.ChannelType.APPLE: 애플ID
+// GP.ChannelType.NAVER: 네이버
 
 // 페이스북 로그인 버튼을 눌렀을 때 호출
-GP.login(GP.ChannelType.FACEBOOK, {
-        
-    onSuccess: function(userInfo) {
-      console.log("로그인 성공. memberid: " + userInfo.memberid + ", userid: " + userInfo.userid);
-    },
-    onCancel: function() {
-      console.log("로그인 취소");
-    },
-    onFailure: function(gamepotError) {
-      console.log("로그인 실패: " + gamepotError.toString());
-    }
+GP.login(GP.ChannelType.FACEBOOK, function (user, error) {
+  if(error) {
+    alert(error); // 오류 메세지
+  } else {
+  	// 정상 로그인 완료 
+  	console.log(user.getMemberId() + "," + user.getToken() + "," + user.getEmail());	  
+  }
 });
 
 ```
@@ -116,45 +108,13 @@ var email_password = $("#input-email-password").val();
 
 $("#email-result-status").html("");
 
-GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
-
-    onSuccess: function (gamepotUserInfo) {
-        console.log("이메일 로그인 성공", gamepotUserInfo);
-        $("#email-result-status").html("로그인 성공. memberid: " + gameUserInfo.memberid + ", userid: " + gameUserInfo.userid);
-    },
-    onCancel: function () {
-        console.log("이메일 로그인 취소");
-    },
-    onFailure: function (gamepotError) {
-        console.log("이메일 로그인 실패: " + gamepotError.toString());
-  
-        var msg = "";
-        switch (gamepotError.getCode()) {
-        case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
-            msg = "이메일 형식이 올바르지 않습니다.";
-            break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
-            msg = "비밀번호를 입력해주세요.";
-            break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
-            msg = "비밀번호는 최소 8자, 최대 32자 까지 입력할 수 있습니다.";
-            break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD:
-            msg = "비밀번호가 일치하지 않습니다.";
-            break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
-            msg = "비밀번호 오류 횟수 초과로 로그인할 수 없습니다.";
-            break;
-        case GP.Error.EMAIL_AUTH_NOT_FOUND:
-            msg = "연결 계정이 존재하지 않습니다.";
-            break;
-        default:
-            msg = gamepotError.getMessage();
-            break;
-        }
-        
-        $("#email-result-status").html(msg); // 결과 표시 예.
-    }
+GP.signin(GP.ChannelType.EMAIL, email_id, email_password, function(user, error) {
+  if(error) {
+    alert(error); // 오류 메세지
+  } else {
+  	// 정상 로그인 완료 
+  	console.log(user.getMemberId() + "," + user.getToken() + "," + user.getEmail());	
+  }
 });
 
 ```
@@ -168,96 +128,23 @@ GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
 var new_email_id = $("#input-email-new-id").val();
 var new_email_password = $("#input-email-new-password").val();
 
-$("#email-result-status2").html("");
-
-GP.Channel.emailRegister(new_email_id, new_email_password, {
-
-    onSuccess: function (gamepotUserInfo) {
-      console.log("이메일 가입 성공", gamepotUserInfo);
-    },
-    onCancel: function () {
-      console.log("이메일 가입 취소");
-    },
-    onFailure: function (gamepotError) {
-      console.log("이메일 가입 실패: " + gamepotError.toString());
-    
-      var msg = "";
-      switch (gamepotError.getCode()) {
-        case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
-          msg = "이메일 형식이 올바르지 않습니다.";
-          break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
-          msg = "비밀번호를 입력해주세요.";
-          break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
-          msg = "비밀번호는 최소 8자, 최대 32자 까지 입력할 수 있습니다.";
-          break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD:
-          msg = "비밀번호가 일치하지 않습니다.";
-          break;
-        case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
-          msg = "비밀번호 오류 횟수 초과로 로그인할 수 없습니다.";
-          break;
-        case GP.Error.EMAIL_AUTH_NOT_FOUND:
-          msg = "연결 계정이 존재하지 않습니다.";
-          break;
-        case GP.Error.EMAIL_AUTH_ALREADY_IN_USE:
-          msg = "이미 사용 중인 계정입니다.";
-          break;
-        default:
-          msg = gamepotError.getMessage();
-          break;
-      }
-      $("#email-result-status2").html(msg);
-    }
+GP.signup(GP.ChannelType.EMAIL, new_email_id, new_email_password, function (user, error) {
+	if(error) {
+    alert(error);	// 오류 메세지
+  } else {
+  	// 정상 가입 완료 
+  	console.log(user.getMemberId() + "," + user.getToken() + "," + user.getEmail());	
+  }
 });
 ```
 
 
 
-#### 회원 고유 아이디
+#### 회원 정보 가져오기
 
 ```javascript
-GP.getMemberId();
-```
-
-### 자동 로그인
-
-사용자가 마지막에 로그인 했던 정보를 전달하는 API를 이용하여 자동 로그인을 구현할 수 있습니다.
-
-```javascript
-
-// 사용자가 마지막에 로그인했던 정보를 전달하는 API
-var lastLoginType = GP.getLastLoginType();
-if(lastLoginType !== GP.ChannelType.NONE) {
-    console.log("자동 로그인. lastLoginType: " + lastLoginType);
-    GP.login(lastLoginType, {
-    
-        onSuccess: function (gameUserInfo) {
-          console.log("자동 로그인 - 완료. memberid: " + gameUserInfo.memberid + ", userid: " + gameUserInfo.userid);
-        },
-      
-        onCancel: function () {
-          console.log("자동 로그인 - 취소");
-        },
-        
-        onFailure: function (gamepotError) {
-          console.log("자동 로그인 - 실패: " + gamepotError.toString());
-        },
-        
-        onNeedUpdate: function (status) {
-          console.log("자동 로그인 - 업데이트 필요: " + status);
-        },
-        
-        onMainternance: function (status) {
-            console.log("자동 로그인 - 점검중: " + status);
-        },
-    });
-}
-else
-{
-    // 처음 게임을 실행했거나 로그아웃한 상태. 로그인을 할 수 있는 로그인 화면을 사용자에게 보여주세요.
-}
+const user = GP.getUser(); 
+console.log(user.getMemberId());
 ```
 
 ### 로그아웃
@@ -266,32 +153,30 @@ else
 
 ```javascript
 
-GP.logout({
-    onSuccess() {
-         console.log("로그아웃 완료.");
-     },
-     onFailure(gamepotError) {
-         console.log("로그아웃 실패. 로그인된 상태가 아니거나 이미 세션이 종료된 경우: " + gamepotError.toString());
-     }
+GP.logout(function (user, error) {
+  if(error) { // 로그아웃 실패
+    alert(error);	// 오류 메세지
+  } else { 
+    // 로그아웃 아웃 완료
+  }
 });
 
 ```
 
 ### 이메일 비밀번호 변경
 
-현재 로그인한 이메일 계정의 비밀번호를 변경합니다.
+현재 입력된 이메일로 비밀번호로 변경 안내 메일이 발송 됩니다.
 
 ```javascript
 
-GP.changeEmailPassword("my_old_password", "my_new_password", {
-    onSuccess: function() {
-        // 비밀번호 변경 완료. 연동 결과에 대한 문구를 노출시켜 주세요. (예: 계정 연동을 해지했습니다.)
-    },
-    onFailure: function(error) {
-        // 이메일 비밀번호 변경 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
-    }
+GP.forgot('email', function(error) {
+   if(error) { // 이메일 찾기 실패
+    alert(error);	// 오류 메세지
+  } else { 
+    // 이메일 찾기 성공
+    alert('메일 찾기 성공');
+  }
 });
-
 ```
 
 ### 회원 탈퇴
@@ -300,7 +185,7 @@ GP.changeEmailPassword("my_old_password", "my_new_password", {
 
 ```javascript
 
-GP.deleteMember({
+GP.unsignup({
     onSuccess: function() {
         console.log("회원탈퇴 성공. 초기화면으로 이동해주세요.");
     },
@@ -312,11 +197,7 @@ GP.deleteMember({
 
 ```
 
-### 검증
 
-로그인 완료 후 로그인 정보를 개발사 서버에서 GAMEPOT 서버로 전달하면 로그인 검증이 진행됩니다.
-
-자세한 설명은 `Server to server api` 매뉴에 `Authentication check` 항목을 참고해주세요.
 
 ## 4. 계정 연동
 
