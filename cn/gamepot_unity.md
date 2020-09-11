@@ -1,6 +1,6 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
 
 # Unity SDK
@@ -159,6 +159,23 @@ XCode 构建后
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
+```
+
+iOS 14 或更高版本
+
+从 iOS 14 开始，获得 IDFA 值后，用户必须获得许可。
+
+已对其进行了更改以启用 IDFA 值的获取。
+
+因此，如果您使用弹出式窗口在获取 IDFA 值时获得了用户的授权，
+在目标>>信息>>自定义 iOS 目标属性中，请在下面添加用户权限获取选项。
+
+> 2020.09.11 <br/>
+> 当苹果获得 IDFA 值时，为获得用户许可而强制性弹出窗口的申请已推迟到 2021 年初。<br/>
+> 请参阅下面的链接。<br/>
+
+```text
+NSUserTrackingUsageDescription
 ```
 
 ## 2. 重启

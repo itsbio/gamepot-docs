@@ -3,12 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
-
 #### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
 <a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
 <a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
-
 
 # Unity SDK
 
@@ -64,15 +62,15 @@ Edit the following required values. These values must be edited for the plugin t
 resValue "string", "[key]", "[value]"
 ```
 
-| Value  | Description |
-| :-- | :--- |
-| gamepot_project_id | Enter a project ID issued from GAMEPOT. |
-| gamepot_store | Store value\(`google`, `one`, or `galaxy`\) |
-| gamepot_app_title | App title \(FCM\) |
-| gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change. |
-| facebook_app_id | App ID issued from Facebook |
-| fb_login_protocol_scheme | Protocol scheme fb\[app_id\] issued from Facebook |
-| gamepot_elsa_projectid | Project ID when using NCLOUD ELSA \([View more](https://www.ncloud.com/product/analytics/elsa)\) |
+| Value                        | Description                                                                                      |
+| :--------------------------- | :----------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | Enter a project ID issued from GAMEPOT.                                                          |
+| gamepot_store                | Store value\(`google`, `one`, or `galaxy`\)                                                      |
+| gamepot_app_title            | App title \(FCM\)                                                                                |
+| gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change.                                     |
+| facebook_app_id              | App ID issued from Facebook                                                                      |
+| fb_login_protocol_scheme     | Protocol scheme fb\[app_id\] issued from Facebook                                                |
+| gamepot_elsa_projectid       | Project ID when using NCLOUD ELSA \([View more](https://www.ncloud.com/product/analytics/elsa)\) |
 
 **How to change the push notification icon**
 
@@ -84,7 +82,7 @@ If you would like to specify your own image, add them to each `drawable` folder 
 
 The image file name must be ic_stat_gamepot_small.
 
-| Folder name                                                         | Size  |
+| Folder name                                                    | Size  |
 | :------------------------------------------------------------- | :---- |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
@@ -137,14 +135,14 @@ Add required environment variables in `/Assets/Plugin/IOS/GamePotConfig-Info.pli
 
 ![gamepot_unity_07](./images/gamepot_unity_07.png)
 
-| Environment variable                     | Description                                                  |
-| :---------------------------- | :---------------------------------------------------- |
-| gamepot_project_id            | Enter a project ID issued from GAMEPOT. |
-| gamepot_facebook_app_id       | App ID issued from Facebook                               |
-| gamepot_facebook_display_name | Name displayed in Facebook                              |
-| gamepot_google_app_id         | CLIENT_ID in GoogleService-Info.plist                |
-| gamepot_google_url_schemes    | REVERSED_CLIENT_ID in GoogleService-Info.plist       |
-| gamepot_elsa_projectid        | Project ID when using NCLOUD ELSA                         |
+| Environment variable          | Description                                    |
+| :---------------------------- | :--------------------------------------------- |
+| gamepot_project_id            | Enter a project ID issued from GAMEPOT.        |
+| gamepot_facebook_app_id       | App ID issued from Facebook                    |
+| gamepot_facebook_display_name | Name displayed in Facebook                     |
+| gamepot_google_app_id         | CLIENT_ID in GoogleService-Info.plist          |
+| gamepot_google_url_schemes    | REVERSED_CLIENT_ID in GoogleService-Info.plist |
+| gamepot_elsa_projectid        | Project ID when using NCLOUD ELSA              |
 
 After adding scenes, click **File &gt; Build Settings &gt; Build And Run.**
 
@@ -159,6 +157,23 @@ The user roles are used for uploading files in the GamePot customer center.
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
+```
+
+iOS 14 or later version
+
+Starting with iOS 14, when IDFA value is obtained, the user must obtain permission.
+
+It has been changed to enable acquisition of IDFA values.
+
+Therefore, if you use a pop-up that obtains authority to the user when obtaining the IDFA value,
+In Targets >> Info >> Custom iOS Target Properties, please add the user rights acquisition option below.
+
+> 2020.09.11<br/>
+> When Apple acquires IDFA value, the mandatory application of pop-up to acquire permission to user has been postponed until early 2021.<br/>
+> Please refer to the link below.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
 ```
 
 ## 2. Initialization
@@ -249,7 +264,7 @@ public class NError
 
 Add the key hash value of Keystore, used when your APK is built, to the Facebook console.
 
-####  Android
+#### Android
 
 Edit mainTemplate.gradle.
 
@@ -266,7 +281,7 @@ Add your app ID issued from Facebook for the developer to `facebook_app_id` and 
 
 > For example, if your app_id is 1234567890, your `fb_login_protocol_scheme` is fb1234567890.
 
-####  iOS
+#### iOS
 
 Add the following frameworks to this path: /Assets/Plugins/IOS/Frameworks.
 
@@ -276,7 +291,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 > This features is for iOS only. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
 
-**Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign in with Apple.** 
+**Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign in with Apple.**
 
 ![gamepot_unity_24](./images/gamepot_unity_24.png)
 
@@ -298,8 +313,6 @@ Add Gamekit.framework in **Xcode &gt; Build Phases &gt; Linked Binary With Libra
 **Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; GameCenter.**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
-
-
 
 ## 5. Login/Logout/Delete member/Check
 
@@ -542,7 +555,7 @@ GamePot.deleteMember((success, error) => {
 
 After the login is complete, the login information is passed from the developer server to the GAMEPOT server to perform authentication checks.
 
-For more information, refer to ``Token Authentication`` under Server to server api.
+For more information, refer to `Token Authentication` under Server to server api.
 
 ## 6. Connect/Disconnect Accounts
 
@@ -919,7 +932,7 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. Other APIs
 
-###  애플 로그인 (for Android - Web Login)
+### 애플 로그인 (for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
@@ -930,6 +943,7 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 > 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
 
 /Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+
 - gamepot-channel-apple-signin.aar
 
 ### Log in to NAVER
@@ -1626,20 +1640,19 @@ GamePot.setVoidBuilder(info);
 
 ```
 
-
 ### Transfer game logs
 
 You can call the logs that contain in-game information and view them in `Dashboard` > `Game.`
 
 Check reserved words from the table below:
 
-| Reserved Words                            | Required | Type   | Description         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | Required | String | Character Name     |
-| GamePotSendLogCharacter.LEVEL     | Select | String | Level         |
-| GamePotSendLogCharacter.SERVER_ID | Select | String | Server ID   |
-| GamePotSendLogCharacter.PLAYER_ID | Select | String | Character ID |
-| GamePotSendLogCharacter.USERDATA  | Select | String | ETC          |
+| Reserved Words                    | Required | Type   | Description    |
+| :-------------------------------- | :------- | :----- | :------------- |
+| GamePotSendLogCharacter.NAME      | Required | String | Character Name |
+| GamePotSendLogCharacter.LEVEL     | Select   | String | Level          |
+| GamePotSendLogCharacter.SERVER_ID | Select   | String | Server ID      |
+| GamePotSendLogCharacter.PLAYER_ID | Select   | String | Character ID   |
+| GamePotSendLogCharacter.USERDATA  | Select   | String | ETC            |
 
 ```csharp
 String name = "Character name";
@@ -1669,9 +1682,9 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 > It does not support auto login. Call is required every time.
 
-| Parameter Name | Required | Type   | Description               |
-| :--------- | :--- | :----- | :----------------- |
-| userid     | Required | String | User’s unique ID |
+| Parameter Name | Required | Type   | Description      |
+| :------------- | :------- | :----- | :--------------- |
+| userid         | Required | String | User’s unique ID |
 
 ```csharp
 String userid = "memberid of 3rd party sdk";
@@ -1683,15 +1696,15 @@ GamePot.loginByThirdPartySDK("userid");
 
 > Purchased items must be registered in GAMEPOT dashboard.
 
-| Parameter Name       | Required  | Type    | Description                                     |
-| :------------ | :--- | :----- | :-------------------------------------- |
-| productid     | Required  | String | Item ID registered in GAMEPOT dashboard            |
-| transactionid | Required  | String | Payment receipt number (GPA-xxx-xxxx-xxxx)         |
-| store         | Required  | String | (Store for payment - google, apple, one, galaxy) |
-| currency      | Select  | String | Currency (KRW, USD)                           |
-| price         | Select  | double | Amount of purchased items                            |
-| paymentid     | Select  | String | payment (Usually the same as store_id)    |
-| uniqueid      | Select  | String | Developer's unique ID                 |
+| Parameter Name | Required | Type   | Description                                      |
+| :------------- | :------- | :----- | :----------------------------------------------- |
+| productid      | Required | String | Item ID registered in GAMEPOT dashboard          |
+| transactionid  | Required | String | Payment receipt number (GPA-xxx-xxxx-xxxx)       |
+| store          | Required | String | (Store for payment - google, apple, one, galaxy) |
+| currency       | Select   | String | Currency (KRW, USD)                              |
+| price          | Select   | double | Amount of purchased items                        |
+| paymentid      | Select   | String | payment (Usually the same as store_id)           |
+| uniqueid       | Select   | String | Developer's unique ID                            |
 
 ```csharp
 String productId = "purchase_001";

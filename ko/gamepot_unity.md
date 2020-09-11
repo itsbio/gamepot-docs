@@ -57,15 +57,15 @@ android {
 resValue "string", "[key]", "[value]"
 ```
 
-| 값  | 설명 |
-| :-- | :--- |
-| gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot_store | 스토어값\(`google` 또는 `one` 또는 `galaxy`\) |
-| gamepot_app_title | 앱 제목 \(FCM\) |
-| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
-| facebook_app_id | 페이스북 발급 받은 앱ID |
-| fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
-| gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+| 값                           | 설명                                                                                           |
+| :--------------------------- | :--------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
+| gamepot_store                | 스토어값\(`google` 또는 `one` 또는 `galaxy`\)                                                  |
+| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
+| facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
+| fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
+| gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
 **노티바에 푸시 아이콘 변경 방법**
 
@@ -152,6 +152,23 @@ Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties 내에 아래 `사�
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
+```
+
+iOS 14 이상 버전
+
+iOS 14 버전부터 IDFA 값 획득 시 사용자에게 권한을 획득해야만
+
+IDFA 값 획득이 가능하도록 변경되었습니다.
+
+따라서 IDFA 값 획득 시 사용자에게 권한 획득하는 팝업을 사용하신다면
+Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties 내에 아래 사용자 권한 획득 옵션을 추가 부탁드립니다.
+
+> 2020.09.11<br/>
+> Apple에서 IDFA 값 획득 시 사용자에게 권한 획득하는 팝업 필수 적용은 2021년 초까지 연기되었습니다.<br/>
+> 아래 링크 참고 부탁드립니다.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
 ```
 
 ## 2. 초기화
@@ -269,7 +286,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 > iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
 
-**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.** 
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
 
 ![gamepot_unity_24](./images/gamepot_unity_24.png)
 
@@ -291,8 +308,6 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; GameCenter을 추가 합니다.**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
-
-
 
 ## 5. 로그인/로그아웃/탈퇴/검증
 
@@ -912,7 +927,7 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. 기타 API
 
-###  애플 로그인 (for Android - Web Login)
+### 애플 로그인 (for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
@@ -923,8 +938,8 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 > 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
 
 /Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
-- gamepot-channel-apple-signin.aar
 
+- gamepot-channel-apple-signin.aar
 
 ### 네이버 로그인
 
@@ -1620,7 +1635,6 @@ GamePot.setVoidBuilder(info);
 
 ```
 
-
 ### 게임 로그 전송
 
 게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
@@ -1677,15 +1691,15 @@ GamePot.loginByThirdPartySDK("userid");
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
-| 파라미터명       | 필수  | 타입    | 설명                                     |
-| :------------ | :--- | :----- | :-------------------------------------- |
-| productid     | 필수  | String | 게임팟 대시보드에 등록된 아이템 아이디            |
-| transactionid | 필수  | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)         |
-| store         | 필수  | String | (결제 스토어 - google, apple, one, galaxy) |
-| currency      | 선택  | String | 통화(KRW, USD)                           |
-| price         | 선택  | double | 결제 아이템 금액                            |
-| paymentid     | 선택  | String | 결제 payment (일반적으로 store_id와 동일)    |
-| uniqueid      | 선택  | String | 개발사에서 사용하는 고유 아이디                 |
+| 파라미터명    | 필수 | 타입   | 설명                                       |
+| :------------ | :--- | :----- | :----------------------------------------- |
+| productid     | 필수 | String | 게임팟 대시보드에 등록된 아이템 아이디     |
+| transactionid | 필수 | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)        |
+| store         | 필수 | String | (결제 스토어 - google, apple, one, galaxy) |
+| currency      | 선택 | String | 통화(KRW, USD)                             |
+| price         | 선택 | double | 결제 아이템 금액                           |
+| paymentid     | 선택 | String | 결제 payment (일반적으로 store_id와 동일)  |
+| uniqueid      | 선택 | String | 개발사에서 사용하는 고유 아이디            |
 
 ```csharp
 String productId = "purchase_001";

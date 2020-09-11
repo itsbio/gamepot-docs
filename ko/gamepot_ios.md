@@ -12,8 +12,8 @@ search:
 
 iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치해야 합니다. iOS에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같습니다.
 
-* 운영체제: iOS 10.0 이상
-* 개발 환경: Xcode
+- 운영체제: iOS 10.0 이상
+- 개발 환경: Xcode
 
 #### Step 2. Framework 추가
 
@@ -29,12 +29,12 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치�
 
 서비스별 Dependencies
 
-| Service | Framework | Dependencies | bundle |
-| :--- | :--- | :--- | :--- |
-| 기본\(Base\) | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework  | libz.tbd WebKit.framework UserNotifications.framework  | GamePot.bundle  | 
-| 로그인\(Login\) | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework  <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br>  \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br>  GamePotTwitter.framework<br> TwitterKit.framework \(Dynamic Library로 추가\)<br> TwitterCore.framework \(Dynamic Library로 추가\)  | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework  | \[ Google Sign In \] GoogleSignIn.bundle   |
-| GameCenter | GamePotGameCenter.framework |  |  |
-| AppleID | GamePotApple.framework |  |  |
+| Service         | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Dependencies                                                                                                                                                                                                                      | bundle                                   |
+| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| 기본\(Base\)    | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework                                                                                                                                                                                                                                                                                                                    | libz.tbd WebKit.framework UserNotifications.framework                                                                                                                                                                             | GamePot.bundle                           |
+| 로그인\(Login\) | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br> \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br> GamePotTwitter.framework<br> TwitterKit.framework \(Dynamic Library로 추가\)<br> TwitterCore.framework \(Dynamic Library로 추가\) | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework | \[ Google Sign In \] GoogleSignIn.bundle |
+| GameCenter      | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
+| AppleID         | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
 ![gamepot_ios_02](./images/gamepot_ios_02.png)
 
@@ -80,6 +80,23 @@ NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
+iOS 14 이상 버전
+
+iOS 14 버전부터 IDFA 값 획득 시 사용자에게 권한을 획득해야만
+
+IDFA 값 획득이 가능하도록 변경되었습니다.
+
+따라서 IDFA 값 획득 시 사용자에게 권한 획득하는 팝업을 사용하신다면
+Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties 내에 아래 사용자 권한 획득 옵션을 추가 부탁드립니다.
+
+> 2020.09.11<br/>
+> Apple에서 IDFA 값 획득 시 사용자에게 권한 획득하는 팝업 필수 적용은 2021년 초까지 연기되었습니다.<br/>
+> 아래 링크 참고 부탁드립니다.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
+```
+
 #### Step 8. Google Sign In 로그인 환경 설정
 
 서비스별 Dependencies 표의 **Login &gt; Google Sign In**을 참고하여 Framework 및 Dependencies를 추가합니다.
@@ -107,10 +124,10 @@ Facebook App ID를 **Info &gt; URL Types**에 fb+Facebook App ID 형태로 추�
 
 **Info &gt; iOS Target Property**의 **LSApplicationQueriesSchemes**에 아래 항목을 추가합니다.
 
-* fbapi
-* fb-messenger-share-api
-* fbauth2
-* fbshareextension
+- fbapi
+- fb-messenger-share-api
+- fbauth2
+- fbshareextension
 
 ![gamepot_ios_10](./images/gamepot_ios_10.png)
 
@@ -153,11 +170,11 @@ gamepot_naver_urlscheme : Naver Url Scheme
 
 **Info &gt; iOS Target Property**의 **LSApplicationQueriesSchemes**에 아래 항목을 추가합니다.
 
-* naversearchapp
-* naversearchthirdlogin
-* navercafe
+- naversearchapp
+- naversearchthirdlogin
+- navercafe
 
-**Info &gt; URL Types**에 gamepot\_naver\_urlscheme에 입력한 값을 추가 합니다.
+**Info &gt; URL Types**에 gamepot_naver_urlscheme에 입력한 값을 추가 합니다.
 
 #### Step13. AppleID 로그인 환경 설정
 
@@ -169,6 +186,11 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 
 ```text
 #import <GamePot/GamePot.h>
+
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#endif
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
@@ -196,6 +218,33 @@ AppDelegate 파일에 아래 부분을 추가합니다.
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     }
+
+// iOS 14 버전에서 IDFA 값을 가져오기 위한 권한 요청 팝업 호출
+// 프로젝트에 AppTrackingTransparency.framework 추가 되어 있지 않으면, 호출 되지 않음.
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+   if (@available(iOS 14, *)) {
+       if(NSClassFromString(@"ATTrackingManager"))
+       {
+           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+
+               switch (status)
+               {
+                   case ATTrackingManagerAuthorizationStatusNotDetermined:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusRestricted:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusDenied:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusAuthorized:
+                       break;
+                   default:
+                       break;
+               }
+           }];
+       }
+   }
+#endif
     ...
 }
 
@@ -504,7 +553,7 @@ CASE 1 : 일반적인 결제시
 ```
 
 ```text
-CASE 2 : 결제시 진행되는 영수증 번호를 별도로 관리하고자 할 때 :  
+CASE 2 : 결제시 진행되는 영수증 번호를 별도로 관리하고자 할 때 :
 
 #import <GamePot/GamePot.h>
 
@@ -839,8 +888,8 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
-    
-> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요. 
+
+> 대시보드 - 설정 - 원격구성 화면에서 매개변수를 먼저 추가해주세요.
 
 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -850,7 +899,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 //key : 매개변수 string
 NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
 
-//대시보드에 추가한 모든 매개변수를 json 형태로 가져옵니다. 
+//대시보드에 추가한 모든 매개변수를 json 형태로 가져옵니다.
 NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```
 
@@ -871,9 +920,9 @@ NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```java
 #import <GamePot/GamePotSendLog.h>
 #import <GamePot/GamePotSendLogCharacter.h>
-  
+
 GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
-    
+
 [info put:@"name" forKey:GAMEPOT_NAME];
 [info put:@"playerid" forKey:GAMEPOT_PLAYER_ID];
 [info put:@"serverid" forKey:GAMEPOT_SERVER_ID];

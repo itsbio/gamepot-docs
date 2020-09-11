@@ -4,12 +4,10 @@ search:
     - gamepot
 ---
 
-
 #### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
 <a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
 <a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
-
 
 # iOS SDK
 
@@ -19,8 +17,8 @@ search:
 
 Install a development tool \(Xcode\) for developing iOS applications. A system environment for using GAMEPOT in iOS is as follows.
 
-* OS: iOS 10.0 or later
-* Development environment: Xcode
+- OS: iOS 10.0 or later
+- Development environment: Xcode
 
 #### Step 2. Add frameworks
 
@@ -36,12 +34,12 @@ Depending on the service, add the Dependencies by referring to the following tab
 
 Dependencies for each service
 
-| Service | Framework | Dependencies | bundle |
-| :--- | :--- | :--- | :--- |
-| Base | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework  | libz.tbd WebKit.framework UserNotifications.framework  | GamePot.bundle  | 
-| Login | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework  <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br>  \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br>  GamePotTwitter.framework<br> TwitterKit.framework \(Add to dynamic library\)<br> TwitterCore.framework \(Add to dynamic library\)  | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework  | \[ Google Sign In \] GoogleSignIn.bundle   |
-| GameCenter | GamePotGameCenter.framework |  |  |
-| AppleID | GamePotApple.framework |  |  |
+| Service    | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Dependencies                                                                                                                                                                                                                      | bundle                                   |
+| :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| Base       | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework                                                                                                                                                                                                                                                                                                                    | libz.tbd WebKit.framework UserNotifications.framework                                                                                                                                                                             | GamePot.bundle                           |
+| Login      | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br> \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br> GamePotTwitter.framework<br> TwitterKit.framework \(Add to dynamic library\)<br> TwitterCore.framework \(Add to dynamic library\) | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework | \[ Google Sign In \] GoogleSignIn.bundle |
+| GameCenter | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
+| AppleID    | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
 ![gamepot_ios_02](./images/gamepot_ios_02.png)
 
@@ -87,6 +85,23 @@ NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
+iOS 14 or later version
+
+Starting with iOS 14, when IDFA value is obtained, the user must obtain permission.
+
+It has been changed to enable acquisition of IDFA values.
+
+Therefore, if you use a pop-up that obtains authority to the user when obtaining the IDFA value,
+In Targets >> Info >> Custom iOS Target Properties, please add the user rights acquisition option below.
+
+> 2020.09.11<br/>
+> When Apple acquires IDFA value, the mandatory application of pop-up to acquire permission to user has been postponed until early 2021.<br/>
+> Please refer to the link below.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
+```
+
 #### Step 8. Set up Google Sign In environment
 
 Add frameworks and dependencies by referring to **Login &gt; Google Sign In** in Dependencies for each service.
@@ -114,10 +129,10 @@ Add your Facebook App ID to **Info &gt; URL Types**, in the form of fb+Facebook 
 
 Add the following to **LSApplicationQueriesSchemes** in **Info &gt; iOS Target Property**.
 
-* fbapi
-* fb-messenger-share-api
-* fbauth2
-* fbshareextension
+- fbapi
+- fb-messenger-share-api
+- fbauth2
+- fbshareextension
 
 ![gamepot_ios_10](./images/gamepot_ios_10.png)
 
@@ -160,11 +175,11 @@ gamepot_naver_urlscheme : Naver Url Scheme
 
 Add the following to **LSApplicationQueriesSchemes** in **Info &gt; iOS Target Property**.
 
-* naversearchapp
-* naversearchthirdlogin
-* navercafe
+- naversearchapp
+- naversearchthirdlogin
+- navercafe
 
-Add the value entered in gamepot\_naver\_urlscheme in **Info &gt; URL Types.**
+Add the value entered in gamepot_naver_urlscheme in **Info &gt; URL Types.**
 
 #### Step 13. Set up AppleID login environment
 
@@ -176,6 +191,10 @@ Add the following code to the AppDelegate file.
 
 ```text
 #import <GamePot/GamePot.h>
+
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#endif
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
@@ -203,6 +222,33 @@ Add the following code to the AppDelegate file.
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     }
+
+    // Call the permission request popup to get the IDFA value in iOS 14 version
+    // If AppTrackingTransparency.framework is not added to the project, it is not called.
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+   if (@available(iOS 14, *)) {
+       if(NSClassFromString(@"ATTrackingManager"))
+       {
+           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+
+               switch (status)
+               {
+                   case ATTrackingManagerAuthorizationStatusNotDetermined:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusRestricted:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusDenied:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusAuthorized:
+                       break;
+                   default:
+                       break;
+               }
+           }];
+       }
+   }
+#endif
     ...
 }
 
@@ -511,7 +557,7 @@ Case 1: General payment
 ```
 
 ```text
-Case 2: Managing receipt numbers separately at the payment time:  
+Case 2: Managing receipt numbers separately at the payment time:
 
 #import <GamePot/GamePot.h>
 
@@ -846,8 +892,8 @@ Call refund policy UI.
 ### Remote configuration
 
 Import parameter values registered with the dashboard from the client.
-    
-> Add parameters first in Dashboard > Settings > Remote configuration screen. 
+
+> Add parameters first in Dashboard > Settings > Remote configuration screen.
 
 The parameters added are loaded at login. You can call them after they have been loaded.
 
@@ -857,7 +903,7 @@ The parameters added are loaded at login. You can call them after they have been
 //key : Parameter string
 NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
 
-//Import all parameters added in the dashboard in json format. 
+//Import all parameters added in the dashboard in json format.
 NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```
 
@@ -867,20 +913,20 @@ You can call the logs that contain in-game information and view them in `Dashboa
 
 Check reserved words from the table below:
 
-| Reserved Words                            | Required | Type   | Description         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | Required | String | Character Name     |
-| GamePotSendLogCharacter.LEVEL     | Select | String | Level         |
-| GamePotSendLogCharacter.SERVER_ID | Select | String | Server ID   |
-| GamePotSendLogCharacter.PLAYER_ID | Select | String | Character ID |
-| GamePotSendLogCharacter.USERDATA  | Select | String | ETC          |
+| Reserved Words                    | Required | Type   | Description    |
+| :-------------------------------- | :------- | :----- | :------------- |
+| GamePotSendLogCharacter.NAME      | Required | String | Character Name |
+| GamePotSendLogCharacter.LEVEL     | Select   | String | Level          |
+| GamePotSendLogCharacter.SERVER_ID | Select   | String | Server ID      |
+| GamePotSendLogCharacter.PLAYER_ID | Select   | String | Character ID   |
+| GamePotSendLogCharacter.USERDATA  | Select   | String | ETC            |
 
 ```java
 #import <GamePot/GamePotSendLog.h>
 #import <GamePot/GamePotSendLogCharacter.h>
-  
+
 GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
-    
+
 [info put:@"name" forKey:GAMEPOT_NAME];
 [info put:@"playerid" forKey:GAMEPOT_PLAYER_ID];
 [info put:@"serverid" forKey:GAMEPOT_SERVER_ID];
@@ -910,14 +956,14 @@ TODO : Description
 
 > It does not support auto login. Call is required every time.
 
-| Parameter Name     | Required | Type             | Description                      |
-| :------------- | :--- | :--------------- | :------------------------ |
-| viewController | Required | UIViewController | Current ViewContoller        |
-| userid         | Required | NSString         | User’s unique ID        |
-| success        | Required | String           | Call back upon success               |
-| fail           | Required | String           | Call back when failed               |
-| update         | Select | String           | Call back when the update works |
-| maintenance    | Select | String           | Call back when the check works     |
+| Parameter Name | Required | Type             | Description                     |
+| :------------- | :------- | :--------------- | :------------------------------ |
+| viewController | Required | UIViewController | Current ViewContoller           |
+| userid         | Required | NSString         | User’s unique ID                |
+| success        | Required | String           | Call back upon success          |
+| fail           | Required | String           | Call back when failed           |
+| update         | Select   | String           | Call back when the update works |
+| maintenance    | Select   | String           | Call back when the check works  |
 
 ```text
 NSString userid = @"memberid of 3rd party sdk";
@@ -959,15 +1005,15 @@ TODO : Description
 
 > Purchased items must be registered in GAMEPOT dashboard.
 
-| Parameter Name    | Required | Type                 | Description                                   |
-| :------------ | :--- | :------------------- | :------------------------------------- |
-| productid     | Required | NSString             | Item ID registered in GAMEPOT dashboard |
-| transactionid | Required | NSString             | Payment receipt number (xxxxxxxxxxx)          |
-| currency      | Select | NSString             | Currency (KRW, USD)                         |
-| price         | Select | NSDecimalNumber      | Amount of purchased items                       |
-| paymentid     | Select | NSString             | Store for payment (Apple)                     |
-| success       | Select | GamePotCommonSuccess | Call back upon success                            |
-| fail          | Select | GamePotCommonFail    | Call back when failed                            |
+| Parameter Name | Required | Type                 | Description                             |
+| :------------- | :------- | :------------------- | :-------------------------------------- |
+| productid      | Required | NSString             | Item ID registered in GAMEPOT dashboard |
+| transactionid  | Required | NSString             | Payment receipt number (xxxxxxxxxxx)    |
+| currency       | Select   | NSString             | Currency (KRW, USD)                     |
+| price          | Select   | NSDecimalNumber      | Amount of purchased items               |
+| paymentid      | Select   | NSString             | Store for payment (Apple)               |
+| success        | Select   | GamePotCommonSuccess | Call back upon success                  |
+| fail           | Select   | GamePotCommonFail    | Call back when failed                   |
 
 ```text
 NSString* productId = @"purchase_001";
