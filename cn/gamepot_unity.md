@@ -274,7 +274,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE 로그인
 
-> 此功能仅适用于 iOS。
+> 此功能仅适用于 iOS。（对于Android，它以Web登录的形式受支持-请参阅8。其他API）
 
 **添加 Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple**
 
@@ -846,6 +846,9 @@ public class NPurchaseInfo
     public string productName { get; set; }         // 付款项目名称
     public string gamepotOrderId { get; set; }      // 由GAMEPOT创建的订单ID
     public string uniqueId { get; set; }            // 开发者的唯一ID
+    public string serverId { get; set; }            // 服务器ID（付款人的角色）
+    public string playerId { get; set; }            // 角色ID（付款人的角色）
+    public string etc { get; set; }                 // 其他信息（付款人的信息）
     public string signature { get; set; }           // 付款签名
     public string originalJSONData { get; set; }    // 收据数据
 }
@@ -913,6 +916,19 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 ```
 
 ## 8. 其他 API
+
+###  Apple Developers (for Android - Web Login)
+
+#### GAMEPOT Dashboard
+
+仪表板项目设置>>常规>> Apple ID登录设置
+
+> 要使用该功能，您需要设置Apple Developer Console。
+>
+> 请参阅仪表板上相应项目中的**得到帮助**。
+
+将下面的aar文件添加到/ Assets / Plugins / Android / libs路径。 （选中用于插件的精选平台-Android）
+- gamepot-channel-apple-signin.aar
 
 ### NAVER 登录
 
@@ -1323,6 +1339,10 @@ GamePot.showNotice(bool Flag = true);
 
 // true：申请今天不看
 // false：强制曝光，无论今天没有看到
+
+GamePot.showEvent(string Type)
+
+// Type : 仪表板注意>>仅暴露与“类别”中设置的类别名称相对应的图像
 ```
 
 Response:

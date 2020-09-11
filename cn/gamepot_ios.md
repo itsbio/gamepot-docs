@@ -619,6 +619,18 @@ DashBoard - 在公告栏所上传图像显示的功能。
 }];
 ```
 
+### 公告(按类别致电)
+
+仪表板-此功能仅显示公告中上载并设置为分类的图像。
+
+#### 调用
+
+```text
+[[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
+    NSLog(@"scheme = %@", scheme);
+}];
+```
+
 ### 客户中心
 
 DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗口。
