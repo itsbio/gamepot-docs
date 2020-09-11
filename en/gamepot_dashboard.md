@@ -236,10 +236,11 @@ Check payments attempted in Google Play Store, App Store, ONE Store, and Galaxy 
 ① View the failures only.
 
 ② Select a currency to check the payment list for each call.
+③ 실패한 결제에 대해서 체크박스로 다중선택 한 다음, 재지급 버튼을 눌러 재지급 할 수 있습니다.
 
-③ Cancel payments that were made successfully. The canceled payments are excluded from the sales.
+④ Cancel payments that were made successfully. The canceled payments are excluded from the sales.
 
-④ Display whether or not a payment attempt was successful. Items can be provided again for failed payment attempts.
+⑤ Display whether or not a payment attempt was successful. Items can be provided again for failed payment attempts.
 
 ![gamepot_dashboard_15](./images/gamepot_dashboard_15.png)
 
@@ -254,6 +255,8 @@ Manages product information when an in-app purchase is made. You must add all pr
 ① Click **Add in-app item** and enter a store, product name and product ID to create a paid item.
 
 ② Click **Mass input** to add multiple in-app items as a CSV file.
+
+③ 각 상품 항목의 체크박스를 다중선택 한 다음, **삭제**버튼을 클릭해 삭제할 수 있습니다. 
 
 #### - Statistics
 
@@ -353,11 +356,15 @@ Specify the fields in the following pop-up window and click **Save**; a notice w
 
 ③ Select all stores or a specific store where you want to display the notice.
 
-④ If users touch images displayed in the notice, the URL opens in an external browser and a SCHEME returns the value with callback function.
+④ 노출할 공지사항의 분류를 지정합니다. 분류가 지정된 이미지는, 해당 분류 값으로 호출할 때에만 이미지가 노출됩니다.
 
-⑤ Specify a default language among images displayed in the notice for each language setting.
+⑤ 노출할 공지사항의 국가를 지정합니다. 해당 국가에 해당하는 디바이스에 대해서만 이미지가 노출됩니다.
 
-⑥ Drag and drop images displayed in the notice or directly select them to upload image files.
+⑥ If users touch images displayed in the notice, the URL opens in an external browser and a SCHEME returns the value with callback function.
+
+⑦ Specify a default language among images displayed in the notice for each language setting.
+
+⑧ Drag and drop images displayed in the notice or directly select them to upload image files.
 
 Register additional images displayed for each language setting.
 
@@ -727,6 +734,14 @@ Create a web document and provides an access address.
 
 ② Enter the contents of a page for the specified language.
 
+### 광고
+
+(주)나스미디어와 제휴하여, 대시보드 광고를 신청하고 관리할 수 있습니다.
+
+사전예약, 리워드, 논리워드 메뉴를 통해 광고를 신청할 수 있고 NBP 담당자와의 커뮤니케이션을 통해 광고를 진행할 수 있습니다.
+
+![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
+
 ## Game
 
 ### Player
@@ -991,7 +1006,7 @@ Click **Add**. When the pop-up window displayed below appears, add a parameter a
 
 #### - Block
 
-Block users accessing with registered IPs and country codes.
+Block users accessing with registered IPs and country codes, and Device IDs.
 
 ![gamepot_dashboard_75](./images/gamepot_dashboard_75.png)
 

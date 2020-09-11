@@ -362,6 +362,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: NAVER
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
+// GamePotChannelType.APPLE: Apple
 // GamePotChannelType.GUEST: Guest
 
 // Appears when a user clicks the Google login button.
@@ -506,6 +507,8 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // Connect with Twitter account
 // GamePotChannelType.TWITTER
+// 애플 계정에 연동
+// GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -539,6 +542,7 @@ import java.util.ArrayList;
 // GamePotChannelType.NAVER
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.APPLE
 // Return connection results for each type.
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -834,6 +838,40 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
+### 애플 로그인(Web Login)
+
+#### build.gradle 설정
+
+```java
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')
+  ...
+}
+```
+
+#### MainActivity.java 설정
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.apple.signin.GamePotAppleSignin;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+        ...
+        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());
+}
+```
+
+#### 로그인
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
 ### Coupon
 
 Call the following code to use a coupon entered by a user.
@@ -940,6 +978,23 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new G
 });
 ```
 
+### 공지사항(분류 별 호출)
+
+대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+
+#### 호출
+
+```java
+/* 대시보드 공지사항 >> 분류에서 설정한 분류명 */
+string type = "";
+
+GamePot.getInstance().showEvent(/*현재 액티비티*/, type, new GamePotNoticeDialog.onSchemeListener() {
+    @Override
+    public void onReceive(String scheme) {
+        // TODO : scheme 처리
+    }
+});
+```
 ### Customer Support
 
 This is a communication channel between users and administrators that is connected with Dashboard > Customer Support > Inquiries.

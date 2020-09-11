@@ -274,7 +274,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLEログイン
 
-> iOSにのみ該当する機能です。
+> iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
 
 **Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Appleを追加します。**
 
@@ -915,6 +915,18 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 ```
 
 ## 8. その他のAPI
+###  애플 로그인 (for Android - Web Login)
+
+#### GAMEPOT Dashboard
+
+대시보드 프로젝트 설정 >> 일반 >> Apple ID Login 설정
+
+> 기능을 사용하기 위해선 Apple Developer Console 설정이 필요합니다.
+>
+> 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
+
+/Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+- gamepot-channel-apple-signin.aar
 
 ### NAVERログイン
 
@@ -1325,6 +1337,10 @@ GamePot.showNotice(bool Flag = true);
 
 // true：「今日は表示しない」を適用
 // false：「今日は表示しない」とは関係なしに強制表示
+
+GamePot.showEvent(string Type)
+
+// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
 ```
 
 Response:
