@@ -86,6 +86,23 @@ NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
+iOS 14 或更高版本
+
+从 iOS 14 开始，获得 IDFA 值后，用户必须获得许可。
+
+已对其进行了更改以启用 IDFA 值的获取。
+
+因此，如果您使用弹出式窗口在获取 IDFA 值时获得了用户的授权，
+在目标>>信息>>自定义 iOS 目标属性中，请在下面添加用户权限获取选项。
+
+> 2020.09.11 <br/>
+> 当苹果获得 IDFA 值时，为获得用户许可而强制性弹出窗口的申请已推迟到 2021 年初。<br/>
+> 请参阅下面的链接。<br/>
+
+```text
+NSUserTrackingUsageDescription
+```
+
 #### Step 8. Google Sign In 登录首选项
 
 参照每个服务的“依赖关系”表中的**登录>“Google 登录”**，添加框架和依赖关系。
@@ -176,6 +193,10 @@ AppDelegate 将以下部分添加到文件中。
 ```text
 #import <GamePot/GamePot.h>
 
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#endif
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
     // GamePot SDK Initialize
@@ -202,6 +223,32 @@ AppDelegate 将以下部分添加到文件中。
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     }
+
+    // 调用权限请求弹出窗口以获取iOS 14版本中的IDFA值
+    // 如果未将AppTrackingTransparency.framework添加到项目中，则不会调用它。
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+   if (@available(iOS 14, *)) {
+       if(NSClassFromString(@"ATTrackingManager"))
+       {
+           [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+
+               switch (status)
+               {
+                   case ATTrackingManagerAuthorizationStatusNotDetermined:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusRestricted:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusDenied:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusAuthorized:
+                       break;
+                   default:
+                       break;
+               }
+           }];
+       }
+   }
+#endif
     ...
 }
 

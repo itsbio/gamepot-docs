@@ -4,12 +4,10 @@ search:
     - gamepot
 ---
 
+#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[API リファレンス]</a>を分けて提供しています。**
 
-#### **NAVERクラウドプラットフォーム商品の使用方法をより詳細に提供し、様々なAPIの活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[APIリファレンス]</a>を分けて提供しています。**
-
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT APIリファレンスへ >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT説明書へ >></a>
-
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT API リファレンスへ >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT 説明書へ >></a>
 
 # iOS SDK
 
@@ -17,51 +15,51 @@ search:
 
 #### Step 1. 開発環境の構成
 
-iOS用アプリケーションを開発するには、開発ツール\(Xcode\)をインストールする必要があります。iOSでGAMEPOTを利用するために必要なシステム環境は以下のとおりです。
+iOS 用アプリケーションを開発するには、開発ツール\(Xcode\)をインストールする必要があります。iOS で GAMEPOT を利用するために必要なシステム環境は以下のとおりです。
 
-* OS：iOS 10.0以上
-* 開発環境：Xcode
+- OS：iOS 10.0 以上
+- 開発環境：Xcode
 
-#### Step 2. Framework追加
+#### Step 2. Framework 追加
 
 ![gamepot_ios_01](./images/gamepot_ios_01.png)
 
-ダウンロードしたiOS SDKファイルをXcodeプロジェクトフォルダターゲットにマウスドラッグして追加します。
+ダウンロードした iOS SDK ファイルを Xcode プロジェクトフォルダターゲットにマウスドラッグして追加します。
 
-#### Step 3. Dependencies追加
+#### Step 3. Dependencies 追加
 
-利用するサービスによって必須Dependenciesリストが異なります。
+利用するサービスによって必須 Dependencies リストが異なります。
 
-サービスに応じて以下の表を参考にしてDependenciesを追加します。
+サービスに応じて以下の表を参考にして Dependencies を追加します。
 
-サービス別Dependencies
+サービス別 Dependencies
 
-| Service| Framework| Dependencies| bundle|
-| :--- | :--- | :--- | :--- |
-| 基本\(Base\)| AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework| libz.tbd WebKit.framework UserNotifications.framework| GamePot.bundle|
-| ログイン\(Login\)| \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework  <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br>  \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br>  GamePotTwitter.framework<br> TwitterKit.framework \(Dynamic Libraryに追加\)<br> TwitterCore.framework \(Dynamic Libraryに追加\)| \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework| \[ Google Sign In \] GoogleSignIn.bundle|
-| GameCenter| GamePotGameCenter.framework|  |  |
-| AppleID| GamePotApple.framework|  |  |
+| Service           | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Dependencies                                                                                                                                                                                                                      | bundle                                   |
+| :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| 基本\(Base\)      | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework                                                                                                                                                                                                                                                                                                                    | libz.tbd WebKit.framework UserNotifications.framework                                                                                                                                                                             | GamePot.bundle                           |
+| ログイン\(Login\) | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br> \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br> GamePotTwitter.framework<br> TwitterKit.framework \(Dynamic Library に追加\)<br> TwitterCore.framework \(Dynamic Library に追加\) | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework | \[ Google Sign In \] GoogleSignIn.bundle |
+| GameCenter        | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
+| AppleID           | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
 ![gamepot_ios_02](./images/gamepot_ios_02.png)
 
-#### Step 4. Bundle Resource追加
+#### Step 4. Bundle Resource 追加
 
-利用するサービスに応じてBundle Resourceファイルを追加します。
+利用するサービスに応じて Bundle Resource ファイルを追加します。
 
-サービス別Dependencies表を参考にしてBundle Resourceファイルを追加します。
+サービス別 Dependencies 表を参考にして Bundle Resource ファイルを追加します。
 
 ![gamepot_ios_03](./images/gamepot_ios_03.png)
 
-#### Step 5. InfoPlist追加
+#### Step 5. InfoPlist 追加
 
 ![gamepot_ios_04](./images/gamepot_ios_04.png)
 
-GAMEPOT SDKはGoogle Firebaseを使用します。したがって、Google Firebaseを設定して作成したGoogleService-Info.plistをプロジェクトに追加します。
+GAMEPOT SDK は Google Firebase を使用します。したがって、Google Firebase を設定して作成した GoogleService-Info.plist をプロジェクトに追加します。
 
-GAMEPOT SDKの基本設定値が含まれているGamePotConfig-Info.plistファイルも追加します。GamePotConfig-Info.plistファイルがない場合、同じファイル名で作成してキーに該当する値を入力します。
+GAMEPOT SDK の基本設定値が含まれている GamePotConfig-Info.plist ファイルも追加します。GamePotConfig-Info.plist ファイルがない場合、同じファイル名で作成してキーに該当する値を入力します。
 
-**GamePotConfig-Info.plist設定**
+**GamePotConfig-Info.plist 設定**
 
 ![gamepot_ios_05](./images/gamepot_ios_05.png)
 
@@ -72,30 +70,47 @@ gamepot_elsa_projectid：GAMEPOTログプロジェクトID(optional)
 
 #### Step 6. ビルドオプション追加
 
-**Build Settings &gt; Linking &gt; Other Linker Flags**セクションに-ObjCオプションを追加します。
+**Build Settings &gt; Linking &gt; Other Linker Flags**セクションに-ObjC オプションを追加します。
 
 ![gamepot_ios_06](./images/gamepot_ios_06.png)
 
-#### Step 7. Info.plist修正
+#### Step 7. Info.plist 修正
 
-Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Propertiesに以下のユーザー権限取得オプションを追加してください。
+Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties に以下のユーザー権限取得オプションを追加してください。
 
-このユーザー権限はGAMEPOTサポートセンター内のファイルアップロード機能で使用されます。
+このユーザー権限は GAMEPOT サポートセンター内のファイルアップロード機能で使用されます。
 
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
-#### Step 8. Google Sign Inログイン環境設定
+iOS14 以降
 
-サービス別Dependencies表の**Login &gt; Google Sign In**を参考にしてFrameworkとDependenciesを追加します。
+iOS14 バージョンから IDFA 値獲得時にユーザーに権限を獲得しなければなら
 
-GoogleService-Info.plistファイルの`REVERSED_CLIENT_ID`値をコピーし、**Info &gt; URL Types**に項目を追加してURL Schemesに値を入力します。
+IDFA 値獲得が可能なように変更されました。
+
+したがって IDFA 値獲得時にユーザーに権限獲得するポップアップを使用している場合
+Targets>> Info>> Custom iOS Target Properties 内の下のユーザーの権限獲得オプションを追加お願いします。
+
+> 2020.09.11<br/>
+> Apple の IDFA 値獲得時にユーザーに権限獲得するポップアップ必須適用は 2021 年初めまで延期された。<br/>
+> 下のリンク参照してお願いします。<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
+```
+
+#### Step 8. Google Sign In ログイン環境設定
+
+サービス別 Dependencies 表の**Login &gt; Google Sign In**を参考にして Framework と Dependencies を追加します。
+
+GoogleService-Info.plist ファイルの`REVERSED_CLIENT_ID`値をコピーし、**Info &gt; URL Types**に項目を追加して URL Schemes に値を入力します。
 
 ![gamepot_ios_07](./images/gamepot_ios_07.png)
 
-**GamePotConfig-Info.plist設定**
+**GamePotConfig-Info.plist 設定**
 
 ![gamepot_ios_08](./images/gamepot_ios_08.png)
 
@@ -104,24 +119,24 @@ gamepot_google_app_id：GoogleService-Info.plistファイルのCLIENT_ID値
 gamepot_google_url_schemes：GoogleService-Info.plistファイルのREVERSED_CLIENT_ID値
 ```
 
-#### Step 9. Facebookログイン環境設定
+#### Step 9. Facebook ログイン環境設定
 
-サービス別Dependencies表の**Login &gt; Facebook**を参考にしてFrameworkとDependenciesを追加します。
+サービス別 Dependencies 表の**Login &gt; Facebook**を参考にして Framework と Dependencies を追加します。
 
-Facebook App IDを**Info &gt; URL Types**にfb+Facebook App ID形式で追加します。
+Facebook App ID を**Info &gt; URL Types**に fb+Facebook App ID 形式で追加します。
 
 ![gamepot_ios_09](./images/gamepot_ios_09.png)
 
 **Info &gt; iOS Target Property**の**LSApplicationQueriesSchemes**に以下の項目を追加します。
 
-* fbapi
-* fb-messenger-share-api
-* fbauth2
-* fbshareextension
+- fbapi
+- fb-messenger-share-api
+- fbauth2
+- fbshareextension
 
 ![gamepot_ios_10](./images/gamepot_ios_10.png)
 
-**GamePotConfig-Info.plist設定**
+**GamePotConfig-Info.plist 設定**
 
 ![gamepot_ios_11](./images/gamepot_ios_11.png)
 
@@ -130,27 +145,27 @@ gamepot_facebook_app_id : Facebook App ID
 gamepot_facebook_display_name : Facebook display name
 ```
 
-#### Step 10. LINEログイン環境設定
+#### Step 10. LINE ログイン環境設定
 
-**GamePotConfig-Info.plist設定**
+**GamePotConfig-Info.plist 設定**
 
 ```markup
 gamepot_line_channelid : Line Channel ID
 gamepot_line_url_schemes : Line URL Scheme (line3rdp.{プロジェクトバンドルID})
 ```
 
-#### Step 11. Twitterログイン環境設定
+#### Step 11. Twitter ログイン環境設定
 
-**GamePotConfig-Info.plist設定**
+**GamePotConfig-Info.plist 設定**
 
 ```markup
 gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
 
-#### Step12. NAVERログイン環境設定
+#### Step12. NAVER ログイン環境設定
 
-**GamePotConfig-Info.plist設定**
+**GamePotConfig-Info.plist 設定**
 
 ```text
 gamepot_naver_clientid : Naver Client Id
@@ -160,22 +175,26 @@ gamepot_naver_urlscheme : Naver Url Scheme
 
 **Info &gt; iOS Target Property**の**LSApplicationQueriesSchemes**に以下の項目を追加します。
 
-* naversearchapp
-* naversearchthirdlogin
-* navercafe
+- naversearchapp
+- naversearchthirdlogin
+- navercafe
 
-**Info &gt; URL Types**にgamepot\_naver\_urlschemeに入力した値を追加します。
+**Info &gt; URL Types**に gamepot_naver_urlscheme に入力した値を追加します。
 
-#### Step13. AppleIDログイン環境設定
+#### Step13. AppleID ログイン環境設定
 
-**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Appleを追加します。**
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple を追加します。**
 
 ## 2. 初期化
 
-AppDelegateファイルに以下のコードを追加します。
+AppDelegate ファイルに以下のコードを追加します。
 
 ```text
 #import <GamePot/GamePot.h>
+
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#endif
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
@@ -203,6 +222,33 @@ AppDelegateファイルに以下のコードを追加します。
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     }
+
+    // iOS14バージョンでIDFA値を取得するためのアクセス許可を要求ポップアップ呼び出し
+    // プロジェクトにAppTrackingTransparency.framework追加されていなければ、呼び出されない。
+#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
+   if (@available(iOS 14, *)) {
+       if(NSClassFromString(@"ATTrackingManager"))
+       {
+           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+
+               switch (status)
+               {
+                   case ATTrackingManagerAuthorizationStatusNotDetermined:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusRestricted:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusDenied:
+                       break;
+                   case ATTrackingManagerAuthorizationStatusAuthorized:
+                       break;
+                   default:
+                       break;
+               }
+           }];
+       }
+   }
+#endif
     ...
 }
 
@@ -225,7 +271,7 @@ AppDelegateファイルに以下のコードを追加します。
 
 ## 3. ログイン、ログアウト、会員退会
 
-Google、Facebook、NAVERなど様々なログインSDKを統合して使用できます。
+Google、Facebook、NAVER など様々なログイン SDK を統合して使用できます。
 
 #### Step 1. 設定
 
@@ -322,7 +368,7 @@ Google、Facebook、NAVERなど様々なログインSDKを統合して使用で�
 
 #### Step 3. 自動ログイン
 
-GAMEPOTは自動ログインに対応しています。
+GAMEPOT は自動ログインに対応しています。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -384,19 +430,19 @@ else
 
 #### Step 6. 検証
 
-ログイン完了後、ログイン情報を開発会社のサーバからGAMEPOTサーバに伝達するとログイン検証が行われます。
+ログイン完了後、ログイン情報を開発会社のサーバから GAMEPOT サーバに伝達するとログイン検証が行われます。
 
 詳しい説明は`Server to server api`メニューの`Authentication check`項目を参考にしてください。
 
 ## 4. アカウント連携
 
-一つのゲームアカウントに複数のソーシャルアカウント\(Google/Facebookなど\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
+一つのゲームアカウントに複数のソーシャルアカウント\(Google/Facebook など\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
 
-ゲーム内で連携画面UIを実装し、連携ボタンを押すと以下のコードを呼び出します。
+ゲーム内で連携画面 UI を実装し、連携ボタンを押すと以下のコードを呼び出します。
 
 #### Step 1. アカウント連携
 
-Google、FacebookなどのIDでアカウントを連携できます。
+Google、Facebook などの ID でアカウントを連携できます。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -421,7 +467,7 @@ Google、FacebookなどのIDでアカウントを連携できます。
 
 #### Step 2. 連携されたリスト
 
-当該APIを通じてアカウント連携の有無を確認できます。
+当該 API を通じてアカウント連携の有無を確認できます。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -460,7 +506,7 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 
 #### Step 1. 設定
 
-決済の結果値はDelegate形式で実装されています。したがって、以下のようにDelegateを追加してください。
+決済の結果値は Delegate 形式で実装されています。したがって、以下のように Delegate を追加してください。
 
 ```text
 #import <GamePot/GamePot.h>
@@ -535,7 +581,7 @@ CASE 3：決済時に作成される領収証番号、サーバID、キャラク
 
 #### Step 3. **決済アイテムリスト取得**
 
-ストアから伝達されるIn-Appアイテムリストを取得できます。
+ストアから伝達される In-App アイテムリストを取得できます。
 
 ```text
 NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
@@ -546,17 +592,17 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 
 #### Step 4. 決済アイテム支給
 
-GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
+GAMEPOT は、Server to server api を通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
 
 そのためには`Server to server api`メニューの`Purchase`項目を参考にして処理してください。
 
-## 6. その他のAPI
+## 6. その他の API
 
 ### クーポン
 
 ユーザーが入力したクーポンを使用する際は、以下のコードを呼び出してください。
 
-> クーポンの入力画面のUIは開発会社で実装してください。
+> クーポンの入力画面の UI は開発会社で実装してください。
 
 ```text
 #import <GamePot/GamePot.h>
@@ -576,7 +622,7 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 #### アイテム支給
 
-クーポンの使用に成功すると、開発会社のサーバにServer to server apiを通じてアイテム支給をリクエストします。
+クーポンの使用に成功すると、開発会社のサーバに Server to server api を通じてアイテム支給をリクエストします。
 
 そのためには`Server to server api`メニューの`Item`項目を参考にして処理してください。
 
@@ -636,7 +682,7 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 ダッシュボード - サポートセンターに連携されるゲームユーザーと運営者間のコミュニケーションチャンネルです。
 
-問い合わせのUIはデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
+問い合わせの UI はデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
 
 #### 呼び出し
 
@@ -666,7 +712,7 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 決められた時間にローカルプッシュを表示する方法は以下のとおりです。
 
-> 戻り値として返ってくるpushidは開発会社で管理します。
+> 戻り値として返ってくる pushid は開発会社で管理します。
 
 ```text
  NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -679,7 +725,7 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 #### 登録プッシュキャンセル
 
-プッシュ登録の際に取得したpushidをもとに、これまでに登録したプッシュをキャンセルできます。
+プッシュ登録の際に取得した pushid をもとに、これまでに登録したプッシュをキャンセルできます。
 
 ```text
 [[GamePot getInstance] cancelLocalPush:(int)pushId];
@@ -691,7 +737,7 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 #### 呼び出し
 
-これまでに適用された以下のAPIで使用できます。
+これまでに適用された以下の API で使用できます。
 
 #### 1. Login API
 
@@ -730,9 +776,9 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 ### 規約同意
 
-｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるようにUIを提供します。
+｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの2種類を提供し、各領域別にカスタマイズもできます。
+`BLUE`テーマと`GREEN`テーマの 2 種類を提供し、各領域別にカスタマイズもできます。
 
 - `BLUE`テーマの例
 
@@ -797,13 +843,13 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 それぞれの変数は以下の領域に適用されます。
 
-> contentIconDrawableの画像はIOSでは表示されません。
+> contentIconDrawable の画像は IOS では表示されません。
 
 ![gamepot_ios_14](./images/gamepot_ios_14.png)
 
 ### 利用規約
 
-利用規約UIを呼び出します。
+利用規約 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 利用規約の設定項目にまず内容を入力してください。
 
@@ -817,7 +863,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ### 個人情報の取扱方針
 
-個人情報の取扱方針UIを呼び出します。
+個人情報の取扱方針 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 個人情報の取扱方針の設定項目にまず内容を入力してください。
 
@@ -831,7 +877,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ### 払い戻し規約
 
-払い戻し規約UIを呼び出します。
+払い戻し規約 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 払い戻し規約の設定項目にまず内容を入力してください。
 
@@ -846,8 +892,8 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 ### Remote Config
 
 ダッシュボードで登録したパラメータ値をゲームクライアントから取得します。
-    
-> ダッシュボード - 設定 - Remote Config画面でまずパラメータを追加してください。
+
+> ダッシュボード - 設定 - Remote Config 画面でまずパラメータを追加してください。
 
 追加したパラメータはログイン時にロードされ、その後から呼び出すことができます。
 
@@ -867,20 +913,20 @@ NSArray *json_value = [[GamePot getInstance] getConfigs];
 
 以下は使用できる予約語の定義表です。
 
-| 予約語| 必須| タイプ| 説明|
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME| 必須| String| キャラクター名|
-| GamePotSendLogCharacter.LEVEL| 任意| String| レベル|
-| GamePotSendLogCharacter.SERVER_ID| 任意| String| サーバID|
-| GamePotSendLogCharacter.PLAYER_ID| 任意| String| キャラクターID|
-| GamePotSendLogCharacter.USERDATA| 任意| String| ETC|
+| 予約語                            | 必須 | タイプ | 説明            |
+| :-------------------------------- | :--- | :----- | :-------------- |
+| GamePotSendLogCharacter.NAME      | 必須 | String | キャラクター名  |
+| GamePotSendLogCharacter.LEVEL     | 任意 | String | レベル          |
+| GamePotSendLogCharacter.SERVER_ID | 任意 | String | サーバ ID       |
+| GamePotSendLogCharacter.PLAYER_ID | 任意 | String | キャラクター ID |
+| GamePotSendLogCharacter.USERDATA  | 任意 | String | ETC             |
 
 ```java
 #import <GamePot/GamePotSendLog.h>
 #import <GamePot/GamePotSendLogCharacter.h>
-  
+
 GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
-    
+
 [info put:@"name" forKey:GAMEPOT_NAME];
 [info put:@"playerid" forKey:GAMEPOT_PLAYER_ID];
 [info put:@"serverid" forKey:GAMEPOT_SERVER_ID];
@@ -896,11 +942,11 @@ BOOL result = [GamePotSendLog characterInfo:info];
 
 ## 7. ダウンロード
 
-GAMEPOTダッシュボードの**SDKダウンロード**メニューでSDKをダウンロードできます。
+GAMEPOT ダッシュボードの**SDK ダウンロード**メニューで SDK をダウンロードできます。
 
 # 付録
 
-### 3rd party SDK連携サポート
+### 3rd party SDK 連携サポート
 
 TODO : 説明
 
@@ -910,14 +956,14 @@ TODO : 説明
 
 > 自動ログインに対応しない。毎回呼び出しが必要。
 
-| パラメータ名| 必須| タイプ| 説明|
-| :------------- | :--- | :--------------- | :------------------------ |
-| viewController| 必須| UIViewController| 現在のViewContoller|
-| userid| 必須| NSString| ユーザーの固有ID|
-| success| 必須| String| 成功した場合のコールバック|
-| fail| 必須| String| 失敗した場合のコールバック|
-| update| 任意| String| アップデート機能が動作した場合のコールバック|
-| maintenance| 任意| String| メンテナンス機能が動作した場合のコールバック|
+| パラメータ名   | 必須 | タイプ           | 説明                                         |
+| :------------- | :--- | :--------------- | :------------------------------------------- |
+| viewController | 必須 | UIViewController | 現在の ViewContoller                         |
+| userid         | 必須 | NSString         | ユーザーの固有 ID                            |
+| success        | 必須 | String           | 成功した場合のコールバック                   |
+| fail           | 必須 | String           | 失敗した場合のコールバック                   |
+| update         | 任意 | String           | アップデート機能が動作した場合のコールバック |
+| maintenance    | 任意 | String           | メンテナンス機能が動作した場合のコールバック |
 
 ```text
 NSString userid = @"memberid of 3rd party sdk";
@@ -957,17 +1003,17 @@ NSString userid = @"memberid of 3rd party sdk";
 
 TODO : 説明
 
-> 決済アイテムがGAMEPOTのダッシュボードに登録されている必要があります。
+> 決済アイテムが GAMEPOT のダッシュボードに登録されている必要があります。
 
-| パラメータ名| 必須| タイプ| 説明|
-| :------------ | :--- | :------------------- | :------------------------------------- |
-| productid| 必須| NSString| GAMEPOTのダッシュボードに登録されたアイテムID|
-| transactionid| 必須| NSString| 決済領収証番号(xxxxxxxxxxx)|
-| currency| 任意| NSString| 通貨(KRW、USD)|
-| price| 任意| NSDecimalNumber| 決済アイテム金額|
-| paymentid| 任意| NSString| 決済ストア(apple)|
-| success| 任意| GamePotCommonSuccess| 成功した場合のコールバック|
-| fail| 任意| GamePotCommonFail| 失敗した場合のコールバック|
+| パラメータ名  | 必須 | タイプ               | 説明                                            |
+| :------------ | :--- | :------------------- | :---------------------------------------------- |
+| productid     | 必須 | NSString             | GAMEPOT のダッシュボードに登録されたアイテム ID |
+| transactionid | 必須 | NSString             | 決済領収証番号(xxxxxxxxxxx)                     |
+| currency      | 任意 | NSString             | 通貨(KRW、USD)                                  |
+| price         | 任意 | NSDecimalNumber      | 決済アイテム金額                                |
+| paymentid     | 任意 | NSString             | 決済ストア(apple)                               |
+| success       | 任意 | GamePotCommonSuccess | 成功した場合のコールバック                      |
+| fail          | 任意 | GamePotCommonFail    | 失敗した場合のコールバック                      |
 
 ```text
 NSString* productId = @"purchase_001";

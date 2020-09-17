@@ -3,24 +3,22 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[API リファレンス]</a>を分けて提供しています。**
 
-#### **NAVERクラウドプラットフォーム商品の使用方法をより詳細に提供し、様々なAPIの活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[APIリファレンス]</a>を分けて提供しています。**
-
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT APIリファレンスへ >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT説明書へ >></a>
-
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT API リファレンスへ >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT 説明書へ >></a>
 
 # Unity SDK
 
 ## 1. 始める
 
-### Step 1. GAMEPOTプラグインをダウンロードする
+### Step 1. GAMEPOT プラグインをダウンロードする
 
-作成したGAMEPOTダッシュボードにアクセスして、最新プラグインをダウンロードします。
+作成した GAMEPOT ダッシュボードにアクセスして、最新プラグインをダウンロードします。
 
 ### Step 2. プラグインをインポートする
 
-**Assets > Import Package > Custom Package**メニューでダウンロードしたGamePotUnityPlugin-xxxx.unitypackageファイルを選択します。
+**Assets > Import Package > Custom Package**メニューでダウンロードした GamePotUnityPlugin-xxxx.unitypackage ファイルを選択します。
 
 ![gamepot_unity_01](./images/gamepot_unity_01.png)
 
@@ -36,9 +34,9 @@ search:
 minSdkVersion : API 17 (Jelly Bean, 4.2)
 ```
 
-**Gradle環境の設定方法**
+**Gradle 環境の設定方法**
 
-/Assets/Plugin/Android/mainTemplate.gradleファイルをエディタで開きます。
+/Assets/Plugin/Android/mainTemplate.gradle ファイルをエディタで開きます。
 
 ```java
 ...
@@ -64,37 +62,37 @@ android {
 resValue "string", "[key]", "[value]"
 ```
 
-| 値| 説明|
-| :-- | :--- |
-| gamepot_project_id| GAMEPOTから発行されたプロジェクトIDを入力してください。|
-| gamepot_store| ストア値 \(`google`または`one`または`galaxy`\)|
-| gamepot_app_title| アプリのタイトル \(FCM\)|
-| gamepot_push_default_channel| 登録された基本チャンネル名 \(Default\) - 変更しないでください。|
-| facebook_app_id| Facebookで発行されたアプリID|
-| fb_login_protocol_scheme| Facebookで発行されたprotocol scheme fb\[app_id\]|
-| gamepot_elsa_projectid| NCLOUD ELSA使用時のプロジェクトID \([詳しく見る](https://www.ncloud.com/product/analytics/elsa)\)|
+| 値                           | 説明                                                                                                |
+| :--------------------------- | :-------------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | GAMEPOT から発行されたプロジェクト ID を入力してください。                                          |
+| gamepot_store                | ストア値 \(`google`または`one`または`galaxy`\)                                                      |
+| gamepot_app_title            | アプリのタイトル \(FCM\)                                                                            |
+| gamepot_push_default_channel | 登録された基本チャンネル名 \(Default\) - 変更しないでください。                                     |
+| facebook_app_id              | Facebook で発行されたアプリ ID                                                                      |
+| fb_login_protocol_scheme     | Facebook で発行された protocol scheme fb\[app_id\]                                                  |
+| gamepot_elsa_projectid       | NCLOUD ELSA 使用時のプロジェクト ID \([詳しく見る](https://www.ncloud.com/product/analytics/elsa)\) |
 
-**Notibarのプッシュアイコン変更方法**
+**Notibar のプッシュアイコン変更方法**
 
 ![gamepot_unity_03](./images/gamepot_unity_03.png)
 
-プッシュ通知を受ける際にAndroid Notification barに表示するSmall iconはSDK内部の基本画像が用いられ、直接追加することもできます。
+プッシュ通知を受ける際に Android Notification bar に表示する Small icon は SDK 内部の基本画像が用いられ、直接追加することもできます。
 
 直接追加するには`drawable`フォルダ別に画像を作成する必要があります。\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)を用いて作成すると、自動的にフォルダ別に画像が追加されるため便利です。\)
 
-画像ファイル名はic_stat_gamepot_smallにしてください。
+画像ファイル名は ic_stat_gamepot_small にしてください。
 
-| フォルダ名| サイズ|
-| :------------------------------------------------------------- | :---- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 48x48 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
+| フォルダ名                                                     | サイズ |
+| :------------------------------------------------------------- | :----- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 24x24  |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 36x36  |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 48x48  |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72  |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96  |
 
-**Screen Orientationの設定方法**
+**Screen Orientation の設定方法**
 
-/Assets/Plugin/Android/AndroidManifest.xmlファイルをエディタで開きます。
+/Assets/Plugin/Android/AndroidManifest.xml ファイルをエディタで開きます。
 
 ```markup
 ...
@@ -107,7 +105,7 @@ resValue "string", "[key]", "[value]"
 ...
 ```
 
-Main ActivityにscreenOrientationを追加し、ゲームに応じて`sensorLandscape`もしくは`sensorPortrait`を入力してください。
+Main Activity に screenOrientation を追加し、ゲームに応じて`sensorLandscape`もしくは`sensorPortrait`を入力してください。
 
 **Android Resolver Settings**
 
@@ -121,44 +119,61 @@ Main ActivityにscreenOrientationを追加し、ゲームに応じて`sensorLand
 
 **Unity Build Settings**
 
-`File > Build Settings > Build System`メニューでGradleを選択します。
+`File > Build Settings > Build System`メニューで Gradle を選択します。
 
 ![gamepot_unity_06](./images/gamepot_unity_06.png)
 
 ### Step 4. iOS
 
-> GameCenter Loginを`使用しない場合`は、以下の位置から当該ファイルを削除してください。>
+> GameCenter Login を`使用しない場合`は、以下の位置から当該ファイルを削除してください。>
 > `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
 > 当該ライブラリが含まれている場合、`Capabilities設定でGameCenterを必ず有効化`してください。
 
-Google Firebaseからダウンロードした`GoogleService-Info.plist`ファイルを`/Assets/Plugins/IOS/`にコピーします。
+Google Firebase からダウンロードした`GoogleService-Info.plist`ファイルを`/Assets/Plugins/IOS/`にコピーします。
 
 `/Assets/Plugin/IOS/GamePotConfig-Info.plist`に必要な環境変数を追加してください。
 
 ![gamepot_unity_07](./images/gamepot_unity_07.png)
 
-| 環境変数| 説明|
-| :---------------------------- | :---------------------------------------------------- |
-| gamepot_project_id| GAMEPOTから発行されたプロジェクトIDを入力してください。|
-| gamepot_facebook_app_id| Facebookで発行されたアプリID|
-| gamepot_facebook_display_name| Facebookに表示される名前|
-| gamepot_google_app_id| GoogleService-InfoファイルのCLIENT_ID値|
-| gamepot_google_url_schemes| GoogleService-InfoファイルのREVERSED_CLIENT_ID値|
-| gamepot_elsa_projectid| NCLOUD ELSA利用時のプロジェクトID|
+| 環境変数                      | 説明                                                       |
+| :---------------------------- | :--------------------------------------------------------- |
+| gamepot_project_id            | GAMEPOT から発行されたプロジェクト ID を入力してください。 |
+| gamepot_facebook_app_id       | Facebook で発行されたアプリ ID                             |
+| gamepot_facebook_display_name | Facebook に表示される名前                                  |
+| gamepot_google_app_id         | GoogleService-Info ファイルの CLIENT_ID 値                 |
+| gamepot_google_url_schemes    | GoogleService-Info ファイルの REVERSED_CLIENT_ID 値        |
+| gamepot_elsa_projectid        | NCLOUD ELSA 利用時のプロジェクト ID                        |
 
-scenesを追加してから**File > Build Settings > Build And Run**を実行すると完了します。
+scenes を追加してから**File > Build Settings > Build And Run**を実行すると完了します。
 
 ![gamepot_unity_08](./images/gamepot_unity_08.png)
 
-XCodeをビルドしてから
+XCode をビルドしてから
 
-Targets >> Info >> Custom iOS Target Propertiesに以下の`ユーザー権限取得オプションを追加`してください。
+Targets >> Info >> Custom iOS Target Properties に以下の`ユーザー権限取得オプションを追加`してください。
 
-このユーザー権限はGAMEPOTサポートセンター内のファイルアップロード機能で使用されます。
+このユーザー権限は GAMEPOT サポートセンター内のファイルアップロード機能で使用されます。
 
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
+```
+
+iOS14 以降
+
+iOS14 バージョンから IDFA 値獲得時にユーザーに権限を獲得しなければなら
+
+IDFA 値獲得が可能なように変更されました。
+
+したがって IDFA 値獲得時にユーザーに権限獲得するポップアップを使用している場合
+Targets>> Info>> Custom iOS Target Properties 内の下のユーザーの権限獲得オプションを追加お願いします。
+
+> 2020.09.11<br/>
+> Apple の IDFA 値獲得時にユーザーに権限獲得するポップアップ必須適用は 2021 年初めまで延期された。<br/>
+> 下のリンク参照してお願いします。<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
 ```
 
 ## 2. 初期化
@@ -229,29 +244,28 @@ public class NError
 
 ## 4. ログイン環境設定
 
-### Googleログイン
+### Google ログイン
 
 #### Google Firebase Console
 
-1.Google Firebase ConsoleでAndroid用google-service.jsonファイルをダウンロードしてから`/Assets/Plugins/Android/`にコピーします。
-2.APKをビルドする際に使用したKeystoreのSHA-1値をGoogle Firebase consoleに追加します。
-3.Google Firebase ConsoleでiOS用GoogleService-Info.plistファイルをダウンロードしてから`/Assets/Plugins/IOS/`にコピーします。
+1.Google Firebase Console で Android 用 google-service.json ファイルをダウンロードしてから`/Assets/Plugins/Android/`にコピーします。
+2.APK をビルドする際に使用した Keystore の SHA-1 値を Google Firebase console に追加します。
+3.Google Firebase Console で iOS 用 GoogleService-Info.plist ファイルをダウンロードしてから`/Assets/Plugins/IOS/`にコピーします。
 
-**Googleログイン時にonCancelがレスポンスしてログインできない場合、** 以下の内容をチェックしてください。
+**Google ログイン時に onCancel がレスポンスしてログインできない場合、** 以下の内容をチェックしてください。
 
-1.上記で適用リクエストしたgoogle-service.jsonファイルを正常に適用したか確認
-2.ビルドする際に使用したキーストアが、Firebase consoleに登録したsha-1を抽出したキーストアなのか確認
-3.Firebase consoleに登録したパッケージ名でビルドしたか確認
+1.上記で適用リクエストした google-service.json ファイルを正常に適用したか確認 2.ビルドする際に使用したキーストアが、Firebase console に登録した sha-1 を抽出したキーストアなのか確認
+3.Firebase console に登録したパッケージ名でビルドしたか確認
 
-### Facebookログイン
+### Facebook ログイン
 
 #### Facebook Developer Console
 
-APKをビルドする際に使用したKeystoreのキーハッシュ値をFacebookコンソールに追加します。
+APK をビルドする際に使用した Keystore のキーハッシュ値を Facebook コンソールに追加します。
 
 #### Android
 
-mainTemplate.gradle修正
+mainTemplate.gradle 修正
 
 ```java
 ...
@@ -262,50 +276,48 @@ defaultConfig {
 ...
 ```
 
-Facebook開発者センターで発行されたアプリIDを`facebook_app_id`値に入力し、`fb_login_protocol_scheme`値に`fb{facebook_app_id}`を入力します。
+Facebook 開発者センターで発行されたアプリ ID を`facebook_app_id`値に入力し、`fb_login_protocol_scheme`値に`fb{facebook_app_id}`を入力します。
 
-> app_idが1234567890である場合、fb1234567890が`fb_login_protocol_scheme`値です。
+> app_id が 1234567890 である場合、fb1234567890 が`fb_login_protocol_scheme`値です。
 
 #### iOS
 
-/Assets/Plugins/IOS/Frameworksのパスに以下のフレームワークを追加します。
+/Assets/Plugins/IOS/Frameworks のパスに以下のフレームワークを追加します。
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
-### APPLEログイン
+### APPLE ログイン
 
 > iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
 
-**Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Appleを追加します。**
+**Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple を追加します。**
 
 ![gamepot_unity_24](./images/gamepot_unity_24.png)
 
 ### ゲームセンターログイン
 
-> iOSにのみ該当する機能です。
+> iOS にのみ該当する機能です。
 >
-> GameCenter Loginを使用する場合は、以下の画像のように設定してください。>
+> GameCenter Login を使用する場合は、以下の画像のように設定してください。>
 > `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
 
 ![gamepot_unity_25](./images/gamepot_unity_25.png)
 
 > 当該ライブラリが含まれている場合、`Capabilities設定でGameCenterを必ず有効化`してください。
 
-**Xcode > Build Phases > Linked Binary With Libraries**にGamekit.frameworkを追加します。
+**Xcode > Build Phases > Linked Binary With Libraries**に Gamekit.framework を追加します。
 
 ![gamepot_unity_26](./images/gamepot_unity_26.png)
 
-**Xcode > TARGETS > Signing & Capabilities > + Capability > GameCenterを追加します。**
+**Xcode > TARGETS > Signing & Capabilities > + Capability > GameCenter を追加します。**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
-
-
 
 ## 5. ログイン/ログアウト/退会/検証
 
 ### ログイン
 
-別途の登録なしにユーザーアカウントが作成されます。すべての身元確認のためのMemberIdが作成され、作成された情報はNUserInfo構造体に保存され、返却されます。
+別途の登録なしにユーザーアカウントが作成されます。すべての身元確認のための MemberId が作成され、作成された情報は NUserInfo 構造体に保存され、返却されます。
 
 - Case 1
 
@@ -386,7 +398,7 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
 });
 ```
 
-LoginTypeの定義
+LoginType の定義
 
 ```csharp
 public enum LoginType
@@ -405,7 +417,7 @@ public enum LoginType
 }
 ```
 
-NUserInfoの定義
+NUserInfo の定義
 
 ```csharp
 public class NUserInfo
@@ -540,15 +552,15 @@ GamePot.deleteMember((success, error) => {
 
 ### 検証
 
-ログイン完了後、ログイン情報を開発会社のサーバからGAMEPOTサーバに伝達するとログイン検証が行われます。
+ログイン完了後、ログイン情報を開発会社のサーバから GAMEPOT サーバに伝達するとログイン検証が行われます。
 
-詳しい説明はServer to server apiメニューの`Token Authentication`項目を参考にしてください。
+詳しい説明は Server to server api メニューの`Token Authentication`項目を参考にしてください。
 
 ## 6. アカウント連携
 
-一つのゲームアカウントに複数のソーシャルアカウント\(Google/Facebookなど\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
+一つのゲームアカウントに複数のソーシャルアカウント\(Google/Facebook など\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
 
-> 連携画面のUIは開発会社で実装してください。
+> 連携画面の UI は開発会社で実装してください。
 
 ```csharp
 public enum LinkingType
@@ -566,7 +578,7 @@ public enum LinkingType
 
 ### 連携
 
-Google / FacebookなどのIDでアカウントを連携できます。
+Google / Facebook などの ID でアカウントを連携できます。
 
 - Case 1
 
@@ -687,7 +699,7 @@ GamePot.deleteLinking(NCommon.LinkingType.XXXXX, (success, error) => {
 
 #### アカウント連携状況に関する結果処理の例
 
-createLinking / deleteLinkingの結果に応じて現在連携されているアカウント情報を取得し、連携状態に対するUIをアップデートします。
+createLinking / deleteLinking の結果に応じて現在連携されているアカウント情報を取得し、連携状態に対する UI をアップデートします。
 
 ```csharp
 public void onInit()
@@ -746,7 +758,7 @@ Public void UI_Update()
 
 ## 7. 決済
 
-### In-App商品照会
+### In-App 商品照会
 
 ストアに登録された商品情報を伝達します。
 
@@ -762,9 +774,9 @@ foreach(NPurchaseItem item in items) {
 }
 ```
 
-### In-App商品決済
+### In-App 商品決済
 
-以下の関数一つでGoogle、Apple、APPSTORE決済が可能になります。
+以下の関数一つで Google、Apple、APPSTORE 決済が可能になります。
 
 - Case 1
 
@@ -834,7 +846,7 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 });
 ```
 
-### NPurchaseInfoの定義
+### NPurchaseInfo の定義
 
 決済成功後に決済したアイテム情報です。参考用にしてください。
 
@@ -855,7 +867,7 @@ public class NPurchaseInfo
 
 ### 決済アイテム支給
 
-GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
+GAMEPOT は、Server to server api を通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
 
 このためには`Server to server api`メニューの`Purchase Webhook`項目を参考にして処理してください。
 
@@ -863,7 +875,7 @@ GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証�
 
 外部決済を許可しているストアと、公式ストアではないところで決済を使用できる機能です。
 
-> 呼び出しapiだけが異なり、レスポンスやpurchase webhookなどその他は一般決済と同じです。
+> 呼び出し api だけが異なり、レスポンスや purchase webhook などその他は一般決済と同じです。
 >
 > 機能を使用するには設定が必要です。ダッシュボードマニュアルの｢外部決済｣項目を参考にしてください。
 
@@ -876,7 +888,7 @@ Request:
 GamePot.purchaseThirdPayments(string productId);
 ```
 
-外部決済を利用する場合、商品情報リストは以下のapiを使用してください。
+外部決済を利用する場合、商品情報リストは以下の api を使用してください。
 
 Request:
 
@@ -914,8 +926,9 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 });
 ```
 
-## 8. その他のAPI
-###  애플 로그인 (for Android - Web Login)
+## 8. その他の API
+
+### 애플 로그인 (for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
@@ -926,17 +939,18 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 > 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
 
 /Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+
 - gamepot-channel-apple-signin.aar
 
-### NAVERログイン
+### NAVER ログイン
 
 #### Naver Developers
 
-使用APIを`ネアロ(NAVER IDでログイン)`にしてからアプリケーション登録
+使用 API を`ネアロ(NAVER IDでログイン)`にしてからアプリケーション登録
 
 #### Android
 
-mainTemplate.gradle修正
+mainTemplate.gradle 修正
 
 ```java
 ...
@@ -947,11 +961,11 @@ defaultConfig {
 ...
 ```
 
-Consoleで発行されたClient IDを`gamepot_naver_clientid`値に入力し、Client Secretは`gamepot_naver_secretid`値に入力します。
+Console で発行された Client ID を`gamepot_naver_clientid`値に入力し、Client Secret は`gamepot_naver_secretid`値に入力します。
 
 #### iOS
 
-GamePotConfig-Info.plistファイルに以下の項目を追加してその値を入力します。
+GamePotConfig-Info.plist ファイルに以下の項目を追加してその値を入力します。
 
 ```text
 gamepot_naver_clientid // NAVERで使用するClient ID
@@ -959,7 +973,7 @@ gamepot_naver_secretid // NAVERで使用するSecret ID
 gamepot_naver_urlscheme // NAVERで使用するurlscheme
 ```
 
-GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下のとおり追加
+GamePotConfig-Info.plist ファイルを SourceCode で表示する場合は以下のとおり追加
 
 ```markup
 ...
@@ -972,21 +986,21 @@ GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下�
 ...
 ```
 
-Targets >> Info >> URL TypesにNAVER IDでログイン設定に登録したURL Schemesを追加します。
+Targets >> Info >> URL Types に NAVER ID でログイン設定に登録した URL Schemes を追加します。
 
-URL Schemesを作成する際に`アルファベットの小文字`、`ピリオド(.)`、`アンダースコア(_)`以外の文字を使用すると認識できない場合があるため、ご注意ください。
+URL Schemes を作成する際に`アルファベットの小文字`、`ピリオド(.)`、`アンダースコア(_)`以外の文字を使用すると認識できない場合があるため、ご注意ください。
 
-### LINEログイン
+### LINE ログイン
 
 #### LINE Developers
 
-APKにビルドする際に使用したパッケージ名とkeystoreのSHA値、url Scheme値をLINEのコンソールに追加します。
+APK にビルドする際に使用したパッケージ名と keystore の SHA 値、url Scheme 値を LINE のコンソールに追加します。
 
 #### Android
 
-mainTemplate.gradle修正
+mainTemplate.gradle 修正
 
-発行されたClient IDを`gamepot_line_channelid`値に入力します。
+発行された Client ID を`gamepot_line_channelid`値に入力します。
 
 ```java
 ...
@@ -998,14 +1012,14 @@ defaultConfig {
 
 #### iOS
 
-/Assets/Plugins/IOS/GamePotConfig-Info.plistファイルに以下の項目を追加してその値を入力します。
+/Assets/Plugins/IOS/GamePotConfig-Info.plist ファイルに以下の項目を追加してその値を入力します。
 
 ```text
 gamepot_line_channelid // NAVERで使用するClient ID
 gamepot_line_url_schemes // Line URL Scheme (line3rdp.{プロジェクトバンドルidentifier})
 ```
 
-GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下のとおり追加します。
+GamePotConfig-Info.plist ファイルを SourceCode で表示する場合は以下のとおり追加します。
 
 ```markup
 ...
@@ -1016,13 +1030,13 @@ GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下�
 ...
 ```
 
-### Twitterログイン
+### Twitter ログイン
 
 #### Twitter Developers
 
 #### Android
 
-mainTemplate.gradle修正
+mainTemplate.gradle 修正
 
 ```java
 ...
@@ -1035,14 +1049,14 @@ defaultConfig {
 
 #### iOS
 
-GamePotConfig-Info.plistファイルに以下の項目を追加してその値を入力します。
+GamePotConfig-Info.plist ファイルに以下の項目を追加してその値を入力します。
 
 ```text
 gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
 
-GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下のとおり追加
+GamePotConfig-Info.plist ファイルを SourceCode で表示する場合は以下のとおり追加
 
 ```markup
 ...
@@ -1055,7 +1069,7 @@ GamePotConfig-Info.plistファイルをSourceCodeで表示する場合は以下�
 
 #### クーポン使用
 
-> クーポンを入力するUIは開発会社で実装してください。
+> クーポンを入力する UI は開発会社で実装してください。
 
 - Case 1
 
@@ -1107,15 +1121,15 @@ GamePot.coupon(couponNumber, (success, error) => {
 
 #### アイテム支給
 
-クーポンの使用に成功すると、開発会社のサーバにServer to server apiを通じてアイテム支給をリクエストします。
+クーポンの使用に成功すると、開発会社のサーバに Server to server api を通じてアイテム支給をリクエストします。
 
-このためにはServer to server apiメニューの`Item Webhook`項目を参考にして処理してください。
+このためには Server to server api メニューの`Item Webhook`項目を参考にして処理してください。
 
 ### Push on/off
 
-プッシュ、夜間プッシュ通知をそれぞれon/offにできます。
+プッシュ、夜間プッシュ通知をそれぞれ on/off にできます。
 
-> on/offを設定するUIは開発会社で実装してください。
+> on/off を設定する UI は開発会社で実装してください。
 
 #### プッシュ通知設定
 
@@ -1260,7 +1274,7 @@ GamePot.setPushADStatus(adPushEnable, (success, error) => {
 
 #### プッシュ通知 / 夜間プッシュ通知 / プッシュ型広告を一度に設定
 
-ログイン前にプッシュ/夜間プッシュ通知のOn/Offを設定するゲームの場合、ログインの後に以下のコードを必ず呼び出します。
+ログイン前にプッシュ/夜間プッシュ通知の On/Off を設定するゲームの場合、ログインの後に以下のコードを必ず呼び出します。
 
 - Case 1
 
@@ -1318,7 +1332,7 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 ### 案内事項
 
-GAMEPOTダッシュボードで｢案内事項｣に追加した画像を順番に表示する機能です。
+GAMEPOT ダッシュボードで｢案内事項｣に追加した画像を順番に表示する機能です。
 
 ![gamepot_unity_10](./images/gamepot_unity_10.png)
 
@@ -1326,9 +1340,9 @@ GAMEPOTダッシュボードで｢案内事項｣に追加した画像を順番�
 
 - サイズ : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
 
-  > 上記のサイズを守らない場合、center cropで画像を処理します。
+  > 上記のサイズを守らない場合、center crop で画像を処理します。
 
-- 容量：250KB以下
+- 容量：250KB 以下
 
 Request:
 
@@ -1345,7 +1359,7 @@ GamePot.showEvent(string Type)
 
 Response:
 
-GAMEPOTダッシュボードで`クリックアクション`を`SCHEME`に設定した場合、当該画像をクリックすると`SCHEME`値を伝達します。
+GAMEPOT ダッシュボードで`クリックアクション`を`SCHEME`に設定した場合、当該画像をクリックすると`SCHEME`値を伝達します。
 
 ```csharp
 public void onReceiveScheme(string scheme)
@@ -1358,7 +1372,7 @@ public void onReceiveScheme(string scheme)
 
 顧客が運営者に問い合わせを登録して返答を受け取れる機能です。
 
-問い合わせのUIはデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
+問い合わせの UI はデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
 
 - 問い合わせ登録画面
 
@@ -1392,7 +1406,7 @@ GamePot.showWebView(string url);
 
 決められた時間にローカルプッシュを表示する方法は以下のとおりです。
 
-> 戻り値として返ってくるpushIdは開発会社で管理します。
+> 戻り値として返ってくる pushId は開発会社で管理します。
 
 ```csharp
 int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title", "content");
@@ -1400,7 +1414,7 @@ int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title
 
 #### 登録プッシュキャンセル
 
-プッシュ登録の際に取得したpushIdをもとに、これまでに登録したプッシュをキャンセルできます。
+プッシュ登録の際に取得した pushId をもとに、これまでに登録したプッシュをキャンセルできます。
 
 ```csharp
 GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
@@ -1408,9 +1422,9 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 
 ### 規約同意
 
-｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるようにUIを提供します。
+｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの2種類を提供し、各領域別にカスタマイズもできます。
+`BLUE`テーマと`GREEN`テーマの 2 種類を提供し、各領域別にカスタマイズもできます。
 
 - `BLUE`テーマの例
 
@@ -1532,13 +1546,13 @@ GamePot.showAgreeDialog(info);
 
 それぞれの変数は以下の領域に適用されます。
 
-> contentIconDrawableはAOSでのみ表示され、基本値はプッシュアイコンとして設定されます。
+> contentIconDrawable は AOS でのみ表示され、基本値はプッシュアイコンとして設定されます。
 
 ![gamepot_unity_15](./images/gamepot_unity_15.png)
 
 ### 利用規約
 
-利用規約UIを呼び出します。
+利用規約 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 利用規約の設定項目にまず内容を入力してください。
 
@@ -1550,7 +1564,7 @@ GamePot.showTerms();
 
 ### 個人情報の取扱方針
 
-個人情報の取扱方針UIを呼び出します。
+個人情報の取扱方針 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 個人情報の取扱方針の設定項目にまず内容を入力してください。
 
@@ -1562,7 +1576,7 @@ GamePot.showPrivacy();
 
 ### 払い戻し規約
 
-払い戻し規約UIを呼び出します。
+払い戻し規約 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 払い戻し規約の設定項目にまず内容を入力してください。
 
@@ -1576,7 +1590,7 @@ GamePot.showRefund();
 
 ダッシュボードで登録したパラメータ値をゲームクライアントから取得します。
 
-> ダッシュボード - 設定 - Remote Config画面でパラメータを追加します。
+> ダッシュボード - 設定 - Remote Config 画面でパラメータを追加します。
 
 ![gamepot_unity_18](./images/gamepot_unity_18.png)
 
@@ -1594,11 +1608,11 @@ var json_value = GamePot.getConfigs();
 
 ### 決済キャンセルを悪用するユーザーを自動的に解除する機能
 
-決済キャンセルを悪用するユーザーを自動的に解除する機能のUIを提供します。各領域別にカスタマイズできます。
+決済キャンセルを悪用するユーザーを自動的に解除する機能の UI を提供します。各領域別にカスタマイズできます。
 
-> Google決済に限って、ユーザーが任意にGoogleにリクエストして決済をキャンセルした場合、｢Google決済キャンセル｣機能を通じてそのユーザーを利用停止させることができます。
+> Google 決済に限って、ユーザーが任意に Google にリクエストして決済をキャンセルした場合、｢Google 決済キャンセル｣機能を通じてそのユーザーを利用停止させることができます。
 >
-> この時、当該ユーザーがログインするとSDK内でポップアップを表示し、当該決済アイテムを再決済するように誘導し、
+> この時、当該ユーザーがログインすると SDK 内でポップアップを表示し、当該決済アイテムを再決済するように誘導し、
 > 決済したら再び正常にアクセスできるようにする機能を提供します。
 >
 > キャンセルした決済をすべて再決済すると、自動的に利用停止が解除されます。
@@ -1622,20 +1636,19 @@ GamePot.setVoidBuilder(info);
 
 ```
 
-
 ### ゲームログ伝送
 
 ゲームで使用される情報を入れて呼び出すと、`ダッシュボード` - `ゲーム`で照会できます。
 
 以下は使用できる予約語の定義表です。
 
-| 予約語| 必須| タイプ| 説明|
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME| 必須| String| キャラクター名|
-| GamePotSendLogCharacter.LEVEL| 任意| String| レベル|
-| GamePotSendLogCharacter.SERVER_ID| 任意| String| サーバID|
-| GamePotSendLogCharacter.PLAYER_ID| 任意| String| キャラクターID|
-| GamePotSendLogCharacter.USERDATA| 任意| String| ETC|
+| 予約語                            | 必須 | タイプ | 説明            |
+| :-------------------------------- | :--- | :----- | :-------------- |
+| GamePotSendLogCharacter.NAME      | 必須 | String | キャラクター名  |
+| GamePotSendLogCharacter.LEVEL     | 任意 | String | レベル          |
+| GamePotSendLogCharacter.SERVER_ID | 任意 | String | サーバ ID       |
+| GamePotSendLogCharacter.PLAYER_ID | 任意 | String | キャラクター ID |
+| GamePotSendLogCharacter.USERDATA  | 任意 | String | ETC             |
 
 ```csharp
 String name = 「キャラクター名」;
@@ -1659,15 +1672,15 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 # 付録
 
-### 3rd party SDK連携サポート
+### 3rd party SDK 連携サポート
 
 ## ログイン
 
 > 自動ログインに対応しない。毎回呼び出しが必要。
 
-| パラメータ名| 必須| タイプ| 説明|
-| :--------- | :--- | :----- | :----------------- |
-| userid| 必須| String| ユーザーの固有ID|
+| パラメータ名 | 必須 | タイプ | 説明              |
+| :----------- | :--- | :----- | :---------------- |
+| userid       | 必須 | String | ユーザーの固有 ID |
 
 ```csharp
 String userid = "memberid of 3rd party sdk";
@@ -1677,17 +1690,17 @@ GamePot.loginByThirdPartySDK("userid");
 
 ## 決済
 
-> 決済アイテムがGAMEPOTのダッシュボードに登録されている必要があります。
+> 決済アイテムが GAMEPOT のダッシュボードに登録されている必要があります。
 
-| パラメータ名| 必須| タイプ| 説明|
-| :------------ | :--- | :----- | :-------------------------------------- |
-| productid| 必須| String| GAMEPOTのダッシュボードに登録されたアイテムID|
-| transactionid| 必須| String| 決済領収証番号(GPA-xxx-xxxx-xxxx)|
-| store| 必須| String| (決済ストア - google、apple、one、galaxy)|
-| currency| 任意| String| 通貨(KRW、USD)|
-| price| 任意| double| 決済アイテム金額|
-| paymentid| 任意| String| 決済payment (一般的にはstore_idと同じ)|
-| uniqueid| 任意| String| 開発会社で使用する固有ID|
+| パラメータ名  | 必須 | タイプ | 説明                                            |
+| :------------ | :--- | :----- | :---------------------------------------------- |
+| productid     | 必須 | String | GAMEPOT のダッシュボードに登録されたアイテム ID |
+| transactionid | 必須 | String | 決済領収証番号(GPA-xxx-xxxx-xxxx)               |
+| store         | 必須 | String | (決済ストア - google、apple、one、galaxy)       |
+| currency      | 任意 | String | 通貨(KRW、USD)                                  |
+| price         | 任意 | double | 決済アイテム金額                                |
+| paymentid     | 任意 | String | 決済 payment (一般的には store_id と同じ)       |
+| uniqueid      | 任意 | String | 開発会社で使用する固有 ID                       |
 
 ```csharp
 String productId = "purchase_001";
