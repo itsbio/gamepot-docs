@@ -1,6 +1,6 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
 
 # Dashboard
@@ -255,6 +255,7 @@ search:
 ② 如果单击**大输入**按钮，则可以立即将应用内商品注册为 CSV 文件。
 
 ③ 您可以通过选择多个复选框并单击**删除**按钮来删除每个产品项。
+
 #### - 统计
 
 该功能可以每天绘制支付金额数据的图形。
@@ -723,11 +724,9 @@ search:
 
 ### 广告
 
-
-与Nasmedia Inc.合作，该功能使您可以轻松地申请广告并在GAMEPOT仪表板上查看各种统计信息。
+与 Nasmedia Inc.合作，该功能使您可以轻松地申请广告并在 GAMEPOT 仪表板上查看各种统计信息。
 
 ![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
-
 
 ## 游戏
 
@@ -871,6 +870,12 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 ④ 您可以检查 Google 收据查询的结果。
 
+##### Apple ID Login
+
+![gamepot_dashboard_102](./images/gamepot_dashboard_102.png)
+
+需要预先设置此信息，以便使用您的 Apple ID 在 Android 设备上登录。 您可以通过单击查看帮助来检查输入法的详细信息并返回 URL。
+
 ##### App ID
 
 ![gamepot_dashboard_65](./images/gamepot_dashboard_65.png)
@@ -990,7 +995,7 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 #### - 块连接
 
-防止用户访问已注册的IP和设备ID国家/地区代码。
+防止用户访问已注册的 IP 和设备 ID 国家/地区代码。
 
 ![gamepot_dashboard_75](./images/gamepot_dashboard_75.png)
 
