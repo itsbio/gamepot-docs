@@ -362,6 +362,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: Naver
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
+// GamePotChannelType.APPLE: Apple 
 // GamePotChannelType.GUEST: 游客
 
 // 点击Google登录按钮的时候调用
@@ -506,6 +507,8 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // 绑定到Twitter账户
 // GamePotChannelType.TWITTER
+// 链接到Apple帐户
+// GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -539,6 +542,7 @@ import java.util.ArrayList;
 // GamePotChannelType.NAVER
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.APPLE
 // 依照类型返回绑定结果。
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -833,6 +837,41 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
+### Apple 登錄(Web Login)
+
+#### build.gradle 設置
+
+```java
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')
+  ...
+}
+```
+
+#### MainActivity.java 設置
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.apple.signin.GamePotAppleSignin;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+        ...
+        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());
+}
+```
+
+#### 登錄
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
+
 ### 优惠卷
 
 使用用户输入的优惠卷时调用下面代码。
@@ -935,6 +974,24 @@ GamePot.getInstance().showNotice(/*当前活动*/, showTodayButton, new GamePotN
     @Override
     public void onReceive(String scheme) {
         // TODO : 方案處理
+    }
+});
+```
+
+### 公告(按类别致电)
+
+仪表板-此功能仅显示公告中上载并设置为分类的图像。
+
+#### 调用
+
+```java
+/* 仪表板公告 >> 在分类中设置的分类名称 */
+string type = "";
+
+GamePot.getInstance().showEvent(/*现在 Activity*/, type, new GamePotNoticeDialog.onSchemeListener() {
+    @Override
+    public void onReceive(String scheme) {
+        // TODO : scheme 处理
     }
 });
 ```
