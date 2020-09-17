@@ -267,7 +267,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE 로그인
 
-> iOS에만 해당하는 기능입니다.
+> iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.** 
 
@@ -840,7 +840,10 @@ public class NPurchaseInfo
     public string orderId { get; set; }             // 스토어 Order ID
     public string productName { get; set; }         // 결제 아이템 이름
     public string gamepotOrderId { get; set; }      // GAMEPOT에서 생성한 order id
-    public string uniqueId { get; set; }            // 개발사 unique ID
+    public string uniqueId { get; set; }            // (개발사에서 별도로 관리하는) 영수증 ID
+    public string serverId { get; set; }            // (결제를 진행한 캐릭터의) 서버 아이디
+    public string playerId { get; set; }            // (결제를 진행한 캐릭터의) 캐릭터 아이디
+    public string etc { get; set; }                 // (결제를 진행한 캐릭터의) 기타 정보
     public string signature { get; set; }           // 결제 Signature
     public string originalJSONData { get; set; }    // 영수증 Data
 }
@@ -908,6 +911,20 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 ```
 
 ## 8. 기타 API
+
+###  애플 로그인 (for Android - Web Login)
+
+#### GAMEPOT Dashboard
+
+대시보드 프로젝트 설정 >> 일반 >> Apple ID Login 설정
+
+> 기능을 사용하기 위해선 Apple Developer Console 설정이 필요합니다.
+>
+> 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
+
+/Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+- gamepot-channel-apple-signin.aar
+
 
 ### 네이버 로그인
 
@@ -1318,6 +1335,10 @@ GamePot.showNotice(bool Flag = true);
 
 // true : 오늘 하루 보지 않기 적용
 // false : 오늘 하루 보지 않기 관계없이, 강제 노출
+
+GamePot.showEvent(string Type)
+
+// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
 ```
 
 Response:

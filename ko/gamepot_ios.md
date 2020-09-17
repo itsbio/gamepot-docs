@@ -613,6 +613,18 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 }];
 ```
 
+### 공지사항(분류 별 호출)
+
+대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+
+#### 호출
+
+```text
+[[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
+    NSLog(@"scheme = %@", scheme);
+}];
+```
+
 ### 고객센터
 
 대시보드 - 고객센터와 연동되는 유저와 운영자간에 소통 채널입니다.

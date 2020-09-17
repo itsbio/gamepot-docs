@@ -356,6 +356,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: 네이버
 // GamePotChannelType.LINE: 라인
 // GamePotChannelType.TWITTER: 트위터
+// GamePotChannelType.APPLE: 애플 
 // GamePotChannelType.GUEST: 게스트
 
 // 구글 로그인 버튼을 눌렀을 때 호출
@@ -500,6 +501,8 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // 트위터 계정에 연동
 // GamePotChannelType.TWITTER
+// 애플 계정에 연동
+// GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -533,6 +536,7 @@ import java.util.ArrayList;
 // GamePotChannelType.NAVER
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.APPLE
 // 타입에 따른 연동 결과를 반환합니다.
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -828,6 +832,41 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
+### 애플 로그인(Web Login)
+
+#### build.gradle 설정
+
+```java
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')
+  ...
+}
+```
+
+#### MainActivity.java 설정
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.apple.signin.GamePotAppleSignin;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+        ...
+        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());
+}
+```
+
+#### 로그인
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
+
 ### 쿠폰
 
 사용자에게 입력받은 쿠폰을 사용할 때 아래 코드를 호출해 주세요.
@@ -927,6 +966,24 @@ JSONObject status = GamePot.getInstance().getPushStatus();
 boolean showTodayButton = true;
 
 GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
+    @Override
+    public void onReceive(String scheme) {
+        // TODO : scheme 처리
+    }
+});
+```
+
+### 공지사항(분류 별 호출)
+
+대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+
+#### 호출
+
+```java
+/* 대시보드 공지사항 >> 분류에서 설정한 분류명 */
+string type = "";
+
+GamePot.getInstance().showEvent(/*현재 액티비티*/, type, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
         // TODO : scheme 처리

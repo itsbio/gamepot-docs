@@ -620,6 +620,18 @@ This feature displays images uploaded in Dashboard > Notice.
 }];
 ```
 
+### 공지사항(분류 별 호출)
+
+대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+
+#### 호출
+
+```text
+[[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
+    NSLog(@"scheme = %@", scheme);
+}];
+```
+
 ### Customer service
 
 This is a communication channel between users and administrators, which is connected with Dashboard > Customer support.
