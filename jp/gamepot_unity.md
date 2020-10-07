@@ -426,7 +426,7 @@ public class NUserInfo
     public string name { get; set; }            // 名前
     public string profileUrl { get; set; }      // プロフィールURL(ある場合)
     public string email { get; set; }           // メール(ある場合)
-    public string token { get; set; }           // ユーザー広告ID
+    public string token { get; set; }           // ユーザーの有効性チェック用のトークン（Token Authentication APIで使用）
     public string userid { get; set; }          // Social ID(google、facebook...)
 }
 ```

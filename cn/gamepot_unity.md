@@ -429,7 +429,7 @@ public class NUserInfo
     public string name { get; set; }            // 이름
     public string profileUrl { get; set; }      // 프로필 URL(존재 시)
     public string email { get; set; }           // 이메일(존재 시)
-    public string token { get; set; }           // 유저 광고 ID
+    public string token { get; set; }           // 用于用户有效性检查的令牌（在Token Authentication API中使用）
     public string userid { get; set; }          // Social ID(google, facebook ...)
 }
 ```

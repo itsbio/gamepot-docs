@@ -427,7 +427,7 @@ public class NUserInfo
     public string name { get; set; }            // Name
     public string profileUrl { get; set; }      // Profile URL (if it exists)
     public string email { get; set; }           // Email (If it exists)
-    public string token { get; set; }           // User ad ID
+    public string token { get; set; }           // Token for user validity check (used in Token Authentication API)
     public string userid { get; set; }          // Social media ID (Google, Facebook, etc.)
 }
 ```
