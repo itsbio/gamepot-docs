@@ -1112,6 +1112,12 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ![gamepot_dashboard_77](./images/gamepot_dashboard_77.png)
 
+### GAMEPOT 공지사항
+
+GAMEPOT 공지사항을 확인할 수 있습니다.
+
+![gamepot_dashboard_110](./images/gamepot_dashboard_110.png)
+
 ### 언어 변경
 
 대시보드의 각 메뉴 등이 선택한 언어로 변경됩니다.
