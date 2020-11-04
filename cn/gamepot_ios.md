@@ -6,138 +6,115 @@ search:
 
 # iOS SDK
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
+## 1. 开始
 
-## 1. 入门
+#### 第一步. 配置开发环境
 
-#### Step 1. 配置开发环境
+为开发用于iOS的应用程序，需要安装开发工具\(Xcode\)。在iOS中使用GAMEPOT时需要的系统环境如下。
 
-为了开发 IOS APP 首先需要安装开发工具（XCode）。
+* 操作系统：iOS 10.0以上
+* 开发环境：Xcode
 
-- 操作系统：iOS 10.0 或更高版本
-- 开发环境：Xcode
-
-#### Step 2. Framework 加
+#### 第二步. 添加框架
 
 ![gamepot_ios_01](./images/gamepot_ios_01.png)
 
-将下载的 iOS SDK 文件拖放到 Xcode 项目文件夹目标中。
+用鼠标拖拽已下载的iOS SDK文件，将其添加到Xcode项目目标文件夹内。
 
-#### Step 3. Dependencies 加
+#### 第三步. 添加依赖
 
-所需依赖项列表取决于您要使用的服务。
+所需的依赖列表因要使用的服务而异。
 
-根据服务，请参考下表以添加依赖关系。
+参考以下表格，根据服务添加依赖。
 
-服务依赖性
+各类服务的依赖
 
-| Service    | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Dependencies                                                                                                                                                                                                                      | bundle                                   |
-| :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
-| Base       | AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework                                                                                                                                                                                                                                                                                                                    | libz.tbd WebKit.framework UserNotifications.framework                                                                                                                                                                             | GamePot.bundle                           |
-| Login      | \[ Base \]<br> GamePotChannel.framework <br><br> \[ Google Sign In \]<br> GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br> \[ LINE \]<br> GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br> \[ NAVER \]<br> GamePotNaver.framework NaverThirdPartyLogin.framework<br><br> \[ Twitter \]<br> GamePotTwitter.framework<br> TwitterKit.framework \(添加为 Dynamic Library\)<br> TwitterCore.framework \(添加为 Dynamic Library\) | \[ Google Sign In \] AuthenticationServices.framework LocalAuthentication.framework<br><br> \[ Facebook \] SafariServices.framework<br><br> \[ LINE \]<br>SafariServices.framework<br><br> \[ Twitter \] SafariServices.framework | \[ Google Sign In \] GoogleSignIn.bundle |
-| GameCenter | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
-| AppleID    | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
+| 服务| 框架| 依赖| 捆绑|
+| :--- | :--- | :--- | :--- |
+| 基本\(Base\)| AFNetworking.framework FirebaseAnalytics.framework FirebaseCore.framework FirebaseCoreDiagnostics.framework FirebaseInstanceID.framework FirebaseMessaging.framework FirebaseNanoPB.framework GamePot.framework GoogleToolboxForMac.framework nanopb.framework Protobuf.framework| libz.tbd WebKit.framework UserNotifications.framework| GamePot.bundle|
+| 登录\(Login\)| \[ 基本 \]<br>GamePotChannel.framework <br><br>\[ Google登录 \]<br>GamePotGoogleSignIn.framework GoogleSignIn.framework GoogleSignInDependencies.framework  <br><br>\[ Facebook \] <br>FBSDKCoreKit.framework FBSDKLoginKit.framework GamePotFacebook.framework<br><br>\[ LINE \]<br>GamePotLine.framework LineSDK.framework LineSDKObjC.framework<br><br>\[ NAVER \]<br>GamePotNaver.framework NaverThirdPartyLogin.framework<br><br>\[ Twitter \]<br>GamePotTwitter.framework<br>TwitterKit.framework \(通过Dynamic Library添加\)<br>TwitterCore.framework \(通过Dynamic Library添加\)| \[ Google登录 \] AuthenticationServices.framework LocalAuthentication.framework<br><br>\[ Facebook \] SafariServices.framework<br><br>\[ LINE \]<br>SafariServices.framework<br><br>\[ Twitter \]SafariServices.framework| \[ Google登录 \]GoogleSignIn.bundle|
+| GameCenter| GamePotGameCenter.framework|  |  |
+| AppleID| GamePotApple.framework|  |  |
 
 ![gamepot_ios_02](./images/gamepot_ios_02.png)
 
-#### Step 4. Bundle Resource 加
+#### 第四步. 添加Bundle Resource
 
-您需要根据要使用的服务添加捆绑资源文件。
+根据要使用的服务，需要添加Bundle Resource文件。
 
-通过参考每个服务的“依赖关系”表来添加捆绑资源文件。
+参考各类服务的依赖表，添加Bundle Resource文件。
 
 ![gamepot_ios_03](./images/gamepot_ios_03.png)
 
-#### Step 5. InfoPlist 加
+#### 第五步. 添加InfoPlist
 
 ![gamepot_ios_04](./images/gamepot_ios_04.png)
 
-GAMEPOT SDK 使用 Google Firebase。 因此，设置 Google Firebase 并将创建的 GoogleService-Info.plist 添加到您的项目中。
+GAMEPOT SDK使用Google Firebase。因此，需要在项目中添加设置Google Firebase时创建的GoogleService-Info.plist。
 
-还要添加 GamePotConfig-Info.plist 文件，其中包含 GAMEPOT SDK 的基本设置。 如果没有 GamePotConfig-Info.plist 文件，请使用相同的文件名创建该文件，然后输入与键对应的值。
+还要添加包含GAMEPOT SDK默认设置值的GamePotConfig-Info.plist文件。如果没有GamePotConfig-Info.plist文件，创建同名文件后输入与该键对应的值。
 
-**GamePotConfig-Info.plist 设定值**
+**GamePotConfig-Info.plist设置**
 
 ![gamepot_ios_05](./images/gamepot_ios_05.png)
 
 ```markup
-gamepot_project_id : GAMEPOT项目编号
+gamepot_project_id：GAMEPOT项目ID
 gamepot_elsa_projectid：GAMEPOT日志项目ID（可选）
 ```
 
-#### Step 6. 添加构建选项
+#### 第六步. 添加构建选项
 
-**Build Settings > Linking > Other Linker Flags** 将-ObjC 选项添加到该部分。
+在**Build Settings > Linking > Other Linker Flags**区段中添加-ObjC选项。
 
 ![gamepot_ios_06](./images/gamepot_ios_06.png)
 
-#### Step 7. Info.plist 改性
+#### 第七步. 修改Info.plist
 
-在目标>>信息>>自定义 iOS 目标属性中，请添加以下选项以获取用户权限。
+请在Targets >> Info >> Custom iOS Target Properties中添加以下用户权限获取选项。
 
-此用户权限在 GamePot 客户中心的文件上传功能中使用。
+该用户权限在GamePot客服中心内的文件上传功能中使用。
 
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
-iOS 14 或更高版本
+#### 第八步. 设置Google登录环境
 
-从 iOS 14 开始，获得 IDFA 值后，用户必须获得许可。
+参考各服务依赖表的**Login > Google登录**，添加框架与依赖。
 
-已对其进行了更改以启用 IDFA 值的获取。
-
-因此，如果您使用弹出式窗口在获取 IDFA 值时获得了用户的授权，
-在目标>>信息>>自定义 iOS 目标属性中，请在下面添加用户权限获取选项。
-
-> 2020.09.11 <br/>
-> 当苹果获得 IDFA 值时，为获得用户许可而强制性弹出窗口的申请已推迟到 2021 年初。<br/>
-> 请参阅下面的链接。<br/>
-
-```text
-NSUserTrackingUsageDescription
-```
-
-#### Step 8. Google Sign In 登录首选项
-
-参照每个服务的“依赖关系”表中的**登录>“Google 登录”**，添加框架和依赖关系。
-
-通过在 GoogleService-Info.plist 文件中复制`REVERSED_CLIENT_ID`的值，然后在“信息”>**URL 类型**中添加一个条目，以在 URL 方案中输入值。
+复制GoogleService-Info.plist文件的`REVERSED_CLIENT_ID`值，在**Info > URL Types**中添加项目，并在URL Schemes中输入值。
 
 ![gamepot_ios_07](./images/gamepot_ios_07.png)
 
-**GamePotConfig-Info.plist 设定值**
+**GamePotConfig-Info.plist设置**
 
 ![gamepot_ios_08](./images/gamepot_ios_08.png)
 
 ```markup
-gamepot_google_app_id : GoogleService-Info.plist文件中的CLIENT_ID值
-gamepot_google_url_schemes : GoogleService-Info.plist文件中的REVERSED_CLIENT_ID值
+gamepot_google_app_id：GoogleService-Info.plist文件的CLIENT_ID值
+gamepot_google_url_schemes：GoogleService-Info.plist文件的REVERSED_CLIENT_ID值
 ```
 
-#### Step 9. Facebook 登录首选项
+#### 第九步. 设置Facebook登录环境
 
-通过引用每个服务的“依赖关系”表中的“登录”>“ Facebook \*\*”来添加框架和依赖关系。
+参考各服务依赖表的**Login > Facebook**，添加框架与依赖。
 
-将 Facebook App ID 作为 fb + Facebook App ID 添加到“信息> URL 类型”中。
+以fb+Facebook App ID格式在**Info > URL Types**中添加Facebook App ID。
 
 ![gamepot_ios_09](./images/gamepot_ios_09.png)
 
-将以下内容添加到**信息>iOS 目标属性中的** LSApplicationQueriesSchemes 中。
+在**Info > iOS Target Property**的**LSApplicationQueriesSchemes**中添加以下项目。
 
-- fbapi
-- fb-messenger-share-api
-- fbauth2
-- fbshareextension
+* fbapi
+* fb-messenger-share-api
+* fbauth2
+* fbshareextension
 
 ![gamepot_ios_10](./images/gamepot_ios_10.png)
 
-**GamePotConfig-Info.plist 设定值**
+**GamePotConfig-Info.plist设置**
 
 ![gamepot_ios_11](./images/gamepot_ios_11.png)
 
@@ -146,27 +123,27 @@ gamepot_facebook_app_id : Facebook App ID
 gamepot_facebook_display_name : Facebook display name
 ```
 
-#### Step 10. LINE 登录首选项
+#### 第十步. 设置LINE登录环境
 
-**GamePotConfig-Info.plist 设置**
+**GamePotConfig-Info.plist设置**
 
 ```markup
 gamepot_line_channelid : Line Channel ID
-gamepot_line_url_schemes : Line URL Scheme (line3rdp.{프로젝트 번들 ID})
+gamepot_line_url_schemes : Line URL Scheme (line3rdp.{项目捆绑 ID})
 ```
 
-#### Step 11. Twitter 登录首选项
+#### 第十一步. 设置Twitter登录环境
 
-**GamePotConfig-Info.plist 设置**
+**GamePotConfig-Info.plist设置**
 
 ```markup
 gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
 
-#### Step12. Naver 登录首选项
+#### 第十二步.设置Naver登录环境
 
-**GamePotConfig-Info.plist 设置**
+**GamePotConfig-Info.plist设置**
 
 ```text
 gamepot_naver_clientid : Naver Client Id
@@ -174,28 +151,24 @@ gamepot_naver_secretid : Naver Secret Id
 gamepot_naver_urlscheme : Naver Url Scheme
 ```
 
-将以下内容添加到**信息”>“ iOS 目标属性”中的“ LSApplicationQueriesSchemes**中。
+在**Info > iOS Target Property**的**LSApplicationQueriesSchemes**中添加以下项目。
 
-- naversearchapp
-- naversearchthirdlogin
-- navercafe
+* naversearchapp
+* naversearchthirdlogin
+* navercafe
 
-将在 gamepot_naver_urlscheme 中输入的值添加到**Info > URL Types**
+在**Info > URL Types**中添加在gamepot\_naver\_urlscheme中输入的值。
 
-#### Step13. AppleID 登录首选项
+#### 第十三步.设置AppleID登录环境
 
-**加 Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple**
+添加**Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple。**
 
-## 2. 重启
+## 2. 初始化
 
-AppDelegate 将以下部分添加到文件中。
+在AppDelegate文件中添加下列部分。
 
 ```text
 #import <GamePot/GamePot.h>
-
-#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-#endif
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
@@ -223,32 +196,6 @@ AppDelegate 将以下部分添加到文件中。
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
     }
-
-    // 调用权限请求弹出窗口以获取iOS 14版本中的IDFA值
-    // 如果未将AppTrackingTransparency.framework添加到项目中，则不会调用它。
-#if __has_include(<AppTrackingTransparency/AppTrackingTransparency.h>)
-   if (@available(iOS 14, *)) {
-       if(NSClassFromString(@"ATTrackingManager"))
-       {
-           [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-
-               switch (status)
-               {
-                   case ATTrackingManagerAuthorizationStatusNotDetermined:
-                       break;
-                   case ATTrackingManagerAuthorizationStatusRestricted:
-                       break;
-                   case ATTrackingManagerAuthorizationStatusDenied:
-                       break;
-                   case ATTrackingManagerAuthorizationStatusAuthorized:
-                       break;
-                   default:
-                       break;
-               }
-           }];
-       }
-   }
-#endif
     ...
 }
 
@@ -269,63 +216,63 @@ AppDelegate 将以下部分添加到文件中。
 }
 ```
 
-## 3. 登录，注销，退出会员
+## 3. 登录、退出登录、注销会员
 
-您可以集成和使用各种登录 SDK，例如 Google，Facebook 和 Naver。
+可统一使用Google、Facebook、Naver等各种登录SDK。
 
-#### Step 1. 设置
+#### 第一步. 设置
 
 ```text
 // AppDelegate.m
 #import <GamePotChannel/GamePotChannel.h>
 
-// Google Login 使用时
+// 使用Google登录时
 #import <GamePotGoogleSignIn/GamePotGoogleSignIn.h>
 
-// Facebook Login 使用时
+// 使用Facebook登录时
 #import <GamePotFacebook/GamePotFacebook.h>
 
-// AppleID Login 使用时
+// 使用AppleID登录时
 #import <GamePotApple/GamePotApple.h>
 
-// Line Login 使用时
+// 使用Line登录时
 #import <GamePotLine/GamePotLine.h>
 
-// Twitter Login 使用时
+// 使用Twitter登录时
 #import <GamePotTwitter/GamePotTwitter.h>
 
-// Naver Login 使用时
+// 使用Naver登录时
 #import <GamePotNaver/GamePotNaver.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ...
-    // GamePotSDK 通道初始化。 您必须为要使用的每个通道使用addChannel。
-     //默认情况下包含guest方法。
-    // Google Login 重启
+    // GamePotSDK渠道初始化。只能按要使用的渠道使用addChannel，
+    // 默认包括Guest方式。
+    // Google登录初始化
     GamePotChannelInterface* google     = [[GamePotGoogleSignIn alloc] init];
     [[GamePotChannelManager getInstance] addChannelWithType:GOOGLE interface:google];
 
-    // Facebook 登录 重启
+    // Facebook登录初始化
     GamePotChannelInterface* facebook   = [[GamePotFacebook alloc] init];
     [[GamePotChannelManager getInstance] addChannelWithType:FACEBOOK interface:facebook];
 
-    // AppleID 登录 重启
+    // AppleID登录初始化
     GamePotChannelInterface* apple      = [[GamePotApple alloc] init];
     [[GamePotChannel getInstance] addChannelWithType:APPLE interface:apple];
 
-    // Line 登录 重启
+    // Line登录初始化
     GamePotChannelInterface* line = [[GamePotLine alloc] init];
     [[GamePotChannel getInstance] addChannelWithType:LINE interface:line];
 
-    // Twitter 登录 重启
+    // Twitter登录初始化
     GamePotChannelInterface* twitter = [[GamePotTwitter alloc] init];
     [[GamePotChannel getInstance] addChannelWithType:TWITTER interface:twitter];
 
-      // Naver 登录 重启
+      // Naver登录初始化
       GamePotChannelInterface* naver = [[GamePotNaver alloc] init];
       [[GamePotChannel getInstance] addChannelWithType:NAVER interface:naver];
 
-    // 登录处理所需。
+    // 进行登录处理时需要。
     [[GamePotChannel getInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 
     ...
@@ -333,15 +280,15 @@ AppDelegate 将以下部分添加到文件中。
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    // 登录处理所需。
+    // 进行登录处理时需要。
     BOOL nChannelResult = [[GamePotChannel getInstance] application:app openURL:url options:options];
     return nChannelResult;
 }
 ```
 
-#### Step 2. 登录
+#### 第二步. 登录
 
-当您单击登录按钮时，它起作用。
+点击登录按钮时关联。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -354,100 +301,100 @@ AppDelegate 将以下部分添加到文件中。
 // GamePotChannelType.NAVER
 // GamePotChannelType.APPLE
 
-// 单击Google登录按钮时调用
+// 点击Google登录按钮时调用
 [[GamePotChannel getInstance] Login:GOOGLE viewController:self success:^(GamePotUserInfo* userInfo) {
-    // 登录完成
+    // 登录成功
 } cancel:^{
-    // 当用户在尝试登录时取消时
+    // 尝试登录过程中用户取消时
 } fail:^(NSError *error) {
-    // 登录时出错
-    // TODO: 通过弹出游戏来解释失败的原因。
-    // TODO: 将[error localizedDescription]用作短语。
+    // 登录过程中发生错误
+    // TODO: 请通过游戏弹窗显示失败原因相关语句。
+    // TODO: 请使用[error localizedDescription]语句。
 }];
 ```
 
-#### Step 3. 自动登录
+#### 第三步. 自动登录
 
-GAMEPOT 支持自动登录。
+GAMEPOT支持自动登录。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
 
-// 获取最后登录的信息，并调用该信息以自动使用该信息登录。
-// lastLoginType：您可以获取最后的登录值。
+// 获取最后一次登录的信息并调用，以便使用该信息自动登录。
+// lastLoginType：可以获取最后一次登录值。
 GamePotChannelType type = [[GamePotChannel getInstance] lastLoginType];
 
 if(type != NONE)
 {
-    // 这是使用最后一种登录类型登录的方法。
-    // 如果是自动登录处理，只需按如下所示进行调用。
+    // 以用户最后一次的登陆方式进行登录。
+    // 处理自动登录时如下调用即可。
     [[GamePotChannel getInstance] Login:type viewController:self success:^(GamePotUserInfo* userInfo) {
 
     } cancel:^{
 
     } fail:^(NSError *error) {
-        // TODO: 通过游戏弹出窗口解释失败的原因。
-        // TODO：将[error localizedDescription]用作短语。
+        // TODO: 请通过游戏弹窗显示失败原因相关语句。
+        // TODO: 请使用[error localizedDescription]语句。
     }];
 }
 else
 {
-    // 没有上次登录的信息。 使用登录按钮进入登录屏幕
+    // 没有最后登录信息。跳转到有登录按钮的登录界面
 }
 ```
 
-#### Step 4. 登出
+#### 第四步. 退出登录
 
-注销当前的会员帐户。
+使当前会员账户退出登录。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
 
 [[GamePotChannel getInstance] LogoutWithSuccess:^{
-    // 完成注销后，您将被重定向到初始屏幕。
-}失败：^（NSError * error）{
-     //显示注销失败错误消息。
-     // TODO：通过弹出游戏来解释失败的原因。
-     // TODO：将[error localizedDescription]用作短语。
+    // 成功退出登录后跳转到初始页面。
+} fail:^(NSError *error) {
+    // 显示退出登录失败的错误消息。
+    // TODO: 请通过游戏弹窗显示失败原因相关语句。
+    // TODO: 请使用[error localizedDescription]语句。
 }];
 ```
 
-#### Step 5. 退出
+#### 第五步. 注销会员
 
-退出您当前的会员帐户。
+注销当前登录的会员账户。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
 
 [[GamePotChannel getInstance] DeleteMemberWithSuccess:^{
-    // 进入登录页面成功退出会员
-}失败：^（NSError * error）{
-     //成员退出失败
-     // TODO：通过弹出游戏来解释失败的原因。
-     // TODO：将[error localizedDescription]用作短语。
+    // 会员注销成功，跳转到登录页面
+} fail:^(NSError *error) {
+    // 会员注销失败
+    // TODO: 请通过游戏弹窗显示失败原因相关语句。
+    // TODO: 请使用[error localizedDescription]语句。
 }];
 ```
 
-#### Step 6. 验证
+#### 第六步. 验证
 
-完成登录后，通过将登录信息从开发者服务器传递到 GAMEPOT 服务器来执行登录验证。
+登录成功后，登录信息从开发公司服务器传递至GAMEPOT服务器后，开始进行登录验证。
 
-有关更多信息，请参阅`服务器到服务器api`菜单中的`身份验证检查`项。
+详细说明请参考`Server to server api`菜单中的`Authentication check`项目。
 
-## 4.帐户关联
+## 4. 账户关联
 
-此功能可以将多个社交帐户（Google/Facebook 等）连接断开与一个游戏帐户的连接。
+该功能可以将多个社交账户\(Google、Facebook等\)与一个游戏账户关联或解除关联。\(至少关联一个社交账户。\)
 
-在游戏中实现联锁屏幕 UI，并在按下联锁按钮时调用以下代码。
+在游戏中实现关联页面UI，按下关联按钮时调用以下代码。
 
-#### Step 1. 帐户连结
+#### 第一步. 关联账户
 
-您可以将您的帐户与 ID（例如 Google 和 Facebook）相关联。
+可用Google、Facebook等ID关联账户。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
 
-// 类型定义
+// 定义类型
 // GamePotChannelType.GOOGLE
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.LINE
@@ -456,23 +403,23 @@ else
 // GamePotChannelType.APPLE
 
 [[GamePotChannel getInstance] CreateLinking:GOOGLE viewController:self success:^(GamePotUserInfo *userInfo) {
-    // TODO：互通完成。 请在游戏弹出窗口中显示有关链接结果的文本（例如，帐户链接成功）。
-}取消：^ {
-     // TODO：当用户取消时
-}失败：^（NSError * error）{
-     // TODO：集成失败。 请在游戏弹出窗口中显示有关链接失败原因的文字。
-     // TODO：将[error localizedDescription]用作短语。
+    // TODO: 关联成功，请通过游戏弹窗显示关联结果相关语句。（例如：账户关联成功。）
+} cancel:^{
+    // TODO: 用户取消时
+} fail:^(NSError *error) {
+    // TODO: 关联失败。请通过游戏弹窗显示关联失败原因相关语句。
+    // TODO: 请使用[error localizedDescription]语句。
 }];
 ```
 
-#### Step 2. 链表
+#### 第二步. 已关联列表
 
-您可以检查帐户是否通过相应的 API 进行了链接。
+可以通过相应API确认是否关联账户。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
 
-// 类型定义
+// 定义类型
 // GamePotChannelType.GOOGLE
 // GamePotChannelType.FACEBOOK
 // GamePotChannelType.LINE
@@ -480,33 +427,33 @@ else
 // GamePotChannelType.NAVER
 // GamePotChannelType.APPLE
 
-// 根据类型返回互锁结果。
+// 返回各类型的关联结果。 
 BOOL isGoogleLinked = [[GamePotChannel getInstance] isLinked:GOOGLE];
 
-// 返回JsonString类型的链接类型。
+// 对已关联的类型，以JsonString格式返回。
 NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 ```
 
-#### Step 3. 开锁
+#### 第三步. 解除关联
 
-取消现有的关联帐户。
+解除当前关联账户。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
 
 [[GamePotChannel getInstance] DeleteLinking:GOOGLE success:^{
-     // TODO：发布完成。 请在游戏弹出窗口中显示有关互锁结果的文本。 （例如：帐户链接已被取消。）
-}失败：^（NSError * error）{
-      // TODO：发布失败。 请在游戏弹出窗口中显示有关终止失败原因的短语。
-      // TODO：将[error localizedDescription]用作短语。
+     // TODO: 解除成功。请通过游戏弹窗显示关联结果相关语句。（例如：已解除账户关联。）
+} fail:^(NSError *error) {
+     // TODO: 解除失败。请通过游戏弹窗显示解除失败原因相关语句。
+     // TODO: 请使用[error localizedDescription]语句。
 }];
 ```
 
-## 5. 付款
+## 5. 支付
 
-#### Step 1. 设置
+#### 第一步. 设置
 
-付款的结果值以委托的形式实现。 因此，请按以下方式添加代表。
+付款结果值以Delegate形式实现。因此请如下添加Delegate。
 
 ```text
 #import <GamePot/GamePot.h>
@@ -526,62 +473,62 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 {
     // 付款成功
 
-     //如果您使用广告作为代码将付款事件引发到广告平台，请确保！ 请插入。
+    // 用于在广告平台投放付款活动的代码，使用广告时请务必!插入。
     [[GamePotAd getInstance] tracking:BILLING obj:_info];
 }
 
 - (void)GamePotPurchaseFail:(NSError *)_error
 {
     // 付款错误
-    // TODO：通过弹出游戏来解释失败的原因。
-    // TODO：将[error localizedDescription]用作短语。
+    // TODO: 请通过游戏弹窗显示失败原因相关语句。
+    // TODO: 请使用[error localizedDescription]语句。
 }
 
 - (void)GamePotPurchaseCancel
 {
-    // 付款启动期间取消
-    //弹出“付款已取消”作为游戏弹出窗口。
+    // 启动付款过程中取消
+    // 通过游戏弹窗显示“付款已被取消”语句。
 }
 @end
 ```
 
-#### Step 2. 尝试付款
+#### 第二步. 尝试付款
 
 ```text
-CASE 1 : 一般付款
+事例一：一般性支付时
 
 #import <GamePot/GamePot.h>
 
-// productid : 输入在商店中注册的产品ID。
+// productid：输入商店中添加的商品ID。
 [[GamePot getInstance] purchase:productid];
 ```
 
 ```text
-CASE 2 : 当您要单独管理付款时处理的收据编号时：
+事例二：想单独管理支付时发行的发票号时：
 
 #import <GamePot/GamePot.h>
 
-// productId : 输入在商店中注册的产品ID。
-// uniqueId：您可以输入单独管理的收据编号。
+// productId : 输入在商店中添加的商品ID即可。
+// uniqueId  : 加入单独管理的发票号即可。
 [[GamePot getInstance] purchase:productid uniqueId:uniqueid];
 ```
 
 ```text
-CASE 3 : 当您想提供通过Webhook付款时处理的收据编号/服务器ID /字符ID /其他信息时。 :
+事例三：想要向webhook传递支付时进行的发票号/服务器ID/角色ID/其他信息时：
 
 #import <GamePot/GamePot.h>
 
-// productId：输入在商店中注册的产品ID。
-// uniqueId：您可以输入单独管理的收据编号。
-// serverId：输入进行付款的角色的服务器ID。
-// playerId：输入进行付款的角色的角色ID。
-// etc       : 您可以输入其他信息，例如付款的字符。
+// productId : 输入在商店中添加的商品ID即可。
+// uniqueId  : 加入单独管理的发票号即可。
+// serverId  : 输入进行支付的角色的服务器ID即可。
+// playerId  : 输入进行支付的角色的角色ID即可。
+// etc       : 输入进行支付的角色的其他信息即可。
 [[GamePot getInstance] purchase:productid uniqueId:uniqueid serverId:serverid playerId:playerid etc:etc]];
 ```
 
-#### Step 3. **获取付款项目清单**
+#### 第三步. **获取付款道具列表**
 
-您可以获取商店提供的应用内商品的列表。
+可以获取商店提供的应用内道具列表。
 
 ```text
 NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
@@ -590,63 +537,63 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 [[GamePot getInstance] getLocalizePrice:[product productIdentifier]];
 ```
 
-#### Step 4. 付款项目付款
+#### 第四步. 发放付款道具
 
-非法付款是不可能的，因为 GAMEPOT 在通过服务器到服务器 api 验证了付款存储区中的收据后，要求向开发者的服务器付款。
+因为GAMEPOT在通过Server to server api完成对支付商店发票的验证后才向开发公司服务器发出发放请求，所以不可能存在非法支付。
 
-为此，请参考“服务器到服务器 api”菜单中的“购买”项并进行处理。
+为此，需要参考`Server to server api`菜单的`Purchase`项目进行处理。
 
-## 6.其他 API
+## 6. 其他API
 
 ### 优惠券
 
-使用用户输入的优惠券时，请拨打以下代码。
+使用用户输入的优惠券时请调用以下代码。
 
-> 请开发人员实施优惠券输入屏幕 UI。
+> 请开发公司实现优惠券输入页面UI。
 
 ```text
 #import <GamePot/GamePot.h>
 
-[[GamePot getInstance] coupon:/*用户收到的优惠券*/ handler:^(BOOL _success, NSError *_error) {
+[[GamePot getInstance] coupon:/*用户输入的优惠券*/ handler:^(BOOL _success, NSError *_error) {
     if(_success)
     {
-        // TODO: 消息中将返回使用优惠券的结果。 请在游戏弹出窗口中显示此消息。
+        // TODO: message中返回优惠券使用相关结果。请在游戏弹窗中显示该消息。
     }
     else
     {
-        // TODO: _error返回有关优惠券失败原因的信息。
-        // [_error localizedDescription]的内容公开为游戏弹出窗口。
+        // TODO: _error中返回优惠券使用失败原因相关信息。
+        // 请通过游戏弹窗显示[_error localizedDescription]的内容。
     }
 }];
 ```
 
-#### 物品付款
+#### 发放道具
 
-如果优惠券成功使用，则要求开发者服务器通过服务器到服务器 api 支付商品。
+如果优惠券使用成功，会通过Server to server api向开发公司的服务器请求发放道具。
 
-为此，请参考`服务器到服务器api`菜单中的`项目`项并进行处理。
+为此，需要参考`Server to server api`菜单的`Item`项目进行处理。
 
-### Push
+### 推送
 
 ```text
 #import <GamePot/GamePot.h>
 
-// 推送接收 On/Off
+// 开启/关闭接收推送
 [[GamePot getInstance] setPushEnable:YES success:^{
 
 } fail:^(NSError *error) {
 
 }];
 
-// 夜推接待 On/Off
+// 开启/关闭接收夜间推送
 [[GamePot getInstance] setNightPushEnable:YES success:^{
 
 } fail:^(NSError *error) {
 
 }];
 
-// 一次设置推送/夜间推送
-//如果您被允许在登录前进行推送/夜间推送，请务必在登录后调用以下代码。
+// 一次性设置推送/夜间推送
+// 如果是登录前需要获得推送/夜间推送权限的游戏，登录后必须调用以下代码。
 [[GamePot getInstance] setPushStatus:YES night:YES ad:YES success:^{
     <#code#>
 } fail:^(NSError *error) {
@@ -654,9 +601,9 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 }];
 ```
 
-### 公告
+### 公告事项
 
-DashBoard - 在公告栏所上传图像显示的功能。
+显示仪表盘-公告事项中所上传图像的功能。
 
 #### 调用
 
@@ -666,53 +613,41 @@ DashBoard - 在公告栏所上传图像显示的功能。
 }];
 ```
 
-### 公告(按类别致电)
+### 客服中心
 
-仪表板-此功能仅显示公告中上载并设置为分类的图像。
+这是与仪表盘-客服中心关联的用户与运营者之间的沟通渠道。
+
+客户咨询UI会根据设备语言更改。支持韩语、英语、日语、中文（简体、繁体），其他语言显示英语。
 
 #### 调用
-
-```text
-[[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
-    NSLog(@"scheme = %@", scheme);
-}];
-```
-
-### 客户中心
-
-DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗口。
-
-与我们联系 UI 会根据设备语言进行更改。 它支持韩文，英文，日文和中文（简体和繁体），其他语言以英文显示。
-
-#### 通话
 
 ```text
 [[GamePot getInstance] showHelpWebView:(UIViewController *)];
 ```
 
-未登录的客户可以通过支持外部链接来注册查询。
+支持外部链接，未登录的客户也可以提交咨询事项。
 
-#### 通话
+#### 调用
 
 ```text
 // showWebView Type
-    // WEBVIEW_NORMAL // 没有后退按钮。
-    // WEBVIEW_NORMALWITHBACK //返回按钮存在
+    // WEBVIEW_NORMAL // 没有返回按钮。
+    // WEBVIEW_NORMALWITHBACK // 有返回按钮
 
-    [[GamePot getInstance] showWebView:/*现在 ViewController*/ setType:/*Type*/ setURL:/*外门进出URL*/];
+    [[GamePot getInstance] showWebView:/*当前ViewController*/ setType:/*Type*/ setURL:/*外部咨询访问URL*/];
 ```
 
-### 本地推送通知
+### 本地推送\(Local Push notification\)
 
-此功能可在不通过推送服务器的情况下从终端公开推送本身。
+不通过推送服务器，在终端自主显示推送的功能。
 
-#### 通话
+#### 调用
 
-#### 推送注册
+#### 添加推送
 
-这是在给定时间公开本地推送的方法。
+在规定时间显示本地推送的方法如下。
 
-> 作为返回值传递的 pushid 由开发人员管理。
+> 作为返回值传递的pushid由开发公司管理。
 
 ```text
  NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -723,64 +658,64 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
  int pushId  = [[GamePot getInstance] sendLocalPush:@"Title" setMessage:@"Message" setDateString:strDate];
 ```
 
-#### 取消注册推送
+#### 取消已添加的推送
 
-您可以根据推送注册过程中获得的推送 ID 取消先前注册的推送。
+可以根据添加推送时获取的pushid取消已添加的推送。
 
 ```text
 [[GamePot getInstance] cancelLocalPush:(int)pushId];
 ```
 
-### 检查，强制更新
+### 检查、强制更新
 
-如果需要检查或强制更新功能，则在仪表板操作中激活该功能时将激活该功能。
+需要检查或强制更新功能时，在仪表盘-操作中激活时可启动。
 
-#### 通话
+#### 调用
 
-可以在下面应用的 API 中使用它。
+可在之前已应用的以下API中使用。
 
-#### 1. Login API
+#### 1. 登录API
 
 ```text
 [[GamePotChannel getInstance] Login:GAMECENTER viewController:self
     success:^(GamePotUserInfo* userInfo) {
-            // 登录完成。 请根据游戏逻辑处理。
+            // 登录成功，请按游戏逻辑处理。
     } cancel:^{
-            // 用户取消登录的情况。
+            // 用户取消登录时的情况。
     } fail:^(NSError *error) {
-            // 登录失败。 使用[error localizedDescription]显示错误消息。
+            // 登录失败。请使用[error localizedDescription]显示错误消息。
     } update:^(GamePotAppStatus *appStatus) {
-        // TODO: 需要强制更新时。 如果您调用下面的API，则SDK本身可以弹出。
-         // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+        // TODO: 需要强制更新时。调用以下API，可在SDK中直接弹出窗口。
+        // TODO: 需要定制时，不调用以下API、直接进行定制即可。
         [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
          setCloseHandler:^{
-            // TODO：调用showAppStatusPopup API时，需要关闭应用程序时调用它。
-             // TODO：请注意终止过程。
+            // TODO: 调用showAppStatusPopup API时，在需要结束应用时调用。
+            // TODO: 请处理结束进程。
         } setNextHandler:^(NSObject* resultPayload) {
-            // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
-             //当用户选择按钮时调用。
-             // TODO：使用resultPayload信息以与登录完成时相同的方式对其进行处理。
+            // TODO : 在仪表盘更新设置中建议设置时，显示"下次进行"按钮。
+            // 用户选择该按钮时调用。
+            // TODO : 请与使用resultPayload信息成功登录时做出同样的处理。
             // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
 
         }];
     } maintenance:^(GamePotAppStatus *appStatus) {
-          // TODO: 如果您正在检查。 如果您调用下面的API，则SDK本身可以弹出。
-         // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+          // TODO: 检查中时：调用以下API，可在SDK中直接弹出窗口。
+        // TODO: 需要定制时，不调用以下API、直接进行定制即可。
         [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
          setCloseHandler:^{
-            // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
-             // TODO：请注意终止过程。
+            // TODO: 调用showAppStatusPopup API时，在需要结束应用时调用。
+            // TODO: 请处理结束进程。
         }];
     }];
 ```
 
-### 接受条款
+### 同意条款
 
-提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
+提供UI以便能迅速收到“使用条款”和“个人信息收集与使用指南”同意。
 
-它提供了两个`蓝色`主题和`绿色`主题，并且可以针对每个区域进行自定义。
+提供`BLUE`和`GREEN`两种主题，还可以按各区域定制。
 
--`蓝色`主题示例
+- `BLUE`主题示例
 
 ![gamepot_ios_12](./images/gamepot_ios_12.png)
 
@@ -788,29 +723,29 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
-#### 条款及细则电话
+#### 调用条款同意
 
-> 开发者同意公开适合该游戏的弹出窗口。
+> 请开发公司根据游戏决定是否显示条款同意弹窗。
 >
-> 单击“查看”按钮时显示的内容可以在仪表板中应用和修改。
+> 点击“查看”按钮时显示的内容可以在仪表盘中应用和修改。
 
 ```text
-// 蓝色主题 [[GamePotAgreeOption alloc] init:BLUE];
-// 绿色主题 [[GamePotAgreeOption alloc] init:GREEN];
+// 蓝色主题[[GamePotAgreeOption alloc] init:BLUE];
+// 绿色主题[[GamePotAgreeOption alloc] init:GREEN];
 GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
-   // [result agree] : 如果所有必需条款均已达成，则为true
-    // [result acceptNight]：如果选中了每晚广告收据协议，则为true，否则为false
-    //同意值的值为[[GamePot getInstance] setNightPushEnable]; api
-    //通过。
+   // [result agree]：同意全部强制条款时为true
+   // [result agreeNight]：勾选同意夜间接收广告类消息时为true，否则为false
+   // agreeNight值请于成功登录后通过[[GamePot getInstance] setNightPushEnable]; api
+   // 传递。
 }];
 ```
 
-#### Customizing
+#### 定制
 
-更改颜色以匹配游戏而不使用主题。
+不使用主题，根据游戏更改颜色。
 
-您可以在调用条款协议之前在`GamePotAgreeOption`中为每个区域指定颜色。
+调用条款同意之前，可在`GamePotAgreeOption`指定各区域的颜色。
 
 ```text
  GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:GREEN];
@@ -827,31 +762,31 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [option setFooterButtonOutlineColor:0xFF0b171a];
 [option setFooterTitleColor:0xFFFFFFD5];
 
-// 词组变化
+// 更改语句
 [option setAllMessage:@"全部同意"];
-[option setTermMessage:@"必要) 使用条款"];
-[option setPrivacyMessage:@"必要) 隐私政策"];
-[option setNightPushMessage:@"选拔) 同意稍微推动"];
+[option setTermMessage:@"必选）使用条款"];
+[option setPrivacyMessage:@"必选）个人信息处理方针"];
+[option setNightPushMessage:@"可选）同意接收夜间推送"];
 [option setFooterTitle:@"开始游戏"];
 
-// 不用时设置为@“”
-[option setHeaderTitle:@"接受条款"];
+// 未使用时设置为@""
+[option setHeaderTitle:@"同意条款"];
 
-// 是否公开用于接收夜间广告的按钮
+// 是否显示“同意夜间接收广告类消息”按钮
 [option setShowNightPush:YES];
 ```
 
-每个变量都适用于以下区域。
+各个变量将应用到以下区域。
 
-> contentIconDrawable 的图像未暴露给 IOS。
+> contentIconDrawable的图像不在IOS中显示。
 
 ![gamepot_ios_14](./images/gamepot_ios_14.png)
 
-### 이용약관
+### 使用条款
 
-调用使用条款 UI。
+调用使用条款UI。
 
-> 仪表板-客户支持-在“使用条款”设置中首先输入内容。
+> 请先在仪表盘 - 客户支持 - 使用条款设置项目中输入内容。
 
 ```java
 #import <GamePot/GamePot.h>
@@ -861,11 +796,11 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_ios_15](./images/gamepot_ios_15.png)
 
-### 隐私声明
+### 个人信息处理方针
 
-调用隐私策略用户界面。
+调用个人信息处理方针UI。
 
-> 仪表板-客户支持-首先在“隐私策略设置”部分中输入详细信息。
+> 请先在仪表盘 - 客户支持 - 个人信息处理方针设置项目中输入内容。
 
 ```java
 #import <GamePot/GamePot.h>
@@ -875,11 +810,11 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_ios_16](./images/gamepot_ios_16.png)
 
-### 退款政策
+### 退款规定
 
-调用退款规则用户界面。
+调用退款规定UI。
 
-> 控制台-客户支持-在退款政策设置项中输入详细信息。
+> 请先在仪表盘 - 客户支持 - 退款规定设置项目中输入内容。
 
 ```java
 #import <GamePot/GamePot.h>
@@ -891,42 +826,42 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ### 远程配置
 
-获取在客户端的仪表板上注册的参数值。
+从客户端获取已添加到仪表盘的参数值。
+    
+> 请先在仪表盘 - 设置 - 远程配置界面添加参数。
 
-> 首先在 Dashboard-Settings-Remote Config 屏幕中添加参数。
-
-添加的参数在登录时加载，以后可以调用。
+添加的参数会在登录时加载，之后可以调用。
 
 ```java
 #import <GamePot/GamePot.h>
 
-//key : 参数 string
+//key : 参数字符串
 NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
 
-//添加到仪表板的所有参数均以json的形式导入。
+//以json格式获取已添加到仪表盘的所有参数。
 NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```
 
-### 游戏日志转移
+### 发送游戏日志
 
-如果使用游戏中使用的信息进行调用，则可以在`仪表板`-`游戏`中进行搜索。
+添加游戏中使用的信息并调用时，可在`仪表盘` - `游戏`中查询。
 
-以下是可用保留字定义的表。
+下面是可使用的保留字定义表。
 
-| 保留字                            | 必要 | 类型   | 说明      |
-| :-------------------------------- | :--- | :----- | :-------- |
-| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名称  |
-| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 级别      |
-| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID |
-| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   |
-| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       |
+| 保留字| 必选| 类型| 描述|
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME| 必选| 字符串| 角色名|
+| GamePotSendLogCharacter.LEVEL| 可选| 字符串| 等级|
+| GamePotSendLogCharacter.SERVER_ID| 可选| 字符串| 服务器ID|
+| GamePotSendLogCharacter.PLAYER_ID| 可选| 字符串| 角色ID|
+| GamePotSendLogCharacter.USERDATA| 可选| 字符串| 其他|
 
 ```java
 #import <GamePot/GamePotSendLog.h>
 #import <GamePot/GamePotSendLogCharacter.h>
-
+  
 GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
-
+    
 [info put:@"name" forKey:GAMEPOT_NAME];
 [info put:@"playerid" forKey:GAMEPOT_PLAYER_ID];
 [info put:@"serverid" forKey:GAMEPOT_SERVER_ID];
@@ -935,85 +870,85 @@ GamePotSendLogCharacter* info = [[GamePotSendLogCharacter alloc] init];
 
 BOOL result = [GamePotSendLog characterInfo:info];
 
-// Result is TRUE : validation success. Logs will send to GamePot Server
-// Result is FALSE : validation was failed. Please check logcat
+// Result is TRUE : validation success.Logs will send to GamePot Server
+// Result is FALSE : validation was failed.Please check logcat
 
 ```
 
 ## 7. 下载
 
-您可以从 GAMEPOT 仪表板上的**SDK 下载**菜单下载 SDK。
+可以在GAMEPOT仪表盘的**下载SDK**菜单下载SDK。
 
 # 附录
 
-### 第三方 SDK 集成支持
+### 支持第三方SDK关联
 
-TODO : 说明
+TODO : 描述
 
-## 로그인
+## 登录
 
-TODO : 说明
+TODO : 描述
 
-> 不支持自动登录。 每次都需要打电话。
+> 不支持自动登录。需要每次调用。
 
-| 参数名称       | 必要 | 类型             | 描述               |
-| :------------- | :--- | :--------------- | :----------------- |
-| viewController | 必要 | UIViewController | 当前 ViewContoller |
-| userid         | 必要 | NSString         | 用户唯一标识       |
-| success        | 必要 | String           | 成功回调           |
-| fail           | 必要 | String           | 失败回调           |
-| update         | 选拔 | String           | 更新过程中的回调   |
-| maintenance    | 选拔 | String           | 检查功能回调       |
+| 参数名称| 必选| 类型| 描述|
+| :------------- | :--- | :--------------- | :------------------------ |
+| viewController| 必选| UIViewController| 当前ViewContoller|
+| userid| 必选| NSString| 玩家唯一ID|
+| success| 必选| 字符串| 成功时回调|
+| fail| 必选| 字符串| 失败时回调|
+| update| 可选| 字符串| 更新功能运行时回调|
+| maintenance| 可选| 字符串| 检查功能运行时回调|
 
 ```text
 NSString userid = @"memberid of 3rd party sdk";
 
 [[GamePotChannel getInstance] loginByThirdPartySDK:self uId:userid success:^(GamePotUserInfo* userInfo) {
-    // 登录完成。 请根据游戏逻辑处理。
-}取消：^ {
-     //用户取消登录的情况。
-}失败：^（NSError * error）{
-     // 登录失败。 使用[error localizedDescription]显示错误消息。
+    // 登录成功，请按游戏逻辑处理。
+} cancel:^{
+    // 用户取消登录时的情况。
+} fail:^(NSError *error) {
+    // 登录失败。请使用[error localizedDescription]显示错误消息。
 } update:^(GamePotAppStatus *appStatus) {
-    // TODO: 需要强制更新时。 如果您调用下面的API，则SDK本身可以弹出。
-     // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+    // TODO: 需要强制更新时。调用以下API，可在SDK中直接弹出窗口。
+    // TODO: 需要定制时，不调用以下API、直接进行定制即可。
     [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
         setCloseHandler:^{
-        // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
-         // TODO：请注意终止过程。
+        // TODO: 调用showAppStatusPopup API时，在需要结束应用时调用。
+        // TODO: 请处理结束进程。
     } setNextHandler:^(NSObject* resultPayload) {
-        // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
-         //当用户选择按钮时调用。
-         // TODO：使用resultPayload信息以与登录完成时相同的方式对其进行处理。
+        // TODO : 在仪表盘更新设置中建议设置时，显示"下次进行"按钮。
+        // 用户选择该按钮时调用。
+        // TODO : 请与使用resultPayload信息成功登录时做出同样的处理。
         // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
 
     }];
 } maintenance:^(GamePotAppStatus *appStatus) {
-    // TODO: 如果您正在检查。 如果您调用下面的API，则SDK本身可以弹出。
-     // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+    // TODO: 检查中时：调用以下API，可在SDK中直接弹出窗口。
+    // TODO: 需要定制时，不调用以下API、直接进行定制即可。
     [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
         setCloseHandler:^{
-        // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
-         // TODO：请注意终止过程。
+        // TODO: 调用showAppStatusPopup API时，在需要结束应用时调用。
+        // TODO: 请处理结束进程。
     }];
 }];
 ```
 
-## 付款
+## 支付
 
-TODO：说明
+TODO : 描述
 
-> 付款项目必须在游戏机仪表板中注册。
+> 付款道具须已在GamePot仪表盘中添加。
 
-| 参数名称      | 必要 | 类型                 | 描述                          |
-| :------------ | :--- | :------------------- | :---------------------------- |
-| productid     | 必要 | NSString             | 在游戏机仪表板上注册的物品 ID |
-| transactionid | 必要 | NSString             | 付款收据编号（xxxxxxxxxxx）   |
-| currency      | 选拔 | NSString             | 货币（韩元，美元)             |
-| price         | 选拔 | NSDecimalNumber      | 付款项目金额                  |
-| paymentid     | 选拔 | NSString             | 付款商店（苹果)               |
-| success       | 选拔 | GamePotCommonSuccess | 成功回调                      |
-| fail          | 选拔 | GamePotCommonFail    | 失败回调                      |
+| 参数名称| 必选| 类型| 描述|
+| :------------ | :--- | :------------------- | :------------------------------------- |
+| productid| 必选| NSString| 添加到GamePot仪表盘的道具ID|
+| transactionid| 必选| NSString| 付款发票号(xxxxxxxxxxx)|
+| currency| 可选| NSString| 货币（KRW、USD）|
+| price| 可选| NSDecimalNumber| 付款道具金额|
+| paymentid| 可选| NSString| 支付商店（apple）|
+| success| 可选| GamePotCommonSuccess| 成功时回调|
+| fail| 可选| GamePotCommonFail| 失败时回调|
 
 ```text
 NSString* productId = @"purchase_001";

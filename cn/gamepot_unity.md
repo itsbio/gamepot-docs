@@ -5,39 +5,33 @@ search:
 
 # Unity SDK
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
+## 1. 开始
 
-## 1. 开始吧
+### 第一步.导入GAMEPOT插件
 
-### Step 1. 导入 GAMEPOT 插件
+访问所创建的GAMEPOT仪表盘后，下载最新的插件。
 
-连接到创建的 GAMEPOT 仪表板并下载最新的插件。
+### 第二步. 导入插件
 
-### Step 2. 导入插件
-
-**Assets > Import Package > Custom Package** 从菜单中选择下载的 GamePotUnityPlugin-xxxx.unitypackage 文件。
+在**Assets > Import Package > Custom Package**菜单中选择已下载的GamePotUnityPlugin-xxxx.unitypackage文件。
 
 ![gamepot_unity_01](./images/gamepot_unity_01.png)
 
-检查插件并将其导入以将其添加到项目中。
+检查插件后导入时，会添加到相应项目中。
 
 ![gamepot_unity_02](./images/gamepot_unity_02.png)
 
-### Step 3. Android
+### 第三步. Android
 
-#### 默认首选项
+#### 设置基本环境
 
 ```d
 minSdkVersion : API 17 (Jelly Bean, 4.2)
 ```
 
-**Gradle 如何设置环境**
+**Gradle环境设置方法**
 
-/Assets/Plugin/Android/mainTemplate.gradle 在编辑器中打开文件。
+使用编辑器打开/Assets/Plugin/Android/mainTemplate.gradle文件。
 
 ```java
 ...
@@ -57,33 +51,33 @@ android {
 }
 ```
 
-在下面找到并修改所需的值。 以下值应进行修改以正常运行。
+找出下列必填值进行修改。只有修改下列值才能正常操作。
 
 ```java
 resValue "string", "[key]", "[value]"
 ```
 
-| 价值                         | 描述                                                                                      |
-| :--------------------------- | :---------------------------------------------------------------------------------------- |
-| gamepot_project_id           | 请输入 GAMEPOT 发布的项目 ID。                                                            |
-| gamepot_store                | 储值\（`google`或`one`或`galaxy`）                                                        |
-| gamepot_app_title            | 应用标题 (FCM)                                                                            |
-| gamepot_push_default_channel | 注册的默认频道名称 (Default) - 不要换。                                                   |
-| facebook_app_id              | Facebook 应用程序 ID                                                                      |
-| fb_login_protocol_scheme     | Facebook 发布的协议方案 fb \ [app_id \]                                                   |
-| gamepot_elsa_projectid       | 使用 NCLOUD ELSA 时的项目 ID（[了解更多](https://www.ncloud.com/product/analytics/elsa)） |
+| 值| 描述|
+| :-- | :--- |
+| gamepot_project_id| 请输入从GAMEPOT获取的项目ID。|
+| gamepot_store| 商店值\(`google`、`one`或`galaxy`\)|
+| gamepot_app_title| 应用主题\(FCM\)|
+| gamepot_push_default_channel| 注册的默认渠道名称\(Default\) - 请勿修改。|
+| facebook_app_id| 从Facebook获取的应用ID|
+| fb_login_protocol_scheme| 从Facebook获取的protocol scheme fb\[app_id\]|
+| gamepot_elsa_projectid| 使用NCLOUD ELSA时项目ID \([查看详情](https://www.ncloud.com/product/analytics/elsa)\)|
 
-**如何更改通知栏上的推送图标**
+**在通知栏更改推送图标的方法**
 
 ![gamepot_unity_03](./images/gamepot_unity_03.png)
 
-收到推送时将在 Android 通知栏上显示的小图标作为 SDK 内的默认图像公开，可以直接添加。
+接收推送时Android通知栏上显示的小图标默认显示SDK内部的默认图像，还可以直接添加。
 
-如果您想自己添加图片，则需要将图片放在每个“ drawable”文件夹中([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)如果使用它来创建它，则会为每个文件夹自动创建图像。）
+想直接添加时，须按`drawable`文件夹放入图像。\(使用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)制作时，会自动按照文件夹制作图像，更加方便。\)
 
-图像文件名应为 ic_stat_gamepot_small。
+图像文件名应为ic_stat_gamepot_small。
 
-| 资料夹名称                                                     | 尺寸  |
+| 文件夹名| 容量|
 | :------------------------------------------------------------- | :---- |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
@@ -91,9 +85,9 @@ resValue "string", "[key]", "[value]"
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
-**Screen Orientation 如何设置**
+**屏幕方向设置方法**
 
-使用编辑器打开/Assets/Plugin/Android/AndroidManifest.xml 文件。
+使用编辑器打开/Assets/Plugin/Android/AndroidManifest.xml文件。
 
 ```markup
 ...
@@ -106,81 +100,63 @@ resValue "string", "[key]", "[value]"
 ...
 ```
 
-在主要活动中添加 screenOrientation，然后根据游戏输入`sensorLandscape`或`sensorPortrait`。
+请在Main Activity中添加screenOrientation后，根据游戏输入`sensorLandscape`或`sensorPortrait`。
 
 **Android Resolver Settings**
 
-`Assets > Play Services Resolver > Android Resolver > Settings` 转到菜单。
+跳转到`Assets > Play Services Resolver > Android Resolver > Settings`菜单。
 
 ![gamepot_unity_04](./images/gamepot_unity_04.png)
 
-`Enable Resolution On Build` 请清除该复选框。
+请`取消Enable Resolution On Build复选框`。
 
 ![gamepot_unity_05](./images/gamepot_unity_05.png)
 
 **Unity Build Settings**
 
-`File > Build Settings > Build System` 从菜单中选择 Gradle。
+在`File > Build Settings > Build System`菜单中选择Gradle。
 
 ![gamepot_unity_06](./images/gamepot_unity_06.png)
 
-### Step 4. iOS
+### 第四步. iOS
 
-> 如果您不想使用 GameCenter 登录名，请在以下位置删除文件。
->
+> `不使用`GameCenter登录时，请在下列位置删除相应文件。
 > > `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
-> > 如果包含该库，则必须在“功能”设置中激活 GameCenter。
+> 包含相应库时，须在`Capabilities设置中激活GameCenter`。
 
-将从 Google Firebase 下载的`GoogleService-Info.plist`文件复制到`/ Assets / Plugins / IOS /`。
+将从Google Firebases下载的`GoogleService-Info.plist`文件复制到`/Assets/Plugins/IOS/`。
 
-在/Assets/Plugin/IOS/GamePotConfig-Info.plist 中添加所需的环境变量。
+请在`/Assets/Plugin/IOS/GamePotConfig-Info.plist`内添加所需的环境变量。
 
 ![gamepot_unity_07](./images/gamepot_unity_07.png)
 
-| 环境变量                      | 描述                                              |
-| ----------------------------- | ------------------------------------------------- |
-| gamepot_project_id            | 请输入 GAMEPOT 发布的项目 ID。                    |
-| gamepot_facebook_app_id       | Facebook 应用程序 ID                              |
-| gamepot_facebook_display_name | Facebook 上显示的名称                             |
-| gamepot_google_app_id         | GoogleService-Info 文件中的 CLIENT_ID 值          |
-| gamepot_google_url_schemes    | RoogleService-Info 文件中的 REVERSED_CLIENT_ID 值 |
-| gamepot_elsa_projectid        | 使用 NCLOUD ELSA 时的项目 ID                      |
+| 环境变量| 描述|
+| :---------------------------- | :---------------------------------------------------- |
+| gamepot_project_id| 请输入从GAMEPOT获取的项目ID。|
+| gamepot_facebook_app_id| 从Facebook获取的应用ID|
+| gamepot_facebook_display_name| Facebook中显示的名称|
+| gamepot_google_app_id| GoogleService-Info文件的CLIENT_ID值|
+| gamepot_google_url_schemes| GoogleService-Info文件的REVERSED_CLIENT_ID值|
+| gamepot_elsa_projectid| 使用NCLOUD ELSA时项目ID|
 
-添加场景后，运行“文件”>“构建设置”>“构建并运行”，操作就完成了。
+添加scenes之后，运行**File > Build Settings > Build And Run**即可完成。
 
 ![gamepot_unity_08](./images/gamepot_unity_08.png)
 
-XCode 构建后
+构建XCode后
 
-在目标>>信息>>自定义 iOS 目标属性中，请在下面添加“用户权限获取选项”。
+请在Targets >> Info >> Custom iOS Target Properties中`添加以下用户权限获取选项`。
 
-此用户权限在 GamePot 客户中心的文件上传功能中使用。
+该用户权限在GamePot客服中心内的文件上传功能中使用。
 
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
 ```
 
-iOS 14 或更高版本
+## 2. 初始化
 
-从 iOS 14 开始，获得 IDFA 值后，用户必须获得许可。
-
-已对其进行了更改以启用 IDFA 值的获取。
-
-因此，如果您使用弹出式窗口在获取 IDFA 值时获得了用户的授权，
-在目标>>信息>>自定义 iOS 目标属性中，请在下面添加用户权限获取选项。
-
-> 2020.09.11 <br/>
-> 当苹果获得 IDFA 值时，为获得用户许可而强制性弹出窗口的申请已推迟到 2021 年初。<br/>
-> 请参阅下面的链接。<br/>
-
-```text
-NSUserTrackingUsageDescription
-```
-
-## 2. 重启
-
-将以下代码添加到用于在启动游戏时加载的第一个场景的对象中。
+在游戏开始时加载的第一个场景中使用的对象中添加以下代码。
 
 ```csharp
 using GamePotUnity;
@@ -189,7 +165,7 @@ public class GamePotLoginSampleScene : MonoBehaviour {
         GamePot.initPlugin();
     }
     void Start () {
-        GamePot.setListener(  GamePotInterface.cs 상속받은 class );
+        GamePot.setListener(  GamePotInterface.cs 继承到的 class );
          // ex) GamePot.setListener(new GamePotSampleListener());
     }
 
@@ -210,31 +186,31 @@ public class NError
     public static readonly int CODE_UNKNOWN_ERROR           = 0;
     // 初始化失败
     public static readonly int CODE_NOT_INITALIZE           = 1;
-    // 如果参数不正确
+    // 参数不正确时
     public static readonly int CODE_INVAILD_PARAM           = 2;
-    // 没有会员ID数据
+    // 没有成员ID数据时
     public static readonly int CODE_MEMBERID_IS_EMPTY       = 3;
-    // 未登录
+    // 未登录的状态
     public static readonly int CODE_NOT_SIGNIN              = 4;
-    // 未初始化网络模块时
+    // 网络模块未初始化时
     public static readonly int CODE_NETWORK_MODULE_NOT_INIT = 3000;
-    // 如果出现网络连接错误和超时
+    // 发生网络连接错误及超时时
     public static readonly int CODE_NETWORK_ERROR           = 3001;
-    // 服务器端错误
+    // 在server-side发生的错误
     public static readonly int CODE_SERVER_ERROR            = 4000;
-    // http响应代码不成功
+    // http response code不成功时
     public static readonly int CODE_SERVER_HTTP_ERROR       = 4001;
-    // 如果出现网络连接错误和超时
+    // 发生网络连接错误及超时时
     public static readonly int CODE_SERVER_NETWORK_ERROR    = 4002;
-    // 解析从服务器接收的数据时出错
+    // 解析来自服务器的数据时发生错误
     public static readonly int CODE_SERVER_PARSING_ERROR    = 4003;
-    // 当付款中发生未知错误并且商店发出错误时
+    // 付款时发生未知错误及商店方传递错误时
     public static readonly int CODE_CHARGE_UNKNOWN_ERROR    = 5000;
-    // 未输入产品ID
+    // 未放入product id时
     public static readonly int CODE_CHARGE_PRODUCTID_EMPTY  = 5001;
-    // 如果商品ID不正确
+    // 放入错误的product id时
     public static readonly int CODE_CHARGE_PRODUCTID_WRONG  = 5002;
-    // 消费时出错
+    // consume时错误
     public static readonly int CODE_CHARGE_CONSUME_ERROR    = 5003;
 
     // error Code
@@ -244,31 +220,31 @@ public class NError
 }
 ```
 
-## 4. 登录首选项
+## 4. 设置登录环境
 
-### Google 登录
+### Google登录
 
-#### Google Firebase Console
+#### Google Firebase控制台
 
-1. 从 Google Firebase 控制台下载适用于 Android 的 google-service.json 文件，然后将其复制到`/ Assets / Plugins / Android /`中。
-2. 将构建 APK 时使用的密钥库的 SHA-1 值添加到 Google Firebase 控制台。
-3. 从 Google Firebase 控制台下载 iOS 的 GoogleService-Info.plist 文件，并将其复制到`/ Assets / Plugins / IOS /`。
+1. 从Google Firebase控制台下载适用于Android的google-service.json文件后，复制到`/Assets/Plugins/Android/`。
+2. 将构建APK时使用的Keystore的SHA-1值添加到Google Firebase控制台中。
+3. 从Google Firebase控制台下载适用于iOS的GoogleService-Info.plist文件后，复制到`/Assets/Plugins/IOS/`。
 
-**登录到 Google 时，onCancel 会响应并且无法登录**。请检查以下内容。
+**进行Google登录时响应onCancel且无法登录时**请检查下列内容。
 
-1. 检查上面请求的 google-service.json 文件是否成功应用
-2. 检查在构建期间使用的密钥库是否是从中提取在 Firebase 控制台中注册的 sha-1 的密钥库。
-3. 确保使用在 Firebase 控制台中注册的软件包名称进行构建
+1. 检查是否已正常应用以上请求应用的google-service.json文件
+2. 检查构建时使用的Keystore是否是导出在Firebase控制台中添加的sha-1的Keystore
+3. 检查是否使用了在Firebase控制台中添加的包名进行构建
 
-### Facebook 登入
+### Facebook登录
 
 #### Facebook Developer Console
 
-将构建 APK 时使用的密钥库的密钥哈希值添加到 Facebook 控制台。
+在Facebook控制台里添加构建APK时使用的密钥库的密钥哈希值。
 
 #### Android
 
-修改 mainTemplate.gradle
+修改mainTemplate.gradle
 
 ```java
 ...
@@ -279,59 +255,60 @@ defaultConfig {
 ...
 ```
 
-在“ facebook_app_id”的值中输入由 Facebook 开发人员中心发布的应用 ID，在“ fb_login_protocol_scheme”的值中输入“ fb {facebook_app_id}”。
+将从Facebook开发人员中心获取的应用ID输入到`facebook_app_id`值中，在`fb_login_protocol_scheme`值中输入`fb{facebook_app_id}`。
 
-如果 app_id 为 1234567890，则 fb1234567890 是`fb_login_protocol_scheme`的值。
+> app_id为1234567890时，fb1234567890是`fb_login_protocol_scheme`值。
 
 #### iOS
 
-/Assets/Plugins/IOS/Frameworks 将以下框架添加到路径。
+在/Assets/Plugins/IOS/Frameworks路径下添加下列框架。
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
-### APPLE 로그인
+### APPLE登录
 
-> 此功能仅适用于 iOS。（对于Android，它以Web登录的形式受支持-请参阅8。其他API）
+> 该功能性仅限于iOS。
 
-**添加 Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple**
+**添加Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple。**
 
 ![gamepot_unity_24](./images/gamepot_unity_24.png)
 
-### 游戏中心登录
+### GameCenter登录
 
-> 此功能仅适用于 iOS。
+> 该功能性仅限于iOS。
 >
-> 如果您使用的是 GameCenter 登录名，请如下图所示进行设置。
->
+> 使用GameCenter登录时，请按下图所示方法在下列位置进行设置。
 > > `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
 
 ![gamepot_unity_25](./images/gamepot_unity_25.png)
 
-> 如果包含该库，则必须在“功能设置”中启用 GameCenter。
+> 包含相应库时，须在`Capabilities设置中激活GameCenter`。
 
-在**Xcode> Build Phases> Linked Binary With Libraries**中添加 Gamekit.framework。
+在**Xcode > Build Phases > Linked Binary With Libraries**中添加Gamekit.framework。
 
 ![gamepot_unity_26](./images/gamepot_unity_26.png)
 
-**添加 Xcode>目标>签名和功能> +功能> GameCenter。**在 Xcode 中添加 Gamekit.framework>构建阶段>库链接二进制。
+**添加Xcode > TARGETS > Signing & Capabilities > + Capability > GameCenter。**
 
 ![gamepot_unity_09](./images/gamepot_unity_09.png)
 
-## 5. 登录/注销/取款/验证
+
+
+## 5. 登录/退出登录/注销/验证
 
 ### 登录
 
-用户帐户创建时没有单独的订阅。 为所有身份验证生成 MemberId，并将生成的信息存储在 NUserInfo 结构中并返回。
+不用另行注册，直接创建用户账户。创建MemberId以确认所有的身份，创建的信息保存在NUserInfo结构中并返回。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.login(NCommon.LoginType);
 ```
 
-Response:
+响应：
 
 ```csharp
 // 登录成功
@@ -341,42 +318,43 @@ public void onLoginSuccess(NUserInfo userInfo)
 // 登录失败
 public void onLoginFailure(NError error)
 {
-     //登录失败时
-     //请通过弹出窗口告知用户error.message。
+    // 登录失败时
+    // 请通过弹窗等告知玩家error.message。
+}
 // 取消登录
 public void onLoginCancel()
 {
-    // 当用户随机取消登录时
+    // 用户任意取消登录时
 }
-// 强制更新（商店版本和客户端版本不同时调用）
+// 强制更新（商店版本与客户端版本不一致时调用）
 public void onNeedUpdate(NAppStatus status)
 {
-    /// TODO：您应该通过根据传递给参数的状态信息创建一个弹出窗口来通知用户。
-    // TODO：选择以下两种方法之一。
-    //情况1：通过游戏内弹出窗口直接从开发人员实现UI
-    //情况2：使用SDK的弹出窗口（在这种情况下，请调用下面的代码）
+    // TODO: 须基于从参数导入的status信息创建弹窗告知用户。
+    // TODO: 请从下列两种方式中选择一种。
+    // 案例一：通过游戏内弹窗由开发公司直接实现UI
+    // 案例二：使用SDK的弹窗（此时请调用下列代码。）
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// 检查（在仪表板上启用检查时调用）
+// 维护（仪表盘中维护功能激活时调用）
 public void onMainternance(NAppStatus status)
 {
-        // TODO：您应该通过根据传递给参数的状态信息创建一个弹出窗口来通知用户。
-     // TODO：选择以下两种方法之一。
-     //情况1：通过游戏内弹出窗口直接从开发人员实现UI
-     //情况2：使用SDK的弹出窗口（在这种情况下，请调用下面的代码）
+       // TODO: 须基于从参数导入的status信息创建弹窗告知用户。
+    // TODO: 请从下列两种方式中选择一种。
+    // 案例一：通过游戏内弹窗由开发公司直接实现UI
+    // 案例二：使用SDK的弹窗（此时请调用下列代码。）
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// 退出应用
+// 终止应用
 public void onAppClose()
 {
-    // TODO：在情况2中实施强制更新或检查功能时
-     // TODO：由于可以强制终止该应用程序，因此请实施该应用程序，以便可以在此处终止该应用程序。
+    // TODO: 用案例二中的方式实现强制更新或维护功能时
+    // TODO: 因应用可能被强制终止，因此请在这里实现应用的终止。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 GamePot.login(NCommon.LoginType, GamePotCallbackDelegate.CB_Login);
@@ -401,43 +379,43 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
 });
 ```
 
-LoginType 正义
+LoginType定义
 
 ```csharp
 public enum LoginType
 {
-    NONE,
-    GOOGLE,
-    GOOGLEPLAY,
-    FACEBOOK,
-    NAVER,
-    GAMECENTER,
-    TWITTER,
-    LINE,
-    APPLE,
-    GUEST,
+    NONE、
+    GOOGLE、
+    GOOGLEPLAY、
+    FACEBOOK、
+    NAVER、
+    GAMECENTER、
+    TWITTER、
+    LINE、
+    APPLE、
+    GUEST、
     THIRDPARTYSDK
 }
 ```
 
-NUserInfo 正义
+NUserInfo定义
 
 ```csharp
 public class NUserInfo
 {
-    public string memberid { get; set; }        // 맴버 ID(유저의 유니크 아이디)
-    public string name { get; set; }            // 이름
-    public string profileUrl { get; set; }      // 프로필 URL(존재 시)
-    public string email { get; set; }           // 이메일(존재 시)
-    public string token { get; set; }           // 用于用户有效性检查的令牌（在Token Authentication API中使用）
-    public string userid { get; set; }          // Social ID(google, facebook ...)
+    public string memberid { get; set; }        // 成员ID（玩家的唯一ID）
+    public string name { get; set; }            // 姓名
+    public string profileUrl { get; set; }      // 头像URL（存在时）
+    public string email { get; set; }           // 邮箱（存在时）
+    public string token { get; set; }           // 玩家广告ID
+    public string userid { get; set; }          // 社交ID（google、facebook…）
 }
 ```
 
-### 获取登录信息
+### 导入登录信息
 
 ```csharp
-GamePot.getMemberId(); // 会员ID（用户的唯一ID）
+GamePot.getMemberId(); // 成员ID（玩家的唯一ID）
 ```
 
 ### 自动登录
@@ -446,46 +424,46 @@ GamePot.getMemberId(); // 会员ID（用户的唯一ID）
 NCommon.LoginType type = GamePot.getLastLoginType();
 if(type != NCommon.LoginType.NONE) {
 {
-    // 如何使用最后一种登录类型登录。
+    // 以用户最后一次的登陆方式进行登录。
     GamePot.login(type);
 }
 else
 {
-    // 第一次运行或注销游戏。 请转到您可以登录的登录屏幕。
+    // 第一次运行游戏或退出登录的状态。请转到可以登录的登录页面。
 }
 ```
 
-### 登出
+### 退出登录
 
-注销用户。 该帐户不会被删除，您可以使用同一帐户登录。
+让用户退出登录。不会删除账户，可以使用同一账户登录。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.logout();
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 注销成功
+///成功退出登录
 public void onLogoutSuccess()
 {
 }
 
-/// 登出失败
+///退出登录失败
 public void onLogoutFailure(NError error)
 {
-    // 当注销失败时
-     //请通过弹出窗口告知用户error.message。
+    // 退出登录失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 GamePot.logout(GamePotCallbackDelegate.CB_Common);
@@ -495,45 +473,45 @@ GamePot.logout(GamePotCallbackDelegate.CB_Common);
 GamePot.logout((success, error) => {
    if(success)
    {
-       // 注销成功
+       // 成功退出登录
    }
    else
    {
-         //当注销失败时
-         //请通过弹出窗口告知用户error.message。
+        // 退出登录失败时
+        // 请通过弹窗等告知玩家error.message。
    }
 });
 ```
 
-### 脱离
+### 注销
 
-会员资格撤销，无法恢复。
+注销会员，不可恢复。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```text
 GamePot.deleteMember();
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 会员提现成功
+///会员注销成功
 public void onDeleteMemberSuccess() {
 }
 
-/// 会员退出失败
+///会员注销失败
 public void  onDeleteMemberFailure(NError error) {
-    // 如果会员资格提取失败
-    //请通过弹出窗口告知用户error.message。
+    // 会员注销失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 GamePot.deleteMember(GamePotCallbackDelegate.CB_Common);
@@ -543,76 +521,76 @@ GamePot.deleteMember(GamePotCallbackDelegate.CB_Common);
 GamePot.deleteMember((success, error) => {
    if(success)
    {
-        // 成功退出会员
+        // 会员注销成功
    }
    else
    {
-        // 如果成员退出失败
-        // 请通过弹出窗口告知用户error.message。
+        // 会员注销失败时
+        // 请通过弹窗等告知玩家error.message。
    }
 });
 ```
 
 ### 验证
 
-完成登录后，通过将登录信息从开发者服务器传递到 GAMEPOT 服务器来执行登录验证。
+登录成功后，登录信息从开发公司服务器传递至GAMEPOT服务器后，开始进行登录验证。
 
-有关更多信息，请参阅服务器到服务器 api 菜单中的“令牌认证”项。
+详细说明请参考Server to server api菜单的`Token Authentication`项目。
 
-## 6. 帐户关联
+## 6. 账户关联
 
-此功能允许您将多个社交帐户（Google / Facebook 等）连接/断开到一个游戏帐户。
+可以将多个社交账户\(Google、Facebook等\)与一个游戏账户关联或解除关联的功能。\(至少关联一个社交账户。\)
 
-> 在开发人员中实现互锁屏幕 UI。
+> 关联页面UI由开发公司实现。
 
 ```csharp
 public enum LinkingType
 {
-    GOOGLEPLAY,
-    GAMECENTER,
-    GOOGLE,
-    FACEBOOK,
-    NAVER,
-    TWITTER,
-    LINE,
+    GOOGLEPLAY、
+    GAMECENTER、
+    GOOGLE、
+    FACEBOOK、
+    NAVER、
+    TWITTER、
+    LINE、
     APPLE
 }
 ```
 
-### 蠕动
+### 关联
 
-您可以将您的帐户与 ID 关联，例如 Google / Facebook。
+可以用Google、Facebook等的ID关联账户。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 void GamePot.createLinking(NCommon.LinkingType.XXXXX);
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 取消帐户关联
+///取消账户关联
 public void onCreateLinkingCancel() {
-    // 当用户取消帐户关联时
+    // 玩家取消账户关联时
 }
 
-/// 帐户链接成功
+///账户关联成功
 public void onCreateLinkingSuccess(NUserInfo userInfo) {
 }
 
-/// 帐户链接失败
+///账户关联失败
 public void onCreateLinkingFailure(NError error) {
-    // 当帐户关联失败时
-    // 请通过弹出窗口告知用户error.message。
+    // 账户关联失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 void GamePot.createLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_CreateLinking);
@@ -623,13 +601,13 @@ GamePot.createLinking(NCommon.LinkingType.XXXXX, (resultState, userInfo, error) 
       switch (resultState)
     {
         case NCommon.ResultLinking.SUCCESS:
-        // 成功的帐户关联
+        // 账户关联成功
         break;
         case NCommon.ResultLinking.CANCELLED:
-        // 取消帐户关联
+        // 取消账户关联
         break;
         case NCommon.ResultLinking.FAILED:
-        // 帐户关联失败
+        // 账户关联失败
         break;
         default:
         break;
@@ -637,7 +615,7 @@ GamePot.createLinking(NCommon.LinkingType.XXXXX, (resultState, userInfo, error) 
 });
 ```
 
-您可以获得所有当前链接的帐户信息。
+可以导入当前关联的所有账户信息。
 
 ```csharp
 List<NLinkingInfo> linkedList = GamePot.getLinkedList();
@@ -652,35 +630,35 @@ public class NLinkingInfo
 }
 ```
 
-### 开锁
+### 解除关联
 
-取消现有的关联帐户。
+解除关联账户。 
 
-- Case 1
+- 案例一
 
-Request :
+请求：
 
 ```csharp
 void GamePot.deleteLinking(NCommon.LinkingType.XXXXX);
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 取消帐户关联成功
+///账户关联解除成功
 public void onDeleteLinkingSuccess() {
 }
 
-/// 帐户取消关联失败
+///账户关联解除失败
 public void onDeleteLinkingFailure(NError error) {
-    //当取消链接失败时
-    //请通过弹出窗口告知用户error.message。
+    // 解除关联失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 void GamePot.deleteLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB_Common);
@@ -690,19 +668,19 @@ void GamePot.deleteLinking(NCommon.LinkingType.XXXXX, GamePotCallbackDelegate.CB
 GamePot.deleteLinking(NCommon.LinkingType.XXXXX, (success, error) => {
     if(success)
     {
-       // 取消帐户关联成功
+       // 账户关联解除成功
     }
    else
    {
-        // 取消链接的情况
-        // 请通过弹出窗口告知用户error.message。
+        // 解除关联失败时
+        // 请通过弹窗等告知玩家error.message。
     }
 });
 ```
 
-#### 帐户关联状态的处理结果示例
+#### 账户关联状态处理结果示例
 
-根据 createLinking / deleteLinking 的结果，它会接收当前已链接的帐户信息，并更新已链接状态的 UI。
+根据createLinking / deleteLinking结果获取当前关联的账户信息，并更新关联状态相关UI。
 
 ```csharp
 public void onInit()
@@ -759,38 +737,38 @@ Public void UI_Update()
 }
 ```
 
-## 7. 付款
+## 7. 支付
 
-### 应用内商品查询
+### 应用内产品查询
 
-交付在商店中注册的产品信息。
+传递商店中添加的产品信息。
 
-如果使用此功能，价格，货币和产品名称将根据用户显示不同。
+如果启用该功能，会根据不同的用户显示不一样的价格、货币和产品名称。
 
 ```csharp
 NPurchaseItem[] items = GamePot.getPurchaseItems();
 foreach(NPurchaseItem item in items) {
-    Debug.Log(item.productId);        // 상품ID
-    Debug.Log(item.price);            // 가격
-    Debug.Log(item.title);            // 제목
-    Debug.Log(item.description);    // 설명
+    Debug.Log(item.productId);        // 产品ID
+    Debug.Log(item.price);            // 价格
+    Debug.Log(item.title);            // 题目
+    Debug.Log(item.description);    // 描述
 }
 ```
 
-### 应用内商品付款
+### 应用内产品付款
 
-Google，Apple 和 App Store 可以使用以下功能之一进行付款。
+可以用一个下列函数，在Google、Apple和AppStore中进行支付。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
-// productId：输入在商店中注册的产品ID。
-// uniqueId：您可以输入单独管理的收据编号。
-// serverId：输入进行付款的角色的服务器ID。
-// playerId：输入进行付款的角色的角色ID。
-// etc       : 您可以输入其他信息，例如付款的字符。
+// productId : 输入在商店中添加的商品ID即可。
+// uniqueId  : 加入单独管理的发票号即可。
+// serverId  : 输入进行支付的角色的服务器ID即可。
+// playerId  : 输入进行支付的角色的角色ID即可。
+// etc       : 输入进行支付的角色的其他信息即可。
 GamePot.purchase(string productId);
 
 GamePot.purchase(string productId, string uniqueId);
@@ -801,27 +779,27 @@ GamePot.purchase(string productId, string uniqueId, string serverId, string play
 Response:
 
 ```csharp
-/// 应用内付款成功
+///应用内付款成功
 public void onPurchaseSuccess(NPurchaseInfo purchase) {
 }
 
-/// 应用内付款失败
+///应用内付款失败
 public void onPurchaseFailure(NError error) {
-    //付款失败时
-     //请通过弹出窗口告知用户error.message。
+    // 付款失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 
-/// 应用内付款失败
+///应用内付款失败
 public void onPurchaseCancel() {
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
-// productId : 在市场上注册的产品ID
+// productId : 商城中添加的产品ID
 GamePot.purchase(string productId, GamePotCallbackDelegate.CB_Purchase);
 
 GamePot.purchase(string productId, string uniqueId, GamePotCallbackDelegate.CB_Purchase);
@@ -849,71 +827,68 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 });
 ```
 
-### NPurchaseInfo 正义
+### 定义NPurchaseInfo
 
-有关成功付款后已付款商品的信息。 您可以使用它作为参考。
+付款成功后付款的道具信息。可以用于参考。
 
 ```csharp
 public class NPurchaseInfo
 {
-    public string price { get; set; }               // 付款项目的价格
-    public string productId { get; set; }           // 付款项目ID
-    public string currency { get; set; }            // 付款价格币种(KRW/USD)
-    public string orderId { get; set; }             // 商店订单ID
-    public string productName { get; set; }         // 付款项目名称
-    public string gamepotOrderId { get; set; }      // 由GAMEPOT创建的订单ID
-    public string uniqueId { get; set; }            // 开发者的唯一ID
-    public string serverId { get; set; }            // 服务器ID（付款人的角色）
-    public string playerId { get; set; }            // 角色ID（付款人的角色）
-    public string etc { get; set; }                 // 其他信息（付款人的信息）
-    public string signature { get; set; }           // 付款签名
-    public string originalJSONData { get; set; }    // 收据数据
+    public string price { get; set; }               // 付款道具价格
+    public string productId { get; set; }           // 付款道具ID
+    public string currency { get; set; }            // 付款价格货币（KRW/USD）
+    public string orderId { get; set; }             // 商店Order ID
+    public string productName { get; set; }         // 付款道具名称
+    public string gamepotOrderId { get; set; }      // 在GAMEPOT中创建的order id
+    public string uniqueId { get; set; }            // 开发公司unique ID
+    public string signature { get; set; }           // 付款Signature
+    public string originalJSONData { get; set; }    // 发票Data
 }
 ```
 
-### 付款项目付款
+### 发放付款道具
 
-非法付款是不可能的，因为 GAMEPOT 在通过服务器到服务器 api 验证了付款存储区中的收据后，要求向开发者的服务器付款。
+因为GAMEPOT在通过Server to server api完成对支付商店发票的验证后才向开发公司服务器发出发放请求，所以不可能存在非法支付。
 
-为此，请参考“服务器到服务器 api”菜单中的“购买 Webhook”项并进行处理。
+为此，须参考`Server to server api`菜单中的`Purchase Webhook`项目进行处理。
 
-###外部付款
+### 外部付款
 
-使用此功能，您可以在允许外部付款的商店和非官方商店中使用付款。
+该功能允许外部付款的商店和官方商店之外的场所也能进行付款。
 
-> 仅调用 API 有所不同，其余（例如响应和购买 Webhook）与正常付款相同。
+> 只有调用api不同，响应和purchase webhook等其他部分与常规付款一样。
 >
-> 要使用此功能，需要进行设置。 请参阅仪表板手册的“外部付款”部分。
+> 要使用该功能，需要先进行设置。请参考仪表盘手册中的“外部付款”条目。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
-// productId : 在市场上注册的产品ID
+// productId : 商城中添加的产品ID
 GamePot.purchaseThirdPayments(string productId);
 ```
 
-使用外部付款时，请使用下面的 api 获取产品信息列表。
+使用外部付款时，产品信息列表请使用以下api。
 
-Request:
+请求：
 
 ```csharp
-// 返回的数据格式与getPurchaseItems（）相同。
+// 返回的数据格式与getPurchaseItems()相同。
 GamePot.getPurchaseThirdPaymentsItems();
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
-// productId : 在市场上注册的产品ID
+// productId : 商城中添加的产品ID
 GamePot.purchaseThirdPayments(string productId, GamePotCallbackDelegate.CB_Purchase);
 ```
 
 ```csharp
-// 返回的数据格式与getPurchaseItems（）相同。
+// 返回的数据格式与getPurchaseItems()相同。
 GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
       switch (resultState)
     {
@@ -932,30 +907,17 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 });
 ```
 
-## 8. 其他 API
+## 8. 其他API
 
-###  Apple Developers (for Android - Web Login)
-
-#### GAMEPOT Dashboard
-
-仪表板项目设置>>常规>> Apple ID登录设置
-
-> 要使用该功能，您需要设置Apple Developer Console。
->
-> 请参阅仪表板上相应项目中的**得到帮助**。
-
-将下面的aar文件添加到/ Assets / Plugins / Android / libs路径。 （选中用于插件的精选平台-Android）
-- gamepot-channel-apple-signin.aar
-
-### NAVER 登录
+### Naver登录
 
 #### Naver Developers
 
-选择使用 API​​ 为“nearo”后注册应用程序
+使用API选择`NAVER ID登录`后注册应用程序
 
 #### Android
 
-mainTemplate.gradle 改性
+修改mainTemplate.gradle
 
 ```java
 ...
@@ -966,19 +928,19 @@ defaultConfig {
 ...
 ```
 
-在“ gamepot_naver_clientid”值中输入从控制台发出的客户端 ID，在“ gamepot_naver_secretid”值中输入客户端密钥。
+将从Console获取的Client ID输入到`gamepot_naver_clientid`值中，Client Secret输入到`gamepot_naver_secretid`值中。
 
 #### iOS
 
-GamePotConfig-Info.plist 将以下项目添加到文件中，然后输入相应的值。
+在GamePotConfig-Info.plist文件中添加下列项目并输入相应值。
 
 ```text
-gamepot_naver_clientid // Naver使用的客户端ID
-gamepot_naver_secretid // Naver使用的秘密ID
-gamepot_naver_urlscheme // Naver使用的urlscheme
+gamepot_naver_clientid// 要在Naver使用的client ID
+gamepot_naver_secretid// 要在Naver使用的secret ID
+gamepot_naver_urlscheme// 要在Naver使用的urlscheme
 ```
 
-在查看 GamePotConfig-Info.plist 文件作为 SourceCode 时，添加如下内容
+用SourceCode查看GamePotConfig-Info.plist文件时按以下方法添加
 
 ```markup
 ...
@@ -991,21 +953,21 @@ gamepot_naver_urlscheme // Naver使用的urlscheme
 ...
 ```
 
-在“目标>>信息>> URL 类型”中，添加使用 NAVER ID 在登录设置中注册的 URL 方案。
+在Targets >> Info >> URL Types中添加用NAVER ID登录设置中添加的URL Schemes。
 
-在创建 URL 方案时，请注意，可能无法识别除小写字母，。，\_以外的其他字符。
+创建URL Schemes时，使用`英文小写`、`、`、`_`以外的文字将无法识别，请注意。
 
-### Line 登录
+### LINE登录
 
 #### LINE Developers
 
-将构建 APK 时使用的包名称，密钥库的 SHA 值和 url 方案值添加到命令行控制台。
+将构建APK时使用的包名和keystore的SHA值、url Scheme值添加到Line控制台中。
 
 #### Android
 
-mainTemplate.gradle 改性
+修改mainTemplate.gradle
 
-在“ gamepot_line_channelid”值中输入颁发的客户 ID。
+将获取的客户端ID输入到`gamepot_line_channelid`值中。
 
 ```java
 ...
@@ -1017,14 +979,14 @@ defaultConfig {
 
 #### iOS
 
-/Assets/Plugins/IOS/GamePotConfig-Info.plist 将以下项目添加到文件中，然后输入相应的值。
+在/Assets/Plugins/IOS/GamePotConfig-Info.plist文件中添加下列项目并输入相应值。
 
 ```text
-gamepot_line_channelid // Naver使用的客户端ID
-gamepot_line_url_schemes // Line URL Scheme (line3rdp.{项目包 identifier})
+gamepot_line_channelid // 要在Naver使用的client ID
+gamepot_line_url_schemes // Line URL Scheme (line3rdp.{项目Bundle identifier})
 ```
 
-当以 SourceCode 形式查看 GamePotConfig-Info.plist 文件时，添加如下内容。
+用SourceCode查看GamePotConfig-Info.plist文件时按以下方法添加即可。
 
 ```markup
 ...
@@ -1035,33 +997,33 @@ gamepot_line_url_schemes // Line URL Scheme (line3rdp.{项目包 identifier})
 ...
 ```
 
-### Twitter 登录
+### Twitter登录
 
 #### Twitter Developers
 
 #### Android
 
-mainTemplate.gradle 改性
+修改mainTemplate.gradle
 
 ```java
 ...
 defaultConfig {
-        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Twitter 从开发者控制台获取
-        resValue "string", "gamepot_twitter_consumersecret","xxx" // Twitter 从开发者控制台获取
+        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // 从Twitter开发者控制台获取
+        resValue "string", "gamepot_twitter_consumersecret","xxx" // 从Twitter开发者控制台获取
 }
 ...
 ```
 
 #### iOS
 
-将以下各项添加到 GamePotConfig-Info.plist 文件中，然后输入相应的值。
+在GamePotConfig-Info.plist文件中添加下列项目并输入相应值。
 
 ```text
 gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
 
-在查看 GamePotConfig-Info.plist 文件作为 SourceCode 时，添加如下内容
+用SourceCode查看GamePotConfig-Info.plist文件时按以下方法添加
 
 ```markup
 ...
@@ -1072,98 +1034,98 @@ gamepot_twitter_consumersecret :  Twitter Consumer Secret
 
 ### 优惠券
 
-#### 优惠券兑换
+#### 使用优惠券
 
-> 实施从开发者那里接收优惠券的 UI。
+> 请开发公司实现输入优惠券的UI。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.coupon(string couponNumber); // 优惠券编号
 
-GamePot.coupon(string couponNumber, string userData); // 优惠券号码，用户信息
+GamePot.coupon(string couponNumber, string userData); // 优惠券编号、用户信息
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 优惠券使用成功
+///优惠券使用成功
 public void onCouponSuccess() {
 }
 
-/// 优惠券使用失败
+///优惠券使用失败
 public void onCouponFailure(NError error) {
-    //如果您无法使用优惠券
-    //请通过弹出窗口告知用户error.message。
+    // 优惠券使用失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 GamePot.coupon(string couponNumber, GamePotCallbackDelegate.CB_Common); // 优惠券编号
 
-GamePot.coupon(string couponNumber, string userData, GamePotCallbackDelegate.CB_Common);    // 优惠券编号，用户信息
+GamePot.coupon(string couponNumber, string userData, GamePotCallbackDelegate.CB_Common);    // 优惠券编号、用户信息
 ```
 
 ```csharp
 GamePot.coupon(couponNumber, (success, error) => {
    if(success)
    {
-       // 成功使用优惠券
+       // 优惠券使用成功
    }
    else
    {
-        // 如果您无法使用优惠券
-        // 请通过弹出窗口告知用户error.message。
+        // 优惠券使用失败时
+        // 请通过弹窗等告知玩家error.message。
    }
 });
 ```
 
-#### 物品付款
+#### 发放道具
 
-如果优惠券成功使用，则要求开发者服务器通过服务器到服务器 api 支付商品。
+如果优惠券使用成功，会通过Server to server api向开发公司的服务器请求发放道具。
 
-为此，请参考服务器到服务器 api 菜单中的“ Item Webhook”项并进行处理。
+为此，须参考Server to server api菜单的`Item Webhook`项目进行处理。
 
-### 开/关
+### 开启/关闭推送
 
-推送和夜间推送可以分别进行开/关处理。
+可以分别开启/关闭推送、夜间推送。
 
-> 在开发人员中实现开/关 UI。
+> 请开发公司实现设置开启/关闭的UI。
 
 #### 推送设置
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.setPushStatus(bool pushEnable);
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 服务器通信成功完成推送状态更改
+///对推送状态变更的服务器通信成功
 public void onPushSuccess() {
 }
 
-/// 用于推送状态更改的服务器通信失败
+///对推送状态变更的服务器通信失败
 public void onPushFailure(NError error) {
 
-    // 当推送状态更改失败时
-    //请通过弹出窗口告知用户error.message。
+    // 推送状态变更失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 void GamePot.setPushStatus(bool pushEnable, GamePotCallbackDelegate.CB_Common);
@@ -1173,44 +1135,44 @@ void GamePot.setPushStatus(bool pushEnable, GamePotCallbackDelegate.CB_Common);
 GamePot.setPushStatus(pushEnable, (success, error) => {
     if(success)
     {
-        // 服务器通信成功完成推送状态更改
+        // 对推送状态变更的服务器通信成功
     }
    else
    {
-    // 当推送状态更改失败时
-    //请通过弹出窗口告知用户error.message。
+        // 推送状态变更失败时
+        // 请通过弹窗等告知玩家error.message。
     }
 });
 ```
 
-#### 야간 푸시 설정
+#### 夜间推送设置
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.setPushNightStatus(bool nightPushEnable);
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 夜间推送状态更改的服务器通信成功
+///对夜间推送状态变更的服务器通信成功
 public void onPushNightSuccess() {
 }
 
-/// 夜间推送状态更改的服务器通信失败
+///对夜间推送状态变更的服务器通信失败
 public void onPushNightFailure(NError error) {
 
-    // 每晚推送​​状态更改失败
-    // 请通过弹出窗口告知用户error.message。
+    // 夜间推送状态变更失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 void GamePot.setPushNightStatus(bool nightPushEnable, GamePotCallbackDelegate.CB_Common);
@@ -1220,44 +1182,44 @@ void GamePot.setPushNightStatus(bool nightPushEnable, GamePotCallbackDelegate.CB
 GamePot.setPushNightStatus(nightPushEnable, (success, error) => {
     if(success)
     {
-        // 夜间推送状态更改的服务器通信成功
+        // 对夜间推送状态变更的服务器通信成功
     }
    else
    {
-        // 每晚推送​​状态更改失败
-        // 请通过弹出窗口告知用户error.message。
+        // 夜间推送状态变更失败时
+        // 请通过弹窗等告知玩家error.message。
     }
 });
 ```
 
 #### 广告推送设置
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.setPushADStatus(bool adPushEnable);
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 成功进行服务器通信以更改广告推送状态
+///对广告推送状态变更的服务器通信成功
 public void onPushAdSuccess() {
 }
 
-/// 服务器推送广告更改状态失败
+///对广告推送状态变更的服务器通信失败
 public void onPushAdFailure(NError error) {
 
-    // 如果广告推送状态更改失败
-    // 请通过弹出窗口告知用户error.message。
+    // 广告推送状态变更失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 void GamePot.setPushADStatus(bool adPushEnable, GamePotCallbackDelegate.CB_Common);
@@ -1267,46 +1229,46 @@ void GamePot.setPushADStatus(bool adPushEnable, GamePotCallbackDelegate.CB_Commo
 GamePot.setPushADStatus(adPushEnable, (success, error) => {
     if(success)
     {
-        // 成功进行服务器通信以更改广告推送状态
+        // 对广告推送状态变更的服务器通信成功
     }
    else
    {
-        // 如果广告推送状态更改失败
-        // 请通过弹出窗口告知用户error.message。
+        // 广告推送状态变更失败时
+        // 请通过弹窗等告知玩家error.message。
     }
 });
 ```
 
-#### 一 次推送/夜间推送/广告推送
+#### 一次性设置推送/夜间推送/广告推送
 
-如果允许在登录前进行推送/夜间推送，则登录后必须调用以下代码。
+如果是登录前需要获得推送/夜间推送权限的游戏，登录后必须调用以下代码。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
 GamePot.setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable);
 ```
 
-Response:
+响应：
 
 ```csharp
-/// 服务器通信成功完成推送状态更改
+///对推送状态变更的服务器通信成功
 public void onPushStatusSuccess() {
 }
 
-/// 服务器通信因推送状态更改而失败
+///对推送状态变更的服务器通信失败
 public void onPushStatusFailure(NError error) {
 
-    // 如果推送状态更改失败
-    // 请通过弹出窗口告知用户error.message。
+    // 推送状态变更失败时
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
 void GamePot.setPushADStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable, GamePotCallbackDelegate.CB_Common);
@@ -1316,17 +1278,17 @@ void GamePot.setPushADStatus(bool pushEnable, bool nightPushEnable, bool adPushE
 GamePot.setPushADStatus(pushEnable, nightPushEnable, adPushEnable, (success, error) => {
     if(success)
     {
-        // 服务器通信成功完成推送状态更改
+        // 对推送状态变更的服务器通信成功
     }
    else
    {
-        // 如果推送状态更改失败
-        // 请通过弹出窗口告知用户error.message。
+        // 推送状态变更失败时
+        // 请通过弹窗等告知玩家error.message。
     }
 });
 ```
 
-#### 推送状态查询
+#### 查询推送状态
 
 ```csharp
 NPushInfo pushInfo = GamePot.getPushStatus();
@@ -1335,157 +1297,153 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 // pushInfo.night   是否允许夜间推送
 ```
 
-### 注意
+### 公告事项
 
-此功能按顺序显示在 GAMEPOT 仪表板中添加到“通知”的图像。
+该功能可将GAMEPOT仪表盘内“公告事项”里新添加的图像按顺序显示。
 
 ![gamepot_unity_10](./images/gamepot_unity_10.png)
 
-推荐的图像规格如下。
+图像建议规格如下。
 
-- 尺寸 : 720 _1200(Portrait) / 1280_ 640(Landscape)
+- 大小: 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
 
-  > 如果未观察到上述尺寸，则图像将作为中心裁切进行处理。
+  > 如果不满足以上大小，用中心裁剪处理图像。
 
-- 容量：250KB 以下
+- 容量：250 KB以下
 
-Request:
+请求：
 
 ```csharp
 GamePot.showNotice(bool Flag = true);
 
-// true：申请今天不看
-// false：强制曝光，无论今天没有看到
-
-GamePot.showEvent(string Type)
-
-// Type : 仪表板注意>>仅暴露与“类别”中设置的类别名称相对应的图像
+// true：应用“今日不再显示”
+// false：与“今日不再显示”无关，强制显示
 ```
 
-Response:
+响应：
 
-如果在 GAMEPOT 信息中心中将“点击操作”设置为“ SCHEME”，则在点击相应的图片时会传递“ SCHEME”值。
+在GAMEPOT仪表盘中将`点击操作`设置为`SCHEME`时，点击该图像时传递`SCHEME`值。
 
 ```csharp
 public void onReceiveScheme(string scheme)
 {
-    // 传递在GAMEPOT仪表板中设置的方案值
+    // 传递在GAMEPOT仪表盘设置的scheme值
 }
 ```
 
 ### 客户支持
 
-此功能允许客户向操作员注册查询并接收答案。
+该功能可以让客户向运营商提交咨询并收到回复。
 
-与我们联系 UI 会根据设备语言进行更改。 它支持韩文，英文，日文和中文（简体和繁体），其他语言以英文显示。
+客户咨询UI会根据设备语言更改。支持韩语、英语、日语、中文（简体、繁体），其他语言显示英语。
 
-- 咨询登记画面
+- 咨询提交页面
 
   ![gamepot_unity_11](./images/gamepot_unity_11.png)
 
-- 我的查询历史记录屏幕
+- 我的咨询明细页面
 
   ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
-#### 呼叫
+#### 调用
 
 ```csharp
 GamePot.showCSWebView();
 ```
 
-未登录的客户可以通过支持外部链接来注册查询。
+支持外部链接，未登录的客户也可以提交咨询事项。
 
-#### 呼叫
+#### 调用
 
 ```csharp
-// url : GamePod发行的外部客户支持URL
+// url：从GAMEPOT获取的外部客户支持URL
 
 GamePot.showWebView(string url);
 ```
 
-### 本地推送(Local Push notification)
+### 本地推送\(Local Push notification\)
 
-此功能无需通过推送服务器即可在终端上显示推送。
+这是不通过推送服务器，直接在终端显示推送的功能。
 
-#### 推送注册
+#### 添加推送
 
-这是在给定时间公开本地推送的方法。
+在规定时间显示本地推送的方法如下。
 
-> 作为返回值传递的 pushId 由开发人员管理。
+> 作为返回值传递的pushId由开发公司管理。
 
 ```csharp
 int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title", "content");
 ```
 
-#### 取消注册推送
+#### 取消已添加的推送
 
-您可以基于在推送注册过程中获得的 pushId 取消先前注册的推送。
+可以根据添加推送时获得的pushId取消之前添加的推送。
 
 ```csharp
-GamePot.cancelLocalPush(/*推送注册期间获取的PushId*/);
+GamePot.cancelLocalPush(/*添加推送时获得的pushId*/);
 ```
 
-### 接受条款
+### 同意条款
 
-提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
+提供UI以便能迅速收到“使用条款”和“个人信息收集与使用指南”同意。
 
-它提供了两个“蓝色”主题和“绿色”主题，并且可以针对每个区域进行自定义。
+提供`BLUE`和`GREEN`两种主题，还可以按各区域定制。
 
-- “蓝色”主题的示例
+- `BLUE`主题示例
 
   ![gamepot_unity_13](./images/gamepot_unity_13.png)
 
-- “GREEN”主题的示例
+- `GREEN`主题示例
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
-#### 条款及细则电话
+#### 调用条款同意
 
-> 开发者同意公开适合该游戏的弹出窗口。
+> 请开发公司根据游戏决定是否显示条款同意弹窗。
 >
-> 单击“查看”按钮时显示的内容可以在仪表板中应用和修改。
+> 点击“查看”按钮时显示的内容可以在仪表盘中应用和修改。
 
-- Case 1
+- 案例一
 
-Request:
+请求：
 
 ```csharp
-// 基本通话（适用于蓝色主题）
+// 默认调用（应用蓝色主题）
 GamePot.showAgreeDialog();
 
-// 当应用为绿色主题时
+// 应用绿色主题时
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "green";
 GamePot.showAgreeDialog(info);
 ```
 
-Response:
+响应：
 
 ```csharp
-// 如果您同意条款
+// 同意条款时
 public void onAgreeDialogSuccess(NAgreeResultInfo info)
 {
-     // info.agree：如果所有必需条款都已同意，则为true
-     // info.agreeNight：如果选中了接受夜间广告的同意，则为true；否则为false
-     //完成登录后，通过setPushNightStatus api传递acceptNight的值。
+    // info.agree : 同意全部强制条款时为true
+    // info.agreeNight : 勾选同意夜间接收广告类消息时为true，否则为false
+    // agreeNight值请于成功登录后通过setPushNightStatus api传递。
 }
 
 // 发生错误
 public void onAgreeDialogFailure(NError error)
 {
-    // 请通过弹出窗口告知用户error.message。
+    // 请通过弹窗等告知玩家error.message。
 }
 ```
 
-- Case 2
+- 案例二
 
-Request:
+请求：
 
 ```csharp
-// 基本通话（适用于蓝色主题）
+// 默认调用（应用蓝色主题）
 showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
-// 当应用为绿色主题时
+// 应用绿色主题时
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "green";
 GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
@@ -1495,21 +1453,21 @@ GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
 GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError error) => {
    if(success)
    {
-        // 如果您同意条款
+        // 同意条款时
    }
    else
    {
         // 发生错误
-        // 请通过弹出窗口告知用户error.message。
+        // 请通过弹窗等告知玩家error.message。
    }
 });
 ```
 
-#### Customizing
+#### 定制
 
-更改颜色以匹配游戏而不使用主题。
+不使用主题，根据游戏更改颜色。
 
-您可以在调用协议之前在“ NAgreeInfo”中为每个区域指定颜色。
+调用条款同意之前，可在`NAgreeInfo`指定各区域的颜色。
 
 ```csharp
 NAgreeInfo info = new NAgreeInfo();
@@ -1517,10 +1475,10 @@ info.theme = "green";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
 info.headerTitleColor = "0xFFFF0000";
 info.headerBottomColor = "0xFF00FF00";
-// 不使用时设置为“”
-info.headerTitle = "同意使用条款";
-// Android : res/drawable 对象ID（文件名）
-// iOS : 资产对象ID（文件名）
+// 未使用时设置为""
+info.headerTitle = "同意条款";
+// Android : res/drawable对象ID（文件名）
+// iOS : asset对象ID（文件名）
 info.headerIconDrawable = "ic_stat_gamepot_agree";
 
 info.contentBackGradient = new string[] { "0xFFFF2432", "0xFF11FF32" };
@@ -1528,8 +1486,8 @@ info.contentIconColor = "0xFF0429FF";
 info.contentCheckColor = "0xFFFFADB5";
 info.contentTitleColor = "0xFF98FFC6";
 info.contentShowColor = "0xFF98B3FF";
-// Android : res / drawable对象ID（文件名）
-// iOS : 资产对象ID（文件名）
+// Android : res/drawable对象ID（文件名）
+// iOS : asset对象ID（文件名）
 info.contentIconDrawable = "ic_stat_gamepot_small";
 
 info.footerBackGradient = new string[] { "0xFFFFFFFF", "0xFF112432" };
@@ -1537,29 +1495,29 @@ info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = "开始游戏";
-// 是否公开用于接收夜间广告的按钮
+// 是否显示“同意夜间接收广告类消息”按钮
 info.showNightPush = true;
 
-// 更改词组
+// 更改语句
 info.allMessage = "全部同意";
-info.termMessage = "必需的使用条款";
-info.privacyMessage = "必需的”隐私政策";
-info.nightPushMessage = "可选）同意在晚上接收推送";
+info.termMessage = "必选）使用条款";
+info.privacyMessage = "必选）个人信息处理方针";
+info.nightPushMessage = "可选）同意接收夜间推送";
 
 GamePot.showAgreeDialog(info);
 ```
 
-每个变量都适用于以下区域。
+各个变量将应用到以下区域。
 
-> contentIconDrawable 仅在 AOS 中显示，默认设置为推送图标。
+> contentIconDrawable只在AOS中显示，默认值设置为推送图标。
 
 ![gamepot_unity_15](./images/gamepot_unity_15.png)
 
 ### 使用条款
 
-调用使用条款 UI。
+调用使用条款UI。
 
-> 仪表板-客户支持-在“使用条款”设置中首先输入内容。
+> 请先在仪表盘 - 客户支持 - 使用条款设置项目中输入内容。
 
 ```csharp
 GamePot.showTerms();
@@ -1567,11 +1525,11 @@ GamePot.showTerms();
 
 ![gamepot_unity_16](./images/gamepot_unity_16.png)
 
-### 隐私声明
+### 个人信息处理方针
 
-调用隐私策略用户界面。
+调用个人信息处理方针UI。
 
-> 仪表板-客户支持-首先在“隐私策略设置”部分中输入详细信息。
+> 请先在仪表盘 - 客户支持 - 个人信息处理方针设置项目中输入内容。
 
 ```csharp
 GamePot.showPrivacy();
@@ -1579,11 +1537,11 @@ GamePot.showPrivacy();
 
 ![gamepot_unity_17](./images/gamepot_unity_17.png)
 
-### 退款政策
+### 退款规定
 
-调用退款规则用户界面。
+调用退款规定UI。
 
-> 控制台-客户支持-在退款政策设置项中输入详细信息。
+> 请先在仪表盘 - 客户支持 - 退款规定设置项目中输入内容。
 
 ```csharp
 GamePot.showRefund();
@@ -1593,34 +1551,34 @@ GamePot.showRefund();
 
 ### 远程配置
 
-获取在客户端的仪表板上注册的参数值。
+从客户端获取已添加到仪表盘的参数值。
 
-> 在 Dashboard-Settings-Remote Config 屏幕中添加参数。
+> 在仪表盘 - 设置 - 远程配置界面中添加参数。
 
 ![gamepot_unity_18](./images/gamepot_unity_18.png)
 
-> 添加的参数在登录时加载，以后可以调用。
+> 添加的参数会在登录时加载，之后可以调用。
 
 ```csharp
-//"test_01" : 参数 string
+//"test_01" : 参数字符串
 var str_value = GamePot.getConfig("test_01");
 
-//获取所有以json字符串形式添加到仪表板的参数。
+//以json字符串形式获取仪表盘中添加的所有参数。
 var json_value = GamePot.getConfigs();
 ```
 
 ![gamepot_unity_22](./images/gamepot_unity_22.png)
 
-### 付款取消滥用者的自动取消功能
+### 恶意利用付款取消者自动终止功能
 
-提供已取消付款滥用者的自动取消功能的 UI。 可以针对每个区域进行自定义。
+提供恶意利用付款取消者自动终止功能的UI。可以按各区域进行定制。
 
-> 仅对于 Google 付款，如果用户通过随机请求 Google 取消付款，则可以通过“取消 Google 付款”功能暂停该用户。
+> 仅限Google支付，玩家任意向Google请求取消付款时，可通过“取消Google支付”功能让使玩家停用。
 >
-> 这时，当用户登录时，弹出窗口会暴露在 SDK 中，以促使用户重新支付付款项。
-> 提供一项功能，可以在付款时正常访问。
+> 此时该玩家登录时，在SDK内显示弹窗，引导对该付款道具重新进行付款，
+> 提供的功能可以让玩家在付款时重新正常登录。
 >
-> 如果还清所有已取消的付款，则暂停将自动取消。
+> 对所有已取消的付款进行重新支付时，停用会自动解除。
 
 ![gamepot_unity_23](./images/gamepot_unity_23.png)
 
@@ -1628,7 +1586,7 @@ var json_value = GamePot.getConfigs();
 
 NVoidInfo info = new NVoidInfo();
 
-// 词组变化
+// 更改语句
 info.headerTitle = "Header Title Section!";
 
 info.descHTML = "descHTML Section!";
@@ -1641,22 +1599,23 @@ GamePot.setVoidBuilder(info);
 
 ```
 
-### 游戏日志转移
 
-如果使用游戏中使用的信息进行调用，则可以在“仪表板”-“游戏”中进行搜索。
+### 发送游戏日志
 
-以下是可用保留字定义的表。
+添加游戏中使用的信息并调用时，可在`仪表盘` - `游戏`中查询。
 
-| 保留字                            | 必填 | 类型   | 描述      |
-| :-------------------------------- | :--- | :----- | :-------- |
-| GamePotSendLogCharacter.NAME      | 必填 | String | 角色名称  |
-| GamePotSendLogCharacter.LEVEL     | 选择 | String | 级别      |
-| GamePotSendLogCharacter.SERVER_ID | 选择 | String | 服务器 ID |
-| GamePotSendLogCharacter.PLAYER_ID | 选择 | String | 角色 ID   |
-| GamePotSendLogCharacter.USERDATA  | 选择 | String | ETC       |
+下面是可使用的保留字定义表。
+
+| 保留字| 必选| 类型| 描述|
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME| 必选| 字符串| 角色名|
+| GamePotSendLogCharacter.LEVEL| 可选| 字符串| 等级|
+| GamePotSendLogCharacter.SERVER_ID| 可选| 字符串| 服务器ID|
+| GamePotSendLogCharacter.PLAYER_ID| 可选| 字符串| 角色ID|
+| GamePotSendLogCharacter.USERDATA| 可选| 字符串| 其他|
 
 ```csharp
-String name = "角色名字";
+String name = "角色名";
 String level = "10";
 String serverid = "svn_001";
 String playerid = "283282191001";
@@ -1671,21 +1630,21 @@ characterLog.put(GamePotSendLogCharacter.USERDATA, userdata);
 
 Boolean result = GamePot.characterInfo(characterLog);
 
-// Result is TRUE : validation success. Logs will send to GamePot Server
-// Result is FALSE : validation was failed. Please check logcat
+// Result is TRUE : validation success.Logs will send to GamePot Server
+// Result is FALSE : validation was failed.Please check logcat
 ```
 
 # 附录
 
-### 第三方 SDK 集成支持
+### 支持第三方SDK关联
 
 ## 登录
 
-> 不支持自动登录。 每次都需要打电话。
+> 不支持自动登录。需要每次调用。
 
-| 参数名称 | 必填 | 类型   | 描述         |
-| :------- | :--- | :----- | :----------- |
-| userid   | 必填 | String | 用户唯一标识 |
+| 参数名称| 必选| 类型| 描述|
+| :--------- | :--- | :----- | :----------------- |
+| userid| 必选| 字符串| 玩家唯一ID|
 
 ```csharp
 String userid = "memberid of 3rd party sdk";
@@ -1693,19 +1652,19 @@ String userid = "memberid of 3rd party sdk";
 GamePot.loginByThirdPartySDK("userid");
 ```
 
-## 付款
+## 支付
 
-> 付款项目必须在游戏机仪表板中注册。
+> 付款道具须已在GamePot仪表盘中添加。
 
-| 参数名称      | 必填 | 类型   | 描述                                    |
+| 参数名称| 必选| 类型| 描述|
 | :------------ | :--- | :----- | :-------------------------------------- |
-| productid     | 必填 | String | 在游戏机仪表板上注册的物品 ID           |
-| transactionid | 必填 | String | 付款收据编号(GPA-xxx-xxxx-xxxx)         |
-| store         | 必填 | String | (付款商店 - google, apple, one, galaxy) |
-| currency      | 选择 | String | 货币(KRW, USD)                          |
-| price         | 选择 | double | 付款项目金额                            |
-| paymentid     | 选择 | String | 付款方式（通常与 store_id 相同）        |
-| uniqueid      | 选择 | String | 开发人员使用的唯一 ID                   |
+| productid| 必选| 字符串| 添加到GamePot仪表盘的道具ID|
+| transactionid| 必选| 字符串| 付款发票号（GPA-xxx-xxxx-xxxx）|
+| store| 必选| 字符串| （支付商店 - google、apple、one、galaxy）|
+| currency| 可选| 字符串| 货币（KRW、USD）|
+| price| 可选| double| 付款道具金额|
+| paymentid| 可选| 字符串| 付款payment（一般与store_id相同）|
+| uniqueid| 可选| 字符串| 开发公司使用的固有ID|
 
 ```csharp
 String productId = "purchase_001";
