@@ -598,6 +598,47 @@ Refer to `Purchase` in `Server to server api` to implement this.
 
 ## 6. Other APIs
 
+### SDK 지원 로그인 UI
+
+SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+
+![gamepot_ios_18](./images/gamepot_ios_18.png)
+```c++
+#import <GamePot/GamePot.h>
+#import <GamePotChannel/GamePotChannel.h>
+
+NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
+GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+[option setShowLogo:YES];
+
+ [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
+    // 로그인 성공
+    } cancel:^{
+    // 로그인 취소
+    } fail:^(NSError *error) {
+    // 로그인 실패
+    } update:^(GamePotAppStatus *appStatus) {
+    // 업데이트
+    } maintenance:^(GamePotAppStatus *appStatus) {
+    // 점검
+    } exit:^{
+    // showLoginWithUI 종료
+    }
+];
+```
+
+#### 로그인 UI 이미지 로고 설정
+
+로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+
+**이미지 로고 직접 넣기**
+
+> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+
+이미지 파일명을 `ic_stat_gamepot_logo.png`로 변경한 다음 교체합니다.
+
+(권장 사이즈 : 310x220)
+
 ### Coupon
 
 Call the following code to use a coupon entered by a user.
@@ -778,7 +819,9 @@ Modify the previously applied APIs as described below.
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
+
+ Each area can be customized.
 
 - Example of `BLUE` theme
 
@@ -788,6 +831,10 @@ It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
+- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+
+![gamepot_ios_19](./images/gamepot_ios_19.png)
+
 #### Call Agree to terms and conditions
 
 > Handle Agree to Terms and Conditions pop-up according to games.
@@ -795,8 +842,21 @@ It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
 > When you click the 'View' button, you can apply and edit the content in the dashboard.
 
 ```text
-// Blue theme [[GamePotAgreeOption alloc] init:BLUE];
-// Green theme [[GamePotAgreeOption alloc] init:GREEN];
+// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
+// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+
+// 개선테마  
+//  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PURPLE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_DARKBLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_YELLOW];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAPE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
 GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
    // [result agree]: It is true if all required terms and conditions have been agreed to
@@ -938,6 +998,23 @@ BOOL result = [GamePotSendLog characterInfo:info];
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
 
+```
+
+### GDPR 약관 체크리스트
+
+대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+
+```c++
+(NSArray*) [[GamePot getInstance] getGDPRCheckedList];
+
+//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
+gdpr_privacy : 개인정보취급방침
+gdpr_term : 이용약관
+gdpr_gdpr : GDPR 이용약관
+gdpr_push_normal : 이벤트 Push 수신동의
+gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
+gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
+gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
 ```
 
 ## 7. Download

@@ -927,6 +927,133 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. 기타 API
 
+### SDK 지원 로그인 UI
+
+SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+
+![gamepot_unity_27](./images/gamepot_unity_27.png)
+
+```csharp
+public class NLoginUIInfo
+{
+    public NCommon.LoginType[] loginTypes { get; set; }     // 노출할 Login UI 타입(배열)
+    public bool showLogo { get; set; }                      // 이미지 로고 노출 여부
+}
+```
+
+#### SDK 로그인 UI 호출
+
+- Case 1
+
+Request:
+
+```csharp
+ NLoginUIInfo info = new NLoginUIInfo();
+
+//호출할 로그인 UI 타입
+ info.loginTypes = new NCommon.LoginType[] 
+ {
+     NCommon.LoginType.GOOGLE,
+     NCommon.LoginType.FACEBOOK,
+     NCommon.LoginType.GUEST
+     ...
+ };
+ info.showLogo = true;
+ GamePot.showLoginWithUI(info);
+```
+
+Response:
+
+ **일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
+
+```csharp
+// 로그인 성공
+public void onLoginSuccess(NUserInfo userInfo)
+{
+}
+// 강제 업데이트(스토어 버전과 클라이언트 버전이 다를 경우 호출)
+public void onNeedUpdate(NAppStatus status)
+{
+    // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// 점검(대시보드에 점검이 활성화되어 있는 경우 호출)
+public void onMainternance(NAppStatus status)
+{
+       // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// 앱 종료
+public void onAppClose()
+{
+    // TODO: 강제 업데이트나 점검 기능을 case 2 방식으로 구현하는 경우
+    // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        default:
+        break;
+    }
+});
+```
+
+#### Customizing
+
+**로그인 UI 이미지 로고 변경 방법**
+
+로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+
+> 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_logo)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
+
+이미지 파일명은 ic_stat_gamepot_logo 이어야 합니다.
+
+| 폴더명                                                         | 크기  |
+| :------------------------------------------------------------- | :---- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
+
+**Screen Orientation 설정 방법**
+
+/Assets/Plugin/Android/AndroidManifest.xml 파일을 에디터로 엽니다.
+
+```markup
+...e
+    <activity android:screenOrientation="sensorLandscap">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+          ...
+      </intent-filter>
+    </activity>
+...
+```
+
+Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
+
+
 ### 애플 로그인 (for Android - Web Login)
 
 #### GAMEPOT Dashboard
@@ -1423,7 +1550,9 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+
+각 영역별로 Customizing도 가능합니다.
 
 - `BLUE` 테마 예시
 
@@ -1433,7 +1562,30 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
+- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+
+  ![gamepot_unity_28](./images/gamepot_unity_28.png)
+
 #### 약관 동의 호출
+
+```csharp
+// 기본 테마
+BLUE
+GREEN
+
+// 개선 테마
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH,
+```
 
 > 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
 >
@@ -1447,9 +1599,9 @@ Request:
 // 기본 호출(BLUE 테마로 적용)
 GamePot.showAgreeDialog();
 
-// GREEN 테마로 적용시
+// 그 외 테마로 적용 시
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info);
 ```
 
@@ -1479,9 +1631,9 @@ Request:
 // 기본 호출(BLUE 테마로 적용)
 showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
-// GREEN 테마로 적용시
+// 그 외 테마로 적용시
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
 ```
 
@@ -1507,7 +1659,7 @@ GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError 
 
 ```csharp
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
 info.headerTitleColor = "0xFFFF0000";
 info.headerBottomColor = "0xFF00FF00";
@@ -1622,6 +1774,22 @@ var json_value = GamePot.getConfigs();
 
 NVoidInfo info = new NVoidInfo();
 
+//테마 종류
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH
+
+//테마 변경
+info.theme = "MATERIAL_ORANGE";
+
 // 문구 변경
 info.headerTitle = "Header Title Section!";
 
@@ -1667,6 +1835,24 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
+```
+
+### GDPR 약관 체크리스트
+
+대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+
+```csharp
+//리턴되는 데이터포맷은 string[] 입니다.
+GamePot.getGDPRCheckedList();
+
+//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
+gdpr_privacy : 개인정보취급방침
+gdpr_term : 이용약관
+gdpr_gdpr : GDPR 이용약관
+gdpr_push_normal : 이벤트 Push 수신동의
+gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
+gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
+gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
 ```
 
 # 부록

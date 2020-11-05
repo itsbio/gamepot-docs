@@ -594,6 +594,47 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 ## 6. 기타 API
 
+### SDK 지원 로그인 UI
+
+SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+
+![gamepot_ios_18](./images/gamepot_ios_18.png)
+```c++
+#import <GamePot/GamePot.h>
+#import <GamePotChannel/GamePotChannel.h>
+
+NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
+GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+[option setShowLogo:YES];
+
+ [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
+    // 로그인 성공
+    } cancel:^{
+    // 로그인 취소
+    } fail:^(NSError *error) {
+    // 로그인 실패
+    } update:^(GamePotAppStatus *appStatus) {
+    // 업데이트
+    } maintenance:^(GamePotAppStatus *appStatus) {
+    // 점검
+    } exit:^{
+    // showLoginWithUI 종료
+    }
+];
+```
+
+#### 로그인 UI 이미지 로고 설정
+
+로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+
+**이미지 로고 직접 넣기**
+
+> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+
+이미지 파일명을 `ic_stat_gamepot_logo.png`로 변경한 다음 교체합니다.
+
+(권장 사이즈 : 310x220)
+
 ### 쿠폰
 
 사용자에게 입력받은 쿠폰을 사용할 때 아래 코드를 호출해 주세요.
@@ -774,7 +815,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
 
 - `BLUE` 테마 예시
 
@@ -783,6 +824,10 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 - `GREEN` 테마 예시
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
+
+- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+
+![gamepot_ios_19](./images/gamepot_ios_19.png)
 
 #### 약관 동의 호출
 
@@ -793,6 +838,20 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 ```text
 // 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
 // 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+
+// 개선테마  
+//  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PURPLE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_DARKBLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_YELLOW];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAPE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
+
 GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
    // [result agree] : 필수 약관을 모두 동의한 경우 true
@@ -934,6 +993,23 @@ BOOL result = [GamePotSendLog characterInfo:info];
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
 
+```
+
+### GDPR 약관 체크리스트
+
+대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+
+```c++
+(NSArray*) [[GamePot getInstance] getGDPRCheckedList];
+
+//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
+gdpr_privacy : 개인정보취급방침
+gdpr_term : 이용약관
+gdpr_gdpr : GDPR 이용약관
+gdpr_push_normal : 이벤트 Push 수신동의
+gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
+gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
+gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
 ```
 
 ## 7. 다운로드
