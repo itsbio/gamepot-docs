@@ -1,14 +1,12 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
-
 
 #### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
 <a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
 <a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
-
 
 # Dashboard
 
@@ -256,7 +254,7 @@ Manages product information when an in-app purchase is made. You must add all pr
 
 ② Click **Mass input** to add multiple in-app items as a CSV file.
 
-③ 각 상품 항목의 체크박스를 다중선택 한 다음, **삭제**버튼을 클릭해 삭제할 수 있습니다. 
+③ 각 상품 항목의 체크박스를 다중선택 한 다음, **삭제**버튼을 클릭해 삭제할 수 있습니다.
 
 #### - Statistics
 
