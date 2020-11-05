@@ -745,7 +745,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 
 **이미지 로고 직접 넣기**
 
-> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
+> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
 
 1. res/drawable 관련 폴더를 아래와 같이 생성
    - res/drawable-mdpi/
@@ -772,8 +772,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 | res/drawable-xxhdpi/  | 232x165  |
 | res/drawable-xxxhdpi/ | 310x220  |
 
-
-- 이미지 파일명을 `ic_stat_gamepot_logo`로 변경
+- 이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경
 
 ### Log in to NAVER
 

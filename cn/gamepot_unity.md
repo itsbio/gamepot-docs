@@ -1031,9 +1031,11 @@ Request:
 
 로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
 
-> 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_logo)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
+**[Android]**
 
-이미지 파일명은 ic_stat_gamepot_logo 이어야 합니다.
+> 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
+
+이미지 파일명은 ic_stat_gamepot_login_logo.png 이어야 합니다.
 
 | 폴더명                                                         | 크기  |
 | :------------------------------------------------------------- | :---- |
@@ -1043,7 +1045,17 @@ Request:
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
 
+ **[iOS]**
+
+> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+
+이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+
+(권장 사이즈 : 310x220)
+
 **Screen Orientation 설정 방법**
+
+**[Android]**
 
 /Assets/Plugin/Android/AndroidManifest.xml 파일을 에디터로 엽니다.
 

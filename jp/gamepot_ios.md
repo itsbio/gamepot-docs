@@ -635,7 +635,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 
 > 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
 
-이미지 파일명을 `ic_stat_gamepot_logo.png`로 변경한 다음 교체합니다.
+이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
 
 (권장 사이즈 : 310x220)
 
