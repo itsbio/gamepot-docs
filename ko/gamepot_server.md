@@ -20,7 +20,7 @@ HTTP 요청 시 정보는 아래와 같은 내용으로 전달드리고 해당 �
 > `{domain}` 항목은 개발사에서 작업 완료 후 알려주어야 하며, 이 값은 GAMEPOT 대시보드 - 프로젝트 설정 - 일반 - Webhook 항목에 추가해야 합니다.
 
 ```java
-https://{domain}?
+GET https://{domain}?
 userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
 ```
 
@@ -66,7 +66,7 @@ HTTP 요청 시 정보는 아래와 같은 내용으로 전달드리고 해당 �
 > `{domain}` 항목은 개발사에서 작업 완료 후 알려주어야 하며, 이 값은 GAMEPOT 대시보드 - 프로젝트 설정 - 일반 - Webhook 항목에 추가해야 합니다.
 
 ```text
-https://{domain}?
+GET https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
@@ -84,6 +84,45 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 > ex\)
 >
 > [https://{domain}?itemId=\[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}\]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb](https://{domain}?itemId=[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","store_item_id":"ttt","count":1}]&platform=android&projectId=f1df9464-40a8-4a66-8421-196c7c661002&store=google&userId=2d485044-06c2-48c4-a6ed-4ab53dea88bb)
+
+#### Response
+
+응답은 아래와 같은 형식으로 해주세요.
+
+```javascript
+{
+    "status": 1,
+    "message" : ""
+}
+```
+
+| Attribute | Type   | Description                   |
+| :-------- | :----- | :---------------------------- |
+| status    | Int    | 결과값 \( 0: 실패, 1: 성공 \) |
+| message   | String | 오류 내용                     |
+
+### MemberBlock(optional)
+
+GAMEPOT 이용정지 기능에 회원이 등록되는 경우, 고객사 서버에 notification목적으로 HTTP 요청을 합니다.
+
+#### Request
+
+HTTP 요청 정보는 아래와 같은 내용으로 전달드립니다.
+
+> `{domain}` 항목은 개발사에서 작업 완료 후 알려주어야 하며, 이 값은 GAMEPOT 대시보드 - 프로젝트 설정 - 일반 - Webhook 항목에 추가해야 합니다.
+
+```
+GET https://{domain}?action=create&endedAt=1605237000&from=dashboard&member_id=78dd89d3-c7f5-4921-bc43-da8e4a8b69e4&message=TEST&startedAt=1604286600
+```
+
+| Attribute | Type   | Description                                                  |
+| :-------- | :----- | :----------------------------------------------------------- |
+| action    | String | 처리 액션(create, update, delete)                            |
+| from      | String | 처리 종류(dashboard, authtoken, voidedpurchase, voidedpurchase_again)<br />dashboard: 대시보드 - 회원 - 이용정지<br />authtoken: 소셜 토큰 검증<br />voidedpurchase, voidedpurchase_again: 결제 환불 악용자 |
+| member_id | String | GAMEPOT 회원 ID                                              |
+| message   | String | 사용자에게 보여지는 이용정지 문구(기본 언어로 설정된 문구)   |
+| startedAt | String | 이용정지 시작 시각(timestamp)                                |
+| endedAt   | String | 이용정지 종료 시각(timestamp)                                |
 
 #### Response
 
