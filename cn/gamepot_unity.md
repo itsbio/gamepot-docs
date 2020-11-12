@@ -395,6 +395,24 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
         case NCommon.ResultLogin.FAILED:
         // login fail
         break;
+        case NCommon.ResultLogin.NEED_UPDATE:
+            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+                // GamePot.showAppStatusPopup(status.ToJson());
+        break;
+        case NCommon.ResultLogin.MAINTENANCE:
+            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+                // GamePot.showAppStatusPopup(status.ToJson());
+        break;        
+        case NCommon.ResultLogin.APP_CLOSE:
+            // TODO: 강제 업데이트나 점검 기능을 case 2 방식(SDK 팝업)으로 구현하는 경우에 사용
+            // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
+        break;
         default:
         break;
     }
