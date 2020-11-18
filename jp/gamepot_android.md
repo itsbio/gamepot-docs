@@ -362,7 +362,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER:NAVER
 // GamePotChannelType.LINE:LINE
 // GamePotChannelType.TWITTER:Twitter
-// GamePotChannelType.APPLE: 애플 
+// GamePotChannelType.APPLE: Apple 
 // GamePotChannelType.GUEST:ゲスト
 
 // Googleのログインボタンを押した時の呼び出し
@@ -507,7 +507,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // Twitterアカウントと連携
 // GamePotChannelType.TWITTER
-// 애플 계정에 연동
+// Appleアカウントと連携
 // GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
@@ -701,9 +701,9 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ## 7. その他のAPI
 
-### SDK 지원 로그인 UI
+### SDKサポートログインUI
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK内で、独自に(完成した形の) Login UIを提供します。
 
 ![gamepot_android_11](./images/gamepot_android_11.png)
 
@@ -719,42 +719,42 @@ import io.gamepot.common.GamePotError;
 String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
 GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
 
-// 구글 로그인 버튼을 눌렀을 때 호출
+// Googleのログインボタンを押した時の呼び出し
 GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
     @Override
     public void onCancel() {
-        // 사용자가 로그인을 취소한 상황.
+        // ユーザーがログインをキャンセルした状態。
     }
 
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
-        // 로그인 완료. 게임 로직에 맞게 처리해주세요.
-        // userinfo.getMemberid() : 회원 고유 아이디
+        // ログイン完了。 ゲームのロジックに合わせて処理してください。
+        // userinfo.getMemberid()：会員の固有ID
     }
 
     @Override
     public void onFailure(GamePotError error) {
-        // 로그인 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+        // ログイン失敗。error.getMessage()を利用してエラーメッセージを表示してください。
     }
 });
 ```
 
-#### 로그인 UI 이미지 로고 설정
+#### ログインUIの画像ロゴの設定
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
 
-**이미지 로고 직접 넣기**
+**画像ロゴを直接入れる**
 
-> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
+> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)を使用してアイコンを作成すると自動的にフォルダ別に作成されるため、各フォルダに追加するだけで済みます。
 
-1. res/drawable 관련 폴더를 아래와 같이 생성
+1. res/drawable関連フォルダを以下のように作成
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
    - res/drawable-xxhdpi/
    - res/drawable-xxxhdpi/
 
-2. 아래 사이즈별로 이미지 제작
+2. 以下のサイズ別に画像を作成
    - 78x55
    - 116x82
    - 155x110
@@ -762,9 +762,9 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
    - 310x220
 
 
-3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
+3. 以下のように各フォルダ別にサイズに合った画像を追加
 
-| 폴더명                | 사이즈 |
+| フォルダ名                | サイズ |
 | :-------------------- | :----- |
 | res/drawable-mdpi/    | 78x55  |
 | res/drawable-hdpi/    | 116x82  |
@@ -772,7 +772,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 | res/drawable-xxhdpi/  | 232x165  |
 | res/drawable-xxxhdpi/ | 310x220  |
 
-- 이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경
+- 画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更
 
 ### NAVERログイン
 
@@ -911,9 +911,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
-### 애플 로그인(Web Login)
+### Appleログイン(Web Login)
 
-#### build.gradle 설정
+#### build.gradle設定
 
 ```java
 dependencies {
@@ -923,7 +923,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.java 설정
+#### MainActivity.java設定
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -938,7 +938,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-#### 로그인
+#### ログイン
 
 ```java
 GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
@@ -1043,7 +1043,7 @@ JSONObject status = GamePot.getInstance().getPushStatus();
 /* showTodayButton： ｢今日は表示しない｣ボタンの表示有無。falseの場合、必ず表示*/
 boolean showTodayButton = true;
 
-GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showNotice(/*現在のアクティビティ*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
         // TODO : scheme処理
@@ -1051,20 +1051,20 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new G
 });
 ```
 
-### 공지사항(분류 별 호출)
+### 案内事項(分類別呼び出し)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+ダッシュボード - 案内事項でアップロードした画像のうち、分類で設定した画像のみ表示する機能です。
 
-#### 호출
+#### 呼び出し
 
 ```java
-/* 대시보드 공지사항 >> 분류에서 설정한 분류명 */
+/* ダッシュボードの案内事項 >> 分類で設定した分類名 */
 string type = "";
 
-GamePot.getInstance().showEvent(/*현재 액티비티*/, type, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showEvent(/*現在のアクティビティ*/, type, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
-        // TODO : scheme 처리
+        // TODO：scheme処理
     }
 });
 ```
@@ -1201,7 +1201,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるようにUIを提供します。
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
 
 - `BLUE`テーマの例
 
@@ -1211,17 +1211,17 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
   ![gamepot_android_08](./images/gamepot_android_08.png)
 
-  - 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+  - 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
 
   ![gamepot_android_12](./images/gamepot_android_12.png)
   
 #### 規約同意を呼び出す
 ```java
-// 기본 테마
+// 基本テーマ
 GamePotAgreeBuilder.THEME.BLUE
 GamePotAgreeBuilder.THEME.GREEN
 
-//개선 테마
+//改善テーマ
 GamePotAgreeBuilder.THEME.MATERIAL_RED,
 GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
 GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
@@ -1292,7 +1292,7 @@ agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });
 agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
 agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
-agreeBuilder.setFooterTitle("게임 시작하기");
+agreeBuilder.setFooterTitle("ゲームを始める");
 // 夜間プッシュ型広告通知許可ボタンの表示の有無
 agreeBuilder.setShowNightPush(true);
 
@@ -1412,23 +1412,23 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
-### GDPR 약관 체크리스트
+### GDPR規約チェックリスト
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
 
 ```java
 import io.gamepot.common.GamePot;
 
 (List<String>) GamePot.getInstance().getGDPRCheckedList();
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//リターンされるパラメータは、それぞれダッシュボードの次の設定に該当します。
+gdpr_privacy：個人情報の取扱方針
+gdpr_term：利用規約
+gdpr_gdpr：GDPRの利用規約
+gdpr_push_normal：イベントPush受信に同意
+gdpr_push_night：夜間イベントPush受信に同意(韓国のみ対象)
+gdpr_adapp_custom：パーソナライズド広告を見るに同意 (GDPR適用国)
+gdpr_adapp_nocustom：非パーソナライズド広告を見るに同意 (GDPR適用国)
 ```
 
 # 付録

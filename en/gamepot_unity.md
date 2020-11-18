@@ -289,7 +289,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE login
 
-> This features is for iOS only. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
+> This features is for iOS only. (For Android, it is supported as Web Login - refer to 8. Other API)
 
 **Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign in with Apple.**
 
@@ -392,24 +392,6 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
         break;
         case NCommon.ResultLogin.FAILED:
         // login fail
-        break;
-        case NCommon.ResultLogin.NEED_UPDATE:
-            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
-                // GamePot.showAppStatusPopup(status.ToJson());
-        break;
-        case NCommon.ResultLogin.MAINTENANCE:
-            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
-                // GamePot.showAppStatusPopup(status.ToJson());
-        break;        
-        case NCommon.ResultLogin.APP_CLOSE:
-            // TODO: 강제 업데이트나 점검 기능을 case 2 방식(SDK 팝업)으로 구현하는 경우에 사용
-            // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
         break;
         default:
         break;
@@ -879,9 +861,9 @@ public class NPurchaseInfo
     public string productName { get; set; }         // Name of purchased items
     public string gamepotOrderId { get; set; }      // Order ID created in GAMEPOT
     public string uniqueId { get; set; }            // Developer's unique receipt ID
-    public string serverId { get; set; }            // (결제를 진행한 캐릭터의) 서버 아이디
-    public string playerId { get; set; }            // (결제를 진행한 캐릭터의) 캐릭터 아이디
-    public string etc { get; set; }                 // (결제를 진행한 캐릭터의) 기타 정보
+    public string serverId { get; set; }            // Server ID (of the character that made the purchase)
+    public string playerId { get; set; }            // Character ID (of the character that made the purchase)
+    public string etc { get; set; }                 // Other information (of the character that made the purchase)
     public string signature { get; set; }           // Payment signature
     public string originalJSONData { get; set; }    // Receipt data
 }
@@ -950,21 +932,21 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. Other APIs
 
-### SDK 지원 로그인 UI
+### Login UI supported by SDK
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK provides an independent, complete Login UI.
 
 ![gamepot_unity_27](./images/gamepot_unity_27.png)
 
 ```csharp
 public class NLoginUIInfo
 {
-    public NCommon.LoginType[] loginTypes { get; set; }     // 노출할 Login UI 타입(배열)
-    public bool showLogo { get; set; }                      // 이미지 로고 노출 여부
+    public NCommon.LoginType[] loginTypes { get; set; }     // Type of Login UI to show (array)
+    public bool showLogo { get; set; }                      // Whether to show the image logo
 }
 ```
 
-#### SDK 로그인 UI 호출
+#### Call SDK Login UI
 
 - Case 1
 
@@ -973,7 +955,7 @@ Request:
 ```csharp
  NLoginUIInfo info = new NLoginUIInfo();
 
-//호출할 로그인 UI 타입
+//Type of Login UI to call
  info.loginTypes = new NCommon.LoginType[] 
  {
      NCommon.LoginType.GOOGLE,
@@ -987,36 +969,36 @@ Request:
 
 Response:
 
- **일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
+ **It's the same as the regular Login API response logic. (However, in case of onLoginCancel/onLoginFailure, it will be processed as a toast message at Native level.)**
 
 ```csharp
-// 로그인 성공
+// Login succeeded
 public void onLoginSuccess(NUserInfo userInfo)
 {
 }
-// 강제 업데이트(스토어 버전과 클라이언트 버전이 다를 경우 호출)
+// Force update (call when the store version does not match the client version)
 public void onNeedUpdate(NAppStatus status)
 {
-    // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+    // TODO: Notify the user with a pop-up based on the status information passed in a parameter.
+    // TODO: Choose between the following two methods.
+    // case 1: Implement your own UI through an in-game pop-up window.
+    // case 2: Use an SDK pop-up. (In this case, call the following code snippet.)
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// 점검(대시보드에 점검이 활성화되어 있는 경우 호출)
+// Check (call this when Check is enabled in the dashboard.)
 public void onMainternance(NAppStatus status)
 {
-       // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+       // TODO: Notify the user with a pop-up based on the status information passed in a parameter.
+    // TODO: Choose between the following two methods.
+    // case 1: Implement your own UI through an in-game pop-up window.
+    // case 2: Use an SDK pop-up. (In this case, call the following code snippet.)
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// 앱 종료
+// Exit app
 public void onAppClose()
 {
-    // TODO: 강제 업데이트나 점검 기능을 case 2 방식으로 구현하는 경우
-    // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
+    // TODO: When implementing force updates or checks in case 2
+    // TODO: Implement your own code here to force exit the app.
 }
 ```
 
@@ -1043,17 +1025,17 @@ Request:
 
 #### Customizing
 
-**로그인 UI 이미지 로고 변경 방법**
+**How to Change Login UI Image Logo**
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
 
 **[Android]**
 
-> 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
+> If you would like to specify your own image, then add them to each `drawable` folder. \(You can easily create images for each folder automatically using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo).\)
 
-이미지 파일명은 ic_stat_gamepot_login_logo.png 이어야 합니다.
+The image file name should be specified as ic_stat_gamepot_login_logo.png.
 
-| 폴더명                                                         | 크기  |
+| Folder name                                                         | Image size  |
 | :------------------------------------------------------------- | :---- |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
@@ -1063,17 +1045,17 @@ Request:
 
  **[iOS]**
 
-> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+> The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
 
-이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+Rename the image file to `ic_stat_gamepot_login_logo.png` and replace it.
 
-(권장 사이즈 : 310x220)
+(Recommended image size: 310x220)
 
-**Screen Orientation 설정 방법**
+**How to Set Up Screen Orientation**
 
 **[Android]**
 
-/Assets/Plugin/Android/AndroidManifest.xml 파일을 에디터로 엽니다.
+Open the file /Assets/Plugin/Android/AndroidManifest.xml in your editor.
 
 ```markup
 ...e
@@ -1086,20 +1068,20 @@ Request:
 ...
 ```
 
-Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
+Add screenOrientation to Main Activity, and enter `sensorLandscape` or `sensorPortrait` to fit the game.
 
 
-### 애플 로그인 (for Android - Web Login)
+### Apple Login (for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
-대시보드 프로젝트 설정 >> 일반 >> Apple ID Login 설정
+Dashboard Project Settings >> General >> Apple ID Login Settings
 
-> 기능을 사용하기 위해선 Apple Developer Console 설정이 필요합니다.
+> Apple Developer Console setup is needed to use this feature.
 >
-> 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
+> Refer to **View Help** for the relevant item in the dashboard.
 
-/Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+Add the following aar file in the /Assets/Plugins/Android/libs path. (Select platforms for plugin - ensure to check Android)
 
 - gamepot-channel-apple-signin.aar
 
@@ -1515,7 +1497,7 @@ GamePot.showNotice(bool Flag = true);
 
 GamePot.showEvent(string Type)
 
-// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
+// Type: only show the relevant image set in Dashboard Notice >> Classification
 ```
 
 Response:
@@ -1585,7 +1567,7 @@ GamePot.cancelLocalPush(/*pushId you can get when adding push*/);
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
 
 Each area can be customized.
 
@@ -1597,17 +1579,17 @@ Each area can be customized.
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
-- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+- Example of `MATERIAL_ORANGE` theme from the improved themes
 
   ![gamepot_unity_28](./images/gamepot_unity_28.png)
   
 #### Call Agree to terms and conditions
 ```csharp
-// 기본 테마
+// Default theme
 BLUE
 GREEN
 
-// 개선 테마
+// Improved theme
 MATERIAL_RED,
 MATERIAL_BLUE,
 MATERIAL_CYAN,
@@ -1808,7 +1790,7 @@ It provides UI for Automatic cancellation feature for payment cancellation abuse
 
 NVoidInfo info = new NVoidInfo();
 
-//테마 종류
+//Types of themes
 MATERIAL_RED,
 MATERIAL_BLUE,
 MATERIAL_CYAN,
@@ -1821,7 +1803,7 @@ MATERIAL_GRAY,
 MATERIAL_GREEN,
 MATERIAL_PEACH
 
-//테마 변경
+//Change theme
 info.theme = "MATERIAL_ORANGE";
 
 // Change description
@@ -1871,22 +1853,22 @@ Boolean result = GamePot.characterInfo(characterLog);
 // Result is FALSE : validation was failed. Please check logcat
 ```
 
-### GDPR 약관 체크리스트
+### GDPR Terms and Conditions Checklist
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+Shows the list of GDPR terms and conditions items activated from Dashboard.
 
 ```csharp
-//리턴되는 데이터포맷은 string[] 입니다.
+//The returning data format is string[].
 GamePot.getGDPRCheckedList();
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
 # Appendix

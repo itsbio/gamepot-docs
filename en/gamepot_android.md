@@ -507,7 +507,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // Connect with Twitter account
 // GamePotChannelType.TWITTER
-// 애플 계정에 연동
+// Connect with Apple account
 // GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
@@ -701,9 +701,9 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ## 7. Other APIs
 
-### SDK 지원 로그인 UI
+### Login UI supported by SDK
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK provides an independent, complete Login UI.
 
 ![gamepot_android_11](./images/gamepot_android_11.png)
 
@@ -719,42 +719,42 @@ import io.gamepot.common.GamePotError;
 String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
 GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
 
-// 구글 로그인 버튼을 눌렀을 때 호출
+// Appears when a user clicks the Google login button.
 GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
     @Override
     public void onCancel() {
-        // 사용자가 로그인을 취소한 상황.
+        // When a user cancels login.
     }
 
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
-        // 로그인 완료. 게임 로직에 맞게 처리해주세요.
-        // userinfo.getMemberid() : 회원 고유 아이디
+        // Login complete. Handle this according to the game logic.
+        // userinfo.getMemberid(): Member's unique ID
     }
 
     @Override
     public void onFailure(GamePotError error) {
-        // 로그인 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+        // Login failed. Show an error message using error.getMessage().
     }
 });
 ```
 
-#### 로그인 UI 이미지 로고 설정
+#### Setting Login UI image logo
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
 
-**이미지 로고 직접 넣기**
+**Customizing Image Logo**
 
-> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
+> Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo), icons are automatically created for each folder. You can simply put them in the corresponding folder.
 
-1. res/drawable 관련 폴더를 아래와 같이 생성
+1. Create res/drawable associated folders as below
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
    - res/drawable-xxhdpi/
    - res/drawable-xxxhdpi/
 
-2. 아래 사이즈별로 이미지 제작
+2. Create images in each of the following sizes
    - 78x55
    - 116x82
    - 155x110
@@ -762,9 +762,9 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
    - 310x220
 
 
-3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
+3. Add an image of the specified size to each folder as shown in the following table
 
-| 폴더명                | 사이즈 |
+| Folder name                | Size |
 | :-------------------- | :----- |
 | res/drawable-mdpi/    | 78x55  |
 | res/drawable-hdpi/    | 116x82  |
@@ -772,7 +772,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 | res/drawable-xxhdpi/  | 232x165  |
 | res/drawable-xxxhdpi/ | 310x220  |
 
-- 이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경
+- Rename the image file to `ic_stat_gamepot_login_logo.png`
 
 ### Log in to NAVER
 
@@ -911,9 +911,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
-### 애플 로그인(Web Login)
+### Log in to Apple (Web login)
 
-#### build.gradle 설정
+#### Configure build.gradle
 
 ```java
 dependencies {
@@ -923,7 +923,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.java 설정
+#### Set MainActivity.java
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -938,7 +938,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-#### 로그인
+#### Login
 
 ```java
 GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
@@ -1043,7 +1043,7 @@ This feature displays images uploaded in Dashboard > Notice.
 /* showTodayButton: Provides a choice to show 'Do not show for 24 hours' button or not. It will always appear if it's false. */
 boolean showTodayButton = true;
 
-GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showNotice(/*Current activity*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
         // TODO : Process scheme
@@ -1051,20 +1051,20 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new G
 });
 ```
 
-### 공지사항(분류 별 호출)
+### Notice (Call by classification)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+Dashboard - This feature displays the classified image from the images uploaded in Notice.
 
-#### 호출
+#### Call
 
 ```java
-/* 대시보드 공지사항 >> 분류에서 설정한 분류명 */
+/* Dashboard Notice >> Name set in classification */
 string type = "";
 
-GamePot.getInstance().showEvent(/*현재 액티비티*/, type, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showEvent(/*Current activity*/, type, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
-        // TODO : scheme 처리
+        // TODO: Process scheme
     }
 });
 ```
@@ -1200,7 +1200,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
 
 Each area can be customized.
 
@@ -1212,17 +1212,17 @@ Each area can be customized.
 
   ![gamepot_android_08](./images/gamepot_android_08.png)
 
-  - 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+  - Example of `MATERIAL_ORANGE` theme from the improved themes
 
   ![gamepot_android_12](./images/gamepot_android_12.png)
 
 #### Call Agree to terms and conditions
 ```java
-// 기본 테마
+// Default theme
 GamePotAgreeBuilder.THEME.BLUE
 GamePotAgreeBuilder.THEME.GREEN
 
-//개선 테마
+//Improved theme
 GamePotAgreeBuilder.THEME.MATERIAL_RED,
 GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
 GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
@@ -1293,7 +1293,7 @@ agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });
 agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
 agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
-agreeBuilder.setFooterTitle("게임 시작하기");
+agreeBuilder.setFooterTitle("Start game");
 // Whether to show Agree to Receive Night Ad push button
 agreeBuilder.setShowNightPush(true);
 
@@ -1413,23 +1413,23 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
-### GDPR 약관 체크리스트
+### GDPR Terms and Conditions Checklist
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+Shows the list of GDPR terms and conditions items activated from Dashboard.
 
 ```java
 import io.gamepot.common.GamePot;
 
 (List<String>) GamePot.getInstance().getGDPRCheckedList();
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
 # Appendix

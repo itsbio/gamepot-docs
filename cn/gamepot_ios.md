@@ -6,12 +6,6 @@ search:
 
 # iOS SDK
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
-
 ## 1. 入门
 
 #### Step 1. 配置开发环境
@@ -152,7 +146,7 @@ gamepot_facebook_display_name : Facebook display name
 
 ```markup
 gamepot_line_channelid : Line Channel ID
-gamepot_line_url_schemes : Line URL Scheme (line3rdp.{프로젝트 번들 ID})
+gamepot_line_url_schemes : Line URL Scheme (line3rdp.{项目包ID})
 ```
 
 #### Step 11. Twitter 登录首选项
@@ -598,11 +592,12 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 
 ## 6.其他 API
 
-### SDK 지원 로그인 UI
+### SDK 支持登录 UI
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK 中自行提供（完成形式的）Login UI。
 
 ![gamepot_ios_18](./images/gamepot_ios_18.png)
+
 ```c++
 #import <GamePot/GamePot.h>
 #import <GamePotChannel/GamePotChannel.h>
@@ -612,32 +607,32 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 [option setShowLogo:YES];
 
  [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
-    // 로그인 성공
+    // 登录成功
     } cancel:^{
-    // 로그인 취소
+    // 登录取消
     } fail:^(NSError *error) {
-    // 로그인 실패
+    // 登录失败
     } update:^(GamePotAppStatus *appStatus) {
-    // 업데이트
+    // 更新
     } maintenance:^(GamePotAppStatus *appStatus) {
-    // 점검
+    // 维护
     } exit:^{
-    // showLoginWithUI 종료
+    // showLoginWithUI终止
     }
 ];
 ```
 
-#### 로그인 UI 이미지 로고 설정
+#### 设置登录 UI 镜像标志
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
 
-**이미지 로고 직접 넣기**
+**亲自添加镜像标志**
 
-> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+> 镜像标志在 GamePot.bundle 中，以 ic_stat_gamepot_logo.png 文件格式存在。
 
-이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+将镜像文件名变更为`ic_stat_gamepot_login_logo.png`后更换。
 
-(권장 사이즈 : 310x220)
+（推荐大小：310x220）
 
 ### 优惠券
 
@@ -819,7 +814,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
 
 -`蓝色`主题示例
 
@@ -829,7 +824,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
-- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+- 改善主题中，`MATERIAL_ORANGE`主题示例
 
 ![gamepot_ios_19](./images/gamepot_ios_19.png)
 
@@ -840,10 +835,10 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 > 单击“查看”按钮时显示的内容可以在仪表板中应用和修改。
 
 ```text
-// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
-// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+// 蓝色主题[[GamePotAgreeOption alloc] init:BLUE];
+// 绿色主题[[GamePotAgreeOption alloc] init:GREEN];
 
-// 개선테마  
+// 改善主题
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -906,7 +901,7 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 ![gamepot_ios_14](./images/gamepot_ios_14.png)
 
-### 이용약관
+### 使用条款
 
 调用使用条款 UI。
 
@@ -998,21 +993,22 @@ BOOL result = [GamePotSendLog characterInfo:info];
 // Result is FALSE : validation was failed. Please check logcat
 
 ```
-### GDPR 약관 체크리스트
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+### GDPR 条款选项列表
+
+将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
 
 ```c++
 (NSArray*) [[GamePot getInstance] getGDPRCheckedList];
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//返回的各项参数，属于仪表盘的以下设置。
+gdpr_privacy：个人信息处理方针
+gdpr_term：使用条款
+gdpr_gdpr：GDPR使用条款
+gdpr_push_normal：同意接收事件推送
+gdpr_push_night：同意夜间接收事件推送（仅限韩国）
+gdpr_adapp_custom：同意接收个人精准广告投放（GDPR实施国家）
+gdpr_adapp_nocustom：同意接收精准投放以外的一般广告（GDPR实施国家）
 ```
 
 ## 7. 下载
@@ -1025,7 +1021,7 @@ gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GD
 
 TODO : 说明
 
-## 로그인
+## 登录
 
 TODO : 说明
 

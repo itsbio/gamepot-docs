@@ -229,7 +229,7 @@ Add the following code to the AppDelegate file.
    if (@available(iOS 14, *)) {
        if(NSClassFromString(@"ATTrackingManager"))
        {
-           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           // If a listener is not registered, then the request pop-up won't be called.
            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
 
                switch (status)
@@ -598,9 +598,9 @@ Refer to `Purchase` in `Server to server api` to implement this.
 
 ## 6. Other APIs
 
-### SDK 지원 로그인 UI
+### Login UI supported by SDK
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK provides an independent, complete Login UI.
 
 ![gamepot_ios_18](./images/gamepot_ios_18.png)
 ```c++
@@ -612,32 +612,32 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 [option setShowLogo:YES];
 
  [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
-    // 로그인 성공
+    // Login succeeded
     } cancel:^{
-    // 로그인 취소
+    // Cancel login
     } fail:^(NSError *error) {
-    // 로그인 실패
+    // Login failed
     } update:^(GamePotAppStatus *appStatus) {
-    // 업데이트
+    // Update
     } maintenance:^(GamePotAppStatus *appStatus) {
-    // 점검
+    // Check
     } exit:^{
-    // showLoginWithUI 종료
+    // Close showLoginWithUI
     }
 ];
 ```
 
-#### 로그인 UI 이미지 로고 설정
+#### Setting Login UI image logo
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
 
-**이미지 로고 직접 넣기**
+**Customizing Image Logo**
 
-> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+> The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
 
-이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+Rename the image file to `ic_stat_gamepot_login_logo.png` and replace it.
 
-(권장 사이즈 : 310x220)
+(Recommended image size: 310x220)
 
 ### Coupon
 
@@ -707,11 +707,11 @@ This feature displays images uploaded in Dashboard > Notice.
 }];
 ```
 
-### 공지사항(분류 별 호출)
+### Notice (Call by classification)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+Dashboard - This feature displays the classified image from the images uploaded in Notice.
 
-#### 호출
+#### Call
 
 ```text
 [[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
@@ -819,7 +819,7 @@ Modify the previously applied APIs as described below.
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
 
  Each area can be customized.
 
@@ -831,7 +831,7 @@ Provides UI to easily obtain agreement to "Terms of service" and "Collection and
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
-- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+- Example of `MATERIAL_ORANGE` theme from the improved themes
 
 ![gamepot_ios_19](./images/gamepot_ios_19.png)
 
@@ -842,10 +842,10 @@ Provides UI to easily obtain agreement to "Terms of service" and "Collection and
 > When you click the 'View' button, you can apply and edit the content in the dashboard.
 
 ```text
-// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
-// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+// BLUE theme [[GamePotAgreeOption alloc] init:BLUE];
+// GREEN theme [[GamePotAgreeOption alloc] init:GREEN];
 
-// 개선테마  
+// Improved themes  
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -1000,21 +1000,21 @@ BOOL result = [GamePotSendLog characterInfo:info];
 
 ```
 
-### GDPR 약관 체크리스트
+### GDPR Terms and Conditions Checklist
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+Shows the list of GDPR terms and conditions items activated from Dashboard.
 
 ```c++
 (NSArray*) [[GamePot getInstance] getGDPRCheckedList];
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
 ## 7. Download

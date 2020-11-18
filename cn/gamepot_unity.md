@@ -5,12 +5,6 @@ search:
 
 # Unity SDK
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
-
 ## 1. 开始吧
 
 ### Step 1. 导入 GAMEPOT 插件
@@ -189,7 +183,7 @@ public class GamePotLoginSampleScene : MonoBehaviour {
         GamePot.initPlugin();
     }
     void Start () {
-        GamePot.setListener(  GamePotInterface.cs 상속받은 class );
+        GamePot.setListener(GamePotInterface.cs继承到的class);
          // ex) GamePot.setListener(new GamePotSampleListener());
     }
 
@@ -289,7 +283,7 @@ defaultConfig {
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
-### APPLE 로그인
+### APPLE登录
 
 > 此功能仅适用于 iOS。（对于Android，它以Web登录的形式受支持-请参阅8。其他API）
 
@@ -395,24 +389,6 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
         case NCommon.ResultLogin.FAILED:
         // login fail
         break;
-        case NCommon.ResultLogin.NEED_UPDATE:
-            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
-                // GamePot.showAppStatusPopup(status.ToJson());
-        break;
-        case NCommon.ResultLogin.MAINTENANCE:
-            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
-                // GamePot.showAppStatusPopup(status.ToJson());
-        break;        
-        case NCommon.ResultLogin.APP_CLOSE:
-            // TODO: 강제 업데이트나 점검 기능을 case 2 방식(SDK 팝업)으로 구현하는 경우에 사용
-            // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
-        break;
         default:
         break;
     }
@@ -443,10 +419,10 @@ NUserInfo 正义
 ```csharp
 public class NUserInfo
 {
-    public string memberid { get; set; }        // 맴버 ID(유저의 유니크 아이디)
-    public string name { get; set; }            // 이름
-    public string profileUrl { get; set; }      // 프로필 URL(존재 시)
-    public string email { get; set; }           // 이메일(존재 시)
+    public string memberid { get; set; }        // 成员ID（玩家独特ID）
+    public string name { get; set; }            // 姓名
+    public string profileUrl { get; set; }      // 简介URL（存在时）
+    public string email { get; set; }           // 邮件（存在时）
     public string token { get; set; }           // 用于用户有效性检查的令牌（在Token Authentication API中使用）
     public string userid { get; set; }          // Social ID(google, facebook ...)
 }
@@ -788,10 +764,10 @@ Public void UI_Update()
 ```csharp
 NPurchaseItem[] items = GamePot.getPurchaseItems();
 foreach(NPurchaseItem item in items) {
-    Debug.Log(item.productId);        // 상품ID
-    Debug.Log(item.price);            // 가격
-    Debug.Log(item.title);            // 제목
-    Debug.Log(item.description);    // 설명
+    Debug.Log(item.productId);        // 产品ID
+    Debug.Log(item.price);            // 价格
+    Debug.Log(item.title);            // 标题
+    Debug.Log(item.description);    // 概述
 }
 ```
 
@@ -952,21 +928,21 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. 其他 API
 
-### SDK 지원 로그인 UI
+### SDK支持登录UI
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK中自行提供（完成形式的）Login UI。
 
 ![gamepot_unity_27](./images/gamepot_unity_27.png)
 
 ```csharp
 public class NLoginUIInfo
 {
-    public NCommon.LoginType[] loginTypes { get; set; }     // 노출할 Login UI 타입(배열)
-    public bool showLogo { get; set; }                      // 이미지 로고 노출 여부
+    public NCommon.LoginType[] loginTypes { get; set; }     // 显示的Login UI类型（排列）
+    public bool showLogo { get; set; }                      // 是否显示镜像标志
 }
 ```
 
-#### SDK 로그인 UI 호출
+#### SDK登录UI调用
 
 - Case 1
 
@@ -975,7 +951,7 @@ Request:
 ```csharp
  NLoginUIInfo info = new NLoginUIInfo();
 
-//호출할 로그인 UI 타입
+//待调用登录UI类型
  info.loginTypes = new NCommon.LoginType[] 
  {
      NCommon.LoginType.GOOGLE,
@@ -989,36 +965,36 @@ Request:
 
 Response:
 
- **일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
+ **与一般登录API回复逻辑相同。 （但onLoginCancel / onLoginFailure时，Native等级中将以提示信息处理）**
 
 ```csharp
-// 로그인 성공
+// 登录成功
 public void onLoginSuccess(NUserInfo userInfo)
 {
 }
-// 강제 업데이트(스토어 버전과 클라이언트 버전이 다를 경우 호출)
+// 强制更新（商店版本和客户端版本不一致时调用）
 public void onNeedUpdate(NAppStatus status)
 {
-    // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+    // TODO：要基于从参数导入的status信息创建弹窗告知用户。
+    // TODO：请从下列两种方式中选择一种。
+    // case 1：通过游戏内弹窗由开发公司直接实现UI
+    // case 2：使用SDK的弹窗（此时请调用下列代码。）
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// 점검(대시보드에 점검이 활성화되어 있는 경우 호출)
+// 检验（仪表盘中检验被激活时调用）
 public void onMainternance(NAppStatus status)
 {
-       // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+       // TODO：要基于从参数导入的status信息创建弹窗告知用户。
+    // TODO：请从下列两种方式中选择一种。
+    // case 1：通过游戏内弹窗由开发公司直接实现UI
+    // case 2：使用SDK的弹窗（此时请调用下列代码。）
     // GamePot.showAppStatusPopup(status.ToJson());
 }
-// 앱 종료
+// 应用程序终止
 public void onAppClose()
 {
-    // TODO: 강제 업데이트나 점검 기능을 case 2 방식으로 구현하는 경우
-    // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
+    // TODO：用case 2方式实现强制更新或检验功能时
+    // TODO：可能会强制终止应用程序，因此请在此终止应用程序。
 }
 ```
 
@@ -1045,17 +1021,17 @@ Request:
 
 #### Customizing
 
-**로그인 UI 이미지 로고 변경 방법**
+**登录UI镜像标志变更方法**
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+登录UI上方显示的镜像标志在SDK内部中以默认镜像显示，也可以直接添加。
 
 **[Android]**
 
-> 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
+> 直接添加时，须在各`drawable`文件夹放入镜像。\(利用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)制作时，镜像将按文件夹自动制作，更加方便。\)
 
-이미지 파일명은 ic_stat_gamepot_login_logo.png 이어야 합니다.
+镜像文件名应为ic_stat_gamepot_login_logo.png。
 
-| 폴더명                                                         | 크기  |
+| 文件夹名称                                                         | 大小  |
 | :------------------------------------------------------------- | :---- |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
@@ -1065,17 +1041,17 @@ Request:
 
  **[iOS]**
 
-> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+> 镜像标志在GamePot.bundle中，以ic_stat_gamepot_logo.png文件格式存在。
 
-이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+将镜像文件名变更为`ic_stat_gamepot_login_logo.png`后更换。
 
-(권장 사이즈 : 310x220)
+（推荐大小：310x220）
 
-**Screen Orientation 설정 방법**
+**屏幕方向设置方法**
 
 **[Android]**
 
-/Assets/Plugin/Android/AndroidManifest.xml 파일을 에디터로 엽니다.
+/Assets/Plugin/Android/AndroidManifest.xml文件须使用编辑器打开。
 
 ```markup
 ...e
@@ -1088,7 +1064,7 @@ Request:
 ...
 ```
 
-Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
+在Main Activity中添加screenOrientation后，请根据游戏输入`sensorLandscape`或`sensorPortrait`。
 
 
 ###  Apple Developers (for Android - Web Login)
@@ -1340,7 +1316,7 @@ GamePot.setPushStatus(pushEnable, (success, error) => {
 });
 ```
 
-#### 야간 푸시 설정
+#### 夜间推送设置
 
 - Case 1
 
@@ -1586,9 +1562,9 @@ GamePot.cancelLocalPush(/*推送注册期间获取的PushId*/);
 
 提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
 
-각 영역별로 Customizing도 가능합니다.
+各领域可以自定义。
 
 - “蓝色”主题的示例
 
@@ -1598,18 +1574,18 @@ GamePot.cancelLocalPush(/*推送注册期间获取的PushId*/);
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
-- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+- 改善主题中，`MATERIAL_ORANGE`主题示例
 
   ![gamepot_unity_28](./images/gamepot_unity_28.png)
 
 #### 条款及细则电话
 
 ```csharp
-// 기본 테마
+// 基本主题
 BLUE
 GREEN
 
-// 개선 테마
+// 改善主题
 MATERIAL_RED,
 MATERIAL_BLUE,
 MATERIAL_CYAN,
@@ -1635,7 +1611,7 @@ Request:
 // 基本通话（适用于蓝色主题）
 GamePot.showAgreeDialog();
 
-// 그 외 테마로 적용 시
+// 其它主题应用时
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info);
@@ -1667,7 +1643,7 @@ Request:
 // 基本通话（适用于蓝色主题）
 showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
-// 그 외 테마로 적용시
+// 其它主题应用时
 NAgreeInfo info = new NAgreeInfo();
 info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
@@ -1810,7 +1786,7 @@ var json_value = GamePot.getConfigs();
 
 NVoidInfo info = new NVoidInfo();
 
-//테마 종류
+//主题种类
 MATERIAL_RED,
 MATERIAL_BLUE,
 MATERIAL_CYAN,
@@ -1823,7 +1799,7 @@ MATERIAL_GRAY,
 MATERIAL_GREEN,
 MATERIAL_PEACH
 
-//테마 변경
+//主题变更
 info.theme = "MATERIAL_ORANGE";
 // 词组变化
 info.headerTitle = "Header Title Section!";
@@ -1872,22 +1848,22 @@ Boolean result = GamePot.characterInfo(characterLog);
 // Result is FALSE : validation was failed. Please check logcat
 ```
 
-### GDPR 약관 체크리스트
+### GDPR条款选项列表
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+将在仪表盘中激活的GDPR条款项目以列表形式导出。
 
 ```csharp
-//리턴되는 데이터포맷은 string[] 입니다.
+//返回的数据格式是string[]。
 GamePot.getGDPRCheckedList();
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//返回的各项参数，属于仪表盘的以下设置。
+gdpr_privacy：个人信息处理方针
+gdpr_term：使用条款
+gdpr_gdpr：GDPR使用条款
+gdpr_push_normal：同意接收事件推送
+gdpr_push_night：同意夜间接收事件推送（仅限韩国）
+gdpr_adapp_custom：同意接收个人精准广告投放（GDPR实施国家）
+gdpr_adapp_nocustom：同意接收精准投放以外的一般广告（GDPR实施国家）
 ```
 
 # 附录

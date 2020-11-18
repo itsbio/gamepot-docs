@@ -108,11 +108,11 @@ Displays the list of members who signed up.
 
 ![gamepot_dashboard_08](./images/gamepot_dashboard_08.png)
 
-① Specify a time period to view when members signed up.
+① Members can be viewed by specifying sign-up date, country, store, user ID, device ID, ADID, IP, etc.
 
-② Specify a user ID or IP address to view specific members.
+② The members' list can be downloaded in CSV file format.
 
-③ Download members as a CSV file.
+③ Members' login history, up to 90 days, can be downloaded in CSV file format.
 
 ④ The page displaying the details of a member is displayed in the figure below.
 
@@ -214,7 +214,7 @@ This feature works based on a user ID.
 
 ② Set blocking categories to register response message templates.
 
-③ Specify the period for which you want to view blocked information.
+③ Specify the period for which you want to view the block history. The search result will be displayed by the starting date of the blocked period
 
 ④ Specify a user ID you want to view blocking details of.
 
@@ -231,14 +231,17 @@ Check payments attempted in Google Play Store, App Store, ONE Store, and Galaxy 
 
 ![gamepot_dashboard_14](./images/gamepot_dashboard_14.png)
 
-① View the failures only.
+① Select multiple checkboxes for failed payments, then click Provide Again button to give them again.
 
-② Select a currency to check the payment list for each call.
-③ 실패한 결제에 대해서 체크박스로 다중선택 한 다음, 재지급 버튼을 눌러 재지급 할 수 있습니다.
+② The history of canceled or failed payments is only viewed.
 
-④ Cancel payments that were made successfully. The canceled payments are excluded from the sales.
+③ Select time period, store, currency, payment ID, or user ID to view the payment list.
 
-⑤ Display whether or not a payment attempt was successful. Items can be provided again for failed payment attempts.
+④ The payment list can be downloaded in CSV file format.
+
+⑤ Successful payments can be canceled. The canceled payments are excluded from the sales statistics.
+
+⑥ View whether or not a payment attempt made by a user was successful. Items can be provided again for failed payment attempts.
 
 ![gamepot_dashboard_15](./images/gamepot_dashboard_15.png)
 
@@ -254,7 +257,7 @@ Manages product information when an in-app purchase is made. You must add all pr
 
 ② Click **Mass input** to add multiple in-app items as a CSV file.
 
-③ 각 상품 항목의 체크박스를 다중선택 한 다음, **삭제**버튼을 클릭해 삭제할 수 있습니다.
+③ Select multiple checkboxes for product items and click **Delete** button to delete.
 
 #### - Statistics
 
@@ -276,9 +279,11 @@ Provides a graph displaying payments on a daily basis.
 
 ① Set the blocking conditions for users who cancel payments.
 
-② Download RAW data of the current graph as a CSV file.
+② Select status, store, user ID, or package ID to view the canceled payment list.
 
-③ Check the last updated time.
+③ The canceled payment list can be downloaded in CSV file format.
+
+④ Check the last updated time.
 
 ![gamepot_dashboard_19](./images/gamepot_dashboard_19.png)
 
@@ -354,9 +359,9 @@ Specify the fields in the following pop-up window and click **Save**; a notice w
 
 ③ Select all stores or a specific store where you want to display the notice.
 
-④ 노출할 공지사항의 분류를 지정합니다. 분류가 지정된 이미지는, 해당 분류 값으로 호출할 때에만 이미지가 노출됩니다.
+④ Specify classification for the notice to display. The classified images are only displayed when called by the relevant classification value.
 
-⑤ 노출할 공지사항의 국가를 지정합니다. 해당 국가에 해당하는 디바이스에 대해서만 이미지가 노출됩니다.
+⑤ Specify country for the notice to display. The images will only be displayed for devices in the relevant country.
 
 ⑥ If users touch images displayed in the notice, the URL opens in an external browser and a SCHEME returns the value with callback function.
 
@@ -557,10 +562,9 @@ Enables you to answer questions asked by users. If there is a customer support m
 
 #### - Inquiries
 
-It displays inquiries made by users.
-Satisfaction appears when the customer selects it after the inquiry.
+![gamepot_dashboard_91](./images/gamepot_dashboard_91.png)
 
-![gamepot_dashboard_41](./images/gamepot_dashboard_41.png)
+It displays inquiries made by users. Customer satisfaction rating only appears after the inquiry is closed and the user rates the response.
 
 Click **User ID**.
 
@@ -572,13 +576,15 @@ Click **User ID**.
 
 ② Translate the inquiry's title. It is translated from the detected language to the default translation language.
 
-③ Translate the answer. Only languages supported by Papago appear in the list.
+③ You can select a reply template to apply.
 
-④ Only upload an image file required for the answer.
+④ Translate the response. Only languages supported by Papago appear in the list.
 
-⑤ Translate the inquiry. It is translated from the detected language to the default translation language.
+⑤ Upload image file required for the response.
 
-⑥ It displays all the basic information about the user.
+⑥ Translate the inquiry. It will be translated from the detected language to the user's default language.
+
+⑦ It displays all information of the user by default.
 
 **\[Notifications\]**
 
@@ -588,21 +594,21 @@ Send push messages and emails to users when you answer their questions.
 
 ① Set whether to enable Push notification feature.
 
-② Specify a default language among push messages displayed differently for the device's language setting.
+② Push messages appear differently for the device's language setting.
 
-③ Push messages appear differently for the device's language setting.
+![gamepot_dashboard_103](./images/gamepot_dashboard_103.png)
 
-④ Set whether to enable email notification feature.
+① Set to Enabled to activate email notification.
 
-⑤ Enter an address of an email to send.
+② Enter the sender's email address.
 
-⑥ Enter a name of the email to send.
+③ Enter the sender's name.
 
-⑦ Enter a header of the email. A default description will be sent if you don't enter anything.
+④ Enter the mail content. A default message will be sent if you don't enter anything here.
 
-⑧ Enter a footer of the email. A default description will be sent if you don't enter anything.
+⑤ Preview the email template to be sent.
 
-⑨ Preview the email template to be sent.
+⑥ Save the notification and mail settings with the OK button.
 
 **\[Set category\]**
 
@@ -624,13 +630,29 @@ Click **Set category.**
 
 ④ Enter templates for the specified language's category and the category's inquiry.
 
-**\[Set remote access\]**
+**\[Web inquiry address\]**
 
-Enables users to register inquiries with remote access without logging in. Answers are sent via email.
+It enables users to register web inquiries without logging in. Answers are sent via email.
 
-![gamepot_dashboard_91](./images/gamepot_dashboard_91.png)
+Click **Web inquiry address** to save the external inquiry's URL in the clipboard.
 
-Click **Set remote access** to save external inquiry's URL in the clipboard.
+**\[Reply Template Settings\]**
+
+You can set up your own inquiry reply templates.
+
+![gamepot_dashboard_108](./images/gamepot_dashboard_108.png)
+
+Click **Add reply template**.
+
+![gamepot_dashboard_109](./images/gamepot_dashboard_109.png)
+
+① Select whether to use a reply template.
+
+② Select a template language. Only the languages used in the project can be selected.
+
+③ Enter a template name for the selected language.
+
+④ Enter template content for the selected language.
 
 #### - FAQ
 
@@ -656,11 +678,7 @@ Click **Add**.
 
 It categorizes FAQs.
 
-![gamepot_dashboard_50](./images/gamepot_dashboard_50.png)
-
 Click **Set category.**
-
-![gamepot_dashboard_51](./images/gamepot_dashboard_51.png)
 
 **Set category** enables you to add and manage categories for inquiries..
 
@@ -673,6 +691,10 @@ Click **Set category.**
 ③ Add different FAQ categories for the device's language setting.
 
 ④ Enter a category for the specified language.
+
+**\[Web access address\]**
+
+Enables users to view the FAQ on the web without logging in.
 
 #### - Set terms of service
 
@@ -732,11 +754,31 @@ Create a web document and provides an access address.
 
 ② Enter the contents of a page for the specified language.
 
-### 광고
+#### -GDPR
 
-(주)나스미디어와 제휴하여, 손쉽게 광고를 신청하고 각종 통계정보를 GAMEPOT 대시보드에서 확인할 수 있는 기능입니다.
+Display the GDPR terms and conditions instead of existing terms and conditions when the GDPR applicable country is identified based on the client access IP.
 
-![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
+![gamepot_dashboard_105](./images/gamepot_dashboard_105.png)
+
+① Specify the settings related to GDPR.
+
+② Select GDPR page.
+
+③ Select whether to use the current page.
+
+④ Select whether to set the current page check as mandatory.
+
+![gamepot_dashboard_106](./images/gamepot_dashboard_106.png)
+
+> Enable OutBoundMailer function from Naver Cloud Console to use GDPR.
+
+① Select whether to activate GDPR. When GDPR is activated, the existing terms and conditions and privacy policy will be replaced with the content for the GDPR setting.
+
+② Enter the sender's email address.
+
+③ Enter the sender's name.
+
+④ Select whether to enable consent request for in-app advertisement. It must be enabled to display [Consent to personalized advertisement] or [Consent to non-personalized advertisement].
 
 ## Game
 
@@ -752,7 +794,21 @@ Webhook enables you to send items to game servers.
 
 ![gamepot_dashboard_88](./images/gamepot_dashboard_88.png)
 
-② Click **Send gifts**.
+① Add gift to send.
+
+② Add multiple gifts to send by uploading CSV.
+
+③ Select multiple checkboxes for failed gift sending items, then click Send Again button to send them again.
+
+④ The history of gift sending items is only viewed.
+
+⑤ Search with period, user ID, title, content, etc.
+
+⑥ The list of gift sent can be downloaded in CSV file format.
+
+⑦ View details of gift sent.
+
+Click **Send gifts**.
 
 ![gamepot_dashboard_89](./images/gamepot_dashboard_89.png)
 
@@ -802,6 +858,12 @@ Displays statistical data of the users who register via the advance reservation 
 ③ Download users who made an advance reservation.
 
 The feature to send bulk messages to the users will be added later.
+
+## Advertisement
+
+In partnership with Nasmedia Co., Ltd, the users can easily apply to run advertisements and view various statistical information on GAMEPOT dashboard.
+
+![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
 
 ## Settings
 
@@ -878,6 +940,12 @@ It is needed to connect with the Google API \(to check users who canceled their 
 ③ Enter Google receipt's purchase token.
 
 ④ Check the result of viewing Google receipt.
+
+##### Apple ID Login
+
+![gamepot_dashboard_102](./images/gamepot_dashboard_102.png)
+
+This information is required to be set up in advance in order for the user to log in with Apple ID on the Android device. Click View Help to see in detail how to enter this information and the return URL.
 
 ##### App ID
 
@@ -1044,6 +1112,12 @@ Go to the GAMEPOT Dashboard User Guide page.
 
 ![gamepot_dashboard_77](./images/gamepot_dashboard_77.png)
 
+### GAMEPOT Notice
+
+View GAMEPOT notices.
+
+![gamepot_dashboard_110](./images/gamepot_dashboard_110.png)
+
 ### Change language
 
 Change the display language of the dashboard to the selected language.
@@ -1072,6 +1146,16 @@ Click the icon on the upper right side of the dash board and then click **Edit m
 
 ⑥ Change the password.
 
+⑦ You can set up 2-step login authentication.
+
+![gamepot_dashboard_107](./images/gamepot_dashboard_107.png)
+
+The 2-step login authentication can be set up either by authentication number or OTP.
+
+① Set up 2-step authentication by mobile SMS authentication number.
+
+② Set up 2-step authentication by Google OTP.
+
 ### Settings
 
 Enables you to manage users, role management, and update features for your GAMEPOT dashboard.
@@ -1090,19 +1174,17 @@ Click **Register**. When the pop-up window displayed below appears, add a corres
 
 ![gamepot_dashboard_83](./images/gamepot_dashboard_83.png)
 
-① A user ID to register. Use email formats only.
+① Select a standard time zone for the user dashboard.
 
-② A user name to register.
+② Select a target language when using customer support translations.
 
-③ A user password to register.
+③ Set whether to detect the languages of inquiries automatically when using customer support translations.
 
-④ Select a standard time zone for the user dashboard.
+④ Set whether to translate the inquiries automatically when using customer support translations.
 
-⑤ Select a target language when using customer support translations.
+⑤ Select whether to require 2-step authentication when the user logs in.
 
-⑥ Set whether or not to detect the languages of inquiries automatically when using customer support translations.
-
-⑦ Set whether or not to translate the languages of inquiries automatically when using customer support translations.
+⑥ Restrict access from unauthorized IPs when IP access restriction is enabled.
 
 #### - Role
 

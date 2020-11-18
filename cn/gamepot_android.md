@@ -1,15 +1,9 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
 
 # Android SDK
-
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
 
 ## 1. 入门
 
@@ -362,7 +356,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: Naver
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
-// GamePotChannelType.APPLE: Apple 
+// GamePotChannelType.APPLE: Apple
 // GamePotChannelType.GUEST: 游客
 
 // 点击Google登录按钮的时候调用
@@ -565,7 +559,7 @@ import io.gamepot.common.GamePotError;
 GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new GamePotCommonListener() {
     @Override
     public void onSuccess() {
-        // 解除绑定成功。请把绑定结果的文本提示给用户。(如：계정 연동을 해지했습니다. （解除绑定成功）)
+        // 解除绑定成功。请把绑定结果的文本提示给用户。 (如：已经解除账户关联。 （解除绑定成功）)
     }
 
     @Override
@@ -700,9 +694,9 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ## 7. 其他 API
 
-### SDK 지원 로그인 UI
+### SDK 支持登录 UI
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK 中自行提供（完成形式的）Login UI。
 
 ![gamepot_android_11](./images/gamepot_android_11.png)
 
@@ -718,59 +712,61 @@ import io.gamepot.common.GamePotError;
 String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
 GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
 
-// 구글 로그인 버튼을 눌렀을 때 호출
+// 点击Google登录按钮时调用
 GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
     @Override
     public void onCancel() {
-        // 사용자가 로그인을 취소한 상황.
+        // 用户已取消登录。
     }
 
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
-        // 로그인 완료. 게임 로직에 맞게 처리해주세요.
-        // userinfo.getMemberid() : 회원 고유 아이디
+        // 登录完成。 请根据游戏逻辑处理。
+        // userinfo.getMemberid()：会员固有ID
     }
 
     @Override
     public void onFailure(GamePotError error) {
-        // 로그인 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+        // 登录失败，请通过error.getMessage()显示错误消息。
     }
 });
 ```
 
-#### 로그인 UI 이미지 로고 설정
+#### 设置登录 UI 镜像标志
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
 
-**이미지 로고 직접 넣기**
+**亲自添加镜像标志**
 
-> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
+> 使用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)制作图标时，会自动按照文件夹数量创建，只需直接放入各文件夹即可。
 
-1. res/drawable 관련 폴더를 아래와 같이 생성
+1. 如下创建 res/drawable 相关文件夹
+
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
    - res/drawable-xxhdpi/
    - res/drawable-xxxhdpi/
 
-2. 아래 사이즈별로 이미지 제작
+2. 按如下大小制作镜像
+
    - 78x55
    - 116x82
    - 155x110
    - 232x165
    - 310x220
 
-3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
+3. 如下所示，为每个文件夹添加大小合适的镜像。
 
-| 폴더명                | 사이즈 |
-| :-------------------- | :----- |
-| res/drawable-mdpi/    | 78x55  |
+| 文件夹名称            | 大小    |
+| :-------------------- | :------ |
+| res/drawable-mdpi/    | 78x55   |
 | res/drawable-hdpi/    | 116x82  |
-| res/drawable-xhdpi/   | 155x110  |
-| res/drawable-xxhdpi/  | 232x165  |
-| res/drawable-xxxhdpi/ | 310x220  |
+| res/drawable-xhdpi/   | 155x110 |
+| res/drawable-xxhdpi/  | 232x165 |
+| res/drawable-xxxhdpi/ | 310x220 |
 
-- 이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경
+- 镜像文件名变更为`ic_stat_gamepot_login_logo.png`
 
 ### Naver 登錄
 
@@ -1115,8 +1111,8 @@ GamePot.getInstance().showCSWebView(/*目前Activity*/);
 ```java
 String date = "2018-09-27 20:00:00";
 GamePotLocalPushBuilder builder = new GamePotLocalPushBuilder(getActivity())
-                        .setTitle("로컬푸시 테스트（本地推送测试）")
-                        .setMessage("로컬푸시 메시지입니다.（本地推送信息） " + date)
+                        .setTitle("本地推送测试（本地推送测试）")
+                        .setMessage("这是本地推送消息。（本地推送信息） " + date)
                         .setDateString(date).build();
 int pushid = GamePot.getInstance().sendLocalPush(builder);
 ```
@@ -1200,8 +1196,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 我们提供用户界面，以便轻松获取“使用条款”和“收集和使用个人信息指南”。
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
-
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
 
 - `BLUE`主题的例子
 
@@ -1211,18 +1206,18 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
   ![gamepot_android_08](./images/gamepot_android_08.png)
 
-  - 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+  - 改善主题中，`MATERIAL_ORANGE`主题示例
 
   ![gamepot_android_12](./images/gamepot_android_12.png)
 
 #### 协议协议调用
 
 ```java
-// 기본 테마
+// 基本主题
 GamePotAgreeBuilder.THEME.BLUE
 GamePotAgreeBuilder.THEME.GREEN
 
-//개선 테마
+//改善主题
 GamePotAgreeBuilder.THEME.MATERIAL_RED,
 GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
 GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
@@ -1235,6 +1230,7 @@ GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
 GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
 GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
 ```
+
 > 开发者同意公开适合该游戏的弹出窗口。
 
 > 单击“查看”按钮时显示的内容可以在仪表板中应用和修改。
@@ -1257,7 +1253,7 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), n
     }
 });
 
-// MATERIAL_ORANGE 테마로 적용시
+// 应用MATERIAL_ORANGE主题时
 GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
 GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
   ....
@@ -1412,23 +1408,23 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
-### GDPR 약관 체크리스트
+### GDPR 条款选项列表
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
 
 ```java
 import io.gamepot.common.GamePot;
 
 (List<String>) GamePot.getInstance().getGDPRCheckedList();
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//返回的各项参数，属于仪表盘的以下设置。
+gdpr_privacy：个人信息处理方针
+gdpr_term：使用条款
+gdpr_gdpr：GDPR使用条款
+gdpr_push_normal：同意接收事件推送
+gdpr_push_night：同意夜间接收事件推送（仅限韩国）
+gdpr_adapp_custom：同意接收个人精准广告投放（GDPR实施国家）
+gdpr_adapp_nocustom：同意接收精准投放以外的一般广告（GDPR实施国家）
 ```
 
 # 附录

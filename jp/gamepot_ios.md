@@ -229,7 +229,7 @@ AppDelegate ファイルに以下のコードを追加します。
    if (@available(iOS 14, *)) {
        if(NSClassFromString(@"ATTrackingManager"))
        {
-           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           // リスナー登録されていない場合、リクエストポップアップは発生しない。
            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
 
                switch (status)
@@ -598,9 +598,9 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 
 ## 6. その他の API
 
-### SDK 지원 로그인 UI
+### SDKサポートログインUI
 
-SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+SDK内で、独自に(完成した形の) Login UIを提供します。
 
 ![gamepot_ios_18](./images/gamepot_ios_18.png)
 ```c++
@@ -612,32 +612,32 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 [option setShowLogo:YES];
 
  [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
-    // 로그인 성공
+    // ログイン成功
     } cancel:^{
-    // 로그인 취소
+    // ログインキャンセル
     } fail:^(NSError *error) {
-    // 로그인 실패
+    // ログイン失敗
     } update:^(GamePotAppStatus *appStatus) {
-    // 업데이트
+    // アップデート
     } maintenance:^(GamePotAppStatus *appStatus) {
-    // 점검
+    // メンテナンス
     } exit:^{
-    // showLoginWithUI 종료
+    // showLoginWithUI終了
     }
 ];
 ```
 
-#### 로그인 UI 이미지 로고 설정
+#### ログインUIの画像ロゴの設定
 
-로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
 
-**이미지 로고 직접 넣기**
+**画像ロゴを直接入れる**
 
-> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+> 画像ロゴはGamePot.bundle内に、ic_stat_gamepot_logo.pngファイルとして存在します。
 
-이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更した後、交換します。
 
-(권장 사이즈 : 310x220)
+(推奨サイズ：310x220)
 
 ### クーポン
 
@@ -707,11 +707,11 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 }];
 ```
 
-### 공지사항(분류 별 호출)
+### 案内事項(分類別呼び出し)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+ダッシュボード - 案内事項でアップロードした画像のうち、分類で設定した画像のみ表示する機能です。
 
-#### 호출
+#### 呼び出し
 
 ```text
 [[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
@@ -819,7 +819,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
 
 - `BLUE`テーマの例
 
@@ -829,7 +829,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
-- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+- 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
 
 ![gamepot_ios_19](./images/gamepot_ios_19.png)
 
@@ -840,10 +840,10 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 > ｢見る｣ボタンをクリックすると表示される内容は、ダッシュボードで適用及び修正できます。
 
 ```text
-// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
-// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+// ブルーテーマ [[GamePotAgreeOption alloc] init:BLUE];
+// グリーンテーマ [[GamePotAgreeOption alloc] init:GREEN];
 
-// 개선테마  
+// 改善テーマ  
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -999,21 +999,21 @@ BOOL result = [GamePotSendLog characterInfo:info];
 ```
 
 
-### GDPR 약관 체크리스트
+### GDPR規約チェックリスト
 
-대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
 
 ```c++
 (NSArray*) [[GamePot getInstance] getGDPRCheckedList];
 
-//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
-gdpr_privacy : 개인정보취급방침
-gdpr_term : 이용약관
-gdpr_gdpr : GDPR 이용약관
-gdpr_push_normal : 이벤트 Push 수신동의
-gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
-gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
-gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+//リターンされるパラメータは、それぞれダッシュボードの次の設定に該当します。
+gdpr_privacy：個人情報の取扱方針
+gdpr_term：利用規約
+gdpr_gdpr：GDPRの利用規約
+gdpr_push_normal：イベントPush受信に同意
+gdpr_push_night：夜間イベントPush受信に同意(韓国のみ対象)
+gdpr_adapp_custom：パーソナライズド広告を見るに同意 (GDPR適用国)
+gdpr_adapp_nocustom：非パーソナライズド広告を見るに同意 (GDPR適用国)
 ```
 
 ## 7. ダウンロード
