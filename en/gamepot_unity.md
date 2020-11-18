@@ -289,7 +289,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE login
 
-> This features is for iOS only. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
+> This features is for iOS only. (For Android, it is supported as Web Login - refer to 8. Other API)
 
 **Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign in with Apple.**
 
@@ -861,9 +861,9 @@ public class NPurchaseInfo
     public string productName { get; set; }         // Name of purchased items
     public string gamepotOrderId { get; set; }      // Order ID created in GAMEPOT
     public string uniqueId { get; set; }            // Developer's unique receipt ID
-    public string serverId { get; set; }            // (결제를 진행한 캐릭터의) 서버 아이디
-    public string playerId { get; set; }            // (결제를 진행한 캐릭터의) 캐릭터 아이디
-    public string etc { get; set; }                 // (결제를 진행한 캐릭터의) 기타 정보
+    public string serverId { get; set; }            // Server ID (of the character that made the purchase)
+    public string playerId { get; set; }            // Character ID (of the character that made the purchase)
+    public string etc { get; set; }                 // Other information (of the character that made the purchase)
     public string signature { get; set; }           // Payment signature
     public string originalJSONData { get; set; }    // Receipt data
 }
@@ -932,17 +932,156 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. Other APIs
 
-### 애플 로그인 (for Android - Web Login)
+### Login UI supported by SDK
+
+SDK provides an independent, complete Login UI.
+
+![gamepot_unity_27](./images/gamepot_unity_27.png)
+
+```csharp
+public class NLoginUIInfo
+{
+    public NCommon.LoginType[] loginTypes { get; set; }     // Type of Login UI to show (array)
+    public bool showLogo { get; set; }                      // Whether to show the image logo
+}
+```
+
+#### Call SDK Login UI
+
+- Case 1
+
+Request:
+
+```csharp
+ NLoginUIInfo info = new NLoginUIInfo();
+
+//Type of Login UI to call
+ info.loginTypes = new NCommon.LoginType[] 
+ {
+     NCommon.LoginType.GOOGLE,
+     NCommon.LoginType.FACEBOOK,
+     NCommon.LoginType.GUEST
+     ...
+ };
+ info.showLogo = true;
+ GamePot.showLoginWithUI(info);
+```
+
+Response:
+
+ **It's the same as the regular Login API response logic. (However, in case of onLoginCancel/onLoginFailure, it will be processed as a toast message at Native level.)**
+
+```csharp
+// Login succeeded
+public void onLoginSuccess(NUserInfo userInfo)
+{
+}
+// Force update (call when the store version does not match the client version)
+public void onNeedUpdate(NAppStatus status)
+{
+    // TODO: Notify the user with a pop-up based on the status information passed in a parameter.
+    // TODO: Choose between the following two methods.
+    // case 1: Implement your own UI through an in-game pop-up window.
+    // case 2: Use an SDK pop-up. (In this case, call the following code snippet.)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// Check (call this when Check is enabled in the dashboard.)
+public void onMainternance(NAppStatus status)
+{
+       // TODO: Notify the user with a pop-up based on the status information passed in a parameter.
+    // TODO: Choose between the following two methods.
+    // case 1: Implement your own UI through an in-game pop-up window.
+    // case 2: Use an SDK pop-up. (In this case, call the following code snippet.)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// Exit app
+public void onAppClose()
+{
+    // TODO: When implementing force updates or checks in case 2
+    // TODO: Implement your own code here to force exit the app.
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        default:
+        break;
+    }
+});
+```
+
+#### Customizing
+
+**How to Change Login UI Image Logo**
+
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
+
+**[Android]**
+
+> If you would like to specify your own image, then add them to each `drawable` folder. \(You can easily create images for each folder automatically using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo).\)
+
+The image file name should be specified as ic_stat_gamepot_login_logo.png.
+
+| Folder name                                                         | Image size  |
+| :------------------------------------------------------------- | :---- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
+
+ **[iOS]**
+
+> The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
+
+Rename the image file to `ic_stat_gamepot_login_logo.png` and replace it.
+
+(Recommended image size: 310x220)
+
+**How to Set Up Screen Orientation**
+
+**[Android]**
+
+Open the file /Assets/Plugin/Android/AndroidManifest.xml in your editor.
+
+```markup
+...e
+    <activity android:screenOrientation="sensorLandscap">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+          ...
+      </intent-filter>
+    </activity>
+...
+```
+
+Add screenOrientation to Main Activity, and enter `sensorLandscape` or `sensorPortrait` to fit the game.
+
+
+### Apple Login (for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
-대시보드 프로젝트 설정 >> 일반 >> Apple ID Login 설정
+Dashboard Project Settings >> General >> Apple ID Login Settings
 
-> 기능을 사용하기 위해선 Apple Developer Console 설정이 필요합니다.
+> Apple Developer Console setup is needed to use this feature.
 >
-> 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
+> Refer to **View Help** for the relevant item in the dashboard.
 
-/Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+Add the following aar file in the /Assets/Plugins/Android/libs path. (Select platforms for plugin - ensure to check Android)
 
 - gamepot-channel-apple-signin.aar
 
@@ -1358,7 +1497,7 @@ GamePot.showNotice(bool Flag = true);
 
 GamePot.showEvent(string Type)
 
-// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
+// Type: only show the relevant image set in Dashboard Notice >> Classification
 ```
 
 Response:
@@ -1428,7 +1567,9 @@ GamePot.cancelLocalPush(/*pushId you can get when adding push*/);
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
+
+Each area can be customized.
 
 - Example of `BLUE` theme
 
@@ -1438,7 +1579,29 @@ It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
+- Example of `MATERIAL_ORANGE` theme from the improved themes
+
+  ![gamepot_unity_28](./images/gamepot_unity_28.png)
+  
 #### Call Agree to terms and conditions
+```csharp
+// Default theme
+BLUE
+GREEN
+
+// Improved theme
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH,
+```
 
 > Handle Agree to Terms and Conditions pop-up according to games.
 >
@@ -1452,9 +1615,9 @@ Request:
 // Default call (with BLUE theme)
 GamePot.showAgreeDialog();
 
-// When applying GREEN theme
+// When applying other theme
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info);
 ```
 
@@ -1486,7 +1649,7 @@ showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
 // When applying GREEN theme
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
 ```
 
@@ -1512,7 +1675,7 @@ You can specify colors to each area in `NAgreeInfo` before calling Agree to term
 
 ```csharp
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
 info.headerTitleColor = "0xFFFF0000";
 info.headerBottomColor = "0xFF00FF00";
@@ -1627,6 +1790,22 @@ It provides UI for Automatic cancellation feature for payment cancellation abuse
 
 NVoidInfo info = new NVoidInfo();
 
+//Types of themes
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH
+
+//Change theme
+info.theme = "MATERIAL_ORANGE";
+
 // Change description
 info.headerTitle = "Header Title Section!";
 
@@ -1672,6 +1851,24 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
+```
+
+### GDPR Terms and Conditions Checklist
+
+Shows the list of GDPR terms and conditions items activated from Dashboard.
+
+```csharp
+//The returning data format is string[].
+GamePot.getGDPRCheckedList();
+
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
 # Appendix

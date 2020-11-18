@@ -229,7 +229,7 @@ Add the following code to the AppDelegate file.
    if (@available(iOS 14, *)) {
        if(NSClassFromString(@"ATTrackingManager"))
        {
-           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           // If a listener is not registered, then the request pop-up won't be called.
            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
 
                switch (status)
@@ -598,6 +598,47 @@ Refer to `Purchase` in `Server to server api` to implement this.
 
 ## 6. Other APIs
 
+### Login UI supported by SDK
+
+SDK provides an independent, complete Login UI.
+
+![gamepot_ios_18](./images/gamepot_ios_18.png)
+```c++
+#import <GamePot/GamePot.h>
+#import <GamePotChannel/GamePotChannel.h>
+
+NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
+GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+[option setShowLogo:YES];
+
+ [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
+    // Login succeeded
+    } cancel:^{
+    // Cancel login
+    } fail:^(NSError *error) {
+    // Login failed
+    } update:^(GamePotAppStatus *appStatus) {
+    // Update
+    } maintenance:^(GamePotAppStatus *appStatus) {
+    // Check
+    } exit:^{
+    // Close showLoginWithUI
+    }
+];
+```
+
+#### Setting Login UI image logo
+
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
+
+**Customizing Image Logo**
+
+> The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
+
+Rename the image file to `ic_stat_gamepot_login_logo.png` and replace it.
+
+(Recommended image size: 310x220)
+
 ### Coupon
 
 Call the following code to use a coupon entered by a user.
@@ -666,11 +707,11 @@ This feature displays images uploaded in Dashboard > Notice.
 }];
 ```
 
-### 공지사항(분류 별 호출)
+### Notice (Call by classification)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+Dashboard - This feature displays the classified image from the images uploaded in Notice.
 
-#### 호출
+#### Call
 
 ```text
 [[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
@@ -778,7 +819,9 @@ Modify the previously applied APIs as described below.
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
+
+ Each area can be customized.
 
 - Example of `BLUE` theme
 
@@ -788,6 +831,10 @@ It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
 
+- Example of `MATERIAL_ORANGE` theme from the improved themes
+
+![gamepot_ios_19](./images/gamepot_ios_19.png)
+
 #### Call Agree to terms and conditions
 
 > Handle Agree to Terms and Conditions pop-up according to games.
@@ -795,8 +842,21 @@ It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
 > When you click the 'View' button, you can apply and edit the content in the dashboard.
 
 ```text
-// Blue theme [[GamePotAgreeOption alloc] init:BLUE];
-// Green theme [[GamePotAgreeOption alloc] init:GREEN];
+// BLUE theme [[GamePotAgreeOption alloc] init:BLUE];
+// GREEN theme [[GamePotAgreeOption alloc] init:GREEN];
+
+// Improved themes  
+//  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PURPLE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_DARKBLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_YELLOW];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAPE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
 GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
    // [result agree]: It is true if all required terms and conditions have been agreed to
@@ -938,6 +998,23 @@ BOOL result = [GamePotSendLog characterInfo:info];
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
 
+```
+
+### GDPR Terms and Conditions Checklist
+
+Shows the list of GDPR terms and conditions items activated from Dashboard.
+
+```c++
+(NSArray*) [[GamePot getInstance] getGDPRCheckedList];
+
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
 ## 7. Download

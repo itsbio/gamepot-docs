@@ -507,7 +507,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // Connect with Twitter account
 // GamePotChannelType.TWITTER
-// 애플 계정에 연동
+// Connect with Apple account
 // GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
@@ -701,6 +701,79 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ## 7. Other APIs
 
+### Login UI supported by SDK
+
+SDK provides an independent, complete Login UI.
+
+![gamepot_android_11](./images/gamepot_android_11.png)
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelListener;
+import io.gamepot.channel.GamePotAppStatusChannelListener;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.GamePotChannelLoginBuilder;
+import io.gamepot.channel.GamePotUserInfo;
+import io.gamepot.common.GamePotError;
+
+String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
+GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
+
+// Appears when a user clicks the Google login button.
+GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+    @Override
+    public void onCancel() {
+        // When a user cancels login.
+    }
+
+    @Override
+    public void onSuccess(GamePotUserInfo userinfo) {
+        // Login complete. Handle this according to the game logic.
+        // userinfo.getMemberid(): Member's unique ID
+    }
+
+    @Override
+    public void onFailure(GamePotError error) {
+        // Login failed. Show an error message using error.getMessage().
+    }
+});
+```
+
+#### Setting Login UI image logo
+
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
+
+**Customizing Image Logo**
+
+> Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo), icons are automatically created for each folder. You can simply put them in the corresponding folder.
+
+1. Create res/drawable associated folders as below
+   - res/drawable-mdpi/
+   - res/drawable-hdpi/
+   - res/drawable-xhdpi/
+   - res/drawable-xxhdpi/
+   - res/drawable-xxxhdpi/
+
+2. Create images in each of the following sizes
+   - 78x55
+   - 116x82
+   - 155x110
+   - 232x165
+   - 310x220
+
+
+3. Add an image of the specified size to each folder as shown in the following table
+
+| Folder name                | Size |
+| :-------------------- | :----- |
+| res/drawable-mdpi/    | 78x55  |
+| res/drawable-hdpi/    | 116x82  |
+| res/drawable-xhdpi/   | 155x110  |
+| res/drawable-xxhdpi/  | 232x165  |
+| res/drawable-xxxhdpi/ | 310x220  |
+
+- Rename the image file to `ic_stat_gamepot_login_logo.png`
+
 ### Log in to NAVER
 
 #### Configure build.gradle
@@ -838,9 +911,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
-### 애플 로그인(Web Login)
+### Log in to Apple (Web login)
 
-#### build.gradle 설정
+#### Configure build.gradle
 
 ```java
 dependencies {
@@ -850,7 +923,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.java 설정
+#### Set MainActivity.java
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -865,7 +938,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-#### 로그인
+#### Login
 
 ```java
 GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
@@ -970,7 +1043,7 @@ This feature displays images uploaded in Dashboard > Notice.
 /* showTodayButton: Provides a choice to show 'Do not show for 24 hours' button or not. It will always appear if it's false. */
 boolean showTodayButton = true;
 
-GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showNotice(/*Current activity*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
         // TODO : Process scheme
@@ -978,20 +1051,20 @@ GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new G
 });
 ```
 
-### 공지사항(분류 별 호출)
+### Notice (Call by classification)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+Dashboard - This feature displays the classified image from the images uploaded in Notice.
 
-#### 호출
+#### Call
 
 ```java
-/* 대시보드 공지사항 >> 분류에서 설정한 분류명 */
+/* Dashboard Notice >> Name set in classification */
 string type = "";
 
-GamePot.getInstance().showEvent(/*현재 액티비티*/, type, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showEvent(/*Current activity*/, type, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
-        // TODO : scheme 처리
+        // TODO: Process scheme
     }
 });
 ```
@@ -1127,7 +1200,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
+
+Each area can be customized.
 
 - Example of `BLUE` theme
 
@@ -1137,7 +1212,29 @@ It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
 
   ![gamepot_android_08](./images/gamepot_android_08.png)
 
+  - Example of `MATERIAL_ORANGE` theme from the improved themes
+
+  ![gamepot_android_12](./images/gamepot_android_12.png)
+
 #### Call Agree to terms and conditions
+```java
+// Default theme
+GamePotAgreeBuilder.THEME.BLUE
+GamePotAgreeBuilder.THEME.GREEN
+
+//Improved theme
+GamePotAgreeBuilder.THEME.MATERIAL_RED,
+GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
+GamePotAgreeBuilder.THEME.MATERIAL_ORANGE,
+GamePotAgreeBuilder.THEME.MATERIAL_PURPLE,
+GamePotAgreeBuilder.THEME.MATERIAL_DARKBLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_YELLOW,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAPE,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
+GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
+GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
+```
 
 > Handle Agree to Terms and Conditions pop-up according to games.
 >
@@ -1161,8 +1258,8 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), n
     }
 });
 
-// When applying GREEN theme
-GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.GREEN);
+// When applying MATERIAL_ORANGE theme
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
 GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
   ....
 }
@@ -1196,7 +1293,7 @@ agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });
 agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
 agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
-agreeBuilder.setFooterTitle("게임 시작하기");
+agreeBuilder.setFooterTitle("Start game");
 // Whether to show Agree to Receive Night Ad push button
 agreeBuilder.setShowNightPush(true);
 
@@ -1314,6 +1411,25 @@ if(!TextUtils.isEmpty(playerid))
 
 // result : It is true if logs are transferred, false if not.
 boolean result = GamePotSendLog.characterInfo(obj);
+```
+
+### GDPR Terms and Conditions Checklist
+
+Shows the list of GDPR terms and conditions items activated from Dashboard.
+
+```java
+import io.gamepot.common.GamePot;
+
+(List<String>) GamePot.getInstance().getGDPRCheckedList();
+
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
 # Appendix

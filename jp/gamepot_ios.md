@@ -229,7 +229,7 @@ AppDelegate ファイルに以下のコードを追加します。
    if (@available(iOS 14, *)) {
        if(NSClassFromString(@"ATTrackingManager"))
        {
-           // 리스너 등록 되어 있지 않을 시 요청 팝업 발생 되지 않음.
+           // リスナー登録されていない場合、リクエストポップアップは発生しない。
            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
 
                switch (status)
@@ -598,6 +598,47 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 
 ## 6. その他の API
 
+### SDKサポートログインUI
+
+SDK内で、独自に(完成した形の) Login UIを提供します。
+
+![gamepot_ios_18](./images/gamepot_ios_18.png)
+```c++
+#import <GamePot/GamePot.h>
+#import <GamePotChannel/GamePotChannel.h>
+
+NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
+GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+[option setShowLogo:YES];
+
+ [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
+    // ログイン成功
+    } cancel:^{
+    // ログインキャンセル
+    } fail:^(NSError *error) {
+    // ログイン失敗
+    } update:^(GamePotAppStatus *appStatus) {
+    // アップデート
+    } maintenance:^(GamePotAppStatus *appStatus) {
+    // メンテナンス
+    } exit:^{
+    // showLoginWithUI終了
+    }
+];
+```
+
+#### ログインUIの画像ロゴの設定
+
+ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
+
+**画像ロゴを直接入れる**
+
+> 画像ロゴはGamePot.bundle内に、ic_stat_gamepot_logo.pngファイルとして存在します。
+
+画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更した後、交換します。
+
+(推奨サイズ：310x220)
+
 ### クーポン
 
 ユーザーが入力したクーポンを使用する際は、以下のコードを呼び出してください。
@@ -666,11 +707,11 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 }];
 ```
 
-### 공지사항(분류 별 호출)
+### 案内事項(分類別呼び出し)
 
-대시보드 - 공지사항에서 업로드한 이미지 중, 분류로 설정한 이미지만 노출하는 기능입니다.
+ダッシュボード - 案内事項でアップロードした画像のうち、分類で設定した画像のみ表示する機能です。
 
-#### 호출
+#### 呼び出し
 
 ```text
 [[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
@@ -778,7 +819,7 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの 2 種類を提供し、各領域別にカスタマイズもできます。
+`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
 
 - `BLUE`テーマの例
 
@@ -787,6 +828,10 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 - `GREEN`テーマの例
 
 ![gamepot_ios_13](./images/gamepot_ios_13.png)
+
+- 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
+
+![gamepot_ios_19](./images/gamepot_ios_19.png)
 
 #### 規約同意を呼び出す
 
@@ -797,6 +842,19 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 ```text
 // ブルーテーマ [[GamePotAgreeOption alloc] init:BLUE];
 // グリーンテーマ [[GamePotAgreeOption alloc] init:GREEN];
+
+// 改善テーマ  
+//  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PURPLE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_DARKBLUE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_YELLOW];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAPE];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
+//  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
 GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
    // [result agree]：規約の必須事項にすべて同意した場合、true
@@ -938,6 +996,24 @@ BOOL result = [GamePotSendLog characterInfo:info];
 // Result is TRUE : validation success.Logs will send to GamePot Server
 // Result is FALSE : validation was failed.Please check logcat
 
+```
+
+
+### GDPR規約チェックリスト
+
+ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
+
+```c++
+(NSArray*) [[GamePot getInstance] getGDPRCheckedList];
+
+//リターンされるパラメータは、それぞれダッシュボードの次の設定に該当します。
+gdpr_privacy：個人情報の取扱方針
+gdpr_term：利用規約
+gdpr_gdpr：GDPRの利用規約
+gdpr_push_normal：イベントPush受信に同意
+gdpr_push_night：夜間イベントPush受信に同意(韓国のみ対象)
+gdpr_adapp_custom：パーソナライズド広告を見るに同意 (GDPR適用国)
+gdpr_adapp_nocustom：非パーソナライズド広告を見るに同意 (GDPR適用国)
 ```
 
 ## 7. ダウンロード

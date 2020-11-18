@@ -3,6 +3,11 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="http://docs.ncloud.com/ko/" target="_blank">[설명서]</a>와 <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+
+<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Gamepot 설명서 바로가기 >></a>
+
 # Android SDK
 
 ## 1. 시작하기
@@ -695,6 +700,78 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ## 7. 기타 API
 
+### SDK 지원 로그인 UI
+
+SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+
+![gamepot_android_11](./images/gamepot_android_11.png)
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelListener;
+import io.gamepot.channel.GamePotAppStatusChannelListener;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.GamePotChannelLoginBuilder;
+import io.gamepot.channel.GamePotUserInfo;
+import io.gamepot.common.GamePotError;
+
+String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
+GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
+
+// 구글 로그인 버튼을 눌렀을 때 호출
+GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+    @Override
+    public void onCancel() {
+        // 사용자가 로그인을 취소한 상황.
+    }
+
+    @Override
+    public void onSuccess(GamePotUserInfo userinfo) {
+        // 로그인 완료. 게임 로직에 맞게 처리해주세요.
+        // userinfo.getMemberid() : 회원 고유 아이디
+    }
+
+    @Override
+    public void onFailure(GamePotError error) {
+        // 로그인 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
+    }
+});
+```
+
+#### 로그인 UI 이미지 로고 설정
+
+로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+
+**이미지 로고 직접 넣기**
+
+> [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
+
+1. res/drawable 관련 폴더를 아래와 같이 생성
+   - res/drawable-mdpi/
+   - res/drawable-hdpi/
+   - res/drawable-xhdpi/
+   - res/drawable-xxhdpi/
+   - res/drawable-xxxhdpi/
+
+2. 아래 사이즈별로 이미지 제작
+   - 78x55
+   - 116x82
+   - 155x110
+   - 232x165
+   - 310x220
+
+3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
+
+| 폴더명                | 사이즈 |
+| :-------------------- | :----- |
+| res/drawable-mdpi/    | 78x55  |
+| res/drawable-hdpi/    | 116x82  |
+| res/drawable-xhdpi/   | 155x110  |
+| res/drawable-xxhdpi/  | 232x165  |
+| res/drawable-xxxhdpi/ | 310x220  |
+
+- 이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경
+
 ### 네이버 로그인
 
 #### build.gradle 설정
@@ -1123,7 +1200,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
 
 - `BLUE` 테마 예시
 
@@ -1133,11 +1210,34 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
   ![gamepot_android_08](./images/gamepot_android_08.png)
 
+  - 개선테마 중, `MATERIAL_ORANGE` 테마 예시
+
+  ![gamepot_android_12](./images/gamepot_android_12.png)
+
 #### 약관 동의 호출
+
+```java
+// 기본 테마
+GamePotAgreeBuilder.THEME.BLUE
+GamePotAgreeBuilder.THEME.GREEN
+
+//개선 테마
+GamePotAgreeBuilder.THEME.MATERIAL_RED,
+GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
+GamePotAgreeBuilder.THEME.MATERIAL_ORANGE,
+GamePotAgreeBuilder.THEME.MATERIAL_PURPLE,
+GamePotAgreeBuilder.THEME.MATERIAL_DARKBLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_YELLOW,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAPE,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
+GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
+GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
+```
 
 > 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
 >
-> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
+> '보기' 버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
 
 Request:
 
@@ -1157,8 +1257,8 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), n
     }
 });
 
-// GREEN 테마로 적용시
-GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.GREEN);
+// MATERIAL_ORANGE 테마로 적용시
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
 GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
   ....
 }
@@ -1310,6 +1410,25 @@ if(!TextUtils.isEmpty(playerid))
 
 // result : 로그 전송 성공 true, 그렇지 않으면 false
 boolean result = GamePotSendLog.characterInfo(obj);
+```
+
+### GDPR 약관 체크리스트
+
+대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+
+```java
+import io.gamepot.common.GamePot;
+
+(List<String>) GamePot.getInstance().getGDPRCheckedList();
+
+//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
+gdpr_privacy : 개인정보취급방침
+gdpr_term : 이용약관
+gdpr_gdpr : GDPR 이용약관
+gdpr_push_normal : 이벤트 Push 수신동의
+gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
+gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
+gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
 ```
 
 # 부록

@@ -288,7 +288,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE ログイン
 
-> iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
+> iOSにのみ該当する機能です。 (Androidの場合、Web Loginの形でサポート- 8. その他のAPIを参考)
 
 **Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple を追加します。**
 
@@ -927,18 +927,156 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 ```
 
 ## 8. その他の API
+### SDKサポートログインUI
 
-### 애플 로그인 (for Android - Web Login)
+SDK内で、独自に(完成した形の) Login UIを提供します。
+
+![gamepot_unity_27](./images/gamepot_unity_27.png)
+
+```csharp
+public class NLoginUIInfo
+{
+    public NCommon.LoginType[] loginTypes { get; set; }     // 表示するLogin UIタイプ(配列)
+    public bool showLogo { get; set; }                      // 画像ロゴ表示の有無
+}
+```
+
+#### SDKログインUIの呼び出し
+
+- Case 1
+
+Request:
+
+```csharp
+ NLoginUIInfo info = new NLoginUIInfo();
+
+//呼び出すログインUIタイプ
+ info.loginTypes = new NCommon.LoginType[] 
+ {
+     NCommon.LoginType.GOOGLE,
+     NCommon.LoginType.FACEBOOK,
+     NCommon.LoginType.GUEST
+     ...
+ };
+ info.showLogo = true;
+ GamePot.showLoginWithUI(info);
+```
+
+Response:
+
+ **一般ログインAPIレスポンスロジックと同じです。 (ただし、onLoginCancel / onLoginFailureの場合、Nativeレベルでトーストメッセージで処理されます。)**
+
+```csharp
+// ログイン成功
+public void onLoginSuccess(NUserInfo userInfo)
+{
+}
+// 強制アップデート(ストアバージョンとゲームクライアントバージョンが異なる場合に呼び出す)
+public void onNeedUpdate(NAppStatus status)
+{
+    // TODO：パラメータに渡されたstatus情報をもとにポップアップを作り、ユーザーに知らせてください。
+    // TODO：以下の二つの方式のうち一つを選択してください。
+    // case 1：ゲーム内ポップアップを通じて開発会社で直接UIを実装
+    // case 2：SDKのポップアップを使用(この場合は以下のコードを呼び出してください。)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// メンテナンス(ダッシュボードでメンテナンスが有効化している場合に呼び出す)
+public void onMainternance(NAppStatus status)
+{
+       // TODO：パラメータに渡されたstatus情報をもとにポップアップを作り、ユーザーに知らせてください。
+    // TODO：以下の二つの方式のうち一つを選択してください。
+    // case 1：ゲーム内ポップアップを通じて開発会社で直接UIを実装
+    // case 2：SDKのポップアップを使用(この場合は以下のコードを呼び出してください。)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// アプリ終了
+public void onAppClose()
+{
+    // TODO：強制アップデートやメンテナンス機能をcase 2の方式で実装する場合
+    // TODO：アプリを強制終了できるため、ここでアプリを終了できるように実装してください。
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        default:
+        break;
+    }
+});
+```
+
+#### Customizing
+
+**ログインUI画像ロゴの変更方法**
+
+ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
+
+**[Android]**
+
+> 直接追加するには`drawable`フォルダ別に画像を追加する必要があります。\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)を利用して作成すると、自動的にフォルダ別に画像が作成されるため便利です。\)
+
+画像ファイル名はic_stat_gamepot_login_logo.pngにしてください。
+
+| フォルダ名                                                         | サイズ  |
+| :------------------------------------------------------------- | :---- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
+
+ **[iOS]**
+
+> 画像ロゴはGamePot.bundle内に、ic_stat_gamepot_logo.pngファイルとして存在します。
+
+画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更した後、交換します。
+
+(推奨サイズ：310x220)
+
+**Screen Orientationの設定方法**
+
+**[Android]**
+
+/Assets/Plugin/Android/AndroidManifest.xmlファイルをエディタで開きます。
+
+```markup
+...e
+    <activity android:screenOrientation="sensorLandscap">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+          ...
+      </intent-filter>
+    </activity>
+...
+```
+
+Main ActivityにscreenOrientationを追加し、ゲームに応じて`sensorLandscape`または`sensorPortrait`を入力してください。
+
+
+### Appleログイン(for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
-대시보드 프로젝트 설정 >> 일반 >> Apple ID Login 설정
+ダッシュボードのプロジェクトの設定 >> 一般 >> Apple ID Loginの設定
 
-> 기능을 사용하기 위해선 Apple Developer Console 설정이 필요합니다.
+> 機能を使用するには、Apple Developer Consoleの設定が必要です。
 >
-> 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
+> ダッシュボードで当該項目の**ヘルプを見る**を参考にしてください。
 
-/Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+/Assets/Plugins/Android/libsパスに以下のaarファイルを追加します。 (Select platforms for plugin - Androidチェック確認)
 
 - gamepot-channel-apple-signin.aar
 
@@ -1354,7 +1492,7 @@ GamePot.showNotice(bool Flag = true);
 
 GamePot.showEvent(string Type)
 
-// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
+// Type：ダッシュボードの案内事項 >> 分類で設定した分類名に該当する画像のみ表示
 ```
 
 Response:
@@ -1424,7 +1562,9 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの 2 種類を提供し、各領域別にカスタマイズもできます。
+`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
+
+各領域別にCustomizingも可能です。
 
 - `BLUE`テーマの例
 
@@ -1434,7 +1574,29 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 
   ![gamepot_unity_14](./images/gamepot_unity_14.png)
 
+- 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
+
+  ![gamepot_unity_28](./images/gamepot_unity_28.png)
+
 #### 規約同意を呼び出す
+```csharp
+// 基本テーマ
+BLUE
+GREEN
+
+// 改善テーマ
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH,
+```
 
 > 規約同意のポップアップ表示の有無は、開発会社でゲームに合わせて処理してください。
 >
@@ -1448,11 +1610,12 @@ Request:
 // 基本呼び出し(BLUEテーマを適用)
 GamePot.showAgreeDialog();
 
-// GREENテーマ適用時
+// その他のテーマを適用時
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info);
 ```
+
 
 Response:
 
@@ -1482,7 +1645,7 @@ showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
 // GREENテーマ適用時
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
 ```
 
@@ -1508,7 +1671,7 @@ GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError 
 
 ```csharp
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
 info.headerTitleColor = "0xFFFF0000";
 info.headerBottomColor = "0xFF00FF00";
@@ -1623,6 +1786,22 @@ var json_value = GamePot.getConfigs();
 
 NVoidInfo info = new NVoidInfo();
 
+//テーマの種類
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH
+
+//テーマの変更
+info.theme = "MATERIAL_ORANGE";
+
 // メッセージ変更
 info.headerTitle = "Header Title Section!";
 
@@ -1668,6 +1847,24 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success.Logs will send to GamePot Server
 // Result is FALSE : validation was failed.Please check logcat
+```
+
+### GDPR規約チェックリスト
+
+ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
+
+```csharp
+//リターンされるデータ形式はstring[]です。
+GamePot.getGDPRCheckedList();
+
+//リターンされるパラメータは、それぞれダッシュボードの次の設定に該当します。
+gdpr_privacy：個人情報の取扱方針
+gdpr_term：利用規約
+gdpr_gdpr：GDPRの利用規約
+gdpr_push_normal：イベントPush受信に同意
+gdpr_push_night：夜間イベントPush受信に同意(韓国のみ対象)
+gdpr_adapp_custom：パーソナライズド広告を見るに同意 (GDPR適用国)
+gdpr_adapp_nocustom：非パーソナライズド広告を見るに同意 (GDPR適用国)
 ```
 
 # 付録
