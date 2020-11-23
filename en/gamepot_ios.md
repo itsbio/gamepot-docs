@@ -602,7 +602,6 @@ Refer to `Purchase` in `Server to server api` to implement this.
 
 SDK provides an independent, complete Login UI.
 
-![gamepot_ios_18](./images/gamepot_ios_18.png)
 ```c++
 #import <GamePot/GamePot.h>
 #import <GamePotChannel/GamePotChannel.h>
@@ -822,18 +821,6 @@ Provides UI to easily obtain agreement to "Terms of service" and "Collection and
 11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
 
  Each area can be customized.
-
-- Example of `BLUE` theme
-
-![gamepot_ios_12](./images/gamepot_ios_12.png)
-
-- Example of `GREEN` theme
-
-![gamepot_ios_13](./images/gamepot_ios_13.png)
-
-- Example of `MATERIAL_ORANGE` theme from the improved themes
-
-![gamepot_ios_19](./images/gamepot_ios_19.png)
 
 #### Call Agree to terms and conditions
 

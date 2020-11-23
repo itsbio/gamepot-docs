@@ -704,8 +704,6 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 SDK中自行提供（完成形式的）Login UI。
 
-![gamepot_android_11](./images/gamepot_android_11.png)
-
 ```java
 import io.gamepot.channel.GamePotChannel;
 import io.gamepot.channel.GamePotChannelListener;
@@ -1201,19 +1199,6 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 我们提供用户界面，以便轻松获取“使用条款”和“收集和使用个人信息指南”。
 
 除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
-
-
-- `BLUE`主题的例子
-
-  ![gamepot_android_07](./images/gamepot_android_07.png)
-
-* `GREEN`主题示例
-
-  ![gamepot_android_08](./images/gamepot_android_08.png)
-
-  - 改善主题中，`MATERIAL_ORANGE`主题示例
-
-  ![gamepot_android_12](./images/gamepot_android_12.png)
 
 #### 协议协议调用
 

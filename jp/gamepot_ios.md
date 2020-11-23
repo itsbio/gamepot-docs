@@ -602,7 +602,6 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 
 SDK内で、独自に(完成した形の) Login UIを提供します。
 
-![gamepot_ios_18](./images/gamepot_ios_18.png)
 ```c++
 #import <GamePot/GamePot.h>
 #import <GamePotChannel/GamePotChannel.h>
@@ -820,18 +819,6 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
 `BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
-
-- `BLUE`テーマの例
-
-![gamepot_ios_12](./images/gamepot_ios_12.png)
-
-- `GREEN`テーマの例
-
-![gamepot_ios_13](./images/gamepot_ios_13.png)
-
-- 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
-
-![gamepot_ios_19](./images/gamepot_ios_19.png)
 
 #### 規約同意を呼び出す
 

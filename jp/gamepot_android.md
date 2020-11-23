@@ -705,8 +705,6 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 SDK内で、独自に(完成した形の) Login UIを提供します。
 
-![gamepot_android_11](./images/gamepot_android_11.png)
-
 ```java
 import io.gamepot.channel.GamePotChannel;
 import io.gamepot.channel.GamePotChannelListener;
@@ -1203,18 +1201,6 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 `BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
 
-- `BLUE`テーマの例
-
-  ![gamepot_android_07](./images/gamepot_android_07.png)
-
-- `GREEN`テーマの例
-
-  ![gamepot_android_08](./images/gamepot_android_08.png)
-
-  - 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
-
-  ![gamepot_android_12](./images/gamepot_android_12.png)
-  
 #### 規約同意を呼び出す
 ```java
 // 基本テーマ

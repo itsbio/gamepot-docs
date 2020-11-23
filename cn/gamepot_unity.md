@@ -938,8 +938,6 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 SDK中自行提供（完成形式的）Login UI。
 
-![gamepot_unity_27](./images/gamepot_unity_27.png)
-
 ```csharp
 public class NLoginUIInfo
 {
@@ -1478,8 +1476,6 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 此功能按顺序显示在 GAMEPOT 仪表板中添加到“通知”的图像。
 
-![gamepot_unity_10](./images/gamepot_unity_10.png)
-
 推荐的图像规格如下。
 
 - 尺寸 : 720 _1200(Portrait) / 1280_ 640(Landscape)
@@ -1517,14 +1513,6 @@ public void onReceiveScheme(string scheme)
 此功能允许客户向操作员注册查询并接收答案。
 
 与我们联系 UI 会根据设备语言进行更改。 它支持韩文，英文，日文和中文（简体和繁体），其他语言以英文显示。
-
-- 咨询登记画面
-
-  ![gamepot_unity_11](./images/gamepot_unity_11.png)
-
-- 我的查询历史记录屏幕
-
-  ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
 #### 呼叫
 
@@ -1571,18 +1559,6 @@ GamePot.cancelLocalPush(/*推送注册期间获取的PushId*/);
 除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
 
 各领域可以自定义。
-
-- “蓝色”主题的示例
-
-  ![gamepot_unity_13](./images/gamepot_unity_13.png)
-
-- “GREEN”主题的示例
-
-  ![gamepot_unity_14](./images/gamepot_unity_14.png)
-
-- 改善主题中，`MATERIAL_ORANGE`主题示例
-
-  ![gamepot_unity_28](./images/gamepot_unity_28.png)
 
 #### 条款及细则电话
 
@@ -1729,8 +1705,6 @@ GamePot.showAgreeDialog(info);
 GamePot.showTerms();
 ```
 
-![gamepot_unity_16](./images/gamepot_unity_16.png)
-
 ### 隐私声明
 
 调用隐私策略用户界面。
@@ -1740,8 +1714,6 @@ GamePot.showTerms();
 ```csharp
 GamePot.showPrivacy();
 ```
-
-![gamepot_unity_17](./images/gamepot_unity_17.png)
 
 ### 退款政策
 
@@ -1753,15 +1725,11 @@ GamePot.showPrivacy();
 GamePot.showRefund();
 ```
 
-![gamepot_unity_21](./images/gamepot_unity_21.png)
-
 ### 远程配置
 
 获取在客户端的仪表板上注册的参数值。
 
 > 在 Dashboard-Settings-Remote Config 屏幕中添加参数。
-
-![gamepot_unity_18](./images/gamepot_unity_18.png)
 
 > 添加的参数在登录时加载，以后可以调用。
 
@@ -1773,8 +1741,6 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
-![gamepot_unity_22](./images/gamepot_unity_22.png)
-
 ### 付款取消滥用者的自动取消功能
 
 提供已取消付款滥用者的自动取消功能的 UI。 可以针对每个区域进行自定义。
@@ -1785,8 +1751,6 @@ var json_value = GamePot.getConfigs();
 > 提供一项功能，可以在付款时正常访问。
 >
 > 如果还清所有已取消的付款，则暂停将自动取消。
-
-![gamepot_unity_23](./images/gamepot_unity_23.png)
 
 ```csharp
 

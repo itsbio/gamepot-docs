@@ -954,8 +954,6 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
 
-![gamepot_unity_27](./images/gamepot_unity_27.png)
-
 ```csharp
 public class NLoginUIInfo
 {
@@ -1495,8 +1493,6 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로 노출하는 기능입니다.
 
-![gamepot_unity_10](./images/gamepot_unity_10.png)
-
 이미지 권장 스펙은 아래와 같습니다.
 
 - 사이즈 : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
@@ -1534,14 +1530,6 @@ public void onReceiveScheme(string scheme)
 고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
 
 고객문의 UI는 디바이스 언어에 맞게 변경됩니다. 한국어, 영어, 일어, 중국어(간체, 번체)를 지원하며 그 외 언어는 영어로 보여집니다.
-
-- 문의 등록 화면
-
-  ![gamepot_unity_11](./images/gamepot_unity_11.png)
-
-- 내 문의 내역 화면
-
-  ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
 #### 호출
 
@@ -1588,18 +1576,6 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 `BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
 
 각 영역별로 Customizing도 가능합니다.
-
-- `BLUE` 테마 예시
-
-  ![gamepot_unity_13](./images/gamepot_unity_13.png)
-
-- `GREEN` 테마 예시
-
-  ![gamepot_unity_14](./images/gamepot_unity_14.png)
-
-- 개선테마 중, `MATERIAL_ORANGE` 테마 예시
-
-  ![gamepot_unity_28](./images/gamepot_unity_28.png)
 
 #### 약관 동의 호출
 
@@ -1746,8 +1722,6 @@ GamePot.showAgreeDialog(info);
 GamePot.showTerms();
 ```
 
-![gamepot_unity_16](./images/gamepot_unity_16.png)
-
 ### 개인정보 취급방침
 
 개인정보 취급방침 UI를 호출합니다.
@@ -1757,8 +1731,6 @@ GamePot.showTerms();
 ```csharp
 GamePot.showPrivacy();
 ```
-
-![gamepot_unity_17](./images/gamepot_unity_17.png)
 
 ### 환불규정
 
@@ -1770,15 +1742,11 @@ GamePot.showPrivacy();
 GamePot.showRefund();
 ```
 
-![gamepot_unity_21](./images/gamepot_unity_21.png)
-
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
 
 > 대시보드 - 설정 - 원격구성 화면에서 매개변수를 추가합니다.
-
-![gamepot_unity_18](./images/gamepot_unity_18.png)
 
 > 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -1790,8 +1758,6 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
-![gamepot_unity_22](./images/gamepot_unity_22.png)
-
 ### 결제 취소 악용자 자동 해지 기능
 
 결제 취소 악용자 자동 해지 기능의 UI를 제공합니다. 각 영역별로 커스터마이징 할 수 있습니다.
@@ -1802,8 +1768,6 @@ var json_value = GamePot.getConfigs();
 > 결제 시, 다시 정상적으로 접속이 가능하도록 하는 기능을 제공합니다.
 >
 > 취소한 결제를 모두 재결제 했을 시 자동으로 이용정지가 해제가 됩니다.
-
-![gamepot_unity_23](./images/gamepot_unity_23.png)
 
 ```csharp
 

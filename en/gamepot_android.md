@@ -705,8 +705,6 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 SDK provides an independent, complete Login UI.
 
-![gamepot_android_11](./images/gamepot_android_11.png)
-
 ```java
 import io.gamepot.channel.GamePotChannel;
 import io.gamepot.channel.GamePotChannelListener;
@@ -1203,18 +1201,6 @@ Provides UI to easily obtain agreement to "Terms of service" and "Collection and
 11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
 
 Each area can be customized.
-
-- Example of `BLUE` theme
-
-  ![gamepot_android_07](./images/gamepot_android_07.png)
-
-- Example of `GREEN` theme
-
-  ![gamepot_android_08](./images/gamepot_android_08.png)
-
-  - Example of `MATERIAL_ORANGE` theme from the improved themes
-
-  ![gamepot_android_12](./images/gamepot_android_12.png)
 
 #### Call Agree to terms and conditions
 ```java

@@ -936,8 +936,6 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 SDK provides an independent, complete Login UI.
 
-![gamepot_unity_27](./images/gamepot_unity_27.png)
-
 ```csharp
 public class NLoginUIInfo
 {
@@ -1477,8 +1475,6 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 It shows images added to "Notice" in GAMEPOT dashboard in order.
 
-![gamepot_unity_10](./images/gamepot_unity_10.png)
-
 Recommended specs for images are shown below.
 
 - Size : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
@@ -1516,14 +1512,6 @@ public void onReceiveScheme(string scheme)
 Customers can register inquiries and admins can answer them.
 
 UI for Inquiries changes according to the device's language. It supports Korean, English, Japanese, Chinese (Simplified, Traditional). English is applied for other languages.
-
-- Register an inquiry screen
-
-  ![gamepot_unity_11](./images/gamepot_unity_11.png)
-
-- My Inquiries screen
-
-  ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
 #### Call
 
@@ -1573,16 +1561,6 @@ Each area can be customized.
 
 - Example of `BLUE` theme
 
-  ![gamepot_unity_13](./images/gamepot_unity_13.png)
-
-- Example of `GREEN` theme
-
-  ![gamepot_unity_14](./images/gamepot_unity_14.png)
-
-- Example of `MATERIAL_ORANGE` theme from the improved themes
-
-  ![gamepot_unity_28](./images/gamepot_unity_28.png)
-  
 #### Call Agree to terms and conditions
 ```csharp
 // Default theme
@@ -1727,8 +1705,6 @@ Call terms of service UI.
 GamePot.showTerms();
 ```
 
-![gamepot_unity_16](./images/gamepot_unity_16.png)
-
 ### Terms and conditions of the privacy policy
 
 Call terms and conditions of the privacy policy UI.
@@ -1738,8 +1714,6 @@ Call terms and conditions of the privacy policy UI.
 ```csharp
 GamePot.showPrivacy();
 ```
-
-![gamepot_unity_17](./images/gamepot_unity_17.png)
 
 ### Refund policy
 
@@ -1751,15 +1725,11 @@ Call refund policy UI.
 GamePot.showRefund();
 ```
 
-![gamepot_unity_21](./images/gamepot_unity_21.png)
-
 ### Remote configuration
 
 Import parameter values registered with the dashboard from the client.
 
 > Add parameters in Dashboard > Settings > Remote configuration screen.
-
-![gamepot_unity_18](./images/gamepot_unity_18.png)
 
 > The parameters added are loaded at login. You can call them after that.
 
@@ -1771,8 +1741,6 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
-![gamepot_unity_22](./images/gamepot_unity_22.png)
-
 ### Automatic cancellation feature for payment cancellation abusers
 
 It provides UI for Automatic cancellation feature for payment cancellation abusers. Customizable in each area.
@@ -1783,8 +1751,6 @@ It provides UI for Automatic cancellation feature for payment cancellation abuse
 > When the user pays again, he/she can successfully regain access.
 >
 > If the user repays all canceled payments, he/she is automatically unblocked.
-
-![gamepot_unity_23](./images/gamepot_unity_23.png)
 
 ```csharp
 

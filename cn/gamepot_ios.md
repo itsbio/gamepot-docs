@@ -602,7 +602,6 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 
 SDK中自行提供（完成形式的）Login UI。
 
-![gamepot_ios_18](./images/gamepot_ios_18.png)
 ```c++
 #import <GamePot/GamePot.h>
 #import <GamePotChannel/GamePotChannel.h>
@@ -820,18 +819,6 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
 
 除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
-
--`蓝色`主题示例
-
-![gamepot_ios_12](./images/gamepot_ios_12.png)
-
-- `GREEN`主题示例
-
-![gamepot_ios_13](./images/gamepot_ios_13.png)
-
-- 改善主题中，`MATERIAL_ORANGE`主题示例
-
-![gamepot_ios_19](./images/gamepot_ios_19.png)
 
 #### 条款及细则电话
 

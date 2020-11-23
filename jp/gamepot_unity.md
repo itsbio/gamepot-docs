@@ -931,8 +931,6 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 SDK内で、独自に(完成した形の) Login UIを提供します。
 
-![gamepot_unity_27](./images/gamepot_unity_27.png)
-
 ```csharp
 public class NLoginUIInfo
 {
@@ -1472,8 +1470,6 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 GAMEPOT ダッシュボードで｢案内事項｣に追加した画像を順番に表示する機能です。
 
-![gamepot_unity_10](./images/gamepot_unity_10.png)
-
 画像推奨スペックは以下のとおりです。
 
 - サイズ : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
@@ -1511,14 +1507,6 @@ public void onReceiveScheme(string scheme)
 顧客が運営者に問い合わせを登録して返答を受け取れる機能です。
 
 問い合わせの UI はデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
-
-- 問い合わせ登録画面
-
-  ![gamepot_unity_11](./images/gamepot_unity_11.png)
-
-- マイ問い合わせ履歴画面
-
-  ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
 #### 呼び出し
 
@@ -1565,18 +1553,6 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 `BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
 
 各領域別にCustomizingも可能です。
-
-- `BLUE`テーマの例
-
-  ![gamepot_unity_13](./images/gamepot_unity_13.png)
-
-- `GREEN`テーマの例
-
-  ![gamepot_unity_14](./images/gamepot_unity_14.png)
-
-- 改善テーマのうち、`MATERIAL_ORANGE`テーマの例
-
-  ![gamepot_unity_28](./images/gamepot_unity_28.png)
 
 #### 規約同意を呼び出す
 ```csharp
@@ -1723,8 +1699,6 @@ GamePot.showAgreeDialog(info);
 GamePot.showTerms();
 ```
 
-![gamepot_unity_16](./images/gamepot_unity_16.png)
-
 ### 個人情報の取扱方針
 
 個人情報の取扱方針 UI を呼び出します。
@@ -1734,8 +1708,6 @@ GamePot.showTerms();
 ```csharp
 GamePot.showPrivacy();
 ```
-
-![gamepot_unity_17](./images/gamepot_unity_17.png)
 
 ### 払い戻し規約
 
@@ -1747,15 +1719,11 @@ GamePot.showPrivacy();
 GamePot.showRefund();
 ```
 
-![gamepot_unity_21](./images/gamepot_unity_21.png)
-
 ### Remote Config
 
 ダッシュボードで登録したパラメータ値をゲームクライアントから取得します。
 
 > ダッシュボード - 設定 - Remote Config 画面でパラメータを追加します。
-
-![gamepot_unity_18](./images/gamepot_unity_18.png)
 
 > 追加したパラメータはログイン時にロードされ、その後から呼び出すことができます。
 
@@ -1767,8 +1735,6 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
-![gamepot_unity_22](./images/gamepot_unity_22.png)
-
 ### 決済キャンセルを悪用するユーザーを自動的に解除する機能
 
 決済キャンセルを悪用するユーザーを自動的に解除する機能の UI を提供します。各領域別にカスタマイズできます。
@@ -1779,8 +1745,6 @@ var json_value = GamePot.getConfigs();
 > 決済したら再び正常にアクセスできるようにする機能を提供します。
 >
 > キャンセルした決済をすべて再決済すると、自動的に利用停止が解除されます。
-
-![gamepot_unity_23](./images/gamepot_unity_23.png)
 
 ```csharp
 
