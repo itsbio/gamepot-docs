@@ -905,8 +905,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showTerms:/*ViewController*/];
 ```
 
-![gamepot_ios_15](./images/gamepot_ios_15.png)
-
 ### 隐私声明
 
 调用隐私策略用户界面。
@@ -919,8 +917,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showPrivacy:/*ViewController*/];
 ```
 
-![gamepot_ios_16](./images/gamepot_ios_16.png)
-
 ### 退款政策
 
 调用退款规则用户界面。
@@ -932,8 +928,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 [[GamePot getInstance] showRefund:/*ViewController*/];
 ```
-
-![gamepot_ios_16](./images/gamepot_ios_16.png)
 
 ### 远程配置
 

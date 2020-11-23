@@ -904,8 +904,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showTerms:/*ViewController*/];
 ```
 
-![gamepot_ios_15](./images/gamepot_ios_15.png)
-
 ### 個人情報の取扱方針
 
 個人情報の取扱方針 UI を呼び出します。
@@ -918,8 +916,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showPrivacy:/*ViewController*/];
 ```
 
-![gamepot_ios_16](./images/gamepot_ios_16.png)
-
 ### 払い戻し規約
 
 払い戻し規約 UI を呼び出します。
@@ -931,8 +927,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 [[GamePot getInstance] showRefund:/*ViewController*/];
 ```
-
-![gamepot_ios_16](./images/gamepot_ios_16.png)
 
 ### Remote Config
 

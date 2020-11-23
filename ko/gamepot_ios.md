@@ -906,8 +906,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showTerms:/*ViewController*/];
 ```
 
-![gamepot_ios_15](./images/gamepot_ios_15.png)
-
 ### 개인정보 취급방침
 
 개인정보 취급방침 UI를 호출합니다.
@@ -920,8 +918,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showPrivacy:/*ViewController*/];
 ```
 
-![gamepot_ios_16](./images/gamepot_ios_16.png)
-
 ### 환불규정
 
 환불규정 UI를 호출합니다.
@@ -933,8 +929,6 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 [[GamePot getInstance] showRefund:/*ViewController*/];
 ```
-
-![gamepot_ios_16](./images/gamepot_ios_16.png)
 
 ### 원격 구성
 

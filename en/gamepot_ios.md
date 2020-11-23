@@ -906,8 +906,6 @@ Call terms of service UI.
 [[GamePot getInstance] showTerms:/*ViewController*/];
 ```
 
-![gamepot_ios_15](./images/gamepot_ios_15.png)
-
 ### Terms and conditions of the privacy policy
 
 Call terms and conditions of the privacy policy UI.
@@ -920,8 +918,6 @@ Call terms and conditions of the privacy policy UI.
 [[GamePot getInstance] showPrivacy:/*ViewController*/];
 ```
 
-![gamepot_ios_16](./images/gamepot_ios_16.png)
-
 ### Refund policy
 
 Call refund policy UI.
@@ -933,8 +929,6 @@ Call refund policy UI.
 
 [[GamePot getInstance] showRefund:/*ViewController*/];
 ```
-
-![gamepot_ios_16](./images/gamepot_ios_16.png)
 
 ### Remote configuration
 
