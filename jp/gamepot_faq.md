@@ -271,6 +271,28 @@ Twitter Developer Console の設定が正しいことを確認してください
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
+#### 3-4)
+- OneStore SDKアプリ内のバージョンSDK v17、API v5のみをサポートします。
+
+- Androidビルド時targetSdkVersion30（Android11）にビルドした場合Android11 OS機器にOneStore APKを認知できない。
+
+    [AndroidManifest.xml ファイル内にフレーズを追加する必要]
+
+        <!-- targetSdkVersion30でビルドする場合のOneStoreバージョンの追加コード [Start] -->
+        <queries>
+            <intent>
+                <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
+            </intent>
+            <intent>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="onestore" />
+            </intent>
+        </queries>
+        <!-- targetSdkVersion30でビルドする場合のOneStoreバージョンの追加コード [End] -->
+
+        <application
+
+
 ## Adbrix Remaster
 
     ＃Q. Adbrix Remaster適用後IOSビルド時Crashが発生ハングします。

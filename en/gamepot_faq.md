@@ -273,6 +273,30 @@ Please enter the key referring to the contents in'View Help'.
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
+
+#### 3-4)
+- OneStore SDK In-app version SDK v17, API v5 only.
+
+- When Android is built, if the targetSdkVersion 30 (Android 11) is built, the OneStore APK is not recognized by the Android 11 OS device.
+
+    [AndroidManifest.xml ファイル内にフレーズを追加する必要]
+
+        <!-- Additional code for OneStore version when building with targetSdkVersion 30 [Start] -->
+        <queries>
+            <intent>
+                <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
+            </intent>
+            <intent>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="onestore" />
+            </intent>
+        </queries>
+        <!-- Additional code for OneStore version when building with targetSdkVersion 30 [End] -->
+
+        <application
+
+
+
 ## Adbrix Remaster
 
     # Q. Crash occurs when building IOS after applying Adbrix Remaster.

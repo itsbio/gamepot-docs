@@ -223,11 +223,11 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
     # Q. 결제시 \[package\] doesn't exist or wrong secret. 문구 노출됩니다.
     # A. GAMEPOT 대시보드에 원스토어 관련 키값이 정상 적용됐는지 다시 확인하세요.
 
- 1. APK의 Package name 이 원스토어에 등록된 패키지명과 동일 여부
+1. APK의 Package name 이 원스토어에 등록된 패키지명과 동일 여부
 
 ![gamepot_faq_20](./images/gamepot_faq_20.png)
 
- 2. 원스토어 콘솔의 `라이선스 키` 적용 여부
+2. 원스토어 콘솔의 `라이선스 키` 적용 여부
 
 ![gamepot_faq_21](./images/gamepot_faq_21.png)
 
@@ -235,7 +235,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_22](./images/gamepot_faq_22.png)
 
- 3. 원스토어 콘솔의 `Client secret` 적용 여부
+3. 원스토어 콘솔의 `Client secret` 적용 여부
 
 ![gamepot_faq_23](./images/gamepot_faq_23.png)
 

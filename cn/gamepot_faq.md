@@ -268,6 +268,30 @@
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
+
+#### 3-4)
+- OneStore SDK應用內版本SDK v17，僅API v5。
+
+- 如果在構建Android時使用targetSdkVersion 30（Android 11）構建，則Android 11 OS設備無法識別OneStore APK。
+
+    [AndroidManifest.xml 需要在文件中添加以下短語]
+
+        <!-- 使用targetSdkVersion 30構建時的OneStore版本的附加代碼 [Start] -->
+        <queries>
+            <intent>
+                <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
+            </intent>
+            <intent>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="onestore" />
+            </intent>
+        </queries>
+        <!-- 使用targetSdkVersion 30構建時的OneStore版本的附加代碼 [End] -->
+
+        <application
+
+
+
 ### 3. Galaxy Store
 
 #### 3-1)
