@@ -223,11 +223,11 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
     # Q. 결제시 \[package\] doesn't exist or wrong secret. 문구 노출됩니다.
     # A. GAMEPOT 대시보드에 원스토어 관련 키값이 정상 적용됐는지 다시 확인하세요.
 
-1. APK의 Package name 이 원스토어에 등록된 패키지명과 동일 여부
+ 1. APK의 Package name 이 원스토어에 등록된 패키지명과 동일 여부
 
 ![gamepot_faq_20](./images/gamepot_faq_20.png)
 
-2. 원스토어 콘솔의 `라이선스 키` 적용 여부
+ 2. 원스토어 콘솔의 `라이선스 키` 적용 여부
 
 ![gamepot_faq_21](./images/gamepot_faq_21.png)
 
@@ -235,7 +235,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_22](./images/gamepot_faq_22.png)
 
-3. 원스토어 콘솔의 `Client secret` 적용 여부
+ 3. 원스토어 콘솔의 `Client secret` 적용 여부
 
 ![gamepot_faq_23](./images/gamepot_faq_23.png)
 
@@ -268,9 +268,10 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
-4. 원스토어 SDK 인앱 버전 SDK v17, API v5 만 지원합니다.
+#### 3-4)
+- 원스토어 SDK 인앱 버전 SDK v17, API v5 만 지원합니다.
 
-5. Android 빌드시 targetSdkVersion 30(Android 11)로 빌드한 경우 Android 11 OS기기에 원스토어 APK가 설치되었음에도 찾지 못합니다.
+- Android 빌드시 targetSdkVersion 30(Android 11)로 빌드한 경우 Android 11 OS기기에 원스토어 APK가 설치되었음에도 찾지 못합니다.
 
     [AndroidManifest.xml 파일 내 하기 문구 추가 필요]
 
