@@ -268,6 +268,26 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
+4. 원스토어 SDK 인앱 버전 SDK v17, API v5 만 지원합니다.
+
+5. Android 빌드시 targetSdkVersion 30(Android 11)로 빌드한 경우 Android 11 OS기기에 원스토어 APK가 설치되었음에도 찾지 못합니다.
+
+    [AndroidManifest.xml 파일 내 하기 문구 추가 필요]
+
+        <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [Start] -->
+        <queries>
+            <intent>
+                <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
+            </intent>
+            <intent>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="onestore" />
+            </intent>
+        </queries>
+        <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [End] -->
+
+        <application
+
 ### 3. Galaxy Store
 
 #### 3-1)
