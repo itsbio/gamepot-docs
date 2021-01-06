@@ -562,8 +562,6 @@ Enables you to answer questions asked by users. If there is a customer support m
 
 #### - Inquiries
 
-![gamepot_dashboard_91](./images/gamepot_dashboard_91.png)
-
 It displays inquiries made by users. Customer satisfaction rating only appears after the inquiry is closed and the user rates the response.
 
 Click **User ID**.
@@ -586,29 +584,29 @@ Click **User ID**.
 
 ⑦ It displays all information of the user by default.
 
-**\[Notifications\]**
+**\[알림 및 문의 설정\]**
 
-Send push messages and emails to users when you answer their questions.
+문의 답변 시 고객에게 푸시, 메일을 발송을 설정하거나 문의 설정을 하는 기능입니다.
 
-![gamepot_dashboard_47](./images/gamepot_dashboard_47.png)
+##### 푸시 설정
 
-① Set whether to enable Push notification feature.
+디바이스 언어 설정에 따른 푸시 알림 기능을 설정합니다.
 
-② Push messages appear differently for the device's language setting.
+##### 메일 설정
 
-![gamepot_dashboard_103](./images/gamepot_dashboard_103.png)
+발신 메일 설정을 입력합니다.
 
-① Set to Enabled to activate email notification.
+메일 발송 기능을 사용하려면 발신 메일 주소, 발신 메일 이름을 필수로 입력해야 합니다.
 
-② Enter the sender's email address.
+메일 내용을 입력하지 않으면 기본 메시지가 발송됩니다.
 
-③ Enter the sender's name.
+**발신 메일 미리보기** 버튼을 클릭하여 발송될 메일 템플릿을 확인할 수 있습니다.
 
-④ Enter the mail content. A default message will be sent if you don't enter anything here.
+##### 고객문의 설정
 
-⑤ Preview the email template to be sent.
+문의 시 수집 항목 노출 여부를 선택합니다.
 
-⑥ Save the notification and mail settings with the OK button.
+활성화한 항목은 고객 문의 UI에 입력 항목이 표시됩니다.
 
 **\[Set category\]**
 
@@ -999,25 +997,21 @@ Auth Key is used to verify a token when a user logs in to Google or Facebook; if
 
 ##### WebHook
 
-![gamepot_dashboard_68](./images/gamepot_dashboard_68.png)
+결제 아이템은 결제 성공 시 아이템 지급을 요청하는 주소를 입력합니다.
 
-For Purchased item under WebHook, add an address to request items when the payment is successfully made.
+쿠폰 아이템은 SDK를 이용하여 쿠폰 사용 성공 시 SDK 서버에서 개발사 서버로 성공에 대한 처리\(아이템 지급\)를 요청하는 주소를 입력합니다.
 
-For Coupon item, add an address for the SDK server to request \(items\) from the developer server when a coupon is successfully used. There are two types of addresses: \(service\) address used for the live service and \(test user\) address for testing environment. If you need to use a test user address, add it in Project settings &gt; Test user.
+실 서비스에 이용되는 주소\(서비스\)와 서비스 중 테스트 환경이 필요한 경우의 주소\(테스트사용자\)가 제공됩니다. 테스트 사용자 주소로 동작하게 하려면 '프로젝트 설정 &gt; 테스트 사용자'에 추가해 주셔야 합니다.
 
-① Check Help.
+**WebHook Test** 버튼을 클릭하여 WebHook 적용을 간단하게 테스트할 수 있습니다.
 
-② Test for applying WebHook easily.
+**White IP** 버튼을 클릭하여 Webhook을 통해 게임 서버 호출 시 허용해야 하는 IP 리스트를 확인할 수 있습니다.
 
-③ Display a list of IPs required to be permitted when calling game servers via Webhook.
+**테스트 결제 발송 차단** 스위치를 활성화하면 테스트 결제 시 Webhook을 발송을 차단할 수 있습니다.
 
-④ Enter a service URL for purchased items.
-
-⑤ Enter a test user URL for purchased items.
-
-⑥ Enter a service URL for coupon items.
-
-⑦ Enter a test user URL for coupon items.
+> 활성화한 경우 : 테스트 결제 시 결제 실패로 처리
+>
+> 비활성화한 경우 : 테스트 결제 시 결제 성공으로 처리
 
 #### - Ncloud
 
