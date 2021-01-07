@@ -1677,13 +1677,24 @@ info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = "开始游戏";
+
+// 일반 광고성 수신동의 버튼 노출 여부
+info.showPush = true;
+
 // 是否公开用于接收夜间广告的按钮
 info.showNightPush = true;
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.pushDetailURL = "https://...";
+
+// 야간 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.nightPushDetailURL = "https://...";
 
 // 更改词组
 info.allMessage = "全部同意";
 info.termMessage = "必需的使用条款";
 info.privacyMessage = "必需的”隐私政策";
+info.pushMessage = "선택) 일반 푸시 수신 동의";
 info.nightPushMessage = "可选）同意在晚上接收推送";
 
 GamePot.showAgreeDialog(info);

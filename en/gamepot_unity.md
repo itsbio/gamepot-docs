@@ -1677,13 +1677,24 @@ info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = "Start game";
+
+// 일반 광고성 수신동의 버튼 노출 여부
+info.showPush = true;
+
 // Whether to show Agree to Receive Night Ad push button
 info.showNightPush = true;
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.pushDetailURL = "https://...";
+
+// 야간 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.nightPushDetailURL = "https://...";
 
 // Change description
 info.allMessage = "Agree to all";
 info.termMessage = "Required) Terms of service";
 info.privacyMessage = "Required) Terms and conditions of the privacy policy";
+info.pushMessage = "선택) 일반 푸시 수신 동의";
 info.nightPushMessage = "Optional) Agree to receive night push";
 
 GamePot.showAgreeDialog(info);

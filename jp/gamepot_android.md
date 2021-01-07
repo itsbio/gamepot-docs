@@ -1279,13 +1279,24 @@ agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
 agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
 agreeBuilder.setFooterTitle("ゲームを始める");
+
+//일반 광고성 수신동의 버튼 노출 여부
+agreeBuilder.setShowPush(true);
+
 // 夜間プッシュ型広告通知許可ボタンの表示の有無
 agreeBuilder.setShowNightPush(true);
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+agreeBuilder.setPushDetailURL("https://...");
+
+// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
+agreeBuilder.setNightPushDetailURL("https://...");
 
 // メッセージ変更
 agreeBuilder.setAllMessage("すべて同意");
 agreeBuilder.setTermMessage("必須) 利用規約");
 agreeBuilder.setPrivacyMessage("必須) 個人情報の取扱方針");
+agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
 agreeBuilder.setNightPushMessage("任意) 夜間プッシュ通知を許可");
 
 GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {

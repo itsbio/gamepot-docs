@@ -878,14 +878,24 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [option setAllMessage:@"모두 동의"];
 [option setTermMessage:@"필수) 이용약관"];
 [option setPrivacyMessage:@"필수) 개인정보 취급 방침"];
-[option setNightPushMessage:@"선택) 약간 푸쉬 수신 동의"];
+[option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
+[option setNightPushMessage:@"선택) 야간 푸쉬 수신 동의"];
 [option setFooterTitle:@"게임 시작하기"];
 
 // 미사용시 @""로 설정
 [option setHeaderTitle:@"약관 동의"];
 
+// 일반 광고성 수신동의 버튼 노출 여부
+[option setShowPush:YES];
+
 // 야간 광고성 수신동의 버튼 노출 여부
 [option setShowNightPush:YES];
+
+// 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setPushDetailURL:@"https://..."];
+
+// 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setNightPushDetailURL:@"https://..."];
 ```
 
 각각의 변수는 아래 영역에 적용됩니다.

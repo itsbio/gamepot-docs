@@ -878,14 +878,24 @@ You can specify colors to each area in `GamePotAgreeOption` before calling Agree
 [option setAllMessage:@"Agree to all"];
 [option setTermMessage:@"Required) Terms of service"];
 [option setPrivacyMessage:@"Required) Terms and conditions of the privacy policy"];
+[option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
 [option setNightPushMessage:@"Optional) Agree to receive night push"];
 [option setFooterTitle:@"Start game"];
 
 // Set to @"" if not used
 [option setHeaderTitle:@"Agree to Terms and Conditions"];
 
+// 일반 광고성 수신동의 버튼 노출 여부
+[option setShowPush:YES];
+
 // Whether to show Agree to Receive Night Ad push button
 [option setShowNightPush:YES];
+
+// 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setPushDetailURL:@"https://..."];
+
+// 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setNightPushDetailURL:@"https://..."];
 ```
 
 Each parameter applies to the following area:
