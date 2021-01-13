@@ -192,9 +192,10 @@ Twitter Developer Console の設定が正しいことを確認してください
 2. コンソールにアプリが`チュルシドゥェム`状態であることを確認
 
    > `プロダクション`トラックではなく、`プライベート`/`内部テスト`トラックに置いたします。
-   > ![gamepot_faq_15](./images/gamepot_faq_15.png)
 
-3. コンソール - >リリース管理 - >アプリのバージョン - >トラック - >管理 - >テスト参加先の管理にテストアカウントを登録したことを確認し
+![gamepot_faq_15](./images/gamepot_faq_15.png)
+
+3. コンソール - >テスト - >クローズド テスト - >トラック - >トラックを管理 - >テスター数 -> テスト参加先の管理にテストアカウントを登録したことを確認し
 
 ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
@@ -203,8 +204,6 @@ Twitter Developer Console の設定が正しいことを確認してください
 ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
 5. コンソール - >設定で`ライセンステスト`のテストアカウントを追加したことを確認し
-
-![gamepot_faq_18](./images/gamepot_faq_18.png)
 
 ![gamepot_faq_19](./images/gamepot_faq_19.png)
 

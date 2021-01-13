@@ -197,7 +197,7 @@ Please enter the key referring to the contents in'View Help'.
 
 ![gamepot_faq_15](./images/gamepot_faq_15.png)
 
-3. Make sure you have registered your test account in Console -> Release Management -> App Version -> Tracks -> Management -> Target Management
+3. Make sure you have registered your test account in Console -> Testing -> Manage track -> Testers -> Testers Management
 
 ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
@@ -206,8 +206,6 @@ Please enter the key referring to the contents in'View Help'.
 ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
 5. Check if you have added a test account to `License Test` in Console -> Settings
-
-![gamepot_faq_18](./images/gamepot_faq_18.png)
 
 ![gamepot_faq_19](./images/gamepot_faq_19.png)
 

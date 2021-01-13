@@ -191,7 +191,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_15](./images/gamepot_faq_15.png)
 
-3. 콘솔 -&gt; 출시 관리 -&gt; 앱 버전 -&gt; 트랙 -&gt; 관리 -&gt; 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
+3. 콘솔 -&gt; 테스트 -&gt; 트랙 관리 -&gt; 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
 
 ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
@@ -200,8 +200,6 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
 5. 콘솔 -&gt; 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
-
-![gamepot_faq_18](./images/gamepot_faq_18.png)
 
 ![gamepot_faq_19](./images/gamepot_faq_19.png)
 
@@ -775,9 +773,29 @@ IOS 설정은 아래와 같이 진행을 합니다.
 | 게임 > 선물하기  | O            | O            |
 
 
+
+
+#### 13. 애플의 iOS 14 개인정보처리방침 강화에 따라 수집하는 개인정보 내역 리스트
+
+애플 콘솔 내 ‘일반정보’ >> ‘앱이 수집하는 개인정보 탭’을 기준으로 말씀 드리면 아래와 같습니다.
+(고객 신원 정보와 연결되지 않으며 관련 정보로 추적하는 목적이 아닌 사항)
+ 
+게임팟 SDK에서 수집하는 항목은 다음과 같습니다.
+
+[식별자]
+- 사용자 ID (계정정보)
+- 기기 ID (IDFA,  auto generated)
+- 구입 항목
+
+[사용자 컨텐츠]
+- 사진 또는 비디오
+- 고객지원
+ 
+    [사용자 컨텐츠]의 경우 게임팟 PRO 이상 상품을 이용하시는 고객중 게임팟 고객 문의 UI를 사용하는 경우에 해당하며 오브젝트 스토리지 기능 사용시 고객 문의에 이미지파일을 첨부 파일로 올릴 수 있습니다. 
+
 ### Migration
 
-####  Ver Unity 2.1.1 To Ver Unity 2.1.2
+####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
 
     Unity 엔진 버전에 따라 유니티 플러그인 패키지가 분기되었던 부분에 대해 수정 작업을 진행하였으며
     Firebase 및 Google Resolver 버전이 1.2.116.0에서 1.2.155 으로 업데이트가 있었습니다.

@@ -191,7 +191,7 @@
 
 ![gamepot_faq_15](./images/gamepot_faq_15.png)
 
-3. 确认控制台 -> 发布管理 -> 应用版本 -> 跟踪 -> 管理 -> 测试参与对象管理中是否已添加测试账户
+3. 确认控制台 -> 测试 -> 管理轨道 -> 测试用户数量 -> 测试参与对象管理中是否已添加测试账户
 
 ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
@@ -200,8 +200,6 @@
 ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
 5. 在控制台 -> 设置中确认`许可证测试`中是否已添加测试账户
-
-![gamepot_faq_18](./images/gamepot_faq_18.png)
 
 ![gamepot_faq_19](./images/gamepot_faq_19.png)
 
