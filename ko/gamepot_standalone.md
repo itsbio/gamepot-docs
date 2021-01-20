@@ -5,9 +5,10 @@ search:
 
 # GamePot Unity SDK (Standalone)
 
-**_Standalone(Windows) 플랫폼을 위한 GamePot Unity SDK는 콘솔에서 웹뷰를 사용하기 위해, 3rd party Unity Asset 'VUPLEX(for Mac & Windows)' 를 사용하고 있습니다._**
+**_Standalone(Windows) 플랫폼을 위한 GamePot Unity SDK는 콘솔 상에서 웹뷰를 사용하기 위해, 
+3rd party Unity Asset인 'VUPLEX(for Mac & Windows)' 를 사용하고 있습니다._**
 
-**_해당 Asset을 Asset Store에서 구입하여 import 한 다음, GamePot SDK를 사용해주세요._**
+**_웹뷰 기능을 이용하려면, 해당 Asset을 Asset Store에서  import 한 다음 GamePot SDK에  연동 후 사용해주세요._**
 
 [[ VUPLEX Site Link ]](https://developer.vuplex.com/webview/overview)
 
@@ -28,7 +29,7 @@ search:
 | :------- | :----- | :--------------- |
 | PROJECT_ID | string | 게임팟 Project ID |
 | STORE    | string | 스토어 ID    |
-| API_URL    | string | 게임팟 api 서버 url (default)    |
+| API_URL    | string | ~~게임팟 api 서버 url (default)~~ 빈 값으로 유지해주세요. (v2.4.0 이후)  |
 |
 
 ![gamepot_standalone_02](./images/gamepot_standalone_02.png)
@@ -45,13 +46,15 @@ search:
 ```csharp
 
 using GamePotUnity;
+using GamePotUnity.Standalone.Networking;
+
 public class GamePotLoginSampleScene : MonoBehaviour {
 
     bool isPaused = false;
 
     void Awake() {
 
-        // GamePot 초기화
+        // GamePot 인스턴스 초기화
         GamePot.initPlugin();
     }
     void Start () {
@@ -81,7 +84,7 @@ public class GamePotSampleListener : MonoBehaviour , IGamePot {
 
 ## 2. MemberInfo 셋팅
 
- -  **로그인 API를 호출하기 전**, (JS Script SDK로부터 획득한) UserInfo 값을 셋팅해주세요.
+ -  **로그인 API를 호출하기 전**, (GAMEPOT JS SDK로부터 획득한) UserInfo 값을 셋팅해주세요.
 
  - 다음과 같이, MemberID(GamePot) / Token(GamePot) 값을 GamePotSettings.MemberInfo에 저장합니다.
 
@@ -120,9 +123,9 @@ GamePot.login(NCommon.LoginType.STANDALONE);
 
 ## 3. 로그인 (점검 체크)
 
- -  Login API를 호출하면, 내부적으로 점검 여부를 체크한 후 Callback 이벤트가 호출됩니다. 이 때, Windows 플랫폼의 경우 NCommon.LoginType.STANDALONE을 파라메터로 넣어주세요.
+ -  Login API를 호출하면, 내부적으로 점검 여부를 체크하여 Callback 이벤트가 호출됩니다. 이 때, Windows 플랫폼의 경우 NCommon.LoginType.STANDALONE을 파라메터로 넣어주세요.
 
-  - 로그인 성공 시, GamePotSettings.MemberInfo에 저장한 정보가 NUserInfo 구조체에 저장되어 리턴됩니다.
+  - 로그인 성공 시, GamePotSettings.MemberInfo에 셋팅된 정보가 NUserInfo 구조체에 저장되어 onLoginSuccess 이벤트 파라메터로 return 됩니다.
 
  Case 1 )
 
@@ -151,18 +154,9 @@ public void onLoginFailure(NError error)
 public void onMainternance(NAppStatus status)
 {
     // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
-    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
-    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
-    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
-    // GamePot.showAppStatusPopup(status.ToJson());
+    // ex) 인게임 팝업을 통해 개발사에서 직접 UI 구현
 }
 
-// 앱 종료
-public void onAppClose()
-{
-    // TODO: 점검 기능을 case 2 방식으로 구현하는 경우
-    // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
-}
 ```
 
 - Case 2
@@ -214,9 +208,11 @@ GamePotChat.start();    //connect
 GamePotChat.stop();    //disconnect
 ``` -->
 
-## 공지사항 이미지 웹뷰
+## 4. 기타 API
 
-(GamePot SDK 초기화 이후,) 웹뷰 형태의 공지사항 이미지 팝업을 노출합니다.
+### 4-1. 공지사항(웹뷰 이미지)
+
+[GamePot SDK 초기화(initPlugin) 이후 시점] 대시보드에서 설정한 공지사항 이미지를 웹뷰 형태의 팝업으로 노출할 수 있습니다.
 
 ```csharp
 GamePot.showNoticeWebView();
@@ -224,7 +220,7 @@ GamePot.showNoticeWebView();
 
 - ref. (Unity Editor 상에서) 노출되는 팝업 이미지의 레이아웃은 Sample Prefab으로 되어 있으며, 이를 수정해 레이아웃을 조정할 수 있습니다. (/Assets/Resources/GamePotWebViewManager)
 
-## 고객지원 / FAQ 웹뷰
+### 4-2.  고객지원 / FAQ (웹뷰)
 
 - ref. 현재 유니티 엔진 상에서, **웹뷰에 대한 Event 수신 / 한글 유니코드 입력이 불가한 이슈** 가 있습니다. 이에 따라, 아직 (공식적으로) 고객지원 메뉴에 대한 Native API는 제공되지 않는 상태입니다.
 
@@ -250,3 +246,109 @@ https://gsrpkjibrmls4086645.gcdn.ntruss.com/demo/cs/question?projectid=ab2775b4-
 | sdkversion    | 게임팟 SDK Version |   2.1.2   |
 | language    | 언어 |   ko   |
 |
+
+### 4-3. 쿠폰
+
+> 쿠폰 번호를 입력받는 UI는 개발사에서 구현해주세요.
+
+- Case 1
+
+Request:
+
+```csharp
+GamePot.coupon(string couponNumber); // 쿠폰번호
+
+GamePot.coupon(string couponNumber, string userData); // 쿠폰번호, 사용자정보
+```
+
+Response:
+
+```csharp
+/// 쿠폰 사용 성공
+public void onCouponSuccess() {
+}
+
+/// 쿠폰 사용 실패
+public void onCouponFailure(NError error) {
+    // 쿠폰 사용을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+GamePot.coupon(string couponNumber, GamePotCallbackDelegate.CB_Common); // 쿠폰번호
+
+GamePot.coupon(string couponNumber, string userData, GamePotCallbackDelegate.CB_Common);    // 쿠폰번호, 사용자정보
+```
+
+```csharp
+GamePot.coupon(couponNumber, (success, error) => {
+   if(success)
+   {
+       // 쿠폰 사용 성공
+   }
+   else
+   {
+        // 쿠폰 사용을 실패하는 경우
+        // error.message를 팝업 등으로 유저에게 알려주세요.
+   }
+});
+```
+
+#### - 아이템 지급
+
+쿠폰 사용이 성공하면 개발사 서버에 Server to server api를 통해 아이템 지급을 요청합니다.
+
+이를 위해선 Server to server api 메뉴에 `Item Webhook` 항목을 참고하여 처리하셔야 합니다.
+
+
+### 4-4. 게임 로그 전송
+
+게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
+
+아래는 사용할 수 있는  예약어 정의 표 입니다.
+
+| 예약어                            | 필수 | 타입   | 설명         |
+| :-------------------------------- | :--- | :----- | :----------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+|
+
+```csharp
+String name = "케릭터명";
+String level = "10";
+String serverid = "svn_001";
+String playerid = "283282191001";
+String userdata = "";
+
+GamePotSendLogCharacter characterLog = new GamePotSendLogCharacter();
+characterLog.put(GamePotSendLogCharacter.NAME, name);
+characterLog.put(GamePotSendLogCharacter.PLAYER_ID, playerid);
+characterLog.put(GamePotSendLogCharacter.LEVEL, level);
+characterLog.put(GamePotSendLogCharacter.SERVER_ID, serverid);
+characterLog.put(GamePotSendLogCharacter.USERDATA, userdata);
+```
+
+Request:
+
+```csharp
+GamePot.characterInfo(characterLog, GamePotCallbackDelegate.CB_Common);
+
+GamePot.characterInfo(characterLog, (success, error) => {
+    if(success)
+    {
+        //게임 로그 전송 성공
+    }
+    else
+    {
+        //게임 로그 전송 실패
+    }
+});
+```
