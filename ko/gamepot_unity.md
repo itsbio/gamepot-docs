@@ -1728,13 +1728,24 @@ info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = "게임 시작하기";
+
+// 일반 광고성 수신동의 버튼 노출 여부
+info.showPush = true;
+
 // 야간 광고성 수신동의 버튼 노출 여부
 info.showNightPush = true;
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.pushDetailURL = "https://...";
+
+// 야간 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.nightPushDetailURL = "https://...";
 
 // 문구 변경
 info.allMessage = "모두 동의";
 info.termMessage = "필수) 이용약관";
 info.privacyMessage = "필수) 개인정보 취급 방침";
+info.pushMessage = "선택) 일반 푸시 수신 동의";
 info.nightPushMessage = "선택) 야간 푸시 수신 동의";
 
 GamePot.showAgreeDialog(info);

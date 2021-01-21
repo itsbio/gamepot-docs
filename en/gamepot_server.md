@@ -3,12 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
-
 #### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
 <a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
 <a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
-
 
 # Server API
 
@@ -28,23 +26,24 @@ When GAMEPOT makes an HTTP request, the information shown below is forwarded and
 
 ```java
 https://{domain}?
-userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}
+userId={uuid}&orderId={orderId}&projectId={projectId}&platform={platform}&productId={productId}&store={store}&payment={payment}&transactionId={transactionId}&gamepotOrderId={gamepotOrderId}&uniqueId={uniqueId}&tp={tp}
 ```
 
-| Attribute      | Type   | Max Length | Description                                              |
-| :------------- | :----- | :--------- | :--------------------------------------------------------|
-| userId         | String | 128        | User ID                                                   |
-| transactionId  | String | 512        | Order number \(GPA-xxxx-xxxx-\)                                 |
-| store          | String | 64         | Store information \(Apple, Google, One\)                           |
-| projectId      | String | 128        | Project ID                                                 |
-| productId      | String | 256        | Product ID registered in Google Play Store, Apple App Store, and ONE Store.                               |
-| platform       | String | 128        | Platform information \(Android, iOS\)                        |
-| payment        | String | 64         | Payment type \( Apple, Google, One, Danal, MyCard, Mol ... \) |
-| uniqueId       | String | 512        | Unique id \(unique id entered when calling purchase api\)           |
-| gamepotOrderId | String | 512        | GAMEPOT Order ID                                         |
-| serverId       | String | -          | serverId \(serverId entered when calling purchase api\)             |
-| playerId       | String | -          | playerId \(playerId entered when calling purchase api\)             |
-| etc            | String | -          | etc \(etc entered when calling purchase api\)                       |
+| Attribute      | Type    | Max Length | Description                                                                 |
+| :------------- | :------ | :--------- | :-------------------------------------------------------------------------- |
+| userId         | String  | 128        | User ID                                                                     |
+| transactionId  | String  | 512        | Order number \(GPA-xxxx-xxxx-\)                                             |
+| store          | String  | 64         | Store information \(Apple, Google, One\)                                    |
+| projectId      | String  | 128        | Project ID                                                                  |
+| productId      | String  | 256        | Product ID registered in Google Play Store, Apple App Store, and ONE Store. |
+| platform       | String  | 128        | Platform information \(Android, iOS\)                                       |
+| payment        | String  | 64         | Payment type \( Apple, Google, One, Danal, MyCard, Mol ... \)               |
+| uniqueId       | String  | 512        | Unique id \(unique id entered when calling purchase api\)                   |
+| gamepotOrderId | String  | 512        | GAMEPOT Order ID                                                            |
+| serverId       | String  | -          | serverId \(serverId entered when calling purchase api\)                     |
+| playerId       | String  | -          | playerId \(playerId entered when calling purchase api\)                     |
+| tp             | Integer | -          | 1: 테스트 결제<br />0: 일반 결제                                            |
+| etc            | String  | -          | etc \(etc entered when calling purchase api\)                               |
 
 #### Response
 
@@ -57,10 +56,10 @@ Return a response in the following format.
 }
 ```
 
-| Attribute | Type   | Description                   |
-| :-------- | :----- | :---------------------------- |
+| Attribute | Type   | Description                        |
+| :-------- | :----- | :--------------------------------- |
 | status    | Int    | Result \(0: Failed, 1: Succeeded\) |
-| message   | String | Error message                     |
+| message   | String | Error message                      |
 
 ### Item Webhook\(required\)
 
@@ -79,13 +78,13 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 
 | Attribute | Type   | Max Length | Description                                                                                        |
 | :-------- | :----- | :--------- | :------------------------------------------------------------------------------------------------- |
-| userId    | String | 128        | User ID                                                                                    |
-| projectId | String | 128        | Project ID                                                                                 |
-| platform  | String | 128        | Platform information \(Android, iOS\)                                                          |
-| store     | String | 64         | Store information \(Apple, Google, One\)                                                             |
-| title     | String | -          | The value in GAMEPOT Dashboard > Game > Present > Title.                                                       |
-| content   | String | -          | The value in GAMEPOT Dashboard > Game > Present > Description.                                                       |
-| userData  | String | -          | The value in the second parameter when the coupon api is called.                                                      |
+| userId    | String | 128        | User ID                                                                                            |
+| projectId | String | 128        | Project ID                                                                                         |
+| platform  | String | 128        | Platform information \(Android, iOS\)                                                              |
+| store     | String | 64         | Store information \(Apple, Google, One\)                                                           |
+| title     | String | -          | The value in GAMEPOT Dashboard > Game > Present > Title.                                           |
+| content   | String | -          | The value in GAMEPOT Dashboard > Game > Present > Description.                                     |
+| userData  | String | -          | The value in the second parameter when the coupon api is called.                                   |
 | itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
 > ex\)
@@ -103,10 +102,10 @@ Return a response in the following format.
 }
 ```
 
-| Attribute | Type   | Description                   |
-| :-------- | :----- | :---------------------------- |
+| Attribute | Type   | Description                        |
+| :-------- | :----- | :--------------------------------- |
 | status    | Int    | Result \(0: Failed, 1: Succeeded\) |
-| message   | String | Error message                     |
+| message   | String | Error message                      |
 
 ## Game server &gt; GAMEPOT server
 
@@ -167,18 +166,18 @@ In this case, restrict the user from entering the game.
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
+| Attribute | Type   | Description                                                         |
+| :-------- | :----- | :------------------------------------------------------------------ |
 | status    | Int    | Result \(1: Succeeded. Refer to Error code below for other cases.\) |
-| message   | String | Error message                                       |
+| message   | String | Error message                                                       |
 
 #### Error code
 
-| Code | Description                                                                                                     |
-| :--- | :-------------------------------------------------------------------------------------------------------------- |
-| 0    | Required data is omitted from the body. Be sure that the projectId, memberId and token are all specified when making a request.         |
-| -1   | Token authentication failed. A fake token is used.                                                                             |
-| -2   | MemberId authentication failed. The token’s MemberId does not match the MemberId in the body.                                 |
+| Code | Description                                                                                                                                                                         |
+| :--- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | Required data is omitted from the body. Be sure that the projectId, memberId and token are all specified when making a request.                                                     |
+| -1   | Token authentication failed. A fake token is used.                                                                                                                                  |
+| -2   | MemberId authentication failed. The token’s MemberId does not match the MemberId in the body.                                                                                       |
 | -3   | Token expired. There will be a time difference of more than 10 minutes from the time when the SDK login api was successful and the time when the authentication check is requested. |
 
 ### ThirdParty Purchase
@@ -206,22 +205,22 @@ data:
 }
 ```
 
-| Header    | Type   | Required | Description                  |
-| :-------- | :----- | :------- | ---------------------------- |
+| Header    | Type   | Required | Description                             |
+| :-------- | :----- | :------- | --------------------------------------- |
 | x-api-key | String | O        | An authentication key issued by GamePot |
 
 <br/>
 
-| Attribute     | Type   | Max Length | Required | Description             |
-| :------------ | :----- | :--------- | :------- | :---------------------- |
-| projectId     | String | 128        | O        | GamePot SDK's projectId |
-| store         | String | 64         | O        | Store for payment             |
-| productId     | String | 256        | O        | ID of the purchased items      |
-| transactionId | String | 512        | O        | Unique ID of the payment        |
-| memberId      | String | 128        | O        | GamePot SDK's memberid  |
-| currency      | String | 64         | X        | Currency of the payment               |
-| price         | Number | -          | X        | Amount of payment               |
-| paymentId     | String | 64         | X        | Payment Method               |
+| Attribute     | Type   | Max Length | Required | Description                      |
+| :------------ | :----- | :--------- | :------- | :------------------------------- |
+| projectId     | String | 128        | O        | GamePot SDK's projectId          |
+| store         | String | 64         | O        | Store for payment                |
+| productId     | String | 256        | O        | ID of the purchased items        |
+| transactionId | String | 512        | O        | Unique ID of the payment         |
+| memberId      | String | 128        | O        | GamePot SDK's memberid           |
+| currency      | String | 64         | X        | Currency of the payment          |
+| price         | Number | -          | X        | Amount of payment                |
+| paymentId     | String | 64         | X        | Payment Method                   |
 | uniqueId      | String | 512        | X        | In-game unique ID of the payment |
 
 #### Response
@@ -233,18 +232,18 @@ data:
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
+| Attribute | Type   | Description                                                         |
+| :-------- | :----- | :------------------------------------------------------------------ |
 | status    | Int    | Result \(1: Succeeded. Refer to Error code below for other cases.\) |
-| message   | String | Error message                                       |
+| message   | String | Error message                                                       |
 
 #### Error code
 
-| Code | Description                                                                                                              |
-| :--- | :----------------------------------------------------------------------------------------------------------------------- |
+| Code | Description                                                                                                                              |
+| :--- | :--------------------------------------------------------------------------------------------------------------------------------------- |
 | -1   | Required data is omitted from the body. <br/> Be sure that projectId, transactionId, productId, store, and memberId are all specified. ¬ |
-| -2   | The price value is not a number type.<br/> Specify a number type.                                                          |
-| -3   | No projectId.<br/> Check the projectId entered again.                                                           |
-| -4   | The project does not support the api.<br/> Contact GAMEPOT.                                                    |
-| -5   | The transactionId already exists.                                                                                       |
-| -6   | DB error. Contact GAMEPOT.                                                                                          |
+| -2   | The price value is not a number type.<br/> Specify a number type.                                                                        |
+| -3   | No projectId.<br/> Check the projectId entered again.                                                                                    |
+| -4   | The project does not support the api.<br/> Contact GAMEPOT.                                                                              |
+| -5   | The transactionId already exists.                                                                                                        |
+| -6   | DB error. Contact GAMEPOT.                                                                                                               |

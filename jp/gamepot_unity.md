@@ -1688,13 +1688,24 @@ info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = 「ゲームを始める」;
+
+// 일반 광고성 수신동의 버튼 노출 여부
+info.showPush = true;
+
 // 夜間プッシュ型広告通知許可ボタンの表示の有無
 info.showNightPush = true;
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.pushDetailURL = "https://...";
+
+// 야간 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.nightPushDetailURL = "https://...";
 
 // メッセージ変更
 info.allMessage = 「すべて同意」;
 info.termMessage = 「必須) 利用規約」;
 info.privacyMessage = 「必須) 個人情報の取扱方針」;
+info.pushMessage = "선택) 일반 푸시 수신 동의";
 info.nightPushMessage = 「任意) 夜間プッシュ通知を許可」;
 
 GamePot.showAgreeDialog(info);

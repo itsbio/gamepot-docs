@@ -877,14 +877,24 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [option setAllMessage:@"全部同意"];
 [option setTermMessage:@"必要) 使用条款"];
 [option setPrivacyMessage:@"必要) 隐私政策"];
+[option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
 [option setNightPushMessage:@"选拔) 同意稍微推动"];
 [option setFooterTitle:@"开始游戏"];
 
 // 不用时设置为@“”
 [option setHeaderTitle:@"接受条款"];
 
+// 일반 광고성 수신동의 버튼 노출 여부
+[option setShowPush:YES];
+
 // 是否公开用于接收夜间广告的按钮
 [option setShowNightPush:YES];
+
+// 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setPushDetailURL:@"https://..."];
+
+// 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setNightPushDetailURL:@"https://..."];
 ```
 
 每个变量都适用于以下区域。

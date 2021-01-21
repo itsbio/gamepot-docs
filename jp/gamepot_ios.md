@@ -876,14 +876,24 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [option setAllMessage:@"すべて同意"];
 [option setTermMessage:@"必須) 利用規約"];
 [option setPrivacyMessage:@"必須) 個人情報の取扱方針"];
+[option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
 [option setNightPushMessage:@"任意) 夜間プッシュ通知を許可"];
 [option setFooterTitle:@"ゲームを始める"];
 
 // 未使用時は@""に設定
 [option setHeaderTitle:@"規約同意"];
 
+// 일반 광고성 수신동의 버튼 노출 여부
+[option setShowPush:YES];
+
 // 夜間プッシュ型広告通知許可ボタンの表示の有無
 [option setShowNightPush:YES];
+
+// 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setPushDetailURL:@"https://..."];
+
+// 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+[option setNightPushDetailURL:@"https://..."];
 ```
 
 それぞれの変数は以下の領域に適用されます。
