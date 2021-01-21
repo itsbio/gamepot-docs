@@ -5,7 +5,7 @@
 - [Console](ko/gamepot_console.md)
 - [Dashboard](ko/gamepot_dashboard.md)
 - [Unity SDK](ko/gamepot_unity.md)
-- [Unity SDK for PC (BETA)](ko/gamepot_standalone.md)
+- [Unity SDK for Standalone (BETA)](ko/gamepot_standalone.md)
 - [GamePot Tools (BETA)](ko/gamepot_gamepot_tools.md)
 - [Android SDK](ko/gamepot_android.md)
 - [iOS SDK](ko/gamepot_ios.md)

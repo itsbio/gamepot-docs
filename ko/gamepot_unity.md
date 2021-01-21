@@ -406,7 +406,7 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
                 // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
                 // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
                 // GamePot.showAppStatusPopup(status.ToJson());
-        break;        
+        break;
         case NCommon.ResultLogin.APP_CLOSE:
             // TODO: 강제 업데이트나 점검 기능을 case 2 방식(SDK 팝업)으로 구현하는 경우에 사용
             // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
@@ -447,6 +447,24 @@ public class NUserInfo
     public string email { get; set; }           // 이메일(존재 시)
     public string token { get; set; }           // 유저 유효성 체크용 Token (Token Authentication API에서 사용)
     public string userid { get; set; }          // Social ID(google, facebook ...)
+}
+```
+
+NAppStatus 정의
+```csharp
+public class NAppStatus
+{
+    public string type { get; set; }        // AppStatus 타입으로 "maintenance" : 점검, "needupdate" : 업데이트
+    public string message { get; set; }     // 점검 설정 : Dashboard에서 입력한 메세지
+    public string url { get; set; }         // 점검 설정 : Dashboard에서 입력한 URL
+    public string currentAppVersion { get; set; }   // 업데이트 : 현재 App Version
+    public string updateAppVersion { get; set; }    // 업데이트 : Dashboard에서 입력한 App Version
+    public int currentAppVersionCode { get; set; }  // 업데이트 : 현재 App Code
+    public int updateAppVersionCode { get; set; }   // 업데이트 : Dashboard에서 입력한 App Version code
+    public bool isForce { get; set; }           // 업데이트 : Dashboard에서 강제 업데이트 설정 시 true
+    public string resultPayload { get; set; }   // 클라이언트 SDK에서 전달 된 Json 값으로 무시하셔도 됩니다.
+    public double startedAt { get; set; }       // 점검 : 시작 시간
+    public double endedAt { get; set; }         // 점검 : 종료 시간
 }
 ```
 
@@ -972,7 +990,7 @@ Request:
  NLoginUIInfo info = new NLoginUIInfo();
 
 //호출할 로그인 UI 타입
- info.loginTypes = new NCommon.LoginType[] 
+ info.loginTypes = new NCommon.LoginType[]
  {
      NCommon.LoginType.GOOGLE,
      NCommon.LoginType.FACEBOOK,
@@ -1573,7 +1591,7 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
 각 영역별로 Customizing도 가능합니다.
 

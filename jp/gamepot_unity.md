@@ -430,6 +430,23 @@ public class NUserInfo
     public string userid { get; set; }          // Social ID(google、facebook...)
 }
 ```
+NAppStatus の定義
+```csharp
+public class NAppStatus
+{
+    public string type {get; set; } // AppStatusタイプに "maintenance"：点検、「needupdate "：更新
+    public string message {get; set; } //点検設定：Dashboardで入力したメッセージ
+    public string url {get; set; } //点検設定：Dashboardで入力したURL
+    public string currentAppVersion {get; set; } //更新：現在のApp Version
+    public string updateAppVersion {get; set; } //更新：Dashboardで入力されたApp Version
+    public int currentAppVersionCode {get; set; } //更新：現在のApp Code
+    public int updateAppVersionCode {get; set; } //更新：Dashboardで入力したApp Version code
+    public bool isForce {get; set; } //更新：Dashboardで強制的に更新設定時true
+    public string resultPayload {get; set; } //クライアントSDKから渡されたJson値として無視してもされます。
+    public double startedAt {get; set; } //点検：開始時間
+    public double endedAt {get; set; } //点検：終了時間
+}
+`` `
 
 ### ログイン情報をインポートする
 
@@ -949,7 +966,7 @@ Request:
  NLoginUIInfo info = new NLoginUIInfo();
 
 //呼び出すログインUIタイプ
- info.loginTypes = new NCommon.LoginType[] 
+ info.loginTypes = new NCommon.LoginType[]
  {
      NCommon.LoginType.GOOGLE,
      NCommon.LoginType.FACEBOOK,
@@ -1550,7 +1567,7 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
+`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。
 
 各領域別にCustomizingも可能です。
 

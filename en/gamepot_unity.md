@@ -432,6 +432,24 @@ public class NUserInfo
 }
 ```
 
+Define NAppStatus
+```csharp
+public class NAppStatus
+{
+    public string type {get; set; } // AppStatus type "maintenance": check, "needupdate": update
+    public string message {get; set; } // Check setting: Message entered in Dashboard
+    public string url {get; set; } // Check setting: URL entered in Dashboard
+    public string currentAppVersion {get; set; } // Update: Current App Version
+    public string updateAppVersion {get; set; } // Update: App Version entered in Dashboard
+    public int currentAppVersionCode {get; set; } // Update: Current App Code
+    public int updateAppVersionCode {get; set; } // Update: App Version code entered in Dashboard
+    public bool isForce {get; set; } // Update: true when forced update is set in Dashboard
+    public string resultPayload {get; set; } // You can ignore it as the Json value passed from the client SDK.
+    public double startedAt {get; set; } // check: start time
+    public double endedAt {get; set; } // check: end time
+}
+```
+
 ### Get login information
 
 ```csharp
@@ -954,7 +972,7 @@ Request:
  NLoginUIInfo info = new NLoginUIInfo();
 
 //Type of Login UI to call
- info.loginTypes = new NCommon.LoginType[] 
+ info.loginTypes = new NCommon.LoginType[]
  {
      NCommon.LoginType.GOOGLE,
      NCommon.LoginType.FACEBOOK,
@@ -1555,7 +1573,7 @@ GamePot.cancelLocalPush(/*pushId you can get when adding push*/);
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
 
 Each area can be customized.
 

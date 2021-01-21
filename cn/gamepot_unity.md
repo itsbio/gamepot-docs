@@ -434,6 +434,24 @@ public class NUserInfo
 }
 ```
 
+NAppStatus 正义
+```csharp
+public class NAppStatus
+{
+    public string type {get;set; } // AppStatus类型 “maintenance”：检查，“needupdate”：更新
+    public string message {get;set; } //检查设置：在控制台中输入的消息
+    public string url {get;set; } //检查设置：在控制台中输入的URL
+    public string currentAppVersion {get;set; } //更新：当前应用程序版本
+    public string updateAppVersion {get;set; } //更新：在控制台中输入的应用版本
+    public int currentAppVersionCode {get;set; } //更新：当前应用程序代码
+    public int updateAppVersionCode {get;set; } //更新：在控制台中输入的应用版本代码
+    public bool isForce {get;set; } //更新：在仪表板中设置强制更新时为true
+    public string resultPayload {get;set; } //您可以忽略它作为从客户端SDK传递的Json值。
+    public double startsAt {get;set; } //检查：开始时间
+    public double endAt {get;set; } //检查：结束时间
+}
+```
+
 ### 获取登录信息
 
 ```csharp
@@ -956,7 +974,7 @@ Request:
  NLoginUIInfo info = new NLoginUIInfo();
 
 //待调用登录UI类型
- info.loginTypes = new NCommon.LoginType[] 
+ info.loginTypes = new NCommon.LoginType[]
  {
      NCommon.LoginType.GOOGLE,
      NCommon.LoginType.FACEBOOK,
@@ -1556,7 +1574,7 @@ GamePot.cancelLocalPush(/*推送注册期间获取的PushId*/);
 
 提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
 
-除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。
 
 各领域可以自定义。
 
