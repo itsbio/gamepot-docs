@@ -811,6 +811,22 @@ foreach(NPurchaseItem item in items) {
 }
 ```
 
+NPurchaseItem 정의
+```csharp
+public class NPurchaseItem
+{
+    public string productId { get; set; }   // 상품 ID
+    public string type { get; set; }        // 상품 타입으로 "inapp"으로 고정
+    public string price { get; set; }       // 가격 google 스토어 : $0.99 그외 스토어 : 0.99
+    public string price_amount { get; set; }
+    public string price_amount_micros { get; set; }
+    public string price_currency_code { get; set; } // 통화코드 ex) KRW, USD
+    public string price_with_currency { get; set; } // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 ex) $0.99
+    public string title { get; set; }       // 상품 이름
+    public string description { get; set; } // 상품 설명
+}
+```
+
 ### 인앱 상품 결제
 
 아래 함수 하나로 구글, 애플, 앱스토어 결제가 가능합니다.
