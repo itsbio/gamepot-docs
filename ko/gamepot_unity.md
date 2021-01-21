@@ -821,7 +821,7 @@ public class NPurchaseItem
     public string price_amount { get; set; }
     public string price_amount_micros { get; set; }
     public string price_currency_code { get; set; } // 통화코드 ex) KRW, USD
-    public string price_with_currency { get; set; } // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 ex) $0.99
+    public string price_with_currency { get; set; } // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 원스토어의 경우 통화 단위 전달 되지 않습니다. ex) $0.99
     public string title { get; set; }       // 상품 이름
     public string description { get; set; } // 상품 설명
 }
