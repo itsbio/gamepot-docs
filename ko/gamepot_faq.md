@@ -332,6 +332,8 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 
 ## 푸쉬
 
+### Case1 :
+
     # Q. iOS에서 푸쉬 수신이 되지 않아요.
     # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
 
@@ -357,6 +359,41 @@ home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부�
 **4. Xcode에서 build 시 Capability에 Push Notification이 포함 되어 있는지 확인 해주세요.**
 
 Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 포함 되지 않았는지 확인 부탁드립니다.
+
+
+### Case2 : Firebase SDK를 별도로 탑재 되었을때 (Only Unity 플러그인 패키지 적용시)
+
+    # Q. AOS에서 푸쉬 수신이 되지 않아요.
+    # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
+
+- ../Assets/Plugins/Android/AndroidManifest.xml 내 하기 코드가 적용되어 있는지 확인
+
+        ....
+        </activity>
+
+        <!-- FCM [start]-->
+        <service android:name="io.gamepot.common.GamePotFCMIDService">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+        </service>
+        <service android:name="io.gamepot.common.GamePotFCMService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+        </service>
+        <!-- FCM [End]-->
+
+        ...
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+
+- 네이버 클라우드 콘솔상 푸시 설정 값이 잘 설정되었는지 확인합니다.
+    
+    - Firebase 콘솔 내 앱 설정 > 클라우드 메시징 탭에 서버키와 발신자 ID가 정보 확인
+    - 네이버 클라우드 콘솔 >  Simple & Easy Notification Service (SENS) >  push > certificate 항목에 설정 값을 확인
+
+        https://console.ncloud.com/sens/push-certificate
+
 
 ## 앱 서명
 
