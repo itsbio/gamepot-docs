@@ -34,7 +34,7 @@ search:
 
 ![gamepot_standalone_02](./images/gamepot_standalone_02.png)
 
- 3) **Confirm** 버튼을 누르면, **/Assets/** 의 경로에 GamePotConfig.json 파일이 생성된 것을 확인 할 수 있습니다. 
+ 3) **Confirm** 버튼을 누르면, **/Assets/** 의 경로에 GamePotStandalone_Config.json 파일이 생성된 것을 확인 할 수 있습니다. 
  4) Windows 플랫폼 빌드 시, 초기화 시점에 해당 config정보를 읽어올 수 있도록 **~/build/bin/{Build_Name}_Data**  경로에 해당 json 파일을 위치시켜주세요.
 
 ![gamepot_standalone_03](./images/gamepot_standalone_03.png)
