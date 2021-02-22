@@ -341,37 +341,23 @@ Once your API authentication key is connected, a bucket in Object Storage is aut
 
 #### Step 3. Add a notice
 
-Go to **Notice** to add a notice.
+공지사항을 추가하기 위해서 **공지사항** 메뉴로 이동합니다.
 
-![gamepot_dashboard_22](./images/gamepot_dashboard_22.png)
+화살표 버튼을 이용하여 사용자에게 노출할 이미지 순서를 지정할 수 있습니다.
 
-① Click **Add notice** to add images.
+**공지사항 추가** 버튼을 통해 이미지를 추가할 수 있습니다.
 
-② Specify the order of images that users can see.
+이후 팝업 메뉴가 나타나면 원하는 값을 입력하고 **저장** 버튼을 클릭하면 공지가 추가됩니다.
 
-Specify the fields in the following pop-up window and click **Save**; a notice will be added.
+선택한 스토어의 분류에 따라 모든 스토어의 해당 앱에 공지사항이 노출되거나, 특정 스토어를 통하여 게임을 접속한 사용자에게만 공지사항이 노출될 수 있도록 지정할 수 있습니다.
 
-![gamepot_dashboard_23](./images/gamepot_dashboard_23.png)
+분류가 지정된 이미지는, 해당 분류 값으로 호출할 때에만 이미지가 노출됩니다.
 
-① Select whether to enable the notice or not.
+국가를 지정하면 해당 국가에 해당하는 디바이스에 대해서만 이미지가 노출됩니다.
 
-② Specify the start and end date during which you want to display the notice.
+노출된 공지사항 이미지를 사용자가 터치할 경우 클릭액션 타입에 의해 URL은 외부 브라우저로 이동하며, SCHEME은 callback 함수로 값을 리턴합니다.
 
-③ Select all stores or a specific store where you want to display the notice.
-
-④ Specify classification for the notice to display. The classified images are only displayed when called by the relevant classification value.
-
-⑤ Specify country for the notice to display. The images will only be displayed for devices in the relevant country.
-
-⑥ If users touch images displayed in the notice, the URL opens in an external browser and a SCHEME returns the value with callback function.
-
-⑦ Specify a default language among images displayed in the notice for each language setting.
-
-⑧ Drag and drop images displayed in the notice or directly select them to upload image files.
-
-Register additional images displayed for each language setting.
-
-![gamepot_dashboard_24](./images/gamepot_dashboard_24.png)
+언어 설정 별로, 노출 될 이미지를 추가 등록 할 수 있습니다.
 
 ### Check and update
 
@@ -499,31 +485,21 @@ Coupons are an essential element in games. Two types of coupons are supported: c
 
 #### - Common coupon
 
-A common coupon is generally provided to users as a coupon code. This feature allows you to easily create and manage coupons in your game. Click **Create coupon** to create a coupon in the following pop-up window.
+일반 쿠폰은 일반적인 코드 형태로 되어 있는 쿠폰입니다.
 
-![gamepot_dashboard_34](./images/gamepot_dashboard_34.png)
+게임 내에서 사용될 쿠폰을 쉽게 생성 및 관리 하실 수 있는 기능입니다.
 
-① Specify the period during which the coupon is available.
+리스트 앞 쪽의 아이콘을 클릭하면 쿠폰 수량을 추가하거나 사용 통계를 확인할 수 있습니다.
 
-② Limit the length of the coupon. Usually, between 8-10 characters is recommended.
+**+쿠폰생성**을 클릭하면 쿠폰을 생성할 수 있습니다.
 
-③ Specify the ③ Prefix\(\) and \(suffix\), which will be added to your coupon code when it is created.
+Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성 시 지정된 문구가 붙습니다.
 
-④ Add up to 100,000 coupons, the number can be increased later. \(The maximum number of coupons is 500,000.\)
+쿠폰 수량은 최대 10만개 생성 가능하며, 생성 후에 증가시킬 수 있습니다. 최대 쿠폰 수는 50만개 입니다.
 
-⑤ Specify an item to be offered for a coupon and the number of items. Click + button to provide multiple items.
+제목과 내용을 입력하면 인게임에서 쿠폰 제목과 쿠폰 내용을 보여줄 수 있습니다.
 
-When a coupon is created, the list of coupons created is displayed as shown in the figure below.
-
-![gamepot_dashboard_35](./images/gamepot_dashboard_35.png)
-
-Check the current status and limited quantity of each coupon from the list.
-
-Also edit the number of coupons previously created.
-
-① Click the blue icon on the left side of the list to increase the quantity.
-
-② Check the coupon usage statistics.
+쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
 
 #### - Keyword coupon
 
@@ -531,30 +507,19 @@ This feature allows you to create keywords such as “Christmas”, “open even
 
 Click **+Create coupon**.
 
-![gamepot_dashboard_37](./images/gamepot_dashboard_37.png)
+기간과 쿠폰을 지급할 키워드를 입력해야 합니다.
 
-① Specify the period during which the coupon is available.
+제한 수량을 초과하지 않고 지급이 가능합니다.
 
-② Enter a keyword for the coupon.
+제목과 내용을 입력하면 인게임에서 쿠폰 제목과 쿠폰 내용을 보여줄 수 있습니다.
 
-③ The number of available coupons cannot exceed this value.
-
-④ Specify an item to be offered for a coupon and the number of items. Click + button to provide multiple items.
+쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
 
 #### - Usage history
 
-Displays all issued coupon codes.
+전체 발급된 쿠폰 번호를 기간, 쿠폰 번호, 사용자 ID 등으로 조회하실 수 있습니다.
 
-![gamepot_dashboard_38](./images/gamepot_dashboard_38.png)
-
-① View the failures only.
-
-② Specify a period, coupon number, and user ID to check whether the coupon has been used.
-
-③ It will display whether or not a coupon has been used.
-
-- Success: The coupon was successfully used.
-- Not used: The coupon was not used.
+[실패 이력 조회] 버튼을 체크하면 실패한 이력만 조회할 수 있습니다.
 
 ### Customer Support
 
@@ -562,27 +527,21 @@ Enables you to answer questions asked by users. If there is a customer support m
 
 #### - Inquiries
 
-It displays inquiries made by users. Customer satisfaction rating only appears after the inquiry is closed and the user rates the response.
+고객이 문의한 내역을 확인하실 수 있습니다.
 
-Click **User ID**.
+고객문의 페이지에서 해당 회원에 대한 모든 정보를 확인할 수 있습니다.
 
-![gamepot_dashboard_42](./images/gamepot_dashboard_42.png)
+번역 기능으로 문의 내용, 답변 내용의 언어를 감자히거나 원하는 언어로 번역할 수 있습니다.
 
-> Translation features for inquiries appear after setting Set project > NCloud > Papago value. Set default translation language, automatic language detection, and automatic translation features in Edit user information.
+> 고객문의 번역 기능은 프로젝트 설정>NCloud>Papago 값을 설정해야 노출됩니다. 기본 번역 언어, 자동 언어 감지, 자동 번역 기능은 회원 정보 수정에서 설정할 수 있습니다.
 
-① Specify an owner. Users other than the specified owner cannot answer the inquiries.
+각 문의에 담당자를 지정할 수 있습니다. 담당자를 지정하면 해당 담당자 외 다른 사용자는 문의에 답변할 수 없습니다.
 
-② Translate the inquiry's title. It is translated from the detected language to the default translation language.
+답변 템플릿을 선택하여 자주 쓰는 답변 내용을 불러올 수 있습니다.
 
-③ You can select a reply template to apply.
+답변에 필요한 이미지 및 동영상 파일을 업로드할 수 있습니다.
 
-④ Translate the response. Only languages supported by Papago appear in the list.
-
-⑤ Upload image file required for the response.
-
-⑥ Translate the inquiry. It will be translated from the detected language to the user's default language.
-
-⑦ It displays all information of the user by default.
+답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
 
 **\[알림 및 문의 설정\]**
 
@@ -594,7 +553,7 @@ Click **User ID**.
 
 ##### 메일 설정
 
-발신 메일 설정을 입력합니다.
+발신 메일 설정을 언어별로 입력합니다.
 
 메일 발송 기능을 사용하려면 발신 메일 주소, 발신 메일 이름을 필수로 입력해야 합니다.
 
@@ -616,17 +575,11 @@ Click **Set category.**
 
 ![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
 
-**Set category** enables you to add and manage categories for inquiries..
+**분류 추가**를 통해, 고객문의에 대한 분류명을 추가하고 관리할 수 있습니다.
 
-![gamepot_dashboard_45](./images/gamepot_dashboard_45.png)
+디바이스 언어설정에 따라 다른 분류명과 템플릿을 지정해 놓을 수 있습니다.
 
-① Check the status to activate the category.
-
-② Specify a default language among inquiry categories displayed differently for the device's language setting.
-
-③ Add different categories and templates for the device's language setting.
-
-④ Enter templates for the specified language's category and the category's inquiry.
+이벤트 약관을 설정하면 SDK에서 해당 분류를 선택했을때 약관창이 노출됩니다.
 
 **\[Web inquiry address\]**
 
@@ -740,7 +693,17 @@ Enter the contents of internal refund policy. Users can view this via SDK.
 
 Check the inquiry statistics for a specified period.
 
-![gamepot_dashboard_55](./images/gamepot_dashboard_55.png)
+답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
+
+#### - 담당자별 통계
+
+담당자를 선택하여 담당자별 통계를 확인할 수 있습니다.
+
+#### - 일별 리포트
+
+고객 문의 통계를 일별로 확인할 수 있습니다.
+
+최대 90일까지 조회가능합니다.
 
 #### - Page
 
@@ -857,14 +820,6 @@ Displays statistical data of the users who register via the advance reservation 
 
 The feature to send bulk messages to the users will be added later.
 
-## Advertisement
-
-In partnership with Nasmedia Co., Ltd, the users can easily apply to run advertisements and view various statistical information on GAMEPOT dashboard.
-
-![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
-
-## Settings
-
 ### Remote configurations
 
 Enables you to change how your app works and looks without updating it. Add parameters to the server and import them in the GAMEPOT SDK. Using this feature, you can remotely control game features in the server.
@@ -876,6 +831,18 @@ Click **Add**. When the pop-up window displayed below appears, add a parameter a
 ![gamepot_dashboard_61](./images/gamepot_dashboard_61.png)
 
 The parameter and value will apply since users recently ran the app.
+
+### Log
+
+This feature works with NAVER CLOUD PLATFORM’s ELSA to allow you to collect game logs or crash logs. Refer to [How to Use ELSA](https://docs.ncloud.com/ko/elsa/elsa-1-1.html) for details.
+
+## Advertisement
+
+In partnership with Nasmedia Co., Ltd, the users can easily apply to run advertisements and view various statistical information on GAMEPOT dashboard.
+
+![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
+
+## Settings
 
 ### Project settings
 
@@ -1056,11 +1023,7 @@ When a test user with the registered IP address accesses the game, the following
 - Update: The game proceeds even if updates are activated.
 - Member: The game proceeds even if there are countries or IPs blocked.
 
-![gamepot_dashboard_73](./images/gamepot_dashboard_73.png)
-
-Click **Add**. When the pop-up window displayed below appears, add a parameter and value.
-
-![gamepot_dashboard_74](./images/gamepot_dashboard_74.png)
+**추가** 버튼을 클릭해서 매개변수와 값을 입력합니다.
 
 #### - Block
 
@@ -1088,6 +1051,12 @@ It manages keys used in authentications for using open APIs.
 Click [+Add] to create a key and enter the key value created in the header as x-api-key value when calling open APIs.
 Click the key created to access Edit. Edit the key status, key expiration date, and description or delete the key.
 
+### 관리자
+
+#### 감사
+
+최고 관리자 계정으로 대시보드 사용자의 활동 기록을 확인할 수 있습니다.
+
 ## Others
 
 ### Job management
@@ -1096,35 +1065,33 @@ Download the output result of csv files from each menu for a month.
 
 ![gamepot_dashboard_90](./images/gamepot_dashboard_90.png)
 
-### Log
+## その他
 
-This feature works with NAVER CLOUD PLATFORM’s ELSA to allow you to collect game logs or crash logs. Refer to [How to Use ELSA](https://docs.ncloud.com/ko/elsa/elsa-1-1.html) for details.
+### SDK다운로드
 
-### User Guide
-
-Go to the GAMEPOT Dashboard User Guide page.
-
-![gamepot_dashboard_77](./images/gamepot_dashboard_77.png)
-
-### GAMEPOT Notice
-
-View GAMEPOT notices.
+Android, IOS, Unity SDK를 다운로드할 수 있습니다.
 
 ![gamepot_dashboard_110](./images/gamepot_dashboard_110.png)
 
-### Change language
+> 대시보드 우측 상단에서 GAMEPOT 정보를 확인할 수 있습니다.
 
-Change the display language of the dashboard to the selected language.
+### GAMEPOT 공지사항
 
-![gamepot_dashboard_78](./images/gamepot_dashboard_78.png)
+GAMEPOT의 공지사항을 확인할 수 있습니다.
 
-### Edit member info
+### 사용자 가이드
 
-It enables you to edit the name and password of the dashboard account.
+GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
-![gamepot_dashboard_79](./images/gamepot_dashboard_79.png)
+### 언어 변경
 
-Click the icon on the upper right side of the dash board and then click **Edit member info**.
+대시보드의 각 메뉴 등이 선택한 언어로 변경됩니다.
+
+### 회원정보수정
+
+대시보드 이용 계정의 이름, 비밀번호를 변경하실 수 있습니다.
+
+대시보드 우측 상단의 아이콘을 클릭하면 나타나는 드롭다운 메뉴 중 회원정보수정을 선택할 수 있습니다.
 
 ![gamepot_dashboard_80](./images/gamepot_dashboard_80.png)
 
