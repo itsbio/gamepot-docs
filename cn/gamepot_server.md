@@ -71,16 +71,17 @@ https://{domain}?
 userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData={userData}&itemId=[{itemData}, {itemData}, ...]
 ```
 
-| 属性      | 类型   | 最大长度 | 描述                                                                                               |
-| :-------- | :----- | :------- | :------------------------------------------------------------------------------------------------- |
-| userId    | 字符串 | 128      | 用户 ID                                                                                            |
-| projectId | 字符串 | 128      | 项目 ID                                                                                            |
-| platform  | 字符串 | 128      | 操作平台信息\(Android、IOS\)                                                                       |
-| store     | 字符串 | 64       | 商店信息\(apple、google、one\)                                                                     |
-| title     | 字符串 | -        | GAMEPOT 仪表盘 > 游戏 > 赠送 > 标题中放入的值                                                      |
-| content   | 字符串 | -        | GAMEPOT 仪表盘 > 游戏 > 赠送 > 描述中放入的值                                                      |
-| userData  | 字符串 | -        | 调用优惠券 api 时第二个参数中放入的值                                                              |
-| itemId    | 数组   | -        | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
+| Attribute | Type   | Max Length | Description                                                                                        |
+| :-------- | :----- | :--------- | :------------------------------------------------------------------------------------------------- |
+| userId    | String | 128        | 사용자ID ( 게임팟 대시보드 > 게임 > 선물하기 > 대상 값이 전체인 경우 all  )                                                                                 |
+| projectId | String | 128        | Project ID                                                                                 |
+| platform  | String | 128        | 운영 Platform 정보 \(Android, IOS\)                                                          |
+| store     | String | 64         | 스토어 정보\(apple, google, one\)                                                             |
+| title     | String | -          | 게임팟 대시보드 > 게임 > 선물하기 >  제목 에 넣은 값                                                       |
+| content   | String | -          | 게임팟 대시보드 > 게임 > 선물하기 >  설명 에 넣은 값                                                       |
+| target    | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 대상 값 - 전체 : all / 사용자ID  : user                                                       |
+| userData  | String | -          | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
+| itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
 > 例如\)
 >
