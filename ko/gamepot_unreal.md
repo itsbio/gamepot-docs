@@ -5,9 +5,9 @@ search:
 
 # Unreal SDK
 
-### Android
+## 기본 환경 설정
 
-#### 기본 환경 설정
+### Android
 
 ```d
 minSdkVersion : API 17 (Jelly Bean, 4.2)
@@ -297,6 +297,8 @@ struct FNUserInfo
 }
 ```
 
+## 2. 오류 코드
+
 NError 정의
 
 ```c++
@@ -328,13 +330,11 @@ struct FNError
 }
 ```
 
-## 2. 로그인 환경 설정
+## 3. 로그인 환경 설정
 
 ### 구글 로그인
 
 #### Google Firebase Console
-
-ThirdParty/Android/libs/google-services.json
 
 1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/`에 복사합니다.
 2. APK 빌드 시 사용한 Keystore의 SHA-1 값을 Google Firebase console에 추가합니다.
@@ -364,6 +364,24 @@ defaultConfig {
 ...
 ```
 
+#### iOS
+
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_facebook_app_id // 페이스북 개발자 콘솔에서 발듭받은 app id
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
+
+```markup
+...
+<key>gamepot_facebook_app_id</key>
+<string>xxxxxx</string>
+...
+```
+
+
 ### APPLE 로그인
 
 > iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 )
@@ -371,7 +389,7 @@ defaultConfig {
 **Config/DefaultEngine.ini 내,  ` [/Script/IOSRuntimeSettings.IOSRuntimeSettings] `항목에 다음 Flag 값을 추가 합니다.**
 > bEnableSignInWithAppleSupport=True
 
-## . 로그인/로그아웃/탈퇴/검증
+## 4. 로그인/로그아웃/탈퇴/검증
 
 ### 로그인
 
@@ -593,7 +611,7 @@ void ASampleGameModeBase::OnDeleteMemberFailure(FNError NError)
 
 자세한 설명은 Server to server api 메뉴에 `Token Authentication` 항목을 참고해주세요.
 
-## 6. 계정 연동
+## 5. 계정 연동
 
 하나의 게임 계정에 복수 개의 소셜계정\(구글/페이스북 등\)을 연결/해제할 수 있는 기능입니다.\(최소 연동 소셜 계정은 1가지입니다.\)
 
@@ -698,7 +716,7 @@ void ASampleGameModeBase::OnDeleteLinkingFailure(FNError NError) {
 }
 ```
 
-## 7. 결제
+## 6. 결제
 
 ### 인앱 상품 조회
 
@@ -860,7 +878,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     TArray<FNPurchaseItem> itemList = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getPurchaseThirdPaymentsItems();
 ```
 
-## 8. 기타 API
+## 7. 기타 API
 
 ### SDK 지원 로그인 UI
 
