@@ -495,7 +495,7 @@ Request:
 // IDFA 값 획득 권한 요청 팝업을 임의로 띄울 수 있습니다. 
 // 권한 획득 후에는, 메소드 호출 시에도 팝업이 뜨지 않습니다.
 
-GamePot.requestTrackingAuthorizatio (NResultTrackingAuthorizationresultState) =>
+GamePot.requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
 {
    // 획득한 NResultTrackingAuthorizationresultState 핸들링..
 });
