@@ -143,7 +143,7 @@ class GAMEPOTSDKSAMPLE_API ASampleGameModeBase : public AGameModeBase
    void OnLoginFailure(FNError NError);
    void OnLoginMaintenance(FNAppStatus NAppStatus);
    void OnLoginNeedUpdate(FNAppStatus NAppStatus);
-   void OnLoginExit(); 	
+   void OnLoginExit();
    ...
 };
 ```
@@ -189,32 +189,31 @@ void ASampleGameModeBase::OnLoginFailure(FNError NError)
 
 ```
 
-
 (Binding) Event Listener 목록
 
 ```c++
     // Login 성공
-	FOnSdkLoginSuccess OnSdkLoginSuccess(FNUserInfo NUserInfo);     
+    FOnSdkLoginSuccess OnSdkLoginSuccess(FNUserInfo NUserInfo);     
     // Login 취소            
-	FOnSdkLoginCancel OnSdkLoginCancel(); 
+    FOnSdkLoginCancel OnSdkLoginCancel(); 
     // Login 실패                                     
-	FOnSdkLoginFailure OnSdkLoginFailure(FNError NError);   
+    FOnSdkLoginFailure OnSdkLoginFailure(FNError NError);   
     // Login (점검)                   
-	FOnSdkLoginMaintenance OnSdkLoginMaintenance(FNAppStatus NAppStatus);
+    FOnSdkLoginMaintenance OnSdkLoginMaintenance(FNAppStatus NAppStatus);
     // Login (업데이트)      
-	FOnSdkLoginNeedUpdate OnSdkLoginNeedUpdate(FNAppStatus NAppStatus);   
+    FOnSdkLoginNeedUpdate OnSdkLoginNeedUpdate(FNAppStatus NAppStatus);   
     // Login UI Close(showLoginWithUI 사용 시)     
-	FOnSdkLoginExit OnSdkLoginExit();         
+    FOnSdkLoginExit OnSdkLoginExit();         
     // (점검, 업데이트 시) 앱 종료                                      
-	FOnSdkAppClose OnSdkAppClose();   
+    FOnSdkAppClose OnSdkAppClose();   
 
     // Logout 성공                                                                          
-	FOnSdkLogoutSuccess OnSdkLogoutSuccess();   
+    FOnSdkLogoutSuccess OnSdkLogoutSuccess();   
     // Logout 실패                               
-	FOnSdkLogoutFailure OnSdkLogoutFailure(FNError NError);      
+    FOnSdkLogoutFailure OnSdkLogoutFailure(FNError NError);      
 
     // showWebview 닫음          
-	FOnWebviewClose OnSdkWebviewClose(FString msg);
+    FOnWebviewClose OnSdkWebviewClose(FString msg);
 
     // purchase 성공
     FOnSdkPurchaseSuccess OnSdkPurchaseSuccess(FNPurchaseInfo NPurchaseInfo);
@@ -244,37 +243,37 @@ void ASampleGameModeBase::OnLoginFailure(FNError NError)
     FOnSdkReceiveScheme OnSdkReceiveScheme(FString scheme);
 
     // deleteMember 성공
-	FOnSdkDeleteMemberSuccess OnSdkDeleteMemberSuccess();
+    FOnSdkDeleteMemberSuccess OnSdkDeleteMemberSuccess();
     // deleteMember 실패
-	FOnSdkDeleteMemberFailure OnSdkDeleteMemberFailure(FNError NError);
+    FOnSdkDeleteMemberFailure OnSdkDeleteMemberFailure(FNError NError);
 
     // coupon (사용)성공
-	FOnSdkCouponSuccess OnSdkCouponSuccess(FString msg);
+    FOnSdkCouponSuccess OnSdkCouponSuccess(FString msg);
     // coupon (사용)실패
-	FOnSdkCouponFailure OnSdkCouponFailure(FNError NError);
+    FOnSdkCouponFailure OnSdkCouponFailure(FNError NError);
 
     // showAgreeDialog (약관동의여부) 갱신 성공
-	FOnAgreeDialogSuccess OnSdkAgreeDialogSuccess(FNAgreeResultInfo NAgreeResultInfo);
+    FOnAgreeDialogSuccess OnSdkAgreeDialogSuccess(FNAgreeResultInfo NAgreeResultInfo);
     // showAgreeDialog (약관동의여부) 갱신 실패
-	FOnAgreeDialogFailure OnSdkAgreeDialogFailure(FNError NError);
+    FOnAgreeDialogFailure OnSdkAgreeDialogFailure(FNError NError);
 
     // setPush 성공
-	FOnPushSuccess OnSdkPushSuccess();
+    FOnPushSuccess OnSdkPushSuccess();
     // setPushAdStatus 성공
-	FOnPushAdSuccess OnSdkPushAdSuccess();
+    FOnPushAdSuccess OnSdkPushAdSuccess();
     // setPushNightStatus 성공
-	FOnPushNightSuccess OnSdkPushNightSuccess();
+    FOnPushNightSuccess OnSdkPushNightSuccess();
     // setPushStatus 성공
-	FOnPushStatusSuccess OnSdkPushStatusSuccess();
+    FOnPushStatusSuccess OnSdkPushStatusSuccess();
 
     // setPush 실패
-	FOnPushFailure OnSdkPushFailure(FNError NError);
+    FOnPushFailure OnSdkPushFailure(FNError NError);
     // setPushAdStatus 실패
-	FOnPushAdFailure OnSdkPushAdFailure(FNError NError);
+    FOnPushAdFailure OnSdkPushAdFailure(FNError NError);
     // setPushNightStatus 실패
-	FOnPushNightFailure OnSdkPushNightFailure(FNError NError);
+    FOnPushNightFailure OnSdkPushNightFailure(FNError NError);
     // setPushStatus 실패
-	FOnPushStatusFailure OnSdkPushStatusFailure(FNError NError);
+    FOnPushStatusFailure OnSdkPushStatusFailure(FNError NError);
 ```
 
 NUserInfo 정의
@@ -283,22 +282,23 @@ NUserInfo 정의
 USTRUCT()
 struct FNUserInfo
 {
-  	UPROPERTY()
-		FString memberid;       // 멤버 ID(유저의 유니크 아이디)                   
-	UPROPERTY()
-		FString name;	        // 이름					
-	UPROPERTY()
-		FString profileUrl;     // 프로필 URL(존재 시)                     
-	UPROPERTY()
-		FString email;			// 이메일(존재 시)
-	UPROPERTY()
-		FString token;          // 유저 유효성 체크용 Token (Token AuthenticationAPI에서 사용)
     UPROPERTY()
-		FString userid;         // Social ID(google, facebook ...)
+    FString memberid;           // 멤버 ID(유저의 유니크 아이디)                   
+    UPROPERTY()
+    FString name;               // 이름
+    UPROPERTY()
+    FString profileUrl;         // 프로필 URL(존재 시)                     
+    UPROPERTY()
+    FString email;              // 이메일(존재 시)
+    UPROPERTY()
+    FString token;              // 유저 유효성 체크용 Token (Token AuthenticationAPI에서 사용)
+    UPROPERTY()
+    FString userid;             // Social ID(google, facebook ...)
 }
 ```
 
 NError 정의
+
 ```c++
 USTRUCT()
 struct FNError
@@ -321,10 +321,10 @@ struct FNError
     static const int CODE_CHARGE_CONSUME_ERROR = 5003;                 // consume시 오류
 
     UPROPERTY()
-        int code;               // error Code
+    int code;               // error Code
 
     UPROPERTY()
-        FString message;        // error Message
+    FString message;        // error Message
 }
 ```
 
@@ -363,18 +363,19 @@ defaultConfig {
 }
 ...
 ```
+
 ### APPLE 로그인
 
 > iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 )
 
-**Config/DefaultEngine.ini 내,  `[/Script/IOSRuntimeSettings.IOSRuntimeSettings] `항목에 다음 Flag 값을 추가 합니다.**
+**Config/DefaultEngine.ini 내,  ` [/Script/IOSRuntimeSettings.IOSRuntimeSettings] `항목에 다음 Flag 값을 추가 합니다.**
 > bEnableSignInWithAppleSupport=True
 
 ## . 로그인/로그아웃/탈퇴/검증
 
 ### 로그인
 
-별도의 가입 없이 사용자 계정이 생성됩니다. 모든 신원 확인을 위한 MemberId가 생성되며, 생성된 정보는 NUserInfo 저장되어 리턴됩니다.
+별도의 가입 없이 사용자 계정이 생성됩니다. 모든 신원 확인을 위한 MemberId가 생성되며, 생성된 정보는 FNUserInfo 저장되어 리턴됩니다.
 
 LoginType 정의
 
@@ -382,24 +383,23 @@ LoginType 정의
 UENUM()
 namespace ENLoginType
 {
-	enum Type
-	{
-		NONE,
-		GOOGLE,
-		GOOGLEPLAY,
-		FACEBOOK,
-		NAVER,
-		GAMECENTER,
-		TWITTER,
-		LINE,
-		APPLE,
-		GUEST,
-		THIRDPARTYSDK,
-		STANDALONE
-	};
+    enum Type
+    {
+        NONE,
+        GOOGLE,
+        GOOGLEPLAY,
+        FACEBOOK,
+        NAVER,
+        GAMECENTER,
+        TWITTER,
+        LINE,
+        APPLE,
+        GUEST,
+        THIRDPARTYSDK,
+        STANDALONE
+    };
 }
 ```
-
 
 - Case 1
 
@@ -471,9 +471,7 @@ void ASampleGameModeBase::OnAppClose()
     // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
 }
 
-
 ```
-
 
 NAppStatus 정의
 
@@ -521,7 +519,7 @@ struct FNAppStatus
 ```c++
 ENLoginType::Type loginType =  FGamePotSDKPluginModule::GetSharedGamePotSdk()->getLastLoginType();
 
-if(type != NONE) {
+if(loginType != ENLoginType::NONE) {
 {
     // 마지막에 로그인했던 로그인 타입으로 로그인하는 방식입니다.
     FGamePotSDKPluginModule::GetSharedGamePotSdk()->Login(loginType);
@@ -589,13 +587,11 @@ void ASampleGameModeBase::OnDeleteMemberFailure(FNError NError)
 }
 ```
 
-
 ### 검증
 
 로그인 완료 후 로그인 정보를 개발사 서버에서 GAMEPOT 서버로 전달하면 로그인 검증이 진행됩니다.
 
 자세한 설명은 Server to server api 메뉴에 `Token Authentication` 항목을 참고해주세요.
-
 
 ## 6. 계정 연동
 
@@ -607,19 +603,19 @@ void ASampleGameModeBase::OnDeleteMemberFailure(FNError NError)
 UENUM()
 namespace ENLinkingType
 {
-	enum Type
-	{
-		NONE,
-		GOOGLEPLAY,
-		GAMECENTER,
-		GOOGLE,
-		FACEBOOK,
-		NAVER,
-		TWITTER,
-		LINE,
-		APPLE,
-		THIRDPARTYSDK
-	};
+    enum Type
+    {
+        NONE,
+        GOOGLEPLAY,
+        GAMECENTER,
+        GOOGLE,
+        FACEBOOK,
+        NAVER,
+        TWITTER,
+        LINE,
+        APPLE,
+        THIRDPARTYSDK
+    };
 }
 ```
 
@@ -640,16 +636,16 @@ Response:
 
 ```c++
 void ASampleGameModeBase::OnCreateLinkingSuccess(FNUserInfo NUserInfo) {
-    /// 계정 연동 성공
-
+        // 계정 연동 성공
 }
+
 void ASampleGameModeBase::OnCreateLinkingCancel() {
         // 유저가 계정연동을 취소한 경우
 
 }
 void ASampleGameModeBase::OnCreateLinkingFailure(FNError NError) {
-       // 계정 연동을 실패하는 경우
-    // error.message를 팝업 등으로 유저에게 알려주세요.
+        // 계정 연동을 실패하는 경우
+        // NError.message를 팝업 등으로 유저에게 알려주세요.
 }
 
 ```
@@ -661,7 +657,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
      TArray<FNLinkingInfo> linkedList = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getLinkedList();
 ```
 
-링킹 정보 정의(TArray - FNLinkingInfo)
+링킹 정보 정의
 
 ```c++
 USTRUCT()
@@ -723,34 +719,33 @@ NPurchaseItem 정의
 USTRUCT()
 struct FNPurchaseItem
 {
-	UPROPERTY()
-	FString productId;              // 상품 ID    
-	
     UPROPERTY()
-	FString type;                   // 상품 타입으로 "inapp"으로 고정
-	
-    UPROPERTY()
-	FString price;                  // 가격 google 스토어 : $0.99 그외 스토어 : 0.99   
-	
-    UPROPERTY()
-	FString price_amount;           // 통화코드 ex) KRW, USD
-	
-    UPROPERTY()
-	FString price_amount_micros;    // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 원스토어의 경우 통화 단위 전달 되지 않습니다. ex) $0.99
-	
-    UPROPERTY()
-	FString price_currency_code;
-	
-    UPROPERTY()
-	FString price_with_currency;
-	
-    UPROPERTY()
-	FString title;                   // 상품 이름       
-	
-    UPROPERTY()
-	FString description;            // 상품 설명
-}
+    FString productId;              // 상품 ID    
 
+    UPROPERTY()
+    FString type;                   // 상품 타입으로 "inapp"으로 고정
+
+    UPROPERTY()
+    FString price;                  // 가격 google 스토어 : $0.99 그외 스토어 : 0.99   
+
+    UPROPERTY()
+    FString price_amount;           // 통화코드 ex) KRW, USD
+
+    UPROPERTY()
+    FString price_amount_micros;    // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값  원스토어의 경우 통화 단위 전달 되지 않습니다. ex) $0.99
+
+    UPROPERTY()
+    FString price_currency_code;
+
+    UPROPERTY()
+    FString price_with_currency;
+
+    UPROPERTY()
+    FString title;                   // 상품 이름       
+
+    UPROPERTY()
+    FString description;            // 상품 설명
+}
 ```
 
 ### 인앱 상품 결제
@@ -782,48 +777,36 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 USTRUCT()
 struct FNPurchaseInfo
 {
-	UPROPERTY()
-	FString price;                         // 결제 아이템의 가격
-
-	UPROPERTY()
-	FString productId;                  // 결제 아이템 ID
-
-	UPROPERTY()
-	FString currency;                    // 결제 가격 통화(KRW/USD)
-
-	UPROPERTY()
-	FString orderId;                      // 스토어 Order ID
-
-	UPROPERTY()
-	FString productName;            // 결제 아이템 이름
-
-	UPROPERTY()
-	FString gamepotOrderId;         // (GAMEPOT에서 생성한) order id
-
-	UPROPERTY()
-	FString uniqueId;                    // (개발사에서 별도로 관리하는) 영수증 ID
-
-	UPROPERTY()
-	FString serverId;                    // (결제를 진행한 캐릭터의) 서버 아이디
-
-	UPROPERTY()
-	FString playerId;                    // (결제를 진행한 캐릭터의) 캐릭터 아이디
-
-	UPROPERTY()
-	FString etc;                         // (결제를 진행한 캐릭터의) 기타 정보
-
-	UPROPERTY()
-	FString signature;                  // 스토어 signature 
-
-	UPROPERTY()
-	FString originalJSONData;   // 영수증 Data
+    UPROPERTY()
+    FString price;                         // 결제 아이템의 가격    
+    UPROPERTY()
+    FString productId;                  // 결제 아이템 ID   
+    UPROPERTY()
+    FString currency;                    // 결제 가격 통화(KRW/USD) 
+    UPROPERTY()
+    FString orderId;                      // 스토어 Order ID    
+    UPROPERTY()
+    FString productName;            // 결제 아이템 이름 
+    UPROPERTY()
+    FString gamepotOrderId;         // (GAMEPOT에서 생성한) order id    
+    UPROPERTY()
+    FString uniqueId;                    // (개발사에서 별도로 관리하는) 영수증 ID  
+    UPROPERTY()
+    FString serverId;                    // (결제를 진행한 캐릭터의) 서버 아이디    
+    UPROPERTY()
+    FString playerId;                    // (결제를 진행한 캐릭터의) 캐릭터 아이디  
+    UPROPERTY()
+    FString etc;                         // (결제를 진행한 캐릭터의) 기타 정보  
+    UPROPERTY()
+    FString signature;                  // 스토어 signature     
+    UPROPERTY()
+    FString originalJSONData;   // 영수증 Data
 }
 ```
 
 Response:
 
 ```c++
-
 /// 인앱 결제 성공
  void ASampleGameModeBase::OnPurchaseSuccess(FNPurchaseInfo NPurchaseInfo)
  {
@@ -840,9 +823,7 @@ Response:
        // 결제를 실패하는 경우
     // NError.message를 팝업 등으로 유저에게 알려주세요.
  }
-
 ```
-
 
 ### 결제 아이템 지급
 
@@ -857,7 +838,6 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 > 호출 api만 다르고 응답 및 purchase webhook등 나머지는 일반 결제와 동일합니다.
 >
 > 기능을 사용하기 위해선 설정이 필요합니다. 대시보드 메뉴얼에 '외부결제' 항목을 참고하세요.
-
 
 - Case 1
 
@@ -1020,9 +1000,19 @@ void ASampleGameModeBase::OnAppClose()
 >
 > 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
 
-/Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-apple-signin.aar
+
+GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+
+```java
+...
+dependencies {
+    implementation(name: 'gamepot-channel-apple-signin', ext: 'aar')
+}
+...
+```
 
 ### 네이버 로그인
 
@@ -1045,6 +1035,43 @@ defaultConfig {
 
 Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
 
+/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+
+- gamepot-channel-naver.aar
+
+GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+
+```java
+...
+dependencies {
+    implementation(name: 'gamepot-channel-naver', ext: 'aar')
+}
+...
+```
+
+#### iOS
+
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_naver_clientid // 네이버에서 사용할 client 아이디
+gamepot_naver_secretid // 네이버에서 사용할 secret 아이디
+gamepot_naver_urlscheme // 네이버에서 사용할 urlscheme
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
+
+```markup
+...
+<key>gamepot_naver_clientid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_secretid</key>
+<string>xxxxxx</string>
+<key>gamepot_naver_urlscheme</key>
+<string>xxxxxx</string>
+...
+```
+
 ### 라인 로그인
 
 #### LINE Developers
@@ -1065,6 +1092,42 @@ defaultConfig {
 ...
 ```
 
+/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+
+- gamepot-channel-line.aar
+- line-sdk-4.0.10.aar
+
+GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+
+```java
+...
+dependencies {
+    implementation(name: 'gamepot-channel-line', ext: 'aar')
+    implementation(name: 'line-sdk-4.0.10', ext: 'aar')
+}
+...
+```
+
+#### iOS
+
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_line_channelid // 네이버에서 사용할 client 아이디
+gamepot_line_url_schemes // Line URL Scheme (line3rdp.{프로젝트 번들 identifier})
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가하면 됩니다.
+
+```markup
+...
+<key>gamepot_line_channelid</key>
+<string>xxxxxx</string>
+<key>gamepot_line_url_schemes</key>
+<string>xxxxxx</string>
+...
+```
+
 ### 트위터 로그인
 
 #### Twitter Developers
@@ -1079,6 +1142,43 @@ defaultConfig {
         resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Twitter 개발자 콘솔에서 획득
         resValue "string", "gamepot_twitter_consumersecret","xxx" // Twitter 개발자 콘솔에서 획득
 }
+...
+```
+
+/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+
+- gamepot-channel-twitter.aar
+- twitter-core-3.3.0.aar
+
+GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+
+```java
+...
+dependencies {
+    implementation(name: 'gamepot-channel-twitter', ext: 'aar')
+
+    implementation(name: 'twitter-core-3.3.0', ext: 'aar') {
+      transitive = true
+  }
+}
+...
+```
+
+#### iOS
+
+GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
+
+```text
+gamepot_twitter_consumerkey : Twitter Consumer Key
+gamepot_twitter_consumersecret :  Twitter Consumer Secret
+```
+
+GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추가
+
+```markup
+...
+<key>gamepot_twitter_consumerkey</key>
+<string>xxxxxx</string>
 ...
 ```
 
@@ -1181,7 +1281,6 @@ void ASampleGameModeBase::OnPushNightFailure(FNError NError)
 }
 ```
 
-
 #### 광고 푸시 설정
 
 - Case 1
@@ -1207,7 +1306,6 @@ void ASampleGameModeBase::OnPushFailure(FNError NError)
     // error.message를 팝업 등으로 유저에게 알려주세요.
 }
 ```
-
 
 #### 푸시 / 야간푸시 / 광고푸시 한번에 설정
 
@@ -1237,7 +1335,6 @@ void ASampleGameModeBase::OnPushStatusFailure(FNError NError)
 }
 ```
 
-
 #### 푸시 상태 조회
 
 -  FNPushInfo 정의
@@ -1246,14 +1343,14 @@ void ASampleGameModeBase::OnPushStatusFailure(FNError NError)
 USTRUCT()
 struct FNPushInfo
 {
-	UPROPERTY()
-	bool enable;       // (일반) 푸시 허용 여부               
-	
     UPROPERTY()
-	bool night;         // 야간 푸시 허용 여부
-	
+    bool enable;       // (일반) 푸시 허용 여부               
+
     UPROPERTY()
-	bool ad;            // 광고성 푸시 허용 여부
+    bool night;         // 야간 푸시 허용 여부
+
+    UPROPERTY()
+    bool ad;            // 광고성 푸시 허용 여부
 }
 ```
 
@@ -1279,16 +1376,17 @@ GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로
 Request:
 
 ```c++
-    if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-          FGamePotSDKPluginModule::GetSharedGamePotSdk()->showNotice(bool showToday = true); 
+
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showNotice(bool showToday = true); 
 
 // true : 오늘 하루 보지 않기 적용
 // false : 오늘 하루 보지 않기 관계없이, 강제 노출
 ```
 
 ```c++
-    if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-          FGamePotSDKPluginModule::GetSharedGamePotSdk()->showEvent(FString Type); 
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showEvent(FString Type); 
 
 // Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
 ```
@@ -1304,8 +1402,6 @@ GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해
  }
 ```
 
-
-
 ### 고객지원
 
 고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
@@ -1315,8 +1411,8 @@ GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해
 #### 호출
 
 ```c++
-    if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-          FGamePotSDKPluginModule::GetSharedGamePotSdk()->showCSWebView(); 
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showCSWebView(); 
 ```
 
 외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
@@ -1325,8 +1421,8 @@ GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해
 
 ```c++
 // url : 게임팟에서 발급받은 외부고객지원 URL
-    if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-          FGamePotSDKPluginModule::GetSharedGamePotSdk()->showWebView(FString url); 
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showWebView(FString url); 
 ```
 
 ### 로컬 푸시\(Local Push notification\)
@@ -1343,7 +1439,8 @@ GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
          int pushId = FGamePotSDKPluginModule::GetSharedGamePotSdk()->sendLocalPush(FString date, FString title, FString message); 
 
-// date : (Format - timestamp "yyyy-MM-dd HH:mm:ss") ex>  DateTime.Parse("2018-01-01 00:00:00"),
+// date : (Format - timestamp "yyyy-MM-dd HH:mm:ss") 
+// ex >  DateTime.Parse("2018-01-01 00:00:00")
 //  title :  "title"
 // message :  "content"
 ```
