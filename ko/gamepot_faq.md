@@ -332,6 +332,8 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 
 ## 푸쉬
 
+### Case1 :
+
     # Q. iOS에서 푸쉬 수신이 되지 않아요.
     # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
 
@@ -358,7 +360,45 @@ home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부�
 
 Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 포함 되지 않았는지 확인 부탁드립니다.
 
-## 앱 서명
+
+### Case2 : 
+
+    # Q. AOS에서 푸쉬 수신이 되지 않아요.
+    # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
+
+- 네이버 클라우드 콘솔상 푸시 설정 값이 잘 설정되었는지 확인합니다.
+    
+    - Firebase 콘솔 내 앱 설정 > 클라우드 메시징 탭에 서버키와 발신자 ID가 정보 확인
+    - 네이버 클라우드 콘솔 >  Simple & Easy Notification Service (SENS) >  push > certificate 항목에 설정 값을 확인
+
+        https://console.ncloud.com/sens/push-certificate
+
+
+[Firebase SDK를 별도로 탑재하여 사용중인 경우]
+- ../Assets/Plugins/Android/AndroidManifest.xml 내 하기 코드가 적용되어 있는지 확인
+
+        ....
+        </activity>
+
+        <!-- FCM [start]-->
+        <service android:name="io.gamepot.common.GamePotFCMIDService">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+        </service>
+        <service android:name="io.gamepot.common.GamePotFCMService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+        </service>
+        <!-- FCM [End]-->
+
+        ...
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+
+
+
+## 구글 앱 서명 사용시 주의점
 
     # Q. 직접 설치한 APK는 소셜 로그인이 정상적으로 되나, 스토어에서 다운로드 후 소셜로그인하면 로그인이 되지 않아요.
     # A. 구글 개발자 콘솔에서 앱 서명이 활성화 되어 키스토어가 변경된 경우입니다.
@@ -625,7 +665,15 @@ data:
 #### 6. 신규 서비스 계정 발급 후 Key값을 적용했음에도, 결제 API가 실패할 경우
 
     (구글 서비스 계정 이관 시) 신규 Key를 발급받아 적용했음에도, 결제 API가 실패하는 구글 콘솔 측 버그 레포트가 유입되었습니다. (2020.02.13)
-    이 경우 구글 콘솔에서 임의로 인앱상품을 하나 생성한 다음, 문제가 해결되는지 확인해보세요.
+   
+    결제 진행 후 아래와 같은 오류가 발생 
+
+    오류 문구 :
+    "The current user has insufficient permissions to perform the requested operation."
+    
+    구글 콘솔에서 서비스 계정에 권한 설정이 정상적으로 되었는지 추가 확인 후
+    구글 콘솔에서 임의로 인앱상품을 하나 생성한 다음, 문제가 해결되는지 확인해보세요.
+
 
 #### 7. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
 
@@ -794,6 +842,248 @@ IOS 설정은 아래와 같이 진행을 합니다.
     [사용자 컨텐츠]의 경우 게임팟 PRO 이상 상품을 이용하시는 고객중 게임팟 고객 문의 UI를 사용하는 경우에 해당하며 오브젝트 스토리지 기능 사용시 고객 문의에 이미지파일을 첨부 파일로 올릴 수 있습니다. 
 
 ### Migration
+
+#### Ver 3.2.0 Migration
+
+
+기본적으로 라이브러리 파일들이 교체작업을 진행하시는 것으를 기준으로 설명드립니다.
+
+[Android]
+- AndroidX 모듈 탑재된 라이브러리로 교체
+- 구글 인앱 SDK 1.1 에서 3.0.2 버전으로 교체 
+- 갤럭시 앱스 인앱 SDK 업데이트
+
+3.1.0 버전 이전 사용자는 AndroidX 라이브러리 교체로 인한 마이그레이션 작업이 필요합니다.
+
+AndroidX 모듈 지원됨에 따른 변경점
+
+1. 빌드 환경 수정
+
+    1-1) ../libs 폴더내 라이브러리 파일 교체
+
+    1-2) [./gradle.properties] 파일 내 문구 추가
+```text
+    android.enableJetifier=true
+    android.useAndroidX=true
+```
+    1-3) [ ./build.gradle ] 파일 내 com.android.tools.build 버전 수정 
+    
+    ( com.android.tools.build 3.3.3 / 3.4.3 이상 버전 사용)
+
+    ex)
+    classpath 'com.android.tools.build:gradle:3.3.3' 
+
+    1-4)
+    [ ../app/build.gradle ] 파일 내 androidx 지원모듈로 변경
+
+    [삭제 또는 주석 처리 진행]
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    //implementation 'com.android.support:multidex:1.0.1'
+
+    [추가]
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+
+
+    1-5) import android.support.XXXXXXX 라이브러리들이 androidx.appcompat:appcompat 라이브러리에 맞게 변경이 필요합니다. 
+
+    ex) 
+    기존 샘플 프로젝트 샘플내 변경된 CLASS
+
+    기존
+    import android.support.annotation.NonNull;
+    import android.support.annotation.Nullable;
+    import android.support.v4.app.FragmentManager;
+    import android.support.v4.app.FragmentTransaction;
+    import android.support.v4.app.ListFragment;
+    import android.support.annotation.UiThread;
+    import android.support.v4.app.FragmentActivity;
+
+    android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+
+    =>
+    수정 :
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.FragmentManager;
+    import androidx.fragment.app.FragmentTransaction;
+    import androidx.fragment.app.ListFragment;
+    import androidx.annotation.UiThread;
+    import androidx.fragment.app.FragmentActivity;
+
+    androidx.fragment.app.FragmentManager fm = getSupportFragmentManager();
+
+
+2. 기타 :
+
+    2-1) 구글 인앱 SDK 버전 변경
+
+ 
+```text
+기존:    implementation 'com.android.billingclient:billing:1.1
+
+변경:    implementation 'com.android.billingclient:billing:3.0.2'
+```
+
+    2-2) Facebook SDK 8.1.0 
+
+```text    
+기존:   implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+변경:   implementation 'com.facebook.android:facebook-android-sdk:8.1.0' 
+```
+
+
+[IOS]
+
+1) Frameworks 파일들 교체
+
+2) FACEBOOK SDK 8.0 업데이트 됨에 따른 추가 변경 사항
+
+```text
+    Xcode 내 추가 수정
+    - Build Phases > Link binary With Libraries > Accelerate.farmework 추가
+    - Build Settings > Other Linker Flags >  -lz , -lstdc++ , lc++ 추가
+```
+
+
+[Unity]
+
+
+1. ..Assets/GamePot 폴더 및 이하 파일 및 기존 라이브러리 파일 삭제 후 유니티 플러그인 패키지를 import 처리 부탁 드립니다. 
+
+    [삭제 대상 파일]
+```text
+    ../Assets/Plugins/Android/libs/animated-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/annotation-1.0.2.jar
+    ../Assets/Plugins/Android/libs/appcompat-v7-27.1.1.aar
+    ../Assets/Plugins/Android/libs/billing-1.1.aar
+    ../Assets/Plugins/Android/libs/cardview-v7-27.0.2.aar
+    ../Assets/Plugins/Android/libs/converter-gson-2.3.0.jar
+    ../Assets/Plugins/Android/libs/core-3.3.0.jar
+    ../Assets/Plugins/Android/libs/core-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/core-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/customtabs-27.1.1.aar
+    ../Assets/Plugins/Android/libs/facebook-android-sdk-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-applinks-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-common-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-core-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-login-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-messenger-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-places-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-share-5.2.0.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-impl-16.2.4.aar
+    ../Assets/Plugins/Android/libs/firebase-common-16.0.3.aar
+    ../Assets/Plugins/Android/libs/firebase-core-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-interop-16.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-17.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-impl-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-messaging-17.3.4.aar
+    ../Assets/Plugins/Android/libs/gamepot-bridge.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-apple-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-base.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-google-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-common.aar
+    ../Assets/Plugins/Android/libs/lifecycle-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/lifecycle-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/livedata-core-1.1.0.aar
+    ../Assets/Plugins/Android/libs/logging-interceptor-3.9.1.jar
+    ../Assets/Plugins/Android/libs/LoggingInterceptor-2.0.5.jar
+    ../Assets/Plugins/Android/libs/play-services-ads-identifier-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-api-phone-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-base-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-base-16.1.0.aar
+    ../Assets/Plugins/Android/libs/play-services-basement-16.2.0.aar
+    ../Assets/Plugins/Android/libs/play-services-drive-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-games-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-api-16.0.4.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-base-16.0.5.aar
+    ../Assets/Plugins/Android/libs/play-services-stats-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-tasks-16.0.1.aar
+    ../Assets/Plugins/Android/libs/retrofit-2.3.0.jar
+    ../Assets/Plugins/Android/libs/support-annotations-27.1.1.jar
+    ../Assets/Plugins/Android/libs/support-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-ui-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-utils-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-fragment-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-media-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-v4-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/viewmodel-1.1.0.aar
+```
+
+기존에 ../Android/nativeLibs 및 ../IOS/etcFrameworks 에 있는 라이브러리( 네이버 로그인 / 걀럭시 인앱 SDK 등등)를 사용중이셨다면 
+
+nativeLibs 및 etcFrameworks 폴더에 있는 신규 라이브러리 파일를 
+
+../Assets/Plugins/Android/libs 및 ../Assets/Plugins/IOS/Frameworks 폴더로 옮겨 사용 부탁 드립니다.
+
+```text
+    - 라이브러리 및 리소스 위치 
+    
+    [AOS]
+    ../Assets/Plugins/Android/libs
+    ../Assets/Plugins/Android/nativeLibs
+
+    [IOS]
+    ../Assets/Plugins/IOS/Bundle
+    ../Assets/Plugins/IOS/etcFrameworks
+    ../Assets/Plugins/IOS/Frameworks
+    ../Assets/Plugins/IOS/Source
+```
+
+2. androidx 모듈 활성화 옵션 설정 추가 
+
+    [ Unity 2019.02.XX 버전 또는 이전 버전 ]
+
+    - [../Assets/Plugins/Android/mainTemplate.gradle] 파일 수정 
+
+    [ Unity 2019.02.XX 버전 또는 이전 버전 ]
+
+    - [../Assets/Plugins/Android/launcherTemplate.gradle] 파일 수정 
+
+```text
+    // 구문 추가
+    ([rootProject] + (rootProject.subprojects as List)).each {
+        ext {
+        it.setProperty("android.useAndroidX", true)
+        it.setProperty("android.enableJetifier", true)
+        }
+    }
+```
+
+
+3. ../Assets/Plugins/Android/AndroidManifest.xml (유니티 패키지에는 반영되어 있습니다.)
+    
+    android:name="androidx.multidex.MultiDexApplication" 로 변경
+
+```text
+ex)
+기존 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="android.support.multidex.MultiDexApplication"
+변경 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="androidx.multidex.MultiDexApplication"
+```
+
+
+4. 게임팟 기능 API 추가에 따른 인터페이스 파일 수정 (유니티 패키지에는 반영되어 있습니다.)
+
+```text
+    ../Assets/Plugins/IOS/Source/GamePotAppDelegate.mm
+    ../Assets/Plugins/IOS/Source/GamePotBinding.mm
+    ../Assets/Plugins/IOS/Source/GamePotManager.h
+    ../Assets/Plugins/IOS/Source/GamePotManager.mm
+```
+
+5. 2.1.2 버전 이전 사용자의 경우 게임팟 샘플 씬 및 코드 삭제
+    ../Assets/Sample 폴더 및 파일 삭제
+
 
 ####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
 
