@@ -795,6 +795,22 @@ foreach(NPurchaseItem item in items) {
 }
 ```
 
+NPurchaseItem 정의
+```csharp
+public class NPurchaseItem
+{
+    public string productId { get; set; }   // 상품 ID
+    public string type { get; set; }        // 상품 타입으로 "inapp"으로 고정
+    public string price { get; set; }       // 가격 google 스토어 : $0.99 그외 스토어 : 0.99
+    public string price_amount { get; set; }
+    public string price_amount_micros { get; set; }
+    public string price_currency_code { get; set; } // 통화코드 ex) KRW, USD
+    public string price_with_currency { get; set; } // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 원스토어의 경우 통화 단위 전달 되지 않습니다. ex) $0.99
+    public string title { get; set; }       // 상품 이름
+    public string description { get; set; } // 상품 설명
+}
+```
+
 ### 应用内商品付款
 
 Google，Apple 和 App Store 可以使用以下功能之一进行付款。

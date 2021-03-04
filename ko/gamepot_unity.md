@@ -468,6 +468,59 @@ public class NAppStatus
 }
 ```
 
+**(2021.03.04) SDK v3.2.0 이상부터 적용**
+> `iOS 플랫폼의 경우,` 로그인 API 호출 시 IDFA 값 획득에 대한 권한을 요청하는 팝업을 먼저 명시적으로 요청하고 있습니다.
+
+> 해당 팝업 요청을 로그인 시점에 호출하고 싶지 않으실 경우, GamePot.login(NCommon.LoginType loginType) 메소드를 수정해주세요. (Assets/GamePot/SDK/Scripts/GamePot.cs )
+
+```csharp
+...
+public static void login(NCommon.LoginType loginType)
+{
+    // Assets/GamePot/SDK/Scripts/GamePot.cs 
+    ...
+    #elif UNITY_IOS
+        //IOS 플랫폼의 경우, IDFA 획득 허용 팝업 먼저 띄우고 login 처리
+        requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
+        {
+            GamePotUnityPluginiOS.login(loginType);
+        });
+    ...
+}
+```
+
+Request:
+
+```csharp
+// IDFA 값 획득 권한 요청 팝업을 임의로 띄울 수 있습니다. 
+// 권한 획득 후에는, 메소드 호출 시에도 팝업이 뜨지 않습니다.
+
+GamePot.requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
+{
+   // 획득한 NResultTrackingAuthorizationresultState 핸들링..
+});
+```
+
+NResultTrackingAuthorizationresultState 정의
+
+```csharp
+public class NResultTrackingAuthorization
+{
+    public NCommon.ResultTrackingAuthorization authorization { get; set; } 
+}
+```
+
+```csharp
+public enum ResultTrackingAuthorization
+{
+    ATTrackingManagerAuthorizationStatusNotDetermined,
+    ATTrackingManagerAuthorizationStatusRestricted,
+    ATTrackingManagerAuthorizationStatusDenied,
+    ATTrackingManagerAuthorizationStatusAuthorized,
+    ATTrackingManagerAuthorizationStatusUnknown
+} 
+```
+
 ### 로그인 정보 가져오기
 
 ```csharp
