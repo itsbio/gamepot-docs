@@ -1016,7 +1016,7 @@ AndroidX 모듈 지원됨에 따른 변경점
     ../Assets/Plugins/Android/libs/viewmodel-1.1.0.aar
 ```
 
-기존에 ../Android/nativeLibs 및 ../IOS/etcFrameworks 에 있는 라이브러리( 네이버 로그인 / 걀럭시 인앱 SDK 등등)를 사용중이셨다면 
+기존에 ../Android/nativeLibs 및 ../IOS/etcFrameworks 에 있는 라이브러리( 네이버 로그인 / 갤럭시 인앱 SDK 등등)를 사용중이셨다면 
 
 nativeLibs 및 etcFrameworks 폴더에 있는 신규 라이브러리 파일를 
 
@@ -1140,6 +1140,47 @@ ex)
 
     4. mainTemplate_GAMEPOT_UNITY2019_3.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
+
+
+    5. Unity 2020.X 버전을 사용하시는 경우 추가 수정사항
+
+Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+
+    [폴더 및 파일 교체]
+    ../Assets/ExternalDependencyManager
+    ../Assets/Firebase
+
+
+    - 폴더명 수정 
+
+    기존 :  ../Assets/Plugins/Android/Firebase
+
+    수정 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+
+    기존 :  ../Assets/Plugins/Android/GamePotResources
+
+    수정 :  ../Assets/Plugins/Android/GamePotResources.androidlib
+
+
+    - mainTemplate.gradle 수정 (폴더명 변경됨에 따른 수정)
+
+    기존 : 
+
+    dependencies {
+        ...
+		implementation project('GamePotResources')
+		implementation project('Firebase')
+
+    수정 :
+
+    dependencies {
+        ...
+		implementation project('GamePotResources.androidlib')
+		implementation project('FirebaseApp.androidlib')
+
+    - 유니티 에디터 상에서  ../Assets/Plugins/Android/nativeLibs 폴더내 모든 라이브러리가 Android 빌드시 포함되지 않도록 설정합니다.
+    참조 이미지 : 
+![gamepot_faq_54](./images/gamepot_faq_54.png)
 
 
 ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
