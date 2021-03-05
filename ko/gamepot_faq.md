@@ -885,7 +885,8 @@ AndroidX 모듈 지원됨에 따른 변경점
     implementation 'androidx.multidex:multidex:2.0.0'
 ```
 
-    1-5) import android.support.XXXXXXX 라이브러리들이 androidx.appcompat:appcompat 라이브러리에 맞게 변경이 필요합니다. 
+1-5) import android.support.XXXXXXX 라이브러리들이 androidx.appcompat:appcompat 라이브러리에 맞게 변경이 필요합니다. 
+
 ```text
     ex) 
     기존 샘플 프로젝트 샘플내 변경된 CLASS
@@ -925,7 +926,7 @@ AndroidX 모듈 지원됨에 따른 변경점
 변경:    implementation 'com.android.billingclient:billing:3.0.2'
 ```
 
-    2-2) Facebook SDK 8.1.0 
+2-2) Facebook SDK 8.1.0 
 
 ```text    
 기존:   implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
