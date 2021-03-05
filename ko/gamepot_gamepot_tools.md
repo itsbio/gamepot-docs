@@ -119,7 +119,7 @@ IOS Bulid에 관한 Gamepot 프로젝트 환경을 설정합니다.
 
 ![gamepot_unitools_10](./images/gamepot_unitools_10.png)
 
-### 모듈 설치
+### 모듈 관리
 
 플랫폼별 모듈 및 라이브러리를 관리합니다.
 
@@ -146,10 +146,10 @@ IOS Bulid에 관한 Gamepot 프로젝트 환경을 설정합니다.
    ![gamepot_unitools_11_1_4](./images/gamepot_unitools_11_1_4.png)
  > 현재 모듈 구성에 대해, 패키지 셋팅이 완료된 상황입니다. 의존성 상태가 해결되었음을 의미하며 정상 빌드 할 수 있습니다.
 
-### 모듈 구성 프로세스
+### 모듈 환경 구성하기
 
  - 원하는 모듈구성을 선택한 다음, 표시된 버튼(Resolver)를 누릅니다.
- 
+
 ![gamepot_unitools_12_0](./images/gamepot_unitools_12_0.png) 
 
  - 해당 모듈구성에 대해, 아직 Android Play Resolver가 작동하지 않은 상태입니다. 버튼을 눌러 Android Play Resolver를 작동해야 합니다. (Android Platform)
@@ -158,7 +158,7 @@ IOS Bulid에 관한 Gamepot 프로젝트 환경을 설정합니다.
 
  - Android Play Resolver를 작동하기 전, Android Resolver Settings를 확인해야 합니다. Patch mainTemplate.gradle 체크가 해제되었는지 확인 후 진행해주세요.
 
- ![gamepot_unitools_12_2](./images/gamepot_unitools_12_2.png) 
+![gamepot_unitools_12_2](./images/gamepot_unitools_12_2.png) 
 
 - Android Play Resolver가 작동하면서, 필요한 패키지 구성을 프로젝트 경로(/Plugins/Android/)에 다운로드 합니다. Resolver 작동이 완료되면, 다이얼로그와 함께 결과(True/False)가 표시됩니다.
 
