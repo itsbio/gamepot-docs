@@ -875,7 +875,7 @@ AndroidX 모듈 지원됨에 따른 변경점
 
     1-4)
     [ ../app/build.gradle ] 파일 내 androidx 지원모듈로 변경
-
+```text
     [삭제 또는 주석 처리 진행]
     //implementation 'com.android.support:appcompat-v7:28.0.0'
     //implementation 'com.android.support:multidex:1.0.1'
@@ -883,10 +883,10 @@ AndroidX 모듈 지원됨에 따른 변경점
     [추가]
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.multidex:multidex:2.0.0'
-
+```
 
     1-5) import android.support.XXXXXXX 라이브러리들이 androidx.appcompat:appcompat 라이브러리에 맞게 변경이 필요합니다. 
-
+```text
     ex) 
     기존 샘플 프로젝트 샘플내 변경된 CLASS
 
@@ -912,7 +912,7 @@ AndroidX 모듈 지원됨에 따른 변경점
     import androidx.fragment.app.FragmentActivity;
 
     androidx.fragment.app.FragmentManager fm = getSupportFragmentManager();
-
+```
 
 2. 기타 :
 
