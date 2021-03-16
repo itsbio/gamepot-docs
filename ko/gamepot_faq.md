@@ -284,7 +284,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
             </intent>
         </queries>
         <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [End] -->
-
+    
         <application
 
 ### 3. Galaxy Store
@@ -367,7 +367,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
     # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
 
 - 네이버 클라우드 콘솔상 푸시 설정 값이 잘 설정되었는지 확인합니다.
-    
+  
     - Firebase 콘솔 내 앱 설정 > 클라우드 메시징 탭에 서버키와 발신자 ID가 정보 확인
     - 네이버 클라우드 콘솔 >  Simple & Easy Notification Service (SENS) >  push > certificate 항목에 설정 값을 확인
 
@@ -379,7 +379,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 
         ....
         </activity>
-
+    
         <!-- FCM [start]-->
         <service android:name="io.gamepot.common.GamePotFCMIDService">
         <intent-filter>
@@ -392,7 +392,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
         </intent-filter>
         </service>
         <!-- FCM [End]-->
-
+    
         ...
         <meta-data android:name="android.max_aspect" android:value="2.1" />
 
@@ -634,7 +634,7 @@ data:
 
     베타존을 사용 중인 업체에서 발생할 수 있는 이슈입니다.
     로그인 검증 Request URL이 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth'로 설정되어 있으면, https://cloud-api.gamepot.io/loginauth 으로 변경하여 확인 부탁드립니다.
-
+    
     리얼존 : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
     베타존 : https://cloud-api.gamepot.io/loginauth ( 서비스 종료 예정 )
 
@@ -665,9 +665,9 @@ data:
 #### 6. 신규 서비스 계정 발급 후 Key값을 적용했음에도, 결제 API가 실패할 경우
 
     (구글 서비스 계정 이관 시) 신규 Key를 발급받아 적용했음에도, 결제 API가 실패하는 구글 콘솔 측 버그 레포트가 유입되었습니다. (2020.02.13)
-   
+       
     결제 진행 후 아래와 같은 오류가 발생 
-
+    
     오류 문구 :
     "The current user has insufficient permissions to perform the requested operation."
     
@@ -678,37 +678,37 @@ data:
 #### 7. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
 
     1. SENS 설정에 Certification에 인증키 및 인증서가 등록되어 있는지 확인 부탁드립니다.
-
+    
     2. IOS는 빌드 시 사용 된 프로비저닝프로파일 타입에 따라 등록해야 하는 인증서가 다릅니다.
-
+    
     [Development]
     Provisioning >> Push Development 인증서를 업로드 해주시고 Type은 Sandbox로 설정해주세요.
-
+    
     [Adhoc / Distribution]
     Provisioning >> Push Distribution 인증서를 업로드 해주시고 Type은 Production으로 설정해주세요.
-
+    
     3. Gamepot은 Push Token을 로그인 완료 시 서버로 전달 합니다. 따라서 인증서를 등록 후, 클라이언트에서 로그인까지 진행 확인해주세요.
-
+    
     4. IOS의 경우, 앱이 Forground 상태에서는 푸쉬 수신이 되지 않습니다. home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인해주세요.
-
+    
     5. IOS의 경우, Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않을 경우, 빌드 시 해당부분이 추가 되지 않았는지 확인해주세요.
 
 #### 8. IOS 결제 테스트 방법
 
     1. 테스트 하려는 기기의 설정 >> iTunse 및 Store >> Apple ID : XXXX 를 터치 >> 로그아웃
-
+    
     2. 앱 실행
-
+    
     3. 앱의 유료 결제 항목 선택
-
+    
     4. 팝업 발생 시 기존 appleID 사용으로 선택
-
+    
     5. 테스트 계정 ID / PW 넣고 로그인 (가끔 상태에 따라 팝업이 여러번 뜨는 경우 있으나 특별히 신경 쓰지 않아도 됩니다.)
-
+    
     6. 유료 결제 항목의 가격 및 이름이 팝업 형태로 노출 되며 [Environment : Sandbox] 문구 노출
-
+    
     7. 구입 선택
-
+    
     * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 요금은 부과되지 않습니다.
 
 
@@ -720,16 +720,16 @@ data:
 
 
     [안드로이드]
-
+    
     app/src/main/res/values-국가코드/strings.xml
     
     ex) 디바이스 언어가 영어일 때 앱 이름을 변경하고자 할 때
     app/src/main/res/values-en/strings.xml
-
+    
     [유니티 안드로이드]
-
+    
     Assets/Plugins/Android/GamePotResources/res/values-국가코드/strings.xml
-
+    
     ex) 디바이스 언어가 한국어일 때 앱 이름을 변경하고자 할 때
     Assets/Plugins/Android/GamePotResources/res/values-ko/strings.xml
 
@@ -767,13 +767,13 @@ IOS 설정은 아래와 같이 진행을 합니다.
 #### 10. 인앱 리스트 정보를 가져올 때 스토어마다 GamePot.getPurchaseItems() API의 Price 값이 다릅니다. 
 
 	인앱 리스트 정보를 가져올 때 각 스토어 인앱 SDK에서 전달을 주는 값을 공유드립니다.
-
+	
 	구글 스토어 : price의 값은 화폐단위 + 인앱 가격 
 	ex)  ₩1,000
-
+	
 	애플 스토어 : price의 값은 인앱 가격
 	ex) 1000
-
+	
 	IOS에서 화폐 단위를 표기하기 위해서는  price_currency_code 값을 참조하시면 됩니다.
 	ex) price_currency_code : KRW
 
@@ -797,10 +797,10 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
     스토어 배포 전에 원하시는 목록을 정리하여 요청하시는 것을 권장드리며
     앱 배포 후 데이터 초기화의 경우 실제 유저의 데이터와 더미 데이터의 구분이 명확하지 않아 서비스에 혼란을 초래하므로 권장하지 않습니다.
-
+    
     CBT를 선행으로 진행 후 런칭 진행시 회원 정보를 유지하지 않는 경우
     게임 디비 초기화 시 게임팟 계정 연동 이력도 삭제돼야 하므로 런칭전에 필히 삭제 요청 해주세요.
-
+    
     삭제된 데이터는 복구되지 않으니 신중히 판단 부탁드리며
     대시보드 메뉴별 데이터 삭제 가능 범위는 아래와 같습니다.
 
@@ -827,7 +827,7 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 애플 콘솔 내 ‘일반정보’ >> ‘앱이 수집하는 개인정보 탭’을 기준으로 말씀 드리면 아래와 같습니다.
 (고객 신원 정보와 연결되지 않으며 관련 정보로 추적하는 목적이 아닌 사항)
- 
+
 게임팟 SDK에서 수집하는 항목은 다음과 같습니다.
 
 [식별자]
@@ -838,7 +838,7 @@ IOS 설정은 아래와 같이 진행을 합니다.
 [사용자 컨텐츠]
 - 사진 또는 비디오
 - 고객지원
- 
+
     [사용자 컨텐츠]의 경우 게임팟 PRO 이상 상품을 이용하시는 고객중 게임팟 고객 문의 UI를 사용하는 경우에 해당하며 오브젝트 스토리지 기능 사용시 고객 문의에 이미지파일을 첨부 파일로 올릴 수 있습니다. 
 
 ### Migration
@@ -869,10 +869,10 @@ AndroidX 모듈 지원됨에 따른 변경점
     1-3) [ ./build.gradle ] 파일 내 com.android.tools.build 버전 수정 
     
     ( com.android.tools.build 3.3.3 / 3.4.3 이상 버전 사용)
-
+    
     ex)
     classpath 'com.android.tools.build:gradle:3.3.3' 
-
+    
     1-4)
     [ ../app/build.gradle ] 파일 내 androidx 지원모듈로 변경
 ```text
@@ -919,7 +919,7 @@ AndroidX 모듈 지원됨에 따른 변경점
 
     2-1) 구글 인앱 SDK 버전 변경
 
- 
+
 ```text
 기존:    implementation 'com.android.billingclient:billing:1.1
 
@@ -944,7 +944,7 @@ AndroidX 모듈 지원됨에 따른 변경점
 ```text
     Xcode 내 추가 수정
     - Build Phases > Link binary With Libraries > Accelerate.farmework 추가
-    - Build Settings > Other Linker Flags >  -lz , -lstdc++ , lc++ 추가
+    - Build Settings > Other Linker Flags >  -lz , -lstdc++ , -lc++ 추가
 ```
 
 
@@ -1059,7 +1059,7 @@ nativeLibs 및 etcFrameworks 폴더에 있는 신규 라이브러리 파일를
 
 
 3. ../Assets/Plugins/Android/AndroidManifest.xml (유니티 패키지에는 반영되어 있습니다.)
-    
+   
     android:name="androidx.multidex.MultiDexApplication" 로 변경
 
 ```text
@@ -1095,19 +1095,19 @@ ex)
 
 
     1. 기존 프로젝트에서 하기 폴더 및 내부 파일 삭제를 선행으로 진행
-
+    
     [삭제해야 하는 폴더 및 파일]
-
+    
     ../Assets/PlayServicesResolver
-
+    
     ../Assets/Firebase
-
+    
     2. v2.1.2 유니티 플러그인 패키지 추가시 하기 항목들은 필수로 추가
-
+    
     [추가되는 폴더 및 파일]
-
+    
     ../Assets/ExternalDependencyManager
-
+    
     ../Assets/Firebase
 
 
@@ -1125,20 +1125,20 @@ ex)
 [ Unity 2019.3.7 이상 버전 또는 이후 버전 (신규로 작업하는 경우) ]
 
     1. baseProjectTemplate.gradle을 추가합니다.
-
+    
     일반적으로 하기 파일을 rename 해서 사용하시면 됩니다.
     baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
     => baseProjectTemplate.gradle 
-
+    
     2. settingsTemplate.gradle 삭제 합니다.
     ../Assets/Plugins/Android/settingsTemplate.gradle 
-
+    
     3. mainTemplate.gradle 파일에 정의 했던 gamepot_project_id 같은 환경 변수 정의를 launcherTemplate.gradle에 정의합니다.
-
+    
     일반적으로 하기 파일을 rename한 후 게임팟 환경 변수 값을 정의 합니다.
     launcherTemplate_GAMEPOT_UNITY2019_3.gradle
     => launcherTemplate.gradle 
-
+    
     4. mainTemplate_GAMEPOT_UNITY2019_3.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
 
@@ -1153,32 +1153,32 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 
 
     - 폴더명 수정 
-
+    
     기존 :  ../Assets/Plugins/Android/Firebase
-
+    
     수정 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
-
+    
     기존 :  ../Assets/Plugins/Android/GamePotResources
-
+    
     수정 :  ../Assets/Plugins/Android/GamePotResources.androidlib
 
 
     - mainTemplate.gradle 수정 (폴더명 변경됨에 따른 수정)
-
+    
     기존 : 
-
+    
     dependencies {
         ...
-		implementation project('GamePotResources')
-		implementation project('Firebase')
-
+    	implementation project('GamePotResources')
+    	implementation project('Firebase')
+    
     수정 :
-
+    
     dependencies {
         ...
-		implementation project('GamePotResources.androidlib')
-		implementation project('FirebaseApp.androidlib')
-
+    	implementation project('GamePotResources.androidlib')
+    	implementation project('FirebaseApp.androidlib')
+    
     - 유니티 에디터 상에서  ../Assets/Plugins/Android/nativeLibs 폴더내 모든 라이브러리가 Android 빌드시 포함되지 않도록 설정합니다.
     참조 이미지 : 
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
@@ -1187,6 +1187,6 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
-
+    
     빈 프로젝트 > 최신 Unity Tools 1.0.1 설치 > Unity Unity Tools 실행 
     > 다운로드 SDK ver2.1.2 버튼을 클릭하여 유니티 플러그인 패키지를 설치 후 작업을 진행이 필요합니다.
