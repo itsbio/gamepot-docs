@@ -3,11 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="https://guide.ncloud-docs.com/docs/ja/home" target="_blank">[説明書]</a>と<a href="https://api.ncloud-docs.com/docs/ja/home" target="_blank">[API リファレンス]</a>を分けて提供しています。**
 
-#### **NAVERクラウドプラットフォーム商品の使用方法をより詳細に提供し、様々なAPIの活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[APIリファレンス]</a>を分けて提供しています。**
-
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT APIリファレンスへ >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT説明書へ >></a>
+<a href="https://api.ncloud-docs.com/docs/ja/game-gamepot-index" target="_blank">GAMEPOT API リファレンスへ >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/ja/game-gamepotconsole" target="_blank">GAMEPOT 説明書へ >></a>
 
 # Android SDK
 
@@ -15,13 +14,13 @@ search:
 
 ### 開発環境の構成
 
-Android用アプリを開発するには、開発ツール\(Android Studioなど\)をインストールする必要があります。使用する開発ツールによっては、追加でJava SDKとAndroid SDKなどのインストールが必要な場合もあります。
+Android 用アプリを開発するには、開発ツール\(Android Studio など\)をインストールする必要があります。使用する開発ツールによっては、追加で Java SDK と Android SDK などのインストールが必要な場合もあります。
 
-AndroidでGAMEPOTを利用するために必要なシステム環境は以下のとおりです。
+Android で GAMEPOT を利用するために必要なシステム環境は以下のとおりです。
 
 \[システム環境\]
 
-- 最低限のスペック：API 17 \(Jelly Bean、4.2\)以上、gradle 2.3.0以上
+- 最低限のスペック：API 17 \(Jelly Bean、4.2\)以上、gradle 2.3.0 以上
 - 開発環境：Android Studio
 
 #### プロジェクト作成
@@ -30,15 +29,15 @@ AndroidでGAMEPOTを利用するために必要なシステム環境は以下の
 
 #### ライブラリ追加
 
-ダウンロードしたAOS SDKファイルをapp/libsフォルダに追加します。
+ダウンロードした AOS SDK ファイルを app/libs フォルダに追加します。
 
 ![gamepot_android_02](./images/gamepot_android_02.png)
 
-#### build.gradle設定
+#### build.gradle 設定
 
-build.gradleファイルはプロジェクトのrootフォルダとappフォルダにそれぞれ存在しています。
+build.gradle ファイルはプロジェクトの root フォルダと app フォルダにそれぞれ存在しています。
 
-1. プロジェクトのrootフォルダのbuild.gradleファイル修正
+1. プロジェクトの root フォルダの build.gradle ファイル修正
 
    ```java
    buildscript {
@@ -67,96 +66,96 @@ build.gradleファイルはプロジェクトのrootフォルダとappフォル�
    }
    ```
 
-2. appフォルダのbuild.gradleファイル修正
+2. app フォルダの build.gradle ファイル修正
 
    > \[xxxxx\]には実際に適用する値を入力します。
 
-| 値| 説明|
-| :----------------- | :---------------------------------------------------- |
-| gamepot_project_id| GAMEPOTから発行されたプロジェクトIDを入力してください。|
-| gamepot_store| ストア値 \(`google`または`one`または`galaxy`\)|
-| gamepot_payment| 決済方法値 \(ストアがgoogleである場合のみ該当し、現在は `mycard`に対応\)|
-| gamepot_app_title| アプリのタイトル \(FCM\)|
-| gamepot_push_default_channel| 登録された基本チャンネル名 \(Default\) - 変更しないでください。|
-| facebook_app_id| Facebookで発行されたアプリID|
-| fb_login_protocol_scheme| Facebookで発行されたprotocol scheme fb\[app_id\]|
-| gamepot_elsa_projectid| NCLOUD ELSA使用時のプロジェクトID \([詳しく見る](https://www.ncloud.com/product/analytics/elsa)\)|
+| 値                           | 説明                                                                                                |
+| :--------------------------- | :-------------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | GAMEPOT から発行されたプロジェクト ID を入力してください。                                          |
+| gamepot_store                | ストア値 \(`google`または`one`または`galaxy`\)                                                      |
+| gamepot_payment              | 決済方法値 \(ストアが google である場合のみ該当し、現在は `mycard`に対応\)                          |
+| gamepot_app_title            | アプリのタイトル \(FCM\)                                                                            |
+| gamepot_push_default_channel | 登録された基本チャンネル名 \(Default\) - 変更しないでください。                                     |
+| facebook_app_id              | Facebook で発行されたアプリ ID                                                                      |
+| fb_login_protocol_scheme     | Facebook で発行された protocol scheme fb\[app_id\]                                                  |
+| gamepot_elsa_projectid       | NCLOUD ELSA 使用時のプロジェクト ID \([詳しく見る](https://www.ncloud.com/product/analytics/elsa)\) |
 
-   ```java
-   android {
-       defaultConfig {
-           ...
-           // GamePot [START]
-           resValue "string", "gamepot_project_id", "[projectId]" // required
-           resValue "string", "gamepot_store", "[storeId]" // required
-           resValue "string", "gamepot_payment", "[storeId]" // optional
-           resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
-           resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-           resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
-           resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
-           // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
-           // GamePot [END]
-       }
+```java
+android {
+    defaultConfig {
+        ...
+        // GamePot [START]
+        resValue "string", "gamepot_project_id", "[projectId]" // required
+        resValue "string", "gamepot_store", "[storeId]" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
+        resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
+        resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
+        resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
+        resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
+        // GamePot [END]
+    }
 
-       packagingOptions {
-           exclude 'META-INF/proguard/androidx-annotations.pro'
-       }
-   }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
 
-   repositories {
-       flatDir {
-           dirs 'libs'
-       }
-   }
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
-   dependencies {
-       compile 'com.android.support:multidex:1.0.1'
+dependencies {
+    compile 'com.android.support:multidex:1.0.1'
 
-       // GamePot common [START]
-       compile(name: 'gamepot-common', ext: 'aar')
-       compile('io.socket:socket.io-client:1.0.0') {
-           exclude group: 'org.json', module: 'json'
-       }
-       compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
-           exclude group: 'org.json', module: 'json'
-       }
-       compile "com.github.nisrulz:easydeviceinfo:2.4.1"
-       compile 'com.android.installreferrer:installreferrer:1.0'
-       compile 'com.google.code.gson:gson:2.8.2'
-       compile 'com.jakewharton.timber:timber:4.7.0'
-       compile 'com.squareup.okhttp3:okhttp:3.10.0'
-       compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-       compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-       compile 'com.android.billingclient:billing:1.1'
-       compile 'com.github.bumptech.glide:glide:3.7.0'
-       compile 'com.romandanylyk:pageindicatorview:1.0.0'
-       compile 'com.google.firebase:firebase-core:16.0.6'
-       compile 'com.google.firebase:firebase-messaging:17.3.4'
-       compile 'androidx.sqlite:sqlite-framework:2.0.1'
-       compile 'com.cookpad.puree:puree:4.1.6'
-       // GamePot common [END]
+    // GamePot common [START]
+    compile(name: 'gamepot-common', ext: 'aar')
+    compile('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile "com.github.nisrulz:easydeviceinfo:2.4.1"
+    compile 'com.android.installreferrer:installreferrer:1.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.jakewharton.timber:timber:4.7.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+    compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+    compile 'com.android.billingclient:billing:1.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.0'
+    compile 'com.google.firebase:firebase-core:16.0.6'
+    compile 'com.google.firebase:firebase-messaging:17.3.4'
+    compile 'androidx.sqlite:sqlite-framework:2.0.1'
+    compile 'com.cookpad.puree:puree:4.1.6'
+    // GamePot common [END]
 
-       compile(name: 'gamepot-channel-base', ext: 'aar')
-       // GamePot facebook [START]
-       compile(name: 'gamepot-channel-facebook', ext: 'aar')
-       compile 'com.facebook.android:facebook-android-sdk:5.2.0'
-       // GamePot facebook [END]
+    compile(name: 'gamepot-channel-base', ext: 'aar')
+    // GamePot facebook [START]
+    compile(name: 'gamepot-channel-facebook', ext: 'aar')
+    compile 'com.facebook.android:facebook-android-sdk:5.2.0'
+    // GamePot facebook [END]
 
-       // GamePot google sigin [START]
-       compile(name: 'gamepot-channel-google-signin', ext: 'aar')
-       compile "com.google.android.gms:play-services-base:16.0.1"
-       compile "com.google.android.gms:play-services-auth:16.0.1"
-       // GamePot google sigin [END]
-   }
+    // GamePot google sigin [START]
+    compile(name: 'gamepot-channel-google-signin', ext: 'aar')
+    compile "com.google.android.gms:play-services-base:16.0.1"
+    compile "com.google.android.gms:play-services-auth:16.0.1"
+    // GamePot google sigin [END]
+}
 
-   // ADD THIS AT THE BOTTOM
-   apply plugin: 'com.google.gms.google-services'
-   ```
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'
+```
 
-3. Googleで発行されたgoogle-service.jsonファイルを/app/フォルダの下位にコピーします。
+3. Google で発行された google-service.json ファイルを/app/フォルダの下位にコピーします。
 4. Gradle Sync Now
 
-   Android Studioで以下のボタンをクリックして更新します。
+   Android Studio で以下のボタンをクリックして更新します。
 
 ![gamepot_android_03](./images/gamepot_android_03.png)
 
@@ -164,13 +163,13 @@ build.gradleファイルはプロジェクトのrootフォルダとappフォル�
 
   - Configuration 'compile' is obsolete and has been replaced with 'implementation' and 'api'.It will be removed at the end of 2018. For more information see: [http://d.android.com/r/tools/update-dependency-configurations.html](http://d.android.com/r/tools/update-dependency-configurations.html)
 
-    > Gradleバージョン3以上をご使用の場合、compileをimplementation
+    > Gradle バージョン 3 以上をご使用の場合、compile を implementation
 
   - No matching client found for package name 'packagename'
 
-    > appのパッケージ名とgoogle-service.jsonで宣言されたパッケージ名が一致するように変更してください。
+    > app のパッケージ名と google-service.json で宣言されたパッケージ名が一致するように変更してください。
 
-#### AndroidManifest.xmlの設定
+#### AndroidManifest.xml の設定
 
 一般的にゲームに用いられる設定値を追加します。各設定別の詳しい説明はコードを参考にしてください。
 
@@ -208,17 +207,17 @@ build.gradleファイルはプロジェクトのrootフォルダとappフォル�
 </manifest>
 ```
 
-#### Push Notificationアイコンの設定
+#### Push Notification アイコンの設定
 
 ![gamepot_android_04](./images/gamepot_android_04.png)
 
-プッシュ通知を受け取る際にNotification barに表示するiconは基本的にSDK内部の基本画像で処理され、ゲームに合わせて直接追加することもできます。
+プッシュ通知を受け取る際に Notification bar に表示する icon は基本的に SDK 内部の基本画像で処理され、ゲームに合わせて直接追加することもできます。
 
-**iconを直接追加**
+**icon を直接追加**
 
 > [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small)を用いてアイコンを作成すると自動的にフォルダ別に作成されるため、各フォルダに追加するだけで済みます。
 
-1. res/drawable関連フォルダを以下のように作成
+1. res/drawable 関連フォルダを以下のように作成
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
@@ -232,7 +231,7 @@ build.gradleファイルはプロジェクトのrootフォルダとappフォル�
    - 96x96
 3. 以下のように各フォルダ別にサイズに合った画像を追加
 
-| フォルダ名| サイズ|
+| フォルダ名            | サイズ |
 | :-------------------- | :----- |
 | res/drawable-mdpi/    | 24x24  |
 | res/drawable-hdpi/    | 36x36  |
@@ -244,7 +243,7 @@ build.gradleファイルはプロジェクトのrootフォルダとappフォル�
 
 ## 2. 初期化
 
-MainActivity.javaファイルに以下のコードを追加します。
+MainActivity.java ファイルに以下のコードを追加します。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -286,19 +285,19 @@ protected void onDestroy() {
 
 ## 3. ログイン、ログアウト、会員退会
 
-Google、Facebook、NAVERなど様々なログインSDKを統合して使用できます。
+Google、Facebook、NAVER など様々なログイン SDK を統合して使用できます。
 
 ### Google\(Firebase\)コンソールの設定
 
-APKをビルドする際に使用したKeystoreのSHA-1値をFirebase consoleに追加します。
+APK をビルドする際に使用した Keystore の SHA-1 値を Firebase console に追加します。
 
-> SHA-1値は開発会社にリクエストします。
+> SHA-1 値は開発会社にリクエストします。
 
 ![gamepot_android_05](./images/gamepot_android_05.png)
 
-### Facebookコンソールの設定
+### Facebook コンソールの設定
 
-APKをビルドする際に使用したKeystoreのキーハッシュ値をFacebookコンソールに追加します。
+APK をビルドする際に使用した Keystore のキーハッシュ値を Facebook コンソールに追加します。
 
 > キーハッシュ値は開発会社にリクエストします。
 
@@ -306,7 +305,7 @@ APKをビルドする際に使用したKeystoreのキーハッシュ値をFacebo
 
 ### 設定
 
-#### MainActivity.javaファイルの修正
+#### MainActivity.java ファイルの修正
 
 ログイン関連コードを以下のように宣言します。
 
@@ -347,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### ログイン
 
-ログインUIは開発会社で実装し、ログインボタンをクリックする際に連携されます。
+ログイン UI は開発会社で実装し、ログインボタンをクリックする際に連携されます。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -362,7 +361,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER:NAVER
 // GamePotChannelType.LINE:LINE
 // GamePotChannelType.TWITTER:Twitter
-// GamePotChannelType.APPLE: Apple 
+// GamePotChannelType.APPLE: Apple
 // GamePotChannelType.GUEST:ゲスト
 
 // Googleのログインボタンを押した時の呼び出し
@@ -385,7 +384,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
 });
 ```
 
-#### 会員の固有ID
+#### 会員の固有 ID
 
 ```java
 GamePot.getInstance().getMemberId();
@@ -393,7 +392,7 @@ GamePot.getInstance().getMemberId();
 
 ### 自動ログイン
 
-ゲームユーザーが最後にログインした情報を伝達するAPIを利用して自動ログインを実装できます。
+ゲームユーザーが最後にログインした情報を伝達する API を利用して自動ログインを実装できます。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -476,19 +475,19 @@ GamePotChannel.getInstance().deleteMember(this, new GamePotCommonListener() {
 
 ### 検証
 
-ログイン完了後、ログイン情報を開発会社のサーバからGAMEPOTサーバに伝達するとログイン検証が行われます。
+ログイン完了後、ログイン情報を開発会社のサーバから GAMEPOT サーバに伝達するとログイン検証が行われます。
 
 詳しい説明は`Server to server api`メニューの`Authentication check`項目を参考にしてください。
 
 ## 4. アカウント連携
 
-一つのゲームアカウントに複数のソーシャルアカウント\(Google、Facebookなど\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
+一つのゲームアカウントに複数のソーシャルアカウント\(Google、Facebook など\)を連携/解除できる機能です。\(最小連携ソーシャルアカウント数は一つです。\)
 
-> 連携画面のUIは開発会社で実装してください。
+> 連携画面の UI は開発会社で実装してください。
 
 ### アカウント連携
 
-Google、FacebookなどのIDでアカウントを連携できます。
+Google、Facebook などの ID でアカウントを連携できます。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -530,7 +529,7 @@ GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new 
 
 ### 連携されたリスト
 
-当該APIを通じてアカウント連携の有無を確認できます。
+当該 API を通じてアカウント連携の有無を確認できます。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -577,9 +576,9 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 
 ## 5. 決済
 
-決済の結果値はListener形式で実装されています。
+決済の結果値は Listener 形式で実装されています。
 
-MainActivity.javaでアプリを実行する際、一度呼び出すように宣言します。
+MainActivity.java でアプリを実行する際、一度呼び出すように宣言します。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -618,7 +617,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### 決済する
 
-一つの決済APIでGooglePlayとOneStoreのどちらでも決済できます。
+一つの決済 API で GooglePlay と OneStore のどちらでも決済できます。
 
 > 決済する ~ 決済完了/失敗までの間ゲーム内で使用するロード画面を表示し、呼び出しが重複しないようにしてください。
 
@@ -654,10 +653,9 @@ import io.gamepot.common.GamePot;
 GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","etc");
 ```
 
-
 ### 決済アイテムリスト取得
 
-ストアから伝達されるIn-Appアイテムリストを取得できます。
+ストアから伝達される In-App アイテムリストを取得できます。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -667,13 +665,13 @@ GamePotPurchaseDetailList details = GamePot.getInstance().getPurchaseDetailList(
 
 ### 決済アイテム支給
 
-GAMEPOTは、Server to server apiを通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
+GAMEPOT は、Server to server api を通じて決済ストアの領収証検証まですべて完了してから開発会社のサーバに支給リクエストをするため、不正決済はできません。
 
 そのためには`Server to server api`メニューの`Purchase`項目を参考にして処理してください。
 
 ## 6. 外部決済
 
-ONE storeの場合、基本ストアの決済モジュールではない第3の決済モジュールを許可しています。
+ONE store の場合、基本ストアの決済モジュールではない第 3 の決済モジュールを許可しています。
 
 ### 設定
 
@@ -699,11 +697,11 @@ import io.gamepot.common.GamePot;
 GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPurchaseThirdPaymentsDetailList();
 ```
 
-## 7. その他のAPI
+## 7. その他の API
 
-### SDKサポートログインUI
+### SDK サポートログイン UI
 
-SDK内で、独自に(完成した形の) Login UIを提供します。
+SDK 内で、独自に(完成した形の) Login UI を提供します。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -737,15 +735,16 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 });
 ```
 
-#### ログインUIの画像ロゴの設定
+#### ログイン UI の画像ロゴの設定
 
-ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
+ログイン UI 上段に表示される画像ロゴは、SDK の内部で基本画像が表示され、直接追加することもできます。
 
 **画像ロゴを直接入れる**
 
 > [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)を使用してアイコンを作成すると自動的にフォルダ別に作成されるため、各フォルダに追加するだけで済みます。
 
-1. res/drawable関連フォルダを以下のように作成
+1. res/drawable 関連フォルダを以下のように作成
+
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
@@ -753,28 +752,28 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
    - res/drawable-xxxhdpi/
 
 2. 以下のサイズ別に画像を作成
+
    - 78x55
    - 116x82
    - 155x110
    - 232x165
    - 310x220
 
-
 3. 以下のように各フォルダ別にサイズに合った画像を追加
 
-| フォルダ名                | サイズ |
-| :-------------------- | :----- |
-| res/drawable-mdpi/    | 78x55  |
+| フォルダ名            | サイズ  |
+| :-------------------- | :------ |
+| res/drawable-mdpi/    | 78x55   |
 | res/drawable-hdpi/    | 116x82  |
-| res/drawable-xhdpi/   | 155x110  |
-| res/drawable-xxhdpi/  | 232x165  |
-| res/drawable-xxxhdpi/ | 310x220  |
+| res/drawable-xhdpi/   | 155x110 |
+| res/drawable-xxhdpi/  | 232x165 |
+| res/drawable-xxxhdpi/ | 310x220 |
 
 - 画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更
 
-### NAVERログイン
+### NAVER ログイン
 
-#### build.gradle設定
+#### build.gradle 設定
 
 ```java
 android {
@@ -792,7 +791,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.javaの設定
+#### MainActivity.java の設定
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -815,9 +814,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.NAVER, new GamePotAp
 });
 ```
 
-### LINEログイン
+### LINE ログイン
 
-#### build.gradle設定
+#### build.gradle 設定
 
 ```java
 android {
@@ -835,7 +834,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.javaの設定
+#### MainActivity.java の設定
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -858,9 +857,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.LINE, new GamePotApp
 });
 ```
 
-### Twitterログイン
+### Twitter ログイン
 
-#### build.gradle設定
+#### build.gradle 設定
 
 ```java
 android {
@@ -886,7 +885,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.javaの設定
+#### MainActivity.java の設定
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -909,9 +908,9 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
-### Appleログイン(Web Login)
+### Apple ログイン(Web Login)
 
-#### build.gradle設定
+#### build.gradle 設定
 
 ```java
 dependencies {
@@ -921,7 +920,7 @@ dependencies {
 }
 ```
 
-#### MainActivity.java設定
+#### MainActivity.java 設定
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -943,11 +942,12 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAp
   ...
 });
 ```
+
 ### クーポン
 
 ユーザーが入力したクーポンを使用する際は、以下のコードを呼び出してください。
 
-> クーポンの入力画面のUIは開発会社で実装してください。
+> クーポンの入力画面の UI は開発会社で実装してください。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -969,15 +969,15 @@ GamePot.getInstance().coupon(/*ユーザーが入力したクーポン*/, new Ga
 
 #### アイテム支給
 
-クーポンの使用に成功すると、開発会社のサーバにServer to server apiを通じてアイテム支給をリクエストします。
+クーポンの使用に成功すると、開発会社のサーバに Server to server api を通じてアイテム支給をリクエストします。
 
 そのためには`Server to server api`メニューの`Item`項目を参考にして処理してください。
 
 ### Push on/off
 
-全体プッシュ、夜間プッシュ、プッシュ型広告の3種類のプッシュ通知をそれぞれon/offに設定できます。
+全体プッシュ、夜間プッシュ、プッシュ型広告の 3 種類のプッシュ通知をそれぞれ on/off に設定できます。
 
-> on/offを設定するUIは開発会社で実装してください。
+> on/off を設定する UI は開発会社で実装してください。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -1071,7 +1071,7 @@ GamePot.getInstance().showEvent(/*現在のアクティビティ*/, type, new Ga
 
 ダッシュボード - サポートセンター - 問い合わせに連携されるユーザーと運営者間のコミュニケーションチャンネルです。
 
-問い合わせのUIはデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
+問い合わせの UI はデバイスの言語に応じて変更されます。韓国語、英語、日本語、中国語(簡体字、繁体字)に対応し、その他の言語は英語で表示されます。
 
 #### 呼び出し
 
@@ -1091,7 +1091,7 @@ GamePot.getInstance().showWebView(/*現在のアクティビティ*/, url, true)
 
 ### FAQ
 
-ダッシュボード - サポートセンター - FAQに連携されるFAQリストです。
+ダッシュボード - サポートセンター - FAQ に連携される FAQ リストです。
 
 #### 呼び出し
 
@@ -1109,7 +1109,7 @@ GamePot.getInstance().showFaq(/*現在のアクティビティ*/);
 
 決められた時間にローカルプッシュを表示する方法は以下のとおりです。
 
-> 戻り値として返ってくるpushidは開発会社で管理します。
+> 戻り値として返ってくる pushid は開発会社で管理します。
 
 ```java
 String date = "2018-09-27 20:00:00";
@@ -1122,7 +1122,7 @@ int pushid = GamePot.getInstance().sendLocalPush(builder);
 
 **登録したプッシュのキャンセル**
 
-プッシュ登録の際に取得したpushidをもとに、これまでに登録したプッシュをキャンセルできます。
+プッシュ登録の際に取得した pushid をもとに、これまでに登録したプッシュをキャンセルできます。
 
 ```java
 GamePot.getInstance().cancelLocalPush(/*現在のアクティビティ*/, /*プッシュ登録の際に取得したpushid*/);
@@ -1134,11 +1134,11 @@ GamePot.getInstance().cancelLocalPush(/*現在のアクティビティ*/, /*プ�
 
 #### 呼び出し
 
-これまでに適用された以下のAPIで使用できます。
+これまでに適用された以下の API で使用できます。
 
 **1. login API**
 
-既存のlogin APIでlistenerを`GamePotAppStatusChannelListener`に変更します。
+既存の login API で listener を`GamePotAppStatusChannelListener`に変更します。
 
 ```java
 GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
@@ -1197,11 +1197,12 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 ### 規約同意
 
-｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるようにUIを提供します。
+｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
+`BLUE`テーマと`GREEN`テーマの 2 種類の`基本テーマ`の他にも、新たに追加された 11 種類の`改善テーマ`を提供します。
 
 #### 規約同意を呼び出す
+
 ```java
 // 基本テーマ
 GamePotAgreeBuilder.THEME.BLUE
@@ -1306,13 +1307,13 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotLis
 
 それぞれの変数は以下の領域に適用されます。
 
-> contentIconDrawableの基本画像はプッシュアイコンとして設定されます。
+> contentIconDrawable の基本画像はプッシュアイコンとして設定されます。
 
 ![gamepot_android_09](./images/gamepot_android_09.png)
 
 ### 利用規約
 
-利用規約UIを呼び出します。
+利用規約 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 利用規約の設定項目にまず内容を入力してください。
 
@@ -1325,7 +1326,7 @@ GamePot.getInstance().showTerms(activity);
 
 ### 個人情報の取扱方針
 
-個人情報の取扱方針UIを呼び出します。
+個人情報の取扱方針 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 個人情報の取扱方針の設定項目にまず内容を入力してください。
 
@@ -1338,7 +1339,7 @@ GamePot.getInstance().showPrivacy(activity);
 
 ### 払い戻し規約
 
-払い戻し規約UIを呼び出します。
+払い戻し規約 UI を呼び出します。
 
 > ダッシュボード - サポートセンター - 払い戻し規約の設定項目にまず内容を入力してください。
 
@@ -1353,7 +1354,7 @@ GamePot.getInstance().showRefund(activity);
 
 ダッシュボードで登録したパラメータ値をゲームクライアントから取得します。
 
-> ダッシュボード - 設定 - Remote Config画面でまずパラメータを追加してください。
+> ダッシュボード - 設定 - Remote Config 画面でまずパラメータを追加してください。
 
 追加したパラメータはログイン時にロードされ、その後から呼び出すことができます。
 
@@ -1373,13 +1374,13 @@ String json_value = GamePot.getInstance().getConfigs();
 
 以下は使用できる予約語の定義表です。
 
-| 予約語| 必須| タイプ| 説明|
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME| 必須| String| キャラクター名|
-| GamePotSendLogCharacter.LEVEL| 任意| String| レベル|
-| GamePotSendLogCharacter.SERVER_ID| 任意| String| サーバID|
-| GamePotSendLogCharacter.PLAYER_ID| 任意| String| キャラクターID|
-| GamePotSendLogCharacter.USERDATA| 任意| String| ETC|
+| 予約語                            | 必須 | タイプ | 説明            |
+| :-------------------------------- | :--- | :----- | :-------------- |
+| GamePotSendLogCharacter.NAME      | 必須 | String | キャラクター名  |
+| GamePotSendLogCharacter.LEVEL     | 任意 | String | レベル          |
+| GamePotSendLogCharacter.SERVER_ID | 任意 | String | サーバ ID       |
+| GamePotSendLogCharacter.PLAYER_ID | 任意 | String | キャラクター ID |
+| GamePotSendLogCharacter.USERDATA  | 任意 | String | ETC             |
 
 ```java
 import android.text.TextUtils;
@@ -1409,9 +1410,9 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
-### GDPR規約チェックリスト
+### GDPR 規約チェックリスト
 
-ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
+ダッシュボードで有効化した、GDPR 規約項目をリストの形で取得します。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -1430,7 +1431,7 @@ gdpr_adapp_nocustom：非パーソナライズド広告を見るに同意 (GDPR�
 
 # 付録
 
-### 3rd party SDK連携サポート
+### 3rd party SDK 連携サポート
 
 TODO : 説明
 
@@ -1440,11 +1441,11 @@ TODO : 説明
 
 > 自動ログインに対応しない。毎回呼び出しが必要。
 
-| パラメータ名| 必須| タイプ| 説明|
-| :--------- | :--- | :------------------------------------------------------- | :----------------- |
-| activity| 必須| String| 現在のアクティビティ|
-| userid| 必須| String| ユーザーの固有ID|
-| listener| 必須| GamePotChannelListener / GamePotAppStatusChannelListener| リクエストの結果|
+| パラメータ名 | 必須 | タイプ                                                   | 説明                 |
+| :----------- | :--- | :------------------------------------------------------- | :------------------- |
+| activity     | 必須 | String                                                   | 現在のアクティビティ |
+| userid       | 必須 | String                                                   | ユーザーの固有 ID    |
+| listener     | 必須 | GamePotChannelListener / GamePotAppStatusChannelListener | リクエストの結果     |
 
 ```java
 String memberId = "memberid of 3rd party sdk";
@@ -1507,17 +1508,17 @@ GamePotChannel.getInstance().loginByThirdPartySDK(getActivity(), memberId, new G
 
 TODO : 説明
 
-> 決済アイテムがGAMEPOTのダッシュボードに登録されている必要があります。
+> 決済アイテムが GAMEPOT のダッシュボードに登録されている必要があります。
 
-| パラメータ名| 必須| タイプ| 説明|
-| :------------ | :--- | :-------------- | :-------------------------------------- |
-| productid| 必須| String| GAMEPOTのダッシュボードに登録されたアイテムID|
-| transactionid| 必須| String| 決済領収証番号(GPA-xxx-xxxx-xxxx)|
-| currency| 任意| String| 通貨(KRW、USD)|
-| price| 任意| double| 決済アイテム金額|
-| paymentid| 任意| String| 決済ストア(google、apple、one、galaxy)|
-| uniqueid| 任意| String| 開発会社で使用する固有ID|
-| listener| 任意| GamePotListener| リクエストの結果|
+| パラメータ名  | 必須 | タイプ          | 説明                                            |
+| :------------ | :--- | :-------------- | :---------------------------------------------- |
+| productid     | 必須 | String          | GAMEPOT のダッシュボードに登録されたアイテム ID |
+| transactionid | 必須 | String          | 決済領収証番号(GPA-xxx-xxxx-xxxx)               |
+| currency      | 任意 | String          | 通貨(KRW、USD)                                  |
+| price         | 任意 | double          | 決済アイテム金額                                |
+| paymentid     | 任意 | String          | 決済ストア(google、apple、one、galaxy)          |
+| uniqueid      | 任意 | String          | 開発会社で使用する固有 ID                       |
+| listener      | 任意 | GamePotListener | リクエストの結果                                |
 
 ```java
 String productId = "purchase_001";

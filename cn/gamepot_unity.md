@@ -3,6 +3,11 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **为提供 NAVER CLOUD PLATFORM 产品的详细使用方法和 API 的多种使用方式，分别提供<a href="https://guide.ncloud-docs.com/docs/zh/home" target="_blank">[说明书]</a>和<a href="https://api.ncloud-docs.com/docs/zh/home" target="_blank">[API 参考指南]</a>以供参考。**
+
+<a href="https://api.ncloud-docs.com/docs/zh/game-gamepot-index" target="_blank">进入 Gamepot API 参考指南 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/zh/game-gamepotconsole" target="_blank">进入 Gamepot 说明书 >></a>
+
 # Unity SDK
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
@@ -289,9 +294,9 @@ defaultConfig {
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
-### APPLE登录
+### APPLE 登录
 
-> 此功能仅适用于 iOS。（对于Android，它以Web登录的形式受支持-请参阅8。其他API）
+> 此功能仅适用于 iOS。（对于 Android，它以 Web 登录的形式受支持-请参阅 8。其他 API）
 
 **添加 Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple**
 
@@ -435,6 +440,7 @@ public class NUserInfo
 ```
 
 NAppStatus 正义
+
 ```csharp
 public class NAppStatus
 {
@@ -796,6 +802,7 @@ foreach(NPurchaseItem item in items) {
 ```
 
 NPurchaseItem 정의
+
 ```csharp
 public class NPurchaseItem
 {
@@ -968,9 +975,9 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 
 ## 8. 其他 API
 
-### SDK支持登录UI
+### SDK 支持登录 UI
 
-SDK中自行提供（完成形式的）Login UI。
+SDK 中自行提供（完成形式的）Login UI。
 
 ```csharp
 public class NLoginUIInfo
@@ -980,7 +987,7 @@ public class NLoginUIInfo
 }
 ```
 
-#### SDK登录UI调用
+#### SDK 登录 UI 调用
 
 - Case 1
 
@@ -1003,7 +1010,7 @@ Request:
 
 Response:
 
- **与一般登录API回复逻辑相同。 （但onLoginCancel / onLoginFailure时，Native等级中将以提示信息处理）**
+**与一般登录 API 回复逻辑相同。 （但 onLoginCancel / onLoginFailure 时，Native 等级中将以提示信息处理）**
 
 ```csharp
 // 登录成功
@@ -1059,27 +1066,27 @@ Request:
 
 #### Customizing
 
-**登录UI镜像标志变更方法**
+**登录 UI 镜像标志变更方法**
 
-登录UI上方显示的镜像标志在SDK内部中以默认镜像显示，也可以直接添加。
+登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
 
 **[Android]**
 
 > 直接添加时，须在各`drawable`文件夹放入镜像。\(利用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)制作时，镜像将按文件夹自动制作，更加方便。\)
 
-镜像文件名应为ic_stat_gamepot_login_logo.png。
+镜像文件名应为 ic_stat_gamepot_login_logo.png。
 
-| 文件夹名称                                                         | 大小  |
-| :------------------------------------------------------------- | :---- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| 文件夹名称                                                     | 大小    |
+| :------------------------------------------------------------- | :------ |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55   |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82  |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
 
- **[iOS]**
+**[iOS]**
 
-> 镜像标志在GamePot.bundle中，以ic_stat_gamepot_logo.png文件格式存在。
+> 镜像标志在 GamePot.bundle 中，以 ic_stat_gamepot_logo.png 文件格式存在。
 
 将镜像文件名变更为`ic_stat_gamepot_login_logo.png`后更换。
 
@@ -1089,7 +1096,7 @@ Request:
 
 **[Android]**
 
-/Assets/Plugin/Android/AndroidManifest.xml文件须使用编辑器打开。
+/Assets/Plugin/Android/AndroidManifest.xml 文件须使用编辑器打开。
 
 ```markup
 ...e
@@ -1102,20 +1109,20 @@ Request:
 ...
 ```
 
-在Main Activity中添加screenOrientation后，请根据游戏输入`sensorLandscape`或`sensorPortrait`。
+在 Main Activity 中添加 screenOrientation 后，请根据游戏输入`sensorLandscape`或`sensorPortrait`。
 
-
-###  Apple Developers (for Android - Web Login)
+### Apple Developers (for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
-仪表板项目设置>>常规>> Apple ID登录设置
+仪表板项目设置>>常规>> Apple ID 登录设置
 
-> 要使用该功能，您需要设置Apple Developer Console。
+> 要使用该功能，您需要设置 Apple Developer Console。
 >
 > 请参阅仪表板上相应项目中的**得到帮助**。
 
-将下面的aar文件添加到/ Assets / Plugins / Android / libs路径。 （选中用于插件的精选平台-Android）
+将下面的 aar 文件添加到/ Assets / Plugins / Android / libs 路径。 （选中用于插件的精选平台-Android）
+
 - gamepot-channel-apple-signin.aar
 
 ### NAVER 登录
@@ -1590,7 +1597,7 @@ GamePot.cancelLocalPush(/*推送注册期间获取的PushId*/);
 
 提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
 
-除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
 
 各领域可以自定义。
 
@@ -1863,9 +1870,9 @@ Boolean result = GamePot.characterInfo(characterLog);
 // Result is FALSE : validation was failed. Please check logcat
 ```
 
-### GDPR条款选项列表
+### GDPR 条款选项列表
 
-将在仪表盘中激活的GDPR条款项目以列表形式导出。
+将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
 
 ```csharp
 //返回的数据格式是string[]。

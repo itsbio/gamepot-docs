@@ -4,10 +4,10 @@ search:
     - gamepot
 ---
 
-#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[API リファレンス]</a>を分けて提供しています。**
+#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="https://guide.ncloud-docs.com/docs/ja/home" target="_blank">[説明書]</a>と<a href="https://api.ncloud-docs.com/docs/ja/home" target="_blank">[API リファレンス]</a>を分けて提供しています。**
 
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT API リファレンスへ >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT 説明書へ >></a>
+<a href="https://api.ncloud-docs.com/docs/ja/game-gamepot-index" target="_blank">GAMEPOT API リファレンスへ >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/ja/game-gamepotconsole" target="_blank">GAMEPOT 説明書へ >></a>
 
 # iOS SDK
 
@@ -598,9 +598,9 @@ GAMEPOT は、Server to server api を通じて決済ストアの領収証検証
 
 ## 6. その他の API
 
-### SDKサポートログインUI
+### SDK サポートログイン UI
 
-SDK内で、独自に(完成した形の) Login UIを提供します。
+SDK 内で、独自に(完成した形の) Login UI を提供します。
 
 ```c++
 #import <GamePot/GamePot.h>
@@ -626,13 +626,13 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 ];
 ```
 
-#### ログインUIの画像ロゴの設定
+#### ログイン UI の画像ロゴの設定
 
-ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
+ログイン UI 上段に表示される画像ロゴは、SDK の内部で基本画像が表示され、直接追加することもできます。
 
 **画像ロゴを直接入れる**
 
-> 画像ロゴはGamePot.bundle内に、ic_stat_gamepot_logo.pngファイルとして存在します。
+> 画像ロゴは GamePot.bundle 内に、ic_stat_gamepot_logo.png ファイルとして存在します。
 
 画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更した後、交換します。
 
@@ -818,7 +818,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。 
+`BLUE`テーマと`GREEN`テーマの 2 種類の`基本テーマ`の他にも、新たに追加された 11 種類の`改善テーマ`を提供します。
 
 #### 規約同意を呼び出す
 
@@ -830,7 +830,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 // ブルーテーマ [[GamePotAgreeOption alloc] init:BLUE];
 // グリーンテーマ [[GamePotAgreeOption alloc] init:GREEN];
 
-// 改善テーマ  
+// 改善テーマ
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -989,10 +989,9 @@ BOOL result = [GamePotSendLog characterInfo:info];
 
 ```
 
+### GDPR 規約チェックリスト
 
-### GDPR規約チェックリスト
-
-ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
+ダッシュボードで有効化した、GDPR 規約項目をリストの形で取得します。
 
 ```c++
 (NSArray*) [[GamePot getInstance] getGDPRCheckedList];

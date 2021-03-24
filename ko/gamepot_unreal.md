@@ -3,6 +3,11 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+
+<a href="https://api.ncloud-docs.com/docs/game-gamepot-index" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
+
 # Unreal SDK
 
 ## 기본 환경 설정
@@ -58,7 +63,6 @@ resValue "string", "[key]", "[value]"
 | fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
 | gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
-
 **노티바에 푸시 아이콘 변경 방법**
 
 ![gamepot_unreal_003](./images/gamepot_unreal_003.png)
@@ -69,14 +73,13 @@ resValue "string", "[key]", "[value]"
 
 이미지 파일명은 ic_stat_gamepot_small이어야 합니다.
 
-| 폴더명                                                         | 크기  |
-| :------------------------------------------------------------- | :---- |
+| 폴더명                                                                                            | 크기  |
+| :------------------------------------------------------------------------------------------------ | :---- |
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xhdpi/   | 48x48 |
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
-
 
 ### iOS
 
@@ -129,15 +132,15 @@ IDFA 값 획득이 가능하도록 변경되었습니다.
 ## 1. 초기화
 
 게임을 시작할때 로드되는 첫 장면(레벨)에 사용되는 개체에 다음 코드를 추가합니다.
- 
- - ex> "ASampleGameModeBase.h"
+
+- ex> "ASampleGameModeBase.h"
 
 ```c++
 //(해당 레벨에서 사용되는) GAMEPOT API에 대한, Callback Event Listener 선언
 UCLASS()
 class GAMEPOTSDKSAMPLE_API ASampleGameModeBase : public AGameModeBase
 {
-    ...   
+    ...
    void OnLoginSuccess(FNUserInfo NUserInfo);
    void OnLoginCancel();
    void OnLoginFailure(FNError NError);
@@ -148,7 +151,7 @@ class GAMEPOTSDKSAMPLE_API ASampleGameModeBase : public AGameModeBase
 };
 ```
 
- - ex> "ASampleGameModeBase.cpp"
+- ex> "ASampleGameModeBase.cpp"
 
 ```c++
 #include "GamePotSDKPluginModule.h"
@@ -166,9 +169,9 @@ void ASampleGameModeBase::InitGame(const FString& MapName, const FString& Option
          FGamePotSDKPluginModule::OnSdkLoginMaintenance.AddUObject(this, &ASampleGameModeBase::OnLoginMaintenance);
          FGamePotSDKPluginModule::OnSdkLoginNeedUpdate.AddUObject(this, &ASampleGameModeBase::OnLoginNeedUpdate);
          FGamePotSDKPluginModule::OnSdkLoginExit.AddUObject(this, &ASampleGameModeBase::OnLoginExit);
-      
+
          FGamePotSDKPluginModule::OnSdkLogoutSuccess.AddUObject(this, &ASampleGameModeBase::OnLogoutSuccess);
-         FGamePotSDKPluginModule::OnSdkLogoutFailure.AddUObject(this, &ASampleGameModeBase::OnLogoutFailure);   
+         FGamePotSDKPluginModule::OnSdkLogoutFailure.AddUObject(this, &ASampleGameModeBase::OnLogoutFailure);
         ...
      }
 }
@@ -193,26 +196,26 @@ void ASampleGameModeBase::OnLoginFailure(FNError NError)
 
 ```c++
     // Login 성공
-    FOnSdkLoginSuccess OnSdkLoginSuccess(FNUserInfo NUserInfo);     
-    // Login 취소            
-    FOnSdkLoginCancel OnSdkLoginCancel(); 
-    // Login 실패                                     
-    FOnSdkLoginFailure OnSdkLoginFailure(FNError NError);   
-    // Login (점검)                   
+    FOnSdkLoginSuccess OnSdkLoginSuccess(FNUserInfo NUserInfo);
+    // Login 취소
+    FOnSdkLoginCancel OnSdkLoginCancel();
+    // Login 실패
+    FOnSdkLoginFailure OnSdkLoginFailure(FNError NError);
+    // Login (점검)
     FOnSdkLoginMaintenance OnSdkLoginMaintenance(FNAppStatus NAppStatus);
-    // Login (업데이트)      
-    FOnSdkLoginNeedUpdate OnSdkLoginNeedUpdate(FNAppStatus NAppStatus);   
-    // Login UI Close(showLoginWithUI 사용 시)     
-    FOnSdkLoginExit OnSdkLoginExit();         
-    // (점검, 업데이트 시) 앱 종료                                      
-    FOnSdkAppClose OnSdkAppClose();   
+    // Login (업데이트)
+    FOnSdkLoginNeedUpdate OnSdkLoginNeedUpdate(FNAppStatus NAppStatus);
+    // Login UI Close(showLoginWithUI 사용 시)
+    FOnSdkLoginExit OnSdkLoginExit();
+    // (점검, 업데이트 시) 앱 종료
+    FOnSdkAppClose OnSdkAppClose();
 
-    // Logout 성공                                                                          
-    FOnSdkLogoutSuccess OnSdkLogoutSuccess();   
-    // Logout 실패                               
-    FOnSdkLogoutFailure OnSdkLogoutFailure(FNError NError);      
+    // Logout 성공
+    FOnSdkLogoutSuccess OnSdkLogoutSuccess();
+    // Logout 실패
+    FOnSdkLogoutFailure OnSdkLogoutFailure(FNError NError);
 
-    // showWebview 닫음          
+    // showWebview 닫음
     FOnWebviewClose OnSdkWebviewClose(FString msg);
 
     // purchase 성공
@@ -220,7 +223,7 @@ void ASampleGameModeBase::OnLoginFailure(FNError NError)
     // purchase 취소
     FOnSdkPurchaseCancel OnSdkPurchaseCancel();
     // purchase 실패
-    FOnSdkPurchaseFailure OnSdkPurchaseFailure(FNError NError);  
+    FOnSdkPurchaseFailure OnSdkPurchaseFailure(FNError NError);
 
     // getPurchaseDetailListAsync 성공
     FOnSdkPurchaseDetailListSuccess OnSdkPurchaseDetailListSuccess(TArray<FNPurchaseItem> Items);
@@ -283,11 +286,11 @@ USTRUCT()
 struct FNUserInfo
 {
     UPROPERTY()
-    FString memberid;           // 멤버 ID(유저의 유니크 아이디)                   
+    FString memberid;           // 멤버 ID(유저의 유니크 아이디)
     UPROPERTY()
     FString name;               // 이름
     UPROPERTY()
-    FString profileUrl;         // 프로필 URL(존재 시)                     
+    FString profileUrl;         // 프로필 URL(존재 시)
     UPROPERTY()
     FString email;              // 이메일(존재 시)
     UPROPERTY()
@@ -353,7 +356,7 @@ APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 �
 
 #### Android
 
-GamePot_Android_UPL.xml  수정
+GamePot_Android_UPL.xml 수정
 
 ```java
 ...
@@ -381,12 +384,12 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 ...
 ```
 
-
 ### APPLE 로그인
 
 > iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 )
 
-**Config/DefaultEngine.ini 내,  ` [/Script/IOSRuntimeSettings.IOSRuntimeSettings] `항목에 다음 Flag 값을 추가 합니다.**
+**Config/DefaultEngine.ini 내, `[/Script/IOSRuntimeSettings.IOSRuntimeSettings]`항목에 다음 Flag 값을 추가 합니다.**
+
 > bEnableSignInWithAppleSupport=True
 
 ## 4. 로그인/로그아웃/탈퇴/검증
@@ -499,34 +502,34 @@ struct FNAppStatus
 {
     UPROPERTY()
     FString type;       // AppStatus 타입으로 "maintenance" : 점검, "needupdate" : 업데이트
-   
+
     UPROPERTY()
     FString message;    // 점검 설정 : Dashboard에서 입력한 메세지
 
     UPROPERTY()
     FString url;        // 점검 설정 : Dashboard에서 입력한 URL
-    
+
     UPROPERTY()
     FString currentAppVersion;  // 업데이트 : 현재 App Version
-    
+
     UPROPERTY()
     FString updateAppVersion;   // 업데이트 : Dashboard에서 입력한 App Version
-    
+
     UPROPERTY()
     int currentAppVersionCode;  // 업데이트 : 현재 App Code
-    
+
     UPROPERTY()
     FString updateAppVersionCode;   // 업데이트 : Dashboard에서 입력한 App Version code
-    
+
     UPROPERTY()
     bool isForce;       // 업데이트 : Dashboard에서 강제 업데이트 설정 시 true
-    
+
     UPROPERTY()
     FString resultPayload;  // 클라이언트 SDK에서 전달 된 Json 값으로 무시하셔도 됩니다.
-    
+
     UPROPERTY()
     double startedAt;    // 점검 : 시작 시간(timestamp)
-    
+
     UPROPERTY()
     double endedAt;     // 점검 : 종료 시간(timestamp)
 }
@@ -670,7 +673,7 @@ void ASampleGameModeBase::OnCreateLinkingFailure(FNError NError) {
 
 현재 연동된 모든 계정 정보를 가져올 수 있습니다.
 
-```c++  
+```c++
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
      TArray<FNLinkingInfo> linkedList = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getLinkedList();
 ```
@@ -738,13 +741,13 @@ USTRUCT()
 struct FNPurchaseItem
 {
     UPROPERTY()
-    FString productId;              // 상품 ID    
+    FString productId;              // 상품 ID
 
     UPROPERTY()
     FString type;                   // 상품 타입으로 "inapp"으로 고정
 
     UPROPERTY()
-    FString price;                  // 가격 google 스토어 : $0.99 그외 스토어 : 0.99   
+    FString price;                  // 가격 google 스토어 : $0.99 그외 스토어 : 0.99
 
     UPROPERTY()
     FString price_amount;           // 통화코드 ex) KRW, USD
@@ -759,7 +762,7 @@ struct FNPurchaseItem
     FString price_with_currency;
 
     UPROPERTY()
-    FString title;                   // 상품 이름       
+    FString title;                   // 상품 이름
 
     UPROPERTY()
     FString description;            // 상품 설명
@@ -796,27 +799,27 @@ USTRUCT()
 struct FNPurchaseInfo
 {
     UPROPERTY()
-    FString price;                         // 결제 아이템의 가격    
+    FString price;                         // 결제 아이템의 가격
     UPROPERTY()
-    FString productId;                  // 결제 아이템 ID   
+    FString productId;                  // 결제 아이템 ID
     UPROPERTY()
-    FString currency;                    // 결제 가격 통화(KRW/USD) 
+    FString currency;                    // 결제 가격 통화(KRW/USD)
     UPROPERTY()
-    FString orderId;                      // 스토어 Order ID    
+    FString orderId;                      // 스토어 Order ID
     UPROPERTY()
-    FString productName;            // 결제 아이템 이름 
+    FString productName;            // 결제 아이템 이름
     UPROPERTY()
-    FString gamepotOrderId;         // (GAMEPOT에서 생성한) order id    
+    FString gamepotOrderId;         // (GAMEPOT에서 생성한) order id
     UPROPERTY()
-    FString uniqueId;                    // (개발사에서 별도로 관리하는) 영수증 ID  
+    FString uniqueId;                    // (개발사에서 별도로 관리하는) 영수증 ID
     UPROPERTY()
-    FString serverId;                    // (결제를 진행한 캐릭터의) 서버 아이디    
+    FString serverId;                    // (결제를 진행한 캐릭터의) 서버 아이디
     UPROPERTY()
-    FString playerId;                    // (결제를 진행한 캐릭터의) 캐릭터 아이디  
+    FString playerId;                    // (결제를 진행한 캐릭터의) 캐릭터 아이디
     UPROPERTY()
-    FString etc;                         // (결제를 진행한 캐릭터의) 기타 정보  
+    FString etc;                         // (결제를 진행한 캐릭터의) 기타 정보
     UPROPERTY()
-    FString signature;                  // 스토어 signature     
+    FString signature;                  // 스토어 signature
     UPROPERTY()
     FString originalJSONData;   // 영수증 Data
 }
@@ -861,13 +864,13 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 Request:
 
-```csharp
+````csharp
 
 ```c++
 // productId : 마켓에 등록된 상품ID
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     FGamePotSDKPluginModule::GetSharedGamePotSdk()->purchaseThirdPayments(FString productId);
-```
+````
 
 외부결제 이용 시 상품 정보 리스트는 아래 api를 사용하세요.
 
@@ -934,7 +937,7 @@ void ASampleGameModeBase::OnLoginFailure(FNError NError)
 
 Response:
 
- **일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
+**일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
 
 ```c++
 
@@ -986,7 +989,6 @@ void ASampleGameModeBase::OnAppClose()
 
 ```
 
-
 #### Customizing
 
 **로그인 UI 이미지 로고 변경 방법**
@@ -999,14 +1001,13 @@ void ASampleGameModeBase::OnAppClose()
 
 이미지 파일명은 ic_stat_gamepot_login_logo.png 이어야 합니다.
 
-| 폴더명                                                         | 크기  |
-| :------------------------------------------------------------- | :---- |
+| 폴더명                                                                                             | 크기  |
+| :------------------------------------------------------------------------------------------------- | :---- |
 | /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-mdpi/    | 24x24 |
 | /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-hdpi/    | 36x36 |
 | /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xhdpi/   | 48x48 |
 | /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
 | /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
-
 
 ### 애플 로그인 (for Android - Web Login)
 
@@ -1022,7 +1023,7 @@ void ASampleGameModeBase::OnAppClose()
 
 - gamepot-channel-apple-signin.aar
 
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+GamePot_Android_UPL.xml 의 <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
 
 ```java
 ...
@@ -1057,7 +1058,7 @@ Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력�
 
 - gamepot-channel-naver.aar
 
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+GamePot_Android_UPL.xml 의 <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
 
 ```java
 ...
@@ -1098,7 +1099,7 @@ APK 빌드 시 사용한 패키지 이름과 keystore의 SHA값, url Scheme 값�
 
 #### Android
 
-GamePot_Android_UPL.xml  수정
+GamePot_Android_UPL.xml 수정
 
 발급받은 Client ID를 `gamepot_line_channelid` 값에 입력합니다.
 
@@ -1115,7 +1116,7 @@ defaultConfig {
 - gamepot-channel-line.aar
 - line-sdk-4.0.10.aar
 
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+GamePot_Android_UPL.xml 의 <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
 
 ```java
 ...
@@ -1152,7 +1153,7 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 
 #### Android
 
-GamePot_Android_UPL.xml  수정
+GamePot_Android_UPL.xml 수정
 
 ```java
 ...
@@ -1168,7 +1169,7 @@ defaultConfig {
 - gamepot-channel-twitter.aar
 - twitter-core-3.3.0.aar
 
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
+GamePot_Android_UPL.xml 의 <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
 
 ```java
 ...
@@ -1254,7 +1255,7 @@ Request:
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushStatus(bool pushEnable); 
+        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushStatus(bool pushEnable);
 ```
 
 Response:
@@ -1272,7 +1273,6 @@ void ASampleGameModeBase::OnPushFailure(FNError NError)
 }
 ```
 
-
 #### 야간 푸시 설정
 
 - Case 1
@@ -1281,7 +1281,7 @@ Request:
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushNightStatus(bool nightPushEnable); 
+        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushNightStatus(bool nightPushEnable);
 ```
 
 Response:
@@ -1307,7 +1307,7 @@ Request:
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushADStatus(bool adPushEnable); 
+        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushADStatus(bool adPushEnable);
 ```
 
 Response:
@@ -1335,7 +1335,7 @@ Request:
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable); 
+        FGamePotSDKPluginModule::GetSharedGamePotSdk()->setPushStatus(bool pushEnable, bool nightPushEnable, bool adPushEnable);
 ```
 
 Response:
@@ -1355,14 +1355,14 @@ void ASampleGameModeBase::OnPushStatusFailure(FNError NError)
 
 #### 푸시 상태 조회
 
--  FNPushInfo 정의
+- FNPushInfo 정의
 
 ```c++
 USTRUCT()
 struct FNPushInfo
 {
     UPROPERTY()
-    bool enable;       // (일반) 푸시 허용 여부               
+    bool enable;       // (일반) 푸시 허용 여부
 
     UPROPERTY()
     bool night;         // 야간 푸시 허용 여부
@@ -1376,7 +1376,7 @@ Request:
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-        FNPushInfo NPushInfo = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getPushStatus(); 
+        FNPushInfo NPushInfo = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getPushStatus();
 ```
 
 ### 공지사항
@@ -1396,7 +1396,7 @@ Request:
 ```c++
 
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showNotice(bool showToday = true); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showNotice(bool showToday = true);
 
 // true : 오늘 하루 보지 않기 적용
 // false : 오늘 하루 보지 않기 관계없이, 강제 노출
@@ -1404,7 +1404,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 ```c++
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showEvent(FString Type); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showEvent(FString Type);
 
 // Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
 ```
@@ -1430,7 +1430,7 @@ GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해
 
 ```c++
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showCSWebView(); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showCSWebView();
 ```
 
 외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
@@ -1440,7 +1440,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 ```c++
 // url : 게임팟에서 발급받은 외부고객지원 URL
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showWebView(FString url); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showWebView(FString url);
 ```
 
 ### 로컬 푸시\(Local Push notification\)
@@ -1455,9 +1455,9 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-         int pushId = FGamePotSDKPluginModule::GetSharedGamePotSdk()->sendLocalPush(FString date, FString title, FString message); 
+         int pushId = FGamePotSDKPluginModule::GetSharedGamePotSdk()->sendLocalPush(FString date, FString title, FString message);
 
-// date : (Format - timestamp "yyyy-MM-dd HH:mm:ss") 
+// date : (Format - timestamp "yyyy-MM-dd HH:mm:ss")
 // ex >  DateTime.Parse("2018-01-01 00:00:00")
 //  title :  "title"
 // message :  "content"
@@ -1469,7 +1469,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 ```c++
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-         bool success = FGamePotSDKPluginModule::GetSharedGamePotSdk()->cancelLocalPush(int /*푸시 등록시 얻은 pushId*/); 
+         bool success = FGamePotSDKPluginModule::GetSharedGamePotSdk()->cancelLocalPush(int /*푸시 등록시 얻은 pushId*/);
 ```
 
 ### 약관 동의
@@ -1487,66 +1487,66 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 ```c++
 USTRUCT()
 struct FNAgreeInfo
-{    
+{
     // 기본 테마
     UPROPERTY()
     FString theme;
-    
+
     // 타이틀
     // 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> headerBackGradient;
-    
+
     // 타이틀 영역 하단 라인 색상
     UPROPERTY()
     FString headerBottomColor;
-    
+
     // 아이콘 이미지 파일명(aos - drawable / ios - bundle)
     UPROPERTY()
     FString headerIconDrawable;
-    
+
     // 제목
     UPROPERTY()
     FString headerTitle;
-    
+
     // 제목 색상
     UPROPERTY()
     FString headerTitleColor;
-    
+
     // 컨텐츠
     // 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> contentBackGradient;
-  
+
     // 아이콘 이미지 파일명(aos - drawable / ios - bundle)
     UPROPERTY()
     FString contentIconDrawable;
-    
+
     // 아이콘 색상
     UPROPERTY()
     FString contentIconColor;
-   
+
     // 체크버튼 색상
     UPROPERTY()
     FString contentCheckColor;
-    
+
     // 체크내용 색상
     UPROPERTY()
     FString contentTitleColor;
-    
+
     // 보기문구 색상
     UPROPERTY()
     FString contentShowColor;
-    
+
     // 하단(게임시작)
     // 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> footerBackGradient;
-  
+
     // 게임시작 버튼 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> footerButtonGradient;
-    
+
     // 게임시작 버튼 외곽선 색상
     UPROPERTY()
     TArray<FString> footerButtonOutlineColor;
@@ -1558,38 +1558,38 @@ struct FNAgreeInfo
     // 게임시작 문구 색상
     UPROPERTY()
     TArray<FString> footerTitleColor;
-    
+
     //일반푸시 노출 여부
     UPROPERTY()
     bool showPush;
-    
+
     // 야간푸시 노출 여부
     UPROPERTY()
     bool showNightPush;
-    
+
     // '모두 동의' 문구 변경 시
     UPROPERTY()
     FString allMessage;
-    
+
     // '이용 약관' 문구 변경 시
     UPROPERTY()
     FString termMessage;
-    
+
     // '개인정보 취급방침' 문구 변경 시
     UPROPERTY()
     FString privacyMessage;
-    
+
     // '일반 푸시' 문구 변경 시
     UPROPERTY()
     FString pushMessage;
-    
+
     // '야간 푸시' 문구 변경 시
     UPROPERTY()
     FString nightPushMessage;
-    
+
     UPROPERTY()
     FString pushDetailURL;
-    
+
     UPROPERTY()
     FString nightPushDetailURL;
 }
@@ -1608,7 +1608,7 @@ Request:
 
 // Case 1) 기본 호출(BLUE 테마로 적용)
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showAgreeDialog(); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showAgreeDialog();
 
 // Case 2) 그 외 테마로 적용 시
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
@@ -1616,7 +1616,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     // - 기본 테마
     // BLUE
     // GREEN
-    
+
     //  - 개선 테마
     // MATERIAL_RED,
     // MATERIAL_BLUE,
@@ -1635,7 +1635,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     info.headerTitle = TEXT("title");
     info.headerBackGradient = "{ 0xFF00050B, 0xFF0F1B21 }";
     info.headerBottomColor = "0xFFFF0000";
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showAgreeDialog(info.ToJsonString()); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showAgreeDialog(info.ToJsonString());
 }
 ```
 
@@ -1657,7 +1657,7 @@ void ASampleGameModeBase::OnAgreeDialogFailure(FNError NError)
 }
 ```
 
--  Customizing
+- Customizing
 
 각각의 변수는 아래 영역에 적용됩니다.
 
@@ -1673,7 +1673,7 @@ void ASampleGameModeBase::OnAgreeDialogFailure(FNError NError)
 
 ```c++
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showTerms(); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showTerms();
 ```
 
 ### 개인정보 취급방침
@@ -1684,7 +1684,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 ```c++
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showPrivacy(); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showPrivacy();
 ```
 
 ### 환불규정
@@ -1695,7 +1695,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 ```c++
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showRefund(); 
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showRefund();
 ```
 
 ### 원격 구성
@@ -1710,7 +1710,7 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 {
     //"test_01" : 매개변수 FString
-    FString value = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getConfig("test_01"); 
+    FString value = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getConfig("test_01");
 
     //대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다.
     FString json_value = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getConfigs();
@@ -1737,54 +1737,54 @@ struct FNVoidInfo
     // 기본 테마
     UPROPERTY()
     FString theme;
-    
+
     // 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> headerBackGradient;
-    
+
     // 제목
     UPROPERTY()
     FString headerTitle;
-    
+
     // 제목 색상
     UPROPERTY()
     FString headerTitleColor;
-    
+
     UPROPERTY()
     TArray<FString> contentBackGradient;
-    
+
     UPROPERTY()
-    TArray<FString> listHeaderBackGradient;  
-    
+    TArray<FString> listHeaderBackGradient;
+
     UPROPERTY()
     FString listHeaderTitleColor;
-    
+
     UPROPERTY()
     TArray<FString> listContentBackGradient;
-    
+
     UPROPERTY()
     FString listContentTitleColor;
-   
+
    // 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> footerBackGradient;
-    
+
     // 버튼 배경 색상(gradient)
     UPROPERTY()
     TArray<FString> footerButtonGradient;
-    
+
     UPROPERTY()
     FString footerTitleColor;
-    
+
     UPROPERTY()
     FString descHTML;
-    
+
     UPROPERTY()
     FString descColor;
-    
+
     UPROPERTY()
     FString listHeaderTitle;
-    
+
     UPROPERTY()
     FString footerTitle;
 }
@@ -1805,7 +1805,7 @@ struct FNVoidInfo
         // MATERIAL_GRAY,
         // MATERIAL_GREEN,
         // MATERIAL_PEACH
-        
+
         NVoidInfo info;
         info.theme = "MATERIAL_RED";
         FGamePotSDKPluginModule::GetSharedGamePotSdk()->setVoidBuilder(info.ToJsonString());
@@ -1818,8 +1818,8 @@ struct FNVoidInfo
 
 아래는 사용할 수 있는 예약어 정의 표 입니다.
 
-| 예약어                            | 필수 | 타입   | 설명         |
-| :-------------------------------- | :--- | :----- | :----------- |
+| 예약어                       | 필수 | 타입    | 설명         |
+| :--------------------------- | :--- | :------ | :----------- |
 | FNSendLogCharacter.NAME      | 필수 | FString | 케릭터명     |
 | FNSendLogCharacter.LEVEL     | 선택 | FString | 레벨         |
 | FNSendLogCharacter.SERVER_ID | 선택 | FString | 서버아이디   |
@@ -1890,8 +1890,8 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 > 자동 로그인을 지원하지 않음. 매번 호출 필요.
 
-| 파라미터명 | 필수 | 타입   | 설명               |
-| :--------- | :--- | :----- | :----------------- |
+| 파라미터명 | 필수 | 타입    | 설명               |
+| :--------- | :--- | :------ | :----------------- |
 | userid     | 필수 | FString | 유저 unique 아이디 |
 
 ```c++
@@ -1905,13 +1905,13 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
-| 파라미터명    | 필수 | 타입   | 설명                                       |
-| :------------ | :--- | :----- | :----------------------------------------- |
+| 파라미터명    | 필수 | 타입    | 설명                                       |
+| :------------ | :--- | :------ | :----------------------------------------- |
 | productid     | 필수 | FString | 게임팟 대시보드에 등록된 아이템 아이디     |
 | transactionid | 필수 | FString | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)        |
 | store         | 필수 | FString | (결제 스토어 - google, apple, one, galaxy) |
 | currency      | 선택 | FString | 통화(KRW, USD)                             |
-| price         | 선택 | double | 결제 아이템 금액                           |
+| price         | 선택 | double  | 결제 아이템 금액                           |
 | paymentid     | 선택 | FString | 결제 payment (일반적으로 store_id와 동일)  |
 | uniqueid      | 선택 | FString | 개발사에서 사용하는 고유 아이디            |
 

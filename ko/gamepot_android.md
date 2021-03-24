@@ -3,10 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
-#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="http://docs.ncloud.com/ko/" target="_blank">[설명서]</a>와 <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
 
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Gamepot 설명서 바로가기 >></a>
+<a href="https://api.ncloud-docs.com/docs/game-gamepot-index" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
 
 # Android SDK
 
@@ -70,87 +70,87 @@ build.gradle 파일은 프로젝트 root 폴더와 app 폴더에 각각 존재�
 
    > \[xxxxx\]에는 실제 적용될 값을 넣습니다.
 
-| 값                 | 설명                                                  |
-| :----------------- | :---------------------------------------------------- |
-| gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot_store      | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)        |
-| gamepot_payment | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\) |
-| gamepot_app_title | 앱 제목 \(FCM\) |
-| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
-| facebook_app_id | 페이스북 발급 받은 앱ID |
-| fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
-| gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+| 값                           | 설명                                                                                           |
+| :--------------------------- | :--------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
+| gamepot_store                | 스토어값 \(`google` 또는 `one` 또는 `galaxy`\)                                                 |
+| gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
+| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
+| facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
+| fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
+| gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
-   ```java
-   android {
-       defaultConfig {
-           ...
-           // GamePot [START]
-           resValue "string", "gamepot_project_id", "[projectId]" // required
-           resValue "string", "gamepot_store", "[storeId]" // required
-           resValue "string", "gamepot_payment", "[storeId]" // optional
-           resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
-           resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-           resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
-           resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
-           // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
-           // GamePot [END]
-       }
+```java
+android {
+    defaultConfig {
+        ...
+        // GamePot [START]
+        resValue "string", "gamepot_project_id", "[projectId]" // required
+        resValue "string", "gamepot_store", "[storeId]" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
+        resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
+        resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
+        resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
+        resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
+        // GamePot [END]
+    }
 
-       packagingOptions {
-           exclude 'META-INF/proguard/androidx-annotations.pro'
-       }
-   }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
 
-   repositories {
-       flatDir {
-           dirs 'libs'
-       }
-   }
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
-   dependencies {
-       compile 'com.android.support:multidex:1.0.1'
+dependencies {
+    compile 'com.android.support:multidex:1.0.1'
 
-       // GamePot common [START]
-       compile(name: 'gamepot-common', ext: 'aar')
-       compile('io.socket:socket.io-client:1.0.0') {
-           exclude group: 'org.json', module: 'json'
-       }
-       compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
-           exclude group: 'org.json', module: 'json'
-       }
-       compile "com.github.nisrulz:easydeviceinfo:2.4.1"
-       compile 'com.android.installreferrer:installreferrer:1.0'
-       compile 'com.google.code.gson:gson:2.8.2'
-       compile 'com.jakewharton.timber:timber:4.7.0'
-       compile 'com.squareup.okhttp3:okhttp:3.10.0'
-       compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-       compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-       compile 'com.android.billingclient:billing:1.1'
-       compile 'com.github.bumptech.glide:glide:3.7.0'
-       compile 'com.romandanylyk:pageindicatorview:1.0.0'
-       compile 'com.google.firebase:firebase-core:16.0.6'
-       compile 'com.google.firebase:firebase-messaging:17.3.4'
-       compile 'androidx.sqlite:sqlite-framework:2.0.1'
-       compile 'com.cookpad.puree:puree:4.1.6'
-       // GamePot common [END]
+    // GamePot common [START]
+    compile(name: 'gamepot-common', ext: 'aar')
+    compile('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile "com.github.nisrulz:easydeviceinfo:2.4.1"
+    compile 'com.android.installreferrer:installreferrer:1.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.jakewharton.timber:timber:4.7.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+    compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+    compile 'com.android.billingclient:billing:1.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.0'
+    compile 'com.google.firebase:firebase-core:16.0.6'
+    compile 'com.google.firebase:firebase-messaging:17.3.4'
+    compile 'androidx.sqlite:sqlite-framework:2.0.1'
+    compile 'com.cookpad.puree:puree:4.1.6'
+    // GamePot common [END]
 
-       compile(name: 'gamepot-channel-base', ext: 'aar')
-       // GamePot facebook [START]
-       compile(name: 'gamepot-channel-facebook', ext: 'aar')
-       compile 'com.facebook.android:facebook-android-sdk:5.2.0'
-       // GamePot facebook [END]
+    compile(name: 'gamepot-channel-base', ext: 'aar')
+    // GamePot facebook [START]
+    compile(name: 'gamepot-channel-facebook', ext: 'aar')
+    compile 'com.facebook.android:facebook-android-sdk:5.2.0'
+    // GamePot facebook [END]
 
-       // GamePot google sigin [START]
-       compile(name: 'gamepot-channel-google-signin', ext: 'aar')
-       compile "com.google.android.gms:play-services-base:16.0.1"
-       compile "com.google.android.gms:play-services-auth:16.0.1"
-       // GamePot google sigin [END]
-   }
+    // GamePot google sigin [START]
+    compile(name: 'gamepot-channel-google-signin', ext: 'aar')
+    compile "com.google.android.gms:play-services-base:16.0.1"
+    compile "com.google.android.gms:play-services-auth:16.0.1"
+    // GamePot google sigin [END]
+}
 
-   // ADD THIS AT THE BOTTOM
-   apply plugin: 'com.google.gms.google-services'
-   ```
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'
+```
 
 3. 구글에서 발급받은 google-service.json 파일을 /app/ 폴더 하위에 복사합니다.
 4. Gradle Sync Now
@@ -361,7 +361,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: 네이버
 // GamePotChannelType.LINE: 라인
 // GamePotChannelType.TWITTER: 트위터
-// GamePotChannelType.APPLE: 애플 
+// GamePotChannelType.APPLE: 애플
 // GamePotChannelType.GUEST: 게스트
 
 // 구글 로그인 버튼을 눌렀을 때 호출
@@ -631,7 +631,7 @@ GamePot.getInstance().purchase("product id");
 ```
 
 ```java
-CASE 2 : 결제시 진행되는 영수증 번호를 별도로 관리하고자 할 때 :  
+CASE 2 : 결제시 진행되는 영수증 번호를 별도로 관리하고자 할 때 :
 
 import io.gamepot.common.GamePot;
 
@@ -652,7 +652,6 @@ import io.gamepot.common.GamePot;
 // etc       : 결제를 진행한 캐릭터 기타 정보를 넣으시면 됩니다.
 GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","etc");
 ```
-
 
 ### 결제 아이템 리스트 획득
 
@@ -745,6 +744,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 > [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 사용하여 아이콘을 제작하면 자동으로 폴더별로 제작되므로 각 폴더에 넣기만 하면 됩니다.
 
 1. res/drawable 관련 폴더를 아래와 같이 생성
+
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
@@ -752,6 +752,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
    - res/drawable-xxxhdpi/
 
 2. 아래 사이즈별로 이미지 제작
+
    - 78x55
    - 116x82
    - 155x110
@@ -760,13 +761,13 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 
 3. 아래와 같이 각 폴더별로 사이즈에 맞는 이미지를 추가
 
-| 폴더명                | 사이즈 |
-| :-------------------- | :----- |
-| res/drawable-mdpi/    | 78x55  |
+| 폴더명                | 사이즈  |
+| :-------------------- | :------ |
+| res/drawable-mdpi/    | 78x55   |
 | res/drawable-hdpi/    | 116x82  |
-| res/drawable-xhdpi/   | 155x110  |
-| res/drawable-xxhdpi/  | 232x165  |
-| res/drawable-xxxhdpi/ | 310x220  |
+| res/drawable-xhdpi/   | 155x110 |
+| res/drawable-xxhdpi/  | 232x165 |
+| res/drawable-xxxhdpi/ | 310x220 |
 
 - 이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경
 
@@ -1198,8 +1199,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
-
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
 #### 약관 동의 호출
 

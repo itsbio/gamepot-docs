@@ -4,6 +4,11 @@ search:
     - gamepot
 ---
 
+#### **为提供 NAVER CLOUD PLATFORM 产品的详细使用方法和 API 的多种使用方式，分别提供<a href="https://guide.ncloud-docs.com/docs/zh/home" target="_blank">[说明书]</a>和<a href="https://api.ncloud-docs.com/docs/zh/home" target="_blank">[API 参考指南]</a>以供参考。**
+
+<a href="https://api.ncloud-docs.com/docs/zh/game-gamepot-index" target="_blank">进入 Gamepot API 参考指南 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/zh/game-gamepotconsole" target="_blank">进入 Gamepot 说明书 >></a>
+
 # iOS SDK
 
 > ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
@@ -598,9 +603,9 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 
 ## 6.其他 API
 
-### SDK支持登录UI
+### SDK 支持登录 UI
 
-SDK中自行提供（完成形式的）Login UI。
+SDK 中自行提供（完成形式的）Login UI。
 
 ```c++
 #import <GamePot/GamePot.h>
@@ -626,13 +631,13 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 ];
 ```
 
-#### 设置登录UI镜像标志
+#### 设置登录 UI 镜像标志
 
-登录UI上方显示的镜像标志在SDK内部中以默认镜像显示，也可以直接添加。
+登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
 
 **亲自添加镜像标志**
 
-> 镜像标志在GamePot.bundle中，以ic_stat_gamepot_logo.png文件格式存在。
+> 镜像标志在 GamePot.bundle 中，以 ic_stat_gamepot_logo.png 文件格式存在。
 
 将镜像文件名变更为`ic_stat_gamepot_login_logo.png`后更换。
 
@@ -818,7 +823,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 提供了 UI，以便用户可以轻松接受“使用条款”和“个人信息收集和使用指南”。
 
-除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
 
 #### 条款及细则电话
 
@@ -830,7 +835,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 // 蓝色主题[[GamePotAgreeOption alloc] init:BLUE];
 // 绿色主题[[GamePotAgreeOption alloc] init:GREEN];
 
-// 改善主题  
+// 改善主题
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -989,9 +994,10 @@ BOOL result = [GamePotSendLog characterInfo:info];
 // Result is FALSE : validation was failed. Please check logcat
 
 ```
-### GDPR条款选项列表
 
-将在仪表盘中激活的GDPR条款项目以列表形式导出。
+### GDPR 条款选项列表
+
+将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
 
 ```c++
 (NSArray*) [[GamePot getInstance] getGDPRCheckedList];

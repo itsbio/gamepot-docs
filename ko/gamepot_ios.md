@@ -4,10 +4,10 @@ search:
     - gamepot
 ---
 
-#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="http://docs.ncloud.com/ko/" target="_blank">[설명서]</a>와 <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
 
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Gamepot 설명서 바로가기 >></a>
+<a href="https://api.ncloud-docs.com/docs/game-gamepot-index" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
 
 # iOS SDK
 
@@ -819,7 +819,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다. 
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
 #### 약관 동의 호출
 
@@ -831,7 +831,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 // 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
 // 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
 
-// 개선테마  
+// 개선테마
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];

@@ -4,6 +4,11 @@ search:
     - gamepot
 ---
 
+#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="https://guide.ncloud-docs.com/docs/ja/home" target="_blank">[説明書]</a>と<a href="https://api.ncloud-docs.com/docs/ja/home" target="_blank">[API リファレンス]</a>を分けて提供しています。**
+
+<a href="https://api.ncloud-docs.com/docs/ja/game-gamepot-index" target="_blank">GAMEPOT API リファレンスへ >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/ja/game-gamepotconsole" target="_blank">GAMEPOT 説明書へ >></a>
+
 # Javascript SDK
 
 > ###これは機械翻訳されたドキュメントで、語彙、構文、または文法に誤りがある可能性があります。 プロの翻訳者が翻訳したドキュメントをすぐに提供します。
@@ -46,14 +51,14 @@ search:
     <script>
       window.onload = function () {
         // プロジェクトIDは、ゲームポットのダッシュボードで確認することができます。
-        var project_id = "f2c4f50b-2546-280e-913b-a7cea5548384";
+        var project_id = 'f2c4f50b-2546-280e-913b-a7cea5548384';
 
         var gamepotConfig = {
           // Googleのログインを使用する場合、以下のようにGoogleのAPIクライアントIDを入力
           google_signin_client_id:
-            "403241810604-fv81........apps.googleusercontent.com",
+            '403241810604-fv81........apps.googleusercontent.com',
           // フェイスブックログインを使用する場合、以下のようにFacebookアプリIDを入力
-          facebook_app_id: "149535310821467",
+          facebook_app_id: '149535310821467',
         };
         // ゲームポットの初期化
         GP.setup(project_id, gamepotConfig);
@@ -99,17 +104,17 @@ search:
 GP.login(GP.ChannelType.FACEBOOK, {
   onSuccess: function (userInfo) {
     console.log(
-      "ログインに成功. memberid: " +
+      'ログインに成功. memberid: ' +
         userInfo.memberid +
-        ", userid: " +
+        ', userid: ' +
         userInfo.userid
     );
   },
   onCancel: function () {
-    console.log("ログインキャンセル");
+    console.log('ログインキャンセル');
   },
   onFailure: function (gamepotError) {
-    console.log("ログインに失敗し: " + gamepotError.toString());
+    console.log('ログインに失敗し: ' + gamepotError.toString());
   },
 });
 ```
@@ -118,53 +123,53 @@ GP.login(GP.ChannelType.FACEBOOK, {
 
 ```javascript
 // <input>タグなどでユーザーからの入力
-var email_id = $("#input-email-id").val();
-var email_password = $("#input-email-password").val();
+var email_id = $('#input-email-id').val();
+var email_password = $('#input-email-password').val();
 
-$("#email-result-status").html("");
+$('#email-result-status').html('');
 
 GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
   onSuccess: function (gamepotUserInfo) {
-    console.log("電子メールのログインに成功", gamepotUserInfo);
-    $("#email-result-status").html(
-      "ログインに成功. memberid: " +
+    console.log('電子メールのログインに成功', gamepotUserInfo);
+    $('#email-result-status').html(
+      'ログインに成功. memberid: ' +
         gameUserInfo.memberid +
-        ", userid: " +
+        ', userid: ' +
         gameUserInfo.userid
     );
   },
   onCancel: function () {
-    console.log("電子メールのログインキャンセル");
+    console.log('電子メールのログインキャンセル');
   },
   onFailure: function (gamepotError) {
-    console.log("電子メールのログインに失敗し: " + gamepotError.toString());
+    console.log('電子メールのログインに失敗し: ' + gamepotError.toString());
 
-    var msg = "";
+    var msg = '';
     switch (gamepotError.getCode()) {
       case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
-        msg = "電子メールの形式が正しくありません。";
+        msg = '電子メールの形式が正しくありません。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
-        msg = "パスワードを入力してください。";
+        msg = 'パスワードを入力してください。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
-        msg = "パスワードは8文字以上、最大32文字まで入力することができます。";
+        msg = 'パスワードは8文字以上、最大32文字まで入力することができます。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD:
-        msg = "パスワードが一致しません。";
+        msg = 'パスワードが一致しません。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
-        msg = "パスワードエラーの回数を超えてログインすることはできません。";
+        msg = 'パスワードエラーの回数を超えてログインすることはできません。';
         break;
       case GP.Error.EMAIL_AUTH_NOT_FOUND:
-        msg = "接続アカウントが存在しません。";
+        msg = '接続アカウントが存在しません。';
         break;
       default:
         msg = gamepotError.getMessage();
         break;
     }
 
-    $("#email-result-status").html(msg); // 結果の表示例。
+    $('#email-result-status').html(msg); // 結果の表示例。
   },
 });
 ```
@@ -173,49 +178,49 @@ GP.login(GP.ChannelType.EMAIL, email_id, email_password, {
 
 ```javascript
 // <input>タグなどでユーザーからの入力
-var new_email_id = $("#input-email-new-id").val();
-var new_email_password = $("#input-email-new-password").val();
+var new_email_id = $('#input-email-new-id').val();
+var new_email_password = $('#input-email-new-password').val();
 
-$("#email-result-status2").html("");
+$('#email-result-status2').html('');
 
 GP.Channel.emailRegister(new_email_id, new_email_password, {
   onSuccess: function (gamepotUserInfo) {
-    console.log("メール登録成功", gamepotUserInfo);
+    console.log('メール登録成功', gamepotUserInfo);
   },
   onCancel: function () {
-    console.log("メール購読解除");
+    console.log('メール購読解除');
   },
   onFailure: function (gamepotError) {
-    console.log("メール登録に失敗し: " + gamepotError.toString());
+    console.log('メール登録に失敗し: ' + gamepotError.toString());
 
-    var msg = "";
+    var msg = '';
     switch (gamepotError.getCode()) {
       case GP.Error.EMAIL_AUTH_WRONG_EMAIL_FORMAT:
-        msg = "電子メールの形式が正しくありません。";
+        msg = '電子メールの形式が正しくありません。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_EMPTY:
-        msg = "パスワードを入力してください。";
+        msg = 'パスワードを入力してください。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_LENGTH:
-        msg = "パスワードは8文字以上、最大32文字まで入力することができます。";
+        msg = 'パスワードは8文字以上、最大32文字まで入力することができます。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD:
-        msg = "パスワードが一致しません。";
+        msg = 'パスワードが一致しません。';
         break;
       case GP.Error.EMAIL_AUTH_WRONG_PASSWORD_BLOCKED:
-        msg = "パスワードエラーの回数を超えてログインすることはできません。";
+        msg = 'パスワードエラーの回数を超えてログインすることはできません。';
         break;
       case GP.Error.EMAIL_AUTH_NOT_FOUND:
-        msg = "接続アカウントが存在しません。";
+        msg = '接続アカウントが存在しません。';
         break;
       case GP.Error.EMAIL_AUTH_ALREADY_IN_USE:
-        msg = "既に使用されているアカウントです。";
+        msg = '既に使用されているアカウントです。';
         break;
       default:
         msg = gamepotError.getMessage();
         break;
     }
-    $("#email-result-status2").html(msg);
+    $('#email-result-status2').html(msg);
   },
 });
 ```
@@ -234,31 +239,31 @@ GP.getMemberId();
 // ユーザーが最後にログインした情報を伝達するためのAPI
 var lastLoginType = GP.getLastLoginType();
 if (lastLoginType !== GP.ChannelType.NONE) {
-  console.log("自動ログイン. lastLoginType: " + lastLoginType);
+  console.log('自動ログイン. lastLoginType: ' + lastLoginType);
   GP.login(lastLoginType, {
     onSuccess: function (gameUserInfo) {
       console.log(
-        "自動ログイン - 完了. memberid: " +
+        '自動ログイン - 完了. memberid: ' +
           gameUserInfo.memberid +
-          ", userid: " +
+          ', userid: ' +
           gameUserInfo.userid
       );
     },
 
     onCancel: function () {
-      console.log("自動ログイン - キャンセル");
+      console.log('自動ログイン - キャンセル');
     },
 
     onFailure: function (gamepotError) {
-      console.log("自動ログイン - 失敗: " + gamepotError.toString());
+      console.log('自動ログイン - 失敗: ' + gamepotError.toString());
     },
 
     onNeedUpdate: function (status) {
-      console.log("自動ログイン - 更新が必要: " + status);
+      console.log('自動ログイン - 更新が必要: ' + status);
     },
 
     onMainternance: function (status) {
-      console.log("自動ログイン - 点検中: " + status);
+      console.log('自動ログイン - 点検中: ' + status);
     },
   });
 } else {
@@ -273,11 +278,11 @@ if (lastLoginType !== GP.ChannelType.NONE) {
 ```javascript
 GP.logout({
   onSuccess() {
-    console.log("ログアウト完了。");
+    console.log('ログアウト完了。');
   },
   onFailure(gamepotError) {
     console.log(
-      "ログアウトに失敗。ログインされた状態ではないか、すでにセッションが終了した場合: " +
+      'ログアウトに失敗。ログインされた状態ではないか、すでにセッションが終了した場合: ' +
         gamepotError.toString()
     );
   },
@@ -289,7 +294,7 @@ GP.logout({
 現在ログインして電子メールアカウントのパスワードを変更します。
 
 ```javascript
-GP.changeEmailPassword("my_old_password", "my_new_password", {
+GP.changeEmailPassword('my_old_password', 'my_new_password', {
   onSuccess: function () {
     // パスワード変更完了。連動結果のフレーズを露出させてください。（例えば、アカウントの連動を解除しました。)
   },
@@ -306,7 +311,7 @@ GP.changeEmailPassword("my_old_password", "my_new_password", {
 ```javascript
 GP.deleteMember({
   onSuccess: function () {
-    console.log("会員脱退成功。初期画面に移動してください。");
+    console.log('会員脱退成功。初期画面に移動してください。');
   },
   onFailure: function (error) {
     // 会員脱退失敗。error.getMessage（）を利用して、エラーメッセージを表示してください。
@@ -359,7 +364,7 @@ GP.createLinking(GP.ChannelType.GOOGLE, {
 ソーシャルアカウントに連動されたアカウントにメールアドレスユーザー名として追加連動することができます。
 
 ```javascript
-GP.createEmailLinking("some@example.com", "some_my_password", {
+GP.createEmailLinking('some@example.com', 'some_my_password', {
   onSuccess: function (userInfo) {
     // 連動完了。連動結果のフレーズを露出させてください。（例：アカウントの連動に成功しました。)
   },
