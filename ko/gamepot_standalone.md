@@ -5,15 +5,6 @@ search:
 
 # GamePot Unity SDK (Standalone)
 
-**_Standalone(Windows) 플랫폼을 위한 GamePot Unity SDK는 콘솔 상에서 웹뷰를 사용하기 위해, 
-3rd party Unity Asset인 'VUPLEX(for Mac & Windows)' 를 사용하고 있습니다._**
-
-**_웹뷰 기능을 이용하려면, 해당 Asset을 Asset Store에서  import 한 다음 GamePot SDK에  연동 후 사용해주세요._**
-
-[[ VUPLEX Site Link ]](https://developer.vuplex.com/webview/overview)
-
-[[ VUPLEX AssetStore Link ]](https://assetstore.unity.com/packages/tools/gui/3d-webview-for-windows-and-macos-154144)
-
 ## 0. Project Setting
 
 (빌드 시 필요한) 게임팟 프로젝트와 관련된 각종 셋팅값을 입력합니다.
@@ -210,17 +201,7 @@ GamePotChat.stop();    //disconnect
 
 ## 4. 기타 API
 
-### 4-1. 공지사항(웹뷰 이미지)
-
-[GamePot SDK 초기화(initPlugin) 이후 시점] 대시보드에서 설정한 공지사항 이미지를 웹뷰 형태의 팝업으로 노출할 수 있습니다.
-
-```csharp
-GamePot.showNoticeWebView();
-```
-
-- ref. (Unity Editor 상에서) 노출되는 팝업 이미지의 레이아웃은 Sample Prefab으로 되어 있으며, 이를 수정해 레이아웃을 조정할 수 있습니다. (/Assets/Resources/GamePotWebViewManager)
-
-### 4-2.  고객지원 / FAQ (웹뷰)
+### 4-1.  고객지원 / FAQ (웹뷰)
 
 - ref. 현재 유니티 엔진 상에서, **웹뷰에 대한 Event 수신 / 한글 유니코드 입력이 불가한 이슈** 가 있습니다. 이에 따라, 아직 (공식적으로) 고객지원 메뉴에 대한 Native API는 제공되지 않는 상태입니다.
 
@@ -247,7 +228,7 @@ https://gsrpkjibrmls4086645.gcdn.ntruss.com/demo/cs/question?projectid=ab2775b4-
 | language    | 언어 |   ko   |
 |
 
-### 4-3. 쿠폰
+### 4-2. 쿠폰
 
 > 쿠폰 번호를 입력받는 UI는 개발사에서 구현해주세요.
 
@@ -306,7 +287,7 @@ GamePot.coupon(couponNumber, (success, error) => {
 이를 위해선 Server to server api 메뉴에 `Item Webhook` 항목을 참고하여 처리하셔야 합니다.
 
 
-### 4-4. 게임 로그 전송
+### 4-3. 게임 로그 전송
 
 게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
 
