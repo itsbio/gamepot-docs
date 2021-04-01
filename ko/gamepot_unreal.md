@@ -17,7 +17,7 @@ minSdkVersion : API 17 (Jelly Bean, 4.2)
 
 /Plugin/GamePotSDKPlugin/Source/GamePot/GamePot_Android_UPL.xml 파일을 에디터로 엽니다.
 
-```java
+```xml
 
 <buildGradleAdditions>
     <insert>
@@ -26,14 +26,14 @@ android {
     ...
     defaultConfig {
         ...
-         resValue "string", "gamepot_project_id", ""                                            // required
-         resValue "string", "gamepot_api_url", ""                                                // required (공백값으로 유지해주세요.)
-         resValue "string", "gamepot_dash_url", ""                                               // required (공백값유지해주세요.)
-         resValue "string", "gamepot_store", "google"                                            // required
-         resValue "string", "gamepot_app_title","@string/app_name"                               // required (fcm)
-         resValue "string", "gamepot_push_default_channel","Default"                             // required (fcm)
-         resValue "string", "facebook_app_id", ""                                             // option(facebook)
-         resValue "string", "fb_login_protocol_scheme", ""                                 // option(facebook)
+         resValue "string", "gamepot_project_id", ""                                      // required
+         resValue "string", "gamepot_api_url", ""                                            // required (공백값으로 유지해주세요.)
+         resValue "string", "gamepot_dash_url", ""                                         // required (공백값유지해주세요.)
+         resValue "string", "gamepot_store", "google"                                   // required
+         resValue "string", "gamepot_app_title","@string/app_name"           // required (fcm)
+         resValue "string", "gamepot_push_default_channel","Default"        // required (fcm)
+         resValue "string", "facebook_app_id", ""                                           // option(facebook)
+         resValue "string", "fb_login_protocol_scheme", ""                           // option(facebook)
         // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
     }
     ...
@@ -44,7 +44,7 @@ android {
 
 아래의 필수 값을 찾아 수정합니다. 아래 값들을 수정해야만 정상적으로 작동됩니다.
 
-```java
+```xml
 resValue "string", "[key]", "[value]"
 ```
 
@@ -336,14 +336,39 @@ struct FNError
 
 #### Google Firebase Console
 
-1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/`에 복사합니다.
-2. APK 빌드 시 사용한 Keystore의 SHA-1 값을 Google Firebase console에 추가합니다.
+  1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/`에 복사합니다.
+ 2. APK 빌드 시 사용한 Keystore의 SHA-1 값을 Google Firebase console에 추가합니다.
 
 **구글 로그인 시 onCancel이 응답하며 로그인이 되지 않는 경우** 아래 내용을 체크해주세요.
 
 1. 위에 적용요청한 google-service.json파일을 정상적으로 적용했는지 확인
 2. 빌드 시 사용한 키스토어가 Firebase console에 등록한 sha-1를 추출한 키스토어인지 확인
 3. Firebase console에 등록한 패키지명으로 빌드를 했는지 확인
+
+#### Android
+
+GamePot_Android_UPL.xml  수정
+
+```xml
+...
+<resourceCopies>
+    <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-google-signin.aar" dst="$S(BuildDir)/libs/gamepot-channel-google-signin.aar" />
+</resourceCopies>
+...
+
+<buildGradleAdditions>
+    <insert>
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-google-signin', ext: 'aar')
+            ...
+        }
+        ...
+    </insert>
+</buildGradleAdditions>
+...
+```
 
 ### 페이스북 로그인
 
@@ -355,13 +380,43 @@ APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 �
 
 GamePot_Android_UPL.xml  수정
 
-```java
+```xml
 ...
-defaultConfig {
-    resValue "string", "facebook_app_id", "1234567890"
-    resValue "string", "fb_login_protocol_scheme", "fb1234567890"
-}
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-facebook.aar" dst="$S(BuildDir)/libs/gamepot-channel-facebook.aar" />
+</resourceCopies>
 ...
+
+...
+<buildGradleAdditions>
+    <insert>
+
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-facebook', ext: 'aar')
+            ...
+        }
+
+        ...
+
+        defaultConfig {
+            resValue "string", "facebook_app_id", "1234567890"
+            resValue "string", "fb_login_protocol_scheme", "fb1234567890"
+        }
+        ...
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.facebook.GamePotFacebook;
+  </insert>
+</gameActivityImportAdditions>
+
 ```
 
 #### iOS
@@ -380,7 +435,6 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 <string>xxxxxx</string>
 ...
 ```
-
 
 ### APPLE 로그인
 
@@ -1018,19 +1072,45 @@ void ASampleGameModeBase::OnAppClose()
 >
 > 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
 
+GamePot_Android_UPL.xml 수정
+
+```xml
+...
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-apple-signin.aar" dst="$S(BuildDir)/libs/gamepot-channel-apple-signin.aar" />
+</resourceCopies>
+
+...
+
+<buildGradleAdditions>
+    <insert>
+
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-apple-signin', ext: 'aar')
+            ...
+        }
+
+        ...
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.naver.GamePotAppleSignin;
+  </insert>
+</gameActivityImportAdditions>
+
+...
+```
+
 /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-apple-signin.aar
-
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
-
-```java
-...
-dependencies {
-    implementation(name: 'gamepot-channel-apple-signin', ext: 'aar')
-}
-...
-```
 
 ### 네이버 로그인
 
@@ -1042,12 +1122,43 @@ dependencies {
 
 GamePot_Android_UPL.xml 수정
 
-```java
+```xml
 ...
-defaultConfig {
-    resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
-    resValue "string", "gamepot_naver_secretid", "hijklmn"
-}
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-naver.aar" dst="$S(BuildDir)/libs/gamepot-channel-naver.aar" />
+</resourceCopies>
+
+...
+
+<buildGradleAdditions>
+    <insert>
+
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-naver', ext: 'aar')
+            ...
+        }
+
+        ...
+
+        defaultConfig {
+            resValue "string", "gamepot_naver_clientid", "abcdefg1234567890"
+            resValue "string", "gamepot_naver_secretid", "hijklmn"
+        }
+        ...
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.naver.GamePotNaver;
+  </insert>
+</gameActivityImportAdditions>
+
 ...
 ```
 
@@ -1056,16 +1167,6 @@ Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력�
 /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-naver.aar
-
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
-
-```java
-...
-dependencies {
-    implementation(name: 'gamepot-channel-naver', ext: 'aar')
-}
-...
-```
 
 #### iOS
 
@@ -1098,15 +1199,46 @@ APK 빌드 시 사용한 패키지 이름과 keystore의 SHA값, url Scheme 값�
 
 #### Android
 
-GamePot_Android_UPL.xml  수정
+GamePot_Android_UPL.xml 수정
 
-발급받은 Client ID를 `gamepot_line_channelid` 값에 입력합니다.
-
-```java
+```xml
 ...
-defaultConfig {
-    resValue "string", "gamepot_line_channelid","xxxxxxx"
-}
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-line.aar" dst="$S(BuildDir)/libs/gamepot-channel-line.aar" />
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/line-sdk-4.0.10.aar" dst="$S(BuildDir)/libs/line-sdk-4.0.10.aar" />
+</resourceCopies>
+
+...
+
+<buildGradleAdditions>
+    <insert>
+
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-line', ext: 'aar')
+            implementation(name: 'line-sdk-4.0.10', ext: 'aar')
+            ...
+        }
+
+        ...
+
+        defaultConfig {
+            resValue "string", "gamepot_line_channelid","xxxxxxx"
+        }
+        ...
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.line.GamePotLine;
+  </insert>
+</gameActivityImportAdditions>
+
 ...
 ```
 
@@ -1114,17 +1246,6 @@ defaultConfig {
 
 - gamepot-channel-line.aar
 - line-sdk-4.0.10.aar
-
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
-
-```java
-...
-dependencies {
-    implementation(name: 'gamepot-channel-line', ext: 'aar')
-    implementation(name: 'line-sdk-4.0.10', ext: 'aar')
-}
-...
-```
 
 #### iOS
 
@@ -1152,14 +1273,48 @@ GamePotConfig-Info.plist 파일을 SourceCode로 볼 때는 아래와 같이 추
 
 #### Android
 
-GamePot_Android_UPL.xml  수정
+GamePot_Android_UPL.xml 수정
 
-```java
+```xml
 ...
-defaultConfig {
-        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Twitter 개발자 콘솔에서 획득
-        resValue "string", "gamepot_twitter_consumersecret","xxx" // Twitter 개발자 콘솔에서 획득
-}
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-twitter.aar" dst="$S(BuildDir)/libs/gamepot-channel-twitter.aar" />
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/twitter-core-3.3.0.aar" dst="$S(BuildDir)/libs/twitter-core-3.3.0.aar" />
+</resourceCopies>
+
+...
+
+<buildGradleAdditions>
+    <insert>
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-twitter', ext: 'aar')
+            implementation(name: 'twitter-core-3.3.0', ext: 'aar') {
+                transitive = true
+            }
+            ...
+        }
+
+        ...
+
+        defaultConfig {
+            resValue "string", "gamepot_twitter_consumerkey", ""
+            resValue "string", "gamepot_twitter_consumersecret", ""
+        }
+        ...
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.twitter.GamePotTwitter;
+  </insert>
+</gameActivityImportAdditions>
+
 ...
 ```
 
@@ -1167,20 +1322,6 @@ defaultConfig {
 
 - gamepot-channel-twitter.aar
 - twitter-core-3.3.0.aar
-
-GamePot_Android_UPL.xml 의  <buildGradleAdditions> </buildGradleAdditions> 태그 안에 다음 구문을 추가합니다.
-
-```java
-...
-dependencies {
-    implementation(name: 'gamepot-channel-twitter', ext: 'aar')
-
-    implementation(name: 'twitter-core-3.3.0', ext: 'aar') {
-      transitive = true
-  }
-}
-...
-```
 
 #### iOS
 
