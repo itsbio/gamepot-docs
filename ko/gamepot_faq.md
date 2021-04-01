@@ -850,7 +850,7 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 [Android]
 - AndroidX 모듈 탑재된 라이브러리로 교체
-- 구글 인앱 SDK 1.1 에서 3.0.2 버전으로 교체 
+- 구글 인앱 SDK 1.1 에서 3.0.3 버전으로 교체 
 - 갤럭시 앱스 인앱 SDK 업데이트
 
 3.1.0 버전 이전 사용자는 AndroidX 라이브러리 교체로 인한 마이그레이션 작업이 필요합니다.
@@ -923,7 +923,7 @@ AndroidX 모듈 지원됨에 따른 변경점
 ```text
 기존:    implementation 'com.android.billingclient:billing:1.1
 
-변경:    implementation 'com.android.billingclient:billing:3.0.2'
+변경:    implementation 'com.android.billingclient:billing:3.0.3'
 ```
 
 2-2) Facebook SDK 8.1.0 
