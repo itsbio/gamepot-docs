@@ -77,7 +77,6 @@ resValue "string", "[key]", "[value]"
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
 | /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
-
 ### iOS
 
 구글 파이어베이스에서 다운로드한 `GoogleService-Info.plist` 파일을 `/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/`에 복사합니다.
@@ -124,6 +123,41 @@ IDFA 값 획득이 가능하도록 변경되었습니다.
 ```text
 <key>NSUserTrackingUsageDescription</key>
 <string>$(PRODUCT_NAME) This identifier will collect IDFA for advertising purposes.</string>
+```
+
+IDFA 권한 요청 팝업 호출 (명시적)
+
+Request :
+
+```c++
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->requestTrackingAuthorization();
+```
+
+Response:
+
+```c++
+void ASampleGameModeBase::OnSdkResultTrackingAuthorization(FNResultTrackingAuthorization info) {
+    // info.authorization (FString)
+    //        ATTrackingManagerAuthorizationStatusNotDetermined,
+    //        ATTrackingManagerAuthorizationStatusRestricted,
+    //        ATTrackingManagerAuthorizationStatusDenied,
+    //        ATTrackingManagerAuthorizationStatusAuthorized,
+    //        ATTrackingManagerAuthorizationStatusUnknown
+}
+
+```
+
+> `iOS 플랫폼의 경우,` 로그인 API 호출 시, IDFA 값 획득에 대한 권한을 요청하는 팝업을 먼저 명시적으로 요청하고 있습니다.
+
+> 해당 팝업 요청을 로그인 시점에 호출하고 싶지 않으실 경우, `FIOSGamePotSdk::Login(ENLoginType::Type)` 함수를 수정해주세요. (/Plugin/GamePotSDKPlugin/Source/GamePot/Private/iOS/IOSGamePotSdk.cpp)
+
+```c++
+void FIOSGamePotSdk::Login(ENLoginType::Type _loginType)
+{
+    //로그인 전, 명시적으로 IDFA 팝업 노출 <-- 필요 시, 주석처리
+    FIOSGamePotSdk::requestTrackingAuthorization();
+    ...
 ```
 
 ## 1. 초기화
@@ -1170,6 +1204,34 @@ Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력�
 
 #### iOS
 
+GamePotSDKPlugin.Build.cs 수정
+
+```csharp
+...
+
+public GamePotSDKPlugin(ReadOnlyTargetRules Target) : base(Target)
+{
+    ...
+           else if (Target.Platform == UnrealTargetPlatform.IOS)
+        {
+                PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "GamePotNaver",
+                    ModuleDirectory+"/ThirdParty/iOS/GamePotNaver.framework"
+                )
+            );
+
+                PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "NaverThirdPartyLogin",
+                    ModuleDirectory+"/ThirdParty/iOS/NaverThirdPartyLogin.framework"
+                )
+        }
+    ...
+}
+...
+```
+
 GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
 
 ```text
@@ -1204,8 +1266,8 @@ GamePot_Android_UPL.xml 수정
 ```xml
 ...
 <resourceCopies>
-        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-line.aar" dst="$S(BuildDir)/libs/gamepot-channel-line.aar" />
-        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/line-sdk-4.0.10.aar" dst="$S(BuildDir)/libs/line-sdk-4.0.10.aar" />
+    <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-line.aar" dst="$S(BuildDir)/libs/gamepot-channel-line.aar" />
+    <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/line-sdk-4.0.10.aar" dst="$S(BuildDir)/libs/line-sdk-4.0.10.aar" />
 </resourceCopies>
 
 ...
@@ -1248,6 +1310,42 @@ GamePot_Android_UPL.xml 수정
 - line-sdk-4.0.10.aar
 
 #### iOS
+
+GamePotSDKPlugin.Build.cs 수정
+
+```csharp
+...
+
+public GamePotSDKPlugin(ReadOnlyTargetRules Target) : base(Target)
+{
+    ...
+           else if (Target.Platform == UnrealTargetPlatform.IOS)
+        {
+                PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "GamePotLine",
+                    ModuleDirectory+"/ThirdParty/iOS/GamePotLine.framework"
+                )
+            );
+
+            PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "LineSDK",
+                    ModuleDirectory+"/ThirdParty/iOS/LineSDK.framework"
+                )
+            );
+
+            PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "LineSDKObjC",
+                    ModuleDirectory+"/ThirdParty/iOS/LineSDKObjC.framework"
+                )
+            );
+        }
+    ...
+}
+...
+```
 
 GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
 
@@ -1324,6 +1422,42 @@ GamePot_Android_UPL.xml 수정
 - twitter-core-3.3.0.aar
 
 #### iOS
+
+GamePotSDKPlugin.Build.cs 수정
+
+```csharp
+...
+
+public GamePotSDKPlugin(ReadOnlyTargetRules Target) : base(Target)
+{
+    ...
+           else if (Target.Platform == UnrealTargetPlatform.IOS)
+        {
+                PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "GamePotTwitter",
+                    ModuleDirectory+"/ThirdParty/iOS/GamePotTwitter.framework"
+                )
+            );
+
+            PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "TwitterCore",
+                    ModuleDirectory+"/ThirdParty/iOS/TwitterCore.framework"
+                )
+            );
+
+            PublicAdditionalFrameworks.Add(
+                new Framework(
+                    "TwitterKit",
+                    ModuleDirectory+"/ThirdParty/iOS/TwitterKit.framework"
+                )
+            );
+        }
+    ...
+}
+...
+```
 
 GamePotConfig-Info.plist 파일에 아래 항목을 추가하여 해당 값을 입력 합니다.
 
