@@ -1,12 +1,12 @@
 ---
 search:
-  keyword: ['gamepot']
+keyword: ['gamepot']
 ---
 
-#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="http://docs.ncloud.com/ko/" target="_blank">[説明書]</a>と<a href="https://apidocs.ncloud.com/ko/" target="_blank">[API リファレンス]</a>を分けて提供しています。**
+#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="https://guide.ncloud-docs.com/docs/ja/home" target="_blank">[説明書]</a>と<a href="https://api.ncloud-docs.com/docs/ja/home" target="_blank">[API リファレンス]</a>を分けて提供しています。**
 
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">GAMEPOT API リファレンスへ >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">GAMEPOT 説明書へ >></a>
+<a href="https://api.ncloud-docs.com/docs/ja/game-gamepot" target="_blank">GAMEPOT API リファレンスへ >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/ja/game-gamepotconsole" target="_blank">GAMEPOT 説明書へ >></a>
 
 # Unity SDK
 
@@ -288,7 +288,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE ログイン
 
-> iOSにのみ該当する機能です。 (Androidの場合、Web Loginの形でサポート- 8. その他のAPIを参考)
+> iOS にのみ該当する機能です。 (Android の場合、Web Login の形でサポート- 8. その他の API を参考)
 
 **Xcode > TARGETS > Signing & Capabilities > + Capability > Sign In with Apple を追加します。**
 
@@ -430,8 +430,10 @@ public class NUserInfo
     public string userid { get; set; }          // Social ID(google、facebook...)
 }
 ```
+
 NAppStatus の定義
-```csharp
+
+````csharp
 public class NAppStatus
 {
     public string type {get; set; } // AppStatusタイプに "maintenance"：点検、「needupdate "：更新
@@ -452,7 +454,7 @@ public class NAppStatus
 
 ```csharp
 GamePot.getMemberId(); // メンバーID(ユーザーの固有ID)
-```
+````
 
 ### 自動ログイン
 
@@ -792,6 +794,7 @@ foreach(NPurchaseItem item in items) {
 ```
 
 NPurchaseItem 정의
+
 ```csharp
 public class NPurchaseItem
 {
@@ -960,9 +963,10 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 ```
 
 ## 8. その他の API
-### SDKサポートログインUI
 
-SDK内で、独自に(完成した形の) Login UIを提供します。
+### SDK サポートログイン UI
+
+SDK 内で、独自に(完成した形の) Login UI を提供します。
 
 ```csharp
 public class NLoginUIInfo
@@ -972,7 +976,7 @@ public class NLoginUIInfo
 }
 ```
 
-#### SDKログインUIの呼び出し
+#### SDK ログイン UI の呼び出し
 
 - Case 1
 
@@ -995,7 +999,7 @@ Request:
 
 Response:
 
- **一般ログインAPIレスポンスロジックと同じです。 (ただし、onLoginCancel / onLoginFailureの場合、Nativeレベルでトーストメッセージで処理されます。)**
+**一般ログイン API レスポンスロジックと同じです。 (ただし、onLoginCancel / onLoginFailure の場合、Native レベルでトーストメッセージで処理されます。)**
 
 ```csharp
 // ログイン成功
@@ -1051,37 +1055,37 @@ Request:
 
 #### Customizing
 
-**ログインUI画像ロゴの変更方法**
+**ログイン UI 画像ロゴの変更方法**
 
-ログインUI上段に表示される画像ロゴは、SDKの内部で基本画像が表示され、直接追加することもできます。
+ログイン UI 上段に表示される画像ロゴは、SDK の内部で基本画像が表示され、直接追加することもできます。
 
 **[Android]**
 
 > 直接追加するには`drawable`フォルダ別に画像を追加する必要があります。\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)を利用して作成すると、自動的にフォルダ別に画像が作成されるため便利です。\)
 
-画像ファイル名はic_stat_gamepot_login_logo.pngにしてください。
+画像ファイル名は ic_stat_gamepot_login_logo.png にしてください。
 
-| フォルダ名                                                         | サイズ  |
-| :------------------------------------------------------------- | :---- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| フォルダ名                                                     | サイズ  |
+| :------------------------------------------------------------- | :------ |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55   |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82  |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
 
- **[iOS]**
+**[iOS]**
 
-> 画像ロゴはGamePot.bundle内に、ic_stat_gamepot_logo.pngファイルとして存在します。
+> 画像ロゴは GamePot.bundle 内に、ic_stat_gamepot_logo.png ファイルとして存在します。
 
 画像ファイル名を`ic_stat_gamepot_login_logo.png`に変更した後、交換します。
 
 (推奨サイズ：310x220)
 
-**Screen Orientationの設定方法**
+**Screen Orientation の設定方法**
 
 **[Android]**
 
-/Assets/Plugin/Android/AndroidManifest.xmlファイルをエディタで開きます。
+/Assets/Plugin/Android/AndroidManifest.xml ファイルをエディタで開きます。
 
 ```markup
 ...e
@@ -1094,20 +1098,19 @@ Request:
 ...
 ```
 
-Main ActivityにscreenOrientationを追加し、ゲームに応じて`sensorLandscape`または`sensorPortrait`を入力してください。
+Main Activity に screenOrientation を追加し、ゲームに応じて`sensorLandscape`または`sensorPortrait`を入力してください。
 
-
-### Appleログイン(for Android - Web Login)
+### Apple ログイン(for Android - Web Login)
 
 #### GAMEPOT Dashboard
 
-ダッシュボードのプロジェクトの設定 >> 一般 >> Apple ID Loginの設定
+ダッシュボードのプロジェクトの設定 >> 一般 >> Apple ID Login の設定
 
-> 機能を使用するには、Apple Developer Consoleの設定が必要です。
+> 機能を使用するには、Apple Developer Console の設定が必要です。
 >
 > ダッシュボードで当該項目の**ヘルプを見る**を参考にしてください。
 
-/Assets/Plugins/Android/libsパスに以下のaarファイルを追加します。 (Select platforms for plugin - Androidチェック確認)
+/Assets/Plugins/Android/libs パスに以下の aar ファイルを追加します。 (Select platforms for plugin - Android チェック確認)
 
 - gamepot-channel-apple-signin.aar
 
@@ -1583,11 +1586,12 @@ GamePot.cancelLocalPush(/*プッシュ登録の際に取得したpushId*/);
 
 ｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
 
-`BLUE`テーマと`GREEN`テーマの2種類の`基本テーマ`の他にも、新たに追加された11種類の`改善テーマ`を提供します。
+`BLUE`テーマと`GREEN`テーマの 2 種類の`基本テーマ`の他にも、新たに追加された 11 種類の`改善テーマ`を提供します。
 
-各領域別にCustomizingも可能です。
+各領域別に Customizing も可能です。
 
 #### 規約同意を呼び出す
+
 ```csharp
 // 基本テーマ
 BLUE
@@ -1624,7 +1628,6 @@ NAgreeInfo info = new NAgreeInfo();
 info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info);
 ```
-
 
 Response:
 
@@ -1857,9 +1860,9 @@ Boolean result = GamePot.characterInfo(characterLog);
 // Result is FALSE : validation was failed.Please check logcat
 ```
 
-### GDPR規約チェックリスト
+### GDPR 規約チェックリスト
 
-ダッシュボードで有効化した、GDPR規約項目をリストの形で取得します。
+ダッシュボードで有効化した、GDPR 規約項目をリストの形で取得します。
 
 ```csharp
 //リターンされるデータ形式はstring[]です。

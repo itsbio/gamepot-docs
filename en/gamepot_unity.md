@@ -3,10 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
-#### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
+#### **We provide the <a href="https://guide.ncloud-docs.com/docs/en/home" target="_blank">[Manual]</a>and <a href="https://api.ncloud-docs.com/docs/en/home" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
+<a href="https://api.ncloud-docs.com/docs/en/game-gamepot" target="_blank">Go to Gamepot API Reference >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/en/game-gamepotconsole" target="_blank">Go to Gamepot Manual >></a>
 
 # Unity SDK
 
@@ -433,6 +433,7 @@ public class NUserInfo
 ```
 
 Define NAppStatus
+
 ```csharp
 public class NAppStatus
 {
@@ -794,6 +795,7 @@ foreach(NPurchaseItem item in items) {
 ```
 
 NPurchaseItem 정의
+
 ```csharp
 public class NPurchaseItem
 {
@@ -1001,7 +1003,7 @@ Request:
 
 Response:
 
- **It's the same as the regular Login API response logic. (However, in case of onLoginCancel/onLoginFailure, it will be processed as a toast message at Native level.)**
+**It's the same as the regular Login API response logic. (However, in case of onLoginCancel/onLoginFailure, it will be processed as a toast message at Native level.)**
 
 ```csharp
 // Login succeeded
@@ -1067,15 +1069,15 @@ The image logo at the top of the login UI shows the default image within the SDK
 
 The image file name should be specified as ic_stat_gamepot_login_logo.png.
 
-| Folder name                                                         | Image size  |
-| :------------------------------------------------------------- | :---- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
+| Folder name                                                    | Image size |
+| :------------------------------------------------------------- | :--------- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55      |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82     |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110    |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165    |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220    |
 
- **[iOS]**
+**[iOS]**
 
 > The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
 
@@ -1101,7 +1103,6 @@ Open the file /Assets/Plugin/Android/AndroidManifest.xml in your editor.
 ```
 
 Add screenOrientation to Main Activity, and enter `sensorLandscape` or `sensorPortrait` to fit the game.
-
 
 ### Apple Login (for Android - Web Login)
 
@@ -1596,6 +1597,7 @@ Each area can be customized.
 - Example of `BLUE` theme
 
 #### Call Agree to terms and conditions
+
 ```csharp
 // Default theme
 BLUE

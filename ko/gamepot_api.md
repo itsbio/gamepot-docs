@@ -4,14 +4,20 @@ search:
     - gamepot
 ---
 
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+
+<a href="https://api.ncloud-docs.com/docs/ko/game-gamepot" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
+
 # Open API
 
 게임팟에서 제공하는 몇몇 기능을 규정 된 API로 호출할 수 있는 기능입니다.
+
 > 대시보드에서 발급한 허용된 API Key를 사용해야 호출이 가능하며, 사용 여부 및 만료일을 지정 할 수 있습니다.
 
 ## API Key 발급
 
-Open API를 호출하기 위해서는 먼저 대시보드에서 API Key를 생성해야 합니다. 
+Open API를 호출하기 위해서는 먼저 대시보드에서 API Key를 생성해야 합니다.
 
 API Key는 <b>대시보드 &gt; 프로젝트 설정 &gt; API Key </b> 에서 생성할 수 있습니다.
 
@@ -41,14 +47,14 @@ API Key는 <b>대시보드 &gt; 프로젝트 설정 &gt; API Key </b> 에서 생
 
 Open API 요청시 발생하는 공통 에러코드입니다.
 
-| Code | Description                                       |
-| :--- | :------------------------------------------------ |
-| -1   | 대시보드에 없는 키를 사용한 경우                          |
-| -2   | 대시보드의 키와 헤더의 키가 다른경우                       |
-| -3   | 대시보드에서 삭제한 키를 사용한 경우                       |
-| -4   | 대시보드에서 미사용으로 처리된 키를 사용한 경우               |
-| -5   | 키가 만료된 경우                                      |
-| -6   | 프로젝트 아이디가 없는 경우                              |
+| Code | Description                                     |
+| :--- | :---------------------------------------------- |
+| -1   | 대시보드에 없는 키를 사용한 경우                |
+| -2   | 대시보드의 키와 헤더의 키가 다른경우            |
+| -3   | 대시보드에서 삭제한 키를 사용한 경우            |
+| -4   | 대시보드에서 미사용으로 처리된 키를 사용한 경우 |
+| -5   | 키가 만료된 경우                                |
+| -6   | 프로젝트 아이디가 없는 경우                     |
 
 ### 사용자 조회 API
 
@@ -56,8 +62,8 @@ Open API 요청시 발생하는 공통 에러코드입니다.
 
 #### Request
 
- - Method : GET
- - URI : /user/{userID}
+- Method : GET
+- URI : /user/{userID}
 
 ```text
 GET
@@ -65,14 +71,15 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/{
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :---------------------------------------|
-| projectId | String | GamePot SDK의 projectId                  |
-| userId    | String | GamePot SDK의 userId                     |
+| Attribute | Type   | Description             |
+| :-------- | :----- | :---------------------- |
+| projectId | String | GamePot SDK의 projectId |
+| userId    | String | GamePot SDK의 userId    |
 
 #### Response
 
@@ -106,32 +113,32 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| id              | String  | 사용자 아이디                                       |
-| deleted         | Boolean | 회원 삭제 여부 \(true : 삭제, false : 정상\)          |
-| store_id        | String  | 계정 생성 시 접속한 스토어 (google...)                |
-| country         | String  | 유저 국가 코드 (ISO 3166-1 기준)                     |
-| remoteip        | String  | 유저 아이피                                        |
-| adid            | String  | 광고 id                                          |
-| device          | String  | 기기 종류 (android,ios)                           |
-| network         | String  | 유저 접속 네트워크 (WI-FI...)                       |
-| version         | String  | Client의 버전 정보                                 |
-| model           | String  | 유저 기기 모델명                                    |
-| token           | String  | 푸시 토큰                                         |
-| push            | Boolean | 푸시 동의 여부   \(true : 동의, false : 비동의\)      |
-| night           | Boolean | 야간 푸시 동의 여부  \(true : 동의, false : 비동의\)   |
-| ad              | Boolean | 광고성 푸시 동의 여부  \(true : 동의, false : 비동의\)  |
-| memo            | String  | 회원 메모                                         |
-| device_id       | String  | 회원 디바이스 ID                                   |
-| createdAt       | String  | 회원이 생성된 날짜                                   |
-| updatedAt       | String  | 회원 정보를 수정한 날짜                               |
-| loginedAt       | String  | 마지막 접속일                                       |
-| deletedAt       | String  | 회원 삭제된 날짜                                    |
-
+| Attribute | Type    | Description                                           |
+| :-------- | :------ | :---------------------------------------------------- |
+| status    | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)            |
+| id        | String  | 사용자 아이디                                         |
+| deleted   | Boolean | 회원 삭제 여부 \(true : 삭제, false : 정상\)          |
+| store_id  | String  | 계정 생성 시 접속한 스토어 (google...)                |
+| country   | String  | 유저 국가 코드 (ISO 3166-1 기준)                      |
+| remoteip  | String  | 유저 아이피                                           |
+| adid      | String  | 광고 id                                               |
+| device    | String  | 기기 종류 (android,ios)                               |
+| network   | String  | 유저 접속 네트워크 (WI-FI...)                         |
+| version   | String  | Client의 버전 정보                                    |
+| model     | String  | 유저 기기 모델명                                      |
+| token     | String  | 푸시 토큰                                             |
+| push      | Boolean | 푸시 동의 여부 \(true : 동의, false : 비동의\)        |
+| night     | Boolean | 야간 푸시 동의 여부 \(true : 동의, false : 비동의\)   |
+| ad        | Boolean | 광고성 푸시 동의 여부 \(true : 동의, false : 비동의\) |
+| memo      | String  | 회원 메모                                             |
+| device_id | String  | 회원 디바이스 ID                                      |
+| createdAt | String  | 회원이 생성된 날짜                                    |
+| updatedAt | String  | 회원 정보를 수정한 날짜                               |
+| loginedAt | String  | 마지막 접속일                                         |
+| deletedAt | String  | 회원 삭제된 날짜                                      |
 
 실패
+
 ```javascript
 {
   "status": -6,
@@ -139,10 +146,10 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message   | String | 오류 내용                                         |     
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 ### 사용자 정지 조회 API
 
@@ -150,8 +157,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /user/{userID}/block
+- Method : GET
+- URI : /user/{userID}/block
 
 ```text
 GET
@@ -159,14 +166,15 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/{
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :---------------------------------------|
-| projectId | String | GamePot SDK의 projectId                  |
-| userId    | String | GamePot SDK의 userId                     |
+| Attribute | Type   | Description             |
+| :-------- | :----- | :---------------------- |
+| projectId | String | GamePot SDK의 projectId |
+| userId    | String | GamePot SDK의 userId    |
 
 #### Response
 
@@ -199,26 +207,27 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| id              | String  | 사용자 정지 정보에 대한 아이디                          |
-| member_id       | String  | 사용자 아이디                                       |
-| deleted         | Boolean | 사용자 정지 정보에 대한 삭제 유무 \(true: 삭제, false: 정상\) |
-| type            | String  | 이용정지 분류 \(manual: 수동, autopurchase: 자동\)    |
-| status          | Int     | 상태 \(1: 활성, 2: 비활성\)                         |
-| message         | String  | 이용정지 사유 (현재 사용되지 않습니다.)                  |
-| lang            | String  | 이용정지 메시지 언어                                 |
-| value           | String  | 이용정지 사유 메시지                                 |
-| default         | Boolean | 기본 언어 설정<br>디바이스의 언어값이 messageMulti에 없는 경우 true로 설정된 메시지가 기본으로 노출됩니다. |
-| startedAt       | String  | 이용정지 시작일                                     |
-| endedAt         | String  | 이용정지 종료일                                     |
-| createdAt       | Boolean | 이용정지 등록일                                     |
-| updatedAt       | Boolean | 이용정지 수정일                                     |
-| deletedAt       | Boolean | 이용정지 삭제일                                     |
-| category_id     | String  | 이용정지 분류 아이디                                 |
+| Attribute   | Type    | Description                                                                                                |
+| :---------- | :------ | :--------------------------------------------------------------------------------------------------------- |
+| status      | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)                                                                 |
+| id          | String  | 사용자 정지 정보에 대한 아이디                                                                             |
+| member_id   | String  | 사용자 아이디                                                                                              |
+| deleted     | Boolean | 사용자 정지 정보에 대한 삭제 유무 \(true: 삭제, false: 정상\)                                              |
+| type        | String  | 이용정지 분류 \(manual: 수동, autopurchase: 자동\)                                                         |
+| status      | Int     | 상태 \(1: 활성, 2: 비활성\)                                                                                |
+| message     | String  | 이용정지 사유 (현재 사용되지 않습니다.)                                                                    |
+| lang        | String  | 이용정지 메시지 언어                                                                                       |
+| value       | String  | 이용정지 사유 메시지                                                                                       |
+| default     | Boolean | 기본 언어 설정<br>디바이스의 언어값이 messageMulti에 없는 경우 true로 설정된 메시지가 기본으로 노출됩니다. |
+| startedAt   | String  | 이용정지 시작일                                                                                            |
+| endedAt     | String  | 이용정지 종료일                                                                                            |
+| createdAt   | Boolean | 이용정지 등록일                                                                                            |
+| updatedAt   | Boolean | 이용정지 수정일                                                                                            |
+| deletedAt   | Boolean | 이용정지 삭제일                                                                                            |
+| category_id | String  | 이용정지 분류 아이디                                                                                       |
 
 실패
+
 ```javascript
 {
   "status": -6,
@@ -226,10 +235,10 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)            |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 ### 사용자 정지 설정 API
 
@@ -237,8 +246,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : POST
- - URI : /user/{userID}/block
+- Method : POST
+- URI : /user/{userID}/block
 
 ```text
 POST
@@ -258,19 +267,20 @@ data: '{
             "endedAt": "2020-05-25 22:00"
        }'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute | Type    | Description                             |
-| :-------- | :-----  | :-------------------------------------- |
-| projectId | String  | GamePot SDK의 projectId                  |
-| userId    | String  | GamePot SDK의 userId                     |
-| lang      | String  | 이용정지 메시지 언어                         |
-| value     | String  | 이용정지 사유 메시지                         |
-| default   | Boolean | 기본 언어 설정<br>디바이스의 언어값이 messageMulti에 없는 경우 true로 설정된 메시지가 기본으로 노출됩니다.|
-| startedAt | String  | 이용정지 시작일 `YYYY-MM-DD HH:mm`              |
-| endedAt   | String  | 이용정지 종료일  `YYYY-MM-DD HH:mm`               |
+| Attribute | Type    | Description                                                                                                |
+| :-------- | :------ | :--------------------------------------------------------------------------------------------------------- |
+| projectId | String  | GamePot SDK의 projectId                                                                                    |
+| userId    | String  | GamePot SDK의 userId                                                                                       |
+| lang      | String  | 이용정지 메시지 언어                                                                                       |
+| value     | String  | 이용정지 사유 메시지                                                                                       |
+| default   | Boolean | 기본 언어 설정<br>디바이스의 언어값이 messageMulti에 없는 경우 true로 설정된 메시지가 기본으로 노출됩니다. |
+| startedAt | String  | 이용정지 시작일 `YYYY-MM-DD HH:mm`                                                                         |
+| endedAt   | String  | 이용정지 종료일 `YYYY-MM-DD HH:mm`                                                                         |
 
 #### Response
 
@@ -287,12 +297,13 @@ data: '{
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| id              | String  | 이용정지된 아이디                                    |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| id        | String | 이용정지된 아이디                          |
 
 실패
+
 ```javascript
 {
   "status": -5,
@@ -300,21 +311,21 @@ data: '{
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 #### Error code
 
-| Code | Description                                                       |
-| :--- | :---------------------------------------------------------------- |
-| -11  | body에 데이터 부족                                                    |
-| -12  | messageMulti 값이 JSON Array가 아닌 경우                               |
-| -13  | startedAt 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD HH:mm` 형태만 가능     |
-| -14  | endedAt 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD HH:mm` 형태만 가능       |
-| -15  | messageMulti 값의 data 포멧이 올바르지 않은 경우                          |
-| -16  | messageMulti 값의 data중에 default true가 없거나 복수개인 경우             |
+| Code | Description                                                              |
+| :--- | :----------------------------------------------------------------------- |
+| -11  | body에 데이터 부족                                                       |
+| -12  | messageMulti 값이 JSON Array가 아닌 경우                                 |
+| -13  | startedAt 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD HH:mm` 형태만 가능 |
+| -14  | endedAt 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD HH:mm` 형태만 가능   |
+| -15  | messageMulti 값의 data 포멧이 올바르지 않은 경우                         |
+| -16  | messageMulti 값의 data중에 default true가 없거나 복수개인 경우           |
 
 ### 일별 접속자 (DAU) 조회 API
 
@@ -322,8 +333,8 @@ data: '{
 
 #### Request
 
- - Method : GET
- - URI : /user/statistics/dau
+- Method : GET
+- URI : /user/statistics/dau
 
 ```text
 GET
@@ -331,17 +342,18 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/s
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute  | Type   | Description                  |
-| :-------- | :----- | :--------------------------- |
-| projectId | String   | GamePot SDK의 projectId                  |
-| startDate | String | 조회하려는 시작 날짜 `YYYY-MM-DD`      |
-| endDate  | String | 조회하려는 마지막 날짜 `YYYY-MM-DD`      |
+| Attribute | Type   | Description                         |
+| :-------- | :----- | :---------------------------------- |
+| projectId | String | GamePot SDK의 projectId             |
+| startDate | String | 조회하려는 시작 날짜 `YYYY-MM-DD`   |
+| endDate   | String | 조회하려는 마지막 날짜 `YYYY-MM-DD` |
 
- > 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
+> 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
 
 #### Response
 
@@ -373,14 +385,15 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status                | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| totalCount        | Int  | dau 조회 결과 (건)수                                    |
-| date                  | String  | 집계 일시                                    |
-| count                 | Int  | (해당 일자) DAU                                    |
+| Attribute  | Type   | Description                                |
+| :--------- | :----- | :----------------------------------------- |
+| status     | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| totalCount | Int    | dau 조회 결과 (건)수                       |
+| date       | String | 집계 일시                                  |
+| count      | Int    | (해당 일자) DAU                            |
 
 실패
+
 ```javascript
 {
   "status": -11,
@@ -388,17 +401,17 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 #### Error code
 
-| Code | Description                                                       |
-| :--- | :---------------------------------------------------------------- |
-| -11  | startDate 값의 포멧이 올바르지 않은 경우. `YYYY-MM-DD` 형태만 가능          |
-| -12  | endDate 값의 포멧이 올바르지 않은 경우. `YYYY-MM-DD` 형태만 가능            |
+| Code | Description                                                        |
+| :--- | :----------------------------------------------------------------- |
+| -11  | startDate 값의 포멧이 올바르지 않은 경우. `YYYY-MM-DD` 형태만 가능 |
+| -12  | endDate 값의 포멧이 올바르지 않은 경우. `YYYY-MM-DD` 형태만 가능   |
 
 ### 신규 사용자 (NRU) 조회 API
 
@@ -406,8 +419,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /user/statistics/nru
+- Method : GET
+- URI : /user/statistics/nru
 
 ```text
 GET
@@ -418,15 +431,15 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute  | Type   |  Description                  |
-| :-------- | :----- |  :--------------------------- |
-| projectId | String   | GamePot SDK의 projectId                  |
-| startDate | String | 조회하려는 시작 날짜 `YYYY-MM-DD`      |
-| endDate  | String | 조회하려는 마지막 날짜 `YYYY-MM-DD`      |
+| Attribute | Type   | Description                         |
+| :-------- | :----- | :---------------------------------- |
+| projectId | String | GamePot SDK의 projectId             |
+| startDate | String | 조회하려는 시작 날짜 `YYYY-MM-DD`   |
+| endDate   | String | 조회하려는 마지막 날짜 `YYYY-MM-DD` |
 
- > 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
+> 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
 
 #### Response
 
@@ -458,14 +471,15 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     |   결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| totalCount      | int  |  조회 (건)수                                   |  
-| date         |  String  |    집계 일자                                  |     
-| count         |  int     |    (해당 일자) NRU                         |     
+| Attribute  | Type   | Description                                |
+| :--------- | :----- | :----------------------------------------- |
+| status     | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| totalCount | int    | 조회 (건)수                                |
+| date       | String | 집계 일자                                  |
+| count      | int    | (해당 일자) NRU                            |
 
 실패
+
 ```javascript
 {
   "status": -11,
@@ -473,17 +487,17 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 #### Error code
 
-| Code | Description                                                       |
-| :--- | :---------------------------------------------------------------- |
-| -11  | startDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능          |
-| -12  | endDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능            |
+| Code | Description                                                        |
+| :--- | :----------------------------------------------------------------- |
+| -11  | startDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능 |
+| -12  | endDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 
 ### 동시 접속자(CCU) 조회 API
 
@@ -491,8 +505,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /user/statistics/ccu
+- Method : GET
+- URI : /user/statistics/ccu
 
 ```text
 GET
@@ -500,18 +514,19 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/s
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute  | Type    | Description                  |
-| :-------- | :-----  | :-------------------------------------- |
-| projectId | String   | GamePot SDK의 projectId                  |
-| oneDate | String | 첫번째 조회하려는 날짜 `YYYY-MM-DD`       |
-| twoDate  | String | 두번째 조회하려는 날짜  `YYYY-MM-DD`     |
-| threeDate  | String | 세번째 조회하려는 날짜 `YYYY-MM-DD`      |
+| Attribute | Type   | Description                         |
+| :-------- | :----- | :---------------------------------- |
+| projectId | String | GamePot SDK의 projectId             |
+| oneDate   | String | 첫번째 조회하려는 날짜 `YYYY-MM-DD` |
+| twoDate   | String | 두번째 조회하려는 날짜 `YYYY-MM-DD` |
+| threeDate | String | 세번째 조회하려는 날짜 `YYYY-MM-DD` |
 
- > 쿼리로 oneDate, twoDate, threeDate가 있으며, 없을 시 당일 포함 이전 2일까지 조회합니다.
+> 쿼리로 oneDate, twoDate, threeDate가 있으며, 없을 시 당일 포함 이전 2일까지 조회합니다.
 
 #### Response
 
@@ -548,16 +563,17 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |  
-| totalCount    | Int  | ccu 조회 결과 (건)수                                    |
-| createdAt      | String  | 집계 일시                                    |
-| one     | Int  | (첫번째 일자에 대한) 해당시간 동시접속자 수                                    |
-| two     | Int  | (두번째 일자에 대한) 해당시간 동시접속자 수                             |
-| three     | Int  | (세번째 일자에 대한) 해당시간 동시접속자 수                          |
+| Attribute  | Type   | Description                                 |
+| :--------- | :----- | :------------------------------------------ |
+| status     | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)  |
+| totalCount | Int    | ccu 조회 결과 (건)수                        |
+| createdAt  | String | 집계 일시                                   |
+| one        | Int    | (첫번째 일자에 대한) 해당시간 동시접속자 수 |
+| two        | Int    | (두번째 일자에 대한) 해당시간 동시접속자 수 |
+| three      | Int    | (세번째 일자에 대한) 해당시간 동시접속자 수 |
 
 실패
+
 ```javascript
 {
   "status": -11,
@@ -565,19 +581,18 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 #### Error code
 
-| Code | Description                                                       |
-| :--- | :---------------------------------------------------------------- |
-| -11  | threeDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능          |
-| -12  |  twoDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능           |
-| -13  | oneDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능            |
-
+| Code | Description                                                        |
+| :--- | :----------------------------------------------------------------- |
+| -11  | threeDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능 |
+| -12  | twoDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
+| -13  | oneDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 
 ### 결제 조회 API
 
@@ -585,8 +600,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /purchase/{transactionID}
+- Method : GET
+- URI : /purchase/{transactionID}
 
 ```text
 GET
@@ -594,14 +609,15 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/purcha
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :---------------------------------------|
-| projectId        | String | GamePot SDK의 projectId                  |
-| transactionID    | String | GamePot SDK의 결제 아이디                   |
+| Attribute     | Type   | Description               |
+| :------------ | :----- | :------------------------ |
+| projectId     | String | GamePot SDK의 projectId   |
+| transactionID | String | GamePot SDK의 결제 아이디 |
 
 #### Response
 
@@ -660,33 +676,34 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| (result의) status | Int     | 결제 결과값 \(1: 성공)    |
-| exchange_price  | Int     | 결제 금액 (환율 적용)                                |
-| project_id      | String  | GamePot SDK의 projectId                          |
-| store_id        | String  | 스토어 아이디 (google,one,apple,galaxy)              |
-| payment_id      | String  | 결제 스토어 아이디 (google,tpay...)  ㅣ일반적으로 store_id와 동일                |
-| signature       | String  | 서명                                              |
-| order_id        | String  | Order ID                                         |
-| currency        | String  | 통화                                             |
-| userdata        | String  | 유저 정보                                          |
-| price           | Int     | 결제 금액                                          |
-| id              | String  |    결제 데이터의 Unique ID                                       |
-| unique_id       | String  | Unique ID                                        |
-| transaction_id  | String  | 스토어 결제 ID                                         |
-| createdAt       | String  | 생성일                                             |
-| updatedAt       | String  | 갱신일                                             |
-| request         | String  | 결제 요청값                                         |
-| response        | String  | 결제 응답값                                         |
-| (item_id의) status | String  | (item_id의) 결과값                        |
-| type            | String  | 아이템 타입 (inapp)                                 |
-| name            | String  | 아이템 이름                                         |
-| prices          | String  | 아이템 가격                                         |
-| user_id          |   | 응답 성공값 중 user_id 부분은 <b><I>사용자 조회 API</I></b>를 참고하시기 바랍니다.      |
+| Attribute          | Type   | Description                                                                        |
+| :----------------- | :----- | :--------------------------------------------------------------------------------- |
+| status             | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)                                         |
+| (result의) status  | Int    | 결제 결과값 \(1: 성공)                                                             |
+| exchange_price     | Int    | 결제 금액 (환율 적용)                                                              |
+| project_id         | String | GamePot SDK의 projectId                                                            |
+| store_id           | String | 스토어 아이디 (google,one,apple,galaxy)                                            |
+| payment_id         | String | 결제 스토어 아이디 (google,tpay...) ㅣ일반적으로 store_id와 동일                   |
+| signature          | String | 서명                                                                               |
+| order_id           | String | Order ID                                                                           |
+| currency           | String | 통화                                                                               |
+| userdata           | String | 유저 정보                                                                          |
+| price              | Int    | 결제 금액                                                                          |
+| id                 | String | 결제 데이터의 Unique ID                                                            |
+| unique_id          | String | Unique ID                                                                          |
+| transaction_id     | String | 스토어 결제 ID                                                                     |
+| createdAt          | String | 생성일                                                                             |
+| updatedAt          | String | 갱신일                                                                             |
+| request            | String | 결제 요청값                                                                        |
+| response           | String | 결제 응답값                                                                        |
+| (item_id의) status | String | (item_id의) 결과값                                                                 |
+| type               | String | 아이템 타입 (inapp)                                                                |
+| name               | String | 아이템 이름                                                                        |
+| prices             | String | 아이템 가격                                                                        |
+| user_id            |        | 응답 성공값 중 user_id 부분은 <b><I>사용자 조회 API</I></b>를 참고하시기 바랍니다. |
 
 실패
+
 ```javascript
 {
   "status": -6,
@@ -694,21 +711,21 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 ### 결제 취소 조회 API
 
 결제 아이디로 결제 취소 내역을 조회합니다.
 
- > 구글 결제만 조회됩니다.
+> 구글 결제만 조회됩니다.
 
 #### Request
 
- - Method : GET
- - URI : /purchase/voided/{transactionID}
+- Method : GET
+- URI : /purchase/voided/{transactionID}
 
 ```text
 GET
@@ -716,14 +733,15 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/purcha
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :---------------------------------------|
-| projectId        | String | GamePot SDK의 projectId                  |
-| transactionID    | String | GamePot SDK의 결제 아이디                   |
+| Attribute     | Type   | Description               |
+| :------------ | :----- | :------------------------ |
+| projectId     | String | GamePot SDK의 projectId   |
+| transactionID | String | GamePot SDK의 결제 아이디 |
 
 #### Response
 
@@ -768,24 +786,25 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :-------------- | :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| id              | String  | 결제 취소 아이디                                    |
-| member_id       | String  | 유저 UID                                         |
-| package_id      | String  | 패키지 명                                         |
-| price           | int     | 결제 금액                                         |
-| deleted         | Boolean | 삭제 여부 \(true : 삭제, false : 정상\)             |
-| purchasedAt     | String  | 결제일                                           |
-| voidedAt        | String  | 결제 취소일                                        |
-| createdAt       | String  | 생성일                                            |
-| updatedAt       | String  | 갱신일                                            |
-| deletedAt       | String  | 삭제일                                            |
-| currency        | String  | 통화                                             |
-| status          | Int     | 상태                                             |
-| purchase_id          |   | 응답 성공값 중 purchase_id 부분은 <b><I>결제 조회 API</I></b>를 참고하시기 바랍니다.      |
+| Attribute   | Type    | Description                                                                          |
+| :---------- | :------ | :----------------------------------------------------------------------------------- |
+| status      | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)                                           |
+| id          | String  | 결제 취소 아이디                                                                     |
+| member_id   | String  | 유저 UID                                                                             |
+| package_id  | String  | 패키지 명                                                                            |
+| price       | int     | 결제 금액                                                                            |
+| deleted     | Boolean | 삭제 여부 \(true : 삭제, false : 정상\)                                              |
+| purchasedAt | String  | 결제일                                                                               |
+| voidedAt    | String  | 결제 취소일                                                                          |
+| createdAt   | String  | 생성일                                                                               |
+| updatedAt   | String  | 갱신일                                                                               |
+| deletedAt   | String  | 삭제일                                                                               |
+| currency    | String  | 통화                                                                                 |
+| status      | Int     | 상태                                                                                 |
+| purchase_id |         | 응답 성공값 중 purchase_id 부분은 <b><I>결제 조회 API</I></b>를 참고하시기 바랍니다. |
 
 실패
+
 ```javascript
 {
   "status": -6,
@@ -793,10 +812,10 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
-| message   | String | 오류 내용                                         |     
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 ### 결제 매출 통계 조회 API
 
@@ -804,8 +823,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /purchase/statistics
+- Method : GET
+- URI : /purchase/statistics
 
 ```text
 GET
@@ -816,16 +835,16 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :---------------------------------------|
-| projectId        | String | GamePot SDK의 projectId                  |
-| startDate        | String | 결제 매출 통계 검색 시작일 `YYYY-MM-DD`                   |
-| endDate          | String | 결제 매출 통계 검색 종료일 `YYYY-MM-DD`                   |
-| currency         | String | 결제 매출 통계 통화 검색 (all...)<br> ISO 4217규정을 따르고 있습니다.              |
+| Attribute | Type   | Description                                                           |
+| :-------- | :----- | :-------------------------------------------------------------------- |
+| projectId | String | GamePot SDK의 projectId                                               |
+| startDate | String | 결제 매출 통계 검색 시작일 `YYYY-MM-DD`                               |
+| endDate   | String | 결제 매출 통계 검색 종료일 `YYYY-MM-DD`                               |
+| currency  | String | 결제 매출 통계 통화 검색 (all...)<br> ISO 4217규정을 따르고 있습니다. |
 
- > 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
+> 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
 
 #### Response
 
@@ -866,16 +885,16 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :-------------- | :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| totalCount      | Int     | 검색 결과 값 수                                     |
-| currencyList    | String  | 통화 리스트 <br> ISO 4217규정을 따르고 있습니다.          |
-| date            | String  | 통계 날짜                                         |
-| count           | String  | 매출 통계 금액                                     |
-
+| Attribute    | Type   | Description                                      |
+| :----------- | :----- | :----------------------------------------------- |
+| status       | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)       |
+| totalCount   | Int    | 검색 결과 값 수                                  |
+| currencyList | String | 통화 리스트 <br> ISO 4217규정을 따르고 있습니다. |
+| date         | String | 통계 날짜                                        |
+| count        | String | 매출 통계 금액                                   |
 
 실패
+
 ```javascript
 {
   "status": -6,
@@ -883,17 +902,17 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message   | String | 오류 내용                                         |     
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 #### Error code
 
-| Code | Description                                              |
-| :--- | :------------------------------------------------------- |
-| -11  | startDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능  |
-| -12  | endDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능    |
+| Code | Description                                                        |
+| :--- | :----------------------------------------------------------------- |
+| -11  | startDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능 |
+| -12  | endDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 
 ### 캐릭터 조회 API
 
@@ -901,8 +920,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /player/{playerID}
+- Method : GET
+- URI : /player/{playerID}
 
 ```text
 GET
@@ -910,14 +929,15 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/player
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :---------------------------------------|
-| projectId        | String | GamePot SDK의 projectId                  |
-| playerID         | String | GamePot SDK의 플레이어 아이디                |
+| Attribute | Type   | Description                   |
+| :-------- | :----- | :---------------------------- |
+| projectId | String | GamePot SDK의 projectId       |
+| playerID  | String | GamePot SDK의 플레이어 아이디 |
 
 #### Response
 
@@ -941,21 +961,22 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| id              | String  | 사용자 ID                                         |
-| player_id       | String  | 플레이어 아이디                                     |
-| server_id       | String  | 서버 아이디                                        |
-| name            | String  | 플레이어 명                                        |
-| level           | String  | 플레이어 레벨                                       |
-| userdata        | String  | 등록한 Userdata                                   |
-| ip              | String  | 플레이어 아이피                                     |
-| createdAt       | String  | 플레이어 생성일                                     |
-| updatedAt       | String  | 플레이어 갱신일                                     |
-| user_id         | String  | 게임팟 UID                                        |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| id        | String | 사용자 ID                                  |
+| player_id | String | 플레이어 아이디                            |
+| server_id | String | 서버 아이디                                |
+| name      | String | 플레이어 명                                |
+| level     | String | 플레이어 레벨                              |
+| userdata  | String | 등록한 Userdata                            |
+| ip        | String | 플레이어 아이피                            |
+| createdAt | String | 플레이어 생성일                            |
+| updatedAt | String | 플레이어 갱신일                            |
+| user_id   | String | 게임팟 UID                                 |
 
 실패
+
 ```javascript
 {
   "status": -1,
@@ -963,10 +984,10 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
-| message   | String | 오류 내용                                         |     
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 ### 쿠폰 사용 조회 API
 
@@ -976,8 +997,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /coupon/{couponNumber}
+- Method : GET
+- URI : /coupon/{couponNumber}
 
 ```text
 GET
@@ -985,15 +1006,16 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/coupon
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :---------------------------------------|
-| projectId        | String | GamePot SDK의 projectId                 |
-| couponNumber     | String | 대시보드에서 발급한 쿠폰 번호                  |
-| userData         | String | 유저 데이터                               |
+| Attribute    | Type   | Description                   |
+| :----------- | :----- | :---------------------------- |
+| projectId    | String | GamePot SDK의 projectId       |
+| couponNumber | String | 대시보드에서 발급한 쿠폰 번호 |
+| userData     | String | 유저 데이터                   |
 
 #### Response
 
@@ -1044,36 +1066,37 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| id              | String  | 쿠폰 사용 내역 아이디                                |
-| status          | Boolean | 쿠폰 사용 여부\(true: 사용, false: 미사용\)           |
-| enable          | Int     | 사용가능 여부                                       |
-| number          | String  | 쿠폰 번호                                          |
-| userdata        | String  | 쿠폰 사용 유저 정보                                  |
-| usedAt          | String  | 쿠폰 사용일                                        |
-| request         | String  | 쿠폰 사용 요청                                      |
-| response        | String  | 쿠폰 사용 응답                                      |
-| (coupon_id의) id | String  | 쿠폰 아이디                                        |
-| (coupon_id의) enable | int  | 사용가능 여부                                       |
-| type            | String  | 쿠폰 타입                                          |
-| keyword         | String  | 키워드 쿠폰 키워드                                   |
-| desc            | String  | 쿠폰명                                            |
-| used            | int     | 쿠폰 상태                                          |
-| count           | int     | 쿠폰 수량                                          |
-| length          | int     | 쿠폰 길이                                          |
-| limit           | String  | 아이템 수량                                        |
-| prefix          | String  | 쿠폰 접미사                                        |
-| suffix          | String  | 쿠폰 접두사                                        |
-| store_id        | String  | 스토어 아이디 (google,one,apple,galaxy)             |
-| startedAt       | String  | 쿠폰 사용 시작일                                    |
-| endedAt         | String  | 쿠폰 사용 종료일                                    |
-| item_id         | String  | 아이템 아이디                                      |
-| store_item_id   | String  | 아이템 스토어 아이디                                 |
-| count           | int     | 아이템 수량                                        |
+| Attribute            | Type    | Description                                 |
+| :------------------- | :------ | :------------------------------------------ |
+| status               | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)  |
+| id                   | String  | 쿠폰 사용 내역 아이디                       |
+| status               | Boolean | 쿠폰 사용 여부\(true: 사용, false: 미사용\) |
+| enable               | Int     | 사용가능 여부                               |
+| number               | String  | 쿠폰 번호                                   |
+| userdata             | String  | 쿠폰 사용 유저 정보                         |
+| usedAt               | String  | 쿠폰 사용일                                 |
+| request              | String  | 쿠폰 사용 요청                              |
+| response             | String  | 쿠폰 사용 응답                              |
+| (coupon_id의) id     | String  | 쿠폰 아이디                                 |
+| (coupon_id의) enable | int     | 사용가능 여부                               |
+| type                 | String  | 쿠폰 타입                                   |
+| keyword              | String  | 키워드 쿠폰 키워드                          |
+| desc                 | String  | 쿠폰명                                      |
+| used                 | int     | 쿠폰 상태                                   |
+| count                | int     | 쿠폰 수량                                   |
+| length               | int     | 쿠폰 길이                                   |
+| limit                | String  | 아이템 수량                                 |
+| prefix               | String  | 쿠폰 접미사                                 |
+| suffix               | String  | 쿠폰 접두사                                 |
+| store_id             | String  | 스토어 아이디 (google,one,apple,galaxy)     |
+| startedAt            | String  | 쿠폰 사용 시작일                            |
+| endedAt              | String  | 쿠폰 사용 종료일                            |
+| item_id              | String  | 아이템 아이디                               |
+| store_item_id        | String  | 아이템 스토어 아이디                        |
+| count                | int     | 아이템 수량                                 |
 
 실패
+
 ```javascript
 {
   "status": -1,
@@ -1081,10 +1104,10 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
-| message   | String | 오류 내용                                         |     
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |
 
 ### 쿠폰 사용 API
 
@@ -1092,8 +1115,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : PUT
- - URI : /store/{storeID}/user/{userID}/coupon/{couponNumber}
+- Method : PUT
+- URI : /store/{storeID}/user/{userID}/coupon/{couponNumber}
 
 ```text
 PUT
@@ -1101,16 +1124,17 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/store/
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :-------------------------------------- |
-| projectId        | String | GamePot SDK의 projectId                 |
-| storeID          | String | 스토어 아이디 (google,one,apple,galaxy)         |
-| userID           | String | GamePot SDK의 사용자 UID                  |
-| couponNumber     | String | 쿠폰 번호                                 |
+| Attribute    | Type   | Description                             |
+| :----------- | :----- | :-------------------------------------- |
+| projectId    | String | GamePot SDK의 projectId                 |
+| storeID      | String | 스토어 아이디 (google,one,apple,galaxy) |
+| userID       | String | GamePot SDK의 사용자 UID                |
+| couponNumber | String | 쿠폰 번호                               |
 
 #### Response
 
@@ -1123,13 +1147,13 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| message         | String  | 결과 내용                                         |     
-
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| message   | String | 결과 내용                                  |
 
 실패
+
 ```javascript
 {
   "status": -5,
@@ -1137,11 +1161,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
-| message   | String | 오류 내용                                         |     
-| errorcode | String | 오류 코드                                         |     
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |
+| errorcode | String | 오류 코드                                  |
 
 ### 게시 중인 공지사항 API
 
@@ -1149,8 +1173,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 #### Request
 
- - Method : GET
- - URI : /store/{storeID}/notice/posting
+- Method : GET
+- URI : /store/{storeID}/notice/posting
 
 ```text
 GET
@@ -1158,14 +1182,16 @@ url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/store/
 Header : 'accept-language: ko'
 Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ```
+
 | Header    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키 |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :-------------------------------------- |
-| projectId        | String | GamePot SDK의 projectId                  |
-| storeID          | String | 스토어 아이디 (google,one,apple,galaxy)   | 
+| Attribute | Type   | Description                             |
+| :-------- | :----- | :-------------------------------------- |
+| projectId | String | GamePot SDK의 projectId                 |
+| storeID   | String | 스토어 아이디 (google,one,apple,galaxy) |
+
 #### Response
 
 성공
@@ -1200,24 +1226,24 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute       | Type    | Description                                     |
-| :---------------| :------ | :---------------------------------------------- |
-| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
-| totalCount         | String  |  공지사항(이미지) 조회 (건)수                                  |     
-| baseUrl         | String  |      오브젝트 스토리지 Bucket URL                 |     
-| id         | String  |   (해당 이미지의) 고유 아이디                                      |     
-| store_id         | String  |   결제 스토어 (google,one,apple,galaxy)                     |     
-| enable         | Boolean  |  공지사항 활성화 여부                                         |     
-| url         | String  |           (클릭액션) url                                     |     
-| scheme         | String  |                   (클릭액션) scheme                     |     
-| startDate         | String  |          공지 시작 일자              |     
-| endDate         | String  |           공지 종료 일자                         |     
-| lang         | String  |          언어           |     
-| value         | String  |                (baseUrl 이하) 리소스 주소              |     
-| default         | Boolean  |       기본 언어  여부          |     
-
+| Attribute  | Type    | Description                                |
+| :--------- | :------ | :----------------------------------------- |
+| status     | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\) |
+| totalCount | String  | 공지사항(이미지) 조회 (건)수               |
+| baseUrl    | String  | 오브젝트 스토리지 Bucket URL               |
+| id         | String  | (해당 이미지의) 고유 아이디                |
+| store_id   | String  | 결제 스토어 (google,one,apple,galaxy)      |
+| enable     | Boolean | 공지사항 활성화 여부                       |
+| url        | String  | (클릭액션) url                             |
+| scheme     | String  | (클릭액션) scheme                          |
+| startDate  | String  | 공지 시작 일자                             |
+| endDate    | String  | 공지 종료 일자                             |
+| lang       | String  | 언어                                       |
+| value      | String  | (baseUrl 이하) 리소스 주소                 |
+| default    | Boolean | 기본 언어 여부                             |
 
 실패
+
 ```javascript
 {
   "status": -1,
@@ -1225,7 +1251,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 }
 ```
 
-| Attribute | Type   | Description                                     |
-| :-------- | :----- | :---------------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
-| message   | String | 오류 내용                                         |
+| Attribute | Type   | Description                                |
+| :-------- | :----- | :----------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
+| message   | String | 오류 내용                                  |

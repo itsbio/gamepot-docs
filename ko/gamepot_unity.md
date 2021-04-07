@@ -3,10 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
-#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="http://docs.ncloud.com/ko/" target="_blank">[설명서]</a>와 <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
 
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Gamepot 설명서 바로가기 >></a>
+<a href="https://api.ncloud-docs.com/docs/ko/game-gamepot" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
 
 # Unity SDK
 
@@ -451,6 +451,7 @@ public class NUserInfo
 ```
 
 NAppStatus 정의
+
 ```csharp
 public class NAppStatus
 {
@@ -469,6 +470,7 @@ public class NAppStatus
 ```
 
 **(2021.03.04) SDK v3.2.0 이상부터 적용**
+
 > `iOS 플랫폼의 경우,` 로그인 API 호출 시 IDFA 값 획득에 대한 권한을 요청하는 팝업을 먼저 명시적으로 요청하고 있습니다.
 
 > 해당 팝업 요청을 로그인 시점에 호출하고 싶지 않으실 경우, GamePot.login(NCommon.LoginType loginType) 메소드를 수정해주세요. (Assets/GamePot/SDK/Scripts/GamePot.cs )
@@ -477,7 +479,7 @@ public class NAppStatus
 ...
 public static void login(NCommon.LoginType loginType)
 {
-    // Assets/GamePot/SDK/Scripts/GamePot.cs 
+    // Assets/GamePot/SDK/Scripts/GamePot.cs
     ...
     #elif UNITY_IOS
         //IOS 플랫폼의 경우, IDFA 획득 허용 팝업 먼저 띄우고 login 처리
@@ -492,7 +494,7 @@ public static void login(NCommon.LoginType loginType)
 Request:
 
 ```csharp
-// IDFA 값 획득 권한 요청 팝업을 임의로 띄울 수 있습니다. 
+// IDFA 값 획득 권한 요청 팝업을 임의로 띄울 수 있습니다.
 // 권한 획득 후에는, 메소드 호출 시에도 팝업이 뜨지 않습니다.
 
 GamePot.requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
@@ -506,7 +508,7 @@ NResultTrackingAuthorizationresultState 정의
 ```csharp
 public class NResultTrackingAuthorization
 {
-    public NCommon.ResultTrackingAuthorization authorization { get; set; } 
+    public NCommon.ResultTrackingAuthorization authorization { get; set; }
 }
 ```
 
@@ -518,7 +520,7 @@ public enum ResultTrackingAuthorization
     ATTrackingManagerAuthorizationStatusDenied,
     ATTrackingManagerAuthorizationStatusAuthorized,
     ATTrackingManagerAuthorizationStatusUnknown
-} 
+}
 ```
 
 ### 로그인 정보 가져오기
@@ -865,6 +867,7 @@ foreach(NPurchaseItem item in items) {
 ```
 
 NPurchaseItem 정의
+
 ```csharp
 public class NPurchaseItem
 {
@@ -1072,7 +1075,7 @@ Request:
 
 Response:
 
- **일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
+**일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
 
 ```csharp
 // 로그인 성공
@@ -1138,15 +1141,15 @@ Request:
 
 이미지 파일명은 ic_stat_gamepot_login_logo.png 이어야 합니다.
 
-| 폴더명                                                         | 크기  |
-| :------------------------------------------------------------- | :---- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| 폴더명                                                         | 크기    |
+| :------------------------------------------------------------- | :------ |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55   |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82  |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
 | /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
 
- **[iOS]**
+**[iOS]**
 
 > 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
 
@@ -1172,7 +1175,6 @@ Request:
 ```
 
 Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
-
 
 ### 애플 로그인 (for Android - Web Login)
 

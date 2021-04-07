@@ -1,7 +1,12 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
+
+#### **为提供 NAVER CLOUD PLATFORM 产品的详细使用方法和 API 的多种使用方式，分别提供<a href="https://guide.ncloud-docs.com/docs/zh/home" target="_blank">[说明书]</a>和<a href="https://api.ncloud-docs.com/docs/zh/home" target="_blank">[API 参考指南]</a>以供参考。**
+
+<a href="https://api.ncloud-docs.com/docs/zh/game-gamepot" target="_blank">进入 Gamepot API 参考指南 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/zh/game-gamepotconsole" target="_blank">进入 Gamepot 说明书 >></a>
 
 # Android SDK
 
@@ -362,7 +367,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: Naver
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
-// GamePotChannelType.APPLE: Apple 
+// GamePotChannelType.APPLE: Apple
 // GamePotChannelType.GUEST: 游客
 
 // 点击Google登录按钮的时候调用
@@ -700,9 +705,9 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ## 7. 其他 API
 
-### SDK支持登录UI
+### SDK 支持登录 UI
 
-SDK中自行提供（完成形式的）Login UI。
+SDK 中自行提供（完成形式的）Login UI。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -736,15 +741,16 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 });
 ```
 
-#### 设置登录UI镜像标志
+#### 设置登录 UI 镜像标志
 
-登录UI上方显示的镜像标志在SDK内部中以默认镜像显示，也可以直接添加。
+登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
 
 **亲自添加镜像标志**
 
 > 使用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)制作图标时，会自动按照文件夹数量创建，只需直接放入各文件夹即可。
 
-1. 如下创建res/drawable相关文件夹
+1. 如下创建 res/drawable 相关文件夹
+
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
@@ -752,6 +758,7 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
    - res/drawable-xxxhdpi/
 
 2. 按如下大小制作镜像
+
    - 78x55
    - 116x82
    - 155x110
@@ -760,13 +767,13 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
 
 3. 如下所示，为每个文件夹添加大小合适的镜像。
 
-| 文件夹名称                | 大小 |
-| :-------------------- | :----- |
-| res/drawable-mdpi/    | 78x55  |
+| 文件夹名称            | 大小    |
+| :-------------------- | :------ |
+| res/drawable-mdpi/    | 78x55   |
 | res/drawable-hdpi/    | 116x82  |
-| res/drawable-xhdpi/   | 155x110  |
-| res/drawable-xxhdpi/  | 232x165  |
-| res/drawable-xxxhdpi/ | 310x220  |
+| res/drawable-xhdpi/   | 155x110 |
+| res/drawable-xxhdpi/  | 232x165 |
+| res/drawable-xxxhdpi/ | 310x220 |
 
 - 镜像文件名变更为`ic_stat_gamepot_login_logo.png`
 
@@ -1198,7 +1205,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 我们提供用户界面，以便轻松获取“使用条款”和“收集和使用个人信息指南”。
 
-除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
 
 #### 协议协议调用
 
@@ -1220,6 +1227,7 @@ GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
 GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
 GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
 ```
+
 > 开发者同意公开适合该游戏的弹出窗口。
 
 > 单击“查看”按钮时显示的内容可以在仪表板中应用和修改。
@@ -1408,9 +1416,9 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
-### GDPR条款选项列表
+### GDPR 条款选项列表
 
-将在仪表盘中激活的GDPR条款项目以列表形式导出。
+将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
 
 ```java
 import io.gamepot.common.GamePot;

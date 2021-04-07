@@ -3,6 +3,11 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+
+<a href="https://api.ncloud-docs.com/docs/ko/game-gamepot" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
+
 # Server API
 
 ## GAMEPOT 서버 &gt; 게임 서버
@@ -73,13 +78,13 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 
 | Attribute | Type   | Max Length | Description                                                                                        |
 | :-------- | :----- | :--------- | :------------------------------------------------------------------------------------------------- |
-| userId    | String | 128        | 사용자ID ( 게임팟 대시보드 > 게임 > 선물하기 > 대상 값이 전체인 경우 all  )                                                                                 |
-| projectId | String | 128        | Project ID                                                                                 |
-| platform  | String | 128        | 운영 Platform 정보 \(Android, IOS\)                                                          |
-| store     | String | 64         | 스토어 정보\(apple, google, one\)                                                             |
-| title     | String | -          | 게임팟 대시보드 > 게임 > 선물하기 >  제목 에 넣은 값                                                       |
-| content   | String | -          | 게임팟 대시보드 > 게임 > 선물하기 >  설명 에 넣은 값                                                       |
-| target    | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 대상 값 - 전체 : all / 사용자ID  : user                                                       |
+| userId    | String | 128        | 사용자ID ( 게임팟 대시보드 > 게임 > 선물하기 > 대상 값이 전체인 경우 all )                         |
+| projectId | String | 128        | Project ID                                                                                         |
+| platform  | String | 128        | 운영 Platform 정보 \(Android, IOS\)                                                                |
+| store     | String | 64         | 스토어 정보\(apple, google, one\)                                                                  |
+| title     | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 제목 에 넣은 값                                                |
+| content   | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 설명 에 넣은 값                                                |
+| target    | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 대상 값 - 전체 : all / 사용자ID : user                         |
 | userData  | String | -          | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
 | itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 
