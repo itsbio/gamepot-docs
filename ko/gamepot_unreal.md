@@ -2205,3 +2205,6 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     FGamePotSDKPluginModule::GetSharedGamePotSdk()->sendPurchaseByThirdPartySDK(FString productId, FString transactionId, FString currency, double price, FString store, FString paymentId, FString uniqueId);
 }
 ```
+## iOS Image Push
+Unreal은 프로젝트에 Notification Service Extension을 추가할 수 있는 방법을 제공하지 않아
+iOS Image Push 기능을 사용할 수 없습니다.
