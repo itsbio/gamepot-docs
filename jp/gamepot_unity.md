@@ -452,7 +452,7 @@ public class NAppStatus
 
 ### ログイン情報をインポートする
 
-```csharp
+​```csharp
 GamePot.getMemberId(); // メンバーID(ユーザーの固有ID)
 ````
 
@@ -1832,13 +1832,13 @@ GamePot.setVoidBuilder(info);
 
 以下は使用できる予約語の定義表です。
 
-| 予約語                            | 必須 | タイプ | 説明            |
-| :-------------------------------- | :--- | :----- | :-------------- |
-| GamePotSendLogCharacter.NAME      | 必須 | String | キャラクター名  |
-| GamePotSendLogCharacter.LEVEL     | 任意 | String | レベル          |
-| GamePotSendLogCharacter.SERVER_ID | 任意 | String | サーバ ID       |
-| GamePotSendLogCharacter.PLAYER_ID | 任意 | String | キャラクター ID |
-| GamePotSendLogCharacter.USERDATA  | 任意 | String | ETC             |
+| 予約語                            | 必須 | タイプ | 説明            | 最大長 |
+| :-------------------------------- | :--- | :----- | :-------------- | ------ |
+| GamePotSendLogCharacter.NAME      | 必須 | String | キャラクター名  | 128    |
+| GamePotSendLogCharacter.LEVEL     | 任意 | String | レベル          | 128    |
+| GamePotSendLogCharacter.SERVER_ID | 任意 | String | サーバ ID       | 128    |
+| GamePotSendLogCharacter.PLAYER_ID | 任意 | String | キャラクター ID | 128    |
+| GamePotSendLogCharacter.USERDATA  | 任意 | String | ETC             | 128    |
 
 ```csharp
 String name = 「キャラクター名」;

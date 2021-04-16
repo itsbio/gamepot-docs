@@ -964,13 +964,13 @@ NSArray *json_value = [[GamePot getInstance] getConfigs];
 
 아래는 사용할 수 있는 예약어 정의 표 입니다.
 
-| 예약어                            | 필수 | 타입   | 설명         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
-| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
-| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
-| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
-| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+| 예약어                            | 필수 | 타입   | 설명         | 최대 길이 |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     | 128       |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 | 128       |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          | 128       |
 
 ```java
 #import <GamePot/GamePotSendLog.h>

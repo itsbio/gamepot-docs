@@ -1380,13 +1380,13 @@ String json_value = GamePot.getInstance().getConfigs();
 
 以下是可用保留字定义的表。
 
-| 保留字                            | 必填 | 类型   | 描述      |
-| :-------------------------------- | :--- | :----- | :-------- |
-| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名字  |
-| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 水平      |
-| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID |
-| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   |
-| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       |
+| 保留字                            | 必填 | 类型   | 描述      | 最長長度 |
+| :-------------------------------- | :--- | :----- | :-------- | -------- |
+| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名字  | 128      |
+| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 水平      | 128      |
+| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID | 128      |
+| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   | 128      |
+| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       | 128      |
 
 ```java
 import android.text.TextUtils;

@@ -1842,13 +1842,13 @@ GamePot.setVoidBuilder(info);
 
 以下是可用保留字定义的表。
 
-| 保留字                            | 必填 | 类型   | 描述      |
-| :-------------------------------- | :--- | :----- | :-------- |
-| GamePotSendLogCharacter.NAME      | 必填 | String | 角色名称  |
-| GamePotSendLogCharacter.LEVEL     | 选择 | String | 级别      |
-| GamePotSendLogCharacter.SERVER_ID | 选择 | String | 服务器 ID |
-| GamePotSendLogCharacter.PLAYER_ID | 选择 | String | 角色 ID   |
-| GamePotSendLogCharacter.USERDATA  | 选择 | String | ETC       |
+| 保留字                            | 必填 | 类型   | 描述      | 最長長度 |
+| :-------------------------------- | :--- | :----- | :-------- | -------- |
+| GamePotSendLogCharacter.NAME      | 必填 | String | 角色名称  | 128      |
+| GamePotSendLogCharacter.LEVEL     | 选择 | String | 级别      | 128      |
+| GamePotSendLogCharacter.SERVER_ID | 选择 | String | 服务器 ID | 128      |
+| GamePotSendLogCharacter.PLAYER_ID | 选择 | String | 角色 ID   | 128      |
+| GamePotSendLogCharacter.USERDATA  | 选择 | String | ETC       | 128      |
 
 ```csharp
 String name = "角色名字";

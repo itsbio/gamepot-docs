@@ -956,7 +956,7 @@ Request:
 
 ````csharp
 
-```c++
+​```c++
 // productId : 마켓에 등록된 상품ID
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     FGamePotSDKPluginModule::GetSharedGamePotSdk()->purchaseThirdPayments(FString productId);
@@ -2095,13 +2095,13 @@ struct FNVoidInfo
 
 아래는 사용할 수 있는 예약어 정의 표 입니다.
 
-| 예약어                       | 필수 | 타입    | 설명         |
-| :--------------------------- | :--- | :------ | :----------- |
-| FNSendLogCharacter.NAME      | 필수 | FString | 케릭터명     |
-| FNSendLogCharacter.LEVEL     | 선택 | FString | 레벨         |
-| FNSendLogCharacter.SERVER_ID | 선택 | FString | 서버아이디   |
-| FNSendLogCharacter.PLAYER_ID | 선택 | FString | 케릭터아이디 |
-| FNSendLogCharacter.USERDATA  | 선택 | FString | ETC          |
+| 예약어                       | 필수 | 타입    | 설명         | 최대 길이 |
+| :--------------------------- | :--- | :------ | :----------- | --------- |
+| FNSendLogCharacter.NAME      | 필수 | FString | 케릭터명     | 128       |
+| FNSendLogCharacter.LEVEL     | 선택 | FString | 레벨         | 128       |
+| FNSendLogCharacter.SERVER_ID | 선택 | FString | 서버아이디   | 128       |
+| FNSendLogCharacter.PLAYER_ID | 선택 | FString | 케릭터아이디 | 128       |
+| FNSendLogCharacter.USERDATA  | 선택 | FString | ETC          | 128       |
 
 ### FNSendLogCharacter 정의
 

@@ -202,7 +202,7 @@ public class NUserInfo
 ```csharp
 GamePotChat.start();    //connect
 GamePotChat.stop();    //disconnect
-``` -->
+​``` -->
 
 ## 4. 기타 API
 
@@ -210,7 +210,7 @@ GamePotChat.stop();    //disconnect
 
 - ref. 현재 유니티 엔진 상에서, **웹뷰에 대한 Event 수신 / 한글 유니코드 입력이 불가한 이슈** 가 있습니다. 이에 따라, 아직 (공식적으로) 고객지원 메뉴에 대한 Native API는 제공되지 않는 상태입니다.
 
-```csharp
+​```csharp
 //대시보드 주소 및 각 파라메터 값을, 생성한 GamePot 대시보드에 대한 값으로 수정하여 접근이 가능합니다.
 
 [url]
@@ -298,13 +298,13 @@ GamePot.coupon(couponNumber, (success, error) => {
 
 아래는 사용할 수 있는 예약어 정의 표 입니다.
 
-| 예약어                            | 필수 | 타입   | 설명         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
-| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
-| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
-| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
-| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+| 예약어                            | 필수 | 타입   | 설명         | 최대 길이 |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     | 128       |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 | 128       |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          | 128       |
 
 |
 
