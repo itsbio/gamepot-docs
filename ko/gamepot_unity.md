@@ -1996,3 +1996,31 @@ String uniqueId = "developer unique id";
 
 sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
 ```
+
+## Firebase Unity SDK를 별도로 붙인 경우 주의점
+> 최초 한번 또는 패키지명이 변경될때 마다 Assets > External Dependency Manager > Android Resolver > Settings 내 Patch mainTemplate.gradle 옵션을 해제하신 후 (설정 변경 후 OK 버튼 클릭 필요 ) > Resolve 진행해주세요. 
+
+Resolve 과정이 진행시 Firebase 라이브러리가 유니티 에디터상에 입력된 패키지명으로 리패키징 하는 과정을 진행이 되는데 패키지명이 잘못된 경우 앱 설치가 되지 않습니다.
+
+```csharp
+반영사항 확인 방법 :
+
+Resolve 작업 이후 com.google.firebase.firebase-common-[Firebase 라이브러리 버전].aar 내 
+AndroidManifest.xml에서 android:authorities 값이
+버전에 맞는 패키지명 형식( [패키지명].firebaseinitprovider)으로 있는지 보시면 확인하시면 됩니다.
+
+<provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities=“[앱 패키지명].firebaseinitprovider"
+
+ex)앱 패키지명이 com.itsb.gamepot 일때 
+( com.itsb.gamepot은 게임팟 샘플 패키지명이므로 예제와 같은 패키지명으로 되어 있으면 안됩니다.)
+
+<provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities=“com.itsb.gamepot.firebaseinitprovider"
+            .......
+
+```
