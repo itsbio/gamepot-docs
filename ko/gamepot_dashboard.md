@@ -48,6 +48,13 @@ NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 
 ③ 대시보드에 보여질 시간대를 선택합니다.
 
+[용어 설명]
+
+신규 사용자 : 게임팟 사용자 아이디가 생성된 수
+
+일별 접속자 : 생성된 게임팟 사용자 아이디가 로그인 성공 한 수
+
+
 ## 대시보드 메뉴 활용하기
 
 ### 대시보드
@@ -81,6 +88,8 @@ NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 ![gamepot_dashboard_98](./images/gamepot_dashboard_98.png)
 
 Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일부터 지표에 표시되고 [Retention D+1]은 가입일의 다음날에도 접속한 회원부터 표시됩니다.
+
+Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 생성된 유저가 로그인까지 한 경우를 의미합니다.
 
 ### 매출 지표
 
