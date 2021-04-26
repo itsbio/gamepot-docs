@@ -408,6 +408,14 @@ GamePot_Android_UPL.xml 수정
 ...
 ```
 
+#### IOS
+
+1. `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다. 
+
+2. IOS용 GoogleService-Info.plist 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework/Resources/`의 경로에 복사한 후, 다시 **재압축** 합니다.
+
+    ![gamepot_unreal_004](./images/gamepot_unreal_004.png)
+
 ### 페이스북 로그인
 
 #### Facebook Developer Console
