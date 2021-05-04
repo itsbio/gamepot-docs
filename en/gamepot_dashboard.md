@@ -341,23 +341,24 @@ Once your API authentication key is connected, a bucket in Object Storage is aut
 
 #### Step 3. Add a notice
 
-공지사항을 추가하기 위해서 **공지사항** 메뉴로 이동합니다.
+Move to the **Notice** menu to add a notice.
 
-화살표 버튼을 이용하여 사용자에게 노출할 이미지 순서를 지정할 수 있습니다.
+Use the arrow buttons to specify the order of images that users can see.
 
-**공지사항 추가** 버튼을 통해 이미지를 추가할 수 있습니다.
+You can add images with the **Add notice** button.
 
-이후 팝업 메뉴가 나타나면 원하는 값을 입력하고 **저장** 버튼을 클릭하면 공지가 추가됩니다.
+Specify the values in the following pop-up window, and then click **Save**. A notice will be added.
 
-선택한 스토어의 분류에 따라 모든 스토어의 해당 앱에 공지사항이 노출되거나, 특정 스토어를 통하여 게임을 접속한 사용자에게만 공지사항이 노출될 수 있도록 지정할 수 있습니다.
+You can specify whether you want the notice to be displayed for all apps of a store per category, or to only be displayed to users accessing the game through a specific store.
 
-분류가 지정된 이미지는, 해당 분류 값으로 호출할 때에만 이미지가 노출됩니다.
+The classified images are only displayed when called by the relevant classification value.
 
-국가를 지정하면 해당 국가에 해당하는 디바이스에 대해서만 이미지가 노출됩니다.
+Specifying a country will only display images to devices corresponding to the specified country.
 
-노출된 공지사항 이미지를 사용자가 터치할 경우 클릭액션 타입에 의해 URL은 외부 브라우저로 이동하며, SCHEME은 callback 함수로 값을 리턴합니다.
+If users touch images displayed in the notice, then the URL opens in an external browser according to the click action type and a SCHEME returns the value with callback function.
 
-언어 설정 별로, 노출 될 이미지를 추가 등록 할 수 있습니다.
+Additional images may be registered to be displayed per language setting.
+
 
 ### Check and update
 
@@ -485,21 +486,21 @@ Coupons are an essential element in games. Two types of coupons are supported: c
 
 #### - Common coupon
 
-일반 쿠폰은 일반적인 코드 형태로 되어 있는 쿠폰입니다.
+A common coupon is provided to users as a generic code.
 
-게임 내에서 사용될 쿠폰을 쉽게 생성 및 관리 하실 수 있는 기능입니다.
+This feature allows you to easily create and manage coupons in your game.
 
-리스트 앞 쪽의 아이콘을 클릭하면 쿠폰 수량을 추가하거나 사용 통계를 확인할 수 있습니다.
+You can add additional coupons and check coupon usage statistics by clicking the icon in front of the list.
 
-**+쿠폰생성**을 클릭하면 쿠폰을 생성할 수 있습니다.
+Click **+Create coupon** to create a coupon.
 
-Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성 시 지정된 문구가 붙습니다.
+Specify the Prefix (prefix) and Suffix (\suffix), which will be added to your coupon code when it is created.
 
-쿠폰 수량은 최대 10만개 생성 가능하며, 생성 후에 증가시킬 수 있습니다. 최대 쿠폰 수는 50만개 입니다.
+Add up to 100,000 coupons; the number can be increased later. The maximum number of coupons is 500,000.
 
-제목과 내용을 입력하면 인게임에서 쿠폰 제목과 쿠폰 내용을 보여줄 수 있습니다.
+After entering a title and description, the coupon title and coupon description will be displayed in-game.
 
-쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
+Specify an item to be offered for a coupon and the number of items. Click the + button to provide multiple items.
 
 #### - Keyword coupon
 
@@ -507,19 +508,21 @@ This feature allows you to create keywords such as “Christmas”, “open even
 
 Click **+Create coupon**.
 
-기간과 쿠폰을 지급할 키워드를 입력해야 합니다.
+You must enter a time period and keyword for the coupon.
 
-제한 수량을 초과하지 않고 지급이 가능합니다.
+The number of available coupons can't exceed this value.
 
-제목과 내용을 입력하면 인게임에서 쿠폰 제목과 쿠폰 내용을 보여줄 수 있습니다.
+Entering a title and description, the coupon title and coupon description will be displayed in-game.
 
-쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
+Specify an item to be offered for a coupon and the number of items. Click the + button to provide multiple items.
+
 
 #### - Usage history
 
-전체 발급된 쿠폰 번호를 기간, 쿠폰 번호, 사용자 ID 등으로 조회하실 수 있습니다.
+You can look up the period, coupon number, and user ID of all issued coupons.
 
-[실패 이력 조회] 버튼을 체크하면 실패한 이력만 조회할 수 있습니다.
+Checking the [Look up failed history] button will only look up failed history.
+
 
 ### Customer Support
 
@@ -527,45 +530,47 @@ Enables you to answer questions asked by users. If there is a customer support m
 
 #### - Inquiries
 
-고객이 문의한 내역을 확인하실 수 있습니다.
+It displays inquiries made by users.
 
-고객문의 페이지에서 해당 회원에 대한 모든 정보를 확인할 수 있습니다.
+Check all information regarding the corresponding member at the inquiries page.
 
-번역 기능으로 문의 내용, 답변 내용의 언어를 감자히거나 원하는 언어로 번역할 수 있습니다.
+With the translation feature, you can detect the language of inquiries and replies or translate them into a preferred language.
 
-> 고객문의 번역 기능은 프로젝트 설정>NCloud>Papago 값을 설정해야 노출됩니다. 기본 번역 언어, 자동 언어 감지, 자동 번역 기능은 회원 정보 수정에서 설정할 수 있습니다.
 
-각 문의에 담당자를 지정할 수 있습니다. 담당자를 지정하면 해당 담당자 외 다른 사용자는 문의에 답변할 수 없습니다.
+> Translation features for inquiries appear after setting Set project > NCloud > Papago value. Set the default translation language, automatic language detection, and automatic translation features in Edit member information.
 
-답변 템플릿을 선택하여 자주 쓰는 답변 내용을 불러올 수 있습니다.
+Specify an owner for each inquiry. Users other than the specified owner can't answer the inquiries.
 
-답변에 필요한 이미지 및 동영상 파일을 업로드할 수 있습니다.
+You can select a reply template to import frequently used replies.
 
-답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
+Upload image and video files required for the response.
 
-**\[알림 및 문의 설정\]**
+Customer satisfaction rating only appears after the inquiry is closed and the user rates the response.
 
-문의 답변 시 고객에게 푸시, 메일을 발송을 설정하거나 문의 설정을 하는 기능입니다.
 
-##### 푸시 설정
+**\[Notification and inquiry settings\]**
 
-디바이스 언어 설정에 따른 푸시 알림 기능을 설정합니다.
+This feature configures push or email notifications sent to the customer upon replying to an inquiry and other inquiry settings.
 
-##### 메일 설정
+##### Set push
 
-발신 메일 설정을 언어별로 입력합니다.
+Configures the push notification feature according to the device's language settings.
 
-메일 발송 기능을 사용하려면 발신 메일 주소, 발신 메일 이름을 필수로 입력해야 합니다.
+##### Set email
 
-메일 내용을 입력하지 않으면 기본 메시지가 발송됩니다.
+Enter the settings of an outgoing email by language.
 
-**발신 메일 미리보기** 버튼을 클릭하여 발송될 메일 템플릿을 확인할 수 있습니다.
+Outgoing email address and outgoing email name are required to use the outgoing emailing feature.
 
-##### 고객문의 설정
+A default message will be sent if you don't enter body text for an email.
 
-문의 시 수집 항목 노출 여부를 선택합니다.
+You can click the **Preview outgoing email** button to see the email template of the email to be sent.
 
-활성화한 항목은 고객 문의 UI에 입력 항목이 표시됩니다.
+##### Set customer inquiry
+
+Select the items to be displayed for collection upon inquiry.
+
+The activated items will be displayed as an input element in the inquiry UI.
 
 **\[Set category\]**
 
@@ -575,11 +580,11 @@ Click **Set category.**
 
 ![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
 
-**분류 추가**를 통해, 고객문의에 대한 분류명을 추가하고 관리할 수 있습니다.
+**Add category** enables you to add and manage categories for inquiries.
 
-디바이스 언어설정에 따라 다른 분류명과 템플릿을 지정해 놓을 수 있습니다.
+Add different categories and templates for the device's language setting.
 
-이벤트 약관을 설정하면 SDK에서 해당 분류를 선택했을때 약관창이 노출됩니다.
+If event terms and conditions are configured, then the terms and conditions window will be displayed upon the selection of the corresponding category in the SDK.
 
 **\[Web inquiry address\]**
 
@@ -693,17 +698,17 @@ Enter the contents of internal refund policy. Users can view this via SDK.
 
 Check the inquiry statistics for a specified period.
 
-답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
+Customer satisfaction rating only appears after the inquiry is closed and the user rates the response.
 
-#### - 담당자별 통계
+#### - Statistics by person in charge
+Selecting a person in charge will allow you to see the statistics per owner.
 
-담당자를 선택하여 담당자별 통계를 확인할 수 있습니다.
+#### - Daily report
 
-#### - 일별 리포트
+You can check the inquiry statistics by day.
 
-고객 문의 통계를 일별로 확인할 수 있습니다.
+Up to 90 days worth of reports can be looked up.
 
-최대 90일까지 조회가능합니다.
 
 #### - Page
 
@@ -964,21 +969,22 @@ Auth Key is used to verify a token when a user logs in to Google or Facebook; if
 
 ##### WebHook
 
-결제 아이템은 결제 성공 시 아이템 지급을 요청하는 주소를 입력합니다.
+Successfully purchased items input an address that requests the provision of an item.
 
-쿠폰 아이템은 SDK를 이용하여 쿠폰 사용 성공 시 SDK 서버에서 개발사 서버로 성공에 대한 처리\(아이템 지급\)를 요청하는 주소를 입력합니다.
+A coupon item uses an SDK to input a request address from the SDK server to the developer server to request items (provide items) when a coupon is successfully used.
 
-실 서비스에 이용되는 주소\(서비스\)와 서비스 중 테스트 환경이 필요한 경우의 주소\(테스트사용자\)가 제공됩니다. 테스트 사용자 주소로 동작하게 하려면 '프로젝트 설정 &gt; 테스트 사용자'에 추가해 주셔야 합니다.
+Two types of address are provided: an address (service) used for the live service, and a different address (test user) for a testing environment. If you need to use a test user address, then add it in "Set project > Test user."
 
-**WebHook Test** 버튼을 클릭하여 WebHook 적용을 간단하게 테스트할 수 있습니다.
+Click the **WebHook test** button to easily test the WebHook implementation.
 
-**White IP** 버튼을 클릭하여 Webhook을 통해 게임 서버 호출 시 허용해야 하는 IP 리스트를 확인할 수 있습니다.
+Click the **White IP** button to see a list of IPs required to be permitted when calling game servers via Webhook.
 
-**테스트 결제 발송 차단** 스위치를 활성화하면 테스트 결제 시 Webhook을 발송을 차단할 수 있습니다.
+Activating the **Block sending test payment** will block a Webhook from being sent when testing payments.
 
-> 활성화한 경우 : 테스트 결제 시 결제 실패로 처리
+
+> When activated : Process test payment as failed
 >
-> 비활성화한 경우 : 테스트 결제 시 결제 성공으로 처리
+> When deactivated : Process test payment as successful
 
 #### - Ncloud
 
@@ -1023,7 +1029,7 @@ When a test user with the registered IP address accesses the game, the following
 - Update: The game proceeds even if updates are activated.
 - Member: The game proceeds even if there are countries or IPs blocked.
 
-**추가** 버튼을 클릭해서 매개변수와 값을 입력합니다.
+Click the **Add** button to input parameters and values.
 
 #### - Block
 
@@ -1051,11 +1057,11 @@ It manages keys used in authentications for using open APIs.
 Click [+Add] to create a key and enter the key value created in the header as x-api-key value when calling open APIs.
 Click the key created to access Edit. Edit the key status, key expiration date, and description or delete the key.
 
-### 관리자
+### Admin
 
-#### 감사
+#### Audit
 
-최고 관리자 계정으로 대시보드 사용자의 활동 기록을 확인할 수 있습니다.
+With a super admin account, you can check the activity history of dashboard users.
 
 ## Others
 
@@ -1069,29 +1075,30 @@ Download the output result of csv files from each menu for a month.
 
 ### SDK다운로드
 
-Android, IOS, Unity SDK를 다운로드할 수 있습니다.
+You can download Android, iOS, and Unity SDKs.
 
 ![gamepot_dashboard_110](./images/gamepot_dashboard_110.png)
 
-> 대시보드 우측 상단에서 GAMEPOT 정보를 확인할 수 있습니다.
+> You can check the GAMEPOT information on the upper right side of the dashboard.
 
-### GAMEPOT 공지사항
+### GAMEPOT notice
 
-GAMEPOT의 공지사항을 확인할 수 있습니다.
+You can check GAMEPOT notices.
 
-### 사용자 가이드
+### User Guide
 
-GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
+Goes to the User Guide page for GAMEPOT dashboard.
 
-### 언어 변경
+### Change language
 
-대시보드의 각 메뉴 등이 선택한 언어로 변경됩니다.
+Change the display language of the dashboard to the selected language.
 
-### 회원정보수정
+### Edit member information
 
-대시보드 이용 계정의 이름, 비밀번호를 변경하실 수 있습니다.
+This enables you to edit the name and password of the dashboard account.
 
-대시보드 우측 상단의 아이콘을 클릭하면 나타나는 드롭다운 메뉴 중 회원정보수정을 선택할 수 있습니다.
+Click the icon on the upper right side of the dashboard. You can select Edit member information in the drop-down menus.
+
 
 ![gamepot_dashboard_80](./images/gamepot_dashboard_80.png)
 
