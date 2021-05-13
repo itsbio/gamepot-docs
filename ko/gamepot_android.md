@@ -20,7 +20,7 @@ Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같�
 
 \[ 시스템 환경 \]
 
-- 최소사항: API 17 \(Jelly Bean, 4.2\) 이상, gradle 2.3.0 이상
+- 최소사항: API 17 \(Jelly Bean, 4.2\) 이상, gradle 3.3.3 이상
 - 개발 환경: Android Studio
 
 #### 프로젝트 생성
@@ -128,7 +128,7 @@ dependencies {
     compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
     compile 'com.android.billingclient:billing:1.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.romandanylyk:pageindicatorview:1.0.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.3'
     compile 'com.google.firebase:firebase-core:16.0.6'
     compile 'com.google.firebase:firebase-messaging:17.3.4'
     compile 'androidx.sqlite:sqlite-framework:2.0.1'

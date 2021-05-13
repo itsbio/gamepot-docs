@@ -20,7 +20,7 @@ The system requirements for GAMEPOT in Android are described below:
 
 \[ System requirements \]
 
-- Minimum requirements: API 17 \(Jelly Bean, 4.2\) or later, gradle 2.3.0 or later
+- Minimum requirements: API 17 \(Jelly Bean, 4.2\) or later, gradle 3.3.3 or later
 - Development environment: Android Studio
 
 #### Create a project
@@ -128,7 +128,7 @@ dependencies {
     compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
     compile 'com.android.billingclient:billing:1.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.romandanylyk:pageindicatorview:1.0.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.3'
     compile 'com.google.firebase:firebase-core:16.0.6'
     compile 'com.google.firebase:firebase-messaging:17.3.4'
     compile 'androidx.sqlite:sqlite-framework:2.0.1'
