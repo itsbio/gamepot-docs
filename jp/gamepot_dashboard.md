@@ -1,46 +1,36 @@
----
-search:
-  keyword: ['gamepot']
----
+## Dashboard
 
-#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="https://guide.ncloud-docs.com/docs/ja/home" target="_blank">[説明書]</a>と<a href="https://api.ncloud-docs.com/docs/ja/home" target="_blank">[API リファレンス]</a>を分けて提供しています。**
+NAVER Cloud Platform の GAMEPOT で提供するダッシュボードに関するガイドです。
 
-<a href="https://api.ncloud-docs.com/docs/ja/game-gamepot" target="_blank">GAMEPOT API リファレンスへ >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/ja/game-gamepotconsole" target="_blank">GAMEPOT 説明書へ >></a>
+## GAMEPOT ダッシュボードの紹介<a name="GAMEPOTダッシュボードの紹介"></a>
 
-# Dashboard
-
-NAVER CLOUD PLATFORM の GAMEPOT で提供するダッシュボードに関するガイドです。
-
-## GAMEPOT ダッシュボードの紹介
-
-**Q. ダッシュボードとは？**
+**Q.ダッシュボードとは？**
 
 ダッシュボードを通じてゲームを運用、管理できます。
 
-**Q. ダッシュボードにはどのような運用機能が含まれていますか？**
+**Q.ダッシュボードにはどのような運用機能が含まれていますか？**
 
-ダッシュボードでは会員のアクセス統計と決済に関する統計の確認ができ、NAVER CLOUD PLATFORM のサービスと連携して PUSH、SMS、ログ分析など様々な機能を制御できます。また、クーポンやアップデートなどゲーム運用に必要な機能がサービス内に備わっているため、より効率的にゲーム管理ができます。
+ダッシュボードでは会員のアクセス統計と決済に関する統計の確認ができ、NAVER Cloud Platform のサービスと連携して PUSH、SMS、ログ分析など様々な機能を制御できます。また、クーポンやアップデートなどゲーム運用に必要な機能がサービス内に備わっているため、より効率的にゲーム管理ができます。
 
-## GAMEPOT ダッシュボードを始める
+## GAMEPOT ダッシュボードを始める<a name="GAMEPOTダッシュボードを始める"></a>
 
-### ログイン
+### ログイン<a name="ログイン"></a>
 
-#### Step 1. ダッシュボードにアクセス
+#### Step 1. ダッシュボードにアクセス<a name="Step1ダッシュボードにアクセス"></a>
 
-NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリックし、ダッシュボードにアクセスします。
+NAVER Cloud Platform のコンソールでダッシュボード URL をクリックし、ダッシュボードにアクセスします。
 
-![gamepot_dashboard_01](./images/gamepot_dashboard_01.png)
+![gamepot_dashboard_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_01%2816%29.png)
 
-#### STEP 2. 会員登録
+#### STEP 2. 会員登録<a name="STEP2会員登録"></a>
 
 プロジェクト作成時に登録した管理者アカウントにパスワード初期化メールが送信されます。
 
-#### STEP 3. ログイン
+#### STEP 3. ログイン<a name="STEP3ログイン"></a>
 
 管理者アカウントがダッシュボード管理のすべての権限を持つマスターアカウントになります。
 
-![gamepot_dashboard_02](./images/gamepot_dashboard_02.png)
+![gamepot_dashboard_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_02%2817%29.png)
 
 ① 管理者アカウントで使用するパスワードを設定します。
 
@@ -48,23 +38,23 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 ③ ダッシュボードに表示される時間帯を選択します。
 
-## ダッシュボードのメニューを活用する
+## ダッシュボードのメニューを活用する<a name="ダッシュボードのメニューを活用する"></a>
 
-### ダッシュボード
+### ダッシュボード<a name="ダッシュボード"></a>
 
 ダッシュボードでは、会員登録現況、売上、アクセス、統計などのゲーム全般の運用状況を一目で把握できます。
 
-![gamepot_dashboard_03](./images/gamepot_dashboard_03.png)
+![gamepot_dashboard_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_03%2817%29.png)
 
 ① 日付を選択してグラフを確認できます。
 
-## 統計
+## 統計<a name="統計1"></a>
 
-### ユーザー指標
+### ユーザー指標<a name="ユーザー指標"></a>
 
 指定した期間の各種ユーザー指標をグラフで表示します。
 
-![gamepot_dashboard_04](./images/gamepot_dashboard_04.png)
+![gamepot_dashboard_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_04%2817%29.png)
 
 ① 基本的に直近 30 日間のユーザー指標が表示され、期間を指定すると指定した期間のユーザー指標を照会できます。
 
@@ -72,21 +62,19 @@ NAVER CLOUD PLATFORM のコンソールでダッシュボード URL をクリッ
 
 ③ 最後のアップデート時間を確認できます。
 
-![gamepot_dashboard_05](./images/gamepot_dashboard_05.png)
+![gamepot_dashboard_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_05%2817%29.png)
 
 ① 現在表示されているグラフの RAW データを CSV ファイルの形式でダウンロードできます。
 
-#### Retention
+#### Retention<a name="Retention"></a>
 
-![gamepot_dashboard_98](./images/gamepot_dashboard_98.png)
+Retention データを確認できます。**[Retention D+0]** は登録日から指標に表示され、**[Retention D+1]** は登録日の翌日もアクセスした会員から表示されます。
 
-Retention データを確認できます。[Retention D+0]は登録日から指標に表示され、[Retention D+1]は登録日の翌日もアクセスした会員から表示されます。
-
-### 売上指標
+### 売上指標<a name="売上指標"></a>
 
 指定した期間の各種売上指標をグラフで表示します。
 
-![gamepot_dashboard_06](./images/gamepot_dashboard_06.png)
+![gamepot_dashboard_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_06%2819%29.png)
 
 ① 基本的に直近 30 日間の売上指標が表示され、期間を指定すると指定した期間の売上指標を照会できます。
 
@@ -94,19 +82,19 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 
 ③ 最後のアップデート時間を確認できます。
 
-![gamepot_dashboard_07](./images/gamepot_dashboard_07.png)
+![gamepot_dashboard_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_07%2818%29.png)
 
 ① 現在表示されているグラフの RAW データを CSV ファイルの形式でダウンロードできます。
 
-## 運用
+## 運用<a name="運用"></a>
 
-### 会員
+### 会員<a name="会員"></a>
 
-#### - リスト
+#### - リスト<a name="リスト"></a>
 
 会員登録した会員リストが表示されます。
 
-![gamepot_dashboard_08](./images/gamepot_dashboard_08.png)
+![gamepot_dashboard_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_08%2819%29.png)
 
 ① 登録日、国、ストア、ユーザー ID、デバイス ID、ADID、IP などを指定して会員を照会できます。
 
@@ -116,11 +104,11 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 
 ④ ユーザー ID をクリックすると以下のような詳細ページが表示されます。
 
-![gamepot_dashboard_09](./images/gamepot_dashboard_09.png)
+![gamepot_dashboard_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_09%2817%29.png)
 
 ① 会員に対する基本情報を表示します。
 
-② ゲームにアクセスした\(ログイン\)履歴を表示します。
+② ゲームにアクセスした（ログイン）履歴を表示します。
 
 ③ プレイヤー ID、レベルなどゲーム内の情報を表示します。
 
@@ -136,9 +124,9 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 
 ⑧ 支給されたアイテム明細を表示します。
 
-**個別プッシュ送信**ボタンをクリックして特定会員にプッシュメッセージを送信できます。
+**[個別プッシュ送信]** ボタンをクリックして特定会員にプッシュメッセージを送信できます。
 
-![gamepot_dashboard_95](./images/gamepot_dashboard_95.png)
+![gamepot_dashboard_95.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_95%2817%29.png)
 
 ① 送信するプッシュメッセージの基本言語を指定します。
 
@@ -146,9 +134,9 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 
 ③ 送信する言語を選択します。
 
-**利用停止**ボタンをクリックして特定会員の利用停止ができます。
+**[利用停止]** ボタンをクリックして特定会員の利用停止ができます。
 
-![gamepot_dashboard_96](./images/gamepot_dashboard_96.png)
+![gamepot_dashboard_96.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_96%2817%29.png)
 
 ① 利用停止状態を選択します。
 
@@ -162,59 +150,59 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 
 ⑥ 利用停止期間を指定します。
 
-**会員退会**ボタンをクリックして特定会員を退会させることができます。
+**[会員退会]** ボタンをクリックして特定会員を退会させることができます。
 
-![gamepot_dashboard_97](./images/gamepot_dashboard_97.png)
+![gamepot_dashboard_97.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_97%2817%29.png)
 
-#### - 日別のアクセス者
+#### - 日別のアクセス者<a name="日別のアクセス者"></a>
 
 指定した期間の日別のアクセス者数をグラフで表示します。
 
 基本的に直近 30 日間の日別のアクセス者数が表示され、期間を指定すると指定した期間の日別のアクセス者数を照会できます。
 
-![gamepot_dashboard_10](./images/gamepot_dashboard_10.png)
+![gamepot_dashboard_10.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_10%2817%29.png)
 
 ① 現在表示されているグラフの RAW データを CSV ファイルの形式でダウンロードできます。
 
 ② 最後のアップデート時間を確認できます。
 
-#### - 新規ユーザー
+#### - 新規ユーザー<a name="新規ユーザー"></a>
 
 指定した期間にゲームに会員登録した日別の新規登録者数をグラフで表示します。
 
 基本的に直近 30 日間の日別の新規会員登録者数が表示され、期間を指定すると指定した期間の日別の新規登録者数を照会できます。
 
-![gamepot_dashboard_11](./images/gamepot_dashboard_11.png)
+![gamepot_dashboard_11.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_11%2817%29.png)
 
 ① 現在表示されているグラフの RAW データを CSV ファイルの形式でダウンロードできます。
 
 ② 最後のアップデート時間を確認できます。
 
-#### - 同時アクセス者
+#### - 同時アクセス者<a name="同時アクセス者"></a>
 
 ゲームにアクセスした会員数を 1 分単位で最大 3 日分、同時に照会できます。
 
-![gamepot_dashboard_12](./images/gamepot_dashboard_12.png)
+![gamepot_dashboard_12.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_12%2817%29.png)
 
-① 当日と前日、前々日が基本として指定されていて、最大照会可能日数の 3 日分を選択\(変更\)できます。初期化ボタンを押すと、基本指定日に戻ることができます。
+① 当日と前日、前々日が基本として指定されていて、最大照会可能日数の 3 日分を選択（変更）できます。初期化ボタンを押すと、基本指定日に戻ることができます。
 
 ② 現在表示されているグラフの RAW データを CSV ファイルの形式でダウンロードできます。
 
 ③ 最後のアップデート時間を確認できます。
 
-#### - 利用停止
+#### - 利用停止<a name="利用停止"></a>
 
 特定会員に対して、指定した期間ゲームにアクセスできないようにします。
 
 利用停止は会員のユーザー ID を基準に適用されます。
 
-![gamepot_dashboard_13](./images/gamepot_dashboard_13.png)
+![gamepot_dashboard_13.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_13%2817%29.png)
 
 ① 利用停止を適用するには、追加ボタンをクリックします。
 
 ② 利用停止分類を設定し、レスポンスメッセージのテンプレートを登録できます。
 
-③ 特定期間に関する利用停止記録を照会できます。 開始日を基準に検索されます。
+③ 特定期間に関する利用停止記録を照会できます。開始日を基準に検索されます。
 
 ④ 特定ユーザー ID に関する利用停止履歴を照会できます。
 
@@ -223,13 +211,13 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 - 有効 ：現在、利用停止状態が適用されている場合
 - 無効 ：現在、利用停止状態が解除されている場合
 
-### 決済
+### 決済<a name="決済"></a>
 
-#### - 決済リスト
+#### - 決済リスト<a name="決済リスト"></a>
 
 会員が Google Play Store、APPSTORE、ONE Store、Galaxy Store で決済を行った履歴を確認できます。
 
-![gamepot_dashboard_14](./images/gamepot_dashboard_14.png)
+![gamepot_dashboard_14.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_14%2817%29.png)
 
 ① 失敗した決済に対してチェックボックスで複数選択してから、再支給ボタンをクリックして再支給できます。
 
@@ -239,31 +227,31 @@ Retention データを確認できます。[Retention D+0]は登録日から指�
 
 ④ 決済リストを CSV ファイルの形式でダウンロードできます。
 
-⑤ 成功した決済について決済キャンセル処理ができます。 決済をキャンセルする場合、売上統計から除外されます。
+⑤ 成功した決済について決済キャンセル処理ができます。決済をキャンセルする場合、売上統計から除外されます。
 
-⑥ 会員が行った決済の成否を照会できます。 失敗した決済についてはアイテムを再支給できます。
+⑥ 会員が行った決済の成否を照会できます。失敗した決済についてはアイテムを再支給できます。
 
-![gamepot_dashboard_15](./images/gamepot_dashboard_15.png)
+![gamepot_dashboard_15.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_15%2816%29.png)
 
 決済状態をクリックすると行った決済の詳細履歴を確認でき、失敗した決済については再支給ボタンをクリックしてアイテムを再支給できます。
 
-#### - IAP
+#### - IAP<a name="IAP"></a>
 
 In-App 購入時に商品情報を管理する機能です。Google Play Store、APPSTORE、ONE Store、Galaxy Store などの商品をすべて登録してください。
 
-![gamepot_dashboard_16](./images/gamepot_dashboard_16.png)
+![gamepot_dashboard_16.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_16%2818%29.png)
 
-① **In-App アイテム追加**ボタンをクリックしてストア、商品名、商品 ID を入力し、有料アイテムを作成できます。
+① **[In-App アイテム追加]** ボタンをクリックしてストア、商品名、商品 ID を入力し、有料アイテムを作成できます。
 
-② **大量入力**ボタンをクリックすると、In-App 商品を CSV ファイルで一度に登録できます。
+② **[大量入力]** ボタンをクリックすると、In-App 商品を CSV ファイルで一度に登録できます。
 
-③ 各商品項目のチェックボックスを複数選択してから、**削除**ボタンをクリックして削除できます。
+③ 各商品項目のチェックボックスを複数選択してから、**[削除]** ボタンをクリックして削除できます。
 
-#### - 統計
+#### - 統計<a name="統計2"></a>
 
 一日単位で決済金額データをグラフで表示する機能です。
 
-![gamepot_dashboard_17](./images/gamepot_dashboard_17.png)
+![gamepot_dashboard_17.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_17%2818%29.png)
 
 ① ストアを指定してグラフを見ることができます。
 
@@ -271,12 +259,11 @@ In-App 購入時に商品情報を管理する機能です。Google Play Store�
 
 ③ 最後のアップデート時間を確認できます。
 
-#### - 決済キャンセル
+#### - 決済キャンセル<a name="決済キャンセル"></a>
 
 ストアの決済領収証の状態と比較して、任意に決済をキャンセルする会員のゲームアクセスに対して利用停止措置を行うことができます。利用停止になった会員が当該アイテムを再決済すると、利用停止が無効化します。Google Play Store と APPSTORE の領収証検証に対応しています。
 
-![gamepot_dashboard_18](./images/gamepot_dashboard_18.png)
-
+![gamepot_dashboard_18.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_18%2816%29.png)
 ① 決済をキャンセルした会員の利用停止処理条件を設定します。
 
 ② 状態、ストア、ユーザー ID、パッケージ ID を選択して決済キャンセルリストを確認できます。
@@ -285,7 +272,7 @@ In-App 購入時に商品情報を管理する機能です。Google Play Store�
 
 ④ 最後のアップデート時間を確認できます。
 
-![gamepot_dashboard_19](./images/gamepot_dashboard_19.png)
+![gamepot_dashboard_19.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_19%2817%29.png)
 
 ① 会員が任意に決済キャンセルを悪用したと認められると、利用停止を決定できます。有効にすると、設定したオプションに応じて自動的に 1 時間間隔で決済キャンセルを悪用した会員の利用を停止します。
 
@@ -301,75 +288,75 @@ In-App 購入時に商品情報を管理する機能です。Google Play Store�
 
 ⑦ App Store の決済キャンセルリストを取得するには、アドレスコピーボタンをクリックして URL をコピーし、App Store に入力してください。
 
-### 案内事項
+### 案内事項<a name="案内事項"></a>
 
 ダッシュボードに登録した案内事項の画像は、ゲームにアクセスした会員に表示されます。表示するスケジュールとストアを指定するとその条件に合わせて案内事項が表示され、スケジュールが終了すると表示されません。
 
-案内事項機能を使用するには、まず NAVER CLOUD PLATFORM の API 認証キーと Object Storage サービスが必要になります。案内事項機能を使用すると、Object Storage 費用は別途で発生します。
+案内事項機能を使用するには、まず NAVER Cloud Platform の API 認証キーと Object Storage サービスが必要になります。案内事項機能を使用すると、Object Storage 費用は別途で発生します。
 
-#### Step 0. サブアカウントを作成して Object Storage サービスの利用権限を付与
+#### Step 0. サブアカウントを作成して Object Storage サービスの利用権限を付与<a name="Step0サブアカウントを作成してObjectStorageサービスの利用権限を付与"></a>
 
 ① API 認証キーが発行される前にサブアカウントを作成して Object Storage の利用権限を付与してから、当該アカウントを通じて API 認証キーを発行してもらうことをお勧めします。
 
-② [Sub Account 使用ガイド](https://docs.ncloud.com/ko/management/management-4-1.html)を参考にしてサブアカウントを作成します。(サブアカウントを作成する際に**API Gateway Access**をチェックしてください。)
+② [Sub Account 使用ガイド](/docs/ja/management-management-4-1)を参考にしてサブアカウントを作成します。(サブアカウントを作成する際に**API Gateway Access**をチェックしてください。)
 
-![gamepot_dashboard_20_01](./images/gamepot_dashboard_20_01.png)
+![gamepot_dashboard_20_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_20_01%2811%29.png)
 
-③ 作成したサブアカウントに Object Storage サービス権限を付与してください。[System Managed ポリシー説明書](https://docs.ncloud.com/ko/management/management-4-2.html)を参考にして当該サブアカウントに**NCP_OBJECT_STORAGE_MANAGER**権限を付与します。(もしくはオブジェクトストレージ権限が含まれた権限)
+③ 作成したサブアカウントに Object Storage サービス権限を付与してください。**System Managed ポリシー説明書**を参考にして当該サブアカウントに**NCP_OBJECT_STORAGE_MANAGER**権限を付与します。(もしくはオブジェクトストレージ権限が含まれた権限)
 
 ③ 作成したサブアカウントでアクセスし、API 認証キーを発行してもらいます。
 
-#### Step 1. API 認証キー用意
+#### Step 1. API 認証キー用意<a name="Step1API認証キー用意"></a>
 
-案内事項メニューは API を通じて Object Storage と連携して使用します。したがって、NAVER CLOUD PLATFORM の API 認証キーを予め用意する必要があります。
+案内事項メニューは API を通じて Object Storage と連携して使用します。したがって、NAVER Cloud Platform の API 認証キーを予め用意する必要があります。
 
-API 認証キーは**ポータル &gt; マイページ &gt; アカウント管理 &gt; 認証キー管理**メニューで作成できます。
+API 認証キーは**ポータル > マイページ > アカウント管理 > 認証キー管理**メニューで作成できます。
 
-![gamepot_dashboard_20](./images/gamepot_dashboard_20.png)
+![gamepot_dashboard_20.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_20%2811%29.png)
 
 ① API 認証キーを作成するには**新規 API 認証キー作成**をクリックしてください。
 
 - API 認証キーはアカウントごとに 2 個まで作成できます。
 
-#### Step 2. ダッシュボードと API 認証キーを連携する
+#### Step 2. ダッシュボードと API 認証キーを連携する<a name="Step2ダッシュボードとAPI認証キーを連携する"></a>
 
-Object Storage のバケットを作成して案内事項機能を使用するには、発行された認証キーとダッシュボードを連携させる必要があります。ダッシュボードの**プロジェクトの設定 &gt; Ncloud**メニューに移動し、API 認証キーを連携させます。
+Object Storage のバケットを作成して案内事項機能を使用するには、発行された認証キーとダッシュボードを連携させる必要があります。ダッシュボードの**プロジェクトの設定 > Ncloud**メニューに移動し、API 認証キーを連携させます。
 
-![gamepot_dashboard_21](./images/gamepot_dashboard_21.png)
+![gamepot_dashboard_21.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_21%2812%29.png)
 
 API 認証キーが連携されると Object Storage のバケットが自動的に作成されます。案内事項で使われたすべての画像はそのバケットに保存されます。
 
-#### Step 3. 案内事項の追加
+#### Step 3. 案内事項の追加<a name="Step3案内事項の追加"></a>
 
-공지사항을 추가하기 위해서 **공지사항** 메뉴로 이동합니다.
+案内事項を追加するには、**案内事項**メニューに移動します。
 
-화살표 버튼을 이용하여 사용자에게 노출할 이미지 순서를 지정할 수 있습니다.
+矢印ボタンを利用してユーザーに表示する画像の順序を指定できます。
 
-**공지사항 추가** 버튼을 통해 이미지를 추가할 수 있습니다.
+**[案内事項の追加]** ボタンをクリックして画像を追加できます。
 
-이후 팝업 메뉴가 나타나면 원하는 값을 입력하고 **저장** 버튼을 클릭하면 공지가 추가됩니다.
+次に、ポップアップメニューが表示されたら希望する値を入力し、**[保存]** ボタンをクリックすると案内が追加されます。
 
-선택한 스토어의 분류에 따라 모든 스토어의 해당 앱에 공지사항이 노출되거나, 특정 스토어를 통하여 게임을 접속한 사용자에게만 공지사항이 노출될 수 있도록 지정할 수 있습니다.
+選択したストアの分類に応じてすべてのストアの当該アプリに案内事項を表示するか、特定のストアを通じてゲームにアクセスしたユーザーにのみ案内事項を表示するかを指定できます。
 
-분류가 지정된 이미지는, 해당 분류 값으로 호출할 때에만 이미지가 노출됩니다.
+分類が指定された画像は、当該分類値で呼び出す時にのみ画像が表示されます。
 
-국가를 지정하면 해당 국가에 해당하는 디바이스에 대해서만 이미지가 노출됩니다.
+国を指定すると、当該国に該当するデバイスに対してのみ画像が表示されます。
 
-노출된 공지사항 이미지를 사용자가 터치할 경우 클릭액션 타입에 의해 URL은 외부 브라우저로 이동하며, SCHEME은 callback 함수로 값을 리턴합니다.
+表示された案内事項の画像をユーザーがタップすると、クリックアクションタイプによって URL は外部ブラウザに移動し、SCHEME は callback 関数で値を返します。
 
-언어 설정 별로, 노출 될 이미지를 추가 등록 할 수 있습니다.
+各言語設定別に、表示される画像を追加登録できます。
 
-### メンテナンス&アップデート
+### メンテナンス&アップデート<a name="メンテナンスアップデート"></a>
 
 メンテナンスとアップデート機能を用いて、より簡単かつ手軽にゲームを管理できます。
 
-#### - メンテナンス
+#### - メンテナンス<a name="メンテナンス"></a>
 
 ゲームメンテナンス時間に自動的にメンテナンスメッセージを表示して、ゲームアクセスを遮断します。
 
 メンテナンス時間とメッセージを入力して保存すると、ゲーム内でメンテナンス案内が表示されます。
 
-![gamepot_dashboard_25](./images/gamepot_dashboard_25.png)
+![gamepot_dashboard_25.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_25%2816%29.png)
 
 ① ストアを指定できます。全体メンテナンスの場合、全体ストアに指定してください。
 
@@ -383,11 +370,11 @@ API 認証キーが連携されると Object Storage のバケットが自動的
 
 **例：コミュニティのお知らせや直接作成したメンテナンス案内ページ**
 
-#### - アップデート
+#### - アップデート<a name="アップデート1"></a>
 
 最新バージョンでない場合はアップデート案内を表示し、Google Play Store や APPSTORE のようなストアのアップデート画面に移動します。
 
-![gamepot_dashboard_26](./images/gamepot_dashboard_26.png)
+![gamepot_dashboard_26.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_26%2816%29.png)
 
 ① ストア別に設定します。
 
@@ -402,35 +389,35 @@ API 認証キーが連携されると Object Storage のバケットが自動的
 - Custom URL 入力：ゲームクライアントのアップデートポップアップでアップデートボタンを選択すると、設定した Custom URL に移動
 - Custom URL 未入力：ゲームクライアントのアップデートポップアップでアップデートボタンを選択すると、基本設定されているストアに移動
 
-### メッセージ
+### メッセージ<a name="メッセージ"></a>
 
-別途のメッセージサーバを構築せずに、SMS や PUSH などを通じてメッセージ通知機能を実装できるサービスです。この機能を使用するには、NAVER Cloud Plaform の Simple & Easy Notification Service\(SENS\)を申請する必要があります。
+別途のメッセージサーバを構築せずに、SMS や PUSH などを通じてメッセージ通知機能を実装できるサービスです。この機能を使用するには、NAVER Cloud Plaform の Simple & Easy Notification Service（SENS）を申請する必要があります。
 
-① サブアカウントを作成して SENS サービスを申請することをお勧めします。本文の**案内事項 -&gt; Step 0**を参考にしてサブアカウントを作成します。(**Step 0** と同様に、API 認証キーもまたサブアカウントで発行してもらってください。)
+① サブアカウントを作成して SENS サービスを申請することをお勧めします。本文の**案内事項 -> Step 0**を参考にしてサブアカウントを作成します。(**Step 0** と同様に、API 認証キーもまたサブアカウントで発行してもらってください。)
 
-② 作成したサブアカウントに SENS サービス権限を付与してください。[System Managed ポリシー説明書](https://docs.ncloud.com/ko/management/management-4-2.html)を参考にして当該サブアカウントに**NCP_SENS_MANAGER**(が含まれた)権限を付与します。
+② 作成したサブアカウントに SENS サービス権限を付与してください。**System Managed ポリシー説明書**を参考にして当該サブアカウントに**NCP_SENS_MANAGER**(が含まれた)権限を付与します。
 
-① SENS と連携するにはサービスキーを発行する必要があります。**サービスキー発行**ボタンをクリックし、作成したサブアカウントでアクセスした後、[SENS 共通ガイド](https://docs.ncloud.com/ko/sens/sens-1-2.html)を参考にしてサービスキーを発行してもらいます。
+① SENS と連携するにはサービスキーを発行する必要があります。**[サービスキー発行]** ボタンをクリックし、作成したサブアカウントでアクセスした後、[SENS 共通ガイド](/docs/ja/sens-sens-1-2)を参考にしてサービスキーを発行してもらいます。
 
-![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
+![gamepot_dashboard_27.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_27%2811%29.png)
 
-② **証明書登録ガイド**ボタンをクリックし、**SENS ウェブコンソール使用ガイド**に従って証明書を登録します。
+② **[証明書登録ガイド]** ボタンをクリックし、**SENS ウェブコンソール使用ガイド**に従って証明書を登録します。
 
-③ **設定**ボタンをクリックし、以下の画面に移動して PUSH サービス ID の値を入力します。
+③ **[設定]** ボタンをクリックし、以下の画面に移動して PUSH サービス ID の値を入力します。
 
-![gamepot_dashboard_28](./images/gamepot_dashboard_28.png)
+![gamepot_dashboard_28.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_28%2815%29.png)
 
-#### - プッシュメッセージ
+#### - プッシュメッセージ<a name="プッシュメッセージ"></a>
 
-**メッセージ &gt; プッシュメッセージ**メニューをクリックすると、送信状態、予約時間、送信時間などを確認できるリスト画面が表示されます。
+**メッセージ > プッシュメッセージ**メニューをクリックすると、送信状態、予約時間、送信時間などを確認できるリスト画面が表示されます。
 
-![gamepot_dashboard_29](./images/gamepot_dashboard_29.png)
+![gamepot_dashboard_29.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_29%2817%29.png)
 
-**プッシュメッセージ**メニューで **+メッセージ追加**ボタンをクリックすると、以下のようなポップアップが表示されます。このポップアップメニューからメッセージを送信できます。
+**プッシュメッセージ**メニューで **[+メッセージ追加]** ボタンをクリックすると、以下のようなポップアップが表示されます。このポップアップメニューからメッセージを送信できます。
 
-![gamepot_dashboard_30](./images/gamepot_dashboard_30.png)
+![gamepot_dashboard_30.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_30%2816%29.png)
 
-① プッシュメッセージの伝送スケジュールを指定できます。\(即送信 / 予約送信 / 予約送信\(グローバル現地時間\)\)
+① プッシュメッセージの伝送スケジュールを指定できます。（即送信 / 予約送信 / 予約送信（グローバル現地時間））
 
 ② プラットフォームを指定し、指定したプラットフォームのユーザーのみプッシュ通知を受け取れます。
 
@@ -440,8 +427,6 @@ API 認証キーが連携されると Object Storage のバケットが自動的
 
 ⑤ デバイスの言語設定に応じて異なるプッシュメッセージを登録できます。
 
-![gamepot_dashboard_100](./images/gamepot_dashboard_100.png)
-
 CSV ファイルのアップロードを通じて、プッシュメッセージを大量に送信できます。
 
 - 大量入力を通じて最大 100 件のプッシュを登録できます。(CSV ファイルの最大容量は 20MB)
@@ -449,25 +434,25 @@ CSV ファイルのアップロードを通じて、プッシュメッセージ�
 - CSV ファイルは UTF-8 形式で保存してから登録してください。
 - 大量入力の場合、プッシュの即送信には対応していません。
 
-#### - テキストメッセージ
+#### - テキストメッセージ<a name="テキストメッセージ"></a>
 
-SMS/LMS の送信や履歴、結果照会などの機能を使用できます。SMS/LMS を送信するには、まず NAVER CLOUD PLATFORM の SENS でサービスキーの発行と発信番号の登録を行う必要があります。
+SMS/LMS の送信や履歴、結果照会などの機能を使用できます。SMS/LMS を送信するには、まず NAVER Cloud Platform の SENS でサービスキーの発行と発信番号の登録を行う必要があります。
 
-![gamepot_dashboard_31](./images/gamepot_dashboard_31.png)
+![gamepot_dashboard_31.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_31%2811%29.png)
 
-① SENS と連携するには、まずサービスキーの発行と発信番号の登録を行う必要があります。**サービスキーの発行**ボタンをクリックして、[SENS 共通ガイド](https://docs.ncloud.com/ko/sens/sens-1-1.html)と[SENS SMS 使用ガイド](https://docs.ncloud.com/ko/sens/sens-1-3.html)を参考にしてサービスキーの発行と発信番号の登録を行います。
+① SENS と連携するには、まずサービスキーの発行と発信番号の登録を行う必要があります。**[サービスキーの発行]** ボタンをクリックして、[SENS 共通ガイド](/docs/ja/sens-sens-1-1)と[SENS SMS 使用ガイド](/docs/ja/sens-sens-1-3)を参考にしてサービスキーの発行と発信番号の登録を行います。
 
-② **設定**ボタンをクリックして、サービス ID と Secret Key を入力してください。
+② **[設定]** ボタンをクリックして、サービス ID と Secret Key を入力してください。
 
-![gamepot_dashboard_32](./images/gamepot_dashboard_32.png)
+![gamepot_dashboard_32.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_32%2816%29.png)
 
-**メッセージ追加**ボタンをクリックします。以下のようなポップアップが表示されます。
+**[メッセージ追加]** ボタンをクリックします。以下のようなポップアップが表示されます。
 
-![gamepot_dashboard_33](./images/gamepot_dashboard_33.png)
+![gamepot_dashboard_33.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_33%2816%29.png)
 
 ① SMS は短文メッセージ、LMS は長文メッセージです。メッセージに応じて料金が異なります。
 
-② NAVER クラウドコンソールに登録した発信番号を入力してください。\(登録していない番号は送信されません。\)
+② NAVER クラウドコンソールに登録した発信番号を入力してください。（登録していない番号は送信されません。）
 
 ③ SMS、LMS で送信する受信番号を入力できます。
 
@@ -479,93 +464,93 @@ SMS/LMS の送信や履歴、結果照会などの機能を使用できます。
 
 ⑦ 予約時間を指定すると、指定した時間にメッセージが送信されます。
 
-### クーポン
+### クーポン<a name="クーポン"></a>
 
 ゲーム内で欠かせないクーポン機能は、一般クーポン、キーワードクーポンに対応しています。
 
-#### - 一般クーポン
+#### - 一般クーポン<a name="一般クーポン"></a>
 
-일반 쿠폰은 일반적인 코드 형태로 되어 있는 쿠폰입니다.
+一般クーポンは、一般的なコード形式になっているクーポンです。
 
-게임 내에서 사용될 쿠폰을 쉽게 생성 및 관리 하실 수 있는 기능입니다.
+ゲーム内で使用されるクーポンを簡単に作成、管理できる機能です。
 
-리스트 앞 쪽의 아이콘을 클릭하면 쿠폰 수량을 추가하거나 사용 통계를 확인할 수 있습니다.
+リストの前方のアイコンをクリックすると、クーポンの数量を追加したり、使用統計を確認できます。
 
-**+쿠폰생성**을 클릭하면 쿠폰을 생성할 수 있습니다.
+**+クーポン作成**をクリックすると、クーポンを作成できます。
 
-Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성 시 지정된 문구가 붙습니다.
+Prefix（接頭辞）、Suffix（接尾辞）を指定した場合、クーポン番号を作成する際に指定した文句が付きます。
 
-쿠폰 수량은 최대 10만개 생성 가능하며, 생성 후에 증가시킬 수 있습니다. 최대 쿠폰 수는 50만개 입니다.
+クーポンは最大 10 万枚作成することができ、作成した後に増やすこともできます。最大クーポン数は 50 万枚です。
 
-제목과 내용을 입력하면 인게임에서 쿠폰 제목과 쿠폰 내용을 보여줄 수 있습니다.
+件名と内容を入力すると、ゲーム内でクーポン件名とクーポン内容を表示できます。
 
-쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
+クーポンを使用する際に支給されるアイテムと、アイテムの数を指定できます。**[+]** ボタンを用いて複数のアイテムを支給できます。
 
-#### - キーワードクーポン
+#### - キーワードクーポン<a name="キーワードクーポン"></a>
 
 ｢クリスマス｣、｢オープンイベント｣、｢新年｣のような指定のキーワードを作成し、そのキーワードをクーポン画面に入力するとアイテムを支給する機能です。最近はクーポンコードの入力が複雑なため、ゲームユーザーの利便を図るためにキーワードクーポンがよく使用されます。
 
 **+クーポン作成**をクリックします。
 
-기간과 쿠폰을 지급할 키워드를 입력해야 합니다.
+期間とクーポンを支給するキーワードを入力します。
 
-제한 수량을 초과하지 않고 지급이 가능합니다.
+制限枚数を超えない範囲で支給できます。
 
-제목과 내용을 입력하면 인게임에서 쿠폰 제목과 쿠폰 내용을 보여줄 수 있습니다.
+件名と内容を入力すると、ゲーム内でクーポン件名とクーポン内容を表示できます。
 
-쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
+クーポンを使用する際に支給されるアイテムと、アイテムの数を指定できます。**[+]** ボタンを用いて複数のアイテムを支給できます。
 
-#### - 使用履歴
+#### - 使用履歴<a name="使用履歴"></a>
 
-전체 발급된 쿠폰 번호를 기간, 쿠폰 번호, 사용자 ID 등으로 조회하실 수 있습니다.
+発行された全体のクーポン番号を期間、クーポン番号、ユーザー ID などで照会できます。
 
-[실패 이력 조회] 버튼을 체크하면 실패한 이력만 조회할 수 있습니다.
+**[失敗履歴の照会]** ボタンにチェックを入れると、失敗した履歴のみ照会できます。
 
-### サポートセンター
+### サポートセンター<a name="サポートセンター"></a>
 
 顧客がゲーム内で問い合わせを登録した場合、照会して返答できる機能です。ゲーム内のサポートセンター画面で基本情報を入力できるようになっている場合、GAMEPOT でもその情報を確認できます。
 
-#### - お問い合わせ
+#### - お問い合わせ<a name="お問い合わせ"></a>
 
-고객이 문의한 내역을 확인하실 수 있습니다.
+顧客が問い合わせた内容を確認できます。
 
-고객문의 페이지에서 해당 회원에 대한 모든 정보를 확인할 수 있습니다.
+問い合わせページで当該会員に対するすべての情報を確認できます。
 
-번역 기능으로 문의 내용, 답변 내용의 언어를 감자히거나 원하는 언어로 번역할 수 있습니다.
+翻訳機能を用いて問い合わせ内容、返答内容の言語を検出したり、希望する言語に翻訳できます。
 
-> 고객문의 번역 기능은 프로젝트 설정>NCloud>Papago 값을 설정해야 노출됩니다. 기본 번역 언어, 자동 언어 감지, 자동 번역 기능은 회원 정보 수정에서 설정할 수 있습니다.
+> 問い合わせの翻訳機能を表示するには、プロジェクトの設定 > NCloud > Papago 値を設定してください。基本翻訳言語、自動言語検出、自動翻訳機能は会員情報修正で設定できます。
 
-각 문의에 담당자를 지정할 수 있습니다. 담당자를 지정하면 해당 담당자 외 다른 사용자는 문의에 답변할 수 없습니다.
+それぞれの問い合わせに対して担当者を指定できます。担当者を指定すると、その担当者以外の人は問い合わせに返答できません。
 
-답변 템플릿을 선택하여 자주 쓰는 답변 내용을 불러올 수 있습니다.
+返答テンプレートを選択してよく使う返答内容を読み込むことができます。
 
-답변에 필요한 이미지 및 동영상 파일을 업로드할 수 있습니다.
+返答に必要な画像や動画ファイルをアップロードできます。
 
-답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
+返答に対する満足度は、問い合わせ終了後に顧客が満足度を選択すると表示されます。
 
-**\[알림 및 문의 설정\]**
+**\[通知及び問い合わせの設定\]**
 
-문의 답변 시 고객에게 푸시, 메일을 발송을 설정하거나 문의 설정을 하는 기능입니다.
+問い合わせに返答する際に、顧客へのプッシュやメール送信を設定したり、問い合わせを設定する機能です。
 
-##### 푸시 설정
+**プッシュ通知設定**
 
-디바이스 언어 설정에 따른 푸시 알림 기능을 설정합니다.
+デバイスの言語設定によってプッシュ通知機能を設定します。
 
-##### 메일 설정
+**メール設定**
 
-발신 메일 설정을 언어별로 입력합니다.
+送信メール設定を言語別に入力します。
 
-메일 발송 기능을 사용하려면 발신 메일 주소, 발신 메일 이름을 필수로 입력해야 합니다.
+メール送信機能を使用するには、送信メールアドレス、送信メール名を必ず入力してください。
 
-메일 내용을 입력하지 않으면 기본 메시지가 발송됩니다.
+メールの内容を入力しない場合、基本メッセージが送信されます。
 
-**발신 메일 미리보기** 버튼을 클릭하여 발송될 메일 템플릿을 확인할 수 있습니다.
+**[送信メールプレビュー]** ボタンをクリックして送信されるメールテンプレートを確認できます。
 
-##### 고객문의 설정
+**問い合わせの設定**
 
-문의 시 수집 항목 노출 여부를 선택합니다.
+問い合わせの際の収集項目を表示するかどうかを選択します。
 
-활성화한 항목은 고객 문의 UI에 입력 항목이 표시됩니다.
+有効化した項目は、問い合わせ UI に入力項目が表示されます。
 
 **\[分類設定\]**
 
@@ -573,17 +558,17 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 **分類設定**をクリックします。
 
-![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
+![gamepot_dashboard_44.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_44%2816%29.png)
 
-**분류 추가**를 통해, 고객문의에 대한 분류명을 추가하고 관리할 수 있습니다.
+**分類追加**を通じて、問い合わせに対する分類名を追加して管理できます。
 
-디바이스 언어설정에 따라 다른 분류명과 템플릿을 지정해 놓을 수 있습니다.
+デバイスの言語設定に応じて異なる分類名とテンプレートを予め指定できます。
 
-이벤트 약관을 설정하면 SDK에서 해당 분류를 선택했을때 약관창이 노출됩니다.
+イベント規約を設定すると、SDK で当該分類を選択する際に規約画面が表示されます。
 
 **\[Web 問い合わせアドレス\]**
 
-ログインしていないユーザーも Web で問い合わせを登録できます。 返答はメールで行われます。
+ログインしていないユーザーも Web で問い合わせを登録できます。返答はメールで行われます。
 
 **Web 問い合わせアドレス**をクリックすると、外部の問い合わせ URL がクリップボードに保存されます。
 
@@ -591,29 +576,29 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 問い合わせに対する返答テンプレートを設定できます。
 
-![gamepot_dashboard_108](./images/gamepot_dashboard_108.png)
+![gamepot_dashboard_108.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_108%2816%29.png)
 
 **返答テンプレート追加**をクリックします。
 
-![gamepot_dashboard_109](./images/gamepot_dashboard_109.png)
+![gamepot_dashboard_109.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_109%2816%29.png)
 
 ① 返答テンプレート使用の有無を選択します。
 
-② テンプレートの言語を選択します。 プロジェクトの使用言語のみ設定できます。
+② テンプレートの言語を選択します。プロジェクトの使用言語のみ設定できます。
 
 ③ 選択した言語に適用するテンプレート名を入力します。
 
 ④ 選択した言語に適用する返答テンプレートの内容を入力します。
 
-#### - FAQ
+#### - FAQ<a name="FAQ"></a>
 
 よくある質問の内容を登録し、確認できます。
 
-![gamepot_dashboard_48](./images/gamepot_dashboard_48.png)
+![gamepot_dashboard_48.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_48%2816%29.png)
 
 **追加**をクリックします。
 
-![gamepot_dashboard_49](./images/gamepot_dashboard_49.png)
+![gamepot_dashboard_49.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_49%2816%29.png)
 
 ① 状態にチェックを入れると、その質問が有効化して確認できるようになります。
 
@@ -633,7 +618,7 @@ FAQ に対する分類を設定しておく機能です。
 
 **分類追加**を通じて、問い合わせに対する分類名を追加して管理できます。
 
-![gamepot_dashboard_52](./images/gamepot_dashboard_52.png)
+![gamepot_dashboard_52.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_52%2816%29.png)
 
 ① 状態にチェックを入れると、その分類名が有効化します。
 
@@ -647,11 +632,11 @@ FAQ に対する分類を設定しておく機能です。
 
 外部アクセスによりログインしていないユーザーも Web で FAQ を確認できます。
 
-#### - 利用規約の設定
+#### - 利用規約の設定<a name="利用規約の設定"></a>
 
 利用規約の内容を入力できます。この内容は SDK を通じてユーザーに表示できます。
 
-![gamepot_dashboard_53](./images/gamepot_dashboard_53.png)
+![gamepot_dashboard_53.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_53%2817%29.png)
 
 ① デバイスの言語設定に応じて異なる言語で表示される利用規約の内容の中から基本言語を指定します。
 
@@ -661,11 +646,11 @@ FAQ に対する分類を設定しておく機能です。
 
 ④ 指定した言語に対する利用規約の内容を入力します。
 
-#### - 個人情報の取扱方針の設定
+#### - 個人情報の取扱方針の設定<a name="個人情報の取扱方針の設定"></a>
 
 ‭ 個人情報の取扱方針の内容を入力できます。この内容は SDK を通じてユーザーに表示できます。
 
-![gamepot_dashboard_54](./images/gamepot_dashboard_54.png)
+![gamepot_dashboard_54.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_54%2816%29.png)
 
 ① デバイスの言語設定に応じて異なる言語で表示される個人情報の取扱方針の内容の中から基本言語を指定します。
 
@@ -675,11 +660,9 @@ FAQ に対する分類を設定しておく機能です。
 
 ④ 指定した言語に対する個人情報の取扱方針の内容を入力します。
 
-#### - 払い戻しポリシーの設定
+#### - 払い戻しポリシーの設定<a name="払い戻しポリシーの設定"></a>
 
 払い戻しポリシーの内容を入力できます。この内容は SDK を通じてユーザーに表示できます。
-
-![gamepot_dashboard_93](./images/gamepot_dashboard_93.png)
 
 ① デバイスの言語設定に応じて異なる言語で表示される払い戻しポリシーの内容の中から基本言語を指定します。
 
@@ -689,37 +672,35 @@ FAQ に対する分類を設定しておく機能です。
 
 ④ 指定した言語に対する払い戻しポリシーの内容を入力します。
 
-#### - 統計
+#### - 統計<a name="統計3"></a>
 
 一定期間の問い合わせ統計を確認できます。
 
-답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
+返答に対する満足度は、問い合わせ終了後に顧客が満足度を選択すると表示されます。
 
-#### - 담당자별 통계
+#### - 担当者別統計<a name="担当者別統計"></a>
 
-담당자를 선택하여 담당자별 통계를 확인할 수 있습니다.
+担当者を選択して担当者別統計を確認できます。
 
-#### - 일별 리포트
+#### - 日別レポート<a name="日別レポート"></a>
 
-고객 문의 통계를 일별로 확인할 수 있습니다.
+問い合わせに関する統計を日別に確認できます。
 
-최대 90일까지 조회가능합니다.
+最大 90 日まで照会できます。
 
-#### -ページ
+#### - ページ<a name="ページ"></a>
 
 ウェブページを作成してアクセスアドレスを提供する機能です。
-
-![gamepot_dashboard_87](./images/gamepot_dashboard_87.png)
 
 ① ウェブページを作成、修正できます。
 
 ② 指定したページに対するページ内容を入力します。
 
-#### -GDPR
+#### - GDPR<a name="GDPR"></a>
 
 クライアントでアクセスする IP を基準に GDPR 対象国を判別し、既存規約画面の代わりに GDPR 規約画面を表示します。
 
-![gamepot_dashboard_105](./images/gamepot_dashboard_105.png)
+![gamepot_dashboard_105.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_105%2816%29.png)
 
 ① GDPR 関連設定を行うことができます。
 
@@ -729,31 +710,45 @@ FAQ に対する分類を設定しておく機能です。
 
 ④ 現在ページの必須確認の有無を選択できます。
 
-![gamepot_dashboard_106](./images/gamepot_dashboard_106.png)
+![gamepot_dashboard_106.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_106%2816%29.png)
 
 > GDPR を使用するには、NAVER クラウドコンソールで OutBoundMailer 機能を有効化してください。
+> :::
 
-① GDPR の有効化の有無を選択できます。 GDPR を有効化すると、既存の利用規約と個人情報処理方針が GDPR 設定内容に代替されます。
+① GDPR の有効化の有無を選択できます。GDPR を有効化すると、既存の利用規約と個人情報処理方針が GDPR 設定内容に代替されます。
 
 ② 送信メールアドレスを入力します。
 
 ③ 送信メール名を入力します。
 
-④ 広告アプリ同意の有効化の有無を選択できます。 [パーソナライズド広告を見るに同意]、[非パーソナライズド広告を見るに同意]項目は、この項目が選択されていないと表示されません。
+④ 広告アプリ同意の有効化の有無を選択できます。[パーソナライズド広告を見るに同意]、[非パーソナライズド広告を見るに同意]項目は、この項目が選択されていないと表示されません。
 
-## ゲーム
+## ゲーム<a name="ゲーム"></a>
 
-### プレイヤー
+### プレイヤー<a name="プレイヤー"></a>
 
 SDK を通じてゲーム内のキャラクター情報を伝送し、ダッシュボードで確認できます。
 
-![gamepot_dashboard_94](./images/gamepot_dashboard_94.png)
+### プレゼントする<a name="プレゼントする"></a>
 
-### プレゼントする
+```java
+セキュリティのためにWebhookアドレスにファイアウォールを適用すると安全です
+ファイアウォール及び正常なリクエストの検証がない場合は、
+異常リクエストによるアイテム支給などが行われることがあります。
+ファイアウォールはホワイトリストに基づいて作成することをお勧めします。
+その場合はGAMEPOT IPの許可が必要となります。
+49.236.143.202
+49.236.143.198
+106.10.53.19
+106.10.52.84
+
+また、スプーフィング攻撃にも安全なセキュリティを希望する場合は、
+「etc」アトリビュートによる正常なリクエストの検証を行ってください。
+```
 
 Webhook を通じてアイテムをゲームサーバに送信できます。
 
-![gamepot_dashboard_88](./images/gamepot_dashboard_88.png)
+![gamepot_dashboard_88.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_88%2816%29.png)
 
 ① プレゼント発送を追加できます。
 
@@ -769,9 +764,7 @@ Webhook を通じてアイテムをゲームサーバに送信できます。
 
 ⑦ プレゼント発送の詳細履歴を確認できます。
 
-**プレゼント送信**ボタンをクリックします。
-
-![gamepot_dashboard_89](./images/gamepot_dashboard_89.png)
+**[プレゼント送信]** ボタンをクリックします。
 
 ① チェックを入れると、実際にゲームサーバに送信せずにテストを行います。
 
@@ -787,72 +780,70 @@ Webhook を通じてアイテムをゲームサーバに送信できます。
 
 ⑦ 送信されるアイテムと個数を指定します。
 
-#### - アイテム
+#### - アイテム<a name="アイテム"></a>
 
-アイテムメニューを通じて、クーポンで取得できるクーポンアイテムを作成できます。**アイテム追加**ボタンをクリックしてアイテムを追加できます。
-![gamepot_dashboard_39](./images/gamepot_dashboard_39.png)
+アイテムメニューを通じて、クーポンで取得できるクーポンアイテムを作成できます。**[アイテム追加]** ボタンをクリックしてアイテムを追加できます。
+![gamepot_dashboard_39.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_39%2816%29.png)
 
 ① アイテムを追加できます。
 
-② **大量入力**ボタンをクリックすると、アイテムを CSV ファイルで一度に登録できます。
+② **[大量入力]** ボタンをクリックすると、アイテムを CSV ファイルで一度に登録できます。
 
-![gamepot_dashboard_40](./images/gamepot_dashboard_40.png)
+![gamepot_dashboard_40.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_40%2815%29.png)
 
 ① アイテム名を入力します。
 
 ② アイテム ID を入力します。アイテム ID はアイテムごとに識別可能でなければなりません。
 
-### 事前予約
+### 事前予約<a name="事前予約"></a>
 
 事前予約機能は、事前予約ウェブページを通じて登録したユーザーの統計を表示する機能です。
 
-![gamepot_dashboard_57](./images/gamepot_dashboard_57.png)
+![gamepot_dashboard_57.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_57%2816%29.png)
 
 ① 事前予約を追加できます。事前予約名は統計算出のための ID として用いられます。
 
-![gamepot_dashboard_58](./images/gamepot_dashboard_58.png)
+![gamepot_dashboard_58.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_58%2816%29.png)
 
 ② 事前予約名を修正できます。
 
-![gamepot_dashboard_59](./images/gamepot_dashboard_59.png)
+![gamepot_dashboard_59.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_59%2816%29.png)
 
 ③ 事前予約申請者をダウンロードできます。
 
 今後、事前予約者を対象に大量 SMS 送信ができる機能を追加する予定です。
 
-### Remote Config
+### Remote Config<a name="RemoteConfig"></a>
 
 Remote Config 機能は、アプリをアップデートせずにアプリの動作と形を変更できる機能です。サーバにパラメータを追加して、その値を GAMEPOT SDK から取り込んで使用できます。したがって、ゲーム内の機能をサーバで制御したい場合、この機能を用いると簡単に適用、制御できます。
 
-![gamepot_dashboard_60](./images/gamepot_dashboard_60.png)
+![gamepot_dashboard_60.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_60%2817%29.png)
 
-**追加**ボタンをクリックします。以下のようなポップアップ画面が表示されたらパラメータと値を入力します。
+**[追加]** ボタンをクリックします。以下のようなポップアップ画面が表示されたらパラメータと値を入力します。
 
-![gamepot_dashboard_61](./images/gamepot_dashboard_61.png)
+![gamepot_dashboard_61.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_61%2812%29.png)
 
 このパラメータと値は、ユーザーが新しくアプリを実行する時点から反映されます。
 
-### ログ
+### ログ<a name="ログ"></a>
 
-ログは、NAVER CLOUD PLATFORM の ELSA と連携してゲーム内のログやクラッシュログなどを収集できる機能です。ELSA を利用するには、[ELSA 利用ガイド](https://docs.ncloud.com/ko/elsa/elsa-1-1.html)を参考にしてください。
+ログは、NAVER Cloud Platform の ELSA と連携してゲーム内のログやクラッシュログなどを収集できる機能です。ELSA を利用するには、[ELSA 利用ガイド](/docs/ja/elsa-elsa-1-1)を参考にしてください。
 
-## 広告
+## 広告<a name="広告"></a>
 
 Nasmedia Co., Ltd と提携し、手軽に広告を申請して各種統計情報を GAMEPOT ダッシュボードで確認できる機能です。
 
-![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
+## 設定<a name="設定"></a>
 
-## 設定
+### プロジェクトの設定<a name="プロジェクトの設定"></a>
 
-### プロジェクトの設定
-
-#### - 一般
+#### - 一般<a name="一般"></a>
 
 アプリ全般の環境を設定したり、アプリを運用するために必要な様々な鍵値を入力できます。
 
-##### 基本情報
+**基本情報**
 
-![gamepot_dashboard_62](./images/gamepot_dashboard_62.png)
+![gamepot_dashboard_62.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_62%2813%29.png)
 
 ① ゲーム名を入力してください。
 
@@ -870,33 +861,31 @@ Nasmedia Co., Ltd と提携し、手軽に広告を申請して各種統計情�
 
 - 運用中に基準通貨を変更しても、過去の決済金額は変更されません。慎重に選択してください。
 
-##### 公開鍵
+**公開鍵**
 
-![gamepot_dashboard_63](./images/gamepot_dashboard_63.png)
+![gamepot_dashboard_63.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_63%2811%29.png)
 
 Google Play Store と ONE Store に連携するために設定する項目です。
 
 ① Google Play Store の公開鍵値を入力します。
 
-② Google Play Store で同じゲームを二つのバージョンでリリースする場合\(例えば、12 才と 18 才バージョン\)、パッケージ名を前に入れて後ろに公開鍵値を入れます。
+② Google Play Store で同じゲームを二つのバージョンでリリースする場合（例えば、12 才と 18 才バージョン）、パッケージ名を前に入れて後ろに公開鍵値を入れます。
 
 ③ ONE Store の公開鍵値を入力します。
 
-④ ONE Store で同じゲームを二つのバージョンでリリースする場合\(例えば、12 才と 18 才バージョン\)、パッケージ名を前に入れて後ろに公開鍵値を入れます。
+④ ONE Store で同じゲームを二つのバージョンでリリースする場合（例えば、12 才と 18 才バージョン）、パッケージ名を前に入れて後ろに公開鍵値を入れます。
 
-##### Google API Key
+**Google API Key**
 
-![gamepot_dashboard_64](./images/gamepot_dashboard_64.png)
+![gamepot_dashboard_64.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_64%2812%29.png)
 
-Google API 連携\(Google Play Store で決済をキャンセルした会員リストの確認と最新バージョンの決済領収証検証\)に必要な設定項目です。
+Google API 連携（Google Play Store で決済をキャンセルした会員リストの確認と最新バージョンの決済領収証検証）に必要な設定項目です。
 
 ① Google が提供する JSON データを入力します。｢ヘルプを見る｣を参考にしてください。
 
 ② 決済領収証検証バージョンです。1 番項目にデータを入力した場合は｢Version 3｣を選択してください。
 
 ③ Google 領収証検証テストとして入力した Google JSON 値が正しいか確認できます。
-
-![gamepot_dashboard_99](./images/gamepot_dashboard_99.png)
 
 ① Google 領収証のパッケージ名を入力します。
 
@@ -906,21 +895,19 @@ Google API 連携\(Google Play Store で決済をキャンセルした会員リ�
 
 ④ Google 領収証の照会結果を確認できます。
 
-##### Apple ID Login
+**Apple ID Login**
 
-![gamepot_dashboard_102](./images/gamepot_dashboard_102.png)
+Android 端末から Apple ID でログインするために事前に設定しておくべき情報です。入力方法と Return URL は「ヘルプを見る」をクリックして詳しく確認できます。
 
-Android 端末から Apple ID でログインするために事前に設定しておくべき情報です。 入力方法と Return URL は「ヘルプを見る」をクリックして詳しく確認できます。
+**App ID**
 
-##### App ID
-
-![gamepot_dashboard_65](./images/gamepot_dashboard_65.png)
+![gamepot_dashboard_65.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_65%2813%29.png)
 
 強制アップデートによりストアに移動する際に必要な設定項目です。ID の取得方法は「ヘルプを見る」をクリックして確認できます。最初の入力フィールドにはバージョンを区分するための値を入力し、二番目の入力フィールドにはストアに送る値を入力します。
 
 ① Google Play Store のパッケージ名を入力します。
 
-② 同じゲームを二つのバージョンでリリースする場合\(例えば、12 才と 18 才バージョン\)、Google Play Store のパッケージ名を追加で入力します。
+② 同じゲームを二つのバージョンでリリースする場合（例えば、12 才と 18 才バージョン）、Google Play Store のパッケージ名を追加で入力します。
 
 ③ ONE Store のパッケージ名と PID を入力します。
 
@@ -934,19 +921,17 @@ Android 端末から Apple ID でログインするために事前に設定し�
 
 ⑧ 同じゲームを二つのバージョンでリリースする場合、APPSTORE のバンドル ID と Apple ID を追加で入力します。
 
-##### Server Key
+**Server Key**
 
-![gamepot_dashboard_66](./images/gamepot_dashboard_66.png)
-
-ONE Store で In-App 決済してアイテム支給をリクエストするために、事前に設定する情報です。
+![gamepot_dashboard_66.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_66%2811%29.png)
 
 ① ONE Store のライセンスキーを入力します。
 
-② 二つのバージョンでリリースする場合、他のバージョンのライセンスキーを入力します。\(バージョンが二つではない場合、入力の必要はありません。\)
+② 二つのバージョンでリリースする場合、他のバージョンのライセンスキーを入力します。（バージョンが二つではない場合、入力の必要はありません。）
 
-##### Auth Key
+**Auth Key**
 
-![gamepot_dashboard_67](./images/gamepot_dashboard_67.png)
+![gamepot_dashboard_67.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_67%2812%29.png)
 
 Auth Key 項目は Google、Facebook ログインの際にトークン検証に用いられ、トークン検証に失敗した場合はゲームユーザーのログインを制限します。ログインが制限されたゲームユーザーは、自動的に利用停止メニューに登録されます。
 
@@ -962,42 +947,44 @@ Auth Key 項目は Google、Facebook ログインの際にトークン検証に�
 
 ⑥ Apple TEAM ID を入力します。
 
-##### WebHook
+**WebHook**
 
-결제 아이템은 결제 성공 시 아이템 지급을 요청하는 주소를 입력합니다.
+決済アイテムには、決済成功時にアイテム支給をリクエストするアドレスを入力します。
 
-쿠폰 아이템은 SDK를 이용하여 쿠폰 사용 성공 시 SDK 서버에서 개발사 서버로 성공에 대한 처리\(아이템 지급\)를 요청하는 주소를 입력합니다.
+クーポンアイテムには、SDK を利用してクーポン使用に成功した際、SDK サーバから開発会社のサーバに成功処理（アイテム支給）をリクエストするアドレスを入力します。
 
-실 서비스에 이용되는 주소\(서비스\)와 서비스 중 테스트 환경이 필요한 경우의 주소\(테스트사용자\)가 제공됩니다. 테스트 사용자 주소로 동작하게 하려면 '프로젝트 설정 &gt; 테스트 사용자'에 추가해 주셔야 합니다.
+実際のサービスに利用されるアドレス（サービス）と、サービス中にテスト環境が必要な場合のアドレス（テストユーザー）が提供されます。テストユーザーのアドレスで動作させる場合は、「プロジェクトの設定 > テストユーザー」に追加してください。
 
-**WebHook Test** 버튼을 클릭하여 WebHook 적용을 간단하게 테스트할 수 있습니다.
+**[WebHook Test]** ボタンをクリックして WebHook の適用を簡単にテストできます。
 
-**White IP** 버튼을 클릭하여 Webhook을 통해 게임 서버 호출 시 허용해야 하는 IP 리스트를 확인할 수 있습니다.
+**[White IP]** ボタンをクリックして Webhook を通じてゲームサーバを呼び出す際に許可すべき IP リストを確認できます。
 
-**테스트 결제 발송 차단** 스위치를 활성화하면 테스트 결제 시 Webhook을 발송을 차단할 수 있습니다.
+**テスト決済送信遮断**スイッチを有効化すると、テスト決済時に Webhook の送信を遮断できます。
 
-> 활성화한 경우 : 테스트 결제 시 결제 실패로 처리
+> 有効化した場合：テスト決済時、決済失敗として処理
 >
-> 비활성화한 경우 : 테스트 결제 시 결제 성공으로 처리
+> 無効化した場合：テスト決済時、決済成功として処理
 
-#### - Ncloud
+#### - Ncloud<a name="Ncloud"></a>
 
 NAVER クラウドプラットフォームと連携するための鍵値を追加で変更できます。詳しい利用方法は各項目のユーザーガイドを参考にしてください。
 
-![gamepot_dashboard_69](./images/gamepot_dashboard_69.png)
+![gamepot_dashboard_69.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_69%2812%29.png)
 
-#### - CDN
+ONE Store で In-App 決済してアイテム支給をリクエストするために、事前に設定する情報です。
+
+#### - CDN<a name="CDN"></a>
 
 CDN を利用するには、以下の CDN アドレスを入力してください。
 
-![gamepot_dashboard_70](./images/gamepot_dashboard_70.png)
+![gamepot_dashboard_70.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_70%2812%29.png)
 
 **CDN アドレス入力時の注意事項**
 
 - CDN のソースは、必ず\[案内事項\]機能に用いられる Object Storage を設定してください。
 - 入力した CDN がない、URL エラー、またはソース設定が正しくない場合、アップロードした画像がゲーム上で正常に表示されません。
 
-#### - 外部決済
+#### - 外部決済<a name="外部決済"></a>
 
 ONE store の場合、基本ストアの決済モジュールではない第 3 の決済モジュールを許可しています。
 
@@ -1007,13 +994,13 @@ ONE store の場合、基本ストアの決済モジュールではない第 3 �
 
 決済方法別に必要な値はダナルを通じて入手し、**Store Secret key**は ONE Store のコンソールに**Client secret**値を入力してください。
 
-![gamepot_dashboard_71](./images/gamepot_dashboard_71.png)
+![gamepot_dashboard_71.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_71%2812%29.png)
 
 **\[料金入力\]**
 
 決済 - IAP メニューで In-App アイテム別にユーザーが支払う料金を入力してください。
 
-#### - ホワイトユーザー
+#### - ホワイトユーザー<a name="ホワイトユーザー"></a>
 
 登録した IP でアクセスする場合、指定された種類に応じて以下の機能が有効化します。
 
@@ -1023,17 +1010,17 @@ ONE store の場合、基本ストアの決済モジュールではない第 3 �
 - アップデート：アップデート機能が有効化していても無視して行われます。
 - 会員：アクセス遮断対象に含まれている国または IP を無視して行われます。
 
-**추가** 버튼을 클릭해서 매개변수와 값을 입력합니다.
+**[追加]** ボタンをクリックしてパラメータと値を入力します。
 
-#### - アクセス遮断
+#### - アクセス遮断<a name="アクセス遮断"></a>
 
 Device ID、登録された IP、国コードでアクセスするユーザーを遮断します。
 
-![gamepot_dashboard_75](./images/gamepot_dashboard_75.png)
+![gamepot_dashboard_75.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_75%2812%29.png)
 
-**追加**ボタンをクリックします。以下のようなポップアップ画面が表示されたら該当値を入力します。
+**[追加]** ボタンをクリックします。以下のようなポップアップ画面が表示されたら該当値を入力します。
 
-![gamepot_dashboard_76](./images/gamepot_dashboard_76.png)
+![gamepot_dashboard_76.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_76%2812%29.png)
 
 ① 状態にチェックを入れると、アクセス遮断が有効化します。
 
@@ -1045,53 +1032,51 @@ Device ID、登録された IP、国コードでアクセスするユーザー�
 
 ⑤ デバイスの言語設定に応じて異なるメッセージを登録しておくことができます。
 
-#### - API Key
+#### - API Key<a name="APIKey"></a>
 
 Open API を使用するための認証に用いられるキーを管理するメニューです。
-[+追加]ボタンをクリックしてキーを作成し、Open API を呼び出す際に作成した Key 値を header に x-api-key 値として入力します。
+**[+追加]** ボタンをクリックしてキーを作成し、Open API を呼び出す際に作成した Key 値を header に x-api-key 値として入力します。
 作成した Key をクリックすると修正メニューが表示されます。Key の状態、Key の満了日、説明などを修正でき、Key を削除することもできます。
 
-### 관리자
+### 管理者<a name="管理者"></a>
 
-#### 감사
+#### 監査<a name="監査"></a>
 
-최고 관리자 계정으로 대시보드 사용자의 활동 기록을 확인할 수 있습니다.
+最高管理者アカウントでダッシュボードユーザーの活動記録を確認できます。
 
-### タスク管理
+### タスク管理<a name="タスク管理"></a>
 
 各メニューから csv にエクスポートした結果を一ヶ月間ダウンロードできます。
 
-![gamepot_dashboard_90](./images/gamepot_dashboard_90.png)
+## その他<a name="その他"></a>
 
-## その他
+### SDK ダウンロード<a name="SDKダウンロード"></a>
 
-### SDK다운로드
+Android、iOS、Unity SDK をダウンロードできます。
 
-Android, IOS, Unity SDK를 다운로드할 수 있습니다.
+![gamepot_dashboard_110.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_110%2811%29.png)
 
-![gamepot_dashboard_110](./images/gamepot_dashboard_110.png)
+> ダッシュボードの右上で GAMEPOT 情報を確認できます。
 
-> 대시보드 우측 상단에서 GAMEPOT 정보를 확인할 수 있습니다.
+### GAMEPOT 案内事項<a name="GAMEPOT案内事項"></a>
 
-### GAMEPOT 공지사항
+GAMEPOT に関する案内事項を確認できます。
 
-GAMEPOT의 공지사항을 확인할 수 있습니다.
+### ユーザーガイド<a name="ユーザーガイド"></a>
 
-### 사용자 가이드
+GAMEPOT ダッシュボードの使用ガイドページに移動します。
 
-GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
+### 言語変更<a name="言語変更"></a>
 
-### 언어 변경
+ダッシュボードの各メニューなどが選択した言語に変更されます。
 
-대시보드의 각 메뉴 등이 선택한 언어로 변경됩니다.
+### 会員情報修正<a name="会員情報修正"></a>
 
-### 회원정보수정
+ダッシュボードを利用するアカウント名とパスワードを変更できます。
 
-대시보드 이용 계정의 이름, 비밀번호를 변경하실 수 있습니다.
+ダッシュボードの右上のアイコンをクリックすると表示されるドロップダウンメニューの中から、会員情報修正を選択できます。
 
-대시보드 우측 상단의 아이콘을 클릭하면 나타나는 드롭다운 메뉴 중 회원정보수정을 선택할 수 있습니다.
-
-![gamepot_dashboard_80](./images/gamepot_dashboard_80.png)
+![gamepot_dashboard_80.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_80%2816%29.png)
 
 ① ユーザー名を変更できます。
 
@@ -1107,7 +1092,7 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ⑦ ログインの 2 段階認証を設定できます。
 
-![gamepot_dashboard_107](./images/gamepot_dashboard_107.png)
+![gamepot_dashboard_107.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_107%2816%29.png)
 
 認証番号と OTP のうち一つの方式で 2 段階認証を設定できます。
 
@@ -1115,23 +1100,23 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ② 2 段階認証を Google OTP に設定します。
 
-### 環境設定
+### 環境設定<a name="環境設定"></a>
 
 GAMEPOT のダッシュボードを管理するためのユーザー管理、ロール管理、アップデート機能などがあります。
 
-![gamepot_dashboard_81](./images/gamepot_dashboard_81.png)
+![gamepot_dashboard_81.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_81%288%29.png)
 
-#### - ユーザー
+#### - ユーザー<a name="ユーザー"></a>
 
 ダッシュボードを利用できるユーザーを管理するメニューであり、ユーザーを追加/削除できます。
 
-![gamepot_dashboard_82](./images/gamepot_dashboard_82.png)
+![gamepot_dashboard_82.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_82%2812%29.png)
 
 ① 状態にチェックを入れると、そのユーザーが有効化します。
 
-**登録**ボタンをクリックします。以下のようなポップアップ画面が表示されたら該当値を入力します。
+**[登録]** ボタンをクリックします。以下のようなポップアップ画面が表示されたら該当値を入力します。
 
-![gamepot_dashboard_83](./images/gamepot_dashboard_83.png)
+![gamepot_dashboard_83.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_83%2816%29.png)
 
 ① ユーザーダッシュボードの基準時間帯を設定します。
 
@@ -1145,15 +1130,13 @@ GAMEPOT のダッシュボードを管理するためのユーザー管理、ロ
 
 ⑥ IP アクセス制限を設定する場合、許可されていない IP のアクセスを制限します。
 
-#### - ロール
+#### - ロール<a name="ロール"></a>
 
 ダッシュボードを利用できるユーザーをグループ単位で管理する機能であり、各ロールごとに異なる権限を付与できます。
 
-![gamepot_dashboard_84](./images/gamepot_dashboard_84.png)
+![gamepot_dashboard_84.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_84%2811%29.png)
 
-**歯車**ボタンをクリックします。以下のような画面で当該ロールの設定ができます。
-
-![gamepot_dashboard_85](./images/gamepot_dashboard_85.png)
+**[歯車]** ボタンをクリックします。以下のような画面で当該ロールの設定ができます。
 
 ① 当該ロールに加えるユーザーを位置させます。
 
@@ -1161,8 +1144,6 @@ GAMEPOT のダッシュボードを管理するためのユーザー管理、ロ
 
 ③ 当該ロールに許可する機能を選択します。
 
-#### - アップデート
+#### - アップデート<a name="アップデート2"></a>
 
 GAMEPOT システムのアップデート履歴を確認できます。
-
-![gamepot_dashboard_86](./images/gamepot_dashboard_86.png)

@@ -1,18 +1,6 @@
----
-search:
-  keyword: ['gamepot']
----
+NAVER Cloud Platform의 GAMEPOT에서 제공하는 대시보드에 대한 가이드입니다.
 
-#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
-
-<a href="https://api.ncloud-docs.com/docs/ko/game-gamepot" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
-
-# Dashboard
-
-NAVER CLOUD PLATFORM의 GAMEPOT에서 제공하는 대시보드에 대한 가이드입니다.
-
-## GAMEPOT 대시보드 소개
+## GAMEPOT 대시보드 소개<a name="GAMEPOT대시보드소개"></a>
 
 **Q. 대시보드란?**
 
@@ -20,27 +8,27 @@ NAVER CLOUD PLATFORM의 GAMEPOT에서 제공하는 대시보드에 대한 가이
 
 **Q. 대시보드에서 어떤 운영 기능이 포함되나요?**
 
-대시보드에는 회원 접속 통계 및 결제에 관한 통계 및 확인이 가능하고 NAVER CLOUD PLATFORM의 서비스와 연동하여 PUSH, SMS, 로그 분석 등 다양한 기능을 제어할 수 있습니다. 또한 쿠폰이나 업데이트 등 게임에 필요한 운영 기능을 자체적으로 가지고 있어 보다 효율적인 게임 관리가 가능합니다.
+대시보드에는 회원 접속 통계 및 결제에 관한 통계 및 확인이 가능하고 NAVER Cloud Platform의 서비스와 연동하여 PUSH, SMS, 로그 분석 등 다양한 기능을 제어할 수 있습니다. 또한 쿠폰이나 업데이트 등 게임에 필요한 운영 기능을 자체적으로 가지고 있어 보다 효율적인 게임 관리가 가능합니다.
 
-## GAMEPOT 대시보드 시작하기
+## GAMEPOT 대시보드 시작하기<a name="GAMEPOT대시보드시작하기"></a>
 
-### 로그인
+### 로그인<a name="로그인"></a>
 
-#### Step 1. 대시보드 접속
+#### Step 1. 대시보드 접속<a name="Step1대시보드접속"></a>
 
-NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보드에 접속합니다.
+NAVER Cloud Platform의 콘솔에서 대시보드 URL을 클릭하여 대시보드에 접속합니다.
 
-![gamepot_dashboard_01](./images/gamepot_dashboard_01.png)
+![gamepot_dashboard_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_01%2813%29.png)
 
-#### STEP 2. 회원가입
+#### STEP 2. 회원가입<a name="STEP2회원가입"></a>
 
 프로젝트 생성 시 등록한 관리자 계정으로 비밀번호 초기화 메일이 전송됩니다.
 
-#### STEP 3. 로그인
+#### STEP 3. 로그인<a name="STEP3로그인"></a>
 
 관리자 계정이 대시보드 관리의 모든 권한을 갖는 마스터 계정이 됩니다.
 
-![gamepot_dashboard_02](./images/gamepot_dashboard_02.png)
+![gamepot_dashboard_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_02%2814%29.png)
 
 ① 관리자 계정에서 사용할 비밀번호를 설정합니다.
 
@@ -54,24 +42,23 @@ NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 
 일별 접속자 : 생성된 게임팟 사용자 아이디가 로그인 성공 한 수
 
+## 대시보드 메뉴 활용하기<a name="대시보드메뉴활용하기"></a>
 
-## 대시보드 메뉴 활용하기
-
-### 대시보드
+### 대시보드<a name="대시보드"></a>
 
 대시보드에서는 가입현황, 매출, 접속, 통계 등의 게임의 전반적인 운영 상황을 한눈에 파악할 수 있습니다.
 
-![gamepot_dashboard_03](./images/gamepot_dashboard_03.png)
+![gamepot_dashboard_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_03%2814%29.png)
 
 ① 날짜를 선택하여 그래프를 확인 할 수 있습니다.
 
-## 통계
+## 통계<a name="통계1"></a>
 
-### 사용자 지표
+### 사용자 지표<a name="사용자지표"></a>
 
 지정된 기간 동안의 각종 사용자 지표를 그래프로 나타냅니다.
 
-![gamepot_dashboard_04](./images/gamepot_dashboard_04.png)
+![gamepot_dashboard_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_04%2814%29.png)
 
 ① 기본적으로는 당일 기준 30일간의 사용자 지표를 출력하며, 기간 지정을 통하여 자유롭게 선택한 기간 동안 사용자 지표를 조회할 수 있습니다.
 
@@ -79,23 +66,23 @@ NAVER CLOUD PLATFORM의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 
 ③ 마지막 업데이트 시각을 확인할 수 있습니다.
 
-![gamepot_dashboard_05](./images/gamepot_dashboard_05.png)
+![gamepot_dashboard_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_05%2814%29.png)
 
 ① 현재 보이는 그래프의 RAW 데이터를 CSV 파일 형태로 다운로드 할 수 있습니다.
 
-#### Retention
+#### Retention<a name="Retention"></a>
 
-![gamepot_dashboard_98](./images/gamepot_dashboard_98.png)
+![gamepot_dashboard_98.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_98%289%29.png){height=" " width=""}
 
 Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일부터 지표에 표시되고 [Retention D+1]은 가입일의 다음날에도 접속한 회원부터 표시됩니다.
 
 Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 생성된 유저가 로그인까지 한 경우를 의미합니다.
 
-### 매출 지표
+### 매출 지표<a name="매출지표"></a>
 
 지정된 기간 동안의 각종 매출 지표를 그래프로 나타냅니다.
 
-![gamepot_dashboard_06](./images/gamepot_dashboard_06.png)
+![gamepot_dashboard_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_06%2815%29.png)
 
 ① 기본적으로는 당일 기준 30일간의 매출 지표를 출력하며, 기간 지정을 통하여 자유롭게 선택한 기간 동안 매출 지표를 조회할 수 있습니다.
 
@@ -103,19 +90,19 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ③ 마지막 업데이트 시각을 확인할 수 있습니다.
 
-![gamepot_dashboard_07](./images/gamepot_dashboard_07.png)
+![gamepot_dashboard_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_07%2815%29.png)
 
 ① 현재 보이는 그래프의 RAW 데이터를 CSV 파일 형태로 다운로드 할 수 있습니다.
 
-## 운영
+## 운영<a name="운영"></a>
 
-### 회원
+### 회원<a name="회원"></a>
 
-#### - 목록
+#### - 목록<a name="목록"></a>
 
 가입한 회원 목록이 표시됩니다.
 
-![gamepot_dashboard_08](./images/gamepot_dashboard_08.png)
+![gamepot_dashboard_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_08%2816%29.png)
 
 ① 가입일, 국가, 스토어, 사용자 ID, 디바이스 ID, ADID, 아이피 등을 지정하여 회원을 조회할 수 있습니다.
 
@@ -125,7 +112,7 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ④ 사용자ID를 클릭하면 아래와 같은 상세페이지가 나타납니다.
 
-![gamepot_dashboard_09](./images/gamepot_dashboard_09.png)
+![gamepot_dashboard_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_09%2814%29.png)
 
 ① 회원에 대한 기본정보를 보여줍니다.
 
@@ -147,7 +134,7 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 **개별 푸시 발송** 버튼을 클릭하여 특정 회원에게 푸시메시지를 발송할 수 있습니다.
 
-![gamepot_dashboard_95](./images/gamepot_dashboard_95.png)
+![gamepot_dashboard_95.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_95%2814%29.png)
 
 ① 발송할 푸시메시지의 기본언어를 지정합니다.
 
@@ -157,7 +144,7 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 **이용정지** 버튼을 클릭하여 특정 회원을 이용정지 할 수 있습니다.
 
-![gamepot_dashboard_96](./images/gamepot_dashboard_96.png)
+![gamepot_dashboard_96.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_96%2814%29.png)
 
 ① 이용정지 상태를 선택합니다.
 
@@ -173,37 +160,37 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 **회원탈퇴** 버튼을 클릭하여 특정 회원을 탈퇴시킬 수 있습니다.
 
-![gamepot_dashboard_97](./images/gamepot_dashboard_97.png)
+![gamepot_dashboard_97.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_97%2814%29.png)
 
-#### - 일별 접속자
+#### - 일별 접속자<a name="일별접속자"></a>
 
 지정된 기간 동안의 일일 접속자 수를 그래프로 나타냅니다.
 
 기본적으로는 당일 기준 30일간의 일일 접속자 수를 출력하며, 기간 지정을 통하여 자유롭게 선택한 기간 동안 일일 접속자 수를 조회할 수 있습니다.
 
-![gamepot_dashboard_10](./images/gamepot_dashboard_10.png)
+![gamepot_dashboard_10.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_10%2814%29.png)
 
 ① 현재 보여지는 그래프의 RAW 데이터를 CSV 파일 형태로 다운로드 할 수 있습니다.
 
 ② 마지막 업데이트 시각을 확인할 수 있습니다.
 
-#### - 신규 사용자
+#### - 신규 사용자<a name="신규사용자"></a>
 
 지정된 기간 동안 게임에 가입한 일일 신규 가입자 수를 그래프로 나타냅니다.
 
 기본적으로는 당일 기준 30일간의 일일 신규 가입자 수를 출력하며, 기간 지정을 통하여 자유롭게 선택한 기간 동안 일일 신규 가입자 수를 조회할 수 있습니다.
 
-![gamepot_dashboard_11](./images/gamepot_dashboard_11.png)
+![gamepot_dashboard_11.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_11%2814%29.png)
 
 ① 현재 보여지는 그래프의 RAW 데이터를 CSV 파일 형태로 다운로드 할 수 있습니다.
 
 ② 마지막 업데이트 시각을 확인할 수 있습니다.
 
-#### - 동시 접속자
+#### - 동시 접속자<a name="동시접속자"></a>
 
 게임에 접속한 회원의 수를 1분 단위로, 최대 3일에 대해 동시에 조회할 수 있습니다.
 
-![gamepot_dashboard_12](./images/gamepot_dashboard_12.png)
+![gamepot_dashboard_12.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_12%2814%29.png)
 
 ① 당일과 전일, 전전일이 기본적으로 지정되어 있으며, 조회하고자 하는 최대 3개의 날을 선택\(변경\)할 수 있습니다. 초기화 버튼을 이용하여 기본 지정일로 되돌아 올 수 있습니다.
 
@@ -211,13 +198,13 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ③ 마지막 업데이트 시각을 확인할 수 있습니다.
 
-#### - 이용정지
+#### - 이용정지<a name="이용정지"></a>
 
 특정 회원에 대해, 지정된 기간동안 게임에 접속할 수 없도록 합니다.
 
 이용정지는 회원의 사용자 ID를 기준으로 적용됩니다.
 
-![gamepot_dashboard_13](./images/gamepot_dashboard_13.png)
+![gamepot_dashboard_13.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_13%2814%29.png)
 
 ① 이용정지를 적용하기 위해, 추가 버튼을 이용합니다.
 
@@ -232,13 +219,13 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 - 활성 : 현재 이용 정지 상태가 적용된 경우
 - 비활성 : 현재 이용 정지 상태가 해제된 경우
 
-### 결제
+### 결제<a name="결제"></a>
 
-#### - 결제목록
+#### - 결제목록<a name="결제목록"></a>
 
 회원이 Google Play Store, APPSTORE, ONE Store, Galaxy Store에서 결제를 시도한 내역을 확인할 수 있습니다.
 
-![gamepot_dashboard_14](./images/gamepot_dashboard_14.png)
+![gamepot_dashboard_14.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_14%2814%29.png)
 
 ① 실패한 결제에 대해서 체크박스로 다중선택 한 다음, 재지급 버튼을 눌러 재지급 할 수 있습니다.
 
@@ -252,11 +239,11 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ⑥ 회원이 시도한 결제의 성공 여부를 조회할 수 있습니다. 실패한 결제 시도에 대해서는 아이템을 재지급할 수 있습니다.
 
-![gamepot_dashboard_15](./images/gamepot_dashboard_15.png)
+![gamepot_dashboard_15.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_15%2813%29.png)
 
 결제 상태를 클릭하여 시도된 결제에 대한 상세 내역을 확인할 수 있으며, 실패된 결제에 대해서는 재지급 버튼을 이용하여 아이템을 재지급할 수 있습니다.
 
-#### - IAP
+#### - IAP<a name="IAP"></a>
 
 인앱 구매 시 상품정보를 관리하는 기능입니다. 구글플레이, 앱스토어, 원스토어, 갤럭시스토어 등의 상품을 모두 등록하셔야 합니다.
 
@@ -266,11 +253,11 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 각 상품 항목의 체크박스를 다중선택 한 다음, **삭제**버튼을 클릭해 삭제할 수 있습니다.
 
-#### - 통계
+#### - 통계<a name="통계2"></a>
 
 일일 단위로 결제 금액 데이터를 그래프로 보여주는 기능입니다.
 
-![gamepot_dashboard_17](./images/gamepot_dashboard_17.png)
+![gamepot_dashboard_17.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_17%2815%29.png)
 
 ① 스토어를 지정하여 그래프를 볼 수 있습니다.
 
@@ -278,11 +265,11 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ③ 마지막 업데이트 시각을 확인할 수 있습니다.
 
-#### - 결제취소
+#### - 결제취소<a name="결제취소"></a>
 
 스토어의 결제 영수증 상태와 비교하여 임의적으로 결제를 취소하는 회원의 게임 접속에 대해 이용정지 조치를 할 수 있습니다. 이용정지 된 회원이 해당 아이템을 재결제하면 이용 정지가 비활성화됩니다. 구글 플레이스토어, 애플 앱스토어의 영수증 검증을 지원합니다.
 
-![gamepot_dashboard_18](./images/gamepot_dashboard_18.png)
+![gamepot_dashboard_18.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_18%2813%29.png)
 
 ① 결제 취소자의 이용 정지 처리 조건을 설정합니다.
 
@@ -292,7 +279,7 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ④ 마지막 업데이트 시각을 확인할 수 있습니다.
 
-![gamepot_dashboard_19](./images/gamepot_dashboard_19.png)
+![gamepot_dashboard_19.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_19%2814%29.png)
 
 ① 회원이 임의적으로 결제 취소를 악용한 부분에 대하여 이용 정지 여부를 결정할 수 있습니다. 활성화 시 1시간 간격으로 설정한 옵션에 따라 자동으로 결제 취소 악용자들을 이용 정지 시킵니다.
 
@@ -308,45 +295,45 @@ Retention 장표의 New User는 해당일에 게임팟 사용자 아이디를 �
 
 ⑦ App Store의 결제 취소 리스트를 받아오기 위해 주소 복사 버튼을 클릭하여 URL을 복사하고 App Store에 입력해야 합니다.
 
-### 공지사항
+### 공지사항<a name="공지사항"></a>
 
 대시보드에 등록된 공지사항 이미지는 게임에 접속한 회원들에게 노출됩니다. 노출할 일정 및 스토어를 지정하면 해당 조건에 맞춰 공지사항이 노출되고 일정 종료 후에는 노출되지 않습니다.
 
-공지사항 기능을 사용하기 위해서는 먼저 NAVER CLOUD PLATFORM의 API 인증키와 Object Storage 서비스가 필요합니다. 공지사항 기능 사용 시, Object Storage 비용은 별도로 발생합니다.
+공지사항 기능을 사용하기 위해서는 먼저 NAVER Cloud Platform의 API 인증키와 Object Storage 서비스가 필요합니다. 공지사항 기능 사용 시, Object Storage 비용은 별도로 발생합니다.
 
-#### Step 0. 서브계정을 생성해, Object Storage 서비스 사용권한 부여
+#### Step 0. 서브계정을 생성해, Object Storage 서비스 사용권한 부여<a name="Step0서브계정을생성해ObjectStorage서비스사용권한부여"></a>
 
 ① API 인증키를 발급받기 전 서브계정을 생성해 Object Storage 사용권한을 부여한 다음, 해당 계정을 통해 API 인증키를 발급받기를 권장합니다.
 
-② [Sub Account 사용 가이드](https://docs.ncloud.com/ko/management/management-4-1.html)를 참고하여 서브계정을 생성합니다. (서브 계정 생성 시, **API Gateway Access**를 체크해주세요.)
+② [Sub Account 사용 가이드](/docs/management-management-4-1)를 참고하여 서브계정을 생성합니다. (서브 계정 생성 시, **API Gateway Access**를 체크해주세요.)
 
-![gamepot_dashboard_20_01](./images/gamepot_dashboard_20_01.png)
+![gamepot_dashboard_20_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_20_01%289%29.png)
 
-③ 생성한 서브계정에 Object Storage 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_OBJECT_STORAGE_MANAGER** 권한을 부여합니다. (혹은 오브젝트 스토리지 권한을 포함한 권한)
+③ 생성한 서브계정에 Object Storage 서비스 권한을 부여해주세요. [System Managed 정책 설명서]를 참고하여 해당 서브계정에 **NCP_OBJECT_STORAGE_MANAGER** 권한을 부여합니다. (혹은 오브젝트 스토리지 권한을 포함한 권한)
 
 ④ 생성한 서브계정으로 접속한 다음, API 인증키를 발급받습니다.
 
-#### Step 1. API 인증키 준비
+#### Step 1. API 인증키 준비<a name="Step1API인증키준비"></a>
 
-공지사항 메뉴는 API를 통해 Object Storage를 연동하여 사용합니다. 따라서 NAVER CLOUD PLATFORM의 API 인증키를 사전에 준비해야 합니다.
+공지사항 메뉴는 API를 통해 Object Storage를 연동하여 사용합니다. 따라서 NAVER Cloud Platform의 API 인증키를 사전에 준비해야 합니다.
 
 API 인증키는 **포털 &gt; 마이페이지 &gt; 계정관리 &gt; 인증키 관리** 메뉴에서 만들 수 있습니다.
 
-![gamepot_dashboard_20](./images/gamepot_dashboard_20.png)
+![gamepot_dashboard_20.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_20%289%29.png)
 
 ① API 인증키를 생성하기 위해서 **신규 API 인증키 생성**을 클릭하세요.
 
 - API 인증키는 계정당 2개까지 생성할 수 있습니다.
 
-#### Step 2. 대시보드와 API 인증키 연동하기
+#### Step 2. 대시보드와 API 인증키 연동하기<a name="Step2대시보드와API인증키연동하기"></a>
 
 발급 받은 인증키를 대시보드 연동을 해야 Object Storage의 버킷이 생성되고 공지사항 기능을 사용할 수 있습니다. 대시보드의 **프로젝트 설정 &gt; Ncloud** 메뉴로 이동하여 API 인증키를 연결합니다.
 
-![gamepot_dashboard_21](./images/gamepot_dashboard_21.png)
+![gamepot_dashboard_21.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_21%289%29.png)
 
 API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩니다. 공지사항에 사용된 모든 이미지는 해당 버킷에 저장됩니다.
 
-#### Step 3. 공지사항 추가
+#### Step 3. 공지사항 추가<a name="Step3공지사항추가"></a>
 
 공지사항을 추가하기 위해서 **공지사항** 메뉴로 이동합니다.
 
@@ -366,17 +353,17 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 
 언어 설정 별로, 노출 될 이미지를 추가 등록 할 수 있습니다.
 
-### 점검 & 업데이트
+### 점검 & 업데이트<a name="점검업데이트"></a>
 
 점검 및 업데이트 기능을 이용하여 더욱 쉽고 편리하게 게임을 관리할 수 있습니다.
 
-#### - 점검
+#### - 점검<a name="점검"></a>
 
 게임 점검 시간에 자동으로 점검 메시지와 함께 게임 접속을 차단합니다.
 
 점검 시간과 메시지를 입력한 뒤 저장하면 게임 내 점검 공지가 노출됩니다.
 
-![gamepot_dashboard_25](./images/gamepot_dashboard_25.png)
+![gamepot_dashboard_25.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_25%2813%29.png)
 
 ① 스토어를 지정하실 수 있습니다. 전체 점검일 경우 전체 스토어로 지정해 주세요.
 
@@ -390,11 +377,11 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 
 **예: 카페 공지사항이나 자체 제작된 점검 안내 페이지**
 
-#### - 업데이트
+#### - 업데이트<a name="업데이트1"></a>
 
 최신 버전이 아닐 경우 업데이트 안내를 보여주고 구글플레이나 애플스토어와 같은 스토어의 업데이트 화면으로 이동합니다.
 
-![gamepot_dashboard_26](./images/gamepot_dashboard_26.png)
+![gamepot_dashboard_26.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_26%2813%29.png)
 
 ① 스토어별로 설정을 합니다.
 
@@ -409,29 +396,29 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 - Custom URL 입력 : 클라이언트 업데이트 팝업에서 업데이트 버튼 선택 시 설정된 Custom URL로 이동
 - Custom URL 미 입력 : 클라이언트 업데이트 팝업에서 업데이트 버튼 선택 시 기본 설정 되어 있는 스토어로 이동
 
-### 메시지
+### 메시지<a name="메시지"></a>
 
 별도의 메시지 서버 구축 없이 SMS, PUSH 등을 통해 메시지 알림 기능을 구현할 수 있는 서비스입니다. 해당 기능을 사용하기 위해서는 NAVER Cloud Plaform의 Simple & Easy Notification Service\(SENS\)를 신청해야만 합니다.
 
 ① 서브계정을 생성하여, SENS 서비스를 신청하기를 권장합니다. 본문의 **공지사항 -> Step 0** 를 참고하여, 서브계정을 생성합니다. (**Step 0** 와 마찬가지로, API 인증키 또한 서브계정에서 발급 받아주세요.)
 
-② 생성한 서브계정에 SENS 서비스 권한을 부여해주세요. [System Managed 정책 설명서](https://docs.ncloud.com/ko/management/management-4-2.html)를 참고하여 해당 서브계정에 **NCP_SENS_MANAGER** (를 포함하는) 권한을 부여합니다.
+② 생성한 서브계정에 SENS 서비스 권한을 부여해주세요. [System Managed 정책 설명서]를 참고하여 해당 서브계정에 **NCP_SENS_MANAGER** (를 포함하는) 권한을 부여합니다.
 
-① SENS와 연동하기 위해서는 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고, 생성한 서브계정으로 접속한 다음 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-2.html)를 참고하여 서비스 키를 발급 받습니다.
+① SENS와 연동하기 위해서는 서비스 키를 발급해야 합니다. **서비스 키 발급** 버튼을 클릭하고, 생성한 서브계정으로 접속한 다음 [SENS 공통 가이드](/docs/sens-sens-1-2)를 참고하여 서비스 키를 발급 받습니다.
 
-![gamepot_dashboard_27](./images/gamepot_dashboard_27.png)
+![gamepot_dashboard_27.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_27%289%29.png)
 
 ② **인증서 등록 가이드** 버튼을 클릭하여 **SENS 웹 콘솔 사용 가이드**에 따라 인증서를 등록합니다.
 
 ③ **설정** 버튼을 클릭하여 아래의 화면으로 이동하여 PUSH 서비스 ID 값을 입력합니다.
 
-![gamepot_dashboard_28](./images/gamepot_dashboard_28.png)
+![gamepot_dashboard_28.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_28%2812%29.png)
 
-#### - 푸시메시지
+#### - 푸시메시지<a name="푸시메시지"></a>
 
 **메시지 &gt; 푸시 메시지** 메뉴를 클릭하면 발송 상태, 예약 시간, 발송 시간 등을 확인할 수 있는 목록 화면이 나타납니다.
 
-![gamepot_dashboard_29](./images/gamepot_dashboard_29.png)
+![gamepot_dashboard_29.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_29%2814%29.png)
 
 **푸시 메시지** 메뉴에서 **+메시지 추가** 버튼을 클릭하면 아래와 같은 팝업이 노출됩니다. 해당 팝업 메뉴를 통해 메시지 발송이 가능합니다.
 
@@ -445,7 +432,7 @@ API 인증키가 연결되면 Object Storage의 버킷이 자동으로 생성됩
 
 디바이스의 언어설정에 따라 다른 푸시 메시지를 등록할 수 있습니다. 이미지 파일을 등록하면 이미지도 발송됩니다.
 
-![gamepot_dashboard_100](./images/gamepot_dashboard_100.png)
+![gamepot_dashboard_100.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_100%283%29.png)
 
 CSV파일 업로드를 통해 푸시메시지를 대량으로 발송할 수 있습니다.
 
@@ -454,21 +441,21 @@ CSV파일 업로드를 통해 푸시메시지를 대량으로 발송할 수 있�
 - CSV 파일은 UTF-8 형식으로 저장 후 등록해주세요.
 - 다량입력은 푸시 즉시발송을 지원하지 않습니다.
 
-#### - 문자메시지
+#### - 문자메시지<a name="문자메시지"></a>
 
-SMS/LMS 발송, 이력 및 결과 조회 등의 기능을 사용할 수 있습니다. SMS/LMS를 발송하려면 먼저 NAVER CLOUD PLATFORM의 SENS에서 서비스 키 발급과 발신 번호 등록이 필요합니다.
+SMS/LMS 발송, 이력 및 결과 조회 등의 기능을 사용할 수 있습니다. SMS/LMS를 발송하려면 먼저 NAVER Cloud Platform의 SENS에서 서비스 키 발급과 발신 번호 등록이 필요합니다.
 
-![gamepot_dashboard_31](./images/gamepot_dashboard_31.png)
+![gamepot_dashboard_31.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_31%289%29.png)
 
-① SENS와 연동하기 위해서는 우선 서비스 키를 발급과 발신번호 등록을 해야 합니다. **서비스 키 발급** 버튼을 클릭하여 [SENS 공통 가이드](https://docs.ncloud.com/ko/sens/sens-1-1.html)와 [SENS SMS 사용 가이드](https://docs.ncloud.com/ko/sens/sens-1-3.html)를 참고하여 서비스 키 발급과 발신 번호를 등록합니다.
+① SENS와 연동하기 위해서는 우선 서비스 키를 발급과 발신번호 등록을 해야 합니다. **서비스 키 발급** 버튼을 클릭하여 [SENS 공통 가이드](/docs/sens-sens-1-1)와 [SENS SMS 사용 가이드](/docs/sens-sens-1-3)를 참고하여 서비스 키 발급과 발신 번호를 등록합니다.
 
 ② **설정** 버튼을 클릭하여 서비스 ID와 Secret Key를 입력하여 주세요.
 
-![gamepot_dashboard_32](./images/gamepot_dashboard_32.png)
+![gamepot_dashboard_32.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_32%2813%29.png)
 
 **메시지 추가** 버튼을 클릭합니다. 아래와 같은 팝업이 노출됩니다.
 
-![gamepot_dashboard_33](./images/gamepot_dashboard_33.png)
+![gamepot_dashboard_33.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_33%2813%29.png)
 
 ① SMS 단문메시지, LMS 장문 메시지입니다. 메시지에 따라 가격이 상이합니다.
 
@@ -484,11 +471,11 @@ SMS/LMS 발송, 이력 및 결과 조회 등의 기능을 사용할 수 있습�
 
 ⑦ 예약시간을 지정하시면 지정된 시간에 메시지가 발송됩니다.
 
-### 쿠폰
+### 쿠폰<a name="쿠폰"></a>
 
 게임 내에 필수적으로 사용되는 쿠폰 기능은 일반 쿠폰, 키워드 쿠폰을 지원합니다.
 
-#### - 일반쿠폰
+#### - 일반쿠폰<a name="일반쿠폰"></a>
 
 일반 쿠폰은 일반적인 코드 형태로 되어 있는 쿠폰입니다.
 
@@ -506,7 +493,7 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
 
-#### - 키워드 쿠폰
+#### - 키워드 쿠폰<a name="키워드쿠폰"></a>
 
 '크리스마스','오픈이벤트','새해'와 같이 지정된 키워드를 생성하고 해당 키워드를 쿠폰창에 입력시에 아이템을 지급하는 기능입니다. 최근 쿠폰 코드 입력이 복잡하여 게임 사용자의 편의를 위해 키워드 쿠폰이 많이 활용됩니다.
 
@@ -520,17 +507,17 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 쿠폰 사용 시 지급되는 아이템과 아이템의 수량을 지정할 수 있습니다. + 버튼을 통해 복수의 아이템을 지급할 수 있습니다.
 
-#### - 사용내역
+#### - 사용내역<a name="사용내역"></a>
 
 전체 발급된 쿠폰 번호를 기간, 쿠폰 번호, 사용자 ID 등으로 조회하실 수 있습니다.
 
 [실패 이력 조회] 버튼을 체크하면 실패한 이력만 조회할 수 있습니다.
 
-### 고객지원
+### 고객지원<a name="고객지원"></a>
 
 고객이 게임 내에서 문의를 남겼을 경우 조회하고 답변할 수 있는 기능입니다. 게임 내 고객지원 창에서 기본 정보를 입력할 수 있도록 되어 있는 경우 GAMEPOT에서도 해당 정보를 확인하실 수 있습니다.
 
-#### - 고객문의
+#### - 고객문의<a name="고객문의"></a>
 
 고객이 문의한 내역을 확인하실 수 있습니다.
 
@@ -552,11 +539,11 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 문의 답변 시 고객에게 푸시, 메일을 발송을 설정하거나 문의 설정을 하는 기능입니다.
 
-##### 푸시 설정
+**푸시 설정**
 
 디바이스 언어 설정에 따른 푸시 알림 기능을 설정합니다.
 
-##### 메일 설정
+**메일 설정**
 
 발신 메일 설정을 언어별로 입력합니다.
 
@@ -566,7 +553,7 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 **발신 메일 미리보기** 버튼을 클릭하여 발송될 메일 템플릿을 확인할 수 있습니다.
 
-##### 고객문의 설정
+**고객문의 설정**
 
 문의 시 수집 항목 노출 여부를 선택합니다.
 
@@ -578,7 +565,7 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 **분류 설정**을 클릭합니다.
 
-![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
+![gamepot_dashboard_44.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_44%2813%29.png)
 
 **분류 추가**를 통해, 고객문의에 대한 분류명을 추가하고 관리할 수 있습니다.
 
@@ -596,11 +583,11 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 문의 답변 템플릿을 설정할 수 있습니다.
 
-![gamepot_dashboard_108](./images/gamepot_dashboard_108.png)
+![gamepot_dashboard_108.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_108%2813%29.png)
 
 **답변 템플릿 추가**를 클릭합니다.
 
-![gamepot_dashboard_109](./images/gamepot_dashboard_109.png)
+![gamepot_dashboard_109.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_109%2813%29.png)
 
 ① 답변 템플릿 사용 여부를 선택합니다.
 
@@ -620,15 +607,15 @@ Prefix\(접두사\), Suffix\(접미사\)를 지정한 경우 쿠폰번호 생성
 
 외부 문의의 경우 이메일 삭제 시 답변을 등록할 수 없으니 주의하세요.
 
-#### - FAQ
+#### - FAQ<a name="FAQ"></a>
 
 자주 묻는 질문 내역을 등록하고, 확인할 수 있습니다.
 
-![gamepot_dashboard_48](./images/gamepot_dashboard_48.png)
+![gamepot_dashboard_48.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_48%2813%29.png)
 
 **추가**를 클릭합니다.
 
-![gamepot_dashboard_49](./images/gamepot_dashboard_49.png)
+![gamepot_dashboard_49.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_49%2813%29.png)
 
 ① 상태를 체크하면 해당 질문이 활성화되어 확인할 수 있습니다.
 
@@ -648,7 +635,7 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 **분류 추가**를 통해, 고객문의에 대한 분류명을 추가하고 관리할 수 있습니다.
 
-![gamepot_dashboard_52](./images/gamepot_dashboard_52.png)
+![gamepot_dashboard_52.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_52%2813%29.png)
 
 ① 상태를 체크하면 해당 분류명이 활성화됩니다.
 
@@ -662,11 +649,11 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 외부접속으로 로그인 하지 않은 유저도 Web에서 FAQ를 확인할 수 있습니다.
 
-#### - 이용약관 설정
+#### - 이용약관 설정<a name="이용약관설정"></a>
 
 사내 이용약관 내용을 입력할 수 있습니다. 이 내용은 SDK를 통해 사용자에게 노출 할 수 있습니다.
 
-![gamepot_dashboard_53](./images/gamepot_dashboard_53.png)
+![gamepot_dashboard_53.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_53%2813%29.png)
 
 ① 디바이스 언어설정에 따라 다르게 노출되는 이용약관 내용에서 기본언어를 지정합니다.
 
@@ -676,11 +663,11 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 ④ 지정한 언어에 대한 이용약관 내용을 입력합니다.
 
-#### - 개인정보 취급 방침 설정
+#### - 개인정보 취급 방침 설정<a name="개인정보취급방침설정"></a>
 
 사내 개인정보 취급 방침 내용을 입력할 수 있습니다. 이 내용은 SDK를 통해 사용자에게 노출 할 수 있습니다.
 
-![gamepot_dashboard_54](./images/gamepot_dashboard_54.png)
+![gamepot_dashboard_54.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_54%2813%29.png)
 
 ① 디바이스 언어설정에 따라 다르게 노출되는 개인정보 취급 방침 내용에서 기본언어를 지정합니다.
 
@@ -690,11 +677,11 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 ④ 지정한 언어에 대한 개인정보 취급 방침 내용을 입력합니다.
 
-#### - 환불정책 설정
+#### - 환불정책 설정<a name="환불정책설정"></a>
 
 사내 환불정책 내용을 입력할 수 있습니다. 이 내용은 SDK를 통해 사용자에게 노출 할 수 있습니다.
 
-![gamepot_dashboard_93](./images/gamepot_dashboard_93.png)
+![gamepot_dashboard_93.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_93%287%29.png)
 
 ① 디바이스 언어설정에 따라 다르게 노출되는 환불정책 내용에서 기본언어를 지정합니다.
 
@@ -704,33 +691,33 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 ④ 지정한 언어에 대한 환불정책 내용을 입력합니다.
 
-#### - 통계
+#### - 통계<a name="통계3"></a>
 
 일정 기간에 대한 고객문의 통계를 확인할 수 있습니다.
 
 답변 만족도는 문의 종료 후 고객이 만족도를 선택해야 노출됩니다.
 
-#### - 담당자별 통계
+#### - 담당자별 통계<a name="담당자별통계"></a>
 
 담당자를 선택하여 담당자별 통계를 확인할 수 있습니다.
 
-#### - 일별 리포트
+#### - 일별 리포트<a name="일별리포트"></a>
 
 고객 문의 통계를 일별로 확인할 수 있습니다.
 
 최대 90일까지 조회가능합니다.
 
-#### -페이지
+#### -페이지<a name="페이지"></a>
 
 웹문서를 생성하고 접속 주소를 제공하는 기능입니다.
 
 각 언어에 대한 내용을 입력한 후 제공되는 주소뒤에 &language=(언어코드)를 입력하면 해당 언어로 호출할 수있습니다.
 
-#### -GDPR
+#### -GDPR<a name="GDPR"></a>
 
 클라이언트에서 접속하는 IP 기준으로 GDPR 대상 국가를 판별하여 기존 약관 화면 대신 GDPR 약관 화면을 보여줍니다.
 
-![gamepot_dashboard_105](./images/gamepot_dashboard_105.png)
+![gamepot_dashboard_105.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_105%2813%29.png)
 
 ① GDPR 관련 설정을 할 수 있습니다.
 
@@ -740,7 +727,7 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 ④ 현제 페이지의 필수 확인 여부를 선택할 수 있습니다.
 
-![gamepot_dashboard_106](./images/gamepot_dashboard_106.png)
+![gamepot_dashboard_106.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_106%2813%29.png)
 
 > GDPR을 사용하기 위해 NAVER CLOUD 콘솔에서 OutBoundMailer 기능을 활성화해야 합니다.
 
@@ -760,19 +747,30 @@ FAQ에 대한 분류를 설정해놓는 기능입니다.
 
 리뷰는 20분마다 업데이트되며 일주일 이내의 리뷰만 갱신됩니다.
 
-## 게임
+## 게임<a name="게임"></a>
 
-### 플레이어
+### 플레이어<a name="플레이어"></a>
 
 SDK를 통해 인게임 캐릭터 정보를 전송하고, 대시보드 상에서 확인할 수 있습니다.
 
-![gamepot_dashboard_94](./images/gamepot_dashboard_94.png)
+![gamepot_dashboard_94.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_94%287%29.png)
 
-### 선물하기
+### 선물하기<a name="선물하기"></a>
+
+> your content goes here
+> 보안을 위해 Webhook 주소에 방화벽을 적용하는 것이 안전합니다.
+> 방화벽 및 정상 요청 검증이 없을시 비정상 요청을 통한 아이템 지급등이 이루어질 수 있습니다.
+> 방화벽은 White List기반으로 작성하는 것이 좋으며, 아래 GAMEPOT IP 허용이 필요합니다.
+> 49.236.143.202
+> 49.236.143.198
+> 106.10.53.19
+> 106.10.52.84
+
+> 또한, 스푸핑 공격에도 안전한 보안을 원하신다면 'etc' Attribute 활용을 통한 정상요청 검증을 부탁드립니다.
 
 Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
-![gamepot_dashboard_88](./images/gamepot_dashboard_88.png)
+![gamepot_dashboard_88.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_88%2813%29.png)
 
 ① 선물발송을 추가할 수 있습니다.
 
@@ -790,7 +788,7 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 **선물 발송** 버튼을 클릭합니다.
 
-![gamepot_dashboard_89](./images/gamepot_dashboard_89.png)
+![gamepot_dashboard_89.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_89%287%29.png)
 
 ① 체크하면 실제 게임서버로 발송하지 않고 테스트합니다.
 
@@ -806,10 +804,11 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ⑦ 발송할 아이템과 수량을 지정합니다.
 
-#### - 아이템
+#### - 아이템<a name="아이템"></a>
 
 아이템 메뉴에서는 쿠폰을 통해 획득 가능한 쿠폰 아이템을 생성할 수 있는 메뉴입니다. **아이템 추가** 버튼을 클릭하여 아이템을 추가할 수 있습니다.
-![gamepot_dashboard_39](./images/gamepot_dashboard_39.png)
+
+![gamepot_dashboard_39.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_39%2813%29.png)
 
 ① 아이템을 추가 할 수 있습니다.
 
@@ -819,59 +818,63 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ② **다량입력** 버튼을 클릭하면 아이템을 CSV 파일로 한번에 등록할 수 있습니다.
 
-![gamepot_dashboard_40](./images/gamepot_dashboard_40.png)
+![gamepot_dashboard_40.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_40%2812%29.png)
 
-### 사전예약
+① 아이템의 이름을 입력합니다.
+
+② 아이템 ID를 입력합니다. 아이템 ID는 아이템마다 고유해야 합니다.
+
+### 사전예약<a name="사전예약"></a>
 
 사전 예약 기능은 사전예약 웹페이지를 통해 등록한 사용자의 통계를 보여주는 기능입니다.
 
-![gamepot_dashboard_57](./images/gamepot_dashboard_57.png)
+![gamepot_dashboard_57.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_57%2813%29.png)
 
 ① 사전예약을 추가 할 수 있습니다. 사전예약명은 통계 산출을 위한 ID로 활용됩니다.
 
-![gamepot_dashboard_58](./images/gamepot_dashboard_58.png)
+![gamepot_dashboard_58.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_58%2813%29.png)
 
 ② 사전예약명을 수정할 수 있습니다.
 
-![gamepot_dashboard_59](./images/gamepot_dashboard_59.png)
+![gamepot_dashboard_59.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_59%2813%29.png)
 
 ③ 사전예약 신청자를 다운로드 받을 수 있습니다.
 
 향후 사전 예약자에게 대량 문자 발송이 가능하도록 기능을 추가할 예정입니다.
 
-### 원격구성
+### 원격구성<a name="원격구성"></a>
 
 원격구성 기능은 앱을 업데이트 하지 않고 앱의 동작과 모양을 변경할 수 있도록 하는 기능입니다. 서버에 매개변수를 추가하고 해당 값을 GAMEPOT SDK에서 불러와 사용하실 수 있습니다. 따라서 게임 내에 기능을 서버에서 제어하고자 하는 경우 이 기능을 이용하면 쉽게 적용 및 제어가 가능합니다.
 
-![gamepot_dashboard_60](./images/gamepot_dashboard_60.png)
+![gamepot_dashboard_60.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_60%2814%29.png)
 
 **추가** 버튼을 클릭합니다. 아래와 같은 팝업 창이 노출되면, 매개변수와 값을 입력합니다.
 
-![gamepot_dashboard_61](./images/gamepot_dashboard_61.png)
+![gamepot_dashboard_61.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_61%2810%29.png)
 
 해당 매개변수와 값이 반영되는 시점은 새롭게 앱을 실행하는 유저부터 반영됩니다.
 
-### 로그
+### 로그<a name="로그"></a>
 
-로그는 NAVER CLOUD PLATFORM의 ELSA를 연동하여 게임 내 로그나 크래시 로그 등을 수집하실 수 있는 기능입니다. ELSA의 사용법은 [ELSA 이용 가이드](https://docs.ncloud.com/ko/elsa/elsa-1-1.html)를 참고하세요.
+로그는 NAVER Cloud Platform의 ELSA를 연동하여 게임 내 로그나 크래시 로그 등을 수집하실 수 있는 기능입니다. ELSA의 사용법은 [ELSA 이용 가이드](/docs/elsa-elsa-1-1)를 참고하세요.
 
-## 광고
+## 광고<a name="광고"></a>
 
 (주)나스미디어와 제휴하여, 손쉽게 광고를 신청하고 각종 통계정보를 GAMEPOT 대시보드에서 확인할 수 있는 기능입니다.
 
-![gamepot_dashboard_101](./images/gamepot_dashboard_101.png)
+![gamepot_dashboard_101.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_101%287%29.png)
 
-## 설정
+## 설정<a name="설정"></a>
 
-### 프로젝트 설정
+### 프로젝트 설정<a name="프로젝트설정"></a>
 
-#### - 일반
+#### - 일반<a name="일반"></a>
 
 앱의 전반적인 환경을 설정하고 앱을 운영하기 위한 다양한 키값을 입력하실 수 있습니다.
 
-##### 기본정보
+**기본정보**
 
-![gamepot_dashboard_62](./images/gamepot_dashboard_62.png)
+![gamepot_dashboard_62.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_62%2811%29.png)
 
 ① 게임이름을 적어주세요.
 
@@ -889,9 +892,9 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 - 운영 중에 기준 통화를 변경하여도 지난 결제 금액은 변경되지 않습니다. 신중하게 선택해주세요.
 
-##### Public Key
+**Public Key**
 
-![gamepot_dashboard_63](./images/gamepot_dashboard_63.png)
+![gamepot_dashboard_63.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_63%289%29.png)
 
 구글 스토어와 원 스토어와 연동하기 위해 설정하는 항목입니다.
 
@@ -903,9 +906,9 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ④ 원 스토어에서 동일한 게임을 2가지 버전으로 출시할 경우\(예를 들어 12세, 18세\), 패키지 명을 앞에 넣고 뒤에 Public key 값을 넣습니다.
 
-##### 구글 API Key
+**구글 API Key**
 
-![gamepot_dashboard_64](./images/gamepot_dashboard_64.png)
+![gamepot_dashboard_64.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_64%2810%29.png)
 
 구글 API 연동\(구글스토어 결제 취소자 목록 확인 및 최신버전의 결제 영수증 검증\)에 필요한 설정 항목입니다.
 
@@ -915,7 +918,7 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ③ 구글 영수증 검증 테스트로 입력한 구글 JSON값이 올바른지 확인할 수 있습니다.
 
-![gamepot_dashboard_99](./images/gamepot_dashboard_99.png)
+![gamepot_dashboard_99.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_99%288%29.png)
 
 ① 구글 영수증의 패키지명을 입력합니다.
 
@@ -925,15 +928,15 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ④ 구글 영수증 조회 결과를 확인할 수 있습니다.
 
-##### Apple ID Login
+**Apple ID Login**
 
-![gamepot_dashboard_102](./images/gamepot_dashboard_102.png)
+![gamepot_dashboard_102.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_102%289%29.png)
 
 안드로이드 기기에서 Apple ID로 로그인하기 위해서 사전에 설정해야 하는 정보입니다. 입력 방법 및 Return URL은 도움말보기를 클릭하여 자세히 확인하실 수 있습니다.
 
-##### App ID
+**App ID**
 
-![gamepot_dashboard_65](./images/gamepot_dashboard_65.png)
+![gamepot_dashboard_65.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_65%2811%29.png)
 
 강제 업데이트로 스토어 이동시 필요한 설정 항목입니다. 아이디 획득 방법은 도움말보기를 클릭하여 확인하실 수 있습니다. 첫번째 입력칸은 버전 구분을 위한 값을 입력하고 두번째 입력칸은 스토어로 보낼 값을 입력합니다.
 
@@ -953,19 +956,20 @@ Webhook을 통해 아이템을 게임 서버로 발송할 수 있습니다.
 
 ⑧ 동일한 게임을 2가지 버전으로 출시할 경우 애플스토어의 번들아이디와 애플아이디를 추가로 입력합니다.
 
-##### Server Key
+**Server Key**
 
-![gamepot_dashboard_66](./images/gamepot_dashboard_66.png)
+![gamepot_dashboard_66.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_66%289%29.png)
 
+!
 원 스토어에서 인앱 결제를 하고 아이템 지급을 요청하기 위해서 사전에 설정해야 하는 정보입니다.
 
 ① 원 스토어의 라이선스 키를 입력합니다.
 
 ② 두 가지 버전으로 출시하는 경우 다른 버전의 라이선스 키를 입력합니다.\(두 가지 버전이 아닌 경우 입력하지 않아도 됩니다.\)
 
-##### Auth Key
+**Auth Key**
 
-![gamepot_dashboard_67](./images/gamepot_dashboard_67.png)
+[gamepot_dashboard_67.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_67%2810%29.png)
 
 Auth Key 항목은 구글, 페이스북 로그인 시 토큰 검증에 사용되며, 토큰 검증 실패 시 게임 유저의 로그인을 제한합니다. 로그인이 제한된 게임 유저는 이용정지 메뉴에 자동으로 등록됩니다.
 
@@ -981,7 +985,7 @@ Auth Key 항목은 구글, 페이스북 로그인 시 토큰 검증에 사용되
 
 ⑥ 애플 TEAM ID 를 입력합니다.
 
-##### WebHook
+**WebHook**
 
 결제 아이템은 결제 성공 시 아이템 지급을 요청하는 주소를 입력합니다.
 
@@ -999,24 +1003,24 @@ Auth Key 항목은 구글, 페이스북 로그인 시 토큰 검증에 사용되
 >
 > 비활성화한 경우 : 테스트 결제 시 결제 성공으로 처리
 
-#### - Ncloud
+#### - Ncloud<a name="Ncloud"></a>
 
 네이버 클라우드 플랫폼과 연동하기 위한 키값을 추가 변경하실 수 있습니다. 자세한 사용법은 각 항목의 사용자 가이드를 참고하시기 바랍니다.
 
-![gamepot_dashboard_69](./images/gamepot_dashboard_69.png)
+![gamepot_dashboard_69.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_69%2810%29.png)
 
-#### - CDN
+#### - CDN<a name="CDN"></a>
 
 CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
-![gamepot_dashboard_70](./images/gamepot_dashboard_70.png)
+![gamepot_dashboard_70.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_70%2810%29.png)
 
 **CDN 주소 입력 시 주의 사항**
 
 - 반드시 CDN의 원본은 \[공지사항\] 기능에 사용되는 Object Storage가 설정되어야 합니다.
 - 입력한 CDN이 없거나 URL 오타, 또는 원본 설정이 잘못되었을 경우, 업로드된 이미지가 게임상에 정상적으로 보이지 않게 됩니다.
 
-#### - 외부결제
+#### - 외부결제<a name="외부결제"></a>
 
 원스토어의 경우 기본 스토어 결제 모듈이 아닌 제 3의 결제모듈을 허용하고 있습니다.
 
@@ -1026,13 +1030,13 @@ CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
 결제 수단별로 필요한 값은 다날을 통해 얻고 **Store Secret key** 는 원스토어 콘솔에 **Client secret** 값을 입력하세요.
 
-![gamepot_dashboard_71](./images/gamepot_dashboard_71.png)
+![gamepot_dashboard_71.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_71%2810%29.png)
 
 **\[가격 입력\]**
 
 결제 - IAP 메뉴에서 인앱 아이템 별로 사용자가 지불할 가격을 입력하세요.
 
-#### - 화이트 유저
+#### - 화이트 유저<a name="화이트유저"></a>
 
 등록된 아이피로 접속하는 경우 지정된 종류에 따라 아래 기능이 활성화됩니다.
 
@@ -1044,15 +1048,15 @@ CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
 **추가** 버튼을 클릭해서 매개변수와 값을 입력합니다.
 
-#### - 접속차단
+#### - 접속차단<a name="접속차단"></a>
 
 등록된 IP, 국가코드, Device ID로 접속하는 유저들을 차단 합니다.
 
-![gamepot_dashboard_75](./images/gamepot_dashboard_75.png)
+![gamepot_dashboard_75.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_75%2810%29.png)
 
 **추가** 버튼을 클릭합니다. 아래와 같은 팝업 창이 노출되면, 해당하는 값을 입력합니다.
 
-![gamepot_dashboard_76](./images/gamepot_dashboard_76.png)
+![gamepot_dashboard_76.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_76%2810%29.png)
 
 ① 상태를 체크하면 접속차단이 활성화됩니다.
 
@@ -1064,53 +1068,53 @@ CDN을 이용하고자 할 경우 아래 CDN 주소를 입력해 주세요.
 
 ⑤ 디바이스 언어설정에 따라 다른 메시지를 등록해 놓을 수 있습니다.
 
-#### - API Key
+#### - API Key<a name="APIKey"></a>
 
 Open API를 사용하기 위한 인증에 사용되는 키를 관리하는 메뉴입니다.
 [+추가] 버튼을 클릭하여 키를 생성하고 생성된 키 값을 Open API 호출 시 header에 x-api-key 값으로 넣어야 합니다.
 생선된 Key를 클릭하면 수정 메뉴로 진입이 가능하며, Key 상태, Key 만료일, 설명 등을 수정할 수 있으며, Key를 삭제할 수도 있습니다.
 
-### 관리자
+### 관리자<a name="관리자"></a>
 
-#### 감사
+#### 감사<a name="감사"></a>
 
 최고 관리자 계정으로 대시보드 사용자의 활동 기록을 확인할 수 있습니다.
 
-### 작업관리
+### 작업관리<a name="작업관리"></a>
 
 각 메뉴에서 csv로 내보내기한 결과를 한달간 다운로드 받을 수 있습니다.
 
-![gamepot_dashboard_90](./images/gamepot_dashboard_90.png)
+![gamepot_dashboard_90.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_90%287%29.png)
 
-## 기타
+## 기타<a name="기타"></a>
 
-### SDK다운로드
+### SDK다운로드<a name="SDK다운로드"></a>
 
 Android, IOS, Unity SDK를 다운로드할 수 있습니다.
 
-![gamepot_dashboard_110](./images/gamepot_dashboard_110.png)
+![gamepot_dashboard_110.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_110%289%29.png)
 
 > 대시보드 우측 상단에서 GAMEPOT 정보를 확인할 수 있습니다.
 
-### GAMEPOT 공지사항
+### GAMEPOT 공지사항<a name="GAMEPOT공지사항"></a>
 
 GAMEPOT의 공지사항을 확인할 수 있습니다.
 
-### 사용자 가이드
+### 사용자 가이드<a name="사용자가이드"></a>
 
 GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
-### 언어 변경
+### 언어 변경<a name="언어변경"></a>
 
 대시보드의 각 메뉴 등이 선택한 언어로 변경됩니다.
 
-### 회원정보수정
+### 회원정보수정<a name="회원정보수정"></a>
 
 대시보드 이용 계정의 이름, 비밀번호를 변경하실 수 있습니다.
 
 대시보드 우측 상단의 아이콘을 클릭하면 나타나는 드롭다운 메뉴 중 회원정보수정을 선택할 수 있습니다.
 
-![gamepot_dashboard_80](./images/gamepot_dashboard_80.png)
+![gamepot_dashboard_80.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_80%2813%29.png)
 
 ① 사용자의 이름을 변경할 수 있습니다.
 
@@ -1126,7 +1130,7 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ⑦ 로그인 2차 인증을 설정할 수 있습니다.
 
-![gamepot_dashboard_107](./images/gamepot_dashboard_107.png)
+![gamepot_dashboard_107.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_107%2813%29.png)
 
 인증번호, OTP 둘 중 한가지의 방식으로 2차 인증을 설정할 수 있습니다.
 
@@ -1134,21 +1138,21 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ② Google OTP로 2차 인증을 설정합니다.
 
-### 환경설정
+### 환경설정<a name="환경설정"></a>
 
 게임팟 대시보드 관리를 위한 사용자 관리, 역할 관리, 업데이트 기능 등이 있습니다.
 
-#### - 사용자
+#### - 사용자<a name="사용자"></a>
 
 대시보드를 이용할 수 있는 사용자를 관리하는 메뉴로 사용자를 추가/삭제하실 수 있습니다.
 
-![gamepot_dashboard_82](./images/gamepot_dashboard_82.png)
+![gamepot_dashboard_82.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_82%2810%29.png)
 
 ① 상태를 체크하면 해당 사용자가 활성화됩니다.
 
 **등록** 버튼을 클릭합니다. 아래와 같은 팝업 창이 노출되면, 해당하는 값을 입력합니다.
 
-![gamepot_dashboard_83](./images/gamepot_dashboard_83.png)
+![gamepot_dashboard_83.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_83%2813%29.png)
 
 ① 사용자 대시보드의 기준이 될 시간대를 설정합니다.
 
@@ -1162,15 +1166,15 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ⑥ IP 접속 제한을 설정할 경우 허용하지 않은 IP의 접속을 제한합니다.
 
-#### - 역할
+#### - 역할<a name="역할"></a>
 
 대시보드를 이용할 수 있는 사용자를 그룹 단위로 관리하는 기능으로, 각 역할마다 다른 권한을 부여할 수 있습니다.
 
-![gamepot_dashboard_84](./images/gamepot_dashboard_84.png)
+![gamepot_dashboard_84.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_84%289%29.png)
 
 **톱니바퀴** 버튼을 클릭합니다. 아래와 같은 화면에서, 해당 역할에 대한 설정을 할 수 있습니다.
 
-![gamepot_dashboard_85](./images/gamepot_dashboard_85.png)
+![gamepot_dashboard_85.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_85%289%29.png)
 
 ① 해당 역할에 포함할 사용자를 위치시킵니다.
 
@@ -1178,8 +1182,8 @@ GAMEPOT 대시보드 사용 가이드 페이지로 이동합니다.
 
 ③ 해당 역할에 허용할 기능을 선택합니다.
 
-#### - 업데이트
+#### - 업데이트<a name="업데이트2"></a>
 
 게임팟 시스템의 업데이트 내역을 확인할 수 있습니다.
 
-![gamepot_dashboard_86](./images/gamepot_dashboard_86.png)
+![gamepot_dashboard_86.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_86%286%29.png)
