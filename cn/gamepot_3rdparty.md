@@ -277,6 +277,10 @@ _`[FB UnityPackage ver 7.18.0]`_
 
 ![gamepot_dashboard_44.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_44%2813%29.png){height="" width=""}
 
+![gamepot_dashboard_44.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_44%2813%29.png)
+
+![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
+
 :::(Info)
 your content goes here
 보안을 위해 Webhook 주소에 방화벽을 적용하는 것이 안전합니다.
