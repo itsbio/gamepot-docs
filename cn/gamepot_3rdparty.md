@@ -272,26 +272,3 @@ _`[FB UnityPackage ver 7.18.0]`_
 ⒊ 请在编辑器中打开/Assets/Plugins/Android/AndroidManifest.xml，删除红色内容（Facebook App ID）。
 
 ![gamepot-3rdparty-06](./images/gamepot-3rdparty-06.png)
-
-#### - 키워드 쿠폰<a name="키워드쿠폰"></a>
-
-![gamepot_dashboard_44.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_44%2813%29.png){height="" width=""}
-
-![gamepot_dashboard_44.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_44%2813%29.png)
-
-![gamepot_dashboard_44](./images/gamepot_dashboard_44.png)
-
-:::(Info)
-your content goes here
-보안을 위해 Webhook 주소에 방화벽을 적용하는 것이 안전합니다.
-방화벽 및 정상 요청 검증이 없을시 비정상 요청을 통한 아이템 지급등이 이루어질 수 있습니다.
-방화벽은 White List기반으로 작성하는 것이 좋으며, 아래 GAMEPOT IP 허용이 필요합니다.
-49.236.143.202
-49.236.143.198
-106.10.53.19
-106.10.52.84
-
-또한, 스푸핑 공격에도 안전한 보안을 원하신다면 'etc' Attribute 활용을 통한 정상요청 검증을 부탁드립니다.
-:::
-
-end
