@@ -1195,13 +1195,36 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 });
 ```
 
-### 약관 동의
+### 약관 동의 (GDPR 포함)
 
-'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
 `BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
-#### 약관 동의 호출
+#### 약관 동의 호출 (자동)
+
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
+
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+
+```java
+// Default Value는 true
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용 
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+GamePot.getInstance().setAutoAgree(true);
+
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
+GamePot.getInstance().setAutoAgreeBuilder(bulider);
+
+...
+
+GamePotChannel.getInstance().login(GamePotChannelType);
+
+...
+```
+
+#### 약관 동의 호출 (수동)
 
 ```java
 // 기본 테마
@@ -1229,7 +1252,7 @@ GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
 Request:
 
 ```java
-// 기본 호출(BLUE 테마로 적용)
+// 기본 호출(MATERIAL_BLUE 테마로 적용)
 GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), new GamePotListener<GamePotAgreeInfo>() {
     @Override
     public void onSuccess(GamePotAgreeInfo data) {
@@ -1259,6 +1282,7 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener
 
 ```java
 GamePotAgreeBuilder agreeBuilder= new GamePotAgreeBuilder();
+
 agreeBuilder.setHeaderBackGradient(new int[] {0xFF00050B,0xFF0F1B21});
 agreeBuilder.setHeaderTitleColor(0xFFFF0000);
 agreeBuilder.setHeaderBottomColor(0xFF00FF00);
@@ -1281,25 +1305,27 @@ agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
 agreeBuilder.setFooterTitle("게임 시작하기");
 
-//일반 광고성 수신동의 버튼 노출 여부
+//광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+agreeBuilder.setShowToastPushStatus(true);
+
+//(GDPR 미사용 시) 일반 광고성 수신동의 버튼 노출 여부
 agreeBuilder.setShowPush(true);
 
-// 야간 광고성 수신동의 버튼 노출 여부
+//(GDPR 미사용 시) 야간 광고성 수신동의 버튼 노출 여부
 agreeBuilder.setShowNightPush(true);
 
-// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+//(GDPR 미사용 시) 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
 agreeBuilder.setPushDetailURL("https://...");
 
-// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
+//(GDPR 미사용 시)  야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
 agreeBuilder.setNightPushDetailURL("https://...");
 
-// 문구 변경
+//(GDPR 미사용 시) 약관 문구 변경
 agreeBuilder.setAllMessage("모두 동의");
 agreeBuilder.setTermMessage("필수) 이용약관");
 agreeBuilder.setPrivacyMessage("필수) 개인정보 취급 방침");
 agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
 agreeBuilder.setNightPushMessage("선택) 야간 푸시 수신 동의");
-
 
 GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
   ....
@@ -1311,6 +1337,9 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotLis
 > contentIconDrawable의 기본 이미지는 푸시 아이콘으로 설정됩니다.
 
 ![gamepot_android_09](./images/gamepot_android_09.png)
+![gamepot_android_09_1](./images/gamepot_android_09_1.png)
+![gamepot_android_09_2](./images/gamepot_android_09_2.png)
+
 
 ### 이용약관
 
@@ -1428,6 +1457,33 @@ gdpr_push_normal : 이벤트 Push 수신동의
 gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
 gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
 gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+```
+
+### AppStatus 확인
+
+현재 클라이언트의 AppStatus를 확인할 수 있습니다.
+
+```java
+import io.gamepot.common.GamePot;
+
+GamePot.getInstance().checkAppStatus(new GamePotAppStatusResultListener() {
+    @Override
+    public void onSuccess(){
+   
+    }
+    @Override
+    public void onFailure(GamePotError error){
+
+    }
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status){
+
+    }
+    @Override
+    public void onMainternance(GamePotAppStatus status){
+
+    }
+});
 ```
 
 # 부록
