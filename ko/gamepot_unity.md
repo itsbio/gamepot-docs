@@ -1658,6 +1658,46 @@ int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title
 GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 ```
 
+### Image Push
+iOS 앱에서 알림 이미지를 수신하고 처리하려면 XCode 상에서 알림 서비스 확장 프로그램을 추가해야 합니다.
+
+- Notification Service Extension 프로젝트에 추가하기
+    1. Xcode -> File -> New -> Target.. 메뉴 클릭
+    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
+    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
+
+- 알림 서비스 확장 프로그램 추가하기
+    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
+
+        ```text
+        // GamePot/GamePotNotificationServiceExtension.h를 Import
+        // #import <UserNotifications/UserNotifications.h>
+        #import <GamePot/GamePotNotificationServiceExtension.h>
+
+        // UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
+        // @interface NotificationService : UNNotificationServiceExtension
+        @interface NotificationService : GamePotNotificationServiceExtension
+        @end
+        ```
+
+    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
+        ```text
+        ...
+        - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+            // self.contentHandler = contentHandler;
+            // self.bestAttemptContent = [request.content mutableCopy];
+
+            // Modify the notification content here...
+            // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+
+            // self.contentHandler(self.bestAttemptContent);
+            [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
+        }
+        ...
+        ```
+    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+
+
 ### 약관 동의
 
 '이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
@@ -1998,14 +2038,14 @@ sendPurchaseByThirdPartySDK(string productId, string transactionId, string curre
 ```
 
 ## Firebase Unity SDK를 별도로 붙인 경우 주의점
-> 최초 한번 또는 패키지명이 변경될때 마다 Assets > External Dependency Manager > Android Resolver > Settings 내 Patch mainTemplate.gradle 옵션을 해제하신 후 (설정 변경 후 OK 버튼 클릭 필요 ) > Resolve 진행해주세요. 
+> 최초 한번 또는 패키지명이 변경될때 마다 Assets > External Dependency Manager > Android Resolver > Settings 내 Patch mainTemplate.gradle 옵션을 해제하신 후 (설정 변경 후 OK 버튼 클릭 필요 ) > Resolve 진행해주세요.
 
 Resolve 과정이 진행시 Firebase 라이브러리가 유니티 에디터상에 입력된 패키지명으로 리패키징 하는 과정을 진행이 되는데 패키지명이 잘못된 경우 앱 설치가 되지 않습니다.
 
 ```csharp
 반영사항 확인 방법 :
 
-Resolve 작업 이후 com.google.firebase.firebase-common-[Firebase 라이브러리 버전].aar 내 
+Resolve 작업 이후 com.google.firebase.firebase-common-[Firebase 라이브러리 버전].aar 내
 AndroidManifest.xml에서 android:authorities 값이
 버전에 맞는 패키지명 형식( [패키지명].firebaseinitprovider)으로 있는지 보시면 확인하시면 됩니다.
 
@@ -2014,7 +2054,7 @@ AndroidManifest.xml에서 android:authorities 값이
             android:exported="false"
             android:authorities=“[앱 패키지명].firebaseinitprovider"
 
-ex)앱 패키지명이 com.itsb.gamepot 일때 
+ex)앱 패키지명이 com.itsb.gamepot 일때
 ( com.itsb.gamepot은 게임팟 샘플 패키지명이므로 예제와 같은 패키지명으로 되어 있으면 안됩니다.)
 
 <provider

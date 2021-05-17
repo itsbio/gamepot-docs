@@ -410,7 +410,7 @@ GamePot_Android_UPL.xml 수정
 
 #### IOS
 
-1. `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다. 
+1. `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다.
 
 2. IOS용 GoogleService-Info.plist 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework/Resources/`의 경로에 복사한 후, 다시 **재압축** 합니다.
 
@@ -1756,6 +1756,11 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
          bool success = FGamePotSDKPluginModule::GetSharedGamePotSdk()->cancelLocalPush(int /*푸시 등록시 얻은 pushId*/);
 ```
+
+## iOS Image Push
+Unreal은 프로젝트에 Notification Service Extension을 추가할 수 있는 방법을 제공하지 않아
+iOS Image Push 기능을 사용할 수 없습니다.
+
 
 ### 약관 동의
 
