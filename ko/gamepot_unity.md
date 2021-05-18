@@ -1698,15 +1698,39 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 XCode 상에서 �
     3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
 
 
-### 약관 동의
+### 약관 동의 (GDPR 포함)
 
-'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
 `BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
 각 영역별로 Customizing도 가능합니다.
 
-#### 약관 동의 호출
+#### 약관 동의 호출 (자동)
+
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
+
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+
+```csharp
+// Default Value는 true
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용 
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+GamePot.setAutoAgree(true);
+
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+NAgreeInfo bulider = new NAgreeInfo(); 
+bulider.theme = "MATERIAL_ORANGE";
+GamePot.setAutoAgreeBuilder(bulider);
+
+...
+
+GamePot.login(NCommon.LoginType);
+
+...
+```
+
+#### 약관 동의 호출 (수동)
 
 ```csharp
 // 기본 테마
@@ -1736,7 +1760,7 @@ MATERIAL_PEACH,
 Request:
 
 ```csharp
-// 기본 호출(BLUE 테마로 적용)
+// 기본 호출(MATERIAL_BLUE 테마로 적용)
 GamePot.showAgreeDialog();
 
 // 그 외 테마로 적용 시
@@ -1843,6 +1867,9 @@ info.privacyMessage = "필수) 개인정보 취급 방침";
 info.pushMessage = "선택) 일반 푸시 수신 동의";
 info.nightPushMessage = "선택) 야간 푸시 수신 동의";
 
+
+//광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+GamePot.setShowToastPushStatus(true);
 GamePot.showAgreeDialog(info);
 ```
 
@@ -1851,6 +1878,9 @@ GamePot.showAgreeDialog(info);
 > contentIconDrawable은 AOS에만 보여지며, 기본 값은 푸시 아이콘으로 설정됩니다.
 
 ![gamepot_unity_15](./images/gamepot_unity_15.png)
+![gamepot_unity_15_1](./images/gamepot_unity_15_1.png)
+![gamepot_unity_15_2](./images/gamepot_unity_15_2.png)
+
 
 ### 이용약관
 
@@ -1992,6 +2022,41 @@ gdpr_push_normal : 이벤트 Push 수신동의
 gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
 gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
 gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+```
+
+### AppStatus 확인
+
+현재 클라이언트의 AppStatus를 확인할 수 있습니다.
+
+```csharp
+
+public enum ResultCheckAppStatus
+{
+    SUCCESS,
+    FAILED,
+    NEED_UPDATE,
+    MAINTENANCE
+}
+
+GamePot.checkAppStatus((NCommon.ResultCheckAppStatus resultState , NAppStatus appStatus, NError error) =>
+{
+    switch(resultState)
+    {
+        case NCommon.ResultCheckAppStatus.FAILED:
+        break;
+
+        case NCommon.ResultCheckAppStatus.FAILED:
+        break;
+
+        case NCommon.ResultCheckAppStatus.MAINTENANCE:
+        break;
+
+        case NCommon.ResultCheckAppStatus.NEED_UPDATE:
+        break;
+        
+        default:
+        break;
+    }
 ```
 
 # 부록
