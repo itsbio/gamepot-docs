@@ -854,23 +854,50 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 
     }];
 ```
 
-### 規約同意
+### 약관 동의 (GDPR 포함)
 
-｢利用規約｣と｢個人情報の取扱方針｣の同意をスムーズに行えるように UI を提供します。
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE`テーマと`GREEN`テーマの 2 種類の`基本テーマ`の他にも、新たに追加された 11 種類の`改善テーマ`を提供します。
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
-#### 規約同意を呼び出す
+#### 약관 동의 호출 (자동)
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
 
-> 規約同意のポップアップ表示の有無は、開発会社でゲームに合わせて処理してください。
->
-> ｢見る｣ボタンをクリックすると表示される内容は、ダッシュボードで適用及び修正できます。
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+```
+// Default Value는 YES
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+[[GamePot getInstance] setAutoAgree:YES];
+
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+[[GamePot getInstance] setAgreeBuilder:options];
+
+...
+
+[[GamePotChannel getInstance] Login:GamePotChannelType viewController:self success:^(GamePotUserInfo* userInfo) {
+
+} cancel:^{
+
+} fail:^(NSError *error) {
+
+} update:^(GamePotAppStatus *appStatus) {
+
+} maintenance:^(GamePotAppStatus *appStatus) {
+
+}];
+
+...
+```
+
+#### 약관 동의 호출 (수동)
 
 ```text
-// ブルーテーマ [[GamePotAgreeOption alloc] init:BLUE];
-// グリーンテーマ [[GamePotAgreeOption alloc] init:GREEN];
+// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
+// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
 
-// 改善テーマ
+// 개선테마
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -882,23 +909,39 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
-GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
+```
+> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
+>
+> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
+
+Request:
+
+```
+GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
-   // [result agree]：規約の必須事項にすべて同意した場合、true
-   // [result agreeNight]：夜間プッシュ型広告の通知を許可した場合はtrue、そうでない場合はfalse
-   // agreeNight値はログインが完了後、[[GamePot getInstance] setNightPushEnable]; apiを
-   // 通じて伝達してください。
+   // [result agree] : 필수 약관을 모두 동의한 경우 true
+   // [result agreeNight] : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
+   // agreeNight 값은 로그인 완료 후 [[GamePot getInstance] setNightPushEnable]; api를
+   // 통해 전달하세요.
 }];
 ```
 
 #### Customizing
 
-テーマを使わずにゲームに合わせてカラーを変更します。
+테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
 
-規約同意を呼び出す前に、`GamePotAgreeOption`で各領域別にカラーを指定できます。
+약관 동의를 호출하기 전에 `GamePotAgreeOption`에서 각 영역별로 색을 지정할 수 있습니다.
 
+##### 약관 자동 호출 Customizing 설정
+약관 자동 호출 시 팝업을 아래와 같이 Customizing 설정이 가능합니다.
+```
+GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+
+[[GamePot getInstance] setAgreeBuilder:options];
+```
+##### Customizing 세부 설정
 ```text
- GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:GREEN];
+ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 [option setHeaderBackGradient:@[@0xFF00050B,@0xFF0F1B21]];
 [option setHeaderTitleColor:0xFF042941];
@@ -912,21 +955,28 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [option setFooterButtonOutlineColor:0xFF0b171a];
 [option setFooterTitleColor:0xFFFFFFD5];
 
-// メッセージ変更
-[option setAllMessage:@"すべて同意"];
-[option setTermMessage:@"必須) 利用規約"];
-[option setPrivacyMessage:@"必須) 個人情報の取扱方針"];
+// 문구 변경
+[option setAllMessage:@"모두 동의"];
+[option setTermMessage:@"필수) 이용약관"];
+[option setPrivacyMessage:@"필수) 개인정보 취급 방침"];
 [option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
-[option setNightPushMessage:@"任意) 夜間プッシュ通知を許可"];
-[option setFooterTitle:@"ゲームを始める"];
+[option setNightPushMessage:@"선택) 야간 푸쉬 수신 동의"];
+[option setFooterTitle:@"게임 시작하기"];
 
-// 未使用時は@""に設定
-[option setHeaderTitle:@"規約同意"];
+// 광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+[option setShowToastPushStatus:YES];
+
+// 광고성 수신동의(일반/야간) 메세지 수정
+[option setPushToastMsg:@"Push on"];
+[option setNightPushToastMsg:@"Night Push on"];
+
+// 미사용시 @""로 설정
+[option setHeaderTitle:@"약관 동의"];
 
 // 일반 광고성 수신동의 버튼 노출 여부
 [option setShowPush:YES];
 
-// 夜間プッシュ型広告通知許可ボタンの表示の有無
+// 야간 광고성 수신동의 버튼 노출 여부
 [option setShowNightPush:YES];
 
 // 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
@@ -934,13 +984,16 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 // 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
 [option setNightPushDetailURL:@"https://..."];
+
 ```
 
-それぞれの変数は以下の領域に適用されます。
+각각의 변수는 아래 영역에 적용됩니다.
 
-> contentIconDrawable の画像は IOS では表示されません。
+> contentIconDrawable의 이미지는 IOS에는 노출 되지 않습니다.
 
 ![gamepot_ios_14](./images/gamepot_ios_14.png)
+![gamepot_ios_14_1](./images/gamepot_ios_14_1.png)
+![gamepot_ios_14_2](./images/gamepot_ios_14_2.png)
 
 ### 利用規約
 
