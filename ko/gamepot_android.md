@@ -25,13 +25,14 @@ Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같�
 
 #### 프로젝트 생성
 
-![gamepot_android_01](./images/gamepot_android_01.png)
+![gamepot_android_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_01%284%29.png){height="" width=""}
+
 
 #### 라이브러리 추가
 
 다운로드한 AOS SDK 파일을 app/libs 폴더에 추가합니다.
 
-![gamepot_android_02](./images/gamepot_android_02.png)
+![gamepot_android_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_02%283%29.png){height="" width=""}
 
 #### build.gradle 설정
 
@@ -155,9 +156,9 @@ apply plugin: 'com.google.gms.google-services'
 3. 구글에서 발급받은 google-service.json 파일을 /app/ 폴더 하위에 복사합니다.
 4. Gradle Sync Now
 
-   Android Studio에서 아래 버튼을 클릭하여 새로고침합니다.
+   Android Studio에서 **[아래]** 버튼을 클릭하여 새로고침합니다.
 
-![gamepot_android_03](./images/gamepot_android_03.png)
+![gamepot_android_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_03%285%29.png){height="" width=""}
 
 - 새로고침을 누른 후 발생할 수 있는 실패
 
@@ -209,7 +210,8 @@ apply plugin: 'com.google.gms.google-services'
 
 #### Push Notification 아이콘 설정
 
-![gamepot_android_04](./images/gamepot_android_04.png)
+
+![gamepot_android_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_04%284%29.png){height="" width=""}
 
 푸시 수신 시 Notification bar에 보여줄 icon은 기본적으로 SDK 내부의 기본 이미지로 처리되며, 게임에 맞게 직접 넣을 수도 있습니다.
 
@@ -293,7 +295,8 @@ APK 빌드 시 사용한 Keystore의 SHA-1 값을 Firebase console에 추가합�
 
 > SHA-1 값은 개발사에 요청합니다.
 
-![gamepot_android_05](./images/gamepot_android_05.png)
+
+![gamepot_android_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_05%284%29.png){height="" width=""}
 
 ### 페이스북 콘솔 설정
 
@@ -301,7 +304,8 @@ APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 �
 
 > 키 해시 값은 개발사에 요청합니다.
 
-![gamepot_android_06](./images/gamepot_android_06.png)
+
+![gamepot_android_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_06%284%29.png){height="" width=""}
 
 ### 설정
 
@@ -1308,19 +1312,23 @@ agreeBuilder.setFooterTitle("게임 시작하기");
 //광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
 agreeBuilder.setShowToastPushStatus(true);
 
-//(GDPR 미사용 시) 일반 광고성 수신동의 버튼 노출 여부
+// 광고성 수신동의(일반/야간) 메세지 수정
+agreeBuilder.setPushToastMsg("Push on");
+agreeBuilder.setNightPushToastMsg("Night Push on");
+
+// 일반 광고성 수신동의 버튼 노출 여부
 agreeBuilder.setShowPush(true);
 
-//(GDPR 미사용 시) 야간 광고성 수신동의 버튼 노출 여부
+// 야간 광고성 수신동의 버튼 노출 여부
 agreeBuilder.setShowNightPush(true);
 
-//(GDPR 미사용 시) 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
 agreeBuilder.setPushDetailURL("https://...");
 
-//(GDPR 미사용 시)  야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
+// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
 agreeBuilder.setNightPushDetailURL("https://...");
 
-//(GDPR 미사용 시) 약관 문구 변경
+// 문구 변경
 agreeBuilder.setAllMessage("모두 동의");
 agreeBuilder.setTermMessage("필수) 이용약관");
 agreeBuilder.setPrivacyMessage("필수) 개인정보 취급 방침");
@@ -1336,10 +1344,17 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotLis
 
 > contentIconDrawable의 기본 이미지는 푸시 아이콘으로 설정됩니다.
 
-![gamepot_android_09](./images/gamepot_android_09.png)
-![gamepot_android_09_1](./images/gamepot_android_09_1.png)
-![gamepot_android_09_2](./images/gamepot_android_09_2.png)
+- AgeView
 
+![gamepot_android_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09%289%29.png)
+
+- EmailView
+
+![gamepot_android_09_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09_1%281%29.png)
+
+- AgreeView
+
+![gamepot_android_09_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09_2.png)
 
 ### 이용약관
 

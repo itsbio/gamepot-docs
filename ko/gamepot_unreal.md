@@ -15,7 +15,7 @@ search:
 ### Android
 
 ```d
-minSdkVersion : API 19 (Jelly Bean, 4.2)
+minSdkVersion : API 17 (Jelly Bean, 4.2)
 ```
 
 **프로젝트 환경 설정 방법**
@@ -75,7 +75,8 @@ resValue "string", "[key]", "[value]"
 
 **노티바에 푸시 아이콘 변경 방법**
 
-![gamepot_unreal_003](./images/gamepot_unreal_003.png)
+![gamepot_unreal_003.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_003.png)
+
 
 푸시 수신 시 Android Notification bar에 보여줄 Small icon은 SDK 내부에서 기본 이미지로 노출하며 직접 추가할 수도 있습니다.
 
@@ -99,7 +100,7 @@ resValue "string", "[key]", "[value]"
 
 `$S(PluginDir)/ThirdParty/iOS/GamePotResources.embeddedframework/Resources/GamePotConfig-Info.plist` 파일을 에디터로 연 다음, 필요한 환경 변수를 추가해 주세요.
 
-![gamepot_unreal_001](./images/gamepot_unreal_001.png)
+![gamepot_unreal_001.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_001.png)
 
 | 환경 변수                     | 설명                                                  |
 | :---------------------------- | :---------------------------------------------------- |
@@ -408,7 +409,7 @@ struct FNError
 
 #### Google Firebase Console
 
-1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/`에 복사합니다.
+1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `$S(PluginDir)/ThirdParty/Android/`에 복사합니다.
 2. APK 빌드 시 사용한 Keystore의 SHA-1 값을 Google Firebase console에 추가합니다.
 
 **구글 로그인 시 onCancel이 응답하며 로그인이 되지 않는 경우** 아래 내용을 체크해주세요.
@@ -444,11 +445,12 @@ GamePot_Android_UPL.xml 수정
 
 #### IOS
 
-1. `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다.
+1. `$S(PluginDir)/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다.
 
-2. IOS용 GoogleService-Info.plist 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework/Resources/`의 경로에 복사한 후, 다시 **재압축** 합니다.
+2. IOS용 GoogleService-Info.plist 파일을 다운로드한 후에 `$S(PluginDir)/ThirdParty/iOS/GamePotResouces.embeddedframework/Resources/`의 경로에 복사한 후, 다시 **재압축** 합니다.
 
-    ![gamepot_unreal_004](./images/gamepot_unreal_004.png)
+![gamepot_unreal_004.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_004.png)
+
 
 ### 페이스북 로그인
 
@@ -996,13 +998,13 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 Request:
 
-````csharp
+
 
 ​```c++
 // productId : 마켓에 등록된 상품ID
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     FGamePotSDKPluginModule::GetSharedGamePotSdk()->purchaseThirdPayments(FString productId);
-````
+```
 
 외부결제 이용 시 상품 정보 리스트는 아래 api를 사용하세요.
 
@@ -1135,11 +1137,11 @@ void ASampleGameModeBase::OnAppClose()
 
 | 폴더명                                                                                             | 크기  |
 | :------------------------------------------------------------------------------------------------- | :---- |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-mdpi/    | 24x24 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-hdpi/    | 36x36 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xhdpi/   | 48x48 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-mdpi/    | 24x24 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-hdpi/    | 36x36 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-xhdpi/   | 48x48 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
 ### 애플 로그인 (for Android - Web Login)
 
@@ -1187,7 +1189,7 @@ GamePot_Android_UPL.xml 수정
 ...
 ```
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+$S(PluginDir)/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-apple-signin.aar
 
@@ -1243,7 +1245,7 @@ GamePot_Android_UPL.xml 수정
 
 Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+$S(PluginDir)ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-naver.aar
 
@@ -1349,7 +1351,7 @@ GamePot_Android_UPL.xml 수정
 ...
 ```
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+$S(PluginDir)/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-line.aar
 - line-sdk-4.0.10.aar
@@ -1985,7 +1987,8 @@ void ASampleGameModeBase::OnAgreeDialogFailure(FNError NError)
 
 > contentIconDrawable은 AOS에만 보여지며, 기본 값은 푸시 아이콘으로 설정됩니다.
 
-![gamepot_unreal_002](./images/gamepot_unreal_002.png)
+
+![gamepot_unreal_002.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_002.png)
 
 ### 이용약관
 

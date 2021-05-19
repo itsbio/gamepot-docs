@@ -20,11 +20,12 @@ search:
 
 **Assets &gt; Import Package &gt; Custom Package** 메뉴에서 다운로드한 GamePotUnityPlugin-xxxx.unitypackage 파일을 선택합니다.
 
-![gamepot_unity_01](./images/gamepot_unity_01.png)
+![gamepot_unity_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_01%289%29.png)
 
 플러그인을 확인하고 import하면 해당 프로젝트에 추가됩니다.
 
-![gamepot_unity_02](./images/gamepot_unity_02.png)
+![gamepot_unity_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_02%289%29.png)
+
 
 ### Step 3. Android
 
@@ -74,7 +75,7 @@ resValue "string", "[key]", "[value]"
 
 **노티바에 푸시 아이콘 변경 방법**
 
-![gamepot_unity_03](./images/gamepot_unity_03.png)
+![gamepot_unity_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_03%2810%29.png)
 
 푸시 수신 시 Android Notification bar에 보여줄 Small icon은 SDK 내부에서 기본 이미지로 노출하며 직접 추가할 수도 있습니다.
 
@@ -111,17 +112,18 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 `Assets > Play Services Resolver > Android Resolver > Settings` 메뉴로 이동합니다.
 
-![gamepot_unity_04](./images/gamepot_unity_04.png)
+![gamepot_unity_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_04%289%29.png)
 
 `Enable Resolution On Build 체크박스를 해제` 해주세요.
 
-![gamepot_unity_05](./images/gamepot_unity_05.png)
+![gamepot_unity_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_05%289%29.png)
 
 **Unity Build Settings**
 
 `File > Build Settings > Build System` 메뉴에서 Gradle을 선택합니다.
 
-![gamepot_unity_06](./images/gamepot_unity_06.png)
+![gamepot_unity_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_06%289%29.png)
+
 
 ### Step 4. iOS
 
@@ -133,7 +135,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 `/Assets/Plugin/IOS/GamePotConfig-Info.plist` 내에 필요한 환경 변수를 추가해 주세요.
 
-![gamepot_unity_07](./images/gamepot_unity_07.png)
+![gamepot_unity_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_07%289%29.png)
 
 | 환경 변수                     | 설명                                                  |
 | :---------------------------- | :---------------------------------------------------- |
@@ -146,7 +148,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 scenes를 추가한 후에 **File &gt; Build Settings &gt; Build And Run**을 실행하면 완료됩니다.
 
-![gamepot_unity_08](./images/gamepot_unity_08.png)
+![gamepot_unity_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_08%289%29.png)
 
 XCode 빌드 후
 
@@ -293,7 +295,7 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
 
-![gamepot_unity_24](./images/gamepot_unity_24.png)
+![gamepot_unity_24.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_24%285%29.png)
 
 ### 게임센터 로그인
 
@@ -301,18 +303,19 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 >
 > GameCenter Login을 사용하시는 경우에는 아래 위치해서 이미지와 같이 설정 해주세요.
 > &gt; `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
+![gamepot_unity_25.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_25%286%29.png)
 
-![gamepot_unity_25](./images/gamepot_unity_25.png)
 
 > 해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
 
 **Xcode &gt; Build Phases &gt; Linked Binary With Libraries** 내에 Gamekit.framework 를 추가합니다.
 
-![gamepot_unity_26](./images/gamepot_unity_26.png)
+![gamepot_unity_26.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_26%286%29.png)
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; GameCenter을 추가 합니다.**
 
-![gamepot_unity_09](./images/gamepot_unity_09.png)
+![gamepot_unity_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_09%289%29.png)
+
 
 ## 5. 로그인/로그아웃/탈퇴/검증
 
@@ -1659,6 +1662,7 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 ```
 
 ### Image Push
+
 iOS 앱에서 알림 이미지를 수신하고 처리하려면 XCode 상에서 알림 서비스 확장 프로그램을 추가해야 합니다.
 
 - Notification Service Extension 프로젝트에 추가하기
@@ -1667,35 +1671,38 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 XCode 상에서 �
     3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
 
 - 알림 서비스 확장 프로그램 추가하기
-    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
 
-        ```text
-        // GamePot/GamePotNotificationServiceExtension.h를 Import
-        // #import <UserNotifications/UserNotifications.h>
-        #import <GamePot/GamePotNotificationServiceExtension.h>
+1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
 
-        // UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
-        // @interface NotificationService : UNNotificationServiceExtension
-        @interface NotificationService : GamePotNotificationServiceExtension
-        @end
-        ```
 
-    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
-        ```text
-        ...
-        - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
-            // self.contentHandler = contentHandler;
-            // self.bestAttemptContent = [request.content mutableCopy];
+```c++
+// GamePot/GamePotNotificationServiceExtension.h를 Import
+// #import <UserNotifications/UserNotifications.h>
+#import <GamePot/GamePotNotificationServiceExtension.h
+// UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
+// @interface NotificationService : UNNotificationServiceExtension
+@interface NotificationService : GamePotNotificationServiceExtension
+@end
+```
 
-            // Modify the notification content here...
-            // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
 
-            // self.contentHandler(self.bestAttemptContent);
-            [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
-        }
-        ...
-        ```
-    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+```c++
+    ...
+
+    - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+        // self.contentHandler = contentHandler;
+        // self.bestAttemptContent = [request.content mutableCopy];
+        // Modify the notification content here...
+        // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+        // self.contentHandler(self.bestAttemptContent);
+        [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
+    }
+
+    ...
+```
+
+3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
 
 
 ### 약관 동의 (GDPR 포함)
@@ -1877,9 +1884,17 @@ GamePot.showAgreeDialog(info);
 
 > contentIconDrawable은 AOS에만 보여지며, 기본 값은 푸시 아이콘으로 설정됩니다.
 
-![gamepot_unity_15](./images/gamepot_unity_15.png)
-![gamepot_unity_15_1](./images/gamepot_unity_15_1.png)
-![gamepot_unity_15_2](./images/gamepot_unity_15_2.png)
+- AgeView
+
+![gamepot_unity_15.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15%2814%29.png)
+
+- EmailView
+
+![gamepot_unity_15_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_1.png)
+
+- AgreeView
+
+![gamepot_unity_15_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_2.png)
 
 
 ### 이용약관
@@ -2042,16 +2057,22 @@ GamePot.checkAppStatus((NCommon.ResultCheckAppStatus resultState , NAppStatus ap
 {
     switch(resultState)
     {
-        case NCommon.ResultCheckAppStatus.FAILED:
+        case NCommon.ResultCheckAppStatus.SUCCESS:
+        // 로그인 성공
         break;
 
         case NCommon.ResultCheckAppStatus.FAILED:
-        break;
-
-        case NCommon.ResultCheckAppStatus.MAINTENANCE:
+        // Handling error
         break;
 
         case NCommon.ResultCheckAppStatus.NEED_UPDATE:
+        // 업데이트
+        // Handling appStatus
+        break;
+
+        case NCommon.ResultCheckAppStatus.MAINTENANCE:
+        // 점검
+        // Handling appStatus
         break;
         
         default:
