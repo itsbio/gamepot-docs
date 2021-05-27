@@ -25,13 +25,14 @@ Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같�
 
 #### 프로젝트 생성
 
-![gamepot_android_01](./images/gamepot_android_01.png)
+![gamepot_android_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_01%284%29.png){height="" width=""}
+
 
 #### 라이브러리 추가
 
 다운로드한 AOS SDK 파일을 app/libs 폴더에 추가합니다.
 
-![gamepot_android_02](./images/gamepot_android_02.png)
+![gamepot_android_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_02%283%29.png){height="" width=""}
 
 #### build.gradle 설정
 
@@ -155,9 +156,9 @@ apply plugin: 'com.google.gms.google-services'
 3. 구글에서 발급받은 google-service.json 파일을 /app/ 폴더 하위에 복사합니다.
 4. Gradle Sync Now
 
-   Android Studio에서 아래 버튼을 클릭하여 새로고침합니다.
+   Android Studio에서 **[아래]** 버튼을 클릭하여 새로고침합니다.
 
-![gamepot_android_03](./images/gamepot_android_03.png)
+![gamepot_android_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_03%285%29.png){height="" width=""}
 
 - 새로고침을 누른 후 발생할 수 있는 실패
 
@@ -209,7 +210,8 @@ apply plugin: 'com.google.gms.google-services'
 
 #### Push Notification 아이콘 설정
 
-![gamepot_android_04](./images/gamepot_android_04.png)
+
+![gamepot_android_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_04%284%29.png){height="" width=""}
 
 푸시 수신 시 Notification bar에 보여줄 icon은 기본적으로 SDK 내부의 기본 이미지로 처리되며, 게임에 맞게 직접 넣을 수도 있습니다.
 
@@ -293,7 +295,8 @@ APK 빌드 시 사용한 Keystore의 SHA-1 값을 Firebase console에 추가합�
 
 > SHA-1 값은 개발사에 요청합니다.
 
-![gamepot_android_05](./images/gamepot_android_05.png)
+
+![gamepot_android_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_05%284%29.png){height="" width=""}
 
 ### 페이스북 콘솔 설정
 
@@ -301,7 +304,8 @@ APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 �
 
 > 키 해시 값은 개발사에 요청합니다.
 
-![gamepot_android_06](./images/gamepot_android_06.png)
+
+![gamepot_android_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_06%284%29.png){height="" width=""}
 
 ### 설정
 
@@ -1195,13 +1199,36 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 });
 ```
 
-### 약관 동의
+### 약관 동의 (GDPR 포함)
 
-'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
 `BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
-#### 약관 동의 호출
+#### 약관 동의 호출 (자동)
+
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
+
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+
+```java
+// Default Value는 true
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용 
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+GamePot.getInstance().setAutoAgree(true);
+
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
+GamePot.getInstance().setAutoAgreeBuilder(bulider);
+
+...
+
+GamePotChannel.getInstance().login(GamePotChannelType);
+
+...
+```
+
+#### 약관 동의 호출 (수동)
 
 ```java
 // 기본 테마
@@ -1229,7 +1256,7 @@ GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
 Request:
 
 ```java
-// 기본 호출(BLUE 테마로 적용)
+// 기본 호출(MATERIAL_BLUE 테마로 적용)
 GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), new GamePotListener<GamePotAgreeInfo>() {
     @Override
     public void onSuccess(GamePotAgreeInfo data) {
@@ -1259,6 +1286,7 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener
 
 ```java
 GamePotAgreeBuilder agreeBuilder= new GamePotAgreeBuilder();
+
 agreeBuilder.setHeaderBackGradient(new int[] {0xFF00050B,0xFF0F1B21});
 agreeBuilder.setHeaderTitleColor(0xFFFF0000);
 agreeBuilder.setHeaderBottomColor(0xFF00FF00);
@@ -1281,7 +1309,14 @@ agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
 agreeBuilder.setFooterTitle("게임 시작하기");
 
-//일반 광고성 수신동의 버튼 노출 여부
+//광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+agreeBuilder.setShowToastPushStatus(true);
+
+// 광고성 수신동의(일반/야간) 메세지 수정
+agreeBuilder.setPushToastMsg("Push on");
+agreeBuilder.setNightPushToastMsg("Night Push on");
+
+// 일반 광고성 수신동의 버튼 노출 여부
 agreeBuilder.setShowPush(true);
 
 // 야간 광고성 수신동의 버튼 노출 여부
@@ -1300,7 +1335,6 @@ agreeBuilder.setPrivacyMessage("필수) 개인정보 취급 방침");
 agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
 agreeBuilder.setNightPushMessage("선택) 야간 푸시 수신 동의");
 
-
 GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
   ....
 }
@@ -1310,7 +1344,17 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotLis
 
 > contentIconDrawable의 기본 이미지는 푸시 아이콘으로 설정됩니다.
 
-![gamepot_android_09](./images/gamepot_android_09.png)
+- AgeView
+
+![gamepot_android_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09%289%29.png)
+
+- EmailView
+
+![gamepot_android_09_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09_1%281%29.png)
+
+- AgreeView
+
+![gamepot_android_09_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09_2.png)
 
 ### 이용약관
 
@@ -1428,6 +1472,33 @@ gdpr_push_normal : 이벤트 Push 수신동의
 gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
 gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
 gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+```
+
+### AppStatus 확인
+
+현재 클라이언트의 AppStatus를 확인할 수 있습니다.
+
+```java
+import io.gamepot.common.GamePot;
+
+GamePot.getInstance().checkAppStatus(new GamePotAppStatusResultListener() {
+    @Override
+    public void onSuccess(){
+   
+    }
+    @Override
+    public void onFailure(GamePotError error){
+
+    }
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status){
+
+    }
+    @Override
+    public void onMainternance(GamePotAppStatus status){
+
+    }
+});
 ```
 
 # 부록

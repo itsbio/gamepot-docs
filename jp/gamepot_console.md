@@ -1,14 +1,4 @@
----
-search:
-  keyword: ['gamepot']
----
-
-#### **NAVER クラウドプラットフォーム商品の使用方法をより詳細に提供し、様々な API の活用をサポートするために<a href="https://guide.ncloud-docs.com/docs/ja/home" target="_blank">[説明書]</a>と<a href="https://api.ncloud-docs.com/docs/ja/home" target="_blank">[API リファレンス]</a>を分けて提供しています。**
-
-<a href="https://api.ncloud-docs.com/docs/ja/game-gamepot" target="_blank">GAMEPOT API リファレンスへ >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/ja/game-gamepotconsole" target="_blank">GAMEPOT 説明書へ >></a>
-
-# ご使用の前に
+## ご使用の前に<a name="ご使用の前に"></a>
 
 GAME Platform On the real Time(以下 GAMEPOT)商品は、ゲームを開発してサービスする上で必要な機能を、別途の開発費をかけないで簡単に実装できるクラウドサービスです。特に、共通 SDK はもちろん、ゲーム運用に必要な必須機能と様々な付加機能を提供し、ゲームクライアントがゲームの開発に集中できるようにする完全管理型サービスです。運用ツールや SDK サーバを開発したりインフラを運用する必要がないため、リソースの効率化を効果的に行えます。
 
@@ -27,21 +17,21 @@ GAMEPOT は、ゲームの成長に比例してコストが増加する仕組み
 
 顧客のアカウントで共通のダッシュボードにアクセスする場合、顧客のアカウント情報が流出すると保存されているすべてのデータも流出する恐れがあります。NAVER クラウドプラットフォームのセキュリティは外部への情報流出を根本的に遮断していますが、より強固なセキュリティのために GAMEPOT のすべての顧客にそれぞれ異なるアクセスドメインとダッシュボードシステムを提供しているため、データをさらに安全に守ることができます。
 
-# GAMEPOT を利用する
+## GAMEPOT を利用する<a name="GAMEPOTを利用する"></a>
 
-## Step 1. プロジェクトを作成する
+### Step 1. プロジェクトを作成する<a name="Step1プロジェクトを作成する"></a>
 
 サービスを利用するには、まずプロジェクトを作成する必要があります。
 
-![gamepot_console_01](./images/gamepot_console_01.png)
+![gamepot_console_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_01%281%29.png)
 
 ① コンソールで**Game &gt; GAMEPOT**を選択します。
 
-![gamepot_console_02](./images/gamepot_console_02.png)
+![gamepot_console_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_02%281%29.png)
 
-② **+プロジェクト作成**ボタンをクリックします。
+② **[+プロジェクト作成]** ボタンをクリックします。
 
-![gamepot_console_03](./images/gamepot_console_03.png)
+![gamepot_console_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_03%281%29.png)
 
 ③ ゲームプロジェクト名を入力します。
 
@@ -55,11 +45,11 @@ GAMEPOT は、ゲームの成長に比例してコストが増加する仕組み
 
 ⑤ 商品を選択します。
 
-![gamepot_console_04](./images/gamepot_console_04.png)
+![gamepot_console_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_04%281%29.png)
 
 - Managed 商品を選択すると、別途のサービス申請用の案内ポップアップが表示されます。
 
-⑥ **プロジェクト作成**ボタンをクリックして、プロジェクトの作成を完了してください。
+⑥ **[プロジェクト作成]** ボタンをクリックして、プロジェクトの作成を完了してください。
 
 - プロジェクトを作成すると、基本 DAU が含まれた時間単位の料金が課金されます。プロジェクトを作成すると、使用しなくても料金が発生するので慎重に選択してください。
 
@@ -67,38 +57,38 @@ GAMEPOT は、ゲームの成長に比例してコストが増加する仕組み
 
 メールの認証が完了すると、初期パスワードを入力できるダッシュボード画面に移動します。初期パスワードを設定し、ログインします。
 
-## Step 2. プロジェクトを管理する
+### Step 2. プロジェクトを管理する<a name="Step2プロジェクトを管理する"></a>
 
 プロジェクトが作成されると、ゲームのプロジェクト名と商品名が明記されたリスト画面が表示されます。
 
-![gamepot_console_06](./images/gamepot_console_06.png)
+![gamepot_console_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_06%281%29.png)
 
 ① ダッシュボード URL からゲーム機能を管理できるダッシュボードに移動できます。
 
-② プロジェクトにチェックを入れ、**プロジェクト管理**ボタンをクリックすると簡単な管理メニューが表示されます。
+② プロジェクトにチェックを入れ、**[プロジェクト管理]** ボタンをクリックすると簡単な管理メニューが表示されます。
 
-![gamepot_console_07](./images/gamepot_console_07.png)
+![gamepot_console_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_07%281%29.png)
 
-- 商品変更：利用中のサービス商品を変更します。一時的にダッシュボードにアクセスできない場合があります。**商品変更**ボタンをクリックすると、以下のようなポップアップが表示されます。変更する商品を選択し、**修正**ボタンをクリックします。
+- 商品変更：利用中のサービス商品を変更します。一時的にダッシュボードにアクセスできない場合があります。**[商品変更]** ボタンをクリックすると、以下のようなポップアップが表示されます。変更する商品を選択し、**[修正]** ボタンをクリックします。
 
-![gamepot_console_08](./images/gamepot_console_08.png)
+![gamepot_console_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_08%281%29.png)
 
 - アカウント変更：プロジェクトを作成する際に入力した管理者 ID を変更できます。変更申請を完了すると、変更したアカウントのメールアドレスに認証メールが送信されます。
 
 - パスワード初期化：ダッシュボードのアクセスパスワードを紛失したか、初期化が必要な場合に使用します。パスワードを初期化してからダッシュボードにアクセスすると、パスワードを再設定できます。
 
-![gamepot_console_09](./images/gamepot_console_09.png)
+![gamepot_console_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_09%281%29.png)
 
-## Step 3. プロジェクト削除
+### Step 3. プロジェクト削除<a name="Step3プロジェクト削除"></a>
 
 GAMEPOT は、プロジェクトの作成が完了した時点から時間単位で料金が発生します。したがって、必要でない場合はプロジェクトを削除し、無駄な料金の発生を防いでください。
 
-![gamepot_console_10](./images/gamepot_console_10.png)
+![gamepot_console_10.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_10%281%29.png)
 
-① プロジェクトを削除するには**プロジェクト削除**ボタンをクリックします。**プロジェクト削除**ボタンをクリックすると、以下のようなポップアップが表示されます。
+① プロジェクトを削除するには **[プロジェクト削除]** ボタンをクリックします。**[プロジェクト削除]** ボタンをクリックすると、以下のようなポップアップが表示されます。
 
-![gamepot_console_11](./images/gamepot_console_11.png)
+![gamepot_console_11.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_11%281%29.png)
 
 ② 削除するプロジェクト名を入力します。
 
-③ 上記のようなポップアップが表示され、**確認**ボタンをクリックすると最終的に削除が行われます。
+③ 上記のようなポップアップが表示され、**[確認]** ボタンをクリックすると最終的に削除が行われます。

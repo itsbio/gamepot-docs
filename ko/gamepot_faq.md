@@ -604,6 +604,176 @@ data:
 | error     | String | 상황별 오류 내용 전달                                |
 
 
+## GooglePlayGames API
+
+    # Q. GAMEPOT SDK를 통해, GooglePlayGames API를 사용할 수 있나요?
+    # A. GAMEPOT SDK에서 자체적으로 지원하는 GooglePlayGames API가 존재합니다. (업적, 리더보드) (Android, Unity, Unreal)
+
+플랫폼 별, GooglePlayGames API 사용방법은 다음과 같습니다.
+
+### Android
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.google.playgame.GamePotAchievementInfo;
+
+//Achievement Handling API
+GamePotChannel.getInstance().showAchievement(ACTIVITY);
+
+GamePotChannel.getInstance().loadAchievements(ACTIVITY, new GamePotChannelListener<GamePotAchievementInfo>() {
+    @Override
+    public void onCancel() {
+    }
+    @Override
+    public void onSuccess(GamePotAchievementInfo info) {}
+    
+    @Override
+    public void onFailure(GamePotError err) {}
+    });
+
+GamePotChannel.getInstance().unlockAchievement(Activity activity, String achievementId);
+
+GamePotChannel.getInstance().incrementAchievement(Activity activity, String achievementId, int Count);
+
+
+//Leaderboard Handling API
+GamePotChannel.getInstance().showLeaderboard(Activity activity);
+
+GamePotChannel.getInstance().submitScoreLeaderboard(Activity activity, String leaderBoardId, int leaderBoardScore);
+
+```
+
+### Unity
+
+> 빌드 시, gamepot-channel-google-playgame.aar을 포함하여 빌드 해주세요.
+
+- /Assets/Plugin/Android/mainTemplate.gradle에 gamepot_gpg_id 값을 넣어주세요.
+
+```java
+...
+android {
+    ...
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_gpg_id", ""
+    }
+    ...
+}
+```
+
+
+```csharp
+using GamePotUnity;
+
+//Achievement Handling API
+GamePot.showAchievement();
+
+GamePot.unlockAchievement(string achievementId);
+
+GamePot.incrementAchievement(string achievementId, string count);
+
+GamePot.loadAchievement();
+
+//loadAchievement Handled by Callback Function
+void onLoadAchievementSuccess(List<NAchievementInfo> info);
+void onLoadAchievementFailure(NError error);
+void onLoadAchievementCancel();
+
+//Leaderboard Handling API
+GamePot.showLeaderboard();
+
+GamePot.submitScoreLeaderboard(string leaderBoardId, string leaderBoardScore);
+```
+
+### Unreal
+
+>Unreal 엔진의 경우, 엔진 소스 내 빌드스크립트에서 gpg App ID 값을 디폴트로 Manifest Merge 하고 있습니다. (UnrealEngine 4.26 기준)
+
+> GAMEPOT GooglePlayGames 모듈과 duplicate 나지 않도록, 엔진 소스 내 `Engine/Source/Programs/UnrealBuilTool/Platform/Android/UEDeployAndroid.cs` 의 다음 2-line 을 주석처리 해주세요.
+
+![gamepot_faq_57](./images/gamepot_faq_57.png)
+
+
+GamePot_Android_UPL.xml 수정
+
+```xml
+...
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-google-playgame.aar" dst="$S(BuildDir)/libs/gamepot-channel-google-playgame.aar" />
+</resourceCopies>
+
+...
+
+<AARImports>
+    <insertValue value="com.google.android.gms,play-services-games,21.0.0"/>
+    <insertNewline/>
+    <insertValue value="com.google.android.gms,play-services-base,17.5.0"/>
+    <insertNewline/>
+    <insertValue value="com.google.android.gms,play-services-auth,19.0.0"/>       
+    <insertNewline/>
+</AARImports>
+
+...
+
+<buildGradleAdditions>
+    <insert>
+
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-google-playgame', ext: 'aar')
+            implementation 'com.google.android.gms:play-services-games:21.0.0'
+            implementation 'com.google.android.gms:play-services-base:17.5.0'
+            implementation 'com.google.android.gms:play-services-auth:19.0.0'
+            ...
+        }
+        ...
+
+        defaultConfig {
+            ...
+            resValue "string", "gamepot_gpg_id","xxx" //insert gpg App ID
+            ...
+        }
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.google.playgame.GamePotGooglePlaygame;
+  </insert>
+</gameActivityImportAdditions>
+
+...
+```
+
+```c++
+#include "GamePotSDKPluginModule.h"
+
+//Achievement Handling API
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->showAchievement();
+
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->unlockAchievement(FString achievementId);
+
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->incrementAchievement(FString achievementId, FString count);
+
+//loadAchievement Handled by Callback Function
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->loadAchievement();
+
+void FOnSdkLoadAchievementSuccess(FNAchievementInfo info);
+void FOnSdkLoadAchievementFailure(FNError error);
+void FOnSdkLoadAchievementCancel();
+
+//Leaderboard Handling API
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->showLeaderboard();
+
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->submitScoreLeaderboard(FString leaderBoardId, FString leaderBoardScore);
+```
+
+
+
 ## Casebook
 
 ### - Dashboard

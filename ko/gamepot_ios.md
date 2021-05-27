@@ -22,7 +22,8 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치�
 
 #### Step 2. Framework 추가
 
-![gamepot_ios_01](./images/gamepot_ios_01.png)
+
+![gamepot_ios_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_01%284%29.png)
 
 다운로드한 iOS SDK 파일을 Xcode 프로젝트 폴더 타겟에 마우스로 끌어다 놓아 추가합니다.
 
@@ -41,7 +42,8 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치�
 | GameCenter      | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
 | AppleID         | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
-![gamepot_ios_02](./images/gamepot_ios_02.png)
+![gamepot_ios_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_02%284%29.png){height="" width=""}
+
 
 #### Step 4. Bundle Resource 추가
 
@@ -49,11 +51,12 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치�
 
 서비스별 Dependencies 표를 참고하여 Bundle Resource 파일을 추가합니다.
 
-![gamepot_ios_03](./images/gamepot_ios_03.png)
+![gamepot_ios_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_03%285%29.png)
+
 
 #### Step 5. InfoPlist 추가
 
-![gamepot_ios_04](./images/gamepot_ios_04.png)
+![gamepot_ios_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_04%284%29.png)
 
 GAMEPOT SDK는 Google Firebase를 사용합니다. 따라서 Google Firebase를 설정하여 생성된 GoogleService-Info.plist를 프로젝트에 추가합니다.
 
@@ -61,7 +64,7 @@ GAMEPOT SDK의 기본설정 값을 포함하고 있는 GamePotConfig-Info.plist 
 
 **GamePotConfig-Info.plist 설정**
 
-![gamepot_ios_05](./images/gamepot_ios_05.png)
+![gamepot_ios_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_05%284%29.png)
 
 ```markup
 gamepot_project_id : GAMEPOT 프로젝트 아이디
@@ -72,7 +75,8 @@ gamepot_elsa_projectid : GAMEPOT 로그 프로젝트 아이디(optional)
 
 **Build Settings &gt; Linking &gt; Other Linker Flags** 섹션에 -ObjC 옵션을 추가합니다.
 
-![gamepot_ios_06](./images/gamepot_ios_06.png)
+![gamepot_ios_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_06%284%29.png)
+
 
 #### Step 7. Info.plist 수정
 
@@ -108,11 +112,11 @@ NSUserTrackingUsageDescription
 
 GoogleService-Info.plist 파일의 `REVERSED_CLIENT_ID` 값을 복사하여 **Info &gt; URL Types**에 항목을 추가하여 URL Schemes에 값을 입력합니다.
 
-![gamepot_ios_07](./images/gamepot_ios_07.png)
+![gamepot_ios_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_07%284%29.png)
 
 **GamePotConfig-Info.plist 설정**
 
-![gamepot_ios_08](./images/gamepot_ios_08.png)
+![gamepot_ios_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_08%284%29.png)
 
 ```markup
 gamepot_google_app_id : GoogleService-Info.plist 파일의 CLIENT_ID 값
@@ -125,7 +129,7 @@ gamepot_google_url_schemes : GoogleService-Info.plist 파일의 REVERSED_CLIENT_
 
 Facebook App ID를 **Info &gt; URL Types**에 fb+Facebook App ID 형태로 추가합니다.
 
-![gamepot_ios_09](./images/gamepot_ios_09.png)
+![gamepot_ios_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_09%284%29.png)
 
 **Info &gt; iOS Target Property**의 **LSApplicationQueriesSchemes**에 아래 항목을 추가합니다.
 
@@ -134,11 +138,11 @@ Facebook App ID를 **Info &gt; URL Types**에 fb+Facebook App ID 형태로 추�
 - fbauth2
 - fbshareextension
 
-![gamepot_ios_10](./images/gamepot_ios_10.png)
+![gamepot_ios_10.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_10%284%29.png)
 
 **GamePotConfig-Info.plist 설정**
 
-![gamepot_ios_11](./images/gamepot_ios_11.png)
+![gamepot_ios_11.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_11%284%29.png)
 
 ```markup
 gamepot_facebook_app_id : Facebook App ID
@@ -342,7 +346,7 @@ AppDelegate 파일에 아래 부분을 추가합니다.
 
 #### Step 2. 로그인
 
-로그인 버튼 클릭 시에 연동합니다.
+**[로그인]** 버튼 클릭 시에 연동합니다.
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -695,6 +699,46 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 }];
 ```
 
+### Image Push
+iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 확장 프로그램을 추가해야 합니다.
+
+- Notification Service Extension 프로젝트에 추가하기
+    1. Xcode -> File -> New -> Target.. 메뉴 클릭
+    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
+    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
+
+- 알림 서비스 확장 프로그램 추가하기
+    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
+
+        ```text
+        // GamePot/GamePotNotificationServiceExtension.h를 Import
+        // #import <UserNotifications/UserNotifications.h>
+        #import <GamePot/GamePotNotificationServiceExtension.h>
+
+        // UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
+        // @interface NotificationService : UNNotificationServiceExtension
+        @interface NotificationService : GamePotNotificationServiceExtension
+        @end
+        ```
+
+    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
+        ```text
+        ...
+        - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+            // self.contentHandler = contentHandler;
+            // self.bestAttemptContent = [request.content mutableCopy];
+
+            // Modify the notification content here...
+            // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+
+            // self.contentHandler(self.bestAttemptContent);
+            [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
+        }
+        ...
+        ```
+    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+
+
 ### 공지사항
 
 대시보드 - 공지사항에서 업로드한 이미지가 노출되는 기능입니다.
@@ -815,17 +859,44 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
     }];
 ```
 
-### 약관 동의
+### 약관 동의 (GDPR 포함)
 
-'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
 `BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
-#### 약관 동의 호출
+#### 약관 동의 호출 (자동)
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
 
-> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
->
-> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+```
+// Default Value는 YES
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+[[GamePot getInstance] setAutoAgree:YES];
+
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+[[GamePot getInstance] setAgreeBuilder:options];
+
+...
+
+[[GamePotChannel getInstance] Login:GamePotChannelType viewController:self success:^(GamePotUserInfo* userInfo) {
+
+} cancel:^{
+
+} fail:^(NSError *error) {
+
+} update:^(GamePotAppStatus *appStatus) {
+
+} maintenance:^(GamePotAppStatus *appStatus) {
+
+}];
+
+...
+```
+
+#### 약관 동의 호출 (수동)
 
 ```text
 // 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
@@ -843,8 +914,15 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
+```
+> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
+>
+> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
 
-GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
+Request:
+
+```
+GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
    // [result agree] : 필수 약관을 모두 동의한 경우 true
    // [result agreeNight] : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
@@ -859,8 +937,16 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 약관 동의를 호출하기 전에 `GamePotAgreeOption`에서 각 영역별로 색을 지정할 수 있습니다.
 
+##### 약관 자동 호출 Customizing 설정
+약관 자동 호출 시 팝업을 아래와 같이 Customizing 설정이 가능합니다.
+```
+GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+
+[[GamePot getInstance] setAgreeBuilder:options];
+```
+##### Customizing 세부 설정
 ```text
- GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:GREEN];
+ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 [option setHeaderBackGradient:@[@0xFF00050B,@0xFF0F1B21]];
 [option setHeaderTitleColor:0xFF042941];
@@ -882,6 +968,13 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [option setNightPushMessage:@"선택) 야간 푸쉬 수신 동의"];
 [option setFooterTitle:@"게임 시작하기"];
 
+// 광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+[option setShowToastPushStatus:YES];
+
+// 광고성 수신동의(일반/야간) 메세지 수정
+[option setPushToastMsg:@"Push on"];
+[option setNightPushToastMsg:@"Night Push on"];
+
 // 미사용시 @""로 설정
 [option setHeaderTitle:@"약관 동의"];
 
@@ -896,13 +989,24 @@ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 
 // 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
 [option setNightPushDetailURL:@"https://..."];
+
 ```
 
 각각의 변수는 아래 영역에 적용됩니다.
 
 > contentIconDrawable의 이미지는 IOS에는 노출 되지 않습니다.
 
-![gamepot_ios_14](./images/gamepot_ios_14.png)
+- AgeView
+
+![gamepot_ios_14.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14%287%29.png){height="" width=""}
+
+- EmailView
+
+![gamepot_ios_14_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_1.png){height="" width=""}
+
+- AgreeView
+
+![gamepot_ios_14_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_2.png){height="" width=""}
 
 ### 이용약관
 
@@ -1006,6 +1110,32 @@ gdpr_push_normal : 이벤트 Push 수신동의
 gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
 gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
 gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+```
+
+### AppStatus 확인
+
+현재 클라이언트의 AppStatus를 확인할 수 있습니다.
+
+```c++
+#import <GamePot/GamePot.h>
+
+[[GamePot getInstance] checkAppStatus:^{
+    
+    //Login Success
+
+} setFailHandler:^(NSError *error) {
+
+    //Failed
+
+} setUpdateHandler:^(GamePotAppStatus *status) {
+
+    //NeedUpdate
+
+} setMaintenanceHandler:^(GamePotAppStatus *status) {
+
+    //OnMaintenance
+
+}];
 ```
 
 ## 7. 다운로드

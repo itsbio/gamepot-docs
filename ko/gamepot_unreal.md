@@ -20,7 +20,7 @@ minSdkVersion : API 17 (Jelly Bean, 4.2)
 
 **프로젝트 환경 설정 방법**
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/GamePot_Android_UPL.xml 파일을 에디터로 엽니다.
+>$S(PluginDir)/GamePot_Android_UPL.xml 파일을 에디터로 엽니다.
 
 ```xml
 
@@ -32,14 +32,17 @@ android {
     defaultConfig {
         ...
          resValue "string", "gamepot_project_id", ""                                      // required
-         resValue "string", "gamepot_api_url", ""                                            // required (공백값으로 유지해주세요.)
-         resValue "string", "gamepot_dash_url", ""                                         // required (공백값유지해주세요.)
          resValue "string", "gamepot_store", "google"                                   // required
          resValue "string", "gamepot_app_title","@string/app_name"           // required (fcm)
          resValue "string", "gamepot_push_default_channel","Default"        // required (fcm)
-         resValue "string", "facebook_app_id", ""                                           // option(facebook)
-         resValue "string", "fb_login_protocol_scheme", ""                           // option(facebook)
-        // resValue "string", "gamepot_elsa_projectid", "" // optional (ncp elsa)
+         resValue "string", "facebook_app_id", ""                                           // optional (facebook)
+         resValue "string", "fb_login_protocol_scheme", ""                           // optional (facebook)
+         resValue "string", "gamepot_naver_clientid", ""                               // optional (Naver 개발자 콘솔에서 획득)
+         resValue "string", "gamepot_naver_secretid", ""                              // optional (Naver 개발자 콘솔에서 획득)
+         resValue "string", "gamepot_line_channelid",""                               // optional (Line 개발자 콘솔에서 획득)
+         resValue "string", "gamepot_twitter_consumerkey", ""                   // optional (Twitter 개발자 콘솔에서 획득)
+         resValue "string", "gamepot_twitter_consumersecret", ""               // optional (Twitter 개발자 콘솔에서 획득)
+         resValue "string", "gamepot_elsa_projectid", ""                              // optional (ncp elsa)
     }
     ...
 }
@@ -48,6 +51,7 @@ android {
 ```
 
 아래의 필수 값을 찾아 수정합니다. 아래 값들을 수정해야만 정상적으로 작동됩니다.
+optional 값의 경우, 사용하지 않으실 경우 해당 라인을 제거해주세요.
 
 ```xml
 resValue "string", "[key]", "[value]"
@@ -55,17 +59,24 @@ resValue "string", "[key]", "[value]"
 
 | 값                           | 설명                                                                                           |
 | :--------------------------- | :--------------------------------------------------------------------------------------------- |
-| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
-| gamepot_store                | 스토어값\(`google` 또는 `one` 또는 `galaxy`\)                                                  |
-| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
-| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
+| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                  |
+| gamepot_store                | 스토어값\(`google` 또는 `one` 또는 `galaxy`\)                                  |
+| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                  |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                 |
 | facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
-| fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
+| fb_login_protocol_scheme  | 페이스북에서 발급 받은 protocol scheme fb[app_id]                     |
+| gamepot_naver_clientid     | Naver 개발자 콘솔에서 획득               |
+| gamepot_naver_secretid     | Naver 개발자 콘솔에서 획득                 |
+| gamepot_line_channelid     | Line 개발자 콘솔에서 획득               |
+| gamepot_twitter_consumerkey     | Twitter 개발자 콘솔에서 획득          |
+| gamepot_twitter_consumersecret     | Twitter 개발자 콘솔에서 획득      |
 | gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+|
 
 **노티바에 푸시 아이콘 변경 방법**
 
-![gamepot_unreal_003](./images/gamepot_unreal_003.png)
+![gamepot_unreal_003.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_003.png)
+
 
 푸시 수신 시 Android Notification bar에 보여줄 Small icon은 SDK 내부에서 기본 이미지로 노출하며 직접 추가할 수도 있습니다.
 
@@ -75,34 +86,47 @@ resValue "string", "[key]", "[value]"
 
 | 폴더명                                                                                            | 크기  |
 | :------------------------------------------------------------------------------------------------ | :---- |
-| /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
-| /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
-| /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xhdpi/   | 48x48 |
-| /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
-| /Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
+| $S(PluginDir)/ThirdParty/Android/GamePotResources/res/drawable-mdpi/    | 24x24 |
+| $S(PluginDir)/ThirdParty/Android/GamePotResources/res/drawable-hdpi/    | 36x36 |
+| $S(PluginDir)/ThirdParty/Android/GamePotResources/res/drawable-xhdpi/   | 48x48 |
+| $S(PluginDir)/ThirdParty/Android/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
+| $S(PluginDir)/ThirdParty/Android/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
 ### iOS
 
-구글 파이어베이스에서 다운로드한 `GoogleService-Info.plist` 파일을 `/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/`에 복사합니다.
+**프로젝트 환경 설정 방법**
 
-`/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotConfig-Info.plist` 내에 필요한 환경 변수를 추가해 주세요.
+구글 파이어베이스에서 다운로드한 `GoogleService-Info.plist` 파일을 `$S(PluginDir)/ThirdParty/iOS/GamePotResources.embeddedframework/Resources/`의 경로에 복사합니다.
 
-![gamepot_unreal_001](./images/gamepot_unreal_001.png)
+`$S(PluginDir)/ThirdParty/iOS/GamePotResources.embeddedframework/Resources/GamePotConfig-Info.plist` 파일을 에디터로 연 다음, 필요한 환경 변수를 추가해 주세요.
+
+![gamepot_unreal_001.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_001.png)
 
 | 환경 변수                     | 설명                                                  |
 | :---------------------------- | :---------------------------------------------------- |
 | gamepot_project_id            | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                               |
+| gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                       |
 | gamepot_facebook_display_name | 페이스북에 보여지는 이름                              |
 | gamepot_google_app_id         | GoogleService-Info 파일의 CLIENT_ID 값                |
 | gamepot_google_url_schemes    | GoogleService-Info 파일의 REVERSED_CLIENT_ID 값       |
-| gamepot_elsa_projectid        | NCLOUD ELSA 사용시 프로젝트ID                         |
+| gamepot_facebook_app_id  |   Facebook App ID  |
+| gamepot_facebook_display_name |  Facebook display name   |
+| gamepot_naver_clientid   |  Naver Client Id   |
+| gamepot_naver_secretid  |   Naver Secret Id  |
+| gamepot_naver_urlscheme  |   Naver Url Scheme  |
+| gamepot_line_channelid  |  Line Channel ID   |
+| gamepot_line_url_schemes  |   Line URL Scheme (line3rdp.{프로젝트 번들 ID})  |
+| gamepot_twitter_consumerkey  |   Twitter Consumer Key  |
+| gamepot_twitter_consumersecret  |  Twitter Consumer Secret  |
+| gamepot_elsa_projectid  | NCLOUD ELSA 사용시 프로젝트ID   |
+|
 
-iOS 빌드 전,
+`GamePotResources.embeddedframework` 를 **.zip**으로 압축한 다음,
+`$S(PluginDir)/ThirdParty/iOS/GamePotResources.embeddedframework.zip` 의 경로에 배치한 상태에서
+빌드를 진행해주세요.
 
-프로젝트 셋팅 &gt;&gt; iOS &gt;&gt; Extra PList Data &gt;&gt; Additional Plist Data 내에 아래 `사용자 권한 획득 옵션을 추가` 부탁드립니다.
-
-해당 사용자 권한은 GamePot 고객센터 내의 파일 업로드 기능에서 사용 됩니다.
+iOS 빌드 전, 프로젝트 셋팅 &gt;&gt; iOS &gt;&gt; Extra PList Data &gt;&gt; Additional Plist Data 내에 아래 `사용자 권한 획득 옵션을 추가` 부탁드립니다.
+해당 권한은 GAMEPOT 고객센터 내의 파일 업로드 기능에서 사용 됩니다.
 
 ```text
 <key>NSCameraUsageDescription</key>
@@ -154,7 +178,7 @@ void ASampleGameModeBase::OnSdkResultTrackingAuthorization(FNResultTrackingAutho
 
 > `iOS 플랫폼의 경우,` 로그인 API 호출 시, IDFA 값 획득에 대한 권한을 요청하는 팝업을 먼저 명시적으로 요청하고 있습니다.
 
-> 해당 팝업 요청을 로그인 시점에 호출하고 싶지 않으실 경우, `FIOSGamePotSdk::Login(ENLoginType::Type)` 함수를 수정해주세요. (/Plugin/GamePotSDKPlugin/Source/GamePot/Private/iOS/IOSGamePotSdk.cpp)
+> 해당 팝업 요청을 로그인 시점에 호출하고 싶지 않으실 경우, `FIOSGamePotSdk::Login(ENLoginType::Type)` 함수를 수정해주세요. `$S(PluginDir)/Private/iOS/IOSGamePotSdk.cpp`
 
 ```c++
 void FIOSGamePotSdk::Login(ENLoginType::Type _loginType)
@@ -162,6 +186,17 @@ void FIOSGamePotSdk::Login(ENLoginType::Type _loginType)
     //로그인 전, 명시적으로 IDFA 팝업 노출 <-- 필요 시, 주석처리
     FIOSGamePotSdk::requestTrackingAuthorization();
     ...
+```
+
+IOS의 경우 Push를 수신하기 위해, 사전에 해당 권한을 사용자로부터 획득해야 합니다.
+적당한 시점(ex - Login Success)에 해당 권한을 요청하는 다음 함수를 호출해주세요.
+
+```c++
+if(LOGIN_SUCCESS)
+{
+    //명시적으로, Push 권한 획득 요청
+    FPlatformMisc::RegisterForRemoteNotifications();
+}
 ```
 
 ## 1. 초기화
@@ -374,7 +409,7 @@ struct FNError
 
 #### Google Firebase Console
 
-1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/`에 복사합니다.
+1. Google Firebase Console에서 Android용 google-service.json 파일을 다운로드한 후에 `$S(PluginDir)/ThirdParty/Android/`에 복사합니다.
 2. APK 빌드 시 사용한 Keystore의 SHA-1 값을 Google Firebase console에 추가합니다.
 
 **구글 로그인 시 onCancel이 응답하며 로그인이 되지 않는 경우** 아래 내용을 체크해주세요.
@@ -410,11 +445,12 @@ GamePot_Android_UPL.xml 수정
 
 #### IOS
 
-1. `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다. 
+1. `$S(PluginDir)/ThirdParty/iOS/GamePotResouces.embeddedframework.zip`의 압축을 해제합니다.
 
-2. IOS용 GoogleService-Info.plist 파일을 다운로드한 후에 `/Plugins/GamePotSDKPlugin/Source/GamePot/ThirdParty/iOS/GamePotResouces.embeddedframework/Resources/`의 경로에 복사한 후, 다시 **재압축** 합니다.
+2. IOS용 GoogleService-Info.plist 파일을 다운로드한 후에 `$S(PluginDir)/ThirdParty/iOS/GamePotResouces.embeddedframework/Resources/`의 경로에 복사한 후, 다시 **재압축** 합니다.
 
-    ![gamepot_unreal_004](./images/gamepot_unreal_004.png)
+![gamepot_unreal_004.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_004.png)
+
 
 ### 페이스북 로그인
 
@@ -962,13 +998,13 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 Request:
 
-````csharp
+
 
 ​```c++
 // productId : 마켓에 등록된 상품ID
 if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     FGamePotSDKPluginModule::GetSharedGamePotSdk()->purchaseThirdPayments(FString productId);
-````
+```
 
 외부결제 이용 시 상품 정보 리스트는 아래 api를 사용하세요.
 
@@ -1101,11 +1137,11 @@ void ASampleGameModeBase::OnAppClose()
 
 | 폴더명                                                                                             | 크기  |
 | :------------------------------------------------------------------------------------------------- | :---- |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-mdpi/    | 24x24 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-hdpi/    | 36x36 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xhdpi/   | 48x48 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
-| /Plugin/GamePotSDKPlugin/Source/GamePotSDKPlugin/ThirdParty/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-mdpi/    | 24x24 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-hdpi/    | 36x36 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-xhdpi/   | 48x48 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-xxhdpi/  | 72x72 |
+| $S(PluginDir)/ThirdParty/GamePotResources/res/drawable-xxxhdpi/ | 96x96 |
 
 ### 애플 로그인 (for Android - Web Login)
 
@@ -1153,7 +1189,7 @@ GamePot_Android_UPL.xml 수정
 ...
 ```
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+$S(PluginDir)/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-apple-signin.aar
 
@@ -1209,7 +1245,7 @@ GamePot_Android_UPL.xml 수정
 
 Console에서 발급받은 Client ID를 `gamepot_naver_clientid` 값에 입력하고 Client Secret은 `gamepot_naver_secretid` 값에 입력합니다.
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+$S(PluginDir)ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-naver.aar
 
@@ -1315,7 +1351,7 @@ GamePot_Android_UPL.xml 수정
 ...
 ```
 
-/Plugin/GamePotSDKPlugin/Source/GamePot/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
+$S(PluginDir)/ThirdParty/Android/libs 경로에 아래 aar파일을 추가합니다.
 
 - gamepot-channel-line.aar
 - line-sdk-4.0.10.aar
@@ -1526,6 +1562,68 @@ void ASampleGameModeBase::OnCouponFailure(FNError NError)
 
 이를 위해선 Server to server api 메뉴에 `Item Webhook` 항목을 참고하여 처리하셔야 합니다.
 
+### 공지사항
+
+GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로 노출하는 기능입니다.
+
+이미지 권장 스펙은 아래와 같습니다.
+
+- 사이즈 : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
+
+  > 위 사이즈를 준수하지 않을 경우 center crop으로 이미지를 처리합니다.
+
+- 용량 : 250KB 이하
+
+Request:
+
+```c++
+
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showNotice(bool showToday = true);
+
+// true : 오늘 하루 보지 않기 적용
+// false : 오늘 하루 보지 않기 관계없이, 강제 노출
+```
+
+```c++
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showEvent(FString Type);
+
+// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
+```
+
+Response:
+
+GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해당 이미지를 클릭 시 `SCHEME`값을 전달드립니다.
+
+```c++
+ void ASampleGameModeBase::OnReceiveScheme(FString scheme)
+ {
+      // GAMEPOT 대시보드에서 설정한 scheme값을 전달
+ }
+```
+
+### 고객지원
+
+고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
+
+고객문의 UI는 디바이스 언어에 맞게 변경됩니다. 한국어, 영어, 일어, 중국어(간체, 번체)를 지원하며 그 외 언어는 영어로 보여집니다.
+
+#### 호출
+
+```c++
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showCSWebView();
+```
+
+외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
+
+```c++
+// url : 게임팟에서 발급받은 외부고객지원 URL
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showWebView(FString url);
+```
+
 ### Push on/off
 
 푸시, 야간푸시를 각각 on/off를 처리 할 수 있습니다.
@@ -1664,70 +1762,6 @@ Request:
         FNPushInfo NPushInfo = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getPushStatus();
 ```
 
-### 공지사항
-
-GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로 노출하는 기능입니다.
-
-이미지 권장 스펙은 아래와 같습니다.
-
-- 사이즈 : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
-
-  > 위 사이즈를 준수하지 않을 경우 center crop으로 이미지를 처리합니다.
-
-- 용량 : 250KB 이하
-
-Request:
-
-```c++
-
-if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showNotice(bool showToday = true);
-
-// true : 오늘 하루 보지 않기 적용
-// false : 오늘 하루 보지 않기 관계없이, 강제 노출
-```
-
-```c++
-if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showEvent(FString Type);
-
-// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
-```
-
-Response:
-
-GAMEPOT 대시보드에서 `클릭액션`을 `SCHEME`으로 설정한 경우 해당 이미지를 클릭 시 `SCHEME`값을 전달드립니다.
-
-```c++
- void ASampleGameModeBase::OnReceiveScheme(FString scheme)
- {
-      // GAMEPOT 대시보드에서 설정한 scheme값을 전달
- }
-```
-
-### 고객지원
-
-고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
-
-고객문의 UI는 디바이스 언어에 맞게 변경됩니다. 한국어, 영어, 일어, 중국어(간체, 번체)를 지원하며 그 외 언어는 영어로 보여집니다.
-
-#### 호출
-
-```c++
-if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showCSWebView();
-```
-
-외부링크를 지원하여 로그인하지 않은 고객도 문의를 등록할 수 있습니다.
-
-#### 호출
-
-```c++
-// url : 게임팟에서 발급받은 외부고객지원 URL
-if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
-    FGamePotSDKPluginModule::GetSharedGamePotSdk()->showWebView(FString url);
-```
-
 ### 로컬 푸시\(Local Push notification\)
 
 푸시 서버를 통하지 않고 단말기에서 푸시를 노출하는 기능입니다.
@@ -1756,6 +1790,11 @@ if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
     if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
          bool success = FGamePotSDKPluginModule::GetSharedGamePotSdk()->cancelLocalPush(int /*푸시 등록시 얻은 pushId*/);
 ```
+
+### Image Push (iOS)
+
+Unreal은 프로젝트에 Notification Service Extension을 추가할 수 있는 방법을 제공하지 않아
+iOS Image Push 기능을 사용할 수 없습니다.
 
 ### 약관 동의
 
@@ -1948,7 +1987,8 @@ void ASampleGameModeBase::OnAgreeDialogFailure(FNError NError)
 
 > contentIconDrawable은 AOS에만 보여지며, 기본 값은 푸시 아이콘으로 설정됩니다.
 
-![gamepot_unreal_002](./images/gamepot_unreal_002.png)
+
+![gamepot_unreal_002.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unreal_002.png)
 
 ### 이용약관
 

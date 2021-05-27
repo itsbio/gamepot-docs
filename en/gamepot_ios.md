@@ -694,6 +694,46 @@ Refer to `Item` in `Server to server api` to implement this.
 }];
 ```
 
+### Image Push
+iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 확장 프로그램을 추가해야 합니다.
+
+- Notification Service Extension 프로젝트에 추가하기
+    1. Xcode -> File -> New -> Target.. 메뉴 클릭
+    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
+    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
+
+- 알림 서비스 확장 프로그램 추가하기
+    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
+
+        ```text
+        // GamePot/GamePotNotificationServiceExtension.h를 Import
+        // #import <UserNotifications/UserNotifications.h>
+        #import <GamePot/GamePotNotificationServiceExtension.h>
+
+        // UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
+        // @interface NotificationService : UNNotificationServiceExtension
+        @interface NotificationService : GamePotNotificationServiceExtension
+        @end
+        ```
+
+    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
+        ```text
+        ...
+        - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+            // self.contentHandler = contentHandler;
+            // self.bestAttemptContent = [request.content mutableCopy];
+
+            // Modify the notification content here...
+            // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+
+            // self.contentHandler(self.bestAttemptContent);
+            [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
+        }
+        ...
+        ```
+    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+
+
 ### Notices
 
 This feature displays images uploaded in Dashboard > Notice.
@@ -814,25 +854,50 @@ Modify the previously applied APIs as described below.
     }];
 ```
 
-### Agree to terms and conditions
+### 약관 동의 (GDPR 포함)
 
-Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
 
-Each area can be customized.
+#### 약관 동의 호출 (자동)
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
 
-#### Call Agree to terms and conditions
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+```
+// Default Value는 YES
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+[[GamePot getInstance] setAutoAgree:YES];
 
-> Handle Agree to Terms and Conditions pop-up according to games.
->
-> When you click the 'View' button, you can apply and edit the content in the dashboard.
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
+[[GamePot getInstance] setAgreeBuilder:options];
+
+...
+
+[[GamePotChannel getInstance] Login:GamePotChannelType viewController:self success:^(GamePotUserInfo* userInfo) {
+
+} cancel:^{
+
+} fail:^(NSError *error) {
+
+} update:^(GamePotAppStatus *appStatus) {
+
+} maintenance:^(GamePotAppStatus *appStatus) {
+
+}];
+
+...
+```
+
+#### 약관 동의 호출 (수동)
 
 ```text
-// BLUE theme [[GamePotAgreeOption alloc] init:BLUE];
-// GREEN theme [[GamePotAgreeOption alloc] init:GREEN];
+// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
+// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
 
-// Improved themes
+// 개선테마
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -844,23 +909,39 @@ Each area can be customized.
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GRAY];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
-GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
+```
+> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
+>
+> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
+
+Request:
+
+```
+GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
-   // [result agree]: It is true if all required terms and conditions have been agreed to
-   // [result agreeNight]: It is true if agree to receive night ad push has been agreed to, false if it has not.
-   // Pass agreeNight value via [[GamePot getInstance] setNightPushEnable]; api
-   // after logging in.
+   // [result agree] : 필수 약관을 모두 동의한 경우 true
+   // [result agreeNight] : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
+   // agreeNight 값은 로그인 완료 후 [[GamePot getInstance] setNightPushEnable]; api를
+   // 통해 전달하세요.
 }];
 ```
 
-#### Customization
+#### Customizing
 
-Change colors depending on the games without using themes.
+테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
 
-You can specify colors to each area in `GamePotAgreeOption` before calling Agree to terms and conditions.
+약관 동의를 호출하기 전에 `GamePotAgreeOption`에서 각 영역별로 색을 지정할 수 있습니다.
 
+##### 약관 자동 호출 Customizing 설정
+약관 자동 호출 시 팝업을 아래와 같이 Customizing 설정이 가능합니다.
+```
+GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+
+[[GamePot getInstance] setAgreeBuilder:options];
+```
+##### Customizing 세부 설정
 ```text
- GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:GREEN];
+ GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 [option setHeaderBackGradient:@[@0xFF00050B,@0xFF0F1B21]];
 [option setHeaderTitleColor:0xFF042941];
@@ -874,21 +955,28 @@ You can specify colors to each area in `GamePotAgreeOption` before calling Agree
 [option setFooterButtonOutlineColor:0xFF0b171a];
 [option setFooterTitleColor:0xFFFFFFD5];
 
-// Change description
-[option setAllMessage:@"Agree to all"];
-[option setTermMessage:@"Required) Terms of service"];
-[option setPrivacyMessage:@"Required) Terms and conditions of the privacy policy"];
+// 문구 변경
+[option setAllMessage:@"모두 동의"];
+[option setTermMessage:@"필수) 이용약관"];
+[option setPrivacyMessage:@"필수) 개인정보 취급 방침"];
 [option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
-[option setNightPushMessage:@"Optional) Agree to receive night push"];
-[option setFooterTitle:@"Start game"];
+[option setNightPushMessage:@"선택) 야간 푸쉬 수신 동의"];
+[option setFooterTitle:@"게임 시작하기"];
 
-// Set to @"" if not used
-[option setHeaderTitle:@"Agree to Terms and Conditions"];
+// 광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+[option setShowToastPushStatus:YES];
+
+// 광고성 수신동의(일반/야간) 메세지 수정
+[option setPushToastMsg:@"Push on"];
+[option setNightPushToastMsg:@"Night Push on"];
+
+// 미사용시 @""로 설정
+[option setHeaderTitle:@"약관 동의"];
 
 // 일반 광고성 수신동의 버튼 노출 여부
 [option setShowPush:YES];
 
-// Whether to show Agree to Receive Night Ad push button
+// 야간 광고성 수신동의 버튼 노출 여부
 [option setShowNightPush:YES];
 
 // 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
@@ -896,13 +984,16 @@ You can specify colors to each area in `GamePotAgreeOption` before calling Agree
 
 // 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
 [option setNightPushDetailURL:@"https://..."];
+
 ```
 
-Each parameter applies to the following area:
+각각의 변수는 아래 영역에 적용됩니다.
 
-> contentIconDrawable's image does not appear in iOS.
+> contentIconDrawable의 이미지는 IOS에는 노출 되지 않습니다.
 
 ![gamepot_ios_14](./images/gamepot_ios_14.png)
+![gamepot_ios_14_1](./images/gamepot_ios_14_1.png)
+![gamepot_ios_14_2](./images/gamepot_ios_14_2.png)
 
 ### Terms of service
 
