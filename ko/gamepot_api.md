@@ -56,11 +56,11 @@ Open API 요청시 발생하는 공통 에러코드입니다.
 | -5   | 키가 만료된 경우                                |
 | -6   | 프로젝트 아이디가 없는 경우                     |
 
-### 사용자 조회 API
+## 사용자 조회 API
 
 사용자 UID로 사용자를 조회합니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /user/{userID}
@@ -81,7 +81,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | projectId | String | GamePot SDK의 projectId |
 | userId    | String | GamePot SDK의 userId    |
 
-#### Response
+### Response
 
 성공
 
@@ -155,7 +155,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 사용자 UID로 사용자가 정지되었는지 조회합니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /user/{userID}/block
@@ -176,7 +176,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | projectId | String | GamePot SDK의 projectId |
 | userId    | String | GamePot SDK의 userId    |
 
-#### Response
+### Response
 
 성공
 
@@ -240,11 +240,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-### 사용자 정지 설정 API
+## 사용자 정지 설정 API
 
 사용자 UID로 사용자를 이용정지 처리합니다.
 
-#### Request
+### Request
 
 - Method : POST
 - URI : /user/{userID}/block
@@ -282,7 +282,7 @@ data: '{
 | startedAt | String  | 이용정지 시작일 `YYYY-MM-DD HH:mm`                                                                         |
 | endedAt   | String  | 이용정지 종료일 `YYYY-MM-DD HH:mm`                                                                         |
 
-#### Response
+### Response
 
 성공
 
@@ -316,7 +316,7 @@ data: '{
 | status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-#### Error code
+### Error code
 
 | Code | Description                                                              |
 | :--- | :----------------------------------------------------------------------- |
@@ -331,7 +331,7 @@ data: '{
 
 일별 접속자를 조회할 수 있습니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /user/statistics/dau
@@ -355,7 +355,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 > 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
 
-#### Response
+### Response
 
 성공
 
@@ -406,18 +406,18 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-#### Error code
+### Error code
 
 | Code | Description                                                        |
 | :--- | :----------------------------------------------------------------- |
 | -11  | startDate 값의 포멧이 올바르지 않은 경우. `YYYY-MM-DD` 형태만 가능 |
 | -12  | endDate 값의 포멧이 올바르지 않은 경우. `YYYY-MM-DD` 형태만 가능   |
 
-### 신규 사용자 (NRU) 조회 API
+## 신규 사용자 (NRU) 조회 API
 
 신규 사용자를 조회할 수 있습니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /user/statistics/nru
@@ -441,7 +441,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 > 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
 
-#### Response
+### Response
 
 성공
 
@@ -492,18 +492,18 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-#### Error code
+### Error code
 
 | Code | Description                                                        |
 | :--- | :----------------------------------------------------------------- |
 | -11  | startDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능 |
 | -12  | endDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 
-### 동시 접속자(CCU) 조회 API
+## 동시 접속자(CCU) 조회 API
 
 선택한 3 개의 날짜에 대해, 동시 접속자를 시간 별 조회할 수 있습니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /user/statistics/ccu
@@ -528,7 +528,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 > 쿼리로 oneDate, twoDate, threeDate가 있으며, 없을 시 당일 포함 이전 2일까지 조회합니다.
 
-#### Response
+### Response
 
 성공
 
@@ -586,7 +586,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-#### Error code
+### Error code
 
 | Code | Description                                                        |
 | :--- | :----------------------------------------------------------------- |
@@ -594,11 +594,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | -12  | twoDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 | -13  | oneDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 
-### 결제 조회 API
+## 결제 조회 API
 
 결제 아이디로 결제 내역을 조회합니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /purchase/{transactionID}
@@ -619,7 +619,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | projectId     | String | GamePot SDK의 projectId   |
 | transactionID | String | GamePot SDK의 결제 아이디 |
 
-#### Response
+### Response
 
 성공
 
@@ -716,13 +716,13 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-### 결제 취소 조회 API
+## 결제 취소 조회 API
 
 결제 아이디로 결제 취소 내역을 조회합니다.
 
 > 구글 결제만 조회됩니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /purchase/voided/{transactionID}
@@ -743,7 +743,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | projectId     | String | GamePot SDK의 projectId   |
 | transactionID | String | GamePot SDK의 결제 아이디 |
 
-#### Response
+### Response
 
 성공
 
@@ -817,11 +817,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-### 결제 매출 통계 조회 API
+## 결제 매출 통계 조회 API
 
 결제 매출 통계를 조회합니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /purchase/statistics
@@ -846,7 +846,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 
 > 쿼리로 startDate, endDate를 넣지 않으면 최근 30일간의 데이터를 조회합니다.
 
-#### Response
+### Response
 
 성공
 
@@ -907,18 +907,18 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-#### Error code
+### Error code
 
 | Code | Description                                                        |
 | :--- | :----------------------------------------------------------------- |
 | -11  | startDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능 |
 | -12  | endDate 값의 포멧이 올바르지 않은 경우, `YYYY-MM-DD` 형태만 가능   |
 
-### 캐릭터 조회 API
+## 캐릭터 조회 API
 
 게임 내 플레이어 아이디를 조회합니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /player/{playerID}
@@ -939,7 +939,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | projectId | String | GamePot SDK의 projectId       |
 | playerID  | String | GamePot SDK의 플레이어 아이디 |
 
-#### Response
+### Response
 
 성공
 
@@ -989,13 +989,13 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-### 쿠폰 사용 조회 API
+## 쿠폰 사용 조회 API
 
 쿠폰 사용 내역을 조회합니다.
 
 > 키워드 쿠폰의 경우 사용된 쿠폰만 조회됩니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /coupon/{couponNumber}
@@ -1017,7 +1017,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | couponNumber | String | 대시보드에서 발급한 쿠폰 번호 |
 | userData     | String | 유저 데이터                   |
 
-#### Response
+### Response
 
 성공
 
@@ -1109,11 +1109,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-### 쿠폰 사용 API
+## 쿠폰 사용 API
 
 쿠폰을 사용할 수 있습니다.
 
-#### Request
+### Request
 
 - Method : PUT
 - URI : /store/{storeID}/user/{userID}/coupon/{couponNumber}
@@ -1136,7 +1136,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | userID       | String | GamePot SDK의 사용자 UID                |
 | couponNumber | String | 쿠폰 번호                               |
 
-#### Response
+### Response
 
 성공
 
@@ -1167,11 +1167,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | message   | String | 오류 내용                                  |
 | errorcode | String | 오류 코드                                  |
 
-### 게시 중인 공지사항 API
+## 게시 중인 공지사항 API
 
 게시 중인 공지사항을 확인할 수 있습니다.
 
-#### Request
+### Request
 
 - Method : GET
 - URI : /store/{storeID}/notice/posting
@@ -1192,7 +1192,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | projectId | String | GamePot SDK의 projectId                 |
 | storeID   | String | 스토어 아이디 (google,one,apple,galaxy) |
 
-#### Response
+### Response
 
 성공
 
@@ -1256,11 +1256,11 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\) |
 | message   | String | 오류 내용                                  |
 
-### 고객문의 분류 API
+## 고객문의 분류 API
 
 고객문의 분류 리스트 확인할 수 있습니다.
 
-#### Request
+### Request
 
 - Method : POST
 - URI : /v2/api/ticket/category
@@ -1279,7 +1279,7 @@ Header : 'X-PROJECT-ID: 6936eef9-7e32-4a1b-9ace-7206c33a07a8'
 | X-API-KEY    | String | O        | GamePot에서 발급하는 인증 키                        |
 | X-PROJECT-ID | String | O        | 대시보드 프로젝트 아이디                            |
 
-#### Response
+### Response
 
 성공
 
@@ -1331,7 +1331,7 @@ Header : 'X-PROJECT-ID: 6936eef9-7e32-4a1b-9ace-7206c33a07a8'
 }
 ```
 
-#### Error code
+### Error code
 
 | Code | Description               |
 | :--- | :------------------------ |
@@ -1339,11 +1339,11 @@ Header : 'X-PROJECT-ID: 6936eef9-7e32-4a1b-9ace-7206c33a07a8'
 | -6   | 프로젝트 아이디 정보 오류 |
 | -9   | 필수 파라미터 미 입력     |
 
-### 고객문의 등록 API
+## 고객문의 등록 API
 
 고객문의 등록
 
-#### Request
+### Request
 
 - Method : POST
 - URI : /v2/api/ticket
@@ -1388,9 +1388,9 @@ DATA   : '{
 | agree_type       | Boolean |          | 선택 약관 동의 ( 분류에 설정한 이벤트 약관 동의 여부)              |
 | file             | String  |          | 업로드한 파일의 주소                                               |
 
-####
+###
 
-#### Response
+### Response
 
 성공
 
@@ -1418,7 +1418,7 @@ DATA   : '{
 }
 ```
 
-#### Error code
+### Error code
 
 | Code | Description               |
 | :--- | :------------------------ |
