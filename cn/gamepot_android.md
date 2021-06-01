@@ -132,7 +132,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
     compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    compile 'com.android.billingclient:billing:1.1'
+    compile 'com.android.billingclient:billing:3.0.3'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.romandanylyk:pageindicatorview:1.0.3'
     compile 'com.google.firebase:firebase-core:16.0.6'
