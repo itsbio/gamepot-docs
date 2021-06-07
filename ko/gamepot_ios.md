@@ -530,9 +530,6 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 - (void)GamePotPurchaseSuccess:(GamePotPurchaseInfo *)_info
 {
     // 결제 성공
-
-    // 광고 플랫폼에 결제 이벤트를 던져주기 위한 코드로 광고를 사용한다면 꼭! 삽입해 주세요.
-    [[GamePotAd getInstance] tracking:BILLING obj:_info];
 }
 
 - (void)GamePotPurchaseFail:(NSError *)_error

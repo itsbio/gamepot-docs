@@ -525,9 +525,6 @@ Payment results are implemented as a delegate. Add a delegate as in the example 
 - (void)GamePotPurchaseSuccess:(GamePotPurchaseInfo *)_info
 {
     // Payment succeeded.
-
-    // Must add this code snippet to pass the payment event to the ad platform! Add it.
-    [[GamePotAd getInstance] tracking:BILLING obj:_info];
 }
 
 - (void)GamePotPurchaseFail:(NSError *)_error
