@@ -359,7 +359,7 @@ When building in Xcode, Capability must include Push Notification. If you cannot
     # Q. Social login is normal for APKs that you installed yourself, but if you log in after downloading from the store, you cannot log in.
     # A. This is when the keystore has been changed because app signing is enabled in the Google Developer Console.
 
-The following screen is displayed in the'Setup' ->'App Signing' menu in the Google Developer Console.
+The following screen is displayed in the'Setup' ->'App integrity' menu in the Google Developer Console.
 
 ![gamepot_faq_33](./images/gamepot_faq_33.png)
 

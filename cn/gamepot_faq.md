@@ -366,7 +366,7 @@ iOS中，应用为Forground状态时无法接收推送。
     # Q. 直接安装的APK可以正常进行社交登录，但在商店中下载后再进行社交登录时却无法登录。
     # A. 这种情况是在Google Developer Console中应用签名被激活、Keystore更改造导致。
 
-Google Developer Console中`设置` -> `应用签名`菜单中将显示以下画面。
+Google Developer Console中`设置` -> `应用完整性`菜单中将显示以下画面。
 
 ![gamepot_faq_33](./images/gamepot_faq_33.png)
 
