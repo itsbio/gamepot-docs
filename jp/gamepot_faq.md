@@ -869,7 +869,7 @@ ex)
 
     5. Unity 2020.Xバージョンをご使用の場合は、追加の変更
 
-Unity 2020.Xバージョンのためのパッチ：[ダウンロード]（https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip）
+Unity 2020.Xバージョンのためのパッチ：[ダウンロード](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip）
 
     [フォルダとファイル交換]
     ../Assets/ExternalDependencyManager
