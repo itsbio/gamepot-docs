@@ -288,7 +288,7 @@ Twitter Developer Console の設定が正しいことを確認してください
             </intent>
         </queries>
         <!-- targetSdkVersion30でビルドする場合のOneStoreバージョンの追加コード [End] -->
-
+        
         <application
 
 
@@ -408,7 +408,7 @@ Xcode で build 時 Capability に Push Notification を含める必要があり
 
     ベータゾーンを使用しているメーカーで発生する可能性のある問題です。
     ログイン検証Request URLが 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth 'に設定されていれば、https://cloud-api.gamepot.io/loginauthに変更してご確認お願いいたします。
-
+    
     リアルジョン : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
     ベータジョン : https://cloud-api.gamepot.io/loginauth ( サービス終了予定 )
 
@@ -444,37 +444,37 @@ Xcode で build 時 Capability に Push Notification を含める必要があり
 #### 7. IOS Push メッセージの受信の問題\[[IOS APNS 証明書の登録ガイド](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
 
     1. SENS設定Certificationに認証キーと証明書が登録されていることを確認お願いします。
-
+    
     2. IOSは、ビルド時に使用されたプロビジョニングプロファイルのタイプに応じて、登録しなければなら証明書が異なります。
-
+    
     [Development]
     Provisioning >> Push Development証明書をアップロードしてくださってTypeはSandboxに設定してください。
-
+    
     [Adhoc / Distribution]
     Provisioning >> Push Distribution証明書をアップロードしてくださってTypeはProductionに設定してください。
-
+    
     3. GamepotはPush Tokenイン完了時にサーバーに転送します。したがって、証明書を登録した後、クライアントからログインまで進行ご確認ください。
-
+    
     4. IOSの場合、アプリがForground状態では、プッシュ受信ができません。 homeボタンを押して、メイン画面でプッシュが受信されることを確認してください。
-
+    
     5. IOSの場合は、Xcodeでbuild時CapabilityにPush Notificationを含める必要があります。受信が行われない場合には、ビルド時にその部分が追加されていないことを確認してください。
 
 #### 8. IOS 決済テスト方法
 
     1.テストする機器の設定>> iTunseとStore>> Apple ID：XXXXをタッチ>>ログアウト
-
+    
     2.アプリを起動する
-
+    
     3.アプリの有料課金アイテムの選択
-
+    
     4.ポップアップの発生時に既存のappleID使用に選択
-
+    
     5.テストアカウントID/ PW入れログイン（時々の状態に応じて、ポップアップが何度も浮かぶ場合が、特に気にしなくなります。）
-
+    
     6.有料決済項目の価格と名前がポップアップ形式で公開され、[Environment：Sandbox]フレーズ露出
-
+    
     7.購入選択
-
+    
     *お支払いポップアップの[Environment：Sandbox]フレーズが露出されると、実際の料金はかかりません。
 
 #### 9. Push メッセージのアプリ名は、クライアントビルド時の決定がされます。
@@ -484,16 +484,16 @@ Xcode で build 時 Capability に Push Notification を含める必要があり
 言語に合わせてアプリの名前を変更したい場合、以下のような方法で行わください。
 
     [アンドロイド]
-
+    
     app/ src/ main/ res/ values-国コード/strings.xml
-
+    
     ex）デバイスの言語が英語のときにアプリの名前を変更しようとするとき
     app/ src/ main/ res/ values-en/ strings.xml
-
+    
     [ユニティアンドロイド]
-
+    
     Assets/ Plugins/ Android/ GamePotResources/ res/ values-国コード/strings.xml
-
+    
     ex）デバイスの言語が韓国語であるときアプリ名を変更しようとするとき
     Assets/ Plugins/ Android/ GamePotResources/ res/ values-ko/ strings.xml
 
@@ -524,13 +524,13 @@ IOS の設定は、以下のように進行します。
 #### 10. アプリ内のリスト情報を取得するストアに GamePot.getPurchaseItems（）API の Price 値が異なります。
 
     アプリ内のリスト情報を取得する際、各ストアアプリ内SDKの伝達を与える値を共有します。
-
+    
     グーグルストア：priceの値は、通貨+アプリ内の価格
     ex）₩1,000
-
+    
     アップルストア：priceの値はアプリ内価格
     ex）1000
-
+    
     IOSで通貨を表記するためにはprice_currency_code値を参照してください。
     ex）price_currency_code：KRW
 
@@ -584,7 +584,7 @@ AndroidXモジュールサポートによる変更点
 1.ビルド環境の変更
 
     1-1）../libsフォルダ内のライブラリファイル交換
-
+    
     1-2）[./gradle.properties]ファイル内フレーズを追加
 `` `text
     android.enableJetifier = true
@@ -623,9 +623,9 @@ AndroidXモジュールサポートによる変更点
     import android.support.v4.app.ListFragment;
     import android.support.annotation.UiThread;
     import android.support.v4.app.FragmentActivity;
-
+    
     android.support.v4.app.FragmentManager fm = getSupportFragmentManager（）;
-
+    
     =>
     修正：
     import androidx.annotation.NonNull;
@@ -635,7 +635,7 @@ AndroidXモジュールサポートによる変更点
     import androidx.fragment.app.ListFragment;
     import androidx.annotation.UiThread;
     import androidx.fragment.app.FragmentActivity;
-
+    
     androidx.fragment.app.FragmentManager fm = getSupportFragmentManager（）;
 `` `
 
@@ -869,7 +869,7 @@ ex)
 
     5. Unity 2020.Xバージョンをご使用の場合は、追加の変更
 
-Unity 2020.Xバージョンのためのパッチ：[ダウンロード](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip）
+Unity 2020.Xバージョンのためのパッチ： [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
 
     [フォルダとファイル交換]
     ../Assets/ExternalDependencyManager
