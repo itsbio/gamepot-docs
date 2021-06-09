@@ -45,9 +45,9 @@
 #### 1-2)
 
     ＃ Q. APKを直接インストールする時はログインがされるが、ストアに上げアプリをダウンロードしてログインする時はログインされていません。（AOS）
-    ＃ A. Google Developer Consoleで「アプリ署名」機能を使用してそうです。
+    ＃ A. Google Developer Consoleで 'アプリ署名 '機能を使用してそうです。
 
-コンソールから APK をアップロードする際に「アプリ署名」を有効にすると、keystore がコンソールで管理することに交換され、発生する問題で、コンソールで管理する keystore の sha-1 値を Firebase console に追加が求められます。
+コンソールから APK をアップロードする際に 'アプリ署名 'を有効にすると、keystore がコンソールで管理することに交換され、発生する問題で、コンソールで管理する keystore の sha-1 値を Firebase console に追加が求められます。
 
 ![gamepot_faq_03](./images/gamepot_faq_03.png)
 
@@ -80,7 +80,7 @@ APK ビルド時に使用 Keystore のキーハッシュ値をフェイスブッ
 
 ![gamepot_faq_07](./images/gamepot_faq_07.png)
 
-- Google Console で「アプリ署名」機能を使用する場合は、Google Console で管理している keystore の keyhash 値も追加が求められます。
+- Google Console で 'アプリ署名 '機能を使用する場合は、Google Console で管理している keystore の keyhash 値も追加が求められます。
   ![gamepot_faq_08](./images/gamepot_faq_08.png)
 
 ### 3. APPLE ログイン
@@ -164,7 +164,7 @@ Twitter Developer Console の設定が正しいことを確認してください
 
 #### 1-1）
 
-    ＃Q.支払いしようと市」productid was wrong！」フレーズが公開されます。
+    ＃Q.支払いしようと市 'productid was wrong！ 'フレーズが公開されます。
     ＃A. GAMEPOTダッシュボード - >決済 - > IAPのストアの商品IDを追加してください。
 
 ![gamepot_faq_13](./images/gamepot_faq_13.png)
@@ -213,7 +213,7 @@ Twitter Developer Console の設定が正しいことを確認してください
 
 #### 3-1)
 
-    ＃Q.「異常アプリで支払いが要求されて「フレーズ公開されます。
+    ＃Q. '異常アプリで支払いが要求されて 'フレーズ公開されます。
     ＃A.オープン前にアプリは、テストアカウントのみアクセスが可能です。以下の点を確認してください。
 
 1. テストアカウントが登録されていることを確認してください。
@@ -247,7 +247,7 @@ Twitter Developer Console の設定が正しいことを確認してください
 
 #### 3-3)
 
-    # Q. 決済完了後、「照会された結果の値が存在しません。\（9001\）"フレーズでお支払いが失敗します。
+    # Q. 決済完了後、 '照会された結果の値が存在しません。\（9001\）"フレーズでお支払いが失敗します。
     ＃ A. ワンストアに領収書の検証要請シリアル/テスト環境の違いで問題が発生した場合です。
 
 **A-1。ワンストア決済画面が Sandbox 環境の場合**
@@ -407,12 +407,12 @@ Xcode で build 時 Capability に Push Notification を含める必要があり
 #### 2. ゲームポットログイン検証時、Token authentication failed エラーが発生し
 
     ベータゾーンを使用しているメーカーで発生する可能性のある問題です。
-    ログイン検証Request URLが「https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth」に設定されていれば、https://cloud-api.gamepot.io/loginauthに変更してご確認お願いいたします。
+    ログイン検証Request URLが 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth 'に設定されていれば、https://cloud-api.gamepot.io/loginauthに変更してご確認お願いいたします。
 
     リアルジョン : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
     ベータジョン : https://cloud-api.gamepot.io/loginauth ( サービス終了予定 )
 
-#### 3. ビルドの実行時に、「異常にアプリが実行されました。ストアからダウンロード」メッセージのポップアップが発生
+#### 3. ビルドの実行時に、 '異常にアプリが実行されました。ストアからダウンロード 'メッセージのポップアップが発生
 
     ダッシュボード>>プロジェクトの設定>>[全般]タブでは、ハッシュキーが正しく設定されて発生することがあります。
     このハッシュキーを削除または正確なハッシュキー入力後確認してください。
@@ -547,3 +547,370 @@ IOS の設定は、以下のように進行します。
 ![gamepot_faq_45](./images/gamepot_faq_45.png)
 
 ![gamepot_faq_46](./images/gamepot_faq_46.png)
+
+####12.アップルのiOS14個人情報の処理方針の強化により収集する個人情報の履歴リスト
+
+アップルコンソール内の '一般的な情報 '>> 'アプリが収集する個人情報のタブ 'を基準に申し上げますと、以下の通りです。
+（顧客の識別情報と関連付けられていない関連情報を追跡する目的ではなく、点）
+
+ゲームポットSDKで収集する項目は以下のとおりです。
+
+[識別子]
+ - ユーザーID（アカウント情報）
+ - 機器ID（IDFA、auto generated）
+ - 購入したアイテム
+
+[ユーザーコンテンツ]
+ - 写真やビデオ
+ - サポート
+
+    [ユーザーコンテンツ]の場合、ゲームパッドPRO以上の商品をご利用のお客様のうち、ゲームパッドお問い合わせUIを使用している場合に対応しており、オブジェクトストレージ機能使用時の顧客の問い合わせに画像ファイルを添付ファイルとしてアップロードすることができます。
+
+### Migration
+
+#### Ver 3.2.0 Migration
+
+基本的には、ライブラリファイルが交換作業を進めれるものを基準に説明します。
+
+[Android]
+ -  AndroidXモジュール搭載されたライブラリに置き換え
+ - グーグルアプリ内SDK 1.1で3.0.3バージョンに置き換え
+ - ギャラクシーアップスアプリ内SDKの更新
+
+3.1.0より前のバージョンのユーザーは、AndroidXライブラリ交換による移行作業が必要です。
+
+AndroidXモジュールサポートによる変更点
+
+1.ビルド環境の変更
+
+    1-1）../libsフォルダ内のライブラリファイル交換
+
+    1-2）[./gradle.properties]ファイル内フレーズを追加
+`` `text
+    android.enableJetifier = true
+    android.useAndroidX = true
+`` `
+    1-3）[./build.gradle]ファイル内 com.android.tools.build バージョンの修正
+    
+    （com.android.tools.build 3.3.3 / 3.4.3以降のバージョンを使用）
+    
+    ex）
+    classpath 'com.android.tools.build:gradle:3.3.3'
+    
+    1-4）
+    [../app/build.gradle]ファイル内androidxサポートモジュールに変更
+`` `text
+    [削除またはコメントアウト進行]
+    // implementation 'com.android.support:appcompat-v7:28.0.0'
+    // implementation 'com.android.support:multidex:1.0.1'
+
+    [追加]
+    implementation 'androidx.appcompat：appcompat：1.2.0'
+    implementation 'androidx.multidex：multidex：2.0.0'
+`` `
+
+1-5）import android.support.XXXXXXXライブラリがandroidx.appcompat：appcompatライブラリに合わせて変更する必要があります。
+
+`` `text
+    ex）
+    既存のサンプルプロジェクトサンプル内の変更CLASS
+
+    既存の
+    import android.support.annotation.NonNull;
+    import android.support.annotation.Nullable;
+    import android.support.v4.app.FragmentManager;
+    import android.support.v4.app.FragmentTransaction;
+    import android.support.v4.app.ListFragment;
+    import android.support.annotation.UiThread;
+    import android.support.v4.app.FragmentActivity;
+
+    android.support.v4.app.FragmentManager fm = getSupportFragmentManager（）;
+
+    =>
+    修正：
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.FragmentManager;
+    import androidx.fragment.app.FragmentTransaction;
+    import androidx.fragment.app.ListFragment;
+    import androidx.annotation.UiThread;
+    import androidx.fragment.app.FragmentActivity;
+
+    androidx.fragment.app.FragmentManager fm = getSupportFragmentManager（）;
+`` `
+
+2.その他：
+
+    2-1）、Googleアプリ内SDKのバージョン変更
+
+
+`` `text
+既存：implementation 'com.android.billingclient：billing：1.1
+
+変更：implementation 'com.android.billingclient：billing：3.0.3'
+`` `
+
+2-2）Facebook SDK 8.1.0
+
+`` `text
+既存：implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+変更：implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+`` `
+
+
+[IOS]
+
+1）Frameworksファイル交換
+
+2）FACEBOOK SDK 8.0アップデートされることによる追加の変更
+
+`` `text
+    Xcode内に追加の変更
+     -  Build Phases> Link binary With Libraries> Accelerate.farmework 追加
+     -  Build Settings> Other Linker Flags> -lz、-lstdc++、-lc++ 追加
+`` `
+
+
+[Unity]
+
+
+1...Assets/ GamePotフォルダと以下のファイルと既存のライブラリファイルを削除した後、ユニティプラグインパッケージをimport処理お願いします。
+
+    [削除対象ファイル]
+```text
+    ../Assets/Plugins/Android/libs/animated-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/annotation-1.0.2.jar
+    ../Assets/Plugins/Android/libs/appcompat-v7-27.1.1.aar
+    ../Assets/Plugins/Android/libs/billing-1.1.aar
+    ../Assets/Plugins/Android/libs/cardview-v7-27.0.2.aar
+    ../Assets/Plugins/Android/libs/converter-gson-2.3.0.jar
+    ../Assets/Plugins/Android/libs/core-3.3.0.jar
+    ../Assets/Plugins/Android/libs/core-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/core-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/customtabs-27.1.1.aar
+    ../Assets/Plugins/Android/libs/facebook-android-sdk-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-applinks-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-common-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-core-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-login-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-messenger-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-places-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-share-5.2.0.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-impl-16.2.4.aar
+    ../Assets/Plugins/Android/libs/firebase-common-16.0.3.aar
+    ../Assets/Plugins/Android/libs/firebase-core-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-interop-16.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-17.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-impl-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-messaging-17.3.4.aar
+    ../Assets/Plugins/Android/libs/gamepot-bridge.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-apple-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-base.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-google-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-common.aar
+    ../Assets/Plugins/Android/libs/lifecycle-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/lifecycle-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/livedata-core-1.1.0.aar
+    ../Assets/Plugins/Android/libs/logging-interceptor-3.9.1.jar
+    ../Assets/Plugins/Android/libs/LoggingInterceptor-2.0.5.jar
+    ../Assets/Plugins/Android/libs/play-services-ads-identifier-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-api-phone-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-base-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-base-16.1.0.aar
+    ../Assets/Plugins/Android/libs/play-services-basement-16.2.0.aar
+    ../Assets/Plugins/Android/libs/play-services-drive-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-games-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-api-16.0.4.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-base-16.0.5.aar
+    ../Assets/Plugins/Android/libs/play-services-stats-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-tasks-16.0.1.aar
+    ../Assets/Plugins/Android/libs/retrofit-2.3.0.jar
+    ../Assets/Plugins/Android/libs/support-annotations-27.1.1.jar
+    ../Assets/Plugins/Android/libs/support-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-ui-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-utils-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-fragment-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-media-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-v4-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/viewmodel-1.1.0.aar
+```
+
+既存の../Android/nativeLibsと../IOS/etcFrameworksのライブラリ（ネイバーログイン/ギャラクシーアプリ内SDK等）を使用中イショトダミョン
+
+nativeLibsとetcFrameworksフォルダにある新規ライブラリパイルルル
+
+../Assets/Plugins/Android/libsと../Assets/Plugins/IOS/Frameworksフォルダに移動使用お願いします。
+
+```text
+    - ライブラリとリソースの場所
+    
+    [AOS]
+    ../Assets/Plugins/Android/libs
+    ../Assets/Plugins/Android/nativeLibs
+
+    [IOS]
+    ../Assets/Plugins/IOS/Bundle
+    ../Assets/Plugins/IOS/etcFrameworks
+    ../Assets/Plugins/IOS/Frameworks
+    ../Assets/Plugins/IOS/Source
+```
+
+2. androidxモジュールを有効にオプション設定の追加
+
+    [Unity 2019.02.XXバージョンまたはそれ以前のバージョン]
+
+     -  [../Assets/Plugins/Android/mainTemplate.gradle]ファイルの変更
+
+    [Unity 2019.02.XXバージョンまたはそれ以前のバージョン]
+
+     -  [../Assets/Plugins/Android/launcherTemplate.gradle]ファイルの変更
+
+```text
+    // 구문 추가
+    ([rootProject] + (rootProject.subprojects as List)).each {
+        ext {
+        it.setProperty("android.useAndroidX", true)
+        it.setProperty("android.enableJetifier", true)
+        }
+    }
+```
+
+
+3. ../Assets/Plugins/Android/AndroidManifest.xml (ユニティパッケージには反映されています。)
+   
+    android：name = "androidx.multidex.MultiDexApplication" に変更
+
+```text
+ex)
+既存の :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="android.support.multidex.MultiDexApplication"
+変更 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="androidx.multidex.MultiDexApplication"
+```
+
+
+4. ゲームポット機能APIの追加によるインターフェースファイルの変更（ユニティパッケージには反映されています。）
+
+```text
+    ../Assets/Plugins/IOS/Source/GamePotAppDelegate.mm
+    ../Assets/Plugins/IOS/Source/GamePotBinding.mm
+    ../Assets/Plugins/IOS/Source/GamePotManager.h
+    ../Assets/Plugins/IOS/Source/GamePotManager.mm
+```
+
+5. 2.1.2より前のバージョンのユーザーの場合、ゲームポットのサンプルシーンとコードの削除
+    ../Assets/Sampleフォルダとファイルの削除
+
+
+####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
+
+    Unityエンジンのバージョンに応じて、ユニティプラグインパッケージが分岐された部分についての変更作業を進めており
+    FirebaseとGoogle Resolverバージョンが1.2.116.0で1.2.155に更新がありました。
+
+する作業が必要です。
+
+
+    1.既存のプロジェクトでするフォルダおよび内部のファイルの削除を先行的に進め
+    
+    [削除する必要がフォルダとファイル]
+    
+    ../Assets/PlayServicesResolver
+    
+    ../Assets/Firebase
+    
+    2. v2.1.2ユニティプラグインパッケージを追加する場合に項目は必須で追加
+    
+    [追加されたフォルダとファイル]
+    
+    ../Assets/ExternalDependencyManager
+    
+    ../Assets/Firebase
+
+
+[Unity 2019.02.XXバージョンまたはそれ以前のバージョン]
+    
+     - 従来と同じようにアップデートの進行
+
+
+【Unity 2019.3.0〜2019.3.6]
+
+     - 既存のに使用したsettingsTemplate.gradle / mainTemplate.gradleファイルを保持します。
+    そのバージョンのエンジン特性上、外部ライブラリ搭載時の制約事項が発生するバージョンなので、
+    他のバージョンのユニティプラグインのバージョンを使用することをお勧めします。
+
+【Unity 2019.3.7以降またはそれ以降のバージョン（新規に作業している場合）]
+
+    1. baseProjectTemplate.gradleを追加します。
+    
+    一般的にするファイルをrenameして使用ください。
+    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    => baseProjectTemplate.gradle
+    
+    2. settingsTemplate.gradle削除します。
+    ../Assets/Plugins/Android/settingsTemplate.gradle
+    
+    3. mainTemplate.gradleファイルに定義したgamepot_project_idなどの環境変数の定義をlauncherTemplate.gradleに定義します。
+    
+    一般的にするファイルをrenameした後、ゲームパッド、環境変数の値を定義します。
+    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    => launcherTemplate.gradle
+    
+    4. mainTemplate_GAMEPOT_UNITY2019_3.gradleファイルを参照してmainTemplate.gradle設定します。
+    gamepot_project_idなどの環境変数は、launcherTemplate.gradleに定義されたので削除するとされます。
+
+
+    5. Unity 2020.Xバージョンをご使用の場合は、追加の変更
+
+Unity 2020.Xバージョンのためのパッチ：[ダウンロード]（https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip）
+
+    [フォルダとファイル交換]
+    ../Assets/ExternalDependencyManager
+    ../Assets/Firebase
+
+
+    - フォルダ名の変更
+    
+    既存の :  ../Assets/Plugins/Android/Firebase
+    
+    修正 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+    
+    既存の :  ../Assets/Plugins/Android/GamePotResources
+    
+    修正 :  ../Assets/Plugins/Android/GamePotResources.androidlib
+
+
+    - mainTemplate.gradle修正（フォルダ名変更に伴う修正）
+    
+    既存の : 
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources')
+    	implementation project('Firebase')
+    
+    修正 :
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources.androidlib')
+    	implementation project('FirebaseApp.androidlib')
+    
+    - ユニティエディタ上で../Assets/Plugins/Android/nativeLibsフォルダ内のすべてのライブラリがAndroidのビルド時に含まれていないように設定します。
+    参照画像：
+![gamepot_faq_54](./images/gamepot_faq_54.png)
+
+
+#### Ver Unity Tools1.0.0 To Ver Unity Unity Tools1.0.1
+
+    Unity Toolsのバージョン間の互換性がないため、新規に作業が必要です。
+    
+    空のプロジェクト>最新Unity Tools1.0.1のインストール> Unity Unity Toolsを実行
+    >ダウンロードSDK ver2.1.2ボタンをクリックして、ユニティプラグインパッケージをインストールした後の作業を進行が必要です。

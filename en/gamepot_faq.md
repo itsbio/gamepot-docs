@@ -548,3 +548,372 @@ IOS setting is as follows.
 ![gamepot_faq_45](./images/gamepot_faq_45.png)
 
 ![gamepot_faq_46](./images/gamepot_faq_46.png)
+
+#### 12. List of personal information collected according to Apple's iOS 14 privacy policy reinforcement
+
+Based on the ‘General Information’ >> ‘Personal Information Collected by the App Tab’ in the Apple Console, it is as follows.
+(Things that are not linked to and are not intended to be tracked as related information)
+
+Here's what the Gamepod SDK collects:
+
+[identifier]
+- User ID (account information)
+- Device ID (IDFA, auto generated)
+- Purchase items
+
+[User Content]
+- photo or video
+- Customer Support
+
+     In the case of [User Content], it corresponds to the case of using the Gamepot Customer Inquiry UI among customers using Gamepot PRO or higher products, and when using the object storage function, an image file can be uploaded as an attachment to customer inquiries.
+
+
+### Migration
+
+#### Ver 3.2.0 Migration
+
+
+Basically, the explanation is based on the replacement of library files.
+
+[Android]
+- Replaced with library loaded with AndroidX module
+- Replaced Google In-App SDK version from 1.1 to 3.0.3
+- Galaxy Apps in-app SDK update
+
+Users prior to 3.1.0 version require migration due to AndroidX library replacement.
+
+Changes as AndroidX modules are supported
+
+1. Modify the build environment
+
+    1-1) Replacing library files in ../libs folder
+
+    1-2) Add phrase in [./gradle.properties] file
+```text
+    android.enableJetifier=true
+    android.useAndroidX=true
+```
+    1-3) Modify com.android.tools.build version in [ ./build.gradle ] file
+    
+    (using com.android.tools.build 3.3.3/3.4.3 or later)
+    
+    ex)
+    classpath 'com.android.tools.build:gradle:3.3.3'
+    
+    1-4)
+    Change to androidx support module in [ ../app/build.gradle ] file
+```text
+    [Delete or proceed with comments]
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    //implementation 'com.android.support:multidex:1.0.1'
+
+    [Add]
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+```
+
+1-5) The import android.support.XXXXXXX libraries need to be changed to match the androidx.appcompat:appcompat library.
+
+```text
+    ex)
+    Changed CLASS in the existing sample project sample
+
+    existing
+    import android.support.annotation.NonNull;
+    import android.support.annotation.Nullable;
+    import android.support.v4.app.FragmentManager;
+    import android.support.v4.app.FragmentTransaction;
+    import android.support.v4.app.ListFragment;
+    import android.support.annotation.UiThread;
+    import android.support.v4.app.FragmentActivity;
+
+    android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+
+    =>
+    Modify :
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.FragmentManager;
+    import androidx.fragment.app.FragmentTransaction;
+    import androidx.fragment.app.ListFragment;
+    import androidx.annotation.UiThread;
+    import androidx.fragment.app.FragmentActivity;
+
+    androidx.fragment.app.FragmentManager fm = getSupportFragmentManager();
+```
+
+2. Other:
+
+    2-1) Change the Google In-App SDK Version
+
+
+```text
+Existing: implementation 'com.android.billingclient:billing:1.1
+
+Changed: implementation 'com.android.billingclient:billing:3.0.3'
+```
+
+2-2) Facebook SDK 8.1.0
+
+```text
+Existing: implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+Changed: implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+```
+
+
+[IOS]
+
+1) Replace Frameworks files
+
+2) Additional changes due to FACEBOOK SDK 8.0 update
+
+```text
+    Additional fixes within Xcode
+    - Build Phases > Link binary With Libraries > Add Accelerate.farmework
+    - Build Settings > Other Linker Flags > Add -lz , -lstdc++ , -lc++
+```
+
+
+[Unity]
+
+
+1. After deleting the ..Assets/GamePot folder and the following files and existing library files, please import the Unity plugin package.
+
+     [file to be deleted]
+```text
+    ../Assets/Plugins/Android/libs/animated-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/annotation-1.0.2.jar
+    ../Assets/Plugins/Android/libs/appcompat-v7-27.1.1.aar
+    ../Assets/Plugins/Android/libs/billing-1.1.aar
+    ../Assets/Plugins/Android/libs/cardview-v7-27.0.2.aar
+    ../Assets/Plugins/Android/libs/converter-gson-2.3.0.jar
+    ../Assets/Plugins/Android/libs/core-3.3.0.jar
+    ../Assets/Plugins/Android/libs/core-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/core-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/customtabs-27.1.1.aar
+    ../Assets/Plugins/Android/libs/facebook-android-sdk-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-applinks-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-common-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-core-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-login-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-messenger-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-places-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-share-5.2.0.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-impl-16.2.4.aar
+    ../Assets/Plugins/Android/libs/firebase-common-16.0.3.aar
+    ../Assets/Plugins/Android/libs/firebase-core-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-interop-16.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-17.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-impl-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-messaging-17.3.4.aar
+    ../Assets/Plugins/Android/libs/gamepot-bridge.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-apple-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-base.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-google-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-common.aar
+    ../Assets/Plugins/Android/libs/lifecycle-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/lifecycle-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/livedata-core-1.1.0.aar
+    ../Assets/Plugins/Android/libs/logging-interceptor-3.9.1.jar
+    ../Assets/Plugins/Android/libs/LoggingInterceptor-2.0.5.jar
+    ../Assets/Plugins/Android/libs/play-services-ads-identifier-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-api-phone-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-base-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-base-16.1.0.aar
+    ../Assets/Plugins/Android/libs/play-services-basement-16.2.0.aar
+    ../Assets/Plugins/Android/libs/play-services-drive-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-games-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-api-16.0.4.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-base-16.0.5.aar
+    ../Assets/Plugins/Android/libs/play-services-stats-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-tasks-16.0.1.aar
+    ../Assets/Plugins/Android/libs/retrofit-2.3.0.jar
+    ../Assets/Plugins/Android/libs/support-annotations-27.1.1.jar
+    ../Assets/Plugins/Android/libs/support-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-ui-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-utils-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-fragment-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-media-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-v4-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/viewmodel-1.1.0.aar
+```
+
+If you were using libraries (Naver Login / Galaxy In-App SDK, etc.) in ../Android/nativeLibs and ../IOS/etcFrameworks
+
+New library files in nativeLibs and etcFrameworks folders
+
+Please use it by moving it to the ../Assets/Plugins/Android/libs and ../Assets/Plugins/IOS/Frameworks folders.
+
+```text
+    - Libraries and resource locations
+    
+    [AOS]
+    ../Assets/Plugins/Android/libs
+    ../Assets/Plugins/Android/nativeLibs
+
+    [IOS]
+    ../Assets/Plugins/IOS/Bundle
+    ../Assets/Plugins/IOS/etcFrameworks
+    ../Assets/Plugins/IOS/Frameworks
+    ../Assets/Plugins/IOS/Source
+```
+
+2. Add androidx module activation option setting
+
+    [ Unity 2019.02.XX version or earlier ]
+
+    - Edit [../Assets/Plugins/Android/mainTemplate.gradle] file
+
+    [ Unity 2019.02.XX version or earlier ]
+
+    - Edit [../Assets/Plugins/Android/launcherTemplate.gradle] file
+
+```text
+    // add statement
+    ([rootProject] + (rootProject.subprojects as List)).each {
+        ext {
+        it.setProperty("android.useAndroidX", true)
+        it.setProperty("android.enableJetifier", true)
+        }
+    }
+```
+
+
+3. ../Assets/Plugins/Android/AndroidManifest.xml (this is reflected in the Unity package)
+   
+    Change to android:name="androidx.multidex.MultiDexApplication"
+
+```text
+ex)
+Existing: <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="android.support.multidex.MultiDexApplication"
+Change: <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="androidx.multidex.MultiDexApplication"
+```
+
+
+4. Modification of the interface file according to the addition of the GamePod function API (It is reflected in the Unity package.)
+
+```text
+    ../Assets/Plugins/IOS/Source/GamePotAppDelegate.mm
+    ../Assets/Plugins/IOS/Source/GamePotBinding.mm
+    ../Assets/Plugins/IOS/Source/GamePotManager.h
+    ../Assets/Plugins/IOS/Source/GamePotManager.mm
+```
+
+5. Deleted GamePod sample scene and code for users prior to version 2.1.2
+    Delete the ../Assets/Sample folder and files
+
+
+####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
+
+    Depending on the Unity engine version, the Unity plugin package was branched and corrected.
+     Firebase and Google Resolver version updated from 1.2.116.0 to 1.2.155 .
+
+The following actions are required.
+
+
+     1. Delete the following folders and internal files in the existing project in advance
+    
+     [Folders and files that need to be deleted]
+    
+    ../Assets/PlayServicesResolver
+    
+    ../Assets/Firebase
+    
+    2. When adding v2.1.2 Unity plug-in package, the following items are mandatory.
+    
+     [Added folders and files]
+    
+    ../Assets/ExternalDependencyManager
+    
+    ../Assets/Firebase
+
+
+[ Unity 2019.02.XX version or earlier ]
+    
+    - Update in the same way as before
+
+
+[ Unity 2019.3.0~2019.3.6]
+
+    - Keep the previously used settingsTemplate.gradle / mainTemplate.gradle file.
+    Due to the nature of the engine of the version, there are restrictions when loading external libraries.
+    We recommend using a different version of the Unity plugin.
+
+[ Unity 2019.3.7 or later version (if working new) ]
+
+    1. Add baseProjectTemplate.gradle.
+    
+    In general, you can use the following file by renaming it.
+    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    => baseProjectTemplate.gradle
+    
+    2. Delete settingsTemplate.gradle.
+    ../Assets/Plugins/Android/settingsTemplate.gradle
+    
+    3. Define environment variables such as gamepot_project_id defined in mainTemplate.gradle file in launcherTemplate.gradle.
+    
+    In general, after renaming the following file, define the gamepot environment variable value.
+    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    => launcherTemplate.gradle
+    
+    4. Refer to the mainTemplate_GAMEPOT_UNITY2019_3.gradle file and set mainTemplate.gradle.
+    Environment variables like gamepot_project_id are defined in launcherTemplate.gradle, so you can delete them.
+
+
+    5. Additional fixes if you are using the Unity 2020.X version
+
+Patch for Unity 2020.X version: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+
+    [Replace Folders and Files]
+    ../Assets/ExternalDependencyManager
+    ../Assets/Firebase
+
+
+    - Modify folder name
+    
+    existing :  ../Assets/Plugins/Android/Firebase
+    
+    Modify :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+    
+    existing :  ../Assets/Plugins/Android/GamePotResources
+    
+    Modify :  ../Assets/Plugins/Android/GamePotResources.androidlib
+
+
+    - Modify mainTemplate.gradle (modified according to folder name change)
+    
+    existing : 
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources')
+    	implementation project('Firebase')
+    
+    Modify :
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources.androidlib')
+    	implementation project('FirebaseApp.androidlib')
+    
+    - Set not to include all libraries in the ../Assets/Plugins/Android/nativeLibs folder in the Unity editor when building Android.
+     Reference image:
+![gamepot_faq_54](./images/gamepot_faq_54.png)
+
+
+#### Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
+
+     There is incompatibility between versions of Unity Tools, so a new work is required.
+    
+     Empty Project > Install Latest Unity Tools 1.0.1 > Run Unity Unity Tools
+     > Click the Download SDK ver2.1.2 button to install the Unity plugin package and proceed with the operation.

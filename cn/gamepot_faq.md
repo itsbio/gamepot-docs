@@ -305,7 +305,7 @@
 ## Adbrix Remaster
 
     # Q. 应用Adbrix Remaster后构建IOS时发生崩溃。
-    # A. Adbrix Remaster是通过Swift实现的库，应用Swift库时需要追加设置。
+    # A. Adbrix Remaster是通过Swiftimplementation的库，应用Swift库时需要追加设置。
 
 请在XCode中进行以下设置后构建。
 
@@ -746,3 +746,372 @@ IOS设置方法如下。
 ![gamepot_faq_45](./images/gamepot_faq_45.png)
 
 ![gamepot_faq_46](./images/gamepot_faq_46.png)
+
+
+#### 12.根据苹果iOS 14隐私政策强化收集的个人信息列表
+
+根据 Apple Console 中的“一般信息”>>“应用程序选项卡收集的个人信息”，如下所示。
+（未链接到且不打算作为相关信息进行跟踪的事物）
+
+以下是 Gamepod SDK 收集的内容：
+
+[标识符]
+- 用户 ID（帐户信息）
+- 设备 ID（IDFA，自动生成）
+- 购买物品
+
+[用户内容]
+- 照片或视频
+- 客户支持
+
+     [用户内容]对应使用Gamepot PRO以上产品的客户使用Gamepot Customer Inquiry UI的情况，使用对象存储功能时，可以上传图片文件作为客户咨询的附件.
+
+### Migration
+
+#### Ver 3.2.0 Migration
+
+基本上，解释是基于库文件的替换。
+
+[Android]
+- 替换为加载了 AndroidX 模块的库
+- 将 Google In-App SDK 版本从 1.1 替换为 3.0.3
+- Galaxy Apps 应用内 SDK 更新
+
+由于 AndroidX 库替换，3.1.0 版本之前的用户需要迁移。
+
+支持 AndroidX 模块时的更改
+
+1.修改构建环境
+
+    1-1) 替换 ../libs 文件夹中的库文件
+
+    1-2) 在 [./gradle.properties] 文件中添加短语
+
+```text
+    android.enableJetifier=true
+    android.useAndroidX=true
+``
+    1-3) 修改 [ ./build.gradle ] 文件中的 com.android.tools.build 版本
+    
+    （使用 com.android.tools.build 3.3.3/3.4.3 或更高版本）
+    
+    前任）
+    classpath 'com.android.tools.build:gradle:3.3.3'
+    
+    1-4)
+    在 [ ../app/build.gradle ] 文件中更改为 androidx 支持模块
+```text
+    [删除或继续评论]
+    //implementation'com.android.support:appcompat-v7:28.0.0'
+    //implementation'com.android.support:multidex:1.0.1'
+
+    [添加]
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+``
+
+1-5) 需要更改导入的 android.support.XXXXXXX 库以匹配 androidx.appcompat:appcompat 库。
+
+```text
+    前任）
+    更改了现有示例项目示例中的 CLASS
+
+    现存的
+    import android.support.annotation.NonNull;
+    import android.support.annotation.Nullable;
+    import android.support.v4.app.FragmentManager;
+    import android.support.v4.app.FragmentTransaction;
+    import android.support.v4.app.ListFragment;
+    import android.support.annotation.UiThread;
+    import android.support.v4.app.FragmentActivity;
+
+    android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+
+    =>
+    调整 ：
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.FragmentManager;
+    import androidx.fragment.app.FragmentTransaction;
+    import androidx.fragment.app.ListFragment;
+    import androidx.annotation.UiThread;
+    import androidx.fragment.app.FragmentActivity;
+
+    androidx.fragment.app.FragmentManager fm = getSupportFragmentManager();
+``
+
+2. 其他：
+
+    2-1) 更改 Google In-App SDK 版本
+
+
+```text
+现有：implementation 'com.android.billingclient:billing:1.1
+
+更改：implementation 'com.android.billingclient:billing:3.0.3'
+``
+
+2-2) Facebook SDK 8.1.0
+
+```text
+现有：implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+更改：implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+``
+
+
+[IOS]
+
+1) 替换框架文件
+
+2) FACEBOOK SDK 8.0 更新带来的额外变化
+
+```text
+    Xcode 中的其他修复
+    - Build Phases > Link binary With Libraries > Accelerate.farmework
+    - Build Settings > Other Linker Flags >  -lz , -lstdc++ , -lc++
+``
+
+
+[Unity]
+
+
+1. 删除..Assets/GamePot文件夹及以下文件和现有库文件后，请导入Unity插件包。
+
+     [要删除的文件]
+```text
+    ../Assets/Plugins/Android/libs/animated-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/annotation-1.0.2.jar
+    ../Assets/Plugins/Android/libs/appcompat-v7-27.1.1.aar
+    ../Assets/Plugins/Android/libs/billing-1.1.aar
+    ../Assets/Plugins/Android/libs/cardview-v7-27.0.2.aar
+    ../Assets/Plugins/Android/libs/converter-gson-2.3.0.jar
+    ../Assets/Plugins/Android/libs/core-3.3.0.jar
+    ../Assets/Plugins/Android/libs/core-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/core-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/customtabs-27.1.1.aar
+    ../Assets/Plugins/Android/libs/facebook-android-sdk-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-applinks-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-common-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-core-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-login-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-messenger-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-places-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-share-5.2.0.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-impl-16.2.4.aar
+    ../Assets/Plugins/Android/libs/firebase-common-16.0.3.aar
+    ../Assets/Plugins/Android/libs/firebase-core-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-interop-16.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-17.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-impl-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-messaging-17.3.4.aar
+    ../Assets/Plugins/Android/libs/gamepot-bridge.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-apple-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-base.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-google-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-common.aar
+    ../Assets/Plugins/Android/libs/lifecycle-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/lifecycle-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/livedata-core-1.1.0.aar
+    ../Assets/Plugins/Android/libs/logging-interceptor-3.9.1.jar
+    ../Assets/Plugins/Android/libs/LoggingInterceptor-2.0.5.jar
+    ../Assets/Plugins/Android/libs/play-services-ads-identifier-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-api-phone-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-base-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-base-16.1.0.aar
+    ../Assets/Plugins/Android/libs/play-services-basement-16.2.0.aar
+    ../Assets/Plugins/Android/libs/play-services-drive-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-games-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-api-16.0.4.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-base-16.0.5.aar
+    ../Assets/Plugins/Android/libs/play-services-stats-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-tasks-16.0.1.aar
+    ../Assets/Plugins/Android/libs/retrofit-2.3.0.jar
+    ../Assets/Plugins/Android/libs/support-annotations-27.1.1.jar
+    ../Assets/Plugins/Android/libs/support-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-ui-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-utils-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-fragment-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-media-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-v4-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/viewmodel-1.1.0.aar
+```
+
+如果您已经在 ../Android/nativeLibs 和 ../IOS/etcFrameworks 中使用库（Naver Login / Galaxy In-App SDK 等）
+
+nativeLibs 和 etcFrameworks 文件夹中的新库文件
+
+请通过将其移动到 ../Assets/Plugins/Android/libs 和 ../Assets/Plugins/IOS/Frameworks 文件夹来使用它。
+
+```text
+    - 图书馆和资源位置 
+    
+    [AOS]
+    ../Assets/Plugins/Android/libs
+    ../Assets/Plugins/Android/nativeLibs
+
+    [IOS]
+    ../Assets/Plugins/IOS/Bundle
+    ../Assets/Plugins/IOS/etcFrameworks
+    ../Assets/Plugins/IOS/Frameworks
+    ../Assets/Plugins/IOS/Source
+```
+
+2. 增加androidx模块激活选项设置
+
+    [Unity 2019.02.XX 或更早版本]
+
+    - 编辑 [../Assets/Plugins/Android/mainTemplate.gradle] 文件
+
+    [Unity 2019.02.XX 或更早版本]
+
+    - 编辑 [../Assets/Plugins/Android/launcherTemplate.gradle] 文件
+
+```text
+    // 添加语句
+    ([rootProject] + (rootProject.subprojects as List)).each {
+        ext {
+        it.setProperty("android.useAndroidX", true)
+        it.setProperty("android.enableJetifier", true)
+        }
+    }
+```
+
+
+3. ../Assets/Plugins/Android/AndroidManifest.xml (这个在Unity包中体现)
+   
+    改为 android:name="androidx.multidex.MultiDexApplication"
+
+```text
+ex)
+ 现有 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="android.support.multidex.MultiDexApplication"
+更改 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="androidx.multidex.MultiDexApplication"
+```
+
+
+4. 根据GamePod函数API的添加修改接口文件（在Unity包中有体现）
+
+```text
+    ../Assets/Plugins/IOS/Source/GamePotAppDelegate.mm
+    ../Assets/Plugins/IOS/Source/GamePotBinding.mm
+    ../Assets/Plugins/IOS/Source/GamePotManager.h
+    ../Assets/Plugins/IOS/Source/GamePotManager.mm
+```
+
+5. 删除2.1.2版本之前用户的GamePod示例场景和代码
+    删除 ../Assets/Sample 文件夹和文件
+
+
+####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
+
+    根据 Unity 引擎版本，对 Unity 插件包进行了分支和修正。
+     Firebase 和 Google Resolver 版本从 1.2.116.0 更新到 1.2.155 。
+
+需要执行以下操作。
+
+
+     1、提前删除现有工程中的以下文件夹和内部文件
+    
+     【需要删除的文件夹和文件】
+    
+    ../Assets/PlayServicesResolver
+    
+    ../Assets/Firebase
+    
+    2. 添加 v2.1.2 Unity 插件包时，以下项目为必填项。
+    
+     [添加文件夹和文件]
+    
+    ../Assets/ExternalDependencyManager
+    
+    ../Assets/Firebase
+
+
+[Unity 2019.02.XX 或更早版本]
+    
+    - 以与以前相同的方式更新
+
+
+[统一2019.3.0~2019.3.6]
+
+    - 保留之前使用的 settingsTemplate.gradle / mainTemplate.gradle 文件。
+    由于版本引擎的特性，加载外部库时存在限制。
+    我们建议使用不同版本的 Unity 插件。
+
+[Unity 2019.3.7 或更高版本（如果是新的）]
+
+    1. 添加baseProjectTemplate.gradle。
+    
+    通常，您可以通过重命名来使用以下文件。
+    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    => baseProjectTemplate.gradle
+    
+    2.删除settingsTemplate.gradle。
+    ../Assets/Plugins/Android/settingsTemplate.gradle
+    
+    3.在launcherTemplate.gradle中定义mainTemplate.gradle文件中定义的gamepot_project_id等环境变量。
+    
+    一般情况下，重命名以下文件后，定义gamepot环境变量值。
+    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    => launcherTemplate.gradle
+    
+    4. 参考mainTemplate_GAMEPOT_UNITY2019_3.gradle文件设置mainTemplate.gradle。
+    gamepot_project_id 等环境变量定义在 launcherTemplate.gradle 中，因此您可以删除它们。
+
+
+    5. 使用 Unity 2020.X 版本时的其他修复
+
+Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+
+    [替换文件夹和文件]
+    ../Assets/ExternalDependencyManager
+    ../Assets/Firebase
+
+
+    - 修改文件夹名称
+    
+     现有 :  ../Assets/Plugins/Android/Firebase
+    
+    调整 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+    
+     现有 :  ../Assets/Plugins/Android/GamePotResources
+    
+    调整 :  ../Assets/Plugins/Android/GamePotResources.androidlib
+
+
+    - 修改 mainTemplate.gradle（根据文件夹名称变化修改）
+    
+     现有 : 
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources')
+    	implementation project('Firebase')
+    
+    调整 :
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources.androidlib')
+    	implementation project('FirebaseApp.androidlib')
+    
+    - 设置为在构建 Android 时不包括 Unity 编辑器中 ../Assets/Plugins/Android/nativeLibs 文件夹中的所有库。
+     参考图片：
+![gamepot_faq_54](./images/gamepot_faq_54.png)
+
+
+#### Ver Unity Tools 1.0.0 到 Ver Unity Unity Tools 1.0.1
+
+     Unity Tools 版本不兼容，需要新的工作。
+    
+     空项目 > 安装最新的 Unity 工具 1.0.1 > 运行 Unity 工具
+     > 点击Download SDK ver2.1.2按钮安装Unity插件包并继续操作。
