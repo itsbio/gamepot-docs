@@ -2150,3 +2150,31 @@ ex)앱 패키지명이 com.itsb.gamepot 일때
             .......
 
 ```
+
+
+## Native 환경에서 수정이 필요할 때 
+> 유니티 플러그인 패키지를 이용하시는 경우 Android 환경일 때 io.gamepot.unity.plugin.GamePotSDKActivity 가 MainActivity로 해야 동작합니다. 
+다만 특정 광고툴의 기능을 위해 네이티브 환경상 수정을 해야 할 경우가 있을 때는 위 Class 를 상속받아서 별도 처리하는 MainActivity를 만들어 적용하셔야 합니다.
+
+상속받는 예제 브릿지 파일 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/UnityGameActivityBridge_sample.zip)
+(게임팟 SDK 3.2.0 기준 예제)
+
+위 예제 기준으로 설명드리면 아래와 같습니다.
+
+1. 프로젝트에 적용된 프로젝트 내 ../Assets/Plugins/Android/libs/gamepot-bridge.aar 파일을 
+다운로드 받은 프로젝트(상속받는 예제 브릿지 파일) 안에 있는 ../app/libs 경로의 파일과 교체 합니다.
+
+2. 작업을 완료 후 빌드를 하여 생성된 arr ( 예제 기준: GameActivity-bridge.aar )을 ../Assets/Plugins/Android/libs 폴더에 넣습니다. 
+ex)
+../Assets/Plugins/Android/libs/GameActivity-bridge.aar 
+
+3. 메인 액티비티 교체를 위해 AndroidManifest.xml 파일을 수정합니다. 
+
+```csharp
+기존 :
+        <activity android:theme="@style/UnityThemeSelector"
+            android:name="io.gamepot.unity.plugin.GamePotSDKActivity"
+
+수정 : 
+            android:name="io.gamepot.unity.plugin.Game.GameActivity"   //예제 기준: 빌드시 상속받은 액티비티로 변경
+```

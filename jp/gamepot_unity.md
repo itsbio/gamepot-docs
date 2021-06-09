@@ -1959,3 +1959,30 @@ String uniqueId = "developer unique id";
 
 sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
 ```
+
+## Native環境での修正が必要なときに
+>ユニティプラグインパッケージをご利用の場合Android環境のときにio.gamepot.unity.plugin.GamePotSDKActivityがMainActivityにする必要が動作します。
+ただし、特定の広告ツールの機能のために、ネイティブ環境賞の修正をしなければならない場合があるときは、上記Classを継承受けて、別の処理するMainActivityを作成して適用する必要があります。
+
+継承の例ブリッジファイル：[ダウンロード]（https://xyuditqzezxs1008973.cdn.ntruss.com/patch/UnityGameActivityBridge_sample.zip）
+（ゲームポットSDK 3.2.0基準の例）
+
+上記の例に基づいて説明触れる以下の通りです。
+
+1.プロジェクトに適用されたプロジェクト内../Assets/Plugins/Android/libs/gamepot-bridge.aarファイルを
+ダウンロードしたプロジェクト（継承の例ブリッジファイル）の中にある../app/libsパスのファイルと置き換えます。
+
+2.作業を完了した後、ビルドをして生成されたarr（例目安：GameActivity-bridge.aar）を../Assets/Plugins/Android/libsフォルダに配置します。
+ex）
+../Assets/Plugins/Android/libs/GameActivity-bridge.aar
+
+3.メインアクティビティ交換のためにAndroidManifest.xmlファイルを変更します。
+
+`` `csharp
+既存：
+        <activity android：theme = "@ style / UnityThemeSelector"
+            android：name = "io.gamepot.unity.plugin.GamePotSDKActivity"
+
+修正：
+            android：name = "io.gamepot.unity.plugin.Game.GameActivity" //例の基準：ビルド時の継承されたアクティビティに変更
+`` `

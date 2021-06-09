@@ -1969,3 +1969,30 @@ String uniqueId = "developer unique id";
 
 sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
 ```
+
+##在原生环境中需要修改时
+> 使用Unity插件包时，Android环境下io.gamepot.unity.plugin.GamePotSDKActivity必须设置为MainActivity才能工作。
+但是，如果需要为特定广告工具的功能修改原生环境，则必须继承上述类，并单独创建应用MainActivity来处理。
+
+继承的示例桥接文件：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/UnityGameActivityBridge_sample.zip)
+（示例基于 GamePod SDK 3.2.0）
+
+基于上述例子，解释如下。
+
+1、打开项目中应用的../Assets/Plugins/Android/libs/gamepot-bridge.aar文件。
+替换下载项目中 ../app/libs 路径中的文件（继承的示例桥文件）。
+
+2、完成工作后，将生成的arr（例如：GameActivity-bridge.aar）构建并放到../Assets/Plugins/Android/libs文件夹中。
+前任）
+../Assets/Plugins/Android/libs/GameActivity-bridge.aar
+
+3.修改AndroidManifest.xml文件替换主activity。
+
+```csharp
+现存的 ：
+        <activity android:theme="@style/UnityThemeSelector"
+            android:name="io.gamepot.unity.plugin.GamePotSDKActivity"
+
+调整 ：
+            android:name="io.gamepot.unity.plugin.Game.GameActivity" //基于例子：改成build时继承的activity
+```

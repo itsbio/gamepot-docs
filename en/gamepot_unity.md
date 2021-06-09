@@ -1966,3 +1966,30 @@ String uniqueId = "developer unique id";
 
 sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
 ```
+
+## When modifications are needed in the native environment
+> When using the Unity plugin package, io.gamepot.unity.plugin.GamePotSDKActivity must be set as MainActivity in Android environment to work.
+However, if you need to modify the native environment for the function of a specific advertising tool, you must inherit the above class and create and apply MainActivity to handle it separately.
+
+Inherited example bridge file: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/UnityGameActivityBridge_sample.zip)
+(Example based on GamePod SDK 3.2.0)
+
+Based on the example above, the explanation is as follows.
+
+1. Open the ../Assets/Plugins/Android/libs/gamepot-bridge.aar file in the project applied to the project.
+Replace the file in the ../app/libs path in the downloaded project (inherited example bridge file).
+
+2. After completing the work, build and put the generated arr (example: GameActivity-bridge.aar ) in the ../Assets/Plugins/Android/libs folder.
+ex)
+../Assets/Plugins/Android/libs/GameActivity-bridge.aar
+
+3. Modify the AndroidManifest.xml file to replace the main activity.
+
+```csharp
+existing :
+        <activity android:theme="@style/UnityThemeSelector"
+            android:name="io.gamepot.unity.plugin.GamePotSDKActivity"
+
+Modify :
+            android:name="io.gamepot.unity.plugin.Game.GameActivity" //Based on example: Change to the activity inherited during build
+```
