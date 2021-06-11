@@ -326,7 +326,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
  - 갤럭시 스토어 인앱 SDK :  gamepot-billing-galaxystore.aar
 
-3. 결제 관련 셋팅이 되어 있어야 합니다. [참조:결제가안되요](#undefined-1)
+3. 결제 관련 셋팅이 되어 있어야 합니다. [참조:결제가안되요](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
 
 4. getPurchaseItems API를 이용하는 경우 
 - 로그인 이후 결제 모듈을 초기화 작업을 진행 후 비동기적으로 인앱 리스트를 받으며
