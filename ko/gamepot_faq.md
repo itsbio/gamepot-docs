@@ -326,11 +326,9 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
  - 갤럭시 스토어 인앱 SDK :  gamepot-billing-galaxystore.aar
 
-3. 결제 관련 셋팅이 되어 있어야 합니다. [참조:결제가안되요](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
+3. 결제 관련 셋팅이 되어 있어야 합니다. 참조:[# 결제가 안되요!](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
 
-4. getPurchaseItems API를 이용하는 경우 
-- 로그인 이후 결제 모듈을 초기화 작업을 진행 후 비동기적으로 인앱 리스트를 받으며
-받은 결과를 보여주는 API 입니다. 호출하는 타이밍상 정보가 없을 수가 있습니다.
+4. getPurchaseItems API를 이용하는 경우 로그인 이후 결제 모듈을 초기화 작업을 진행 후 비동기적으로 인앱 리스트를 받으며 받은 결과를 보여주는 API 입니다. 호출하는 타이밍상 정보가 없을 수가 있습니다.
 위와 같이 없는 경우 getPurchaseDetailListAsync API (동기식 인앱 리스트 항목 획득)를 사용하시는 것을 추천드립니다.
 
 ## 인앱 영수증이 있는데 대시보드에는 영수증 정보가 없어요. / 결제 진행이 중단된 경우 복구 처리하는 로직이 있나요?
@@ -353,7 +351,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 결제 모듈이 다른 앱을 실행하면 결제 복구 로직이 발생하지 않습니다 
 
-    ex) 구글 결제 진행 후 장애 발생 > 원스토어 버전 로그인시 결제 모듈이 다르기때문에 결제 복구 로직이 진행되지 않습니다.
+ex) 구글 결제 진행 후 장애 발생 > 원스토어 버전 로그인시 결제 모듈이 다르기때문에 결제 복구 로직이 진행되지 않습니다.
 
 구글의 경우 기기 설정 내 결제를 진행한 계정만 남긴 상태에서 진행해주세요.
 
