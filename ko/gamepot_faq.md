@@ -1,5 +1,7 @@
 # FAQ
 
+게임팟 클라이언트 SDK 체크리스트  : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/GAMEPOT_CheckList.xlsx)
+
 ## 로그인이 안 돼요!
 
 > 소셜 로그인 기능의 경우, 기본적으로 해당 플랫폼의 개발 가이드를 기준으로 합니다. 문제 발생 시, 해당 플랫폼의 로그인 개발 가이드를 먼저 확인 해주세요.
