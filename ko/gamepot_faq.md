@@ -1084,12 +1084,12 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
         => 네트워크 이슈로 게임팟 서버에 결제 정보를 전달 했으나 (게임팟 서버에서는 관련 정보를 받아 관련 처리가 진행된 상태- Purchase Webhook API 발송) 관련 응답을 못받은 상태에서 클라이언트에서는 재차 관련 정보를 게임팟 서버에 전달 되었을 때 게임팟 서버에서 해당 건을 중복처리로 인지하여 실패 케이스로 처리한 경우입니다. 클라이언트 구조상 하나의 응답만 받을 수는 것이기 때문에 발생하는 건으로 실질적으로는 유저가 결제 아이템을 받았을 것으로 해당 케이스에서는 운영상에 이슈는 없을 것으로 판단됩니다.
 
-2. 결제 실패시 오류 코드 - 5000 : 가이드의 내용처럼 결제에서 알 수 없는 오류 발생 및 스토어 안앱 SDK에서 Error가 발생한 경우 입니다.
+2. 결제 실패시 오류 코드 - 5000 : 가이드의 내용처럼 결제에서 알 수 없는 오류 발생 및 스토어 인앱 SDK에서 Error가 발생한 경우 입니다.
 
     - 기기내 결제 환경이 안되어 있거나 결제 관련 셋팅이 안되어 있는 경우 발생합니다.
     ( 빌드시 결제 모듈 라이브러리가 미탑재 / 각 스토어 콘솔 내 결제 관련 설정 누락 / 게임팟 대시보드 내 결제 관련 셋팅 정보 누락 / 기기내 결제 계정이 앱 배포 국가에 맞지 않는 경우 등등 )
 
-    [참조: # 결제가 안되요!](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
+      => [참조: # 결제가 안되요!](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
 
     - error message 문구가 [ 결제 오류가 발생했습니다. code ( 숫자 ) ..... 입니다 인 경우
     인앱 SDK 에서 발생하는 오류로 인해 발생하는 케이스로  code () 안의 숫자가 인앱 SDK의 오류 코드입니다.
@@ -1098,7 +1098,7 @@ IOS 설정은 아래와 같이 진행을 합니다.
         2. 앱 재 설치 후에도 발생한다면 구글 스토어 앱에 저장된 정보와 결제 정보 이슈로 문제가 발생할 수도 있습니다. 
     앱 배포 이후 결제 환경상 이상이 없고 특정 유저만 발생하는 케이스로 기기내 구글 계정 삭제 / 구글 스토어 앱 내 데이터 삭제 후 구글 계정 재 등록 진행시 해결이 될 수도 있습니다.
     
-    구글 인앱 에러 코드 참고 : https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode?authuser=1#DEVELOPER_ERROR
+        구글 인앱 에러 코드 참고 : https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode?authuser=1#DEVELOPER_ERROR
 
 
 3. 로그인시 오류 코드 - 407 : 사용자 아이디가 이용정지 된 케이스 입니다. error message에 대시보드에 설정하신 이용정지 사유 문구를 전달 합니다.
