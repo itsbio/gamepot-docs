@@ -3,7 +3,7 @@
 - [Console](./gamepot_console.md)
 - [Dashboard](./gamepot_dashboard.md)
 - [Unity SDK](./gamepot_unity.md)
-- [GamePot Tools (BETA)](./gamepot_gamepot_tools.md)
+- [GamePot Tools](./gamepot_gamepot_tools.md)
 - [Android SDK](./gamepot_android.md)
 - [iOS SDK](./gamepot_ios.md)
 - [Javascript SDK](./gamepot_javascript.md)

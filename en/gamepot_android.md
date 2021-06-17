@@ -3,11 +3,10 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **We provide the <a href="https://guide.ncloud-docs.com/docs/en/home" target="_blank">[Manual]</a>and <a href="https://api.ncloud-docs.com/docs/en/home" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
-#### **We provide the <a href="http://docs.ncloud.com/ko/" target="_blank">[Manual]</a>and <a href="https://apidocs.ncloud.com/ko/" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
-
-<a href="https://apidocs.ncloud.com/ko/game/gamepot/" target="_blank">Go to Gamepot API Reference >></a><br />
-<a href="https://docs.ncloud.com/ko/game/gamepot_console.html" target="_blank">Go to Gamepot Manual >></a>
+<a href="https://api.ncloud-docs.com/docs/en/game-gamepot" target="_blank">Go to Gamepot API Reference >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/en/game-gamepotconsole" target="_blank">Go to Gamepot Manual >></a>
 
 # Android SDK
 
@@ -21,7 +20,7 @@ The system requirements for GAMEPOT in Android are described below:
 
 \[ System requirements \]
 
-- Minimum requirements: API 17 \(Jelly Bean, 4.2\) or later, gradle 2.3.0 or later
+- Minimum requirements: API 17 \(Jelly Bean, 4.2\) or later, gradle 3.3.3 or later
 - Development environment: Android Studio
 
 #### Create a project
@@ -71,87 +70,87 @@ The build.gradle file is located in your project's root and app folders.
 
    > Replace \[xxxxx\] with your own value.
 
-| Value                 | Description                                                  |
-| :----------------- | :---------------------------------------------------- |
-| gamepot_project_id | Enter a project ID issued from GAMEPOT. |
-| gamepot_store      | Store value \(`Google`, `One`, or `Galaxy`\)        |
-| gamepot_payment | Payment method value \(Only applicable if it's Google Play Store. Currently supports `mycard`\) |
-| gamepot_app_title | App title \(FCM\) |
-| gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change. |
-| facebook_app_id | App ID issued from Facebook |
-| fb_login_protocol_scheme | Protocol scheme fb\[app_id\] issued from Facebook |
-| gamepot_elsa_projectid | Project ID when using NCLOUD ELSA \([View more](https://www.ncloud.com/product/analytics/elsa)\) |
+| Value                        | Description                                                                                      |
+| :--------------------------- | :----------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | Enter a project ID issued from GAMEPOT.                                                          |
+| gamepot_store                | Store value \(`Google`, `One`, or `Galaxy`\)                                                     |
+| gamepot_payment              | Payment method value \(Only applicable if it's Google Play Store. Currently supports `mycard`\)  |
+| gamepot_app_title            | App title \(FCM\)                                                                                |
+| gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change.                                     |
+| facebook_app_id              | App ID issued from Facebook                                                                      |
+| fb_login_protocol_scheme     | Protocol scheme fb\[app_id\] issued from Facebook                                                |
+| gamepot_elsa_projectid       | Project ID when using NCLOUD ELSA \([View more](https://www.ncloud.com/product/analytics/elsa)\) |
 
-   ```java
-   android {
-       defaultConfig {
-           ...
-           // GamePot [START]
-           resValue "string", "gamepot_project_id", "[projectId]" // required
-           resValue "string", "gamepot_store", "[storeId]" // required
-           resValue "string", "gamepot_payment", "[storeId]" // optional
-           resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
-           resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-           resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
-           resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
-           // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
-           // GamePot [END]
-       }
+```java
+android {
+    defaultConfig {
+        ...
+        // GamePot [START]
+        resValue "string", "gamepot_project_id", "[projectId]" // required
+        resValue "string", "gamepot_store", "[storeId]" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
+        resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
+        resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
+        resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
+        resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
+        // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
+        // GamePot [END]
+    }
 
-       packagingOptions {
-           exclude 'META-INF/proguard/androidx-annotations.pro'
-       }
-   }
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
 
-   repositories {
-       flatDir {
-           dirs 'libs'
-       }
-   }
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
-   dependencies {
-       compile 'com.android.support:multidex:1.0.1'
+dependencies {
+    compile 'com.android.support:multidex:1.0.1'
 
-       // GamePot common [START]
-       compile(name: 'gamepot-common', ext: 'aar')
-       compile('io.socket:socket.io-client:1.0.0') {
-           exclude group: 'org.json', module: 'json'
-       }
-       compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
-           exclude group: 'org.json', module: 'json'
-       }
-       compile "com.github.nisrulz:easydeviceinfo:2.4.1"
-       compile 'com.android.installreferrer:installreferrer:1.0'
-       compile 'com.google.code.gson:gson:2.8.2'
-       compile 'com.jakewharton.timber:timber:4.7.0'
-       compile 'com.squareup.okhttp3:okhttp:3.10.0'
-       compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-       compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-       compile 'com.android.billingclient:billing:1.1'
-       compile 'com.github.bumptech.glide:glide:3.7.0'
-       compile 'com.romandanylyk:pageindicatorview:1.0.0'
-       compile 'com.google.firebase:firebase-core:16.0.6'
-       compile 'com.google.firebase:firebase-messaging:17.3.4'
-       compile 'androidx.sqlite:sqlite-framework:2.0.1'
-       compile 'com.cookpad.puree:puree:4.1.6'
-       // GamePot common [END]
+    // GamePot common [START]
+    compile(name: 'gamepot-common', ext: 'aar')
+    compile('io.socket:socket.io-client:1.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+    compile "com.github.nisrulz:easydeviceinfo:2.4.1"
+    compile 'com.android.installreferrer:installreferrer:1.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.jakewharton.timber:timber:4.7.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+    compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+    compile 'com.android.billingclient:billing:3.0.3'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.3'
+    compile 'com.google.firebase:firebase-core:16.0.6'
+    compile 'com.google.firebase:firebase-messaging:17.3.4'
+    compile 'androidx.sqlite:sqlite-framework:2.0.1'
+    compile 'com.cookpad.puree:puree:4.1.6'
+    // GamePot common [END]
 
-       compile(name: 'gamepot-channel-base', ext: 'aar')
-       // GamePot facebook [START]
-       compile(name: 'gamepot-channel-facebook', ext: 'aar')
-       compile 'com.facebook.android:facebook-android-sdk:5.2.0'
-       // GamePot facebook [END]
+    compile(name: 'gamepot-channel-base', ext: 'aar')
+    // GamePot facebook [START]
+    compile(name: 'gamepot-channel-facebook', ext: 'aar')
+    compile 'com.facebook.android:facebook-android-sdk:5.2.0'
+    // GamePot facebook [END]
 
-       // GamePot google sigin [START]
-       compile(name: 'gamepot-channel-google-signin', ext: 'aar')
-       compile "com.google.android.gms:play-services-base:16.0.1"
-       compile "com.google.android.gms:play-services-auth:16.0.1"
-       // GamePot google sigin [END]
-   }
+    // GamePot google sigin [START]
+    compile(name: 'gamepot-channel-google-signin', ext: 'aar')
+    compile "com.google.android.gms:play-services-base:16.0.1"
+    compile "com.google.android.gms:play-services-auth:16.0.1"
+    // GamePot google sigin [END]
+}
 
-   // ADD THIS AT THE BOTTOM
-   apply plugin: 'com.google.gms.google-services'
-   ```
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'
+```
 
 3. Copy google-service.json issued from Google into the /app/ folder.
 4. Gradle Sync Now
@@ -232,13 +231,13 @@ When you receive a push notification, the default image in the SDK is shown as a
    - 96x96
 3. Add an image of the specified size to each folder as shown in the following table:
 
-| Folder name                | Size |
-| :-------------------- | :----- |
-| res/drawable-mdpi/    | 24x24  |
-| res/drawable-hdpi/    | 36x36  |
-| res/drawable-xhdpi/   | 48x48  |
-| res/drawable-xxhdpi/  | 72x72  |
-| res/drawable-xxxhdpi/ | 96x96  |
+| Folder name           | Size  |
+| :-------------------- | :---- |
+| res/drawable-mdpi/    | 24x24 |
+| res/drawable-hdpi/    | 36x36 |
+| res/drawable-xhdpi/   | 48x48 |
+| res/drawable-xxhdpi/  | 72x72 |
+| res/drawable-xxxhdpi/ | 96x96 |
 
 1. Change the name of the image file to `ic_stat_gamepot_small.`
 
@@ -300,7 +299,7 @@ Add the SHA-1 value of Keystore used when your APK is built to the Firebase cons
 
 Add the key hash value of Keystore, used when your APK is built, to the Facebook console.
 
->  Request the key hash value from the developer.
+> Request the key hash value from the developer.
 
 ![gamepot_android_06](./images/gamepot_android_06.png)
 
@@ -362,6 +361,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: NAVER
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
+// GamePotChannelType.APPLE: Apple
 // GamePotChannelType.GUEST: Guest
 
 // Appears when a user clicks the Google login button.
@@ -506,6 +506,8 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // Connect with Twitter account
 // GamePotChannelType.TWITTER
+// Connect with Apple account
+// GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -539,6 +541,7 @@ import java.util.ArrayList;
 // GamePotChannelType.NAVER
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.APPLE
 // Return connection results for each type.
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -628,7 +631,7 @@ GamePot.getInstance().purchase("product id");
 ```
 
 ```java
-Case 2: Managing receipt numbers separately at the payment time:  
+Case 2: Managing receipt numbers separately at the payment time:
 
 import io.gamepot.common.GamePot;
 
@@ -649,7 +652,6 @@ import io.gamepot.common.GamePot;
 // etc.: Enter the other information from the character who made the payment.
 GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","etc");
 ```
-
 
 ### Get purchased items list
 
@@ -696,6 +698,78 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 ```
 
 ## 7. Other APIs
+
+### Login UI supported by SDK
+
+SDK provides an independent, complete Login UI.
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelListener;
+import io.gamepot.channel.GamePotAppStatusChannelListener;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.GamePotChannelLoginBuilder;
+import io.gamepot.channel.GamePotUserInfo;
+import io.gamepot.common.GamePotError;
+
+String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
+GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
+
+// Appears when a user clicks the Google login button.
+GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+    @Override
+    public void onCancel() {
+        // When a user cancels login.
+    }
+
+    @Override
+    public void onSuccess(GamePotUserInfo userinfo) {
+        // Login complete. Handle this according to the game logic.
+        // userinfo.getMemberid(): Member's unique ID
+    }
+
+    @Override
+    public void onFailure(GamePotError error) {
+        // Login failed. Show an error message using error.getMessage().
+    }
+});
+```
+
+#### Setting Login UI image logo
+
+The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
+
+**Customizing Image Logo**
+
+> Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo), icons are automatically created for each folder. You can simply put them in the corresponding folder.
+
+1. Create res/drawable associated folders as below
+
+   - res/drawable-mdpi/
+   - res/drawable-hdpi/
+   - res/drawable-xhdpi/
+   - res/drawable-xxhdpi/
+   - res/drawable-xxxhdpi/
+
+2. Create images in each of the following sizes
+
+   - 78x55
+   - 116x82
+   - 155x110
+   - 232x165
+   - 310x220
+
+3. Add an image of the specified size to each folder as shown in the following table
+
+| Folder name           | Size    |
+| :-------------------- | :------ |
+| res/drawable-mdpi/    | 78x55   |
+| res/drawable-hdpi/    | 116x82  |
+| res/drawable-xhdpi/   | 155x110 |
+| res/drawable-xxhdpi/  | 232x165 |
+| res/drawable-xxxhdpi/ | 310x220 |
+
+- Rename the image file to `ic_stat_gamepot_login_logo.png`
 
 ### Log in to NAVER
 
@@ -834,6 +908,41 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
+### Log in to Apple (Web login)
+
+#### Configure build.gradle
+
+```java
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')
+  ...
+}
+```
+
+#### Set MainActivity.java
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.apple.signin.GamePotAppleSignin;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+        ...
+        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());
+}
+```
+
+#### Login
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
+
 ### Coupon
 
 Call the following code to use a coupon entered by a user.
@@ -932,10 +1041,28 @@ This feature displays images uploaded in Dashboard > Notice.
 /* showTodayButton: Provides a choice to show 'Do not show for 24 hours' button or not. It will always appear if it's false. */
 boolean showTodayButton = true;
 
-GamePot.getInstance().showNotice(/*현재 액티비티*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
+GamePot.getInstance().showNotice(/*Current activity*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
     @Override
     public void onReceive(String scheme) {
         // TODO : Process scheme
+    }
+});
+```
+
+### Notice (Call by classification)
+
+Dashboard - This feature displays the classified image from the images uploaded in Notice.
+
+#### Call
+
+```java
+/* Dashboard Notice >> Name set in classification */
+string type = "";
+
+GamePot.getInstance().showEvent(/*Current activity*/, type, new GamePotNoticeDialog.onSchemeListener() {
+    @Override
+    public void onReceive(String scheme) {
+        // TODO: Process scheme
     }
 });
 ```
@@ -1072,17 +1199,30 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-It provides two themes: `BLUE` and `GREEN`. Each area can be customized.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
 
-- Example of `BLUE` theme
-
-  ![gamepot_android_07](./images/gamepot_android_07.png)
-
-- Example of `GREEN` theme
-
-  ![gamepot_android_08](./images/gamepot_android_08.png)
+Each area can be customized.
 
 #### Call Agree to terms and conditions
+
+```java
+// Default theme
+GamePotAgreeBuilder.THEME.BLUE
+GamePotAgreeBuilder.THEME.GREEN
+
+//Improved theme
+GamePotAgreeBuilder.THEME.MATERIAL_RED,
+GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
+GamePotAgreeBuilder.THEME.MATERIAL_ORANGE,
+GamePotAgreeBuilder.THEME.MATERIAL_PURPLE,
+GamePotAgreeBuilder.THEME.MATERIAL_DARKBLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_YELLOW,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAPE,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
+GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
+GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
+```
 
 > Handle Agree to Terms and Conditions pop-up according to games.
 >
@@ -1106,8 +1246,8 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), n
     }
 });
 
-// When applying GREEN theme
-GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.GREEN);
+// When applying MATERIAL_ORANGE theme
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
 GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
   ....
 }
@@ -1141,14 +1281,25 @@ agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });
 agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
 agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
-agreeBuilder.setFooterTitle("게임 시작하기");
+agreeBuilder.setFooterTitle("Start game");
+
+//일반 광고성 수신동의 버튼 노출 여부
+agreeBuilder.setShowPush(true);
+
 // Whether to show Agree to Receive Night Ad push button
 agreeBuilder.setShowNightPush(true);
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+agreeBuilder.setPushDetailURL("https://...");
+
+// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
+agreeBuilder.setNightPushDetailURL("https://...");
 
 // Change description
 agreeBuilder.setAllMessage("Agree to all");
 agreeBuilder.setTermMessage("Required) Terms of service");
 agreeBuilder.setPrivacyMessage("Required) Terms and conditions of the privacy policy");
+agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
 agreeBuilder.setNightPushMessage("Optional) Agree to receive night push");
 
 GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
@@ -1225,13 +1376,13 @@ You can call the logs that contain in-game information and view them in `Dashboa
 
 Check reserved words from the table below:
 
-| Reserved Words                            | Required | Type   | Description         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | Required | String | Character Name     |
-| GamePotSendLogCharacter.LEVEL     | Select | String | Level         |
-| GamePotSendLogCharacter.SERVER_ID | Select | String | Server ID   |
-| GamePotSendLogCharacter.PLAYER_ID | Select | String | Character ID |
-| GamePotSendLogCharacter.USERDATA  | Select | String | ETC          |
+| Reserved Words                    | Required | Type   | Description    |
+| :-------------------------------- | :------- | :----- | :------------- |
+| GamePotSendLogCharacter.NAME      | Required | String | Character Name |
+| GamePotSendLogCharacter.LEVEL     | Select   | String | Level          |
+| GamePotSendLogCharacter.SERVER_ID | Select   | String | Server ID      |
+| GamePotSendLogCharacter.PLAYER_ID | Select   | String | Character ID   |
+| GamePotSendLogCharacter.USERDATA  | Select   | String | ETC            |
 
 ```java
 import android.text.TextUtils;
@@ -1261,6 +1412,25 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
+### GDPR Terms and Conditions Checklist
+
+Shows the list of GDPR terms and conditions items activated from Dashboard.
+
+```java
+import io.gamepot.common.GamePot;
+
+(List<String>) GamePot.getInstance().getGDPRCheckedList();
+
+//Each parameter returned applies to the following settings in Dashboard.
+gdpr_privacy: Privacy Policy
+gdpr_term: Terms and Conditions
+gdpr_gdpr: GDPR Terms and Conditions
+gdpr_push_normal: Consent to receive event push notifications
+gdpr_push_night: Consent to receive nighttime event push notifications (only applicable in Korea)
+gdpr_adapp_custom: Consent to personalized advertisement (for countries where GDPR is applicable)
+gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
+```
+
 # Appendix
 
 ### It supports third-party SDK connection
@@ -1273,11 +1443,11 @@ TODO : Description
 
 > It does not support auto login. Call is required every time.
 
-| Parameter Name | Required | Type                                                     | Description               |
-| :--------- | :--- | :------------------------------------------------------- | :----------------- |
-| activity   | Required | String                                                   | Current activity      |
-| userid     | Required | String                                                   | User’s unique ID |
-| listener   | Required | GamePotChannelListener / GamePotAppStatusChannelListener | Request result          |
+| Parameter Name | Required | Type                                                     | Description      |
+| :------------- | :------- | :------------------------------------------------------- | :--------------- |
+| activity       | Required | String                                                   | Current activity |
+| userid         | Required | String                                                   | User’s unique ID |
+| listener       | Required | GamePotChannelListener / GamePotAppStatusChannelListener | Request result   |
 
 ```java
 String memberId = "memberid of 3rd party sdk";
@@ -1342,15 +1512,15 @@ TODO : Description
 
 > Purchased items must be registered in GAMEPOT dashboard.
 
-| Parameter Name    | Required | Type            | Description                                    |
-| :------------ | :--- | :-------------- | :-------------------------------------- |
-| productid     | Required | String          | Item ID registered in GAMEPOT dashboard  |
-| transactionid | Required | String          | Payment receipt number (GPA-xxx-xxxx-xxxx)     |
-| currency      | Select | String          | Currency (KRW, USD)                          |
-| price         | Select | double          | Amount of purchased items                        |
-| paymentid     | Select | String          | Store for payment (google, apple, one, galaxy) |
-| uniqueid      | Select | String          | Developer's unique ID         |
-| listener      | Select | GamePotListener | Request result                               |
+| Parameter Name | Required | Type            | Description                                    |
+| :------------- | :------- | :-------------- | :--------------------------------------------- |
+| productid      | Required | String          | Item ID registered in GAMEPOT dashboard        |
+| transactionid  | Required | String          | Payment receipt number (GPA-xxx-xxxx-xxxx)     |
+| currency       | Select   | String          | Currency (KRW, USD)                            |
+| price          | Select   | double          | Amount of purchased items                      |
+| paymentid      | Select   | String          | Store for payment (google, apple, one, galaxy) |
+| uniqueid       | Select   | String          | Developer's unique ID                          |
+| listener       | Select   | GamePotListener | Request result                                 |
 
 ```java
 String productId = "purchase_001";

@@ -1,5 +1,7 @@
 # FAQ
 
+게임팟 클라이언트 SDK 체크리스트  : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/GAMEPOT_CheckList.xlsx)
+
 ## 로그인이 안 돼요!
 
 > 소셜 로그인 기능의 경우, 기본적으로 해당 플랫폼의 개발 가이드를 기준으로 합니다. 문제 발생 시, 해당 플랫폼의 로그인 개발 가이드를 먼저 확인 해주세요.
@@ -36,6 +38,18 @@
 4. 위 체크 항목을 모두 확인했음에도 불구하고 여전하다면, 지원 이메일을 다른 이메일로 변경해보세요.
 
    > 간헐적으로 최초 지원 이메일 설정 시 제대로 동작하는 경우가 발생하고 있습니다. 이 경우 다른 이메일로 변경하면 위 문제가 모두 해결되었습니다.
+
+
+1~4번 항목까지 진행했지만 로그인 시도시 onCancel 처리가 되는 경우 
+- https://console.cloud.google.com 사이트 접속
+- 프로젝트 선택 후 >  왼쪽 상단 메뉴 > API 및 서비스 > 사용자 인증 정보 > OAuth 2.0 클라이언트 ID 유형에 Android/ IOS 정보가 있는지 확인
+
+![gamepot_faq_55](./images/gamepot_faq_55.png) 
+
+- 프로젝트 선택 후 >  왼쪽 상단 메뉴 > API 및 서비스 > OAuth 동의 화면 > 게시 상태가 프로덕션이며 사용자 유형이 외부인지 확인
+
+![gamepot_faq_56](./images/gamepot_faq_56.png) 
+
 
 #### 1-2)
 
@@ -191,7 +205,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_15](./images/gamepot_faq_15.png)
 
-3. 콘솔 -&gt; 출시 관리 -&gt; 앱 버전 -&gt; 트랙 -&gt; 관리 -&gt; 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
+3. 콘솔 -&gt; 테스트 -&gt; 트랙 관리 -&gt; 테스트 참여 대상 관리에 테스트 계정을 등록했는지 확인
 
 ![gamepot_faq_16](./images/gamepot_faq_16.png)
 
@@ -200,8 +214,6 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 ![gamepot_faq_17](./images/gamepot_faq_17.png)
 
 5. 콘솔 -&gt; 설정에서 `라이선스 테스트`에 테스트 계정을 추가했는지 확인
-
-![gamepot_faq_18](./images/gamepot_faq_18.png)
 
 ![gamepot_faq_19](./images/gamepot_faq_19.png)
 
@@ -268,6 +280,27 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
+#### 3-4)
+- 원스토어 SDK 인앱 버전 SDK v17, API v5 만 지원합니다.
+
+- Android 빌드시 targetSdkVersion 30(Android 11)로 빌드한 경우 Android 11 OS기기에 원스토어 APK가 설치되었음에도 찾지 못합니다.
+
+    [AndroidManifest.xml 파일 내 하기 문구 추가 필요]
+
+        <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [Start] -->
+        <queries>
+            <intent>
+                <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
+            </intent>
+            <intent>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="onestore" />
+            </intent>
+        </queries>
+        <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [End] -->
+    
+        <application
+
 ### 3. Galaxy Store
 
 #### 3-1)
@@ -278,6 +311,53 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
          대시보드 > 프로젝트 설정 > 화이트 유저 추가 (종류 : 개발 / 테스트 기기 IP) 설정을 합니다.
 
 ![gamepot_faq_49](./images/gamepot_faq_49.png)
+
+## 인앱 아이템 리스트를 가져오지 못하는 경우
+
+1. 게임팟 결제는 소모성 인앱만 결제가 가능합니다.
+
+2. 결제 라이브러리가 빌드시 탑재 되어 있어야 합니다.
+
+ - 구글 인앱 SDK    : 
+
+    (유니티) ../Assets/Plugins/Android/libs/billing-3.0.3.aar
+
+    (gradle) implementation 'com.android.billingclient:billing:3.0.3'
+
+ - 원스토어 인앱 SDK : gamepot-billing-onestore.aar
+
+ - 갤럭시 스토어 인앱 SDK :  gamepot-billing-galaxystore.aar
+
+3. 결제 관련 셋팅이 되어 있어야 합니다. 참조:[# 결제가 안되요!](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
+
+4. getPurchaseItems API를 이용하는 경우 로그인 이후 결제 모듈을 초기화 작업을 진행 후 비동기적으로 인앱 리스트를 받으며 받은 결과를 보여주는 API 입니다. 호출하는 타이밍상 정보가 없을 수가 있습니다.
+위와 같이 없는 경우 getPurchaseDetailListAsync API (동기식 인앱 리스트 항목 획득)를 사용하시는 것을 추천드립니다.
+
+## 인앱 영수증이 있는데 대시보드에는 영수증 정보가 없어요. / 결제 진행이 중단된 경우 복구 처리하는 로직이 있나요?
+
+게임팟 결제 로직 :
+
+클라이언트 > 스토어 인앱 결제 진행 > 게임팟 서버에서 대시보드에 기입한 정보를 토대로 영수증 검증을 진행합니다.
+
+영수증 검증시 문제가 없으면 결제 Webhook api 발송 후 대시보드 결제 목록에 정보가 추가 / Webhook api 결과와 상관없이 클라이언트 SDK에는 성공 처리됩니다.
+
+스토어 인앱 결제에서 성공 이후 알 수 없는 이유로( 네트워크 이슈, 앱 강제 종료 등등) 중단되는 경우
+
+쉐어드 메모리에 결제 API 호출시 전달한 정보를 저장합니다.
+
+이슈가 발생한 앱을 종료 > 앱을 재실행 > 로그인 성공시 게임팟 내부적으로 결제 중단 이력을 체크를 하며 중단된 이력이 있는 경우 쉐어드 메모리에 저장된 내용을 토대로 결제 로직이 다시 진행되며 영수증 검증까지 이상없으면 결제 Webhook api 발송 후 대시보드 결제 목록에 정보가 추가 됩니다.
+
+인앱 영수증은 있으나 게임팟 대시보드에 결제 이력이 없는 경우는 게임팟 결제 로직상에 문제가 발생한 케이스입니다.
+
+유저에게는 결제를 진행한 앱을 다시 실행하여 로그인 유도를 해주시면 내부적으로 결제 로직이 다시 진행이되며 이상이 없는경우 결제 API를 발송 및 대시보드에 이력을 남깁니다.
+
+결제 모듈이 다른 앱을 실행하면 결제 복구 로직이 발생하지 않습니다 
+
+ex) 구글 결제 진행 후 장애 발생 > 원스토어 버전 로그인시 결제 모듈이 다르기때문에 결제 복구 로직이 진행되지 않습니다.
+
+구글의 경우 기기 설정 내 결제를 진행한 계정만 남긴 상태에서 진행해주세요.
+
+( 로그인 계정과 결제하는 계정은 다를 수 있습니다.)
 
 
 ## Adbrix Remaster
@@ -313,6 +393,8 @@ XCode에서 아래와 같이 설정 하신 후 빌드 해주세요.
 
 ## 푸쉬
 
+### Case1 :
+
     # Q. iOS에서 푸쉬 수신이 되지 않아요.
     # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
 
@@ -339,12 +421,50 @@ home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인 부�
 
 Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않는다면 빌드 시 이 부분이 포함 되지 않았는지 확인 부탁드립니다.
 
-## 앱 서명
+
+### Case2 : 
+
+    # Q. AOS에서 푸쉬 수신이 되지 않아요.
+    # A. 아래 설명에 있는 부분을 하나씩 확인 해주세요.
+
+- 네이버 클라우드 콘솔상 푸시 설정 값이 잘 설정되었는지 확인합니다.
+  
+    - Firebase 콘솔 내 앱 설정 > 클라우드 메시징 탭에 서버키와 발신자 ID가 정보 확인
+    - 네이버 클라우드 콘솔 >  Simple & Easy Notification Service (SENS) >  push > certificate 항목에 설정 값을 확인
+
+        https://console.ncloud.com/sens/push-certificate
+
+
+[Firebase SDK를 별도로 탑재하여 사용중인 경우]
+- ../Assets/Plugins/Android/AndroidManifest.xml 내 하기 코드가 적용되어 있는지 확인
+
+        ....
+        </activity>
+    
+        <!-- FCM [start]-->
+        <service android:name="io.gamepot.common.GamePotFCMIDService">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+        </service>
+        <service android:name="io.gamepot.common.GamePotFCMService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+        </service>
+        <!-- FCM [End]-->
+    
+        ...
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
+
+
+
+## 구글 앱 서명 사용시 주의점
 
     # Q. 직접 설치한 APK는 소셜 로그인이 정상적으로 되나, 스토어에서 다운로드 후 소셜로그인하면 로그인이 되지 않아요.
     # A. 구글 개발자 콘솔에서 앱 서명이 활성화 되어 키스토어가 변경된 경우입니다.
 
-구글 개발자 콘솔에 `출시 관리` -> `앱 서명` 메뉴에 아래와 같은 화면이 보여집니다.
+구글 개발자 콘솔에 `설정` -> `앱 무결성` 메뉴에 아래와 같은 화면이 보여집니다.
 
 ![gamepot_faq_33](./images/gamepot_faq_33.png)
 
@@ -533,6 +653,176 @@ data:
 | error     | String | 상황별 오류 내용 전달                                |
 
 
+## GooglePlayGames API
+
+    # Q. GAMEPOT SDK를 통해, GooglePlayGames API를 사용할 수 있나요?
+    # A. GAMEPOT SDK에서 자체적으로 지원하는 GooglePlayGames API가 존재합니다. (업적, 리더보드) (Android, Unity, Unreal)
+
+플랫폼 별, GooglePlayGames API 사용방법은 다음과 같습니다.
+
+### Android
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.google.playgame.GamePotAchievementInfo;
+
+//Achievement Handling API
+GamePotChannel.getInstance().showAchievement(ACTIVITY);
+
+GamePotChannel.getInstance().loadAchievements(ACTIVITY, new GamePotChannelListener<GamePotAchievementInfo>() {
+    @Override
+    public void onCancel() {
+    }
+    @Override
+    public void onSuccess(GamePotAchievementInfo info) {}
+    
+    @Override
+    public void onFailure(GamePotError err) {}
+    });
+
+GamePotChannel.getInstance().unlockAchievement(Activity activity, String achievementId);
+
+GamePotChannel.getInstance().incrementAchievement(Activity activity, String achievementId, int Count);
+
+
+//Leaderboard Handling API
+GamePotChannel.getInstance().showLeaderboard(Activity activity);
+
+GamePotChannel.getInstance().submitScoreLeaderboard(Activity activity, String leaderBoardId, int leaderBoardScore);
+
+```
+
+### Unity
+
+> 빌드 시, gamepot-channel-google-playgame.aar을 포함하여 빌드 해주세요.
+
+- /Assets/Plugin/Android/mainTemplate.gradle에 gamepot_gpg_id 값을 넣어주세요.
+
+```java
+...
+android {
+    ...
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_gpg_id", ""
+    }
+    ...
+}
+```
+
+
+```csharp
+using GamePotUnity;
+
+//Achievement Handling API
+GamePot.showAchievement();
+
+GamePot.unlockAchievement(string achievementId);
+
+GamePot.incrementAchievement(string achievementId, string count);
+
+GamePot.loadAchievement();
+
+//loadAchievement Handled by Callback Function
+void onLoadAchievementSuccess(List<NAchievementInfo> info);
+void onLoadAchievementFailure(NError error);
+void onLoadAchievementCancel();
+
+//Leaderboard Handling API
+GamePot.showLeaderboard();
+
+GamePot.submitScoreLeaderboard(string leaderBoardId, string leaderBoardScore);
+```
+
+### Unreal
+
+>Unreal 엔진의 경우, 엔진 소스 내 빌드스크립트에서 gpg App ID 값을 디폴트로 Manifest Merge 하고 있습니다. (UnrealEngine 4.26 기준)
+
+> GAMEPOT GooglePlayGames 모듈과 duplicate 나지 않도록, 엔진 소스 내 `Engine/Source/Programs/UnrealBuilTool/Platform/Android/UEDeployAndroid.cs` 의 다음 2-line 을 주석처리 해주세요.
+
+![gamepot_faq_57](./images/gamepot_faq_57.png)
+
+
+GamePot_Android_UPL.xml 수정
+
+```xml
+...
+<resourceCopies>
+        <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-channel-google-playgame.aar" dst="$S(BuildDir)/libs/gamepot-channel-google-playgame.aar" />
+</resourceCopies>
+
+...
+
+<AARImports>
+    <insertValue value="com.google.android.gms,play-services-games,21.0.0"/>
+    <insertNewline/>
+    <insertValue value="com.google.android.gms,play-services-base,17.5.0"/>
+    <insertNewline/>
+    <insertValue value="com.google.android.gms,play-services-auth,19.0.0"/>       
+    <insertNewline/>
+</AARImports>
+
+...
+
+<buildGradleAdditions>
+    <insert>
+
+        ...
+        dependencies {
+            ...
+            implementation(name: 'gamepot-channel-google-playgame', ext: 'aar')
+            implementation 'com.google.android.gms:play-services-games:21.0.0'
+            implementation 'com.google.android.gms:play-services-base:17.5.0'
+            implementation 'com.google.android.gms:play-services-auth:19.0.0'
+            ...
+        }
+        ...
+
+        defaultConfig {
+            ...
+            resValue "string", "gamepot_gpg_id","xxx" //insert gpg App ID
+            ...
+        }
+
+    </insert>
+</buildGradleAdditions>
+
+...
+
+<gameActivityImportAdditions>
+  <insert>
+    import io.gamepot.channel.google.playgame.GamePotGooglePlaygame;
+  </insert>
+</gameActivityImportAdditions>
+
+...
+```
+
+```c++
+#include "GamePotSDKPluginModule.h"
+
+//Achievement Handling API
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->showAchievement();
+
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->unlockAchievement(FString achievementId);
+
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->incrementAchievement(FString achievementId, FString count);
+
+//loadAchievement Handled by Callback Function
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->loadAchievement();
+
+void FOnSdkLoadAchievementSuccess(FNAchievementInfo info);
+void FOnSdkLoadAchievementFailure(FNError error);
+void FOnSdkLoadAchievementCancel();
+
+//Leaderboard Handling API
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->showLeaderboard();
+
+FGamePotSDKPluginModule::GetSharedGamePotSdk()->submitScoreLeaderboard(FString leaderBoardId, FString leaderBoardScore);
+```
+
+
+
 ## Casebook
 
 ### - Dashboard
@@ -575,7 +865,7 @@ data:
 
     베타존을 사용 중인 업체에서 발생할 수 있는 이슈입니다.
     로그인 검증 Request URL이 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth'로 설정되어 있으면, https://cloud-api.gamepot.io/loginauth 으로 변경하여 확인 부탁드립니다.
-
+    
     리얼존 : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
     베타존 : https://cloud-api.gamepot.io/loginauth ( 서비스 종료 예정 )
 
@@ -606,42 +896,50 @@ data:
 #### 6. 신규 서비스 계정 발급 후 Key값을 적용했음에도, 결제 API가 실패할 경우
 
     (구글 서비스 계정 이관 시) 신규 Key를 발급받아 적용했음에도, 결제 API가 실패하는 구글 콘솔 측 버그 레포트가 유입되었습니다. (2020.02.13)
-    이 경우 구글 콘솔에서 임의로 인앱상품을 하나 생성한 다음, 문제가 해결되는지 확인해보세요.
+       
+    결제 진행 후 아래와 같은 오류가 발생 
+    
+    오류 문구 :
+    "The current user has insufficient permissions to perform the requested operation."
+    
+    구글 콘솔에서 서비스 계정에 권한 설정이 정상적으로 되었는지 추가 확인 후
+    구글 콘솔에서 임의로 인앱상품을 하나 생성한 다음, 문제가 해결되는지 확인해보세요.
+
 
 #### 7. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
 
     1. SENS 설정에 Certification에 인증키 및 인증서가 등록되어 있는지 확인 부탁드립니다.
-
+    
     2. IOS는 빌드 시 사용 된 프로비저닝프로파일 타입에 따라 등록해야 하는 인증서가 다릅니다.
-
+    
     [Development]
     Provisioning >> Push Development 인증서를 업로드 해주시고 Type은 Sandbox로 설정해주세요.
-
+    
     [Adhoc / Distribution]
     Provisioning >> Push Distribution 인증서를 업로드 해주시고 Type은 Production으로 설정해주세요.
-
+    
     3. Gamepot은 Push Token을 로그인 완료 시 서버로 전달 합니다. 따라서 인증서를 등록 후, 클라이언트에서 로그인까지 진행 확인해주세요.
-
+    
     4. IOS의 경우, 앱이 Forground 상태에서는 푸쉬 수신이 되지 않습니다. home 버튼을 눌러 메인 화면에서 푸쉬가 수신되는지 확인해주세요.
-
+    
     5. IOS의 경우, Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니다. 수신이 되지 않을 경우, 빌드 시 해당부분이 추가 되지 않았는지 확인해주세요.
 
 #### 8. IOS 결제 테스트 방법
 
     1. 테스트 하려는 기기의 설정 >> iTunse 및 Store >> Apple ID : XXXX 를 터치 >> 로그아웃
-
+    
     2. 앱 실행
-
+    
     3. 앱의 유료 결제 항목 선택
-
+    
     4. 팝업 발생 시 기존 appleID 사용으로 선택
-
+    
     5. 테스트 계정 ID / PW 넣고 로그인 (가끔 상태에 따라 팝업이 여러번 뜨는 경우 있으나 특별히 신경 쓰지 않아도 됩니다.)
-
+    
     6. 유료 결제 항목의 가격 및 이름이 팝업 형태로 노출 되며 [Environment : Sandbox] 문구 노출
-
+    
     7. 구입 선택
-
+    
     * 결제 팝업에  [Environment : Sandbox] 문구가 노출 되면 실제 요금은 부과되지 않습니다.
 
 
@@ -653,16 +951,16 @@ data:
 
 
     [안드로이드]
-
+    
     app/src/main/res/values-국가코드/strings.xml
     
     ex) 디바이스 언어가 영어일 때 앱 이름을 변경하고자 할 때
     app/src/main/res/values-en/strings.xml
-
+    
     [유니티 안드로이드]
-
+    
     Assets/Plugins/Android/GamePotResources/res/values-국가코드/strings.xml
-
+    
     ex) 디바이스 언어가 한국어일 때 앱 이름을 변경하고자 할 때
     Assets/Plugins/Android/GamePotResources/res/values-ko/strings.xml
 
@@ -700,13 +998,13 @@ IOS 설정은 아래와 같이 진행을 합니다.
 #### 10. 인앱 리스트 정보를 가져올 때 스토어마다 GamePot.getPurchaseItems() API의 Price 값이 다릅니다. 
 
 	인앱 리스트 정보를 가져올 때 각 스토어 인앱 SDK에서 전달을 주는 값을 공유드립니다.
-
+	
 	구글 스토어 : price의 값은 화폐단위 + 인앱 가격 
 	ex)  ₩1,000
-
+	
 	애플 스토어 : price의 값은 인앱 가격
 	ex) 1000
-
+	
 	IOS에서 화폐 단위를 표기하기 위해서는  price_currency_code 값을 참조하시면 됩니다.
 	ex) price_currency_code : KRW
 
@@ -730,10 +1028,10 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
     스토어 배포 전에 원하시는 목록을 정리하여 요청하시는 것을 권장드리며
     앱 배포 후 데이터 초기화의 경우 실제 유저의 데이터와 더미 데이터의 구분이 명확하지 않아 서비스에 혼란을 초래하므로 권장하지 않습니다.
-
+    
     CBT를 선행으로 진행 후 런칭 진행시 회원 정보를 유지하지 않는 경우
     게임 디비 초기화 시 게임팟 계정 연동 이력도 삭제돼야 하므로 런칭전에 필히 삭제 요청 해주세요.
-
+    
     삭제된 데이터는 복구되지 않으니 신중히 판단 부탁드리며
     대시보드 메뉴별 데이터 삭제 가능 범위는 아래와 같습니다.
 
@@ -754,9 +1052,312 @@ IOS 설정은 아래와 같이 진행을 합니다.
 | 게임 > 선물하기  | O            | O            |
 
 
+
+
+#### 13. 애플의 iOS 14 개인정보처리방침 강화에 따라 수집하는 개인정보 내역 리스트
+
+애플 콘솔 내 ‘일반정보’ >> ‘앱이 수집하는 개인정보 탭’을 기준으로 말씀 드리면 아래와 같습니다.
+(고객 신원 정보와 연결되지 않으며 관련 정보로 추적하는 목적이 아닌 사항)
+
+게임팟 SDK에서 수집하는 항목은 다음과 같습니다.
+
+[식별자]
+- 사용자 ID (계정정보)
+- 기기 ID (IDFA,  auto generated)
+- 구입 항목
+
+[사용자 컨텐츠]
+- 사진 또는 비디오
+- 고객지원
+
+    [사용자 컨텐츠]의 경우 게임팟 PRO 이상 상품을 이용하시는 고객중 게임팟 고객 문의 UI를 사용하는 경우에 해당하며 오브젝트 스토리지 기능 사용시 고객 문의에 이미지파일을 첨부 파일로 올릴 수 있습니다. 
+
+#### 14. 결제 / 로그인시 자주 물어보는 오류 Code 설명
+
+1. 결제 실패시 오류 코드 - 405 : 동일한 결제 정보가 게임팟 서버에 수신되어 발생하는 경우입니다.
+
+    - 결제 API 호출 후 결제 로직이 완료가 안된 상태에서 연속적으로 호출되어 발생한 경우 
+
+        => 결제 완료 처리 이후 호출이 되는지 확인 부탁드립니다.
+
+    - 네트워크 이슈로 동일한 결제 정보가 중복으로 요청되어 발생한 경우
+
+        => 네트워크 이슈로 게임팟 서버에 결제 정보를 전달 했으나 (게임팟 서버에서는 관련 정보를 받아 관련 처리가 진행된 상태- Purchase Webhook API 발송) 관련 응답을 못받은 상태에서 클라이언트에서는 재차 관련 정보를 게임팟 서버에 전달 되었을 때 게임팟 서버에서 해당 건을 중복처리로 인지하여 실패 케이스로 처리한 경우입니다. 클라이언트 구조상 하나의 응답만 받을 수는 것이기 때문에 발생하는 건으로 실질적으로는 유저가 결제 아이템을 받았을 것으로 해당 케이스에서는 운영상에 이슈는 없을 것으로 판단됩니다.
+
+2. 결제 실패시 오류 코드 - 5000 : 가이드의 내용처럼 결제에서 알 수 없는 오류 발생 및 스토어 인앱 SDK에서 Error가 발생한 경우 입니다.
+
+    - 기기내 결제 환경이 안되어 있거나 결제 관련 셋팅이 안되어 있는 경우 발생합니다.
+    ( 빌드시 결제 모듈 라이브러리가 미탑재 / 각 스토어 콘솔 내 결제 관련 설정 누락 / 게임팟 대시보드 내 결제 관련 셋팅 정보 누락 / 기기내 결제 계정이 앱 배포 국가에 맞지 않는 경우 등등 )
+
+      => [참조: # 결제가 안되요!](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
+
+    - error message 문구가 [ 결제 오류가 발생했습니다. code ( 숫자 ) ..... 입니다 인 경우
+    인앱 SDK 에서 발생하는 오류로 인해 발생하는 케이스로  code () 안의 숫자가 인앱 SDK의 오류 코드입니다.
+    구글 결제의 경우 특정 유저가 결제시 간혹 code(5) 에 대한 오류 문의가 있는데요.
+
+        1. APK 변조 가능성 - 문제가 발생하는 앱 삭제 후 스토어에서 버전을 다시 받도록 유도 합니다.
+        2. 앱 재 설치 후에도 발생한다면 구글 스토어 앱에 저장된 정보와 결제 정보 이슈로 문제가 발생할 수도 있습니다. 이 경우 기기내 구글 계정 삭제 / 구글 스토어 앱 내 데이터 삭제 후 구글 계정 재 등록 진행시 해결이 될 수도 있습니다.
+    
+        구글 인앱 에러 코드 참고 : https://developer.android.com/reference/com/android/billingclient/api/BillingClient.BillingResponseCode?authuser=1#DEVELOPER_ERROR
+
+
+3. 로그인시 오류 코드 - 407 : 사용자 아이디가 이용정지 된 케이스 입니다. error message에 대시보드에 설정하신 이용정지 사유 문구를 전달 합니다.
+
+
+#### 14. 결제 인앱 리스트 상에 통화 단위 변경은 어떻게 하나요?
+
+    결제 인앱 리스트 상의 통화 단위는 해당 스토어의 인앱 SDK에서 제공하는 값을 공유드리고 있습니다.
+    일반적으로 결제를 진행하는 결제 계정의 국가 및 결제 수단에 따라 관련 정보가 결정이 됩니다. 
+    타 국가의 통화 단위로 보기 원하신다면 해당 국가에 맞는 결제 계정 생성 및 관련 설정을 진행하시면 됩니다.
+    ( 구글의 경우 기기 내 계정 설정에 결제 계정을 제외한 다른 계정을 삭제 후 진행)
+
+
 ### Migration
 
-####  Ver Unity 2.1.1 To Ver Unity 2.1.2
+#### Ver 3.2.0 Migration
+
+
+기본적으로 라이브러리 파일들이 교체작업을 진행하시는 것으를 기준으로 설명드립니다.
+
+[Android]
+- AndroidX 모듈 탑재된 라이브러리로 교체
+- 구글 인앱 SDK 1.1 에서 3.0.3 버전으로 교체 
+- 갤럭시 앱스 인앱 SDK 업데이트
+
+3.1.0 버전 이전 사용자는 AndroidX 라이브러리 교체로 인한 마이그레이션 작업이 필요합니다.
+
+AndroidX 모듈 지원됨에 따른 변경점
+
+1. 빌드 환경 수정
+
+    1-1) ../libs 폴더내 라이브러리 파일 교체
+
+    1-2) [./gradle.properties] 파일 내 문구 추가
+```text
+    android.enableJetifier=true
+    android.useAndroidX=true
+```
+    1-3) [ ./build.gradle ] 파일 내 com.android.tools.build 버전 수정 
+    
+    ( com.android.tools.build 3.3.3 / 3.4.3 이상 버전 사용)
+    
+    ex)
+    classpath 'com.android.tools.build:gradle:3.3.3' 
+    
+    1-4)
+    [ ../app/build.gradle ] 파일 내 androidx 지원모듈로 변경
+```text
+    [삭제 또는 주석 처리 진행]
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    //implementation 'com.android.support:multidex:1.0.1'
+
+    [추가]
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+```
+
+1-5) import android.support.XXXXXXX 라이브러리들이 androidx.appcompat:appcompat 라이브러리에 맞게 변경이 필요합니다. 
+
+```text
+    ex) 
+    기존 샘플 프로젝트 샘플내 변경된 CLASS
+
+    기존
+    import android.support.annotation.NonNull;
+    import android.support.annotation.Nullable;
+    import android.support.v4.app.FragmentManager;
+    import android.support.v4.app.FragmentTransaction;
+    import android.support.v4.app.ListFragment;
+    import android.support.annotation.UiThread;
+    import android.support.v4.app.FragmentActivity;
+
+    android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+
+    =>
+    수정 :
+    import androidx.annotation.NonNull;
+    import androidx.annotation.Nullable;
+    import androidx.fragment.app.FragmentManager;
+    import androidx.fragment.app.FragmentTransaction;
+    import androidx.fragment.app.ListFragment;
+    import androidx.annotation.UiThread;
+    import androidx.fragment.app.FragmentActivity;
+
+    androidx.fragment.app.FragmentManager fm = getSupportFragmentManager();
+```
+
+2. 기타 :
+
+    2-1) 구글 인앱 SDK 버전 변경
+
+
+```text
+기존:    implementation 'com.android.billingclient:billing:1.1
+
+변경:    implementation 'com.android.billingclient:billing:3.0.3'
+```
+
+2-2) Facebook SDK 8.1.0 
+
+```text    
+기존:   implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
+
+변경:   implementation 'com.facebook.android:facebook-android-sdk:8.1.0' 
+```
+
+
+[IOS]
+
+1) Frameworks 파일들 교체
+
+2) FACEBOOK SDK 8.0 업데이트 됨에 따른 추가 변경 사항
+
+```text
+    Xcode 내 추가 수정
+    - Build Phases > Link binary With Libraries > Accelerate.farmework 추가
+    - Build Settings > Other Linker Flags >  -lz , -lstdc++ , -lc++ 추가
+```
+
+
+[Unity]
+
+
+1. ..Assets/GamePot 폴더 및 이하 파일 및 기존 라이브러리 파일 삭제 후 유니티 플러그인 패키지를 import 처리 부탁 드립니다. 
+
+    [삭제 대상 파일]
+```text
+    ../Assets/Plugins/Android/libs/animated-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/annotation-1.0.2.jar
+    ../Assets/Plugins/Android/libs/appcompat-v7-27.1.1.aar
+    ../Assets/Plugins/Android/libs/billing-1.1.aar
+    ../Assets/Plugins/Android/libs/cardview-v7-27.0.2.aar
+    ../Assets/Plugins/Android/libs/converter-gson-2.3.0.jar
+    ../Assets/Plugins/Android/libs/core-3.3.0.jar
+    ../Assets/Plugins/Android/libs/core-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/core-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/customtabs-27.1.1.aar
+    ../Assets/Plugins/Android/libs/facebook-android-sdk-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-applinks-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-common-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-core-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-login-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-messenger-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-places-5.2.0.aar
+    ../Assets/Plugins/Android/libs/facebook-share-5.2.0.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-analytics-impl-16.2.4.aar
+    ../Assets/Plugins/Android/libs/firebase-common-16.0.3.aar
+    ../Assets/Plugins/Android/libs/firebase-core-16.0.6.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-iid-interop-16.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-17.0.1.aar
+    ../Assets/Plugins/Android/libs/firebase-measurement-connector-impl-17.0.4.aar
+    ../Assets/Plugins/Android/libs/firebase-messaging-17.3.4.aar
+    ../Assets/Plugins/Android/libs/gamepot-bridge.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-apple-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-base.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
+    ../Assets/Plugins/Android/libs/gamepot-channel-google-signin.aar
+    ../Assets/Plugins/Android/libs/gamepot-common.aar
+    ../Assets/Plugins/Android/libs/lifecycle-common-1.1.0.jar
+    ../Assets/Plugins/Android/libs/lifecycle-runtime-1.1.0.aar
+    ../Assets/Plugins/Android/libs/livedata-core-1.1.0.aar
+    ../Assets/Plugins/Android/libs/logging-interceptor-3.9.1.jar
+    ../Assets/Plugins/Android/libs/LoggingInterceptor-2.0.5.jar
+    ../Assets/Plugins/Android/libs/play-services-ads-identifier-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-api-phone-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-auth-base-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-base-16.1.0.aar
+    ../Assets/Plugins/Android/libs/play-services-basement-16.2.0.aar
+    ../Assets/Plugins/Android/libs/play-services-drive-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-games-16.0.0.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-api-16.0.4.aar
+    ../Assets/Plugins/Android/libs/play-services-measurement-base-16.0.5.aar
+    ../Assets/Plugins/Android/libs/play-services-stats-16.0.1.aar
+    ../Assets/Plugins/Android/libs/play-services-tasks-16.0.1.aar
+    ../Assets/Plugins/Android/libs/retrofit-2.3.0.jar
+    ../Assets/Plugins/Android/libs/support-annotations-27.1.1.jar
+    ../Assets/Plugins/Android/libs/support-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-ui-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-core-utils-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-fragment-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-media-compat-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-v4-27.1.1.aar
+    ../Assets/Plugins/Android/libs/support-vector-drawable-27.1.1.aar
+    ../Assets/Plugins/Android/libs/viewmodel-1.1.0.aar
+```
+
+기존에 ../Android/nativeLibs 및 ../IOS/etcFrameworks 에 있는 라이브러리( 네이버 로그인 / 갤럭시 인앱 SDK 등등)를 사용중이셨다면 
+
+nativeLibs 및 etcFrameworks 폴더에 있는 신규 라이브러리 파일를 
+
+../Assets/Plugins/Android/libs 및 ../Assets/Plugins/IOS/Frameworks 폴더로 옮겨 사용 부탁 드립니다.
+
+```text
+    - 라이브러리 및 리소스 위치 
+    
+    [AOS]
+    ../Assets/Plugins/Android/libs
+    ../Assets/Plugins/Android/nativeLibs
+
+    [IOS]
+    ../Assets/Plugins/IOS/Bundle
+    ../Assets/Plugins/IOS/etcFrameworks
+    ../Assets/Plugins/IOS/Frameworks
+    ../Assets/Plugins/IOS/Source
+```
+
+2. androidx 모듈 활성화 옵션 설정 추가 
+
+    [ Unity 2019.02.XX 버전 또는 이전 버전 ]
+
+    - [../Assets/Plugins/Android/mainTemplate.gradle] 파일 수정 
+
+    [ Unity 2019.02.XX 버전 또는 이전 버전 ]
+
+    - [../Assets/Plugins/Android/launcherTemplate.gradle] 파일 수정 
+
+```text
+    // 구문 추가
+    ([rootProject] + (rootProject.subprojects as List)).each {
+        ext {
+        it.setProperty("android.useAndroidX", true)
+        it.setProperty("android.enableJetifier", true)
+        }
+    }
+```
+
+
+3. ../Assets/Plugins/Android/AndroidManifest.xml (유니티 패키지에는 반영되어 있습니다.)
+   
+    android:name="androidx.multidex.MultiDexApplication" 로 변경
+
+```text
+ex)
+기존 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="android.support.multidex.MultiDexApplication"
+변경 :   <application android:icon="@drawable/app_icon"
+            android:label="@string/app_name"
+            android:name="androidx.multidex.MultiDexApplication"
+```
+
+
+4. 게임팟 기능 API 추가에 따른 인터페이스 파일 수정 (유니티 패키지에는 반영되어 있습니다.)
+
+```text
+    ../Assets/Plugins/IOS/Source/GamePotAppDelegate.mm
+    ../Assets/Plugins/IOS/Source/GamePotBinding.mm
+    ../Assets/Plugins/IOS/Source/GamePotManager.h
+    ../Assets/Plugins/IOS/Source/GamePotManager.mm
+```
+
+5. 2.1.2 버전 이전 사용자의 경우 게임팟 샘플 씬 및 코드 삭제
+    ../Assets/Sample 폴더 및 파일 삭제
+
+
+####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
 
     Unity 엔진 버전에 따라 유니티 플러그인 패키지가 분기되었던 부분에 대해 수정 작업을 진행하였으며
     Firebase 및 Google Resolver 버전이 1.2.116.0에서 1.2.155 으로 업데이트가 있었습니다.
@@ -765,19 +1366,19 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 
     1. 기존 프로젝트에서 하기 폴더 및 내부 파일 삭제를 선행으로 진행
-
+    
     [삭제해야 하는 폴더 및 파일]
-
+    
     ../Assets/PlayServicesResolver
-
+    
     ../Assets/Firebase
-
+    
     2. v2.1.2 유니티 플러그인 패키지 추가시 하기 항목들은 필수로 추가
-
+    
     [추가되는 폴더 및 파일]
-
+    
     ../Assets/ExternalDependencyManager
-
+    
     ../Assets/Firebase
 
 
@@ -795,27 +1396,68 @@ IOS 설정은 아래와 같이 진행을 합니다.
 [ Unity 2019.3.7 이상 버전 또는 이후 버전 (신규로 작업하는 경우) ]
 
     1. baseProjectTemplate.gradle을 추가합니다.
-
+    
     일반적으로 하기 파일을 rename 해서 사용하시면 됩니다.
     baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
     => baseProjectTemplate.gradle 
-
+    
     2. settingsTemplate.gradle 삭제 합니다.
     ../Assets/Plugins/Android/settingsTemplate.gradle 
-
+    
     3. mainTemplate.gradle 파일에 정의 했던 gamepot_project_id 같은 환경 변수 정의를 launcherTemplate.gradle에 정의합니다.
-
+    
     일반적으로 하기 파일을 rename한 후 게임팟 환경 변수 값을 정의 합니다.
     launcherTemplate_GAMEPOT_UNITY2019_3.gradle
     => launcherTemplate.gradle 
-
+    
     4. mainTemplate_GAMEPOT_UNITY2019_3.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
+
+
+    5. Unity 2020.X 버전을 사용하시는 경우 추가 수정사항
+
+Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+
+    [폴더 및 파일 교체]
+    ../Assets/ExternalDependencyManager
+    ../Assets/Firebase
+
+
+    - 폴더명 수정 
+    
+    기존 :  ../Assets/Plugins/Android/Firebase
+    
+    수정 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+    
+    기존 :  ../Assets/Plugins/Android/GamePotResources
+    
+    수정 :  ../Assets/Plugins/Android/GamePotResources.androidlib
+
+
+    - mainTemplate.gradle 수정 (폴더명 변경됨에 따른 수정)
+    
+    기존 : 
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources')
+    	implementation project('Firebase')
+    
+    수정 :
+    
+    dependencies {
+        ...
+    	implementation project('GamePotResources.androidlib')
+    	implementation project('FirebaseApp.androidlib')
+    
+    - 유니티 에디터 상에서  ../Assets/Plugins/Android/nativeLibs 폴더내 모든 라이브러리가 Android 빌드시 포함되지 않도록 설정합니다.
+    참조 이미지 : 
+![gamepot_faq_54](./images/gamepot_faq_54.png)
 
 
 ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
-
+    
     빈 프로젝트 > 최신 Unity Tools 1.0.1 설치 > Unity Unity Tools 실행 
     > 다운로드 SDK ver2.1.2 버튼을 클릭하여 유니티 플러그인 패키지를 설치 후 작업을 진행이 필요합니다.

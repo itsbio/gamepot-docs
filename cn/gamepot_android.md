@@ -1,7 +1,12 @@
 ---
 search:
-  keyword: ["gamepot"]
+  keyword: ['gamepot']
 ---
+
+#### **为提供 NAVER CLOUD PLATFORM 产品的详细使用方法和 API 的多种使用方式，分别提供<a href="https://guide.ncloud-docs.com/docs/zh/home" target="_blank">[说明书]</a>和<a href="https://api.ncloud-docs.com/docs/zh/home" target="_blank">[API 参考指南]</a>以供参考。**
+
+<a href="https://api.ncloud-docs.com/docs/zh/game-gamepot" target="_blank">进入 Gamepot API 参考指南 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/zh/game-gamepotconsole" target="_blank">进入 Gamepot 说明书 >></a>
 
 # Android SDK
 
@@ -21,7 +26,7 @@ search:
 
 \[ 系统环境 \]
 
-- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 2.3.0 以上
+- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 3.3.3 以上
 - 开发环境: Android Studio
 
 #### 创建项目
@@ -127,9 +132,9 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
     compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    compile 'com.android.billingclient:billing:1.1'
+    compile 'com.android.billingclient:billing:3.0.3'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.romandanylyk:pageindicatorview:1.0.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.3'
     compile 'com.google.firebase:firebase-core:16.0.6'
     compile 'com.google.firebase:firebase-messaging:17.3.4'
     compile 'androidx.sqlite:sqlite-framework:2.0.1'
@@ -362,6 +367,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: Naver
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
+// GamePotChannelType.APPLE: Apple
 // GamePotChannelType.GUEST: 游客
 
 // 点击Google登录按钮的时候调用
@@ -506,6 +512,8 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.LINE
 // 绑定到Twitter账户
 // GamePotChannelType.TWITTER
+// 链接到Apple帐户
+// GamePotChannelType.APPLE
 
 GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
     @Override
@@ -539,6 +547,7 @@ import java.util.ArrayList;
 // GamePotChannelType.NAVER
 // GamePotChannelType.LINE
 // GamePotChannelType.TWITTER
+// GamePotChannelType.APPLE
 // 依照类型返回绑定结果。
 boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
 
@@ -561,7 +570,7 @@ import io.gamepot.common.GamePotError;
 GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new GamePotCommonListener() {
     @Override
     public void onSuccess() {
-        // 解除绑定成功。请把绑定结果的文本提示给用户。(如：계정 연동을 해지했습니다. （解除绑定成功）)
+        // 解除绑定成功。请把绑定结果的文本提示给用户。 (如：已经解除账户关联。 （解除绑定成功）)
     }
 
     @Override
@@ -695,6 +704,78 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 ```
 
 ## 7. 其他 API
+
+### SDK 支持登录 UI
+
+SDK 中自行提供（完成形式的）Login UI。
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelListener;
+import io.gamepot.channel.GamePotAppStatusChannelListener;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.GamePotChannelLoginBuilder;
+import io.gamepot.channel.GamePotUserInfo;
+import io.gamepot.common.GamePotError;
+
+String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
+GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
+
+// 点击Google登录按钮时调用
+GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+    @Override
+    public void onCancel() {
+        // 用户已取消登录。
+    }
+
+    @Override
+    public void onSuccess(GamePotUserInfo userinfo) {
+        // 登录完成。 请根据游戏逻辑处理。
+        // userinfo.getMemberid()：会员固有ID
+    }
+
+    @Override
+    public void onFailure(GamePotError error) {
+        // 登录失败，请通过error.getMessage()显示错误消息。
+    }
+});
+```
+
+#### 设置登录 UI 镜像标志
+
+登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
+
+**亲自添加镜像标志**
+
+> 使用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)制作图标时，会自动按照文件夹数量创建，只需直接放入各文件夹即可。
+
+1. 如下创建 res/drawable 相关文件夹
+
+   - res/drawable-mdpi/
+   - res/drawable-hdpi/
+   - res/drawable-xhdpi/
+   - res/drawable-xxhdpi/
+   - res/drawable-xxxhdpi/
+
+2. 按如下大小制作镜像
+
+   - 78x55
+   - 116x82
+   - 155x110
+   - 232x165
+   - 310x220
+
+3. 如下所示，为每个文件夹添加大小合适的镜像。
+
+| 文件夹名称            | 大小    |
+| :-------------------- | :------ |
+| res/drawable-mdpi/    | 78x55   |
+| res/drawable-hdpi/    | 116x82  |
+| res/drawable-xhdpi/   | 155x110 |
+| res/drawable-xxhdpi/  | 232x165 |
+| res/drawable-xxxhdpi/ | 310x220 |
+
+- 镜像文件名变更为`ic_stat_gamepot_login_logo.png`
 
 ### Naver 登錄
 
@@ -833,6 +914,41 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePot
 });
 ```
 
+### Apple 登錄(Web Login)
+
+#### build.gradle 設置
+
+```java
+dependencies {
+  ...
+  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')
+  ...
+}
+```
+
+#### MainActivity.java 設置
+
+```java
+import io.gamepot.channel.GamePotChannel;
+import io.gamepot.channel.GamePotChannelType;
+import io.gamepot.channel.apple.signin.GamePotAppleSignin;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+        ...
+        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());
+}
+```
+
+#### 登錄
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+  ...
+});
+```
+
 ### 优惠卷
 
 使用用户输入的优惠卷时调用下面代码。
@@ -939,6 +1055,24 @@ GamePot.getInstance().showNotice(/*当前活动*/, showTodayButton, new GamePotN
 });
 ```
 
+### 公告(按类别致电)
+
+仪表板-此功能仅显示公告中上载并设置为分类的图像。
+
+#### 调用
+
+```java
+/* 仪表板公告 >> 在分类中设置的分类名称 */
+string type = "";
+
+GamePot.getInstance().showEvent(/*现在 Activity*/, type, new GamePotNoticeDialog.onSchemeListener() {
+    @Override
+    public void onReceive(String scheme) {
+        // TODO : scheme 处理
+    }
+});
+```
+
 ### 客户中心
 
 DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗口。
@@ -986,8 +1120,8 @@ GamePot.getInstance().showCSWebView(/*目前Activity*/);
 ```java
 String date = "2018-09-27 20:00:00";
 GamePotLocalPushBuilder builder = new GamePotLocalPushBuilder(getActivity())
-                        .setTitle("로컬푸시 테스트（本地推送测试）")
-                        .setMessage("로컬푸시 메시지입니다.（本地推送信息） " + date)
+                        .setTitle("本地推送测试（本地推送测试）")
+                        .setMessage("这是本地推送消息。（本地推送信息） " + date)
                         .setDateString(date).build();
 int pushid = GamePot.getInstance().sendLocalPush(builder);
 ```
@@ -1071,17 +1205,28 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 我们提供用户界面，以便轻松获取“使用条款”和“收集和使用个人信息指南”。
 
-`BLUE`主题和`GREEN`主题，每个区域都有自定义。
-
-- `BLUE`主题的例子
-
-  ![gamepot_android_07](./images/gamepot_android_07.png)
-
-* `GREEN`主题示例
-
-  ![gamepot_android_08](./images/gamepot_android_08.png)
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
 
 #### 协议协议调用
+
+```java
+// 基本主题
+GamePotAgreeBuilder.THEME.BLUE
+GamePotAgreeBuilder.THEME.GREEN
+
+//改善主题
+GamePotAgreeBuilder.THEME.MATERIAL_RED,
+GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
+GamePotAgreeBuilder.THEME.MATERIAL_ORANGE,
+GamePotAgreeBuilder.THEME.MATERIAL_PURPLE,
+GamePotAgreeBuilder.THEME.MATERIAL_DARKBLUE,
+GamePotAgreeBuilder.THEME.MATERIAL_YELLOW,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAPE,
+GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
+GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
+GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
+```
 
 > 开发者同意公开适合该游戏的弹出窗口。
 
@@ -1105,8 +1250,8 @@ GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), n
     }
 });
 
-// 当应用为绿色主题时
-GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.GREEN);
+// 应用MATERIAL_ORANGE主题时
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
 GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
   ....
 }
@@ -1141,13 +1286,24 @@ agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
 agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
 agreeBuilder.setFooterTitle("开始游戏");
+
+//일반 광고성 수신동의 버튼 노출 여부
+agreeBuilder.setShowPush(true);
+
 // 是否暴露用于接收夜间广告的按钮
 agreeBuilder.setShowNightPush(true);
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+agreeBuilder.setPushDetailURL("https://...");
+
+// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
+agreeBuilder.setNightPushDetailURL("https://...");
 
 // 更改词组
 agreeBuilder.setAllMessage("同意全部");
 agreeBuilder.setTermMessage("必填)使用条款");
 agreeBuilder.setPrivacyMessage("必填)隐私政策");
+agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
 agreeBuilder.setNightPushMessage("optional)同意接收夜间推送");
 
 GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
@@ -1224,13 +1380,13 @@ String json_value = GamePot.getInstance().getConfigs();
 
 以下是可用保留字定义的表。
 
-| 保留字                            | 必填 | 类型   | 描述      |
-| :-------------------------------- | :--- | :----- | :-------- |
-| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名字  |
-| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 水平      |
-| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID |
-| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   |
-| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       |
+| 保留字                            | 必填 | 类型   | 描述      | 最長長度 |
+| :-------------------------------- | :--- | :----- | :-------- | -------- |
+| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名字  | 128      |
+| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 水平      | 128      |
+| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID | 128      |
+| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   | 128      |
+| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       | 128      |
 
 ```java
 import android.text.TextUtils;
@@ -1258,6 +1414,25 @@ if(!TextUtils.isEmpty(playerid))
 
 // result : 日志传输成功，为true，否则为false
 boolean result = GamePotSendLog.characterInfo(obj);
+```
+
+### GDPR 条款选项列表
+
+将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
+
+```java
+import io.gamepot.common.GamePot;
+
+(List<String>) GamePot.getInstance().getGDPRCheckedList();
+
+//返回的各项参数，属于仪表盘的以下设置。
+gdpr_privacy：个人信息处理方针
+gdpr_term：使用条款
+gdpr_gdpr：GDPR使用条款
+gdpr_push_normal：同意接收事件推送
+gdpr_push_night：同意夜间接收事件推送（仅限韩国）
+gdpr_adapp_custom：同意接收个人精准广告投放（GDPR实施国家）
+gdpr_adapp_nocustom：同意接收精准投放以外的一般广告（GDPR实施国家）
 ```
 
 # 附录

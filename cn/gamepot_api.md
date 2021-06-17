@@ -4,64 +4,63 @@ search:
     - gamepot
 ---
 
+#### **为提供 NAVER CLOUD PLATFORM 产品的详细使用方法和 API 的多种使用方式，分别提供<a href="https://guide.ncloud-docs.com/docs/zh/home" target="_blank">[说明书]</a>和<a href="https://api.ncloud-docs.com/docs/zh/home" target="_blank">[API 参考指南]</a>以供参考。**
+
+<a href="https://api.ncloud-docs.com/docs/zh/game-gamepot" target="_blank">进入 Gamepot API 参考指南 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/zh/game-gamepotconsole" target="_blank">进入 Gamepot 说明书 >></a>
+
 # Open API
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
+该功能可以利用规定的 API 调用 GAMEPOT 提供的几种功能。
 
-该功能可以通过指定的 API 调用 Gamepot 提供的某些功能。
+> 须使用仪表盘发放的被允许的 API 密钥才能调用，可以指定是否使用及到期日。
 
-> 您可以使用仪表板发出的允许的 API 密钥进行调用，还可以指定是否使用它以及到期日期。
+## API 密钥发放
 
-## API Key
+如想调用 Open API，必须先在仪表盘中创建 API 密钥。
 
-要调用 Open API，您必须首先在信息中心中创建一个 API 密钥。
-
-可以在<b>仪表板>项目设置> API 密钥</b>中创建 API 密钥。
+API 密钥可在<b>仪表盘 > 项目设置 > API 密钥 </b>中创建。
 
 ![gamepot_api_01](./images/gamepot_api_01.png)
 
-① 单击添加按钮以生成 API 密钥。
+① 请点击添加按钮，创建 API 密钥。
 
 ![gamepot_api_02](./images/gamepot_api_02.png)
 
-① 选择是否激活相应的 API 密钥。
+① 选择是否激活相应 API 密钥。
 
-② 设置 API 密钥的到期日期。
+② 设置 API 密钥到期日。
 
-③ 输入用户可以识别的描述。
+③ 输入用户可以看懂的描述。
 
-④ 用添加按钮注册 API 密钥。
+④ 利用添加按钮添加 API 密钥。
 
 ![gamepot_api_03](./images/gamepot_api_03.png)
 
-您可以通过单击生成的 API KEY 来修改或删除状态。
+点击已创建的 API 密钥，即可修改或删除状态。
 
-> 使用 Open API 时，将生成的 Key 值输入到标头的 x-api-key 值中。
+> 使用 Open API 时，已创建的密钥值将进入头部的 x-api-key 值中。
 
 ## 使用 Open API
 
-### Error code
+### 错误代码
 
-请求 Open API 时发生的常见错误代码。
+发送 Open API 请求时发生的通用错误代码。
 
-| Code | Description                  |
-| :--- | :--------------------------- |
-| -1   | 如果您使用了不在仪表板上的键 |
-| -2   | 仪表板的键和标题的键不同     |
-| -3   | 使用从仪表板上删除的键时     |
-| -4   | 仪表板中使用了未使用的密钥   |
-| -5   | 密钥已过期                   |
-| -6   | 如果没有项目 ID              |
+| 代码 | 描述                               |
+| :--- | :--------------------------------- |
+| -1   | 使用了仪表盘中没有的密钥时         |
+| -2   | 仪表盘密钥和头部的密钥不同时       |
+| -3   | 使用了仪表盘中已删除的密钥时       |
+| -4   | 使用了仪表盘中作未使用处理的密钥时 |
+| -5   | 密钥到期时                         |
+| -6   | 没有项目 ID 时                     |
 
-### 用户查找 API
+### 用户查询 API
 
-通过用户 UID 查找用户。
+使用用户 UID 查询用户。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /user/{userID}
@@ -70,19 +69,19 @@ search:
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/{userId}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                |
-| :-------- | :----- | :------------------------- |
-| projectId | String | GamePot SDK 中的 ProjectId |
-| userId    | String | GamePot SDK 中的 UserId    |
+| 属性      | 类型   | 描述                     |
+| :-------- | :----- | :----------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId |
+| userId    | 字符串 | GamePot SDK 的 userId    |
 
-#### Response
+#### 响应
 
 成功
 
@@ -114,29 +113,29 @@ Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
 }
 ```
 
-| Attribute | Type    | Description                                      |
-| :-------- | :------ | :----------------------------------------------- |
-| status    | Int     | 结果值(1：有关成功和失败，请参见错误代码)        |
-| id        | String  | 用户名                                           |
-| deleted   | Boolean | 是否删除成员（true：删除，false：普通）          |
-| store_id  | String  | 创建帐户时访问的商店（google ...）               |
-| country   | String  | 用户国家/地区代码（基于 ISO 3166-1）             |
-| remoteip  | String  | 用户 IP                                          |
-| adid      | String  | 广告 ID                                          |
-| device    | String  | 设备类型（android，ios)                          |
-| network   | String  | 用户访问网络 (WI-FI...)                          |
-| version   | String  | 客户端版本信息                                   |
-| model     | String  | 用户设备型号名称                                 |
-| token     | String  | 推送令牌                                         |
-| push      | Boolean | 是否同意推送 \(true : 同意, false : 不同意\)     |
-| night     | Boolean | 是否同意晚上推 \(true : 同意, false : 不同意\)   |
-| ad        | Boolean | 是否推送广告同意 \(true : 同意, false : 不同意\) |
-| memo      | String  | 会员须知                                         |
-| device_id | String  | 会员设备 ID                                      |
-| createdAt | String  | 创建成员的日期                                   |
-| updatedAt | String  | 会员信息的修改日期                               |
-| loginedAt | String  | 最后访问日期                                     |
-| deletedAt | String  | 会员删除日期                                     |
+| 属性      | 类型   | 描述                                            |
+| :-------- | :----- | :---------------------------------------------- |
+| status    | Int    | 结果值\(1：成功，失败请参考错误代码\)           |
+| id        | 字符串 | 用户 ID                                         |
+| deleted   | 布尔型 | 是否删除会员\(true：删除，false：正常\)         |
+| store_id  | 字符串 | 创建账户时访问的商店（google…）                 |
+| country   | 字符串 | 用户国家代码（ISO 3166-1 标准）                 |
+| remoteip  | 字符串 | 用户 IP                                         |
+| adid      | 字符串 | 广告 ID                                         |
+| device    | 字符串 | 设备种类（Android、ios）                        |
+| network   | 字符串 | 用户访问网络（WI-FI…）                          |
+| version   | 字符串 | 客户端的版本信息                                |
+| model     | 字符串 | 用户设备型号名称                                |
+| token     | 字符串 | 推送令牌                                        |
+| push      | 布尔型 | 是否同意推送\(true：同意，false：不同意\)       |
+| night     | 布尔型 | 是否同意夜间推送\(true：同意，false：不同意\)   |
+| ad        | 布尔型 | 是否同意广告性推送\(true：同意，false：不同意\) |
+| memo      | 字符串 | 会员备忘录                                      |
+| device_id | 字符串 | 会员设备 ID                                     |
+| createdAt | 字符串 | 会员创建日期                                    |
+| updatedAt | 字符串 | 会员信息修改日期                                |
+| loginedAt | 字符串 | 最后访问日期                                    |
+| deletedAt | 字符串 | 会员删除日期                                    |
 
 失败
 
@@ -147,16 +146,16 @@ Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 错误内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 错误内容                              |
 
-### 用户暂停查询 API
+### 用户停用查询 API
 
-查询用户是否被用户 UID 停止。
+使用用户 UID 查询用户是否已停用。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /user/{userID}/block
@@ -165,19 +164,19 @@ Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/{userId}/block
 Header : 'accept-language: ko'
-Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                |
-| :-------- | :----- | :------------------------- |
-| projectId | String | GamePot SDK 中的 ProjectId |
-| userId    | String | GamePot SDK 中的 UserId    |
+| 属性      | 类型   | 描述                     |
+| :-------- | :----- | :----------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId |
+| userId    | 字符串 | GamePot SDK 的 userId    |
 
-#### Response
+#### 响应
 
 成功
 
@@ -194,7 +193,7 @@ Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
     "messageMulti": [
       {
         "lang": "ko",
-        "value": "test-ko",
+        "value": "测试-ko",
         "default": true
       }
     ],
@@ -208,24 +207,24 @@ Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
 }
 ```
 
-| Attribute   | Type    | Description                                                                                    |
-| :---------- | :------ | :--------------------------------------------------------------------------------------------- |
-| status      | Int     | 结果值(1：有关成功和失败，请参见错误代码)                                                      |
-| id          | String  | 用户暂停信息的 ID                                                                              |
-| member_id   | String  | 用户身份                                                                                       |
-| deleted     | Boolean | 是否删除用户暂停信息（true：删除，false：正常）                                                |
-| type        | String  | 暂停使用的分类（手动：手动，自动购买：自动）                                                   |
-| status      | Int     | 状态（1：启用，2：禁用）                                                                       |
-| message     | String  | 暂停原因（目前未使用）                                                                         |
-| lang        | String  | 停止讯息语言                                                                                   |
-| value       | String  | 停权原因                                                                                       |
-| default     | Boolean | 默认语言设置<br>如果 messageMulti 中不存在设备的语言值，则默认情况下会显示设置为 true 的消息。 |
-| startedAt   | String  | 暂停开始日期                                                                                   |
-| endedAt     | String  | 停权终止日期                                                                                   |
-| createdAt   | Boolean | 暂停注册日期                                                                                   |
-| updatedAt   | Boolean | 暂停使用日期                                                                                   |
-| deletedAt   | Boolean | 暂停使用日期                                                                                   |
-| category_id | String  | 中止使用的 ID                                                                                  |
+| 属性        | 类型   | 描述                                                                            |
+| :---------- | :----- | :------------------------------------------------------------------------------ |
+| status      | Int    | 结果值\(1：成功，失败请参考错误代码\)                                           |
+| id          | 字符串 | 用户停用信息相关 ID                                                             |
+| member_id   | 字符串 | 用户 ID                                                                         |
+| deleted     | 布尔型 | 是否删除用户停用信息\(true：删除，false：正常\)                                 |
+| type        | 字符串 | 停用分类\(manual：手动，autopurchase：自动\)                                    |
+| status      | Int    | 状态 \(1：激活，2：禁用\)                                                       |
+| message     | 字符串 | 用户停用原因（目前未使用）                                                      |
+| lang        | 字符串 | 停用消息语言                                                                    |
+| value       | 字符串 | 停用原因消息                                                                    |
+| default     | 布尔型 | 默认语言设置<br>messageMulti 中没有设备的语言值时，默认显示设置为 true 的消息。 |
+| startedAt   | 字符串 | 停用开始日期                                                                    |
+| endedAt     | 字符串 | 停用结束日期                                                                    |
+| createdAt   | 布尔型 | 停用添加日期                                                                    |
+| updatedAt   | 布尔型 | 停用修改日期                                                                    |
+| deletedAt   | 布尔型 | 停用删除日期                                                                    |
+| category_id | 字符串 | 停用分类 ID                                                                     |
 
 失败
 
@@ -236,16 +235,16 @@ Header : 'x-api-key: {从GamePot仪表板发出的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
+| 属性    | 类型   | 描述                                     |
+| :------ | :----- | :--------------------------------------- |
+| status  | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message | 字符串 | 错误内容                                 |
 
-### 用户停止设置 API
+### 用户停用设置 API
 
-用户被用户 UID 暂停。
+使用用户 UID 进行用户停用处理。
 
-#### Request
+#### 请求
 
 - Method : POST
 - URI : /user/{userID}/block
@@ -255,12 +254,12 @@ POST
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/{userId}/block
 Header : 'accept-language: ko'
 Header : 'content-type: application/json'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 data: '{
         "messageMulti": [
                 {
                     "lang": "ko",
-                    "value": "test",
+                    "value": "测试",
                     "default": true
                 }
             ],
@@ -269,21 +268,21 @@ data: '{
        }'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type    | Description                                                                                    |
-| :-------- | :------ | :--------------------------------------------------------------------------------------------- |
-| projectId | String  | GamePot SDK 中的 ProjectId                                                                     |
-| userId    | String  | GamePot SDK 中的 userId                                                                        |
-| lang      | String  | 停止讯息语言                                                                                   |
-| value     | String  | 停权原因                                                                                       |
-| default   | Boolean | 默认语言设置<br>如果 messageMulti 中不存在设备的语言值，则默认情况下会显示设置为 true 的消息。 |
-| startedAt | String  | 暂停开始日期 `YYYY-MM-DD HH:mm`                                                                |
-| endedAt   | String  | 停权终止日期 `YYYY-MM-DD HH:mm`                                                                |
+| 属性      | 类型   | 描述                                                                            |
+| :-------- | :----- | :------------------------------------------------------------------------------ |
+| projectId | 字符串 | GamePot SDK 的 projectId                                                        |
+| userId    | 字符串 | GamePot SDK 的 userId                                                           |
+| lang      | 字符串 | 停用消息语言                                                                    |
+| value     | 字符串 | 停用原因消息                                                                    |
+| default   | 布尔型 | 默认语言设置<br>messageMulti 中没有设备的语言值时，默认显示设置为 true 的消息。 |
+| startedAt | 字符串 | 停用开始日期`YYYY-MM-DD HH:mm`                                                  |
+| endedAt   | 字符串 | 停用结束日期 `YYYY-MM-DD HH:mm`                                                 |
 
-#### Response
+#### 响应
 
 成功
 
@@ -298,10 +297,10 @@ data: '{
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| id        | String | ID 已暂停                                 |
+| 属性   | 类型   | 描述                                  |
+| :----- | :----- | :------------------------------------ |
+| status | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| id     | 字符串 | 已停用的 ID                           |
 
 失败
 
@@ -312,27 +311,27 @@ data: '{
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 错误内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 错误内容                              |
 
-#### Error code
+#### 错误代码
 
-| Code | Description                                                      |
-| :--- | :--------------------------------------------------------------- |
-| -11  | body 缺乏数据                                                    |
-| -12  | messageMulti 值不是 JSON 数组                                    |
-| -13  | 如果 startedAt 值的格式不正确，则只能使用格式`YYYY-MM-DD HH：mm` |
-| -14  | 如果 endAt 值的格式不正确，则只能使用`YYYY-MM-DD HH：mm`格式。   |
-| -15  | messageMulti 值的数据格式不正确                                  |
-| -16  | 如果没有默认的 true 或 messageMulti 值数据的倍数                 |
+| 代码 | 描述                                                     |
+| :--- | :------------------------------------------------------- |
+| -11  | 正文中缺少数据                                           |
+| -12  | messageMulti 值不是 JSON Array 时                        |
+| -13  | startedAt 值的格式有误时。仅可使用`YYYY-MM-DD HH:mm`形式 |
+| -14  | endedAt 值的格式有误时。仅可使用`YYYY-MM-DD HH:mm`形式   |
+| -15  | messageMulti 值的数据格式有误时                          |
+| -16  | messageMulti 值的数据中没有 default true 或存在多个时    |
 
-### 每日访问器（DAU）查找 API
+### 每日访问者（DAU）查询 API
 
-您可以搜索日常用户。
+可以查询每日访问者。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /user/statistics/dau
@@ -341,22 +340,22 @@ data: '{
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/statistics/dau
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                     |
-| :-------- | :----- | :------------------------------ |
-| projectId | String | GamePot SDK 中的 ProjectId      |
-| startDate | String | 查找开始日期 `YYYY-MM-DD`       |
-| endDate   | String | 您想查看的最后日期 `YYYY-MM-DD` |
+| 属性      | 类型   | 描述                     |
+| :-------- | :----- | :----------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId |
+| startDate | 字符串 | 开始查询日期`YYYY-MM-DD` |
+| endDate   | 字符串 | 最终查询日期`YYYY-MM-DD` |
 
-> 如果查询中不包含 startDate 和 endDate，则检索最近 30 天的数据。
+> 未输入 startDate、endDate 等查询条件时，将查询最近 30 天的数据。
 
-#### Response
+#### 响应
 
 成功
 
@@ -386,39 +385,39 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute  | Type   | Description                               |
-| :--------- | :----- | :---------------------------------------- |
-| status     | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| totalCount | Int    | dau 搜索结果（数量）                      |
-| date       | String | 计算日期和时间                            |
-| count      | Int    | （日期）DAU                               |
+| 属性       | 类型   | 描述                                  |
+| :--------- | :----- | :------------------------------------ |
+| status     | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| totalCount | Int    | dau 查询结果（个）数                  |
+| date       | 字符串 | 统计时间                              |
+| count      | Int    | （相应日期）DAU                       |
 
 失败
 
 ```javascript
 {
   "status": -11,
-  "message": "startDate format was wrong. (YYYY-MM-DD)"
+  "message": "startDate format was wrong.(YYYY-MM-DD)"
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 错误内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 错误内容                              |
 
-#### Error code
+#### 错误代码
 
-| Code | Description                                   |
-| :--- | :-------------------------------------------- |
-| -11  | startDate 值的格式不正确。 `YYYY-MM-DD`仅可用 |
-| -12  | endDate 值的格式不正确。 `YYYY-MM-DD`仅可用   |
+| 代码 | 描述                                               |
+| :--- | :------------------------------------------------- |
+| -11  | startDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式 |
+| -12  | endDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式   |
 
-### 新用户（NRU）查找 API
+### 新用户（NRU）查询 API
 
-您可以搜索新用户。
+可以查询新用户。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /user/statistics/nru
@@ -427,22 +426,22 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/statistics/nru
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                     |
-| :-------- | :----- | :------------------------------ |
-| projectId | String | GamePot SDK 中的 ProjectId      |
-| startDate | String | 查找开始日期 `YYYY-MM-DD`       |
-| endDate   | String | 您想查看的最后日期 `YYYY-MM-DD` |
+| 属性      | 类型   | 描述                     |
+| :-------- | :----- | :----------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId |
+| startDate | 字符串 | 开始查询日期`YYYY-MM-DD` |
+| endDate   | 字符串 | 最终查询日期`YYYY-MM-DD` |
 
-> 如果查询中不包含 startDate 和 endDate，则检索最近 30 天的数据。
+> 未输入 startDate、endDate 等查询条件时，将查询最近 30 天的数据。
 
-#### Response
+#### 响应
 
 成功
 
@@ -472,39 +471,39 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute  | Type   | Description                               |
-| :--------- | :----- | :---------------------------------------- |
-| status     | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| totalCount | int    | 视图（例）                                |
-| date       | String | 点算日期                                  |
-| count      | int    | (适用日期) NRU                            |
+| 属性       | 类型   | 描述                                  |
+| :--------- | :----- | :------------------------------------ |
+| status     | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| totalCount | int    | 查询（个）数                          |
+| date       | 字符串 | 统计日期                              |
+| count      | int    | （相应日期）NRU                       |
 
 失败
 
 ```javascript
 {
   "status": -11,
-  "message": "startDate format was wrong. (YYYY-MM-DD)"
+  "message": "startDate format was wrong.(YYYY-MM-DD)"
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 错误内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 错误内容                              |
 
-#### Error code
+#### 错误代码
 
-| Code | Description                                                 |
-| :--- | :---------------------------------------------------------- |
-| -11  | 如果 startDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。 |
-| -12  | 如果 endDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。   |
+| 代码 | 描述                                               |
+| :--- | :------------------------------------------------- |
+| -11  | startDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式 |
+| -12  | endDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式   |
 
-### 并发访问者（CCU）查询 API
+### 同时访问者（CCU）查询 API
 
-对于 3 个选定的日期，您可以按时间搜索并发用户。
+在所选的三个日期里，可按时间段查询同时访问者。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /user/statistics/ccu
@@ -513,23 +512,23 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/user/statistics/ccu
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                  |
-| :-------- | :----- | :--------------------------- |
-| projectId | String | GamePot SDK 中的 ProjectId   |
-| oneDate   | String | 首次查询日期 `YYYY-MM-DD`    |
-| twoDate   | String | 第二次查询日期`YYYY-MM-DD`   |
-| threeDate | String | 第三次搜索的日期`YYYY-MM-DD` |
+| 属性      | 类型   | 描述                       |
+| :-------- | :----- | :------------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId   |
+| oneDate   | 字符串 | 第一个查询日期`YYYY-MM-DD` |
+| twoDate   | 字符串 | 第二个查询日期`YYYY-MM-DD` |
+| threeDate | 字符串 | 第三个查询日期`YYYY-MM-DD` |
 
-> 查询包括 oneDate，twoDate 和 threeDate，如果没有查询，则会在该日期之前 2 天（包括该天）进行搜索。
+> 提供 oneDate、twoDate、threeDate 的查询条件，未提供时可查询当天及前 2 日的访问者。
 
-#### Response
+#### 响应
 
 成功
 
@@ -564,42 +563,42 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 
 ```
 
-| Attribute  | Type   | Description                               |
-| :--------- | :----- | :---------------------------------------- |
-| status     | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| totalCount | Int    | ccu 搜索结果（数量）                      |
-| createdAt  | String | 计算日期和时间                            |
-| one        | Int    | （第一个日期）的并发用户数                |  |
-| two        | Int    | （第二个日期）的并发用户数                |  |
-| three      | Int    | （第三个日期）的并发用户数                |  |
+| 属性       | 类型   | 描述                                  |
+| :--------- | :----- | :------------------------------------ |
+| status     | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| totalCount | Int    | ccu 查询结果（个）数                  |
+| createdAt  | 字符串 | 统计时间                              |
+| one        | Int    | （第一个日期的）相应时间同时访问者数  |
+| two        | Int    | （第二个日期的）相应时间同时访问者数  |
+| three      | Int    | （第三个日期的）相应时间同时访问者数  |
 
 失败
 
 ```javascript
 {
   "status": -11,
-  "message": "threeDate format was wrong. (YYYY-MM-DD)"
+  "message": "threeDate format was wrong.(YYYY-MM-DD)"
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 错误内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 错误内容                              |
 
-#### Error code
+#### 错误代码
 
-| Code | Description                                                 |
-| :--- | :---------------------------------------------------------- |
-| -11  | 如果 threeDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。 |
-| -12  | 如果 twoDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。   |
-| -13  | 如果 oneDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。   |
+| 代码 | 描述                                               |
+| :--- | :------------------------------------------------- |
+| -11  | threeDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式 |
+| -12  | twoDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式   |
+| -13  | oneDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式   |
 
-### 付款查询 API
+### 支付查询 API
 
-按付款 ID 显示付款明细。
+以支付 ID 查询支付明细。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /purchase/{transactionID}
@@ -608,19 +607,19 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/purchase/{transactionID}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute     | Type   | Description                |
-| :------------ | :----- | :------------------------- |
-| projectId     | String | GamePot SDK 中的 ProjectId |
-| transactionID | String | GamePot SDK 的付款 ID      |
+| 属性          | 类型   | 描述                     |
+| :------------ | :----- | :----------------------- |
+| projectId     | 字符串 | GamePot SDK 的 projectId |
+| transactionID | 字符串 | GamePot SDK 的支付 ID    |
 
-#### Response
+#### 响应
 
 成功
 
@@ -677,31 +676,31 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute          | Type   | Description                                                               |
-| :----------------- | :----- | :------------------------------------------------------------------------ |
-| status             | Int    | 结果值(1：有关成功和失败，请参见错误代码)                                 |
-| (result의) status  | Int    | 付款结果（1：成功）                                                       |
-| exchange_price     | Int    | 付款金额（采用汇率）                                                      |
-| project_id         | String | GamePot SDK 中的 ProjectId                                                |
-| store_id           | String | 店铺编号 (google,one,apple,galaxy)                                        |
-| payment_id         | String | 付款商店编号 (google,tpay...) ㅣ通常与 store_id                           | 相同。 |
-| signature          | String | 签名                                                                      |
-| order_id           | String | Order ID                                                                  |
-| currency           | String | 货币                                                                      |
-| userdata           | String | 用户信息                                                                  |
-| price              | Int    | 付款金额                                                                  |
-| id                 | String | 付款数据的唯一 ID                                                         |
-| unique_id          | String | Unique ID                                                                 |
-| transaction_id     | String | 店铺付款 ID                                                               |
-| createdAt          | String | 创建                                                                      |
-| updatedAt          | String | 续约                                                                      |
-| request            | String | 付款要求值                                                                |
-| response           | String | 付款回应值                                                                |
-| (item_id의) status | String | 结果值（属于 item_id）                                                    |
-| type               | String | 物品种类(inapp)                                                           |
-| name               | String | 项目名称                                                                  |
-| prices             | String | 商品价格                                                                  |
-| user_id            |        | 有关成功响应值的 user_id 部分，请参考<b> <I> User Inquiry API </I> </b>。 |
+| 属性                 | 类型   | 描述                                                        |
+| :------------------- | :----- | :---------------------------------------------------------- |
+| status               | Int    | 结果值\(1：成功，失败请参考错误代码\)                       |
+| （result 的）status  | Int    | 支付结果值\(1：成功）                                       |
+| exchange_price       | Int    | 支付金额（适用汇率）                                        |
+| project_id           | 字符串 | GamePot SDK 的 projectId                                    |
+| store_id             | 字符串 | 商店 ID（google、one、apple、galaxy）                       |
+| payment_id           | 字符串 | 支付商店 ID（google、tpay…）ㅣ一般与 store_id 相同          |
+| signature            | 字符串 | 签名                                                        |
+| order_id             | 字符串 | Order ID                                                    |
+| currency             | 字符串 | 货币                                                        |
+| userdata             | 字符串 | 用户信息                                                    |
+| price                | Int    | 支付金额                                                    |
+| id                   | 字符串 | 支付数据的 unique ID                                        |
+| unique_id            | 字符串 | Unique ID                                                   |
+| transaction_id       | 字符串 | 商店支付 ID                                                 |
+| createdAt            | 字符串 | 创建日期                                                    |
+| updatedAt            | 字符串 | 更新日期                                                    |
+| request              | 字符串 | 支付请求值                                                  |
+| response             | 字符串 | 支付响应值                                                  |
+| （item_id 的）status | 字符串 | （item_id 的）结果值                                        |
+| type                 | 字符串 | 道具类型（应用内）                                          |
+| name                 | 字符串 | 道具名称                                                    |
+| prices               | 字符串 | 道具价格                                                    |
+| user_id              |        | 响应成功值中 user_id 部分请参考<b><I>用户查询 API</I></b>。 |
 
 失败
 
@@ -712,18 +711,18 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
+| 属性    | 类型   | 描述                                     |
+| :------ | :----- | :--------------------------------------- |
+| status  | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message | 字符串 | 错误内容                                 |
 
-### 付款取消查询 API
+### 支付取消查询 API
 
-按付款 ID 查看付款取消明细。
+以支付 ID 查询取消支付明细。
 
-> 仅查看 Google 付款。
+> 仅限查询 Google 支付。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /purchase/voided/{transactionID}
@@ -732,19 +731,19 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/purchase/voided/{transactionID}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute     | Type   | Description                |
-| :------------ | :----- | :------------------------- |
-| projectId     | String | GamePot SDK 中的 ProjectId |
-| transactionID | String | GamePot SDK 的付款 ID      |
+| 属性          | 类型   | 描述                     |
+| :------------ | :----- | :----------------------- |
+| projectId     | 字符串 | GamePot SDK 的 projectId |
+| transactionID | 字符串 | GamePot SDK 的支付 ID    |
 
-#### Response
+#### 响应
 
 成功
 
@@ -787,22 +786,22 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute   | Type    | Description                                                              |
-| :---------- | :------ | :----------------------------------------------------------------------- |
-| status      | Int     | 结果值(1：有关成功和失败，请参见错误代码)                                |
-| id          | String  | 取消付款                                                                 |
-| member_id   | String  | 用户 UID                                                                 |
-| package_id  | String  | 包裹名字                                                                 |
-| price       | int     | 付款金额                                                                 |
-| deleted     | Boolean | 是否删除 \(true : 删除, false : 正常\)                                   |
-| purchasedAt | String  | 支付日期                                                                 |
-| voidedAt    | String  | 付款取消日期                                                             |
-| createdAt   | String  | 创建                                                                     |
-| updatedAt   | String  | 续约                                                                     |
-| deletedAt   | String  | 删除日期                                                                 |
-| currency    | String  | 货币                                                                     |
-| status      | Int     | 州                                                                       |
-| purchase_id |         | 请参阅<b> <I>付款查询 API </I> </b>以获取成功响应值的 Purchase_id 部分。 |
+| 属性        | 类型   | 描述                                                            |
+| :---------- | :----- | :-------------------------------------------------------------- |
+| status      | Int    | 结果值\(1：成功，失败请参考错误代码\)                           |
+| id          | 字符串 | 取消支付 ID                                                     |
+| member_id   | 字符串 | 用户 UID                                                        |
+| package_id  | 字符串 | 包名                                                            |
+| price       | int    | 支付金额                                                        |
+| deleted     | 布尔型 | 是否删除\(true：删除，false：正常\)                             |
+| purchasedAt | 字符串 | 支付日期                                                        |
+| voidedAt    | 字符串 | 取消支付日期                                                    |
+| createdAt   | 字符串 | 创建日期                                                        |
+| updatedAt   | 字符串 | 更新日期                                                        |
+| deletedAt   | 字符串 | 删除日期                                                        |
+| currency    | 字符串 | 货币                                                            |
+| status      | Int    | 状态                                                            |
+| purchase_id |        | 响应成功值中 purchase_id 部分请参考<b><I>支付查询 API</I></b>。 |
 
 失败
 
@@ -813,16 +812,16 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
+| 属性    | 类型   | 描述                                     |
+| :------ | :----- | :--------------------------------------- |
+| status  | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message | 字符串 | 错误内容                                 |
 
-### 付款销售统计查询 API
+### 支付销售统计查询 API
 
-显示计费销售统计信息。
+查询支付销售统计。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /purchase/statistics
@@ -831,23 +830,23 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/purchase/statistics?startDate={startDate}&endDate={endDate}&currency={currency}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                                                |
-| :-------- | :----- | :--------------------------------------------------------- |
-| projectId | String | GamePot SDK 中的 ProjectId                                 |
-| startDate | String | 付款销售统计信息搜索开始日期`YYYY-MM-DD`                   |
-| endDate   | String | 付款销售统计信息搜索结束日期`YYYY-MM-DD`                   |
-| currency  | String | 付款销售统计货币搜索 (all...)<br> 我们遵循 ISO 4217 法规。 |
+| 属性      | 类型   | 描述                                                  |
+| :-------- | :----- | :---------------------------------------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId                              |
+| startDate | 字符串 | 支付销售统计搜索开始日期`YYYY-MM-DD`                  |
+| endDate   | 字符串 | 支付销售统计搜索结束日期`YYYY-MM-DD`                  |
+| currency  | 字符串 | 支付销售统计货币搜索（全部…）<br>遵循 ISO 4217 标准。 |
 
-> 如果查询中不包含 startDate 和 endDate，则将检索最近 30 天的数据。
+> 未输入 startDate、endDate 等查询条件时，将查询最近 30 天的数据。
 
-#### Response
+#### 响应
 
 成功
 
@@ -886,13 +885,13 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute    | Type   | Description                               |
-| :----------- | :----- | :---------------------------------------- |
-| status       | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| totalCount   | Int    | 搜索结果值的数量                          |
-| currencyList | String | 货币列表<br>使用了 ISO 4217。             |
-| date         | String | 统计日期                                  |
-| count        | String | 销售统计金额                              |
+| 属性         | 类型   | 描述                                  |
+| :----------- | :----- | :------------------------------------ |
+| status       | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| totalCount   | Int    | 搜索结果值数                          |
+| currencyList | 字符串 | 货币列表<br>遵循 ISO 4217 标准。      |
+| date         | 字符串 | 统计日期                              |
+| count        | 字符串 | 销量统计金额                          |
 
 失败
 
@@ -903,23 +902,23 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 错误内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 错误内容                              |
 
-#### Error code
+#### 错误代码
 
-| Code | Description                                                 |
-| :--- | :---------------------------------------------------------- |
-| -11  | 如果 startDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。 |
-| -12  | 如果 endDate 值的格式不正确，则只能使用`YYYY-MM-DD`格式。   |
+| 代码 | 描述                                               |
+| :--- | :------------------------------------------------- |
+| -11  | startDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式 |
+| -12  | endDate 值的格式有误时。仅可使用`YYYY-MM-DD`形式   |
 
-### 字符查询 API
+### 角色查询 API
 
-检索游戏中玩家 ID。
+查询游戏内玩家 ID。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /player/{playerID}
@@ -928,19 +927,19 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/player/{playerID}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                |
-| :-------- | :----- | :------------------------- |
-| projectId | String | GamePot SDK 中的 ProjectId |
-| playerID  | String | GamePot SDK 的玩家 ID      |
+| 属性      | 类型   | 描述                     |
+| :-------- | :----- | :----------------------- |
+| projectId | 字符串 | GamePot SDK 的 projectId |
+| playerID  | 字符串 | GamePot SDK 的玩家 ID    |
 
-#### Response
+#### 响应
 
 成功
 
@@ -949,7 +948,7 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
   "status": 1,
   "result": {
     "id": "xxxxxxxxxxxxxxx",
-    "player_id": "测试编号",
+    "player_id": "测试ID",
     "server_id": "测试服务器",
     "name": "测试名称",
     "level": "12",
@@ -962,19 +961,19 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| id        | String | 用户名                                    |
-| player_id | String | 玩家编号                                  |
-| server_id | String | 服务器 ID                                 |
-| name      | String | 玩家名称                                  |
-| level     | String | 玩家等级                                  |
-| userdata  | String | 注册用户数据                              |
-| ip        | String | 播放器 IP                                 |
-| createdAt | String | 播放器创建日期                            |
-| updatedAt | String | 播放器更新日期                            |
-| user_id   | String | Gamepot UID                               |
+| 属性      | 类型   | 描述                                  |
+| :-------- | :----- | :------------------------------------ |
+| status    | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| id        | 字符串 | 用户 ID                               |
+| player_id | 字符串 | 玩家 ID                               |
+| server_id | 字符串 | 服务器 ID                             |
+| name      | 字符串 | 玩家名                                |
+| level     | 字符串 | 玩家等级                              |
+| userdata  | 字符串 | 添加的 Userdata                       |
+| ip        | 字符串 | 玩家 IP                               |
+| createdAt | 字符串 | 玩家创建日期                          |
+| updatedAt | 字符串 | 玩家更新日期                          |
+| user_id   | 字符串 | GAMEPOT UID                           |
 
 失败
 
@@ -985,18 +984,18 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
+| 属性    | 类型   | 描述                                     |
+| :------ | :----- | :--------------------------------------- |
+| status  | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message | 字符串 | 错误内容                                 |
 
-### 优惠券使用情况查询 API
+### 优惠券使用查询 API
 
-查看优惠券使用记录。
+查询优惠券使用明细。
 
-> 对于关键字优惠券，仅显示使用过的优惠券。
+> 关键词优惠券仅可查询已使用的优惠券。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /coupon/{couponNumber}
@@ -1005,20 +1004,20 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/coupon/{couponNumber}?userData={userData}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute    | Type   | Description                |
-| :----------- | :----- | :------------------------- |
-| projectId    | String | GamePot SDK 中的 ProjectId |
-| couponNumber | String | 仪表板发出的优惠券编号     |
-| userData     | String | 用户资料                   |
+| 属性         | 类型   | 描述                     |
+| :----------- | :----- | :----------------------- |
+| projectId    | 字符串 | GamePot SDK 的 projectId |
+| couponNumber | 字符串 | 仪表盘发放的优惠券编号   |
+| userData     | 字符串 | 用户数据                 |
 
-#### Response
+#### 响应
 
 成功
 
@@ -1040,7 +1039,7 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
       "enable": 1,
       "type": "normal",
       "keyword": null,
-      "desc": "시즌2 업데이트 사전예약 보상",
+      "desc": "第2季更新提前预约奖励",
       "used": 1,
       "count": 2010,
       "length": 7,
@@ -1067,34 +1066,34 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute            | Type    | Description                                   |
-| :------------------- | :------ | :-------------------------------------------- |
-| status               | Int     | 结果值(1：有关成功和失败，请参见错误代码)     |
-| id                   | String  | 优惠券使用编号                                |
-| status               | Boolean | 是否使用优惠券（true：已使用，false：未使用） |
-| enable               | Int     | 整数供货情况                                  |
-| number               | String  | 优惠券编号                                    |
-| userdata             | String  | 优惠券用户信息                                |
-| usedAt               | String  | 优惠券日                                      |
-| request              | String  | 优惠券申请                                    |
-| response             | String  | 优惠券使用回应                                |
-| (coupon_id의) id     | String  | 优惠券 ID                                     |
-| (coupon_id의) enable | int     | 供货情况                                      |
-| type                 | String  | 优惠券类型                                    |
-| keyword              | String  | 关键字优惠券关键字                            |
-| desc                 | String  | 优惠券名称                                    |
-| used                 | int     | 优惠券状态                                    |
-| count                | int     | 优惠券数量                                    |
-| length               | int     | 票券长度                                      |
-| limit                | String  | 项目数量                                      |
-| prefix               | String  | 优惠券后缀                                    |
-| suffix               | String  | 优惠券前缀                                    |
-| store_id             | String  | 商店 ID (google,one,apple,galaxy)             |
-| startedAt            | String  | 优惠券开始日期                                |
-| endedAt              | String  | 优惠券结束日期                                |
-| item_id              | String  | 商品编号                                      |
-| store_item_id        | String  | 物料商店 ID                                   |
-| count                | int     | 项目数量                                      |
+| 属性                   | 类型   | 描述                                        |
+| :--------------------- | :----- | :------------------------------------------ |
+| status                 | Int    | 结果值\(1：成功，失败请参考错误代码\)       |
+| id                     | 字符串 | 优惠券使用明细 ID                           |
+| status                 | 布尔型 | 优惠券是否使用\(true：使用，false：未使用\) |
+| enable                 | Int    | 是否可用                                    |
+| number                 | 字符串 | 优惠券编号                                  |
+| userdata               | 字符串 | 优惠券使用用户查询                          |
+| usedAt                 | 字符串 | 优惠券使用日期                              |
+| request                | 字符串 | 优惠券使用请求                              |
+| response               | 字符串 | 优惠券使用响应                              |
+| （coupon_id 的）id     | 字符串 | 优惠券 ID                                   |
+| （coupon_id 的）enable | int    | 是否可用                                    |
+| type                   | 字符串 | 优惠券类型                                  |
+| keyword                | 字符串 | 关键词优惠券关键词                          |
+| desc                   | 字符串 | 优惠券名称                                  |
+| used                   | int    | 优惠券状态                                  |
+| count                  | int    | 优惠券数量                                  |
+| length                 | int    | 优惠券长度                                  |
+| limit                  | 字符串 | 道具数量                                    |
+| prefix                 | 字符串 | 优惠券后缀                                  |
+| suffix                 | 字符串 | 优惠券前缀                                  |
+| store_id               | 字符串 | 商店 ID（google、one、apple、galaxy）       |
+| startedAt              | 字符串 | 优惠券使用开始日期                          |
+| endedAt                | 字符串 | 优惠券使用结束日期                          |
+| item_id                | 字符串 | 道具 ID                                     |
+| store_item_id          | 字符串 | 道具商店 ID                                 |
+| count                  | int    | 道具数量                                    |
 
 失败
 
@@ -1105,16 +1104,16 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
+| 属性    | 类型   | 描述                                     |
+| :------ | :----- | :--------------------------------------- |
+| status  | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message | 字符串 | 错误内容                                 |
 
 ### 优惠券使用 API
 
-可使用优惠券。
+可以使用优惠券。
 
-#### Request
+#### 请求
 
 - Method : PUT
 - URI : /store/{storeID}/user/{userID}/coupon/{couponNumber}
@@ -1123,21 +1122,21 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 PUT
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/store/{storeID}/user/{userID}/coupon/{couponNumber}
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute    | Type   | Description                      |
-| :----------- | :----- | :------------------------------- |
-| projectId    | String | GamePot SDK 中的 ProjectId       |
-| storeID      | String | 商店 ID(google,one,apple,galaxy) |
-| userID       | String | GamePot SDK 的用户名             |
-| couponNumber | String | 优惠券编号                       |
+| 属性         | 类型   | 描述                                  |
+| :----------- | :----- | :------------------------------------ |
+| projectId    | 字符串 | GamePot SDK 的 projectId              |
+| storeID      | 字符串 | 商店 ID（google、one、apple、galaxy） |
+| userID       | 字符串 | GamePot SDK 的用户 UID                |
+| couponNumber | 字符串 | 优惠券编号                            |
 
-#### Response
+#### 响应
 
 成功
 
@@ -1148,10 +1147,10 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                               |
-| :-------- | :----- | :---------------------------------------- |
-| status    | Int    | 结果值(1：有关成功和失败，请参见错误代码) |
-| message   | String | 结果内容                                  |
+| 属性    | 类型   | 描述                                  |
+| :------ | :----- | :------------------------------------ |
+| status  | Int    | 结果值\(1：成功，失败请参考错误代码\) |
+| message | 字符串 | 结果内容                              |
 
 失败
 
@@ -1162,17 +1161,17 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
-| errorcode | String | 错误代码                                |
+| 属性      | 类型   | 描述                                     |
+| :-------- | :----- | :--------------------------------------- |
+| status    | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message   | 字符串 | 错误内容                                 |
+| errorcode | 字符串 | 错误代码                                 |
 
-### 通知 API 已发布
+### 发布中的公告事项 API
 
-您可以查看正在发布的公告。
+可以查看发布中的公告事项。
 
-#### Request
+#### 请求
 
 - Method : GET
 - URI : /store/{storeID}/notice/posting
@@ -1181,19 +1180,19 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 GET
 url : https://dashboard-api.gamepot.ntruss.com/v1/api/project/{projectId}/store/{storeID}/notice/posting
 Header : 'accept-language: ko'
-Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
+Header : 'x-api-key: {从GamePot仪表盘中获取的API密钥}'
 ```
 
-| Header    | Type   | Required | Description            |
-| :-------- | :----- | :------- | :--------------------- |
-| x-api-key | String | O        | GamePot 发行的验证密钥 |
+| 头部      | 类型   | 必填 | 描述                   |
+| :-------- | :----- | :--- | :--------------------- |
+| x-api-key | 字符串 | O    | GamePot 发放的认证密钥 |
 
-| Attribute | Type   | Description                        |
-| :-------- | :----- | :--------------------------------- |
-| projectId | String | GamePot SDK 中的 ProjectId         |
-| storeID   | String | 店铺编号 (google,one,apple,galaxy) |
+| 属性      | 类型   | 描述                                  |
+| :-------- | :----- | :------------------------------------ |
+| projectId | 字符串 | GamePot SDK 的 projectId              |
+| storeID   | 字符串 | 商店 ID（google、one、apple、galaxy） |
 
-#### Response
+#### 响应
 
 成功
 
@@ -1227,21 +1226,21 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute  | Type    | Description                                                  |
-| :--------- | :------ | :----------------------------------------------------------- |
-| status     | Int     | 结果值(1：有关成功和失败，请参见错误代码)                    |
-| totalCount | String  | 通知（图片）查询（案例）数                                   |
-| baseUrl    | String  | 对象存储桶 URL                                               |
-| id         | String  | （图片的）唯一 ID                                            |
-| store_id   | String  | 支付商店（谷歌，一个，苹果，银河） (google,one,apple,galaxy) |
-| enable     | Boolean | 公告激活                                                     |
-| url        | String  | (点击操作) url                                               |
-| scheme     | String  | （点击操作）方案                                             |
-| startDate  | String  | 通知开始日期                                                 |
-| endDate    | String  | 通知结束日期                                                 |
-| lang       | String  | 语言                                                         |
-| value      | String  | （不超过 baseUrl）资源地址                                   |
-| default    | Boolean | 默认语言                                                     |
+| 属性       | 类型   | 描述                                   |
+| :--------- | :----- | :------------------------------------- |
+| status     | Int    | 结果值\(1：成功，失败请参考错误代码\)  |
+| totalCount | 字符串 | 公告事项（图像）查询（个）数           |
+| baseUrl    | 字符串 | Object Storage Bucket URL              |
+| id         | 字符串 | （相应图像的）唯一 ID                  |
+| store_id   | 字符串 | 支付商店（google、one、apple、galaxy） |
+| enable     | 布尔型 | 是否激活公告事项                       |
+| url        | 字符串 | （单击操作）url                        |
+| scheme     | 字符串 | （单击操作）scheme                     |
+| startDate  | 字符串 | 公告开始日期                           |
+| endDate    | 字符串 | 公告结束日期                           |
+| lang       | 字符串 | 语言                                   |
+| value      | 字符串 | （baseUrl 以下）资源地址               |
+| default    | 布尔型 | 是否为默认语言                         |
 
 失败
 
@@ -1252,7 +1251,7 @@ Header : 'x-api-key: {由GamePot信息​​中心发布的API密钥}'
 }
 ```
 
-| Attribute | Type   | Description                             |
-| :-------- | :----- | :-------------------------------------- |
-| status    | Int    | 结果值（1：成功或失败，请参见错误代码） |
-| message   | String | 错误内容                                |
+| 属性    | 类型   | 描述                                     |
+| :------ | :----- | :--------------------------------------- |
+| status  | Int    | 结果值 \(1：成功，失败时请参考错误代码\) |
+| message | 字符串 | 错误内容                                 |
