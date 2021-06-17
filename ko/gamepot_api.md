@@ -1229,3 +1229,180 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | :-------- | :----- | :---------------------------------------------- |
 | status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
 | message   | String | 오류 내용                                         |
+
+
+### 사전예약 참여하기 API
+
+사전예약 참여 완료시에 등록하는 API
+
+#### Request
+
+ - Method : POST
+ - URI : /v1/registration/join
+
+```text
+POST
+url : https://dashboard-api.gamepot.ntruss.com/v1/registration/join
+Header : 'accept-language: ko'
+Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
+```
+| Header    | Type   | Required | Description                  |
+| :-------- | :----- | :------- | :--------------------------- |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+
+| Attribute        | Type   | Description                             |
+| :--------------- | :----- | :-------------------------------------- |
+| projectId        | String | GamePot SDK의 projectId                  |
+| categoryId        | String | 사전예약 분류 ID                        |
+| store          | String | 스토어 아이디 (google,one,apple,galaxy,pc)   | 
+| to          | String | 인증받은 핸드폰 번호   | 
+| code          | String | 인증번호 (인증번호가 없을 경우 체크하지 않음 )   | 
+
+> code 값이 비어 있을 경우 인증번호를 확인하지 않습니다. 문자 인증을 받는 경우에는 꼭 code 값을 포함해서 보내주셔야 합니다. 
+
+#### Response
+
+성공
+
+```javascript
+{
+    "code": 200,
+    "error": "인증을 성공했습니다."
+}
+```
+
+| Attribute       | Type    | Description                                     |
+| :---------------| :------ | :---------------------------------------------- |
+| code          | Int     | 결과값 \(200: 성공, 404: 실패\)        |
+| error         | String  |  오류 메시지                                |     
+
+
+실패
+```javascript
+{
+    "code": 404,
+    "error": "이미 등록된 번호 입니다."
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| code    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
+| error   | String | 오류 내용                                         |
+
+
+### 사전예약 인증번호 발송 API 
+
+사전예약자 에게 인증번호를 생성하여 문자 메시지를 발송한다.
+
+#### Request
+
+ - Method : POST
+ - URI : /v1/registration/request
+
+```text
+POST
+url : https://dashboard-api.gamepot.ntruss.com/v1/registration/request
+Header : 'accept-language: ko'
+Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
+```
+| Header    | Type   | Required | Description                  |
+| :-------- | :----- | :------- | :--------------------------- |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+
+| Attribute        | Type   | Description                             |
+| :--------------- | :----- | :-------------------------------------- |
+| projectId        | String | GamePot SDK의 projectId                  |
+| categoryId        | String | 사전예약 분류 ID                        |
+| store          | String | 스토어 아이디 (google,one,apple,galaxy,pc)   | 
+| to | String | 받는 사람 핸드폰 번호 |
+| from | String | 보내는 사람 핸드폰 번호 ( 등록 필수 ) |
+|
+#### Response
+
+성공
+
+```javascript
+{
+    "code": 200,
+    "error": "인증을 성공했습니다."
+}
+```
+
+| Attribute       | Type    | Description                                     |
+| :---------------| :------ | :---------------------------------------------- |
+| code          | Int     | 결과값 \(200: 성공, 404: 실패\)        |
+| error         | String  |  오류 메시지                                |     
+
+
+실패
+```javascript
+{
+    "code": 404,
+    "error": "이미 등록된 번호 입니다."
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| code    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
+| error   | String | 오류 내용                                         |
+
+
+### 사전예약 인증번호 확인 API 
+
+사전예약자 에게 발송된 인증번호와 입력된 인증번호가 일치하는지 확인하는 API
+
+#### Request
+
+ - Method : POST
+ - URI : /v1/registration/verify
+
+```text
+POST
+url : https://dashboard-api.gamepot.ntruss.com/v1/registration/verify
+Header : 'accept-language: ko'
+Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
+```
+| Header    | Type   | Required | Description                  |
+| :-------- | :----- | :------- | :--------------------------- |
+| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
+
+| Attribute        | Type   | Description                             |
+| :--------------- | :----- | :-------------------------------------- |
+| projectId        | String | GamePot SDK의 projectId                  |
+| categoryId        | String | 사전예약 분류 ID                        |
+| store          | String | 스토어 아이디 (google,one,apple,galaxy,pc)   | 
+| to | String | 받는 사람 핸드폰 번호 |
+| code | String | 인증번호 |
+|
+
+#### Response
+
+성공
+
+```javascript
+{
+    "code": 200,
+    "error": "인증을 성공했습니다."
+}
+```
+
+| Attribute       | Type    | Description                                     |
+| :---------------| :------ | :---------------------------------------------- |
+| code          | Int     | 결과값 \(200: 성공, 404: 실패\)        |
+| error         | String  |  오류 메시지                                |     
+
+
+실패
+```javascript
+{
+    "code": 404,
+    "error": "이미 등록된 번호 입니다."
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| code    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
+| error   | String | 오류 내용                                         |
