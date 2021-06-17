@@ -185,3 +185,18 @@ fileTree(dir: 'libs', include: ['*.aar'])
  - 다음과 같이, Naver Cafe의 URLScheme 값을 해당 Array의 가장 첫번째 인덱스로 올려 저장한 다음 로그인 정상동작을 확인해주세요.  
  
 ![gamepot_troubleshooting_01](./images/gamepot_troubleshooting_01.png)
+
+
+## (Unity) IDFA 허용 여부 확인 팝업 제거 (IOS 13 이하) 
+
+- (유니티 프로젝트, 혹은 XCode 프로젝트에서) GamePotAppDelegate.mm을 열어주세요.
+    
+    경로
+        - (Unity Project) Assets/Plugins/IOS/Source/GamePotAppDelegate.mm
+        - (XCode) Libraries/Plugins/IOS/Source/GamePotAppDelegate.mm
+
+ - 다음과 같이, AppTrackingTransparency를 초기화하는 부분을 제거해주세요.
+ 
+![gamepot_troubleshooting_02](./images/gamepot_troubleshooting_02.png)
+
+![gamepot_troubleshooting_03](./images/gamepot_troubleshooting_03.png)

@@ -1,19 +1,13 @@
-# Troubleshooting
+# 故障排除
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
+## 在64位环境中构建时，尝试NAVER ID登录（使用NAVER ID登录）时发生崩溃。（API 28以上的Android构建）
 
-## 在 64 位环境中构建时，尝试登录 Naver ID 时发生崩溃。 （Android 构建的 API 28 或更高版本）
+⒈ 在`AndroidManifest.xml`文件中添加以下代码
 
-⒈ `AndroidManifest.xml` 将以下代码添加到文件中
-
-> 对于 Unity，请编辑/Assets/Plugins/Android/AndroidManifest.xml
+> 使用Unity时，修改/Assets/Plugins/Android/AndroidManifest.xml
 
 ```java
-// TODO : <application> 请把它放在标签内。
+// TODO : <application> 请放入标签。
 
 <application>
 
@@ -26,40 +20,41 @@
 </application>
 ```
 
-ref.) 可以通过替换已修补的库来替换它。 \[[gamepot-channel-naver.aar](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-channel-naver.aar)\]
+参考）这部分可通过更换已打补丁的库作为代替。\[[gamepot-channel-naver.aar](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-channel-naver.aar)\]
 
-## 上载 Play 商店 APK 时，会出现 com.nhncorp.nelo2.android.util 加密模式安全通知
 
-logging제与日志记录功能相关的过时库引起的问题
+## 上传Play Store APK时，发生com.nhncorp.nelo2.android.util加密模式安全通知
 
-⒉（如果您不使用仪表板日志功能）从 Gamepot SDK 的库中删除下面列出的库
+⒈ 日志记录功能相关库因过时引发的问题
 
-|                                        |
-| :------------------------------------- |
-| 1. gamepot-logger.aar                  |
-| 2. nelo2-android-sdk-common-0.10.2.jar |
-| 3. nelo2-android-sdk-https-0.10.2.jar  |
+⒉ （不使用仪表盘日志功能时）在Gamepot SDK的库中删除以下列表中的库
 
-## Line i386 x86_64 IOS Archive 上传问题
+ |||
+ | :------  | :------  |
+ | 1. gamepot-logger.aar |
+ | 2. nelo2-android-sdk-common-0.10.2.jar |
+ | 3. nelo2-android-sdk-https-0.10.2.jar |
+ |||
 
-이동在控制台（终端）中移至 LineSDK.framework 文件的位置后，一一输入以下命令。
+## Line i386 x86_64 IOS Archive上传问题
 
-文字
-（此代码删除了不允许的体系结构。）
+⒈ 请在控制台（终端）中移动到LineSDK.framework文件位置后，逐一输入以下命令。
+
+```text
+（该代码可删除不被允许的架构。）
 
 lipo -remove x86_64 ./LineSDK.framework/LineSDK -o ./LineSDK.framework/LineSDK
 lipo -remove i386 ./LineSDK.framework/LineSDK -o ./LineSDK.framework/LineSDK
 lipo -remove x86_64 ./LineSDKObjC.framework/LineSDKObjC -o ./LineSDKObjC.framework/LineSDKObjC
 lipo -remove i386 ./LineSDKObjC.framework/LineSDKObjC -o ./LineSDKObjC.framework/LineSDKObjC
-
 ```
 
-## Twitter i386 x86_64 IOS 建造问题
+## Twitter i386 x86_64 IOS构建问题
 
-이동在控制台（终端）中移至TwitterCore.framework的位置后，一一输入以下命令。
+⒈ 请在控制台（终端）中移动到TwitterCore.framework文件位置后，逐一输入以下命令。
 
-文字
-（此代码删除了不允许的体系结构。）
+```text
+（该代码可删除不被允许的架构。）
 
 lipo -remove x86_64 ./TwitterCore.framework/TwitterCore -o ./TwitterCore.framework/TwitterCore
 lipo -remove i386 ./TwitterCore.framework/TwitterCore -o ./TwitterCore.framework/TwitterCore
@@ -67,32 +62,32 @@ lipo -remove x86_64 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/
 lipo -remove i386 ./TwitterKit.framework/TwitterKit -o ./TwitterKit.framework/TwitterKit
 ```
 
-## AdbrixRM i386 x86_64 IOS 建造问题
+## AdbrixRM i386 x86_64 IOS构建问题
 
-이동移至控制台（终端）中的 AdBrixRM.framework 文件位置后，一一输入以下命令。
+⒈ 请在控制台（终端）中移动到AdBrixRM.framework文件位置后，逐一输入以下命令。
 
-文字
-（此代码删除了不允许的体系结构。）
+```text
+（该代码可删除不被允许的架构。）
 
 lipo -remove x86_64 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
 lipo -remove i386 ./AdBrixRM.framework/AdBrixRM -o ./AdBrixRM.framework/AdBrixRM
+```
 
-````
 
-
-## NaverThirdPartyLogin.framework i386 x86_64 이슈
+## NAVER ID登录NaverThirdPartyLogin.framework i386 x86_64问题
 ```text
-（此代码删除了不允许的体系结构。）
+（该代码可删除不被允许的架构。）
 
 lipo -remove x86_64 ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin -o ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin
 lipo -remove i386 ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin -o ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin
-````
+```
 
-## Unity 2018.4.4 或更高版本，Unity 2019.2.0 或更高版本中的 Android 构建问题
 
-⒈ 如下修改`mainTemplate.gradle`文件
+## Unity 2018.4.4以上、Unity 2019.2.0以上版本中的Android构建问题
 
-> 参见待办事项。
+⒈ 按以下方法修改`mainTemplate.gradle`文件
+
+> 请参考TODO项目。
 
 ```java
 // TODO : 删除所有使用GradleVersion的地方。
@@ -112,7 +107,7 @@ buildscript {
         // } else if (GradleVersion.current() < GradleVersion.version("4.2")) {
         //     classpath 'com.android.tools.build:gradle:2.3.0'
         // } else {
-                  // TODO : Android gradle plugin 将版本更改为3.4.0版本。
+                  // TODO : 请将Android gradle插件版本改为3.4.0。
             classpath 'com.android.tools.build:gradle:3.4.0'
         // }
         classpath 'com.google.gms:google-services:3.2.0'
@@ -158,33 +153,35 @@ fileTree(dir: 'libs', include: ['*.aar'])
 }
 ```
 
-⒉ 修复 Firebase 相关文件
+⒉ 修改Firebase相关文件
 
 - ⒈ 通过[链接](https://kr.object.ncloudstorage.com/gamepot/Firebase_patch.zip)下载补丁文件
 
-- ⒉ 复制文件如下
+- ⒉ 按以下方法复制文件
 
-  ```java
-  /Firebase_patch/Assets/Firebase/Editor
-  将文件从上面的路径复制到下面的路径
-  -> {unity project}/Assets/Firebase/Editor
+    ```java
+    /Firebase_patch/Assets/Firebase/Editor
+     将上面路径下的文件复制到以下路径
+    -> {unity project}/Assets/Firebase/Editor
 
-  {unity project}/Assets/PlayServicesResolver/Editor
-   删除上述路径中的所有文件后，将文件复制到以下路径
-  -> /Firebase_patch/Assets/PlayServicesResolver/Editor
-  ```
+    {unity project}/Assets/PlayServicesResolver/Editor
+     将上面路径下的文件全部删除后复制文件到以下路径
+    -> /Firebase_patch/Assets/PlayServicesResolver/Editor
+    ```
 
-- ⒊ /Assets/Plugins/Android/Firebase/res 如果未创建文件夹，请重新启动 Unity
+- ⒊ /Assets/Plugins/Android/Firebase/res文件夹无法创建时，重新运行Unity
 
-## （统一）在应用 Naver Plug SDK（plug_sdk_4_4_7.unitypackage.unitypackage 或更高版本）时，会发生 IOS 构建错误。
 
-- 通过[链接](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip）（GamePotNaver.framework)下载并提取补丁文件
+## （Unity）应用NAVER插件SDK（plug_sdk_4_4_7.unitypackage.unitypackage以上）时，发生IOS构建错误。
 
-- 将下载的补丁（GamePotNaver.framework）替换为现有路径的框架。
+- 通过[链接](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip)下载补丁文件并解压（GamePotNaver.framework）
 
-## （IOS）应用 NAVER Plug SDK 时，无法通过 Web 视图登录 NAVER ID。
+- 请用下载的补丁文件（GamePotNaver.framework）替换当前路径下的框架。
 
-- 在 XCode 中打开 info.plist。
+## （IOS）应用NAVER插件SDK时，无法通过WebView登录NAVER ID。
 
-  - 如下所示，将 Naver Cafe 的 URLScheme 值上传并保存到相应 Array 的第一个索引，然后检查登录的正常操作。
-    ![gamepot_troubleshooting_01](./images/gamepot_troubleshooting_01.png)
+- 请在XCode中打开info.plist。
+
+ - 如下所示，将Naver Cafe的URLScheme值传入相应数组的第一个索引，保存以后再确认能否正常登录。
+ 
+![gamepot_troubleshooting_01](./images/gamepot_troubleshooting_01.png)

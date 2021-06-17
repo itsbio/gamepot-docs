@@ -3,6 +3,11 @@ search:
   keyword: ['gamepot']
 ---
 
+#### **네이버 클라우드 플랫폼의 상품 사용 방법을 보다 상세하게 제공하고, 다양한 API의 활용을 돕기 위해 <a href="https://guide.ncloud-docs.com/docs/ko/home" target="_blank">[설명서]</a>와 <a href="https://api.ncloud-docs.com/docs/ko/home" target="_blank">[API 참조서]</a>를 구분하여 제공하고 있습니다.**
+
+<a href="https://api.ncloud-docs.com/docs/ko/game-gamepot" target="_blank">Gamepot API 참조서 바로가기 >></a><br />
+<a href="https://guide.ncloud-docs.com/docs/game-gamepotconsole" target="_blank">Gamepot 설명서 바로가기 >></a>
+
 # Unity SDK
 
 ## 1. 시작하기
@@ -15,11 +20,12 @@ search:
 
 **Assets &gt; Import Package &gt; Custom Package** 메뉴에서 다운로드한 GamePotUnityPlugin-xxxx.unitypackage 파일을 선택합니다.
 
-![gamepot_unity_01](./images/gamepot_unity_01.png)
+![gamepot_unity_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_01%289%29.png)
 
 플러그인을 확인하고 import하면 해당 프로젝트에 추가됩니다.
 
-![gamepot_unity_02](./images/gamepot_unity_02.png)
+![gamepot_unity_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_02%289%29.png)
+
 
 ### Step 3. Android
 
@@ -57,19 +63,19 @@ android {
 resValue "string", "[key]", "[value]"
 ```
 
-| 값  | 설명 |
-| :-- | :--- |
-| gamepot_project_id | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
-| gamepot_store | 스토어값\(`google` 또는 `one` 또는 `galaxy`\) |
-| gamepot_app_title | 앱 제목 \(FCM\) |
-| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요. |
-| facebook_app_id | 페이스북 발급 받은 앱ID |
-| fb_login_protocol_scheme | 페이스북에서 발급 받은 protocol scheme fb\[app_id\] |
-| gamepot_elsa_projectid | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
+| 값                           | 설명                                                                                           |
+| :--------------------------- | :--------------------------------------------------------------------------------------------- |
+| gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
+| gamepot_store                | 스토어값\(`google` 또는 `one` 또는 `galaxy`\)                                                  |
+| gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
+| gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
+| facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
+| fb_login_protocol_scheme     | 페이스북에서 발급 받은 protocol scheme fb\[app_id\]                                            |
+| gamepot_elsa_projectid       | NCLOUD ELSA 사용시 프로젝트ID \([자세히 보기](https://www.ncloud.com/product/analytics/elsa)\) |
 
 **노티바에 푸시 아이콘 변경 방법**
 
-![gamepot_unity_03](./images/gamepot_unity_03.png)
+![gamepot_unity_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_03%2810%29.png)
 
 푸시 수신 시 Android Notification bar에 보여줄 Small icon은 SDK 내부에서 기본 이미지로 노출하며 직접 추가할 수도 있습니다.
 
@@ -106,17 +112,18 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 `Assets > Play Services Resolver > Android Resolver > Settings` 메뉴로 이동합니다.
 
-![gamepot_unity_04](./images/gamepot_unity_04.png)
+![gamepot_unity_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_04%289%29.png)
 
 `Enable Resolution On Build 체크박스를 해제` 해주세요.
 
-![gamepot_unity_05](./images/gamepot_unity_05.png)
+![gamepot_unity_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_05%289%29.png)
 
 **Unity Build Settings**
 
 `File > Build Settings > Build System` 메뉴에서 Gradle을 선택합니다.
 
-![gamepot_unity_06](./images/gamepot_unity_06.png)
+![gamepot_unity_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_06%289%29.png)
+
 
 ### Step 4. iOS
 
@@ -128,7 +135,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 `/Assets/Plugin/IOS/GamePotConfig-Info.plist` 내에 필요한 환경 변수를 추가해 주세요.
 
-![gamepot_unity_07](./images/gamepot_unity_07.png)
+![gamepot_unity_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_07%289%29.png)
 
 | 환경 변수                     | 설명                                                  |
 | :---------------------------- | :---------------------------------------------------- |
@@ -141,7 +148,7 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 
 scenes를 추가한 후에 **File &gt; Build Settings &gt; Build And Run**을 실행하면 완료됩니다.
 
-![gamepot_unity_08](./images/gamepot_unity_08.png)
+![gamepot_unity_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_08%289%29.png)
 
 XCode 빌드 후
 
@@ -152,6 +159,23 @@ Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties 내에 아래 `사�
 ```text
 NSCameraUsageDescription
 NSPhotoLibraryUsageDescription
+```
+
+iOS 14 이상 버전
+
+iOS 14 버전부터 IDFA 값 획득 시 사용자에게 권한을 획득해야만
+
+IDFA 값 획득이 가능하도록 변경되었습니다.
+
+따라서 IDFA 값 획득 시 사용자에게 권한 획득하는 팝업을 사용하신다면
+Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties 내에 아래 사용자 권한 획득 옵션을 추가 부탁드립니다.
+
+> 2020.09.11<br/>
+> Apple에서 IDFA 값 획득 시 사용자에게 권한 획득하는 팝업 필수 적용은 2021년 초까지 연기되었습니다.<br/>
+> 아래 링크 참고 부탁드립니다.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+```text
+NSUserTrackingUsageDescription
 ```
 
 ## 2. 초기화
@@ -267,11 +291,11 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
 ### APPLE 로그인
 
-> iOS에만 해당하는 기능입니다.
+> iOS에만 해당하는 기능입니다. (Android의 경우, Web Login 형태로 지원 - 8. 기타 API 참고)
 
-**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.** 
+**Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign In with Apple을 추가 합니다.**
 
-![gamepot_unity_24](./images/gamepot_unity_24.png)
+![gamepot_unity_24.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_24%285%29.png)
 
 ### 게임센터 로그인
 
@@ -279,19 +303,18 @@ FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 >
 > GameCenter Login을 사용하시는 경우에는 아래 위치해서 이미지와 같이 설정 해주세요.
 > &gt; `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
+![gamepot_unity_25.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_25%286%29.png)
 
-![gamepot_unity_25](./images/gamepot_unity_25.png)
 
 > 해당 라이브러리가 포함된 경우 `Capabilities설정에서 GameCenter를 필히 활성화` 해주셔야 합니다.
 
 **Xcode &gt; Build Phases &gt; Linked Binary With Libraries** 내에 Gamekit.framework 를 추가합니다.
 
-![gamepot_unity_26](./images/gamepot_unity_26.png)
+![gamepot_unity_26.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_26%286%29.png)
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; GameCenter을 추가 합니다.**
 
-![gamepot_unity_09](./images/gamepot_unity_09.png)
-
+![gamepot_unity_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_09%289%29.png)
 
 
 ## 5. 로그인/로그아웃/탈퇴/검증
@@ -373,6 +396,24 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
         case NCommon.ResultLogin.FAILED:
         // login fail
         break;
+        case NCommon.ResultLogin.NEED_UPDATE:
+            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+                // GamePot.showAppStatusPopup(status.ToJson());
+        break;
+        case NCommon.ResultLogin.MAINTENANCE:
+            // TODO: 파라미터로 넘어온 appStatus 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+            // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+                // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+                // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+                // GamePot.showAppStatusPopup(status.ToJson());
+        break;
+        case NCommon.ResultLogin.APP_CLOSE:
+            // TODO: 강제 업데이트나 점검 기능을 case 2 방식(SDK 팝업)으로 구현하는 경우에 사용
+            // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
+        break;
         default:
         break;
     }
@@ -407,8 +448,81 @@ public class NUserInfo
     public string name { get; set; }            // 이름
     public string profileUrl { get; set; }      // 프로필 URL(존재 시)
     public string email { get; set; }           // 이메일(존재 시)
-    public string token { get; set; }           // 유저 광고 ID
+    public string token { get; set; }           // 유저 유효성 체크용 Token (Token Authentication API에서 사용)
     public string userid { get; set; }          // Social ID(google, facebook ...)
+}
+```
+
+NAppStatus 정의
+
+```csharp
+public class NAppStatus
+{
+    public string type { get; set; }        // AppStatus 타입으로 "maintenance" : 점검, "needupdate" : 업데이트
+    public string message { get; set; }     // 점검 설정 : Dashboard에서 입력한 메세지
+    public string url { get; set; }         // 점검 설정 : Dashboard에서 입력한 URL
+    public string currentAppVersion { get; set; }   // 업데이트 : 현재 App Version
+    public string updateAppVersion { get; set; }    // 업데이트 : Dashboard에서 입력한 App Version
+    public int currentAppVersionCode { get; set; }  // 업데이트 : 현재 App Code
+    public int updateAppVersionCode { get; set; }   // 업데이트 : Dashboard에서 입력한 App Version code
+    public bool isForce { get; set; }           // 업데이트 : Dashboard에서 강제 업데이트 설정 시 true
+    public string resultPayload { get; set; }   // 클라이언트 SDK에서 전달 된 Json 값으로 무시하셔도 됩니다.
+    public double startedAt { get; set; }       // 점검 : 시작 시간
+    public double endedAt { get; set; }         // 점검 : 종료 시간
+}
+```
+
+**(2021.03.04) SDK v3.2.0 이상부터 적용**
+
+> `iOS 플랫폼의 경우,` 로그인 API 호출 시 IDFA 값 획득에 대한 권한을 요청하는 팝업을 먼저 명시적으로 요청하고 있습니다.
+
+> 해당 팝업 요청을 로그인 시점에 호출하고 싶지 않으실 경우, GamePot.login(NCommon.LoginType loginType) 메소드를 수정해주세요. (Assets/GamePot/SDK/Scripts/GamePot.cs )
+
+```csharp
+...
+public static void login(NCommon.LoginType loginType)
+{
+    // Assets/GamePot/SDK/Scripts/GamePot.cs
+    ...
+    #elif UNITY_IOS
+        //IOS 플랫폼의 경우, IDFA 획득 허용 팝업 먼저 띄우고 login 처리
+        requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
+        {
+            GamePotUnityPluginiOS.login(loginType);
+        });
+    ...
+}
+```
+
+Request:
+
+```csharp
+// IDFA 값 획득 권한 요청 팝업을 임의로 띄울 수 있습니다.
+// 권한 획득 후에는, 메소드 호출 시에도 팝업이 뜨지 않습니다.
+
+GamePot.requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
+{
+   // 획득한 NResultTrackingAuthorizationresultState 핸들링..
+});
+```
+
+NResultTrackingAuthorizationresultState 정의
+
+```csharp
+public class NResultTrackingAuthorization
+{
+    public NCommon.ResultTrackingAuthorization authorization { get; set; }
+}
+```
+
+```csharp
+public enum ResultTrackingAuthorization
+{
+    ATTrackingManagerAuthorizationStatusNotDetermined,
+    ATTrackingManagerAuthorizationStatusRestricted,
+    ATTrackingManagerAuthorizationStatusDenied,
+    ATTrackingManagerAuthorizationStatusAuthorized,
+    ATTrackingManagerAuthorizationStatusUnknown
 }
 ```
 
@@ -755,6 +869,23 @@ foreach(NPurchaseItem item in items) {
 }
 ```
 
+NPurchaseItem 정의
+
+```csharp
+public class NPurchaseItem
+{
+    public string productId { get; set; }   // 상품 ID
+    public string type { get; set; }        // 상품 타입으로 "inapp"으로 고정
+    public string price { get; set; }       // 가격 google 스토어 : $0.99 그외 스토어 : 0.99
+    public string price_amount { get; set; }
+    public string price_amount_micros { get; set; }
+    public string price_currency_code { get; set; } // 통화코드 ex) KRW, USD
+    public string price_with_currency { get; set; } // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 원스토어의 경우 통화 단위 전달 되지 않습니다. ex) $0.99
+    public string title { get; set; }       // 상품 이름
+    public string description { get; set; } // 상품 설명
+}
+```
+
 ### 인앱 상품 결제
 
 아래 함수 하나로 구글, 애플, 앱스토어 결제가 가능합니다.
@@ -840,7 +971,10 @@ public class NPurchaseInfo
     public string orderId { get; set; }             // 스토어 Order ID
     public string productName { get; set; }         // 결제 아이템 이름
     public string gamepotOrderId { get; set; }      // GAMEPOT에서 생성한 order id
-    public string uniqueId { get; set; }            // 개발사 unique ID
+    public string uniqueId { get; set; }            // (개발사에서 별도로 관리하는) 영수증 ID
+    public string serverId { get; set; }            // (결제를 진행한 캐릭터의) 서버 아이디
+    public string playerId { get; set; }            // (결제를 진행한 캐릭터의) 캐릭터 아이디
+    public string etc { get; set; }                 // (결제를 진행한 캐릭터의) 기타 정보
     public string signature { get; set; }           // 결제 Signature
     public string originalJSONData { get; set; }    // 영수증 Data
 }
@@ -908,6 +1042,156 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 ```
 
 ## 8. 기타 API
+
+### SDK 지원 로그인 UI
+
+SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다.
+
+```csharp
+public class NLoginUIInfo
+{
+    public NCommon.LoginType[] loginTypes { get; set; }     // 노출할 Login UI 타입(배열)
+    public bool showLogo { get; set; }                      // 이미지 로고 노출 여부
+}
+```
+
+#### SDK 로그인 UI 호출
+
+- Case 1
+
+Request:
+
+```csharp
+ NLoginUIInfo info = new NLoginUIInfo();
+
+//호출할 로그인 UI 타입
+ info.loginTypes = new NCommon.LoginType[]
+ {
+     NCommon.LoginType.GOOGLE,
+     NCommon.LoginType.FACEBOOK,
+     NCommon.LoginType.GUEST
+     ...
+ };
+ info.showLogo = true;
+ GamePot.showLoginWithUI(info);
+```
+
+Response:
+
+**일반 로그인 API 응답 로직과 동일합니다. (단, onLoginCancel / onLoginFailure의 경우 Native 레벨에서 토스트 메시지로 처리됩니다.)**
+
+```csharp
+// 로그인 성공
+public void onLoginSuccess(NUserInfo userInfo)
+{
+}
+// 강제 업데이트(스토어 버전과 클라이언트 버전이 다를 경우 호출)
+public void onNeedUpdate(NAppStatus status)
+{
+    // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// 점검(대시보드에 점검이 활성화되어 있는 경우 호출)
+public void onMainternance(NAppStatus status)
+{
+       // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+    // TODO: 아래 두 가지 방식 중 한 가지를 선택하세요.
+    // case 1: 인게임 팝업을 통해 개발사에서 직접 UI 구현
+    // case 2: SDK의 팝업을 사용(이 경우에는 아래 코드를 호출해 주세요.)
+    // GamePot.showAppStatusPopup(status.ToJson());
+}
+// 앱 종료
+public void onAppClose()
+{
+    // TODO: 강제 업데이트나 점검 기능을 case 2 방식으로 구현하는 경우
+    // TODO: 앱을 강제 종료할 수 있기 때문에 이 곳에 앱을 종료할 수 있도록 구현하세요.
+}
+```
+
+- Case 2
+
+Request:
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, GamePotCallbackDelegate.CB_Login);
+```
+
+```csharp
+ GamePot.showLoginWithUI(NLoginUIInfo, (resultState, userInfo, appStatus, error) => {
+    switch (resultState)
+    {
+        case NCommon.ResultLogin.SUCCESS:
+        // login success
+        break;
+        default:
+        break;
+    }
+});
+```
+
+#### Customizing
+
+**로그인 UI 이미지 로고 변경 방법**
+
+로그인 UI 상단에 노출되는 이미지 로고는 SDK 내부에서 기본 이미지로 노출하며, 직접 추가할 수도 있습니다.
+
+**[Android]**
+
+> 직접 추가하려면 `drawable` 폴더별로 이미지를 넣어야 합니다.\([Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)를 이용해 제작하면 자동으로 폴더별로 이미지가 제작되어 편리합니다.\)
+
+이미지 파일명은 ic_stat_gamepot_login_logo.png 이어야 합니다.
+
+| 폴더명                                                         | 크기    |
+| :------------------------------------------------------------- | :------ |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55   |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82  |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
+
+**[iOS]**
+
+> 이미지 로고는 GamePot.bundle 내에, ic_stat_gamepot_logo.png 파일로 존재합니다.
+
+이미지 파일명을 `ic_stat_gamepot_login_logo.png`로 변경한 다음 교체합니다.
+
+(권장 사이즈 : 310x220)
+
+**Screen Orientation 설정 방법**
+
+**[Android]**
+
+/Assets/Plugin/Android/AndroidManifest.xml 파일을 에디터로 엽니다.
+
+```markup
+...e
+    <activity android:screenOrientation="sensorLandscap">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+          ...
+      </intent-filter>
+    </activity>
+...
+```
+
+Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandscape` 혹은 `sensorPortrait` 를 입력하세요.
+
+### 애플 로그인 (for Android - Web Login)
+
+#### GAMEPOT Dashboard
+
+대시보드 프로젝트 설정 >> 일반 >> Apple ID Login 설정
+
+> 기능을 사용하기 위해선 Apple Developer Console 설정이 필요합니다.
+>
+> 대시보드에서 해당 항목의 **도움말보기**를 참고해주세요.
+
+/Assets/Plugins/Android/libs 경로에 아래 aar파일을 추가합니다. (Select platforms for plugin - Android 체크 확인)
+
+- gamepot-channel-apple-signin.aar
 
 ### 네이버 로그인
 
@@ -1301,8 +1585,6 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 
 GAMEPOT 대시보드에서 '공지사항'에 추가한 이미지를 순서대로 노출하는 기능입니다.
 
-![gamepot_unity_10](./images/gamepot_unity_10.png)
-
 이미지 권장 스펙은 아래와 같습니다.
 
 - 사이즈 : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
@@ -1318,6 +1600,10 @@ GamePot.showNotice(bool Flag = true);
 
 // true : 오늘 하루 보지 않기 적용
 // false : 오늘 하루 보지 않기 관계없이, 강제 노출
+
+GamePot.showEvent(string Type)
+
+// Type : 대시보드 공지사항 >> 분류에서 설정한 분류명에 해당하는 이미지만 노출
 ```
 
 Response:
@@ -1336,14 +1622,6 @@ public void onReceiveScheme(string scheme)
 고객이 운영자에게 문의를 등록하고 답변을 받을 수 있는 기능입니다.
 
 고객문의 UI는 디바이스 언어에 맞게 변경됩니다. 한국어, 영어, 일어, 중국어(간체, 번체)를 지원하며 그 외 언어는 영어로 보여집니다.
-
-- 문의 등록 화면
-
-  ![gamepot_unity_11](./images/gamepot_unity_11.png)
-
-- 내 문의 내역 화면
-
-  ![gamepot_unity_12](./images/gamepot_unity_12.png)
 
 #### 호출
 
@@ -1383,21 +1661,102 @@ int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title
 GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 ```
 
-### 약관 동의
+### Image Push
 
-'이용약관' 및 '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+iOS 앱에서 알림 이미지를 수신하고 처리하려면 XCode 상에서 알림 서비스 확장 프로그램을 추가해야 합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지를 제공하며, 각 영역별로 Customizing도 가능합니다.
+- Notification Service Extension 프로젝트에 추가하기
+    1. Xcode -> File -> New -> Target.. 메뉴 클릭
+    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
+    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
 
-- `BLUE` 테마 예시
+- 알림 서비스 확장 프로그램 추가하기
 
-  ![gamepot_unity_13](./images/gamepot_unity_13.png)
+1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
 
-- `GREEN` 테마 예시
 
-  ![gamepot_unity_14](./images/gamepot_unity_14.png)
+```c++
+// GamePot/GamePotNotificationServiceExtension.h를 Import
+// #import <UserNotifications/UserNotifications.h>
+#import <GamePot/GamePotNotificationServiceExtension.h
+// UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
+// @interface NotificationService : UNNotificationServiceExtension
+@interface NotificationService : GamePotNotificationServiceExtension
+@end
+```
 
-#### 약관 동의 호출
+2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
+
+```c++
+    ...
+
+    - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+        // self.contentHandler = contentHandler;
+        // self.bestAttemptContent = [request.content mutableCopy];
+        // Modify the notification content here...
+        // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+        // self.contentHandler(self.bestAttemptContent);
+        [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
+    }
+
+    ...
+```
+
+3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+
+
+### 약관 동의 (GDPR 포함)
+
+'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
+
+`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
+
+각 영역별로 Customizing도 가능합니다.
+
+#### 약관 동의 호출 (자동)
+
+`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
+
+로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+
+```csharp
+// Default Value는 true
+// 자동 팝업 시, MATERIAL_BLUE 테마로 적용 
+// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+GamePot.setAutoAgree(true);
+
+// MATERIAL_ORANGE 테마로 커스텀 적용 시
+NAgreeInfo bulider = new NAgreeInfo(); 
+bulider.theme = "MATERIAL_ORANGE";
+GamePot.setAutoAgreeBuilder(bulider);
+
+...
+
+GamePot.login(NCommon.LoginType);
+
+...
+```
+
+#### 약관 동의 호출 (수동)
+
+```csharp
+// 기본 테마
+BLUE
+GREEN
+
+// 개선 테마
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH,
+```
 
 > 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
 >
@@ -1408,12 +1767,12 @@ GamePot.cancelLocalPush(/*푸시 등록시 얻은 pushId*/);
 Request:
 
 ```csharp
-// 기본 호출(BLUE 테마로 적용)
+// 기본 호출(MATERIAL_BLUE 테마로 적용)
 GamePot.showAgreeDialog();
 
-// GREEN 테마로 적용시
+// 그 외 테마로 적용 시
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info);
 ```
 
@@ -1443,9 +1802,9 @@ Request:
 // 기본 호출(BLUE 테마로 적용)
 showAgreeDialog(GamePotCallbackDelegate.CB_ShowAgree);
 
-// GREEN 테마로 적용시
+// 그 외 테마로 적용시
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 GamePot.showAgreeDialog(info,GamePotCallbackDelegate.CB_ShowAgree);
 ```
 
@@ -1471,7 +1830,7 @@ GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError 
 
 ```csharp
 NAgreeInfo info = new NAgreeInfo();
-info.theme = "green";
+info.theme = "MATERIAL_RED";
 info.headerBackGradient = new string[] { "0xFF00050B", "0xFF0F1B21" };
 info.headerTitleColor = "0xFFFF0000";
 info.headerBottomColor = "0xFF00FF00";
@@ -1495,15 +1854,29 @@ info.footerButtonGradient = new string[] { "0xFF1E3A57", "0xFFFFFFFF" };
 info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = "게임 시작하기";
+
+// 일반 광고성 수신동의 버튼 노출 여부
+info.showPush = true;
+
 // 야간 광고성 수신동의 버튼 노출 여부
 info.showNightPush = true;
+
+// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.pushDetailURL = "https://...";
+
+// 야간 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+info.nightPushDetailURL = "https://...";
 
 // 문구 변경
 info.allMessage = "모두 동의";
 info.termMessage = "필수) 이용약관";
 info.privacyMessage = "필수) 개인정보 취급 방침";
+info.pushMessage = "선택) 일반 푸시 수신 동의";
 info.nightPushMessage = "선택) 야간 푸시 수신 동의";
 
+
+//광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+GamePot.setShowToastPushStatus(true);
 GamePot.showAgreeDialog(info);
 ```
 
@@ -1511,7 +1884,18 @@ GamePot.showAgreeDialog(info);
 
 > contentIconDrawable은 AOS에만 보여지며, 기본 값은 푸시 아이콘으로 설정됩니다.
 
-![gamepot_unity_15](./images/gamepot_unity_15.png)
+- AgeView
+
+![gamepot_unity_15.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15%2814%29.png)
+
+- EmailView
+
+![gamepot_unity_15_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_1.png)
+
+- AgreeView
+
+![gamepot_unity_15_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_2.png)
+
 
 ### 이용약관
 
@@ -1523,8 +1907,6 @@ GamePot.showAgreeDialog(info);
 GamePot.showTerms();
 ```
 
-![gamepot_unity_16](./images/gamepot_unity_16.png)
-
 ### 개인정보 취급방침
 
 개인정보 취급방침 UI를 호출합니다.
@@ -1534,8 +1916,6 @@ GamePot.showTerms();
 ```csharp
 GamePot.showPrivacy();
 ```
-
-![gamepot_unity_17](./images/gamepot_unity_17.png)
 
 ### 환불규정
 
@@ -1547,15 +1927,11 @@ GamePot.showPrivacy();
 GamePot.showRefund();
 ```
 
-![gamepot_unity_21](./images/gamepot_unity_21.png)
-
 ### 원격 구성
 
 대시보드로 등록한 매개변수 값을 클라이언트 상에서 가져옵니다.
 
 > 대시보드 - 설정 - 원격구성 화면에서 매개변수를 추가합니다.
-
-![gamepot_unity_18](./images/gamepot_unity_18.png)
 
 > 추가한 매개변수는 로그인 시점에 로드되며, 이후 시점부터 호출이 가능합니다.
 
@@ -1566,8 +1942,6 @@ var str_value = GamePot.getConfig("test_01");
 //대시보드에 추가한 모든 매개변수를 json string 형태로 가져옵니다.
 var json_value = GamePot.getConfigs();
 ```
-
-![gamepot_unity_22](./images/gamepot_unity_22.png)
 
 ### 결제 취소 악용자 자동 해지 기능
 
@@ -1580,11 +1954,25 @@ var json_value = GamePot.getConfigs();
 >
 > 취소한 결제를 모두 재결제 했을 시 자동으로 이용정지가 해제가 됩니다.
 
-![gamepot_unity_23](./images/gamepot_unity_23.png)
-
 ```csharp
 
 NVoidInfo info = new NVoidInfo();
+
+//테마 종류
+MATERIAL_RED,
+MATERIAL_BLUE,
+MATERIAL_CYAN,
+MATERIAL_ORANGE,
+MATERIAL_PURPLE,
+MATERIAL_DARKBLUE,
+MATERIAL_YELLOW,
+MATERIAL_GRAPE,
+MATERIAL_GRAY,
+MATERIAL_GREEN,
+MATERIAL_PEACH
+
+//테마 변경
+info.theme = "MATERIAL_ORANGE";
 
 // 문구 변경
 info.headerTitle = "Header Title Section!";
@@ -1599,20 +1987,19 @@ GamePot.setVoidBuilder(info);
 
 ```
 
-
 ### 게임 로그 전송
 
 게임에서 사용되는 정보를 담아 호출하면 `대시보드` - `게임`에서 조회가 가능합니다.
 
 아래는 사용할 수 있는 예약어 정의 표 입니다.
 
-| 예약어                            | 필수 | 타입   | 설명         |
-| :-------------------------------- | :--- | :----- | :----------- |
-| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     |
-| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         |
-| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   |
-| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 |
-| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          |
+| 예약어                            | 필수 | 타입   | 설명         | 최대 길이 |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | 필수 | String | 케릭터명     | 128       |
+| GamePotSendLogCharacter.LEVEL     | 선택 | String | 레벨         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | 선택 | String | 서버아이디   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | 선택 | String | 케릭터아이디 | 128       |
+| GamePotSendLogCharacter.USERDATA  | 선택 | String | ETC          | 128       |
 
 ```csharp
 String name = "케릭터명";
@@ -1632,6 +2019,65 @@ Boolean result = GamePot.characterInfo(characterLog);
 
 // Result is TRUE : validation success. Logs will send to GamePot Server
 // Result is FALSE : validation was failed. Please check logcat
+```
+
+### GDPR 약관 체크리스트
+
+대시보드에서 활성화 한, GDPR 약관 항목을 리스트형태로 가져옵니다.
+
+```csharp
+//리턴되는 데이터포맷은 string[] 입니다.
+GamePot.getGDPRCheckedList();
+
+//리턴되는 각 파라메터는, 대시보드의 다음 설정에 해당합니다.
+gdpr_privacy : 개인정보취급방침
+gdpr_term : 이용약관
+gdpr_gdpr : GDPR 이용약관
+gdpr_push_normal : 이벤트 Push 수신동의
+gdpr_push_night : 야간 이벤트 Push 수신동의 (한국만 해당)
+gdpr_adapp_custom : 개인 맞춤광고 보기에 대한 동의 (GDPR 적용국가)
+gdpr_adapp_nocustom : 개인 맞춤이 아닌 광보 보기에 대한 동의 (GDPR 적용국가)
+```
+
+### AppStatus 확인
+
+현재 클라이언트의 AppStatus를 확인할 수 있습니다.
+
+```csharp
+
+public enum ResultCheckAppStatus
+{
+    SUCCESS,
+    FAILED,
+    NEED_UPDATE,
+    MAINTENANCE
+}
+
+GamePot.checkAppStatus((NCommon.ResultCheckAppStatus resultState , NAppStatus appStatus, NError error) =>
+{
+    switch(resultState)
+    {
+        case NCommon.ResultCheckAppStatus.SUCCESS:
+        // 로그인 성공
+        break;
+
+        case NCommon.ResultCheckAppStatus.FAILED:
+        // Handling error
+        break;
+
+        case NCommon.ResultCheckAppStatus.NEED_UPDATE:
+        // 업데이트
+        // Handling appStatus
+        break;
+
+        case NCommon.ResultCheckAppStatus.MAINTENANCE:
+        // 점검
+        // Handling appStatus
+        break;
+        
+        default:
+        break;
+    }
 ```
 
 # 부록
@@ -1656,15 +2102,15 @@ GamePot.loginByThirdPartySDK("userid");
 
 > 결제 아이템이 게임팟 대시보드에 등록되어있어야 합니다.
 
-| 파라미터명       | 필수  | 타입    | 설명                                     |
-| :------------ | :--- | :----- | :-------------------------------------- |
-| productid     | 필수  | String | 게임팟 대시보드에 등록된 아이템 아이디            |
-| transactionid | 필수  | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)         |
-| store         | 필수  | String | (결제 스토어 - google, apple, one, galaxy) |
-| currency      | 선택  | String | 통화(KRW, USD)                           |
-| price         | 선택  | double | 결제 아이템 금액                            |
-| paymentid     | 선택  | String | 결제 payment (일반적으로 store_id와 동일)    |
-| uniqueid      | 선택  | String | 개발사에서 사용하는 고유 아이디                 |
+| 파라미터명    | 필수 | 타입   | 설명                                       |
+| :------------ | :--- | :----- | :----------------------------------------- |
+| productid     | 필수 | String | 게임팟 대시보드에 등록된 아이템 아이디     |
+| transactionid | 필수 | String | 결제 영수증 번호(GPA-xxx-xxxx-xxxx)        |
+| store         | 필수 | String | (결제 스토어 - google, apple, one, galaxy) |
+| currency      | 선택 | String | 통화(KRW, USD)                             |
+| price         | 선택 | double | 결제 아이템 금액                           |
+| paymentid     | 선택 | String | 결제 payment (일반적으로 store_id와 동일)  |
+| uniqueid      | 선택 | String | 개발사에서 사용하는 고유 아이디            |
 
 ```csharp
 String productId = "purchase_001";
@@ -1675,4 +2121,60 @@ String paymentId = "google";
 String uniqueId = "developer unique id";
 
 sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
+```
+
+## Firebase Unity SDK를 별도로 붙인 경우 주의점
+> 최초 한번 또는 패키지명이 변경될때 마다 Assets > External Dependency Manager > Android Resolver > Settings 내 Patch mainTemplate.gradle 옵션을 해제하신 후 (설정 변경 후 OK 버튼 클릭 필요 ) > Resolve 진행해주세요.
+
+Resolve 과정이 진행시 Firebase 라이브러리가 유니티 에디터상에 입력된 패키지명으로 리패키징 하는 과정을 진행이 되는데 패키지명이 잘못된 경우 앱 설치가 되지 않습니다.
+
+```csharp
+반영사항 확인 방법 :
+
+Resolve 작업 이후 com.google.firebase.firebase-common-[Firebase 라이브러리 버전].aar 내
+AndroidManifest.xml에서 android:authorities 값이
+버전에 맞는 패키지명 형식( [패키지명].firebaseinitprovider)으로 있는지 보시면 확인하시면 됩니다.
+
+<provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities=“[앱 패키지명].firebaseinitprovider"
+
+ex)앱 패키지명이 com.itsb.gamepot 일때
+( com.itsb.gamepot은 게임팟 샘플 패키지명이므로 예제와 같은 패키지명으로 되어 있으면 안됩니다.)
+
+<provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities=“com.itsb.gamepot.firebaseinitprovider"
+            .......
+
+```
+
+
+## Native 환경에서 수정이 필요할 때 
+> 유니티 플러그인 패키지를 이용하시는 경우 Android 환경일 때 io.gamepot.unity.plugin.GamePotSDKActivity 가 MainActivity로 해야 동작합니다. 
+다만 특정 광고툴의 기능을 위해 네이티브 환경상 수정을 해야 할 경우가 있을 때는 위 Class 를 상속받아서 별도 처리하는 MainActivity를 만들어 적용하셔야 합니다.
+
+상속받는 예제 브릿지 파일 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/UnityGameActivityBridge_sample.zip)
+(게임팟 SDK 3.2.0 기준 예제)
+
+위 예제 기준으로 설명드리면 아래와 같습니다.
+
+1. 프로젝트에 적용된 프로젝트 내 ../Assets/Plugins/Android/libs/gamepot-bridge.aar 파일을 
+다운로드 받은 프로젝트(상속받는 예제 브릿지 파일) 안에 있는 ../app/libs 경로의 파일과 교체 합니다.
+
+2. 작업을 완료 후 빌드를 하여 생성된 arr ( 예제 기준: GameActivity-bridge.aar )을 ../Assets/Plugins/Android/libs 폴더에 넣습니다. 
+ex)
+../Assets/Plugins/Android/libs/GameActivity-bridge.aar 
+
+3. 메인 액티비티 교체를 위해 AndroidManifest.xml 파일을 수정합니다. 
+
+```csharp
+기존 :
+        <activity android:theme="@style/UnityThemeSelector"
+            android:name="io.gamepot.unity.plugin.GamePotSDKActivity"
+
+수정 : 
+            android:name="io.gamepot.unity.plugin.Game.GameActivity"   //예제 기준: 빌드시 상속받은 액티비티로 변경
 ```

@@ -1,107 +1,96 @@
----
-search:
-  keyword: ["gamepot"]
----
+## 使用前<a name="使用前"></a>
 
-# Console
+GAME Platform On the real Time（下称 GAMEPOT）产品是无需额外投入开发费用，即可简单实现开发游戏并提供服务时所需功能的云服务。特别值得一提的是，该服务不仅提供通用 SDK，还提供运营游戏时需要的必备功能和各种附加功能，是一款可以让用户专注于游戏开发的完全管理型服务。不需要开发运营工具或 SDK 服务器及运营基础设施，即可有效使用资源。
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
+**NAVER Cloud Platform GAMEPOT 的专属特点**
 
-# 使用前
+- 提供游戏运营所需的各种功能。
+- 提供便于管理和统计的独立“仪表盘”。由于仪表盘并不是简单地按账户划分所有客户公司，因此数据安全性很高。
+- 客户可以直接管理有关游戏运营的仪表盘访问账户，因此更加安全。
+- 可以轻松关联 NAVER Cloud Platform 的各种产品。同时，关联产品的价格也十分合理。
 
-实时 GAME 平台（GAMEPOT）产品是一种云服务，可以轻松实现开发和服务游戏所需的功能，而不会产生额外的开发成本。特别是，它是一项完全托管的服务，可通过提供游戏操作所需的基本功能和各种附加功能以及通用 SDK，使用户专注于游戏开发。无需开发操作工具或 SDK 服务器并操作基础结构，因此可以提高资源效率。
+**Q. 其他公司的服务费用会随着游戏的规模扩大而提高。GAMEPOT 是怎样的？**
 
-**NAVER 云平台游戏独有的功能**
+GAMEPOT 采用的不是费用与游戏升级成比例增加的结构。当前国内外类似服务都具有游戏越火费用越高的低效率结构特点，因此发生了超出预期的额外费用。但是 GAMEPOT 具有包括基本 DAU 的定额收费制和超过基本 DAU 时只追加支付超出部分费用的计量收费制混合的混合型收费制。基本 DAU 为 50,000 DAU/天，这个量绝对不少。
 
-- 提供游戏操作所需的各种功能。
-- 提供了单独的“仪表盘”以方便管理和统计。仪表板不仅将所有客户分类到一个帐户中，而且非常安全。
-- 更安全，因为客户可以管理游戏操作的仪表板访问帐户。
-- 可以轻松地与各种 Naver Cloud 平台产品链接。另外，联锁产品的价格合理。
+**Q. 请描述一下仪表盘的安全性。**
 
-**问随着游戏的发展，第三方服务的成本也随之增加。 GAMEPOT 怎么样？**
+通过客户账户访问通用仪表盘时，一旦发生客户公司账户信息泄露，保存的所有数据都可能会外泄。虽然 NAVER Cloud Platform 的安全系统从源头上切断了信息外泄，但为了进一步加强安全，GAMEPOT 给所有客户都提供了不同的访问域和仪表盘系统，因此可以更安全地保护客户的数据。
 
-GAMEPOT 不是一种会随着游戏的增长而增加成本的结构。现有的国内外同类服务的结构效率低下，随着游戏变得更加成功，成本会增加，这会导致意外的额外费用。但是，GAMEPOT 的混合计划包括统一费率计划，其中包括基本 DAU 和按需付费计划，如果您超出基本 DAU，则仅按那些超额费用付费。默认的 DAU 为 50,000 DAU /天，这绝非一笔小数目。
+## 使用 GAMEPOT<a name="使用GAMEPOT"></a>
 
-**问描述您的仪表板安全性。**
+## 第一步. 创建项目<a name="第一步创建项目"></a>
 
-通过客户帐户访问公用仪表板时，如果客户帐户信息泄漏，则所有存储的数据可能会泄漏。 NAVER CLOUD PLATFORM 的安全性可以防止从源头泄漏外部信息，但是为了获得更强大的安全性，GAMEPOT 的所有客户都具有不同的访问域和仪表板系统，因此可以保持数据的安全性。
+要使用服务，必须先创建项目。
 
-# 使用 GAMEPOT
+![gamepot_console_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_01%282%29.png)
 
-## Step 1. 创建一个项目
+① 在控制台中选择**Game > GAMEPOT**。
 
-要使用该服务，您必须首先创建一个项目。
+![gamepot_console_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_02%282%29.png)
 
-![gamepot_console_01](./images/gamepot_console_01.png)
+② 点击 **[+创建项目]** 按钮。
 
-① 从控制台中选择 **Game > GAMEPOT**。
+![gamepot_console_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_03%282%29.png)
 
-![gamepot_console_02](./images/gamepot_console_02.png)
+③ 输入游戏项目名称。
 
-② 单击 **+创建项目**按钮。
+- 名称可输入最少 3 个字符、最多 30 个字符。
+- 只能输入英文字母、数字和“-”符号。
 
-![gamepot_console_03](./images/gamepot_console_03.png)
+④ 输入要在仪表盘中使用的管理员 ID。
 
-③ 输入游戏项目的名称。
+- 管理员 ID 以邮箱格式输入。
+- ID 认证所需的邮件会发送至输入的邮箱。
 
-- 您可以输入 3 至 30 个字符的名称。
-- 仅允许使用字母，数字和'-'符号。
+⑤ 选择产品。
 
-④ 输入用于仪表板的管理员 ID。
+![gamepot_console_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_04%282%29.png)
 
-- 以电子邮件形式输入管理员 ID。
-- 身份验证所需的邮件将传递到输入的邮件中。
+- 选择 Managed 产品时，会弹出一个服务申请向导窗口。
 
-⑤ 选择一个产品。
+⑥ 点击 **[创建项目]** 按钮，完成项目创建。
 
-![gamepot_console_04](./images/gamepot_console_04.png)
+- 创建项目后，会收取包括基本 DAU 的每小时费用。创建项目后，即使未使用也会收取费用，因此请慎重选择。
 
-- 如果选择被管理产品，则会显示一个用于请求单独服务的弹出窗口。
+项目创建后，会显示可访问仪表盘的 URL。须进入管理员 ID 邮箱确认邮件，完成管理员认证。
 
-⑥ 单击“创建项目”按钮以完成项目创建。
+邮件认证成功后，转到可输入初始密码的仪表盘窗口。设置初始密码后登录即可。
 
-- 创建项目时，您需要按小时收费，其中包括基本 DAU。创建项目后，即使不使用它也要收费，因此必须仔细选择。
+### 第二步. 管理项目<a name="第二步管理项目"></a>
 
-创建项目后，将显示访问仪表板的 URL。您必须通过检查输入的带有管理员 ID 的电子邮件来完成管理员身份验证。
+项目创建成功后，可看到标注了游戏项目名和产品名的列表画面。
 
-电子邮件验证完成后，您将被定向到仪表板窗口，您可以在其中输入初始密码。 设置初始密码后，请登录。
+![gamepot_console_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_06%282%29.png)
 
-## Step 2. 管理项目
+① 可以通过仪表盘 URL 进入可管理游戏功能的仪表盘。
 
-创建项目后，您会看到带有游戏项目名称和产品名称的列表屏幕。
+② 勾选项目并点击 **[项目管理]** 按钮时，会显示简单的管理菜单。
 
-![gamepot_console_06](./images/gamepot_console_06.png)
+![gamepot_console_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_07%282%29.png)
 
-① 您可以通过仪表板 URL 进入仪表板来管理游戏功能。
+- 更改产品：更改正在使用的服务产品。可能会出现暂时无法访问仪表盘的情况。点击 **[更改产品]** 按钮时，会弹出如下弹窗。选择要更改的产品后点击 **[修改]** 按钮。
 
-② 检查项目，然后单击**项目管理**按钮以显示简单的管理菜单。
+![gamepot_console_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_08%282%29.png)
 
-![gamepot_console_07](./images/gamepot_console_07.png)
+![gamepot_console_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_08%283%29.png)
 
-- 更改产品：更改正在使用的服务产品。 您可能无法暂时访问仪表板。 如果单击**更改产品**按钮，则会显示以下弹出窗口。 选择要更改的产品，然后单击**编辑**按钮。
+- 更改账户：可以更改创建项目时输入的管理员 ID。完成更改申请后，向更改的账户邮箱地址发送认证邮件。
 
-![gamepot_console_08](./images/gamepot_console_08.png)
+- 密码初始化：仪表盘访问密码丢失或者需要初始化时使用。密码初始化之后访问仪表盘，可以重新设置密码。
 
-- 更改帐户：您可以更改在创建项目时输入的管理员 ID。 更改请求完成后，身份验证电子邮件将发送到更改帐户的电子邮件地址。
+![gamepot_console_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_09%282%29.png)
 
-- 密码重置：当访问仪表板的密码丢失或需要重置时使用。 初始化密码后，访问仪表板以重置密码。
+### 第三步. 删除项目<a name="第三步删除项目"></a>
 
-![gamepot_console_09](./images/gamepot_console_09.png)
+GAMEPOT 从项目创建完成时开始按小时产生费用。因此，不需要时应删除项目，以免产生不必要的费用。
 
-## Step 3. 删除专案
+![gamepot_console_10.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_10%282%29.png)
 
-从创建项目开始，GAMEPOT 将按小时收费。 因此，如果您不需要它，则应删除该项目，以避免产生不必要的费用。
+① 删除项目时，点击 **[删除项目]** 按钮。点击 **[删除项目]** 按钮时，会弹出如下弹窗。
 
-![gamepot_console_10](./images/gamepot_console_10.png)
+![gamepot_console_11.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_11%282%29.png)
 
-① 要删除项目，请单击**删除项目**按钮。 如果单击**删除项目**按钮，则会显示以下弹出窗口。
+② 为了完成删除，需要输入项目名称。
 
-![gamepot_console_11](./images/gamepot_console_11.png)
-
-② 要删除，必须输入项目名称。
-
-③ 显示与上面相同的弹出窗口，如果单击**OK**按钮，则删除操作最终完成。
+③ 出现如上弹窗，点击 **[确定]** 按钮时，将进行最终删除。
