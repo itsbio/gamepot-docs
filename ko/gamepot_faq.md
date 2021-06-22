@@ -531,7 +531,7 @@ GamePot 사전예약 페이지의 Category Id : 저장한 명칭을 선택 후 �
 
 ```text
 POST
-url : https://alpha-api.gamepot.io/v1/phone/request
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/phone/request
 Header : 'content-type: application/json'
 data:
 {
