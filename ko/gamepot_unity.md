@@ -852,6 +852,12 @@ Public void UI_Update()
 ```
 
 ## 7. 결제
+> 게임팟 결제는 소모성 인앱 상품 타입만을 지원하고 있으며 원스토어 인앱 SDK는 V17버전만 지원합니다.
+
+> 원스토어 인앱 SDK 포함 : gamepot-billing-onestore.aar
+
+> 갤럭시 스토어 인앱 SDK 포함: gamepot-billing-galaxystore.aar
+
 
 ### 인앱 상품 조회
 
