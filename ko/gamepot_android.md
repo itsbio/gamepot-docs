@@ -580,6 +580,8 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 ```
 
 ## 5. 결제
+> 게임팟 결제는 소모성 인앱 상품 타입만을 지원하고 있으며 원스토어 인앱 SDK는 V17버전만 지원합니다. 
+(원스토어 인앱 SDK 포함 : gamepot-billing-onestore.aar / 갤럭시 스토어 인앱 SDK 포함: gamepot-billing-galaxystore.aar)
 
 결제의 결과 값은 Listener 형태로 구현되어 있습니다.
 
