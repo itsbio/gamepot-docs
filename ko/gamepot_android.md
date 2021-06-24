@@ -159,7 +159,7 @@ apply plugin: 'com.google.gms.google-services'
 
    Android Studio에서 **[아래]** 버튼을 클릭하여 새로고침합니다.
 
-![gamepot_android_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_03%285%29.png){height="" width=""}
+![gamepot_android_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_03%285%29.png)
 
 - 새로고침을 누른 후 발생할 수 있는 실패
 
