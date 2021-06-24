@@ -26,7 +26,7 @@ search:
 
 \[ 系统环境 \]
 
-- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 3.3.3 以上
+- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 3.3.3 或 gradle 3.4.3 或更高
 - 开发环境: Android Studio
 
 #### 创建项目
@@ -115,42 +115,43 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     // GamePot common [START]
-    compile(name: 'gamepot-common', ext: 'aar')
-    compile('io.socket:socket.io-client:1.0.0') {
+    implementation(name: 'gamepot-common', ext: 'aar')
+    implementation('io.socket:socket.io-client:1.0.0') {
         exclude group: 'org.json', module: 'json'
     }
-    compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
         exclude group: 'org.json', module: 'json'
     }
-    compile "com.github.nisrulz:easydeviceinfo:2.4.1"
-    compile 'com.android.installreferrer:installreferrer:1.0'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.jakewharton.timber:timber:4.7.0'
-    compile 'com.squareup.okhttp3:okhttp:3.10.0'
-    compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-    compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    compile 'com.android.billingclient:billing:3.0.3'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.romandanylyk:pageindicatorview:1.0.3'
-    compile 'com.google.firebase:firebase-core:16.0.6'
-    compile 'com.google.firebase:firebase-messaging:17.3.4'
-    compile 'androidx.sqlite:sqlite-framework:2.0.1'
-    compile 'com.cookpad.puree:puree:4.1.6'
+    implementation "com.github.nisrulz:easydeviceinfo:2.4.1"
+    implementation 'pub.devrel:easypermissions:1.3.0'
+    implementation 'com.android.installreferrer:installreferrer:1.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.jakewharton.timber:timber:4.7.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+    implementation 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+    implementation 'com.android.billingclient:billing:3.0.3'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+    implementation 'androidx.sqlite:sqlite-framework:2.0.1'
+    implementation 'com.cookpad.puree:puree:4.1.6'
+    implementation 'com.google.firebase:firebase-core:18.0.1'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
     // GamePot common [END]
 
-    compile(name: 'gamepot-channel-base', ext: 'aar')
+    implementation(name: 'gamepot-channel-base', ext: 'aar')
     // GamePot facebook [START]
-    compile(name: 'gamepot-channel-facebook', ext: 'aar')
-    compile 'com.facebook.android:facebook-android-sdk:5.2.0'
+    implementation(name: 'gamepot-channel-facebook', ext: 'aar')
+    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
     // GamePot facebook [END]
 
     // GamePot google sigin [START]
-    compile(name: 'gamepot-channel-google-signin', ext: 'aar')
-    compile "com.google.android.gms:play-services-base:16.0.1"
-    compile "com.google.android.gms:play-services-auth:16.0.1"
+    implementation(name: 'gamepot-channel-google-signin', ext: 'aar')
+    implementation "com.google.android.gms:play-services-auth:19.0.0"
     // GamePot google sigin [END]
 }
 
@@ -718,25 +719,67 @@ import io.gamepot.channel.GamePotChannelLoginBuilder;
 import io.gamepot.channel.GamePotUserInfo;
 import io.gamepot.common.GamePotError;
 
-String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
+ArrayList<GamePotChannelType> channelList = new ArrayList<>( Arrays.asList(GamePotChannelType.GOOGLE, GamePotChannelType.FACEBOOK,GamePotChannelType.NAVER, GamePotChannelType.TWITTER, GamePotChannelType.LINE, GamePotChannelType.APPLE, GamePotChannelType.GUEST) );
+
 GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
 
 // 点击Google登录按钮时调用
-GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+GamePotChannel.getInstance().showLoginWithUI(MainActivity.this, builder, new GamePotAppStatusChannelLoginDialogListener<GamePotUserInfo>() {
+
+    @Override
+    public void onExit() {
+        // 单击 X 按钮时的处理
+    }
+
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status) {
+        // TODO: 需要强制更新时。 如果您调用下面的API，则SDK本身可以弹出。
+        // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
+                // TODO：请注意终止过程。
+                MainActivity.this.finish();
+            }
+
+            @Override
+            public void onNext(Object obj) {
+                // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
+                //当用户选择按钮时调用。
+                // TODO：使用obj信息来进行与登录时相同的处理。
+                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
+            }
+        });
+    }
+
+    @Override
+    public void onMainternance(GamePotAppStatus status) {
+        // TODO: 如果您正在检查。 如果您调用下面的API，则SDK本身可以弹出。
+        // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO：调用showAppStatusPopup API时，需要关闭应用程序时调用。
+                // TODO：请注意终止过程。
+                MainActivity.this.finish();
+            }
+        });
+    }
+
     @Override
     public void onCancel() {
-        // 用户已取消登录。
+        // 用户取消登录的情况。
     }
 
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
         // 登录完成。 请根据游戏逻辑处理。
-        // userinfo.getMemberid()：会员固有ID
     }
 
     @Override
     public void onFailure(GamePotError error) {
-        // 登录失败，请通过error.getMessage()显示错误消息。
+        // 登录失败。 使用error.getMessage（）显示错误消息。
     }
 });
 ```

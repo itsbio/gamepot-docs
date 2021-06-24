@@ -20,7 +20,7 @@ Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같�
 
 \[ 시스템 환경 \]
 
-- 최소사항: API 17 \(Jelly Bean, 4.2\) 이상, gradle 3.3.3 이상
+- 최소사항: API 17 \(Jelly Bean, 4.2\) 이상, gradle 3.3.3 또는 gradle 3.4.3 이상
 - 개발 환경: Android Studio
 
 #### 프로젝트 생성
@@ -110,42 +110,43 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:multidex:1.0.1'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     // GamePot common [START]
-    compile(name: 'gamepot-common', ext: 'aar')
-    compile('io.socket:socket.io-client:1.0.0') {
+    implementation(name: 'gamepot-common', ext: 'aar')
+    implementation('io.socket:socket.io-client:1.0.0') {
         exclude group: 'org.json', module: 'json'
     }
-    compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
         exclude group: 'org.json', module: 'json'
     }
-    compile "com.github.nisrulz:easydeviceinfo:2.4.1"
-    compile 'com.android.installreferrer:installreferrer:1.0'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.jakewharton.timber:timber:4.7.0'
-    compile 'com.squareup.okhttp3:okhttp:3.10.0'
-    compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-    compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    compile 'com.android.billingclient:billing:3.0.3'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.romandanylyk:pageindicatorview:1.0.3'
-    compile 'com.google.firebase:firebase-core:16.0.6'
-    compile 'com.google.firebase:firebase-messaging:17.3.4'
-    compile 'androidx.sqlite:sqlite-framework:2.0.1'
-    compile 'com.cookpad.puree:puree:4.1.6'
+    implementation "com.github.nisrulz:easydeviceinfo:2.4.1"
+    implementation 'pub.devrel:easypermissions:1.3.0'
+    implementation 'com.android.installreferrer:installreferrer:1.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.jakewharton.timber:timber:4.7.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+    implementation 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+    implementation 'com.android.billingclient:billing:3.0.3'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+    implementation 'androidx.sqlite:sqlite-framework:2.0.1'
+    implementation 'com.cookpad.puree:puree:4.1.6'
+    implementation 'com.google.firebase:firebase-core:18.0.1'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
     // GamePot common [END]
 
-    compile(name: 'gamepot-channel-base', ext: 'aar')
+    implementation(name: 'gamepot-channel-base', ext: 'aar')
     // GamePot facebook [START]
-    compile(name: 'gamepot-channel-facebook', ext: 'aar')
-    compile 'com.facebook.android:facebook-android-sdk:5.2.0'
+    implementation(name: 'gamepot-channel-facebook', ext: 'aar')
+    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
     // GamePot facebook [END]
 
     // GamePot google sigin [START]
-    compile(name: 'gamepot-channel-google-signin', ext: 'aar')
-    compile "com.google.android.gms:play-services-base:16.0.1"
-    compile "com.google.android.gms:play-services-auth:16.0.1"
+    implementation(name: 'gamepot-channel-google-signin', ext: 'aar')
+    implementation "com.google.android.gms:play-services-auth:19.0.0"
     // GamePot google sigin [END]
 }
 
@@ -716,11 +717,55 @@ import io.gamepot.channel.GamePotChannelLoginBuilder;
 import io.gamepot.channel.GamePotUserInfo;
 import io.gamepot.common.GamePotError;
 
-String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
+
+//예시)
+ArrayList<GamePotChannelType> channelList = new ArrayList<>( Arrays.asList(GamePotChannelType.GOOGLE, GamePotChannelType.FACEBOOK,GamePotChannelType.NAVER, GamePotChannelType.TWITTER, GamePotChannelType.LINE, GamePotChannelType.APPLE, GamePotChannelType.GUEST) );
+
 GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
 
 // 구글 로그인 버튼을 눌렀을 때 호출
-GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
+GamePotChannel.getInstance().showLoginWithUI(MainActivity.this, builder, new GamePotAppStatusChannelLoginDialogListener<GamePotUserInfo>() {
+    @Override
+    public void onExit() {
+        // X 버튼 클릭시 처리 
+    }
+
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status) {
+        // TODO: 강제 업데이트가 필요한 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
+        // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+                // TODO: 종료 프로세스를 처리해주세요.
+                MainActivity.this.finish();
+            }
+
+            @Override
+            public void onNext(Object obj) {
+                // TODO : Dashboard 업데이트 설정에서 권장 설정 시 "다음에 하기" 버튼이 노출 됩니다.
+                // 해당 버튼을 사용자가 선택 시 호출 됩니다.
+                // TODO : obj 정보를 이용하여 로그인 완료 시와 동일하게 처리해주세요.
+                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
+            }
+        });
+    }
+
+    @Override
+    public void onMainternance(GamePotAppStatus status) {
+        // TODO: 점검 중인 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
+        // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
+                // TODO: 종료 프로세스를 처리해주세요.
+                MainActivity.this.finish();
+            }
+        });
+    }
+
     @Override
     public void onCancel() {
         // 사용자가 로그인을 취소한 상황.
@@ -729,7 +774,6 @@ GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatus
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
         // 로그인 완료. 게임 로직에 맞게 처리해주세요.
-        // userinfo.getMemberid() : 회원 고유 아이디
     }
 
     @Override
