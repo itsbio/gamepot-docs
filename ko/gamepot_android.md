@@ -25,14 +25,14 @@ Android에서 GAMEPOT을 사용하기 위한 시스템 환경은 다음과 같�
 
 #### 프로젝트 생성
 
-![gamepot_android_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_01%284%29.png){height="" width=""}
+![gamepot_android_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_01%284%29.png)
 
 
 #### 라이브러리 추가
 
 다운로드한 AOS SDK 파일을 app/libs 폴더에 추가합니다.
 
-![gamepot_android_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_02%283%29.png){height="" width=""}
+![gamepot_android_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_02%283%29.png)
 
 #### build.gradle 설정
 
