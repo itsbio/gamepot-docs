@@ -188,7 +188,7 @@ apply plugin: 'com.google.gms.google-services'
 
     <!--allowBackupを必ずfalseにしてください。(ゲームが再インストールされると自動的にshared preference値が復元されるのを防ぐためです。)-->
     <application
-        android:name="android.support.multidex.MultiDexApplication"
+        android:name="androidx.multidex.MultiDexApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup">
 

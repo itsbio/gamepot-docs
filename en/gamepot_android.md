@@ -188,7 +188,7 @@ Add settings generally used for games. Refer to the following code example for m
 
     <!--allowBackup must be set to false. (This is to prevent shared preference from automatically being restored when the game is reinstalled.)-->
     <application
-        android:name="android.support.multidex.MultiDexApplication"
+        android:name="androidx.multidex.MultiDexApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup">
 
