@@ -652,6 +652,9 @@ data:
 | code      | Int    | 결과값 \(200: 성공, 404 :실패 \)                    |
 | error     | String | 상황별 오류 내용 전달                                |
 
+#### 사전예약 사이트 관련  PHP 소스 기반 소스
+
+다운로드 : [Download](https://kr.object.ncloudstorage.com/itsb/patch/pre_php_v1.tgz)
 
 ## GooglePlayGames API
 
