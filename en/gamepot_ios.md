@@ -70,7 +70,7 @@ gamepot_elsa_projectid: GAMEPOT log project ID (optional)
 
 #### Step 6. Add build options
 
-Add -ObjC to **Build Settings &gt; Linking &gt; Other Linker Flags**.
+Add -ObjC -lz -lstdc++ -lc++ to **Build Settings &gt; Linking &gt; Other Linker Flags**.
 
 ![gamepot_ios_06](./images/gamepot_ios_06.png)
 

@@ -76,7 +76,7 @@ gamepot_elsa_projectid：GAMEPOT日志项目ID（可选）
 
 #### Step 6. 添加构建选项
 
-**Build Settings > Linking > Other Linker Flags** 将-ObjC 选项添加到该部分。
+**Build Settings > Linking > Other Linker Flags** 将 -ObjC -lz -lstdc++ -lc++ 选项添加到该部分。
 
 ![gamepot_ios_06](./images/gamepot_ios_06.png)
 

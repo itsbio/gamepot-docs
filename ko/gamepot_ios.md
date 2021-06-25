@@ -73,7 +73,7 @@ gamepot_elsa_projectid : GAMEPOT 로그 프로젝트 아이디(optional)
 
 #### Step 6. 빌드 옵션 추가
 
-**Build Settings &gt; Linking &gt; Other Linker Flags** 섹션에 -ObjC 옵션을 추가합니다.
+**Build Settings &gt; Linking &gt; Other Linker Flags** 섹션에 -ObjC -lz -lstdc++ -lc++ 옵션을 추가합니다.
 
 ![gamepot_ios_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_06%284%29.png)
 

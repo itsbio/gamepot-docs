@@ -70,7 +70,7 @@ gamepot_elsa_projectid：GAMEPOTログプロジェクトID(optional)
 
 #### Step 6. ビルドオプション追加
 
-**Build Settings &gt; Linking &gt; Other Linker Flags**セクションに-ObjC オプションを追加します。
+**Build Settings &gt; Linking &gt; Other Linker Flags**セクションに -ObjC -lz -lstdc++ -lc++ オプションを追加します。
 
 ![gamepot_ios_06](./images/gamepot_ios_06.png)
 
