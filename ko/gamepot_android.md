@@ -297,7 +297,7 @@ APK 빌드 시 사용한 Keystore의 SHA-1 값을 Firebase console에 추가합�
 > SHA-1 값은 개발사에 요청합니다.
 
 
-![gamepot_android_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_05%284%29.png){height="" width=""}
+![gamepot_android_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_05%284%29.png)
 
 ### 페이스북 콘솔 설정
 
@@ -306,7 +306,7 @@ APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 �
 > 키 해시 값은 개발사에 요청합니다.
 
 
-![gamepot_android_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_06%284%29.png){height="" width=""}
+![gamepot_android_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_06%284%29.png)
 
 ### 설정
 

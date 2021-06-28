@@ -607,20 +607,33 @@ NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER
 GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
- [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
-    // ログイン成功
-    } cancel:^{
-    // ログインキャンセル
-    } fail:^(NSError *error) {
-    // ログイン失敗
-    } update:^(GamePotAppStatus *appStatus) {
-    // アップデート
-    } maintenance:^(GamePotAppStatus *appStatus) {
-    // メンテナンス
-    } exit:^{
-    // showLoginWithUI終了
-    }
-];
+[[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {
+    // ログイン完了。ゲームのロジックに合わせて処理してください。
+        
+} update:^(GamePotAppStatus *appStatus) {
+    // TODO: 強制アップデートが必要な場合。以下のAPIを呼び出すと、SDK自体でポップアップを表示できます。
+    // TODO: カスタマイズしたい場合は、以下のAPIを呼び出さずにカスタマイズしてください。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: showAppStatusPopup APIを呼び出した場合、アプリを終了しなければならない状況で呼び出されます。
+        // TODO: 終了プロセスを処理してください。
+    } setNextHandler:^(NSObject* resultPayload) {
+        // TODO : Dashboardアップデートの設定で推奨を選択すると、｢後でする｣ボタンが表示されます。
+        // このボタンをユーザーが選択すると呼び出されます。
+        // TODO : resultPayload情報を用いてログイン完了時と同様に処理してください。
+        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+    }];
+} maintenance:^(GamePotAppStatus *appStatus) {
+    // TODO: メンテナンス中の場合。以下のAPIを呼び出すと、SDK自体でポップアップを表示できます。
+    // TODO: カスタマイズしたい場合は、以下のAPIを呼び出さずにカスタマイズしてください。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: showAppStatusPopup APIを呼び出した場合、アプリを終了しなければならない状況で呼び出されます。
+        // TODO: 終了プロセスを処理してください。
+    }];
+} exit:^{
+    // X ボタンをクリック時の処理
+}];
 ```
 
 #### ログイン UI の画像ロゴの設定

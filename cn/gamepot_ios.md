@@ -612,20 +612,34 @@ NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER
 GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
- [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
-    // 登录成功
-    } cancel:^{
-    // 登录取消
-    } fail:^(NSError *error) {
-    // 登录失败
-    } update:^(GamePotAppStatus *appStatus) {
-    // 更新
-    } maintenance:^(GamePotAppStatus *appStatus) {
-    // 维护
-    } exit:^{
-    // showLoginWithUI终止
-    }
-];
+[[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {
+    // 登录完成。 请根据游戏逻辑处理。
+            
+} update:^(GamePotAppStatus *appStatus) {
+    // TODO: 需要强制更新时。 如果您调用下面的API，则SDK本身可以弹出。
+     // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
+         // TODO：请注意终止过程。
+    } setNextHandler:^(NSObject* resultPayload) {
+        // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
+         //当用户选择按钮时调用。
+         // TODO：使用resultPayload信息以与登录完成时相同的方式对其进行处理。
+        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+
+    }];
+} maintenance:^(GamePotAppStatus *appStatus) {
+    // TODO: 如果您正在检查。 如果您调用下面的API，则SDK本身可以弹出。
+     // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
+         // TODO：请注意终止过程。
+    }];
+} exit:^{
+    // 单击 X 按钮时的处理
+}];
 ```
 
 #### 设置登录 UI 镜像标志
