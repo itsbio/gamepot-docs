@@ -72,7 +72,7 @@ NAVER Cloud Platform의 콘솔에서 대시보드 URL을 클릭하여 대시보�
 
 #### Retention<a name="Retention"></a>
 
-![gamepot_dashboard_98.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_98%289%29.png){height=" " width=""}
+![gamepot_dashboard_98.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_98%289%29.png)
 
 Retention 데이터를 확인할 수 있습니다. [Retention D+0]은 가입일부터 지표에 표시되고 [Retention D+1]은 가입일의 다음날에도 접속한 회원부터 표시됩니다.
 
