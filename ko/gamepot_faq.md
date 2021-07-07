@@ -168,6 +168,25 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_12](./images/gamepot_faq_12.png)
 
+### 7. Apple 로그인 ( Android )
+
+1. 로그인 시도시 오류 메시지 : Insufficient data! 일때 
+
+    게임팟 > 대시보드 > 프로젝트 설정 > 일반 > Apple ID Login 항목에 관련 설정이 없는 경우입니다. 도움말 버튼 내 내용을 확인하여 기입합니다.
+
+2. 로그인 시도시 invalid_client 오류 화면이 보여졌을때 
+
+    애플 콘솔상에서 'Primary App ID' 항목에 사용할 앱을 선택하고 'Register Website URLs' 항목에 게임팟 API 도메인과 Return URL을 입력 값이 잘못 처리된 경우입니다.
+
+    도움말 버튼 내 Client ID 설정하기 7번 항목을 참고 합니다.
+
+3. 애플 SDK 로그인 성공 후 로그인 실패 / 오류 메시지가 Error occurs from apple server. 인 경우 
+
+    게임팟 > 대시보드 > 프로젝트 설정 > 일반 > Apple ID Login 항목에 기입된 정보가 잘못된 부분이 존재하여 애플 서버에서 오류를 발생한 경우입니다. 
+
+    도움말 버튼 내 Key 설정하기 파트를 확인 하면서 키값을 다시 저장 합니다.
+
+
 ## 결제가 안 돼요!
 
 ### 1. 공통
@@ -1360,7 +1379,7 @@ ex)
     ../Assets/Sample 폴더 및 파일 삭제
 
 
-####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
+###  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
 
     Unity 엔진 버전에 따라 유니티 플러그인 패키지가 분기되었던 부분에 대해 수정 작업을 진행하였으며
     Firebase 및 Google Resolver 버전이 1.2.116.0에서 1.2.155 으로 업데이트가 있었습니다.
