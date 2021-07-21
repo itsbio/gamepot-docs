@@ -25,6 +25,13 @@ ref.) 해당 부분이 패치된 라이브러리의 교체로 대신할 수 있�
 
 ## 플레이 스토어 APK 업로드 시, com.nhncorp.nelo2.android.util 암호화패턴 보안알림 발생
 
+  게임팟 SDK 3.3.0 부터는  nelo2-android-sdk-https-0.12.0.aar / nelo2-android-sdk-common-0.12.0.aar 가 탑재가 되어 있으며 위 이슈는 해결이 되었습니다.
+
+  다만 변경된 네이버 클라우드 ELSA 라이브러리로 인해 minSDK 버전이 19이상으로 해야 합니다.
+
+
+[게임팟 SDK 3.2.0 이하 버전 기준]
+
 ⒈ logging 기능 관련 라이브러리가 obsolete여서 발생하는 문제
 
 ⒉ (대시보드 로그 기능을 사용하지 않을 경우) Gamepot SDK의 라이브러리 중, 아래 목록의 라이브러리를 제거
@@ -35,6 +42,24 @@ ref.) 해당 부분이 패치된 라이브러리의 교체로 대신할 수 있�
  | 2. nelo2-android-sdk-common-0.10.2.jar |
  | 3. nelo2-android-sdk-https-0.10.2.jar |
  |||
+
+
+## IOS 빌드시 오류 발생 
+
+오류 예제 :
+
+error: Building for iOS, but the linked and embedded framework 'XXXXXX.framework' was built for iOS + iOS Simulator.
+
+위 경우는 'XXXXXX.framework'가 i386 x86_64 Archive 정보를 가지고 있어서 발생하는 부분입니다. 
+
+```text
+(허용되지 않은 아키텍쳐를 제거하는 코드 입니다.)  
+
+만일 NaverThirdPartyLogin.framework가 문제였다면 아래와 같이 작업하여 제거 후 빌드를 진행합니다.
+
+lipo -remove x86_64 ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin -o ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin
+lipo -remove i386 ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin -o ./NaverThirdPartyLogin.framework/NaverThirdPartyLogin
+```
 
 ## Line i386 x86_64 IOS Archive 업로드 이슈
 
