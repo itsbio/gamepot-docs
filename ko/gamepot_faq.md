@@ -6,6 +6,30 @@
 
 > 소셜 로그인 기능의 경우, 기본적으로 해당 플랫폼의 개발 가이드를 기준으로 합니다. 문제 발생 시, 해당 플랫폼의 로그인 개발 가이드를 먼저 확인 해주세요.
 
+
+### 0. 공통
+
+    # Q. 로그인 시도시 아래와 같은 오류가 보여질때
+
+        Please check if you have set the 'XXXX' channel before using it. Did you import or set 'XXXX' information in gradle.build file
+
+    # A. XXXX 타입의 로그인에 필요한 게임팟 SDK 라이브러리가 없거나 초기화 시점 후 로그인 관련 설정을 안 한 경우입니다.
+
+1. Android / IOS 네이티브 환경인 경우 
+
+    - 로그인 관련 게임팟 라이브러리가 빌드시 탑재가 되어 있는지 확인 ( 예시 : android 기준 애플 로그인시 gamepot-channel-apple-signin.aar 파일이 탑재되어 있어야 합니다. )
+
+    - 로그인 타입에 맞는 설정 값이 들어가 있는지 확인합니다. ( 예시 : (Android) build.gradle / (IOS) GamePotConfig-Info.plist 내에 설정 값 세팅 및 기타 설정 진행 )
+
+    - addchannel 처리가 되어 있는지 확인이 필요 합니다 ( 예시 : android 기준 애플 로그인을 위헤 게임팟 SDK 초기화 작업 이후 GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin()); )
+
+2. 유니티 환경인 경우 
+
+    - 로그인 관련 게임팟 라이브러리가 빌드시 탑재가 되어 있는지 확인 ( 예시 : android 기준 /Assets/Plugins/Android/libs 폴더에 gamepot-channel-apple-signin.aar 파일이 탑재되어 있어야 합니다. )
+
+    - 로그인 타입에 맞는 설정 값이 들어가 있는지 확인합니다. 
+    ( 예시 :  Unity 2019.02.XX 이전 버전 : mainTemplate.gradle / Unity 2019.03.XX 이후 버전  : launcherTemplate.gradle 내에 설정 값 세팅 및 기타 설정 진행 )
+
 ### 1. Google 로그인
 
 #### 1-1)
