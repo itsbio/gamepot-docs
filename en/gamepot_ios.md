@@ -1126,6 +1126,8 @@ TODO : Description
 
 > It does not support auto login. Call is required every time.
 
+> Userid value must not contain :(colon).
+
 | Parameter Name | Required | Type             | Description                     |
 | :------------- | :------- | :--------------- | :------------------------------ |
 | viewController | Required | UIViewController | Current ViewContoller           |

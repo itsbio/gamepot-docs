@@ -2094,6 +2094,8 @@ GamePot.checkAppStatus((NCommon.ResultCheckAppStatus resultState , NAppStatus ap
 
 > 자동 로그인을 지원하지 않음. 매번 호출 필요.
 
+> userid 값에 :(colon) 이 들어가면 안됩니다.
+
 | 파라미터명 | 필수 | 타입   | 설명               |
 | :--------- | :--- | :----- | :----------------- |
 | userid     | 필수 | String | 유저 유니크 아이디 |

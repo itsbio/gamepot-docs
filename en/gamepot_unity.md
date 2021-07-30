@@ -1932,6 +1932,8 @@ gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries wh
 
 > It does not support auto login. Call is required every time.
 
+> Userid value must not contain :(colon).
+
 | Parameter Name | Required | Type   | Description      |
 | :------------- | :------- | :----- | :--------------- |
 | userid         | Required | String | User’s unique ID |
