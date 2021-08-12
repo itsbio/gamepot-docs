@@ -577,6 +577,14 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 
 ## 5. Payment
 
+> Gamepot payment supports only consumable in-app product types, and One Store in-app SDK supports only V17 version.
+
+> One-store in-app SDK included: gamepot-billing-onestore.aar
+
+> Galaxy Store in-app SDK included: gamepot-billing-galaxystore.aar
+
+> MyCard In-App SDK included: gamepot-billing-mycard.aar (Please do not include it in the Google Store build.)
+
 The results of payment are implemented as Listener.
 
 When the app starts in MainActivity.java, mark it as called.

@@ -577,6 +577,14 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 
 ## 5. 決済
 
+>ゲームポットの支払いは、消費可能なアプリ内製品タイプのみをサポートし、OneStoreアプリ内SDKはV17バージョンのみをサポートします。
+
+> OneStoreアプリ内SDKが含まれています：gamepot-billing-onestore.aar
+
+> Galaxy Storeアプリ内SDKが含まれています：gamepot-billing-galaxystore.aar
+
+> MyCard In-App SDKに含まれるもの：gamepot-billing-mycard.aar（Googleストアビルドには含めないでください。）
+
 決済の結果値は Listener 形式で実装されています。
 
 MainActivity.java でアプリを実行する際、一度呼び出すように宣言します。

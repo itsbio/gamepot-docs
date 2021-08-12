@@ -785,6 +785,14 @@ Public void UI_Update()
 
 ## 7. 付款
 
+> Gamepot支付仅支持消耗型应用内商品类型，One Store应用内SDK仅支持V17版本。
+
+> 包含 OneStore 应用内 SDK：gamepot-billing-onestore.aar
+
+> 包含 Galaxy Store 应用内 SDK：gamepot-billing-galaxystore.aar
+
+> 包含 MyCard In-App SDK：gamepot-billing-mycard.aar（请不要将其包含在 Google Store 版本中。）
+
 ### 应用内商品查询
 
 交付在商店中注册的产品信息。

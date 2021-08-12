@@ -583,6 +583,14 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 
 ## 5. 支付
 
+> Gamepot支付仅支持消耗型应用内商品类型，One Store应用内SDK仅支持V17版本。
+
+> 包含 OneStore 应用内 SDK：gamepot-billing-onestore.aar
+
+> 包含 Galaxy Store 应用内 SDK：gamepot-billing-galaxystore.aar
+
+> 包含 MyCard In-App SDK：gamepot-billing-mycard.aar（请不要将其包含在 Google Store 版本中。）
+
 支付的结果值以 Listener 形式来实现。
 
 声明 MainActivity.java 在执行运行应用程序时调用一次。

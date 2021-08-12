@@ -778,6 +778,14 @@ Public void UI_Update()
 
 ## 7. Payment
 
+> Gamepot payment supports only consumable in-app product types, and One Store in-app SDK supports only V17 version.
+
+> One-store in-app SDK included: gamepot-billing-onestore.aar
+
+> Galaxy Store in-app SDK included: gamepot-billing-galaxystore.aar
+
+> MyCard In-App SDK included: gamepot-billing-mycard.aar (Please do not include it in the Google Store build.)
+
 ### Get in-app products
 
 It gets in-app products registered in the store.

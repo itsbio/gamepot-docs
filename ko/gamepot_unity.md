@@ -858,6 +858,7 @@ Public void UI_Update()
 
 > 갤럭시 스토어 인앱 SDK 포함: gamepot-billing-galaxystore.aar
 
+> 마이카드 인앱 SDK 포함 : gamepot-billing-mycard.aar ( 구글 스토어 빌드에는 포함되지 않도록 조치 해주세요.)
 
 ### 인앱 상품 조회
 

@@ -777,6 +777,14 @@ Public void UI_Update()
 
 ## 7. 決済
 
+>ゲームポットの支払いは、消費可能なアプリ内製品タイプのみをサポートし、OneStoreアプリ内SDKはV17バージョンのみをサポートします。
+
+> OneStoreアプリ内SDKが含まれています：gamepot-billing-onestore.aar
+
+> Galaxy Storeアプリ内SDKが含まれています：gamepot-billing-galaxystore.aar
+
+> MyCard In-App SDKに含まれるもの：gamepot-billing-mycard.aar（Googleストアビルドには含めないでください。）
+
 ### In-App 商品照会
 
 ストアに登録された商品情報を伝達します。

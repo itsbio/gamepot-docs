@@ -586,6 +586,8 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 
 > 갤럭시 스토어 인앱 SDK 포함: gamepot-billing-galaxystore.aar
 
+> 마이카드 인앱 SDK 포함 : gamepot-billing-mycard.aar ( 구글 스토어 빌드에는 포함되지 않도록 조치 해주세요.)
+
 결제의 결과 값은 Listener 형태로 구현되어 있습니다.
 
 MainActivity.java에서 앱 실행 시 한 번 호출하도록 선언합니다.
