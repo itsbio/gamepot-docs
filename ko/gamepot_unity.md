@@ -264,7 +264,11 @@ public class NError
 
 #### Facebook Developer Console
 
-APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 추가합니다.
+- 페이스북 콜솔에서 앱 생성시 앱 유형 : 없음 또는 소비자 또는 인스턴스 게임 선택후 앱 생성
+
+> 라이브 전환이 가능해야하며 앱 검수 > 권한 및 기능 > public_profile / email 권한이 있어야 합니다. 
+
+- APK 빌드 시 사용한 Keystore의 키 해시 값을 페이스북 콘솔에 추가합니다.
 
 #### Android
 
