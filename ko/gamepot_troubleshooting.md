@@ -225,3 +225,52 @@ fileTree(dir: 'libs', include: ['*.aar'])
 ![gamepot_troubleshooting_02](./images/gamepot_troubleshooting_02.png)
 
 ![gamepot_troubleshooting_03](./images/gamepot_troubleshooting_03.png)
+
+
+## (Unity) 네이버 라운지 SDK 적용 ( NaverSDK Ver 1.1.1 기준 설명)
+
+참고 URL : https://navergame.gitbook.io/naver-game/naver-game-sdk-faq-1#unity-android-class-duplication-exception
+
+- 유니티 플러그인 패키지 적용시 navergame-sdk-1.1.1.aar 파일 미포함 또는 삭제 처리 진행
+
+../Assets/NGSDK/Plugins/Android/navergame-sdk-1.1.1.aar
+
+- 안드로이드 네이티브 네이버 라운지 SDK 라이브러리 탑재
+
+../Assets/Plugins/Android/navergame-sdk-gradle-1.1.1.aar 
+
+- mainTemplate.gradle 파일 수정 (네이버 라운지 SDK에서 사용되는 라이브러리 추가)
+
+```text
+dependencies {
+..
+implementation 'androidx.multidex:multidex:2.0.1'
+implementation "androidx.recyclerview:recyclerview:1.2.0"
+implementation "androidx.viewpager2:viewpager2:1.0.0"
+implementation "com.squareup.retrofit2:retrofit:2.6.4"
+```
+
+- ../Assets/Plugins/Android/libs 폴더에 중복된 라이브러리 삭제 ( 삭제 리스트 )
+
+```text
+../Assets/Plugins/Android/libs/activity-1.0.0.aar
+../Assets/Plugins/Android/libs/annotation-1.1.0.jar
+../Assets/Plugins/Android/libs/collection-1.1.0.jar
+../Assets/Plugins/Android/libs/core-1.3.0.aar
+../Assets/Plugins/Android/libs/core-common-2.1.0.jar
+../Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+../Assets/Plugins/Android/libs/customview-1.0.0.aar
+../Assets/Plugins/Android/libs/fragment-1.1.0.aar
+../Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+../Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+../Assets/Plugins/Android/libs/loader-1.0.0.aar
+../Assets/Plugins/Android/libs/okhttp-4.9.1.jar
+../Assets/Plugins/Android/libs/okio-2.8.0.jar
+../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
+../Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar
+../Assets/Plugins/Android/libs/viewpager-1.0.0.aar
+../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
+```

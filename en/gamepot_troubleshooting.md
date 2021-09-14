@@ -188,3 +188,52 @@ fileTree(dir:'libs', include: ['*.aar'])
 -As shown below, upload and save the URLScheme value of the Naver Cafe to the first index of the corresponding Array, then check the normal operation of the login.
 
 ![gamepot_troubleshooting_01](./images/gamepot_troubleshooting_01.png)
+
+
+## (Unity) Naver Lounge SDK applied (based on NaverSDK Ver 1.1.1)
+
+Reference URL: https://navergame.gitbook.io/naver-game/naver-game-sdk-faq-1#unity-android-class-duplication-exception
+
+- When the Unity plugin package is applied, the navergame-sdk-1.1.1.aar file is not included or deleted.
+
+../Assets/NGSDK/Plugins/Android/navergame-sdk-1.1.1.aar
+
+- Android native NAVER Lounge SDK library installed
+
+../Assets/Plugins/Android/navergame-sdk-gradle-1.1.1.aar 
+
+- Edit mainTemplate.gradle file (Add library used in Naver Lounge SDK)
+
+```text
+dependencies {
+..
+implementation 'androidx.multidex:multidex:2.0.1'
+implementation "androidx.recyclerview:recyclerview:1.2.0"
+implementation "androidx.viewpager2:viewpager2:1.0.0"
+implementation "com.squareup.retrofit2:retrofit:2.6.4"
+```
+
+- Delete duplicate libraries in ../Assets/Plugins/Android/libs folder (deletion list)
+
+```text
+../Assets/Plugins/Android/libs/activity-1.0.0.aar
+../Assets/Plugins/Android/libs/annotation-1.1.0.jar
+../Assets/Plugins/Android/libs/collection-1.1.0.jar
+../Assets/Plugins/Android/libs/core-1.3.0.aar
+../Assets/Plugins/Android/libs/core-common-2.1.0.jar
+../Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+../Assets/Plugins/Android/libs/customview-1.0.0.aar
+../Assets/Plugins/Android/libs/fragment-1.1.0.aar
+../Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+../Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+../Assets/Plugins/Android/libs/loader-1.0.0.aar
+../Assets/Plugins/Android/libs/okhttp-4.9.1.jar
+../Assets/Plugins/Android/libs/okio-2.8.0.jar
+../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
+../Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar
+../Assets/Plugins/Android/libs/viewpager-1.0.0.aar
+../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
+```
