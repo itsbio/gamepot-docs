@@ -1,18 +1,7 @@
----
-search:
-  keyword: ['gamepot']
----
+## 1. Get started<a name="1Getstarted"></a>
 
-#### **We provide the <a href="https://guide.ncloud-docs.com/docs/en/home" target="_blank">[Manual]</a>and <a href="https://api.ncloud-docs.com/docs/en/home" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
+### Development environment setup<a name="Developmentenvironmentsetup"></a>
 
-<a href="https://api.ncloud-docs.com/docs/en/game-gamepot" target="_blank">Go to Gamepot API Reference >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/en/game-gamepotconsole" target="_blank">Go to Gamepot Manual >></a>
-
-# Android SDK
-
-## 1. Get started
-
-### Development environment setup
 
 You must install required development tools \(such as Android Studio\) to develop Android applications. The development tools you use may require JAVA SDK, Android SDK, etc.
 
@@ -20,20 +9,23 @@ The system requirements for GAMEPOT in Android are described below:
 
 \[ System requirements \]
 
-- Minimum requirements: API 17 \(Jelly Bean, 4.2\) or later, gradle 3.3.3 or gradle 3.4.3 or later
+- Minimum requirements: API 17 \(Jelly Bean, 4.2\) or later, gradle 3.3.3 or later
 - Development environment: Android Studio
 
-#### Create a project
+#### Create a project<a name="Createaproject"></a>
 
-![gamepot_android_01](./images/gamepot_android_01.png)
 
-#### Add libraries
+![gamepot_android_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_01%286%29.png)
+
+#### Add libraries<a name="Addlibraries"></a>
+
 
 Add the AOS SDK file you downloaded to the app/libs folder.
 
-![gamepot_android_02](./images/gamepot_android_02.png)
+![gamepot_android_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_02%284%29.png)
 
-#### Configure build.gradle
+#### Configure build.gradle<a name="Configurebuildgradle1"></a>
+
 
 The build.gradle file is located in your project's root and app folders.
 
@@ -41,7 +33,7 @@ The build.gradle file is located in your project's root and app folders.
 
    ```java
    buildscript {
-
+   
        repositories {
            ...
            google()
@@ -54,7 +46,7 @@ The build.gradle file is located in your project's root and app folders.
            classpath 'com.google.gms:google-services:4.2.0'
        }
    }
-
+   
    allprojects {
        repositories {
            ...
@@ -68,113 +60,121 @@ The build.gradle file is located in your project's root and app folders.
 
 2. Edit build.gradle under the app folder
 
-   > Replace \[xxxxx\] with your own value.
+    >Replace \[xxxxx\] with your own value.
 
-| Value                        | Description                                                                                      |
-| :--------------------------- | :----------------------------------------------------------------------------------------------- |
-| gamepot_project_id           | Enter a project ID issued from GAMEPOT.                                                          |
-| gamepot_store                | Store value \(`Google`, `One`, or `Galaxy`\)                                                     |
-| gamepot_payment              | Payment method value \(Only applicable if it's Google Play Store. Currently supports `mycard`\)  |
-| gamepot_app_title            | App title \(FCM\)                                                                                |
-| gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change.                                     |
-| facebook_app_id              | App ID issued from Facebook                                                                      |
-| fb_login_protocol_scheme     | Protocol scheme fb\[app_id\] issued from Facebook                                                |
+
+| Value                        | Description                                                  |
+| :--------------------------- | :----------------------------------------------------------- |
+| gamepot_project_id           | Enter a project ID issued from GAMEPOT.                      |
+| gamepot_store                | Store value \(`Google`, `One`, or `Galaxy`\)                 |
+| gamepot_payment              | Payment method value \(Only applicable if it's Google Play Store. Currently supports `mycard`\) |
+| gamepot_app_title            | App title \(FCM\)                                            |
+| gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change. |
+| facebook_app_id              | App ID issued from Facebook                                  |
+| fb_login_protocol_scheme     | Protocol scheme fb\[app_id\] issued from Facebook            |
 | gamepot_elsa_projectid       | Project ID when using NCLOUD ELSA \([View more](https://www.ncloud.com/product/analytics/elsa)\) |
 
-```java
-android {
-    defaultConfig {
-        ...
-        // GamePot [START]
-        resValue "string", "gamepot_project_id", "[projectId]" // required
-        resValue "string", "gamepot_store", "[storeId]" // required
-        resValue "string", "gamepot_payment", "[storeId]" // optional
-        resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
-        resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
-        resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
-        resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
-        // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
-        // GamePot [END]
-    }
+   ```java
+   android {
+       defaultConfig {
+           ...
+           // GamePot [START]
+           resValue "string", "gamepot_project_id", "[projectId]" // required
+           resValue "string", "gamepot_store", "[storeId]" // required
+           resValue "string", "gamepot_payment", "[storeId]" // optional
+           resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
+           resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
+           resValue "string", "facebook_app_id", "[Facebook ID]" // facebook
+           resValue "string", "fb_login_protocol_scheme", "fb[Facebook ID]" // (facebook)
+           // resValue "string", "gamepot_elsa_projectid", "" // (ncp elsa)
+           // GamePot [END]
+       }
 
-    packagingOptions {
-        exclude 'META-INF/proguard/androidx-annotations.pro'
-    }
-}
+       packagingOptions {
+           exclude 'META-INF/proguard/androidx-annotations.pro'
+       }
+   }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
+   repositories {
+       flatDir {
+           dirs 'libs'
+       }
+   }
 
-dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
+   dependencies {
+       compile 'com.android.support:multidex:1.0.1'
 
-    // GamePot common [START]
-    implementation(name: 'gamepot-common', ext: 'aar')
-    implementation('io.socket:socket.io-client:1.0.0') {
-        exclude group: 'org.json', module: 'json'
-    }
-    implementation('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
-        exclude group: 'org.json', module: 'json'
-    }
-    implementation "com.github.nisrulz:easydeviceinfo:2.4.1"
-    implementation 'pub.devrel:easypermissions:1.3.0'
-    implementation 'com.android.installreferrer:installreferrer:1.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.jakewharton.timber:timber:4.7.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-    implementation 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    implementation 'com.android.billingclient:billing:3.0.3'
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
-    implementation 'androidx.sqlite:sqlite-framework:2.0.1'
-    implementation 'com.cookpad.puree:puree:4.1.6'
-    implementation 'com.google.firebase:firebase-core:18.0.1'
-    implementation 'com.google.firebase:firebase-messaging:21.0.1'
-    // GamePot common [END]
+       // GamePot common [START]
+       compile(name: 'gamepot-common', ext: 'aar')
+       compile('io.socket:socket.io-client:1.0.0') {
+           exclude group: 'org.json', module: 'json'
+       }
+       compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+           exclude group: 'org.json', module: 'json'
+       }
+       compile "com.github.nisrulz:easydeviceinfo:2.4.1"
+       compile 'com.android.installreferrer:installreferrer:1.0'
+       compile 'com.google.code.gson:gson:2.8.2'
+       compile 'com.jakewharton.timber:timber:4.7.0'
+       compile 'com.squareup.okhttp3:okhttp:3.10.0'
+       compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+       compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+       compile 'com.android.billingclient:billing:1.1'
+       compile 'com.github.bumptech.glide:glide:3.7.0'
+       compile 'com.romandanylyk:pageindicatorview:1.0.3'
+       compile 'com.google.firebase:firebase-core:16.0.6'
+       compile 'com.google.firebase:firebase-messaging:17.3.4'
+       compile 'androidx.sqlite:sqlite-framework:2.0.1'
+       compile 'com.cookpad.puree:puree:4.1.6'
+       // GamePot common [END]
 
-    implementation(name: 'gamepot-channel-base', ext: 'aar')
-    // GamePot facebook [START]
-    implementation(name: 'gamepot-channel-facebook', ext: 'aar')
-    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
-    // GamePot facebook [END]
+       compile(name: 'gamepot-channel-base', ext: 'aar')
+       // GamePot facebook [START]
+       compile(name: 'gamepot-channel-facebook', ext: 'aar')
+       compile 'com.facebook.android:facebook-android-sdk:5.2.0'
+       // GamePot facebook [END]
 
-    // GamePot google sigin [START]
-    implementation(name: 'gamepot-channel-google-signin', ext: 'aar')
-    implementation "com.google.android.gms:play-services-auth:19.0.0"
-    // GamePot google sigin [END]
-}
+       // GamePot google sigin [START]
+       compile(name: 'gamepot-channel-google-signin', ext: 'aar')
+       compile "com.google.android.gms:play-services-base:16.0.1"
+       compile "com.google.android.gms:play-services-auth:16.0.1"
+       // GamePot google sigin [END]
+   }
 
-// ADD THIS AT THE BOTTOM
-apply plugin: 'com.google.gms.google-services'
-```
+   // ADD THIS AT THE BOTTOM
+   apply plugin: 'com.google.gms.google-services'
+   ```
 
 3. Copy google-service.json issued from Google into the /app/ folder.
+
 4. Gradle Sync Now
 
-   Click the button highlighted in the red box in the figure below to refresh.
+   Click the **[button highlighted in the red box in the figure]** below to refresh.
 
-![gamepot_android_03](./images/gamepot_android_03.png)
+![gamepot_android_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_03%286%29.png)
 
 - Failures you may encounter after clicking Refresh
 
   - Configuration 'compile' is obsolete and has been replaced with 'implementation' and 'api'. It will be removed at the end of 2018. For more information see: [http://d.android.com/r/tools/update-dependency-configurations.html](http://d.android.com/r/tools/update-dependency-configurations.html)
 
-    > If you use Gradle version 3 or later, replace "compile" with "implementation"
+     > If you use Gradle version 3 or later, replace "compile" with "implementation"
+
+
 
   - No matching client found for package name 'packagename'
 
-    > Make sure that the package name of the app matches the one declared in googld-service.json.
+     >  Make sure that the package name of the app matches the one declared in googld-service.json.
 
-#### Configure AndroidManifest.xml
+
+
+#### Configure AndroidManifest.xml<a name="ConfigureAndroidManifestxml"></a>
+
 
 Add settings generally used for games. Refer to the following code example for more information.
 
-> Configure each element based on the recommendations by the developer.
+   >Configure each element based on the recommendations by the developer.
+
+
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,7 +188,7 @@ Add settings generally used for games. Refer to the following code example for m
 
     <!--allowBackup must be set to false. (This is to prevent shared preference from automatically being restored when the game is reinstalled.)-->
     <application
-        android:name="androidx.multidex.MultiDexApplication"
+        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup">
 
@@ -208,15 +208,18 @@ Add settings generally used for games. Refer to the following code example for m
 </manifest>
 ```
 
-#### Configure push notification icon
+#### Configure push notification icon<a name="Configurepushnotificationicon"></a>
 
-![gamepot_android_04](./images/gamepot_android_04.png)
+
+![gamepot_android_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_04%285%29.png)
 
 When you receive a push notification, the default image in the SDK is shown as an icon displayed on the notification bar; you can also specify your own image for your game.
 
 **Specify your own icon**
 
-> Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small), icons are automatically created for each folder. You can simply put them in the corresponding folder.
+   >Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_small), icons are automatically created for each folder. You can simply put them in the corresponding folder.
+
+
 
 1. Create folders associated with res/drawable as listed below:
    - res/drawable-mdpi/
@@ -242,7 +245,8 @@ When you receive a push notification, the default image in the SDK is shown as a
 
 1. Change the name of the image file to `ic_stat_gamepot_small.`
 
-## 2. Initialization
+## 2. Initialization<a name="2Initialization"></a>
+
 
 Add the following code to MainActivity.java.
 
@@ -284,29 +288,37 @@ protected void onDestroy() {
 }
 ```
 
-## 3. Login, Logout, Delete Member
+## 3. Login, Logout, Delete Member<a name="3LoginLogoutDeleteMember"></a>
+
 
 Use various login SDKs, such as Google, Facebook, and NAVER.
 
-### Google \(Firebase\) console
+### Google \(Firebase\) console<a name="Google\Firebase\console"></a>
+
 
 Add the SHA-1 value of Keystore used when your APK is built to the Firebase console.
 
-> Request the SHA-1 value from the developer.
+>Request the SHA-1 value from the developer.
 
-![gamepot_android_05](./images/gamepot_android_05.png)
 
-### Facebook console
+
+![gamepot_android_05.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_05%285%29.png)
+
+### Facebook console<a name="Facebookconsole"></a>
+
 
 Add the key hash value of Keystore, used when your APK is built, to the Facebook console.
 
-> Request the key hash value from the developer.
+ >Request the key hash value from the developer.
 
-![gamepot_android_06](./images/gamepot_android_06.png)
 
-### Settings
+![gamepot_android_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_06%285%29.png)
 
-#### Edit MainActivity.java
+### Settings<a name="Settings1"></a>
+
+
+#### Edit MainActivity.java<a name="EditMainActivityjava"></a>
+
 
 Edit MainActivity.java as follows so that you can implement login features.
 
@@ -345,7 +357,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-### Login
+### Login<a name="Login1"></a>
+
 
 The login UI must be implemented by the developer; it connects when a user clicks the login button.
 
@@ -385,13 +398,15 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotC
 });
 ```
 
-#### Member's unique ID
+#### Member's unique ID<a name="Member'suniqueID"></a>
+
 
 ```java
 GamePot.getInstance().getMemberId();
 ```
 
-### Auto login
+### Auto login<a name="Autologin"></a>
+
 
 You can implement auto login by using the API, bypassing the user’s last login information.
 
@@ -430,371 +445,165 @@ else
 }
 ```
 
-### Logout
+### Logout<a name="Logout"></a>
+
 
 It logs the current member account out.
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.common.GamePotCommonListener;
-import io.gamepot.common.GamePotError;
-
-GamePotChannel.getInstance().logout(this, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-        // Logout completed. Move to the initial screen.
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Logout failed. Use error.getMessage() to show an error message.
-    }
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.common.GamePotCommonListener;import io.gamepot.common.GamePotError;GamePotChannel.getInstance().logout(this, new GamePotCommonListener() {    @Override    public void onSuccess() {        // Logout completed. Move to the initial screen.    }    @Override    public void onFailure(GamePotError error) {        // Logout failed. Use error.getMessage() to show an error message.    }});
 ```
 
-### Membership Withdrawal
+### Membership Withdrawal<a name="MembershipWithdrawal"></a>
+
 
 Deletes the current member account.
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.common.GamePotCommonListener;
-import io.gamepot.common.GamePotError;
-
-GamePotChannel.getInstance().deleteMember(this, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-        // Succeeded. Move to the initial screen.
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Failed to delete account. Use error.getMessage() to show an error message.
-    }
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.common.GamePotCommonListener;import io.gamepot.common.GamePotError;GamePotChannel.getInstance().deleteMember(this, new GamePotCommonListener() {    @Override    public void onSuccess() {        // Succeeded. Move to the initial screen.    }    @Override    public void onFailure(GamePotError error) {        // Failed to delete account. Use error.getMessage() to show an error message.    }});
 ```
 
-### Authentication check
+### Authentication check<a name="Authenticationcheck"></a>
+
 
 After the login is complete, the login information is passed from the developer server to the GAMEPOT server to perform authentication checks.
 
 For more information, refer to `Authentication check` under `Server to server api.`
 
-## 4. Connect/Disconnect Accounts
+## 4. Connect/Disconnect Accounts<a name="4ConnectDisconnectAccounts"></a>
+
 
 Connect or disconnect a game account to or from multiple social media accounts \(including Google and Facebook\).\(At least one social media account must be connected.\)
 
-> The developer must implement the connection screen UI.
+>The developer must implement the connection screen UI.
 
-### Connect/Disconnect Accounts
+
+
+### Connect/Disconnect Accounts<a name="ConnectDisconnectAccounts"></a>
+
 
 Connect user accounts with social media accounts including Google and Facebook.
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelListener;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.channel.GamePotUserInfo;
-import io.gamepot.common.GamePotError;
-
-// Connect with Google account
-// GamePotChannelType.GOOGLE
-// Connect with Facebook account
-// GamePotChannelType.FACEBOOK
-// Connect with NAVER account
-// GamePotChannelType.NAVER
-// Connect with LINE account
-// GamePotChannelType.LINE
-// Connect with Twitter account
-// GamePotChannelType.TWITTER
-// Connect with Apple account
-// GamePotChannelType.APPLE
-
-GamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {
-    @Override
-    public void onSuccess(GamePotUserInfo userInfo) {
-        // Connection completed. Display the message showing the connection result. (Example: Successfully connected.)
-    }
-
-    @Override
-    public void onCancel() {
-        // When the user cancels the account connection
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Connection failed. Use error.getMessage() to display an error message.
-    }
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelListener;import io.gamepot.channel.GamePotChannelType;import io.gamepot.channel.GamePotUserInfo;import io.gamepot.common.GamePotError;// Connect with Google account// GamePotChannelType.GOOGLE// Connect with Facebook account// GamePotChannelType.FACEBOOK// Connect with NAVER account// GamePotChannelType.NAVER// Connect with LINE account// GamePotChannelType.LINE// Connect with Twitter account// GamePotChannelType.TWITTER// Connect with Apple account// GamePotChannelType.APPLEGamePotChannel.getInstance().createLinking(this, GamePotChannelType.GOOGLE, new GamePotChannelListener<GamePotUserInfo>() {    @Override    public void onSuccess(GamePotUserInfo userInfo) {        // Connection completed. Display the message showing the connection result. (Example: Successfully connected.)    }    @Override    public void onCancel() {        // When the user cancels the account connection    }    @Override    public void onFailure(GamePotError error) {        // Connection failed. Use error.getMessage() to display an error message.    }});
 ```
 
-### List of connected accounts
+### List of connected accounts<a name="Listofconnectedaccounts"></a>
+
 
 Verify that an account has been connected to a social media account.
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import java.util.ArrayList;
-
-// Define types.
-// GamePotChannelType.GOOGLE
-// GamePotChannelType.FACEBOOK
-// GamePotChannelType.NAVER
-// GamePotChannelType.LINE
-// GamePotChannelType.TWITTER
-// GamePotChannelType.APPLE
-// Return connection results for each type.
-boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);
-
-// Return results in JSON for all connected types.
-// If the account is connected with GOOGLE or FACEBOOK, it returns the following results.
-// [{“provider”:”google”},{“provider”:”facebook”}]
-JSONArray linking = GamePotChannel.getInstance().getLinkedList();
+import io.gamepot.channel.GamePotChannel;import java.util.ArrayList;// Define types.// GamePotChannelType.GOOGLE// GamePotChannelType.FACEBOOK// GamePotChannelType.NAVER// GamePotChannelType.LINE// GamePotChannelType.TWITTER// GamePotChannelType.APPLE// Return connection results for each type.boolean isLinked = GamePotChannel.getInstance().isLinked(GamePotChannelType.GOOGLE);// Return results in JSON for all connected types.// If the account is connected with GOOGLE or FACEBOOK, it returns the following results.// [{“provider”:”google”},{“provider”:”facebook”}]JSONArray linking = GamePotChannel.getInstance().getLinkedList();
 ```
 
-### Disconnect accounts
+### Disconnect accounts<a name="Disconnectaccounts"></a>
+
 
 Disconnect user accounts from their social media accounts.
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.common.GamePotCommonListener;
-import io.gamepot.common.GamePotError;
-
-GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-        // Disconnection completed. Display the message showing the connection result. (Example: Successfully disconnected.)
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Disconnection failed. Use error.getMessage() to display an error message.
-    }
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelType;import io.gamepot.common.GamePotCommonListener;import io.gamepot.common.GamePotError;GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new GamePotCommonListener() {    @Override    public void onSuccess() {        // Disconnection completed. Display the message showing the connection result. (Example: Successfully disconnected.)    }    @Override    public void onFailure(GamePotError error) {        // Disconnection failed. Use error.getMessage() to display an error message.    }});
 ```
 
-## 5. Payment
+## 5. Payment<a name="5Payment"></a>
 
-> Gamepot payment supports only consumable in-app product types, and One Store in-app SDK supports only V17 version.
-
-> One-store in-app SDK included: gamepot-billing-onestore.aar
-
-> Galaxy Store in-app SDK included: gamepot-billing-galaxystore.aar
-
-> MyCard In-App SDK included: gamepot-billing-mycard.aar (Please do not include it in the Google Store build.)
 
 The results of payment are implemented as Listener.
 
 When the app starts in MainActivity.java, mark it as called.
 
 ```java
-import io.gamepot.common.GamePot;
-import io.gamepot.common.GamePotPurchaseInfo;
-import io.gamepot.common.GamePotPurchaseListener;
-import io.gamepot.common.GamePotError;
-
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // You must call the setup API at the very beginning.
-        GamePot.getInstance().setup(getApplicationContext());
-
-        ...
-        GamePot.getInstance().setPurchaseListener(new GamePotPurchaseListener<GamePotPurchaseInfo>() {
-            @Override
-            public void onSuccess(GamePotPurchaseInfo info) {
-                // Payment succeeded. Make a server-to-server request to the address set in webhook to get items.
-                // Handle the result here and DO NOT provide items.
-            }
-
-            @Override
-            public void onFailure(GamePotError error) {
-                // Payment failed. Use error.getMessage() to show an error message.
-            }
-
-            @Override
-            public void onCancel() {
-                // When the user cancels the payment process
-            }
-        });
-        ...
-    }
-}
+import io.gamepot.common.GamePot;import io.gamepot.common.GamePotPurchaseInfo;import io.gamepot.common.GamePotPurchaseListener;import io.gamepot.common.GamePotError;public class MainActivity extends AppCompatActivity {    @Override    protected void onCreate(Bundle savedInstanceState) {        // You must call the setup API at the very beginning.        GamePot.getInstance().setup(getApplicationContext());        ...        GamePot.getInstance().setPurchaseListener(new GamePotPurchaseListener<GamePotPurchaseInfo>() {            @Override            public void onSuccess(GamePotPurchaseInfo info) {                // Payment succeeded. Make a server-to-server request to the address set in webhook to get items.                // Handle the result here and DO NOT provide items.            }            @Override            public void onFailure(GamePotError error) {                // Payment failed. Use error.getMessage() to show an error message.            }            @Override            public void onCancel() {                // When the user cancels the payment process            }        });        ...    }}
 ```
 
-### Payment attempt
+### Payment attempt<a name="Paymentattempt1"></a>
+
 
 With one payment API, payments can be made at both GooglePlay Store and One Store.
 
 > During the payment attempt to Payment complete/Payment failed process, show the in-game loading screen to ensure that no duplicate calls are made.
 
+
+
 ```java
-Case 1: General payment
-
-import io.gamepot.common.GamePot;
-
-// productId: Put the product ID registered in the store.
-GamePot.getInstance().purchase("product id");
+Case 1: General paymentimport io.gamepot.common.GamePot;// productId: Put the product ID registered in the store.GamePot.getInstance().purchase("product id");
 ```
 
 ```java
-Case 2: Managing receipt numbers separately at the payment time:
-
-import io.gamepot.common.GamePot;
-
-// productId: Put the product ID registered in the store.
-// uniqueId: Put the receipt numbers managed separately.
-GamePot.getInstance().purchase("product id", "uniqueId");
+Case 2: Managing receipt numbers separately at the payment time:  import io.gamepot.common.GamePot;// productId: Put the product ID registered in the store.// uniqueId: Put the receipt numbers managed separately.GamePot.getInstance().purchase("product id", "uniqueId");
 ```
 
 ```java
-Case 3: Sending receipt numbers/server ID/character ID/further information processed in payments to webhook:
-
-import io.gamepot.common.GamePot;
-
-// productId: Put the product ID registered in the store.
-// uniqueId: Put the receipt numbers managed separately.
-// serverId: Use the server ID of the character who made the payment.
-// playerId: Enter the character's ID who made the payment.
-// etc.: Enter the other information from the character who made the payment.
-GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","etc");
+Case 3: Sending receipt numbers/server ID/character ID/further information processed in payments to webhook:import io.gamepot.common.GamePot;// productId: Put the product ID registered in the store.// uniqueId: Put the receipt numbers managed separately.// serverId: Use the server ID of the character who made the payment.// playerId: Enter the character's ID who made the payment.// etc.: Enter the other information from the character who made the payment.GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","etc");
 ```
 
-### Get purchased items list
+
+### Get purchased items list<a name="Getpurchaseditemslist1"></a>
+
 
 Get in-app item list transferred from stores.
 
 ```java
-import io.gamepot.common.GamePot;
-
-GamePotPurchaseDetailList details = GamePot.getInstance().getPurchaseDetailList();
+import io.gamepot.common.GamePot;GamePotPurchaseDetailList details = GamePot.getInstance().getPurchaseDetailList();
 ```
 
-### Provide purchased items
+### Provide purchased items<a name="Providepurchaseditems"></a>
+
 
 GAMEPOT requests items from the developer server after checking receipts from the store by using the Server to server api, thereby preventing illegal payments.
 
 Refer to `Purchase` in `Server to server api` to implement this.
 
-## 6. External payment
+## 6. External payment<a name="6Externalpayment"></a>
+
 
 ONE Store allows third-party payment modules other than the default store payment module.
 
-### Settings
+### Settings<a name="Settings2"></a>
+
 
 Set the dashboard first by referring to external payments.
 
 `5.` If you implemented the `payment` first, you don't need to set anymore.
 
-### Payment attempt
+### Payment attempt<a name="Paymentattempt2"></a>
+
 
 ```java
-import io.gamepot.common.GamePot;
-
-// activity: Current activity
-// product id: Payment ID registered in the dashboard
-GamePot.getInstance().purchaseThirdPayments(activity, product id);
+import io.gamepot.common.GamePot;// activity: Current activity// product id: Payment ID registered in the dashboardGamePot.getInstance().purchaseThirdPayments(activity, product id);
 ```
 
-### Get purchased items list
+### Get purchased items list<a name="Getpurchaseditemslist2"></a>
+
 
 ```java
-import io.gamepot.common.GamePot;
-
-GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPurchaseThirdPaymentsDetailList();
+import io.gamepot.common.GamePot;GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPurchaseThirdPaymentsDetailList();
 ```
 
-## 7. Other APIs
+## 7. Other APIs<a name="7OtherAPIs"></a>
 
-### Login UI supported by SDK
+
+### Login UI supported by SDK<a name="LoginUIsupportedbySDK"></a>
+
 
 SDK provides an independent, complete Login UI.
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelListener;
-import io.gamepot.channel.GamePotAppStatusChannelListener;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.channel.GamePotChannelLoginBuilder;
-import io.gamepot.channel.GamePotUserInfo;
-import io.gamepot.common.GamePotError;
-
-ArrayList<GamePotChannelType> channelList = new ArrayList<>( Arrays.asList(GamePotChannelType.GOOGLE, GamePotChannelType.FACEBOOK,GamePotChannelType.NAVER, GamePotChannelType.TWITTER, GamePotChannelType.LINE, GamePotChannelType.APPLE, GamePotChannelType.GUEST) );
-
-GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
-
-// Appears when a user clicks the Google login button.
-GamePotChannel.getInstance().showLoginWithUI(MainActivity.this, builder, new GamePotAppStatusChannelLoginDialogListener<GamePotUserInfo>() {
-    @Override
-    public void onExit() {
-        // Process when X button is clicked
-    }
-
-    @Override
-    public void onNeedUpdate(GamePotAppStatus status) {
-        // TODO: When you need force update. Call the following API to enable the SDK to display pop-ups by itself.
-        // TODO: You can also customize the function without calling this API.
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO: This API is called to close the app if the showAppStatusPopup API is called.
-                // TODO: Handle the shutdown process.
-                MainActivity.this.finish();
-            }
-
-            @Override
-            public void onNext(Object obj) {
-                // TODO : When you set the dashboard update as recommended, the "Do next time" button will appear.
-                // Called when the user selects that button.
-                // TODO : Handle in the same way as when login is completed with the obj information.
-                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
-            }
-        });
-    }
-
-    @Override
-    public void onMainternance(GamePotAppStatus status) {
-        // TODO: When a maintenance check is in progress. Call the following API to enable the SDK to display pop-ups by itself.
-        // TODO: You can also customize the function without calling this API.
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO: This API is called to close the app if the showAppStatusPopup API is called.
-                // TODO: Handle the shutdown process.
-                MainActivity.this.finish();
-            }
-        });
-    }
-
-    @Override
-    public void onCancel() {
-        // When a user cancels login.
-    }
-
-    @Override
-    public void onSuccess(GamePotUserInfo userinfo) {
-        // Login Complete. Handle this according to the game logic.
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Log in failed. Use error.getMessage() to show an error message.
-    }
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelListener;import io.gamepot.channel.GamePotAppStatusChannelListener;import io.gamepot.channel.GamePotChannelType;import io.gamepot.channel.GamePotChannelLoginBuilder;import io.gamepot.channel.GamePotUserInfo;import io.gamepot.common.GamePotError;String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);// Appears when a user clicks the Google login button.GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {    @Override    public void onCancel() {        // When a user cancels login.    }    @Override    public void onSuccess(GamePotUserInfo userinfo) {        // Login complete. Handle this according to the game logic.        // userinfo.getMemberid(): Member's unique ID    }    @Override    public void onFailure(GamePotError error) {        // Login failed. Show an error message using error.getMessage().    }});
 ```
 
-#### Setting Login UI image logo
+#### Setting Login UI image logo<a name="SettingLoginUIimagelogo"></a>
 
 The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
 
 **Customizing Image Logo**
 
-> Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo), icons are automatically created for each folder. You can simply put them in the corresponding folder.
+ >Using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo), icons are automatically created for each folder. You can simply put them in the corresponding folder.
+
+
 
 1. Create res/drawable associated folders as below
-
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
@@ -802,12 +611,12 @@ The image logo at the top of the login UI shows the default image within the SDK
    - res/drawable-xxxhdpi/
 
 2. Create images in each of the following sizes
-
    - 78x55
    - 116x82
    - 155x110
    - 232x165
    - 310x220
+
 
 3. Add an image of the specified size to each folder as shown in the following table
 
@@ -821,309 +630,173 @@ The image logo at the top of the login UI shows the default image within the SDK
 
 - Rename the image file to `ic_stat_gamepot_login_logo.png`
 
-### Log in to NAVER
+### Log in to NAVER<a name="LogintoNAVER"></a>
 
-#### Configure build.gradle
 
-```java
-android {
-    defaultConfig {
-        ...
-        resValue "string", "gamepot_naver_clientid", "xxxxxxxx" // Get from NAVER developer console
-        resValue "string", "gamepot_naver_secretid", "xxx" // Get from NAVER developer console
-    }
-}
+#### Configure build.gradle<a name="Configurebuildgradle2"></a>
 
-dependencies {
-  ...
-  compile(name: 'gamepot-channel-naver', ext: 'aar')
-  ...
-}
-```
-
-#### Set MainActivity.java
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.channel.naver.GamePotNaver;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-        ...
-        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.NAVER, new GamePotNaver());
-}
+android {    defaultConfig {        ...        resValue "string", "gamepot_naver_clientid", "xxxxxxxx" // Get from NAVER developer console        resValue "string", "gamepot_naver_secretid", "xxx" // Get from NAVER developer console    }}dependencies {  ...  compile(name: 'gamepot-channel-naver', ext: 'aar')  ...}
 ```
 
-#### Login
+#### Set MainActivity.java<a name="SetMainActivityjava1"></a>
+
 
 ```java
-GamePotChannel.getInstance().login(this, GamePotChannelType.NAVER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
-  ...
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelType;import io.gamepot.channel.naver.GamePotNaver;@Overrideprotected void onCreate(Bundle savedInstanceState) {    super.onCreate(savedInstanceState);        ...        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.NAVER, new GamePotNaver());}
 ```
 
-### Log in to LINE
+#### Login<a name="Login2"></a>
 
-#### Configure build.gradle
 
 ```java
-android {
-    defaultConfig {
-        ...
-        resValue "string", "gamepot_line_channelid","00000000" // Get from Line developer console
-    }
-}
-
-dependencies {
-  ...
-  compile(name: 'gamepot-channel-line', ext: 'aar')
-  compile(name: 'line-sdk-4.0.10', ext: 'aar')
-  ...
-}
+GamePotChannel.getInstance().login(this, GamePotChannelType.NAVER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {  ...});
 ```
 
-#### Set MainActivity.java
+### Log in to LINE<a name="LogintoLINE"></a>
+
+
+#### Configure build.gradle<a name="Configurebuildgradle3"></a>
+
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.channel.line.GamePotLine;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-        ...
-        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.LINE, new GamePotLine());
-}
+android {    defaultConfig {        ...        resValue "string", "gamepot_line_channelid","00000000" // Get from Line developer console    }}dependencies {  ...  compile(name: 'gamepot-channel-line', ext: 'aar')  compile(name: 'line-sdk-4.0.10', ext: 'aar')  ...}
 ```
 
-#### Login
+#### Set MainActivity.java<a name="SetMainActivityjava2"></a>
+
 
 ```java
-GamePotChannel.getInstance().login(this, GamePotChannelType.LINE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
-  ...
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelType;import io.gamepot.channel.line.GamePotLine;@Overrideprotected void onCreate(Bundle savedInstanceState) {    super.onCreate(savedInstanceState);        ...        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.LINE, new GamePotLine());}
 ```
 
-### Log in to Twitter
+#### Login<a name="Login3"></a>
 
-#### Configure build.gradle
 
 ```java
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    defaultConfig {
-        ...
-        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Get from Twitter developer console
-        resValue "string", "gamepot_twitter_consumersecret","xxx" // Get from Twitter developer console
-    }
-}
-
-dependencies {
-  ...
-  compile(name: 'gamepot-channel-twitter', ext: 'aar')
-  compile('com.twitter.sdk.android:twitter-core:3.3.0@aar') {
-      transitive = true
-  }
-  ...
-}
+GamePotChannel.getInstance().login(this, GamePotChannelType.LINE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {  ...});
 ```
 
-#### Set MainActivity.java
+### Log in to Twitter<a name="LogintoTwitter"></a>
+
+
+#### Configure build.gradle<a name="Configurebuildgradle4"></a>
+
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.channel.twitter.GamePotTwitter;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-        ...
-        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.TWITTER, new GamePotTwitter());
-}
+android {    compileOptions {        sourceCompatibility JavaVersion.VERSION_1_8        targetCompatibility JavaVersion.VERSION_1_8    }    defaultConfig {        ...        resValue "string", "gamepot_twitter_consumerkey","xxxxx" // Get from Twitter developer console        resValue "string", "gamepot_twitter_consumersecret","xxx" // Get from Twitter developer console    }}dependencies {  ...  compile(name: 'gamepot-channel-twitter', ext: 'aar')  compile('com.twitter.sdk.android:twitter-core:3.3.0@aar') {      transitive = true  }  ...}
 ```
 
-#### Login
+#### Set MainActivity.java<a name="SetMainActivityjava3"></a>
+
 
 ```java
-GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
-  ...
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelType;import io.gamepot.channel.twitter.GamePotTwitter;@Overrideprotected void onCreate(Bundle savedInstanceState) {    super.onCreate(savedInstanceState);        ...        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.TWITTER, new GamePotTwitter());}
 ```
 
-### Log in to Apple (Web login)
+#### Login<a name="Login4"></a>
 
-#### Configure build.gradle
 
 ```java
-dependencies {
-  ...
-  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')
-  ...
-}
+GamePotChannel.getInstance().login(this, GamePotChannelType.TWITTER, new GamePotAppStatusChannelListener<GamePotUserInfo>() {  ...});
 ```
 
-#### Set MainActivity.java
+### Log in to Apple (Web login)<a name="LogintoAppleWeblogin"></a>
+
+
+#### Configure build.gradle<a name="Configurebuildgradle5"></a>
+
 
 ```java
-import io.gamepot.channel.GamePotChannel;
-import io.gamepot.channel.GamePotChannelType;
-import io.gamepot.channel.apple.signin.GamePotAppleSignin;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-        ...
-        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());
-}
+dependencies {  ...  compile(name: 'gamepot-channel-apple-signin', ext: 'aar')  ...}
 ```
 
-#### Login
+#### Set MainActivity.java<a name="SetMainActivityjava4"></a>
+
 
 ```java
-GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
-  ...
-});
+import io.gamepot.channel.GamePotChannel;import io.gamepot.channel.GamePotChannelType;import io.gamepot.channel.apple.signin.GamePotAppleSignin;@Overrideprotected void onCreate(Bundle savedInstanceState) {    super.onCreate(savedInstanceState);        ...        GamePotChannel.getInstance().addChannel(this, GamePotChannelType.APPLE, new GamePotAppleSignin());}
 ```
 
-### Coupon
+#### Login<a name="Login5"></a>
+
+
+```java
+GamePotChannel.getInstance().login(this, GamePotChannelType.APPLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {  ...});
+```
+
+### Coupon<a name="Coupon"></a>
+
 
 Call the following code to use a coupon entered by a user.
 
-> The developer must implement the screen UI to get coupons.
+ >The developer must implement the screen UI to get coupons.
+
+
 
 ```java
-import io.gamepot.common.GamePot;
-import io.gamepot.common.GamePotError;
-import io.gamepot.common.GamePotListener;
-
-GamePot.getInstance().coupon(/*Coupon entered by the user*/, new GamePotListener<String>() {
-    @Override
-    public void onSuccess(String message) {
-        // Succeeded in using coupons. Display the message as a pop-up.
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Failed to use coupons. Use error.getMessage() to show an error message.
-    }
-});
+import io.gamepot.common.GamePot;import io.gamepot.common.GamePotError;import io.gamepot.common.GamePotListener;GamePot.getInstance().coupon(/*Coupon entered by the user*/, new GamePotListener<String>() {    @Override    public void onSuccess(String message) {        // Succeeded in using coupons. Display the message as a pop-up.    }    @Override    public void onFailure(GamePotError error) {        // Failed to use coupons. Use error.getMessage() to show an error message.    }});
 ```
 
-#### Provide items
+#### Provide items<a name="Provideitems"></a>
+
 
 When a coupon is used successfully, request an item from the developer server by using the Server to server api.
 
 Refer to `Item` in `Server to server api` to implement this.
 
-### Push on/off
+### Push on/off<a name="Pushonoff"></a>
+
 
 You can turn each of the following three push notifications on or off: All, Night and Ad.
 
-> The developer must implement the UI to turn push notifications on or off.
+>The developer must implement the UI to turn push notifications on or off.
+
+
 
 ```java
-import io.gamepot.common.GamePot;
-import io.gamepot.common.GamePotError;
-import io.gamepot.common.GamePotCommonListener;
-
-// Push On/Off
-GamePot.getInstance().setPushEnable(/*true or false*/, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-    }
-});
-
-// Night Push On/Off
-GamePot.getInstance().setNightPushEnable(/*true or false*/, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-    }
-});
-
-// Set Push and Night Push at the same time.
-// For games that prompt users to turn Push and Night Push on or off before login, call the following code snippet after login.
-GamePot.getInstance().setPushEnable(/*true or false*/, /*true or false*/, true, new GamePotCommonListener() {
-    @Override
-    public void onSuccess() {
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-    }
-});
+import io.gamepot.common.GamePot;import io.gamepot.common.GamePotError;import io.gamepot.common.GamePotCommonListener;// Push On/OffGamePot.getInstance().setPushEnable(/*true or false*/, new GamePotCommonListener() {    @Override    public void onSuccess() {    }    @Override    public void onFailure(GamePotError error) {    }});// Night Push On/OffGamePot.getInstance().setNightPushEnable(/*true or false*/, new GamePotCommonListener() {    @Override    public void onSuccess() {    }    @Override    public void onFailure(GamePotError error) {    }});// Set Push and Night Push at the same time.// For games that prompt users to turn Push and Night Push on or off before login, call the following code snippet after login.GamePot.getInstance().setPushEnable(/*true or false*/, /*true or false*/, true, new GamePotCommonListener() {    @Override    public void onSuccess() {    }    @Override    public void onFailure(GamePotError error) {    }});
 ```
 
 Refer to the following code to get the current push status.
 
 ```java
-import io.gamepot.common.GamePot;
-import org.json.JSONObject;
-
-// enable: All Push
-// night: Night Push
-// {"enable":true, "night":true}
-JSONObject status = GamePot.getInstance().getPushStatus();
+import io.gamepot.common.GamePot;import org.json.JSONObject;// enable: All Push// night: Night Push// {"enable":true, "night":true}JSONObject status = GamePot.getInstance().getPushStatus();
 ```
 
-### Notices
+### Notices<a name="Notices"></a>
 
 This feature displays images uploaded in Dashboard > Notice.
 
-#### Call
+#### Call<a name="Call1"></a>
+
 
 ```java
-/* showTodayButton: Provides a choice to show 'Do not show for 24 hours' button or not. It will always appear if it's false. */
-boolean showTodayButton = true;
-
-GamePot.getInstance().showNotice(/*Current activity*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
-    @Override
-    public void onReceive(String scheme) {
-        // TODO : Process scheme
-    }
-});
+/* showTodayButton: Provides a choice to show 'Do not show for 24 hours' button or not. It will always appear if it's false. */boolean showTodayButton = true;GamePot.getInstance().showNotice(/*Current activity*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {    @Override    public void onReceive(String scheme) {        // TODO : Process scheme    }});
 ```
 
-### Notice (Call by classification)
+### Notice (Call by classification)<a name="NoticeCallbyclassification"></a>
+
 
 Dashboard - This feature displays the classified image from the images uploaded in Notice.
 
-#### Call
+#### Call<a name="Call2"></a>
+
 
 ```java
-/* Dashboard Notice >> Name set in classification */
-string type = "";
-
-GamePot.getInstance().showEvent(/*Current activity*/, type, new GamePotNoticeDialog.onSchemeListener() {
-    @Override
-    public void onReceive(String scheme) {
-        // TODO: Process scheme
-    }
-});
+/* Dashboard Notice >> Name set in classification */string type = "";GamePot.getInstance().showEvent(/*Current activity*/, type, new GamePotNoticeDialog.onSchemeListener() {    @Override    public void onReceive(String scheme) {        // TODO: Process scheme    }});
 ```
 
-### Customer Support
+### Customer Support<a name="CustomerSupport"></a>
+
 
 This is a communication channel between users and administrators that is connected with Dashboard > Customer Support > Inquiries.
 
 UI for Inquiries changes according to the device's language. It supports Korean, English, Japanese, Chinese (Simplified, Traditional). English is applied for other languages.
 
-#### Call
+#### Call<a name="Call3"></a>
+
 
 ```java
 GamePot.getInstance().showCSWebView(/*Current activity*/);
@@ -1131,43 +804,42 @@ GamePot.getInstance().showCSWebView(/*Current activity*/);
 
 It supports external links so that customers who haven't logged in can register inquiries.
 
-#### Call
+#### Call<a name="Call4"></a>
+
 
 ```java
-String url = "External customer support issued by GAMEPOT URL";
-
-GamePot.getInstance().showWebView(/*Current activity*/, url, true);
+String url = "External customer support issued by GAMEPOT URL";GamePot.getInstance().showWebView(/*Current activity*/, url, true);
 ```
 
-### FAQ
+### FAQ<a name="FAQ"></a>
+
 
 This is a FAQ list, which is connected with Dashboard > Customer support > FAQ.
 
-#### Call
+#### Call<a name="Call5"></a>
+
 
 ```java
 GamePot.getInstance().showFaq(/*Current activity*/);
 ```
 
-### Local Push notification
+### Local Push notification<a name="LocalPushnotification"></a>
 
 This feature enables devices to display push notifications independently, not via the push server.
 
-#### Call
+#### Call<a name="Call6"></a>
+
 
 **Add push**
 
 Refer to the following code to display local push notifications at a specified time.
 
-> The pushid passed as a return value must be managed by the developer.
+>The pushid passed as a return value must be managed by the developer.
+
+
 
 ```java
-String date = "2018-09-27 20:00:00";
-GamePotLocalPushBuilder builder = new GamePotLocalPushBuilder(getActivity())
-                        .setTitle("Local push test")
-                        .setMessage("Local push message " + date)
-                        .setDateString(date).build();
-int pushid = GamePot.getInstance().sendLocalPush(builder);
+String date = "2018-09-27 20:00:00";GamePotLocalPushBuilder builder = new GamePotLocalPushBuilder(getActivity())                        .setTitle("Local push test")                        .setMessage("Local push message " + date)                        .setDateString(date).build();int pushid = GamePot.getInstance().sendLocalPush(builder);
 ```
 
 **Cancel push**
@@ -1178,11 +850,12 @@ You can cancel previously added push notifications using the pushid you get when
 GamePot.getInstance().cancelLocalPush(/*Current activity*/, /*pushid you get when adding push*/);
 ```
 
-### Maintenance check and force update
+### Maintenance check and force update<a name="Maintenancecheckandforceupdate"></a>
+
 
 If you need maintenance checks or force updates, you can enable this feature in Dashboard > Operation.
 
-#### Call
+#### Call<a name="Call7"></a>
 
 Modify the previously applied APIs as described below.
 
@@ -1191,248 +864,144 @@ Modify the previously applied APIs as described below.
 Change the listener in the login API to `GamePotAppStatusChannelListener.`
 
 ```java
-GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
-    @Override
-    public void onNeedUpdate(GamePotAppStatus status) {
-        // TODO: When you need force update. Call the following API to enable the SDK to display pop-ups by itself.
-        // TODO: You can also customize the function without calling this API.
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO: This API is called to close the app if the showAppStatusPopup API is called.
-                // TODO: Handle the shutdown process.
-                MainActivity.this.finish();
-            }
-
-            @Override
-            public void onNext(Object obj) {
-                // TODO : When you set the dashboard update as recommended, the "Do next time" button will appear.
-                // Called when the user selects that button.
-                // TODO : Handle in the same way as when login is completed with the obj information.
-                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
-            }
-        });
-    }
-
-    @Override
-    public void onMainternance(GamePotAppStatus status) {
-        // TODO: When a maintenance check is in progress. Call the following API to enable the SDK to display pop-ups by itself.
-        // TODO: You can also customize the function without calling this API.
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO: This API is called to close the app if the showAppStatusPopup API is called.
-                // TODO: Handle the shutdown process.
-                MainActivity.this.finish();
-            }
-        });
-    }
-
-    @Override
-    public void onCancel() {
-        // When a user cancels login.
-    }
-
-    @Override
-    public void onSuccess(GamePotUserInfo userinfo) {
-        // Login Complete. Handle this according to the game logic.
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Log in failed. Use error.getMessage() to show an error message.
-    }
-});
+GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotAppStatusChannelListener<GamePotUserInfo>() {    @Override    public void onNeedUpdate(GamePotAppStatus status) {        // TODO: When you need force update. Call the following API to enable the SDK to display pop-ups by itself.        // TODO: You can also customize the function without calling this API.        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {            @Override            public void onClose() {                // TODO: This API is called to close the app if the showAppStatusPopup API is called.                // TODO: Handle the shutdown process.                MainActivity.this.finish();            }            @Override            public void onNext(Object obj) {                // TODO : When you set the dashboard update as recommended, the "Do next time" button will appear.                // Called when the user selects that button.                // TODO : Handle in the same way as when login is completed with the obj information.                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;            }        });    }    @Override    public void onMainternance(GamePotAppStatus status) {        // TODO: When a maintenance check is in progress. Call the following API to enable the SDK to display pop-ups by itself.        // TODO: You can also customize the function without calling this API.        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {            @Override            public void onClose() {                // TODO: This API is called to close the app if the showAppStatusPopup API is called.                // TODO: Handle the shutdown process.                MainActivity.this.finish();            }        });    }    @Override    public void onCancel() {        // When a user cancels login.    }    @Override    public void onSuccess(GamePotUserInfo userinfo) {        // Login Complete. Handle this according to the game logic.    }    @Override    public void onFailure(GamePotError error) {        // Log in failed. Use error.getMessage() to show an error message.    }});
 ```
 
-### Agree to terms and conditions
+### Agree to terms and conditions<a name="Agreetotermsandconditions"></a>
+
+
+
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`. 
 
 Each area can be customized.
 
-#### Call Agree to terms and conditions
+#### Call Agree to terms and conditions<a name="CallAgreetotermsandconditions"></a>
+
+From `GAMEPOT SDK V3.3.0`, **the Agree to Terms and Conditions pop-up window automatically appears upon login**.
+
+You can change this with the flag value before login.
 
 ```java
-// Default theme
-GamePotAgreeBuilder.THEME.BLUE
-GamePotAgreeBuilder.THEME.GREEN
-
-//Improved theme
-GamePotAgreeBuilder.THEME.MATERIAL_RED,
-GamePotAgreeBuilder.THEME.MATERIAL_BLUE,
-GamePotAgreeBuilder.THEME.MATERIAL_CYAN,
-GamePotAgreeBuilder.THEME.MATERIAL_ORANGE,
-GamePotAgreeBuilder.THEME.MATERIAL_PURPLE,
-GamePotAgreeBuilder.THEME.MATERIAL_DARKBLUE,
-GamePotAgreeBuilder.THEME.MATERIAL_YELLOW,
-GamePotAgreeBuilder.THEME.MATERIAL_GRAPE,
-GamePotAgreeBuilder.THEME.MATERIAL_GRAY,
-GamePotAgreeBuilder.THEME.MATERIAL_GREEN,
-GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
+// Default value is true// The MATERIAL_BLUE theme applied when the automatic pop-up window appears // The Agree to Terms and Conditions pop-up window does not appear upon login when set to false.GamePot.getInstance().setAutoAgree(true);// With custom application of the MATERIAL_ORANGE themeGamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);GamePot.getInstance().setAutoAgreeBuilder(bulider);...GamePotChannel.getInstance().login(GamePotChannelType);...
 ```
 
-> Handle Agree to Terms and Conditions pop-up according to games.
->
-> When you click the 'View' button, you can apply and edit the content in the dashboard.
+#### Call Agree to Terms and Conditions (manual)
+
+```java
+// Basic themeGamePotAgreeBuilder.THEME.BLUEGamePotAgreeBuilder.THEME.GREEN//Improved themeGamePotAgreeBuilder.THEME.MATERIAL_RED,GamePotAgreeBuilder.THEME.MATERIAL_BLUE,GamePotAgreeBuilder.THEME.MATERIAL_CYAN,GamePotAgreeBuilder.THEME.MATERIAL_ORANGE,GamePotAgreeBuilder.THEME.MATERIAL_PURPLE,GamePotAgreeBuilder.THEME.MATERIAL_DARKBLUE,GamePotAgreeBuilder.THEME.MATERIAL_YELLOW,GamePotAgreeBuilder.THEME.MATERIAL_GRAPE,GamePotAgreeBuilder.THEME.MATERIAL_GRAY,GamePotAgreeBuilder.THEME.MATERIAL_GREEN,GamePotAgreeBuilder.THEME.MATERIAL_PEACH,
+```
+
+
+ >Handle Agree to Terms and Conditions pop-up according to games.
+
+ >When you click the **[View]** button, you can apply and edit the content in the dashboard.
+
+
 
 Request:
 
 ```java
-// Default call (with BLUE theme)
-GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), new GamePotListener<GamePotAgreeInfo>() {
-    @Override
-    public void onSuccess(GamePotAgreeInfo data) {
-        // data.agree: True if agreed to all required terms and conditions
-        // data.agreeNight: True if Agree to Receive Night Ad push is checked, false if not.
-        // Pass agreeNight value via setPushNightStatus api after logging in.
-    }
-
-    @Override
-    public void onFailure(GamePotError error) {
-        // Provide the user with error.message as a pop-up message.
-    }
-});
-
-// When applying MATERIAL_ORANGE theme
-GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
-GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {
-  ....
-}
+// Default call (with BLUE theme)GamePot.getInstance().showAgreeDialog(/*activity*/, new GamePotAgreeBuilder(), new GamePotListener<GamePotAgreeInfo>() {    @Override    public void onSuccess(GamePotAgreeInfo data) {        // data.agree: True if agreed to all required terms and conditions        // data.agreeNight: True if Agree to Receive Night Ad push is checked, false if not.        // Pass agreeNight value via setPushNightStatus api after logging in.    }    @Override    public void onFailure(GamePotError error) {        // Provide the user with error.message as a pop-up message.    }});// When applying MATERIAL_ORANGE themeGamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);GamePot.getInstance().showAgreeDialog(/*activity*/, bulider, new GamePotListener<GamePotAgreeInfo>() {  ....}
 ```
 
-#### Customizing
+#### Customizing<a name="Customizing"></a>
+
 
 Change colors depending on the games without using themes.
 
 You can specify colors to each area in `GamePotAgreeBuilder` before calling Agree to Terms and Conditions.
 
 ```java
-GamePotAgreeBuilder agreeBuilder= new GamePotAgreeBuilder();
-agreeBuilder.setHeaderBackGradient(new int[] {0xFF00050B,0xFF0F1B21});
-agreeBuilder.setHeaderTitleColor(0xFFFF0000);
-agreeBuilder.setHeaderBottomColor(0xFF00FF00);
-// Set to "" if not used
-agreeBuilder.setHeaderTitle("Agree to Terms and Conditions");
-// res/drawable object ID
-agreeBuilder.setHeaderIconDrawable(R.drawable.ic_stat_gamepot_agree);
-
-agreeBuilder.setContentBackGradient(new int[] { 0xFFFF2432, 0xFF11FF32 });
-agreeBuilder.setContentTitleColor(0xFF0429FF);
-agreeBuilder.setContentCheckColor(0xFFFFADB5);
-agreeBuilder.setContentIconColor(0xFF98FFC6);
-agreeBuilder.setContentShowColor(0xFF98B3FF);
-// res/drawable object ID
-agreeBuilder.setContentIconDrawable(R.drawable.ic_stat_gamepot_small);
-
-agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });
-agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });
-agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
-agreeBuilder.setFooterTitleColor(0xFFFF00D5);
-agreeBuilder.setFooterTitle("Start game");
-
-//일반 광고성 수신동의 버튼 노출 여부
-agreeBuilder.setShowPush(true);
-
-// Whether to show Agree to Receive Night Ad push button
-agreeBuilder.setShowNightPush(true);
-
-// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
-agreeBuilder.setPushDetailURL("https://...");
-
-// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
-agreeBuilder.setNightPushDetailURL("https://...");
-
-// Change description
-agreeBuilder.setAllMessage("Agree to all");
-agreeBuilder.setTermMessage("Required) Terms of service");
-agreeBuilder.setPrivacyMessage("Required) Terms and conditions of the privacy policy");
-agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
-agreeBuilder.setNightPushMessage("Optional) Agree to receive night push");
-
-GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
-  ....
-}
+GamePotAgreeBuilder agreeBuilder= new GamePotAgreeBuilder();agreeBuilder.setHeaderBackGradient(new int[] {0xFF00050B,0xFF0F1B21});agreeBuilder.setHeaderTitleColor(0xFFFF0000);agreeBuilder.setHeaderBottomColor(0xFF00FF00);// Set to "" if not usedagreeBuilder.setHeaderTitle("Agree to Terms and Conditions");// res/drawable object IDagreeBuilder.setHeaderIconDrawable(R.drawable.ic_stat_gamepot_agree);agreeBuilder.setContentBackGradient(new int[] { 0xFFFF2432, 0xFF11FF32 });agreeBuilder.setContentTitleColor(0xFF0429FF);agreeBuilder.setContentCheckColor(0xFFFFADB5);agreeBuilder.setContentIconColor(0xFF98FFC6);agreeBuilder.setContentShowColor(0xFF98B3FF);// res/drawable object IDagreeBuilder.setContentIconDrawable(R.drawable.ic_stat_gamepot_small);agreeBuilder.setFooterBackGradient(new int[] { 0xFFFFFFFF, 0xFF112432 });agreeBuilder.setFooterButtonGradient(new int[] { 0xFF1E3A57, 0xFFFFFFFF });agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);agreeBuilder.setFooterTitleColor(0xFFFF00D5);agreeBuilder.setFooterTitle("Start game");//Whether to show toast messages upon starting the game (agreed time) after agreeing to receive ad push (general/night)agreeBuilder.setShowToastPushStatus(true);// Modify the message for agreeing to receive ad push (general/night)agreeBuilder.setPushToastMsg("Push on");agreeBuilder.setNightPushToastMsg("Night Push on");// Whether to show the general ad consent buttonagreeBuilder.setShowPush(true);// Whether to show Agree to Receive Night Ad push buttonagreeBuilder.setShowNightPush(true);// General advertisement consent link button setting (cannot be entered when not used)agreeBuilder.setPushDetailURL("https://...");// Link button setting to consent to night advertisement reception (cannot be entered when not in use)agreeBuilder.setNightPushDetailURL("https://...");// Change descriptionagreeBuilder.setAllMessage("Agree to all");agreeBuilder.setTermMessage("Required) Terms of service");agreeBuilder.setPrivacyMessage("Required) Terms and conditions of the privacy policy");agreeBuilder.setPushMessage("Optional) agree to receive regular pushes");agreeBuilder.setNightPushMessage("Optional) Agree to receive night push");GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {  ....}
 ```
 
 Each parameter applies to the following area:
 
-> contentIconDrawable's default image is set to push icon.
+>contentIconDrawable's default image is set to push icon.
 
-![gamepot_android_09](./images/gamepot_android_09.png)
 
-### Terms of service
+- AgeView
+
+![gamepot_android_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09%289%29.png){height = "" width=""}
+
+- EmailView
+
+![gamepot_android_09_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09_1%281%29.png){height = "" width=""}
+
+- AgreeView
+
+![gamepot_android_09_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_android_09_2.png){height = "" width=""}
+
+### Terms of service<a name="Termsofservice"></a>
+
 
 Call terms of service UI.
 
-> Enter contents in Dashboard > Customer support > Set terms of service first.
+>Enter contents in Dashboard > Customer support > Set terms of service first.
+
+
 
 ```java
-import io.gamepot.common.GamePot;
-
-// activity: Current activity
-GamePot.getInstance().showTerms(activity);
+import io.gamepot.common.GamePot;// activity: Current activityGamePot.getInstance().showTerms(activity);
 ```
 
-### Terms and conditions of the privacy policy
+### Terms and conditions of the privacy policy<a name="Termsandconditionsoftheprivacypolicy"></a>
+
 
 Call terms and conditions of the privacy policy UI.
 
-> Enter contents in Dashboard > Customer support > Set terms and conditions of the privacy policy first.
+>Enter contents in Dashboard > Customer support > Set terms and conditions of the privacy policy first.
+
 
 ```java
-import io.gamepot.common.GamePot;
-
-// activity: Current activity
-GamePot.getInstance().showPrivacy(activity);
+import io.gamepot.common.GamePot;// activity: Current activityGamePot.getInstance().showPrivacy(activity);
 ```
 
-### Refund policy
+### Refund policy<a name="Refundpolicy"></a>
+
 
 Call refund policy UI.
+>Enter contents in Dashboard > Customer support > Set refund policy first.
 
-> Enter contents in Dashboard > Customer support > Set refund policy first.
+
 
 ```java
-import io.gamepot.common.GamePot;
-
-// activity: Current activity
-GamePot.getInstance().showRefund(activity);
+import io.gamepot.common.GamePot;// activity: Current activityGamePot.getInstance().showRefund(activity);
 ```
 
-### Remote configuration
+### Remote configuration<a name="Remoteconfiguration"></a>
+
 
 Import parameter values registered with the dashboard from the client.
 
-> Add parameters first in Dashboard > Settings > Remote configuration screen.
+>Add parameters first in Dashboard > Settings > Remote configuration screen.
+
+
 
 The parameters added are loaded at login. You can call them after they have been loaded.
 
 ```java
-import io.gamepot.common.GamePot;
-
-//key : Parameter string
-String str_value = GamePot.getInstance().getConfig(key);
-
-//Import all parameters added in the dashboard in json string format.
-String json_value = GamePot.getInstance().getConfigs();
+import io.gamepot.common.GamePot;//key : Parameter stringString str_value = GamePot.getInstance().getConfig(key);//Import all parameters added in the dashboard in json string format.String json_value = GamePot.getInstance().getConfigs();
 ```
 
-### Transfer game logs
+### Transfer game logs<a name="Transfergamelogs"></a>
+
 
 You can call the logs that contain in-game information and view them in `Dashboard` > `Game.`
 
 Check reserved words from the table below:
 
-| Reserved Words                    | Required | Type   | Description    |
-| :-------------------------------- | :------- | :----- | :------------- |
-| GamePotSendLogCharacter.NAME      | Required | String | Character Name |
-| GamePotSendLogCharacter.LEVEL     | Select   | String | Level          |
-| GamePotSendLogCharacter.SERVER_ID | Select   | String | Server ID      |
-| GamePotSendLogCharacter.PLAYER_ID | Select   | String | Character ID   |
-| GamePotSendLogCharacter.USERDATA  | Select   | String | ETC            |
+| Reserved words                    | Required | Type   | Description    | Maximum length |
+| :-------------------------------- | :------- | :----- | :------------- | -------------- |
+| GamePotSendLogCharacter.NAME      | Required | String | Character name | 128            |
+| GamePotSendLogCharacter.LEVEL     | Optional | String | Level          | 128            |
+| GamePotSendLogCharacter.SERVER_ID | Optional | String | Server ID      | 128            |
+| GamePotSendLogCharacter.PLAYER_ID | Optional | String | Character ID   | 128            |
+| GamePotSendLogCharacter.USERDATA  | Optional | String | ETC            | 128            |
+
 
 ```java
 import android.text.TextUtils;
@@ -1462,7 +1031,8 @@ if(!TextUtils.isEmpty(playerid))
 boolean result = GamePotSendLog.characterInfo(obj);
 ```
 
-### GDPR Terms and Conditions Checklist
+### GDPR Terms and Conditions Checklist<a name="GDPRTermsandConditionsChecklist"></a>
+
 
 Shows the list of GDPR terms and conditions items activated from Dashboard.
 
@@ -1481,19 +1051,48 @@ gdpr_adapp_custom: Consent to personalized advertisement (for countries where GD
 gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
-# Appendix
+### Check AppStatus
 
-### It supports third-party SDK connection
+Check the AppStatus of the current client.
+
+```java
+import io.gamepot.common.GamePot;
+
+GamePot.getInstance().checkAppStatus(new GamePotAppStatusResultListener() {
+    @Override
+    public void onSuccess(){
+   
+    }
+    @Override
+    public void onFailure(GamePotError error){
+
+    }
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status){
+
+    }
+    @Override
+    public void onMainternance(GamePotAppStatus status){
+
+    }
+});
+```
+
+## Appendix<a name="Appendix"></a>
+
+
+### It supports third-party SDK connection<a name="ItsupportsthirdpartySDKconnection"></a>
+
 
 TODO : Description
 
-## Login
+## Login<a name="Login6"></a>
+
 
 TODO : Description
 
-> It does not support auto login. Call is required every time.
+>It does not support auto login. Call is required every time.
 
-> Userid value must not contain :(colon).
 
 | Parameter Name | Required | Type                                                     | Description      |
 | :------------- | :------- | :------------------------------------------------------- | :--------------- |
@@ -1558,11 +1157,14 @@ GamePotChannel.getInstance().loginByThirdPartySDK(getActivity(), memberId, new G
 });
 ```
 
-## Payment
+## Payment<a name="Payment"></a>
+
 
 TODO : Description
 
-> Purchased items must be registered in GAMEPOT dashboard.
+>Purchased items must be registered in GAMEPOT dashboard.
+
+
 
 | Parameter Name | Required | Type            | Description                                    |
 | :------------- | :------- | :-------------- | :--------------------------------------------- |

@@ -1,34 +1,27 @@
----
-search:
-  keyword: ['gamepot']
----
+## 1. Get started<a name="1Getstarted"></a>
 
-#### **We provide the <a href="https://guide.ncloud-docs.com/docs/en/home" target="_blank">[Manual]</a>and <a href="https://api.ncloud-docs.com/docs/en/home" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
+### Step 1. Download GAMEPOT plugin<a name="Step1DownloadGAMEPOTplugin"></a>
 
-<a href="https://api.ncloud-docs.com/docs/en/game-gamepot" target="_blank">Go to Gamepot API Reference >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/en/game-gamepotconsole" target="_blank">Go to Gamepot Manual >></a>
-
-# Unity SDK
-
-## 1. Get started
-
-### Step 1. Download GAMEPOT plugin
 
 Log in to your GAMEPOT dashboard and download the latest plugin.
 
-### Step 2. Download a plugin
+### Step 2. Download a plugin<a name="Step2Downloadaplugin"></a>
 
-Go to **Assets &gt; Import Package &gt; Custom Package** in Unity and select the GamePotUnityPlugin-xxxx.unitypackage that you downloaded.
 
-![gamepot_unity_01](./images/gamepot_unity_01.png)
+Go to **Assets > Import Package > Custom Package** in Unity and select the GamePotUnityPlugin-xxxx.unitypackage that you downloaded.
+
+![gamepot_unity_01_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_01_en.png)
 
 Select and import the plugin files, then the plugin will be added to your project.
 
-![gamepot_unity_02](./images/gamepot_unity_02.png)
 
-### Step 3. Android
+![gamepot_unity_02_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_02_en.png)
 
-#### Set preferences
+### Step 3. Android<a name="Step3Android"></a>
+
+
+#### Set preferences<a name="Setpreferences"></a>
+
 
 ```d
 minSdkVersion : API 17 (Jelly Bean, 4.2)
@@ -74,7 +67,8 @@ resValue "string", "[key]", "[value]"
 
 **How to change the push notification icon**
 
-![gamepot_unity_03](./images/gamepot_unity_03.png)
+
+![gamepot_unity_03_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_03_en.png)
 
 When you receive a push notification, a small icon shown as a default image inside the SDK is displayed on the Android notification bar; you can also choose a custom image for the game.
 
@@ -111,29 +105,39 @@ Add screenOrientation to the Main Activity and type `sensorLandscape` or `sensor
 
 Go to `Assets > Play Services Resolver > Android Resolver > Settings`.
 
-![gamepot_unity_04](./images/gamepot_unity_04.png)
+
+![gamepot_unity_04_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_04_en.png)
 
 Clear the `"Enable Resolution On Build" checkbox`.
 
-![gamepot_unity_05](./images/gamepot_unity_05.png)
+
+![gamepot_unity_05_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_05_en.png)
 
 **Unity Build Settings**
 
 Go to `File > Build Settings and select Gradle from > Build System.`
 
-![gamepot_unity_06](./images/gamepot_unity_06.png)
 
-### Step 4. iOS
+![gamepot_unity_06_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_06_en.png)
 
-> `If you do not use` GameCenter Login, delete the file from the following location.
-> &gt; `Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
+### Step 4. iOS<a name="Step4iOS"></a>
+
+
+
+
+ >`If you do not use` GameCenter Login, delete the file from the following location.
+
+ >`Assets/Plugins/IOS/Frameworks/GamePotGameCenter.framework`
+ 
 > If the library is included, you `should turn Game Center on under Capabilities.`
+
 
 Copy `GoogleService-Info.plist`, downloaded from Google Firebase, into `/Assets/Plugins/IOS/`.
 
 Add required environment variables in `/Assets/Plugin/IOS/GamePotConfig-Info.plist`.
 
-![gamepot_unity_07](./images/gamepot_unity_07.png)
+
+![gamepot_unity_07_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_07_en.png)
 
 | Environment variable          | Description                                    |
 | :---------------------------- | :--------------------------------------------- |
@@ -144,13 +148,14 @@ Add required environment variables in `/Assets/Plugin/IOS/GamePotConfig-Info.pli
 | gamepot_google_url_schemes    | REVERSED_CLIENT_ID in GoogleService-Info.plist |
 | gamepot_elsa_projectid        | Project ID when using NCLOUD ELSA              |
 
-After adding scenes, click **File &gt; Build Settings &gt; Build And Run.**
+After adding scenes, click **File > Build Settings > Build And Run.**
 
-![gamepot_unity_08](./images/gamepot_unity_08.png)
+
+![gamepot_unity_08_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_08_en.png)
 
 After building XCode
 
-`Add options to get user roles` below in Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties.
+`Add options to get user roles` below in Targets >> Info >> Custom iOS Target Properties.
 
 The user roles are used for uploading files in the GamePot customer center.
 
@@ -168,15 +173,20 @@ It has been changed to enable acquisition of IDFA values.
 Therefore, if you use a pop-up that obtains authority to the user when obtaining the IDFA value,
 In Targets >> Info >> Custom iOS Target Properties, please add the user rights acquisition option below.
 
-> 2020.09.11<br/>
-> When Apple acquires IDFA value, the mandatory application of pop-up to acquire permission to user has been postponed until early 2021.<br/>
-> Please refer to the link below.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+>2020.09.11
+
+>When Apple acquires IDFA value, the mandatory application of pop-up to acquire permission to user has been postponed until early 2021.
+>Please refer to the link below
+>https://developer.apple.com/news/?id=hx9s63c5
+
 
 ```text
 NSUserTrackingUsageDescription
 ```
 
-## 2. Initialization
+## 2. Initialization<a name="2Initialization"></a>
+
 
 Add the following code to the object used in the first scene loaded when the game starts.
 
@@ -199,7 +209,8 @@ public class GamePotSampleListener : MonoBehaviour , IGamePot {
 }
 ```
 
-## 3. Error code
+## 3. Error code<a name="3Errorcode"></a>
+
 
 ```csharp
 public class NError
@@ -242,11 +253,13 @@ public class NError
 }
 ```
 
-## 4. Login environment setup
+## 4. Login environment setup<a name="4Loginenvironmentsetup"></a>
 
-### Google login
+### Google login<a name="Googlelogin"></a>
 
-#### Google Firebase Console
+
+#### Google Firebase Console<a name="GoogleFirebaseConsole"></a>
+
 
 1. Download google-service.json file for Android from the Google Firebase console and copy it to `/Assets/Plugins/Android/.`
 2. Add the SHA-1 value of Keystore used when you build your APK to the Google Firebase console.
@@ -258,13 +271,16 @@ public class NError
 2. Verify that the key store used during build is the one from which the sha-1, registered in the Firebase console, is extracted.
 3. Verify that the build was made with the package name registered in the Firebase console.
 
-### Facebook login
+### Facebook login<a name="Facebooklogin"></a>
 
-#### Facebook Developer Console
+
+#### Facebook Developer Console<a name="FacebookDeveloperConsole"></a>
+
 
 Add the key hash value of Keystore, used when your APK is built, to the Facebook console.
 
-#### Android
+#### Android<a name="Android1"></a>
+
 
 Edit mainTemplate.gradle.
 
@@ -279,44 +295,67 @@ defaultConfig {
 
 Add your app ID issued from Facebook for the developer to `facebook_app_id` and `fb{facebook_app_id}` to `fb_login_protocol_scheme`.
 
-> For example, if your app_id is 1234567890, your `fb_login_protocol_scheme` is fb1234567890.
 
-#### iOS
+>For example, if your app_id is 1234567890, your `fb_login_protocol_scheme` is fb1234567890.
+
+
+
+#### iOS<a name="iOS1"></a>
 
 Add the following frameworks to this path: /Assets/Plugins/IOS/Frameworks.
 
 FBSDKLoginKit.framework FBSDKCoreKit.framework GamePotFacebook.framework
 
-### APPLE login
+### APPLE login<a name="APPLElogin"></a>
 
-> This features is for iOS only. (For Android, it is supported as Web Login - refer to 8. Other API)
 
-**Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Sign in with Apple.**
 
-![gamepot_unity_24](./images/gamepot_unity_24.png)
+>This features is for iOS only. (For Android, it is supported as Web Login - refer to 8. Other API)
 
-### Game Center login
 
-> This features is for iOS only.
->
-> If you use GameCenter Login, set it up as shown in the image below.
-> &gt; `Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
 
-![gamepot_unity_25](./images/gamepot_unity_25.png)
+**Add Xcode > TARGETS > Signing & Capabilities > + Capability > Sign in with Apple.**
 
-> If the library is included, you `should turn Game Center on under Capabilities.`
 
-Add Gamekit.framework in **Xcode &gt; Build Phases &gt; Linked Binary With Libraries.**
+![gamepot_unity_24_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_24_en.png)
 
-![gamepot_unity_26](./images/gamepot_unity_26.png)
 
-**Add Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; GameCenter.**
+### Game Center login<a name="GameCenterlogin"></a>
 
-![gamepot_unity_09](./images/gamepot_unity_09.png)
 
-## 5. Login/Logout/Delete member/Check
 
-### Login
+ >This features is for iOS only.
+
+ >If you use GameCenter Login, set it up as shown in the image below.
+
+>`Assets/Plugins/IOS/etcFrameworks/GamePotGameCenter.framework`
+
+
+
+
+![gamepot_unity_25_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_25_en.png)
+
+
+
+>If the library is included, you `should turn Game Center on under Capabilities.`
+
+
+Add Gamekit.framework in **Xcode > Build Phases > Linked Binary With Libraries.**
+
+
+![gamepot_unity_26_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_26_en.png)
+
+**Add Xcode > TARGETS > Signing & Capabilities > + Capability > GameCenter.**
+
+
+![gamepot_unity_09_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_09_en.png)
+
+## 5. Login/Logout/Delete member/Check<a name="5LoginLogoutDeletememberCheck"></a>
+
+
+### Login<a name="Login1"></a>
+
+
 
 Create a user account without any additional subscription process. It creates a MemberId to identify users and returns the created information to the NUserInfo structure.
 
@@ -393,6 +432,24 @@ GamePot.login(NCommon.LoginType, (resultState, userInfo, appStatus, error) => {
         case NCommon.ResultLogin.FAILED:
         // login fail
         break;
+        case NCommon.ResultLogin.NEED_UPDATE:
+            // TODO: You need to create a pop-up based on the appStatus information that has been transferred to the parameter and let the user know.
+            // TODO: Choose one of the two ways below.
+                // case 1: Implement UI directly from developers through in-game pop-ups
+                // case 2: Use the SDK pop-up (in this case, call the code below).
+                // GamePot.showAppStatusPopup(status.ToJson());
+        break;
+        case NCommon.ResultLogin.MAINTENANCE:
+            // TODO: You need to create a pop-up based on the appStatus information that has been transferred to the parameter and let the user know.
+            // TODO: Choose one of the two ways below.
+                // case 1: Implement UI directly from developers through in-game pop-ups
+                // case 2: Use the SDK pop-up (in this case, call the code below).
+                // GamePot.showAppStatusPopup(status.ToJson());
+        break;
+        case NCommon.ResultLogin.APP_CLOSE:
+            // TODO: Forced updates or checks are implemented in case 2 (SDK popup)
+            // TODO: Implement it so that you can shut down the app here because it can be forced to shut down.
+        break;
         default:
         break;
     }
@@ -433,7 +490,6 @@ public class NUserInfo
 ```
 
 Define NAppStatus
-
 ```csharp
 public class NAppStatus
 {
@@ -451,13 +507,69 @@ public class NAppStatus
 }
 ```
 
-### Get login information
+**(2021.03.04) Apply from SDK v3.2.0 and later**
+
+> For iOS platforms, we explicitly request a pop-up requesting permission to acquire IDFA values when calling the login API.
+
+> If you do not want to call the pop-up request at the time of login, GamePot.login(NCommon.LoginType loginType) Please modify the method. (Assets/GamePot/SDK/Scripts/GamePot.cs )
+
+```csharp
+...
+public static void login(NCommon.LoginType loginType)
+{
+    // Assets/GamePot/SDK/Scripts/GamePot.cs
+    ...
+    #elif UNITY_IOS
+        //For IOS platforms, allow IDFA acquisition pop-up first to process logins
+        requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
+        {
+            GamePotUnityPluginiOS.login(loginType);
+        });
+    ...
+}
+```
+
+Request:
+
+```csharp
+// You can randomly pop up IDFA Value Acquisition Permission Request.
+// After permission acquisition, no pop-ups appear on method calls.
+
+GamePot.requestTrackingAuthorization((NResultTrackingAuthorizationresultState) =>
+{
+   // Acquired NResultTrackingAuthorizationresultState Handling..
+});
+```
+
+NResultTrackingAuthorizationresultState Definition
+
+```csharp
+public class NResultTrackingAuthorization
+{
+    public NCommon.ResultTrackingAuthorization authorization { get; set; }
+}
+```
+
+```csharp
+public enum ResultTrackingAuthorization
+{
+    ATTrackingManagerAuthorizationStatusNotDetermined,
+    ATTrackingManagerAuthorizationStatusRestricted,
+    ATTrackingManagerAuthorizationStatusDenied,
+    ATTrackingManagerAuthorizationStatusAuthorized,
+    ATTrackingManagerAuthorizationStatusUnknown
+}
+```
+
+### Get login information<a name="Getlogininformation"></a>
+
 
 ```csharp
 GamePot.getMemberId(); // Member ID (User’s unique ID)
 ```
 
-### Auto login
+### Auto login<a name="Autologin"></a>
+
 
 ```csharp
 NCommon.LoginType type = GamePot.getLastLoginType();
@@ -472,7 +584,8 @@ else
 }
 ```
 
-### Logout
+### Logout<a name="Logout"></a>
+
 
 It logs a user out. This does not delete the user’s account; the user can log in again later.
 
@@ -522,7 +635,8 @@ GamePot.logout((success, error) => {
 });
 ```
 
-### Delete account
+### Delete account<a name="Deleteaccount"></a>
+
 
 It deletes a user’s account and this cannot be undone.
 
@@ -570,17 +684,20 @@ GamePot.deleteMember((success, error) => {
 });
 ```
 
-### Authentication check
+### Authentication check<a name="Authenticationcheck"></a>
 
 After the login is complete, the login information is passed from the developer server to the GAMEPOT server to perform authentication checks.
 
 For more information, refer to `Token Authentication` under Server to server api.
 
-## 6. Connect/Disconnect Accounts
+## 6. Connect/Disconnect Accounts<a name="6ConnectDisconnectAccounts"></a>
+
 
 It connects or disconnects a game account to or from multiple social media accounts \(including Google/Facebook\).\(At least one social media account must be connected.\)
 
-> The developer must implement the connection screen UI.
+
+>The developer must implement the connection screen UI.
+
 
 ```csharp
 public enum LinkingType
@@ -596,7 +713,8 @@ public enum LinkingType
 }
 ```
 
-### Connection
+### Connection<a name="Connection"></a>
+
 
 It connects user accounts with their social media accounts including Google/Facebook.
 
@@ -669,7 +787,8 @@ public class NLinkingInfo
 }
 ```
 
-### Disconnect accounts
+### Disconnect accounts<a name="Disconnectaccounts"></a>
+
 
 It disconnects user accounts from their social media accounts.
 
@@ -717,7 +836,8 @@ GamePot.deleteLinking(NCommon.LinkingType.XXXXX, (success, error) => {
 });
 ```
 
-#### Example of processing results for account connection status
+#### Example of processing results for account connection status<a name="Exampleofprocessingresultsforaccountconnectionstatus"></a>
+
 
 According to the createLinking and deleteLinking results, you must get information of the connected account and update the connection status.
 
@@ -776,17 +896,10 @@ Public void UI_Update()
 }
 ```
 
-## 7. Payment
+## 7. Payment<a name="7Payment"></a>
 
-> Gamepot payment supports only consumable in-app product types, and One Store in-app SDK supports only V17 version.
+### Get in-app products<a name="Getinappproducts"></a>
 
-> One-store in-app SDK included: gamepot-billing-onestore.aar
-
-> Galaxy Store in-app SDK included: gamepot-billing-galaxystore.aar
-
-> MyCard In-App SDK included: gamepot-billing-mycard.aar (Please do not include it in the Google Store build.)
-
-### Get in-app products
 
 It gets in-app products registered in the store.
 
@@ -802,24 +915,24 @@ foreach(NPurchaseItem item in items) {
 }
 ```
 
-NPurchaseItem 정의
-
+Define NPurchaseItem
 ```csharp
 public class NPurchaseItem
 {
-    public string productId { get; set; }   // 상품 ID
-    public string type { get; set; }        // 상품 타입으로 "inapp"으로 고정
-    public string price { get; set; }       // 가격 google 스토어 : $0.99 그외 스토어 : 0.99
+    public string productId { get; set; }   // Product ID
+    public string type { get; set; }        // Fix product type as "inapp"
+    public string price { get; set; }       // Google Store price: $0.99, other stores: 0.99
     public string price_amount { get; set; }
     public string price_amount_micros { get; set; }
-    public string price_currency_code { get; set; } // 통화코드 ex) KRW, USD
-    public string price_with_currency { get; set; } // (UI에 노출 시 권장) 통화와 가격이 합쳐진 값 원스토어의 경우 통화 단위 전달 되지 않습니다. ex) $0.99
-    public string title { get; set; }       // 상품 이름
-    public string description { get; set; } // 상품 설명
+    public string price_currency_code { get; set; } // Currency code (e.g., KRW, USD)
+    public string price_with_currency { get; set; } // (Recommended for UI display) For cases like One Store, where the currency and the price are combined, the currency unit is not sent, e.g., $0.99
+    public string title { get; set; }       // Product name
+    public string description { get; set; } // Product description
 }
 ```
 
-### In-app payment
+### In-app payment<a name="Inapppayment"></a>
+
 
 Payments can be made in both Google Play and the App Store using the following method.
 
@@ -891,7 +1004,8 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 });
 ```
 
-### Define NPurchaseInfo
+### Define NPurchaseInfo<a name="DefineNPurchaseInfo"></a>
+
 
 NPurchaseInfo is information about the item that was successfully paid for. It is for your reference.
 
@@ -913,19 +1027,23 @@ public class NPurchaseInfo
 }
 ```
 
-### Provide purchased items
+### Provide purchased items<a name="Providepurchaseditems"></a>
+
 
 GAMEPOT requests items from the developer server after checking receipts from the store by using the Server to server api, thereby preventing illegal payments.
 
 Refer to `Purchase Webhook` in `Server to server api` to implement this.
 
-### External payment
+### External payment<a name="Externalpayment"></a>
+
 
 It enables payment in stores allowing external payments and unofficial stores.
 
-> Only the call api is different; the others such as response and purchase webhook are the same as the regular payment.
->
-> This requires a setting. Referring to External payments in the dashboard manual.
+ 
+>Only the call api is different; the others such as response and purchase webhook are the same as the regular payment.
+
+>This requires a setting. Referring to External payments in the dashboard manual.
+
 
 - Case 1
 
@@ -974,9 +1092,10 @@ GamePot.purchase(productId, (resultState, purchaseInfo, error) => {
 });
 ```
 
-## 8. Other APIs
+## 8. Other APIs<a name="8OtherAPIs"></a>
 
-### Login UI supported by SDK
+
+### Login UI supported by SDK<a name="LoginUIsupportedbySDK"></a>
 
 SDK provides an independent, complete Login UI.
 
@@ -988,7 +1107,8 @@ public class NLoginUIInfo
 }
 ```
 
-#### Call SDK Login UI
+#### Call SDK Login UI<a name="CallSDKLoginUI"></a>
+
 
 - Case 1
 
@@ -1011,7 +1131,7 @@ Request:
 
 Response:
 
-**It's the same as the regular Login API response logic. (However, in case of onLoginCancel/onLoginFailure, it will be processed as a toast message at Native level.)**
+ **It's the same as the regular Login API response logic. (However, in case of onLoginCancel/onLoginFailure, it will be processed as a toast message at Native level.)**
 
 ```csharp
 // Login succeeded
@@ -1065,7 +1185,8 @@ Request:
 });
 ```
 
-#### Customizing
+#### Customizing<a name="Customizing1"></a>
+
 
 **How to Change Login UI Image Logo**
 
@@ -1073,21 +1194,25 @@ The image logo at the top of the login UI shows the default image within the SDK
 
 **[Android]**
 
-> If you would like to specify your own image, then add them to each `drawable` folder. \(You can easily create images for each folder automatically using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo).\)
+
+>If you would like to specify your own image, then add them to each `drawable` folder. \(You can easily create images for each folder automatically using [Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo).\)
+
 
 The image file name should be specified as ic_stat_gamepot_login_logo.png.
 
-| Folder name                                                    | Image size |
-| :------------------------------------------------------------- | :--------- |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55      |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82     |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110    |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165    |
-| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220    |
+| Folder name                                                         | Image size  |
+| :------------------------------------------------------------- | :---- |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-mdpi/    | 78x55 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-hdpi/    | 116x82 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xhdpi/   | 155x110 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxhdpi/  | 232x165 |
+| /Assets/Plugins/Android/GamePotResources/res/drawable-xxxhdpi/ | 310x220 |
 
-**[iOS]**
+ **[iOS]**
 
-> The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
+
+>The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
+
 
 Rename the image file to `ic_stat_gamepot_login_logo.png` and replace it.
 
@@ -1112,27 +1237,34 @@ Open the file /Assets/Plugin/Android/AndroidManifest.xml in your editor.
 
 Add screenOrientation to Main Activity, and enter `sensorLandscape` or `sensorPortrait` to fit the game.
 
-### Apple Login (for Android - Web Login)
 
-#### GAMEPOT Dashboard
+### Apple Login (for Android - Web Login)<a name="AppleLoginforAndroidWebLogin"></a>
+
+
+#### GAMEPOT Dashboard<a name="GAMEPOTDashboard"></a>
 
 Dashboard Project Settings >> General >> Apple ID Login Settings
 
-> Apple Developer Console setup is needed to use this feature.
->
-> Refer to **View Help** for the relevant item in the dashboard.
+
+>Apple Developer Console setup is needed to use this feature.
+
+>Refer to **View Help** for the relevant item in the dashboard.
+
+
 
 Add the following aar file in the /Assets/Plugins/Android/libs path. (Select platforms for plugin - ensure to check Android)
 
 - gamepot-channel-apple-signin.aar
 
-### Log in to NAVER
+### Log in to NAVER<a name="LogintoNAVER"></a>
 
-#### Naver Developers
+
+#### Naver Developers<a name="NaverDevelopers"></a>
+
 
 Register an application after selecting API used as `Login with NAVER ID.`
 
-#### Android
+#### Android<a name="Android2"></a>
 
 Edit mainTemplate.gradle.
 
@@ -1147,7 +1279,8 @@ defaultConfig {
 
 Enter the client ID issued by the console in `gamepot_naver_clientid`, and the client secret in `gamepot_naver_secretid`.
 
-#### iOS
+#### iOS<a name="iOS2"></a>
+
 
 Add the values to GamePotConfig-Info.plist by adding the following items.
 
@@ -1170,17 +1303,20 @@ Add the GamePotConfig-Info.plist as follows when viewing by SourceCode.
 ...
 ```
 
-Add the URL schemes registered in Login with NAVER ID settings to Targets &gt;&gt; Info &gt;&gt; URL Types.
+Add the URL schemes registered in Login with NAVER ID settings to Targets >> Info >> URL Types.
 
 Caution, characters other than `lowercase letters`,`.`,`_` may not be recognized when creating URL schemes.
 
-### Log in to LINE
+### Log in to LINE<a name="LogintoLINE"></a>
 
-#### LINE Developers
+
+#### LINE Developers<a name="LINEDevelopers"></a>
+
 
 Add the package name, keystore's SHA value and url scheme value used when your APK is built to the LINE console.
 
-#### Android
+#### Android<a name="Android3"></a>
+
 
 Edit mainTemplate.gradle.
 
@@ -1194,7 +1330,7 @@ defaultConfig {
 ...
 ```
 
-#### iOS
+#### iOS<a name="iOS3"></a>
 
 Add the values to /Assets/Plugins/IOS/GamePotConfig-Info.plist by adding the following items.
 
@@ -1214,11 +1350,14 @@ Add the following GamePotConfig-Info.plist when viewing by SourceCode.
 ...
 ```
 
-### Log in to Twitter
+### Log in to Twitter<a name="LogintoTwitter"></a>
 
-#### Twitter Developers
 
-#### Android
+#### Twitter Developers<a name="TwitterDevelopers"></a>
+
+
+#### Android<a name="Android4"></a>
+
 
 Edit mainTemplate.gradle.
 
@@ -1231,7 +1370,7 @@ defaultConfig {
 ...
 ```
 
-#### iOS
+#### iOS<a name="iOS4"></a>
 
 Add the values to GamePotConfig-Info.plist by adding the following items.
 
@@ -1249,11 +1388,16 @@ Add the GamePotConfig-Info.plist as follows when viewing by SourceCode.
 ...
 ```
 
-### Coupon
+### Coupon<a name="Coupon"></a>
 
-#### Use coupon
 
-> The developer must implement the UI to enter coupons.
+#### Use coupon<a name="Usecoupon"></a>
+
+
+
+>The developer must implement the UI to enter coupons.
+
+
 
 - Case 1
 
@@ -1303,19 +1447,24 @@ GamePot.coupon(couponNumber, (success, error) => {
 });
 ```
 
-#### Provide items
+#### Provide items<a name="Provideitems"></a>
+
 
 When a coupon is used successfully, request an item from the developer server by using the Server to server api.
 
 Refer to ``Item Webhook` in Server to server api to implement this.
 
-### Push on/off
+### Push on/off <a name="Pushonoff"></a>
+
 
 Turn each push notifications on or off: Push and Night push.
 
-> The developer should implement the UI to turn push notifications on or off.
+(Note)
+>The developer should implement the UI to turn push notifications on or off.
 
-#### Push
+
+#### Push<a name="Push"></a>
+
 
 - Case 1
 
@@ -1362,7 +1511,8 @@ GamePot.setPushStatus(pushEnable, (success, error) => {
 });
 ```
 
-#### Night Push
+#### Night Push<a name="NightPush"></a>
+
 
 - Case 1
 
@@ -1409,7 +1559,8 @@ GamePot.setPushNightStatus(nightPushEnable, (success, error) => {
 });
 ```
 
-#### Enable/disable Ad Push
+#### Enable/disable Ad Push<a name="EnabledisableAdPush"></a>
+
 
 - Case 1
 
@@ -1456,7 +1607,8 @@ GamePot.setPushADStatus(adPushEnable, (success, error) => {
 });
 ```
 
-#### Setting Push, Night Push and Ad Push at one time.
+#### Setting Push, Night Push and Ad Push at one time.<a name="SettingPushNightPushandAdPushatonetime"></a>
+
 
 For games that prompt users to turn Push/Night Push on or off before login, call the following code snippet after login.
 
@@ -1505,7 +1657,8 @@ GamePot.setPushADStatus(pushEnable, nightPushEnable, adPushEnable, (success, err
 });
 ```
 
-#### Get push status
+#### Get push status<a name="Getpushstatus"></a>
+
 
 ```csharp
 NPushInfo pushInfo = GamePot.getPushStatus();
@@ -1514,7 +1667,7 @@ NPushInfo pushInfo = GamePot.getPushStatus();
 // pushInfo.night indicates whether to allow Night Push
 ```
 
-### Notices
+### Notices<a name="Notices"></a>
 
 It shows images added to "Notice" in GAMEPOT dashboard in order.
 
@@ -1522,7 +1675,10 @@ Recommended specs for images are shown below.
 
 - Size : 720 _1200\(Portrait\) / 1280_ 640\(Landscape\)
 
-  > If images are outside of specs, process them with center crop.
+ (Note)
+>If images are outside of specs, process them with center crop.
+
+
 
 - Capacity: 250 KB or lower
 
@@ -1550,13 +1706,14 @@ public void onReceiveScheme(string scheme)
 }
 ```
 
-### Customer Support
+### Customer Support<a name="CustomerSupport"></a>
 
 Customers can register inquiries and admins can answer them.
 
 UI for Inquiries changes according to the device's language. It supports Korean, English, Japanese, Chinese (Simplified, Traditional). English is applied for other languages.
 
-#### Call
+#### Call<a name="Call1"></a>
+
 
 ```csharp
 GamePot.showCSWebView();
@@ -1564,7 +1721,8 @@ GamePot.showCSWebView();
 
 It supports external links so that customers who haven't logged in can register inquiries.
 
-#### Call
+#### Call<a name="Call2"></a>
+
 
 ```csharp
 // url: External customer support URL issued by GAMEPOT
@@ -1572,21 +1730,27 @@ It supports external links so that customers who haven't logged in can register 
 GamePot.showWebView(string url);
 ```
 
-### Local Push notification
+### Local Push notification<a name="LocalPushnotification"></a>
+
 
 This feature enables devices to display push notifications by themselves, not via the push server.
 
-#### Add push
+#### Add push<a name="Addpush"></a>
+
 
 Refer to the following code to display local push notifications at a specified time.
 
-> The pushId passed as a return value should be managed by the developer.
+
+>The pushId passed as a return value should be managed by the developer.
+
+
 
 ```csharp
 int pushId = GamePot.sendLocalPush(DateTime.Parse("2018-01-01 00:00:00"), "title", "content");
 ```
 
-#### Cancel push
+#### Cancel push<a name="Cancelpush"></a>
+
 
 You can cancel previously added push notifications using the pushId you get when adding push.
 
@@ -1595,46 +1759,51 @@ GamePot.cancelLocalPush(/*pushId you can get when adding push*/);
 ```
 
 ### Image Push
-iOS 앱에서 알림 이미지를 수신하고 처리하려면 XCode 상에서 알림 서비스 확장 프로그램을 추가해야 합니다.
 
-- Notification Service Extension 프로젝트에 추가하기
-    1. Xcode -> File -> New -> Target.. 메뉴 클릭
-    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
-    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
+To receive and process notification images in iOS apps, you must add notification service extensions on XCode.
 
-- 알림 서비스 확장 프로그램 추가하기
-    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
+- Adding to a Notification Service Extension project
+  1. Xcode -> File -> New -> Target.. Click Menu
+  2. Click Target to select Notification Service Extension from the output screen and click Next.
+  3. Specify the Project Name of the Target (Notification Service Extension) to be added in the future, then click Finish -> Notification Service Extension Module is added
 
-        ```text
-        // GamePot/GamePotNotificationServiceExtension.h를 Import
-        // #import <UserNotifications/UserNotifications.h>
-        #import <GamePot/GamePotNotificationServiceExtension.h>
+- To add a notification service extension
 
-        // UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
-        // @interface NotificationService : UNNotificationServiceExtension
-        @interface NotificationService : GamePotNotificationServiceExtension
-        @end
-        ```
-
-    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
-        ```text
-        ...
-        - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
-            // self.contentHandler = contentHandler;
-            // self.bestAttemptContent = [request.content mutableCopy];
-
-            // Modify the notification content here...
-            // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
-
-            // self.contentHandler(self.bestAttemptContent);
-            [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
-        }
-        ...
-        ```
-    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+1. Modify the Notification Service.h file in the generated Notification Service Extension module as shown below.
 
 
-### Agree to terms and conditions
+```c++
+// GamePot/GamePotNotificationServiceExtension.h Import
+// #import <UserNotifications/UserNotifications.h>
+#import <GamePot/GamePotNotificationServiceExtension.h
+// UNNotificationServiceExtension Instead of GamePotNotificationServiceExtension Inheritance
+// @interface NotificationService : UNNotificationServiceExtension
+@interface NotificationService : GamePotNotificationServiceExtension
+@end
+```
+
+2. Modify the Notification Service.m file in the generated Notification Service Extension module as shown below.
+
+```c++
+    ...
+
+    - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+        // self.contentHandler = contentHandler;
+        // self.bestAttemptContent = [request.content mutableCopy];
+        // Modify the notification content here...
+        // self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
+        // self.contentHandler(self.bestAttemptContent);
+        [super didReceiveNotificationRequest:request withContentHandler:contentHandler];
+    }
+
+    ...
+```
+
+3. Generated Notification Service Extension modules Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework Addition
+
+
+### Agree to terms and conditions<a name="Agreetotermsandconditions"></a>
+
 
 Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
@@ -1644,13 +1813,33 @@ Each area can be customized.
 
 - Example of `BLUE` theme
 
-#### Call Agree to terms and conditions
+#### Call Agree to terms and conditions<a name="CallAgreetotermsandconditions"></a>
 
 ```csharp
 // Default theme
+// On automatic pop-up, apply as MATERIAL_BLUE theme
+// When setting to false, the terms and conditions popup is not exposed when logging in.
+GamePot.setAutoAgree(true);
+
+// MATERIAL_ORANGE When customizing as a theme
+NAgreeInfo bulider = new NAgreeInfo(); 
+bulider.theme = "MATERIAL_ORANGE";
+GamePot.setAutoAgreeBuilder(bulider);
+
+...
+
+GamePot.login(NCommon.LoginType);
+
+...
+```
+
+#### Terms and Conditions Agreement Invocation (Manual)
+
+
+```csharp
+// Default Theme
 BLUE
 GREEN
-
 // Improved theme
 MATERIAL_RED,
 MATERIAL_BLUE,
@@ -1665,9 +1854,11 @@ MATERIAL_GREEN,
 MATERIAL_PEACH,
 ```
 
-> Handle Agree to Terms and Conditions pop-up according to games.
->
-> When you click the 'View' button, you can apply and edit the content in the dashboard.
+
+>Handle Agree to Terms and Conditions pop-up according to games.
+
+>When you click the 'View' button, you can apply and edit the content in the dashboard.
+
 
 - Case 1
 
@@ -1729,7 +1920,8 @@ GamePot.showAgreeDialog(bool info, (success, NAgreeResultInfo agreeInfo, NError 
 });
 ```
 
-#### Customizing
+#### Customizing<a name="Customizing2"></a>
+
 
 Change colors depending on the games without using themes.
 
@@ -1762,71 +1954,100 @@ info.footerButtonOutlineColor = "0xFFFF171A";
 info.footerTitleColor = "0xFFFF00D5";
 info.footerTitle = "Start game";
 
-// 일반 광고성 수신동의 버튼 노출 여부
+// Whether to show the button for agreeing to receive general ad push
 info.showPush = true;
 
 // Whether to show Agree to Receive Night Ad push button
 info.showNightPush = true;
 
-// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+// Configure the link button for agreeing to receive general ads (If not used, do not input)
 info.pushDetailURL = "https://...";
 
-// 야간 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+// Configure the link button for agreeing to receive night ads (If not used, do not input)
 info.nightPushDetailURL = "https://...";
 
 // Change description
 info.allMessage = "Agree to all";
 info.termMessage = "Required) Terms of service";
 info.privacyMessage = "Required) Terms and conditions of the privacy policy";
-info.pushMessage = "선택) 일반 푸시 수신 동의";
+info.pushMessage = "Optional) Agree to receive general push";
 info.nightPushMessage = "Optional) Agree to receive night push";
-
+// (normal and night) check to receipt of an ad exposure ; (consent time) message, game starts, toast
+GamePot.setShowToastPushStatus(true);
 GamePot.showAgreeDialog(info);
 ```
 
 Each parameter applies to the following area:
 
-> contentIconDrawable appears in AOS only and its default image is set to push icon.
 
-![gamepot_unity_15](./images/gamepot_unity_15.png)
+>contentIconDrawable appears in AOS only and its default image is set to push icon.
 
-### Terms of service
+
+
+- AgeView
+
+![gamepot_unity_15_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_en%281%29.png)
+
+- EmailView
+
+![gamepot_unity_15_1_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_1_en.png)
+
+- AgreeView
+
+![gamepot_unity_15_2_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_15_2_en.png)
+
+### Terms of service<a name="Termsofservice"></a>
+
 
 Call terms of service UI.
 
-> Enter contents in Dashboard > Customer support > Set terms of service first.
+
+Enter contents in Dashboard > Customer support > Set terms of service first.
+
+
 
 ```csharp
 GamePot.showTerms();
 ```
 
-### Terms and conditions of the privacy policy
+### Terms and conditions of the privacy policy<a name="Termsandconditionsoftheprivacypolicy"></a>
+
 
 Call terms and conditions of the privacy policy UI.
 
-> Enter contents in Dashboard > Customer support > Set terms and conditions of the privacy policy first.
+
+>Enter contents in Dashboard > Customer support > Set terms and conditions of the privacy policy first.
+
+
 
 ```csharp
 GamePot.showPrivacy();
 ```
 
-### Refund policy
+### Refund policy<a name="Refundpolicy"></a>
 
 Call refund policy UI.
 
-> Enter contents in Dashboard > Customer support > Set refund policy first.
+
+>Enter contents in Dashboard > Customer support > Set refund policy first.
+
+
 
 ```csharp
 GamePot.showRefund();
 ```
 
-### Remote configuration
+### Remote configuration<a name="Remoteconfiguration"></a>
+
 
 Import parameter values registered with the dashboard from the client.
 
-> Add parameters in Dashboard > Settings > Remote configuration screen.
 
-> The parameters added are loaded at login. You can call them after that.
+
+>Add parameters in Dashboard > Settings > Remote configuration screen.
+
+>The parameters added are loaded at login. You can call them after that.
+
 
 ```csharp
 //"test_01": Parameter string
@@ -1836,16 +2057,21 @@ var str_value = GamePot.getConfig("test_01");
 var json_value = GamePot.getConfigs();
 ```
 
-### Automatic cancellation feature for payment cancellation abusers
+### Automatic cancellation feature for payment cancellation abusers<a name="Automaticcancellationfeatureforpaymentcancellationabusers"></a>
+
 
 It provides UI for Automatic cancellation feature for payment cancellation abusers. Customizable in each area.
 
-> If a user cancels a payment by requesting to Google (limited to Google payment), the user can be blocked with "Cancel Google payment".
->
-> When the user log in, a pop-up appears in SDK to encourage the user to pay for the item again.
-> When the user pays again, he/she can successfully regain access.
->
-> If the user repays all canceled payments, he/she is automatically unblocked.
+
+
+ >If a user cancels a payment by requesting to Google (limited to Google payment), the user can be blocked with "Cancel Google payment".
+
+>When the user log in, a pop-up appears in SDK to encourage the user to pay for the item again.
+
+>When the user pays again, he/she can successfully regain access.
+
+ >If the user repays all canceled payments, he/she is automatically unblocked.
+
 
 ```csharp
 
@@ -1880,19 +2106,21 @@ GamePot.setVoidBuilder(info);
 
 ```
 
-### Transfer game logs
+### Transfer game logs<a name="Transfergamelogs"></a>
+
 
 You can call the logs that contain in-game information and view them in `Dashboard` > `Game.`
 
 Check reserved words from the table below:
 
-| Reserved Words                    | Required | Type   | Description    |
-| :-------------------------------- | :------- | :----- | :------------- |
-| GamePotSendLogCharacter.NAME      | Required | String | Character Name |
-| GamePotSendLogCharacter.LEVEL     | Select   | String | Level          |
-| GamePotSendLogCharacter.SERVER_ID | Select   | String | Server ID      |
-| GamePotSendLogCharacter.PLAYER_ID | Select   | String | Character ID   |
-| GamePotSendLogCharacter.USERDATA  | Select   | String | ETC            |
+| Reservation Word | Required | Type | Description | Maximum Length |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | Required | String | Character Name     | 128       |
+| GamePotSendLogCharacter.LEVEL     | Select | String | Level         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | Select | String | Server ID   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | Selection | String | Character ID | 128       |
+| GamePotSendLogCharacter.USERDATA  | Selection | String | ETC          | 128       |
+
 
 ```csharp
 String name = "Character name";
@@ -1914,7 +2142,8 @@ Boolean result = GamePot.characterInfo(characterLog);
 // Result is FALSE : validation was failed. Please check logcat
 ```
 
-### GDPR Terms and Conditions Checklist
+### GDPR Terms and Conditions Checklist<a name="GDPRTermsandConditionsChecklist"></a>
+
 
 Shows the list of GDPR terms and conditions items activated from Dashboard.
 
@@ -1932,15 +2161,59 @@ gdpr_adapp_custom: Consent to personalized advertisement (for countries where GD
 gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
-# Appendix
+### AppStatus Check.
 
-### It supports third-party SDK connection
+You can check the AppStatus of the current client.
 
-## Login
+```csharp
 
-> It does not support auto login. Call is required every time.
+public enum ResultCheckAppStatus
+{
+    SUCCESS,
+    FAILED,
+    NEED_UPDATE,
+    MAINTENANCE
+}
 
-> Userid value must not contain :(colon).
+GamePot.checkAppStatus((NCommon.ResultCheckAppStatus resultState , NAppStatus appStatus, NError error) =>
+{
+    switch(resultState)
+    {
+        case NCommon.ResultCheckAppStatus.SUCCESS:
+        // Login successfully
+        break;
+
+        case NCommon.ResultCheckAppStatus.FAILED:
+        // Handling error
+        break;
+
+        case NCommon.ResultCheckAppStatus.NEED_UPDATE:
+        // Update
+        // Handling appStatus
+        break;
+
+        case NCommon.ResultCheckAppStatus.MAINTENANCE:
+        // Inspection
+        // Handling appStatus
+        break;
+        
+        default:
+        break;
+    }
+```
+
+## Appendix<a name="Appendix"></a>
+
+
+### It supports third-party SDK connection<a name="Itsupportsthird-partySDKconnection"></a>
+
+## Login<a name="Login2"></a>
+
+
+
+>It does not support auto login. Call is required every time.
+
+
 
 | Parameter Name | Required | Type   | Description      |
 | :------------- | :------- | :----- | :--------------- |
@@ -1952,9 +2225,13 @@ String userid = "memberid of 3rd party sdk";
 GamePot.loginByThirdPartySDK("userid");
 ```
 
-## Payment
+## Payment<a name="Payment"></a>
 
-> Purchased items must be registered in GAMEPOT dashboard.
+
+
+>Purchased items must be registered in GAMEPOT dashboard.
+
+
 
 | Parameter Name | Required | Type   | Description                                      |
 | :------------- | :------- | :----- | :----------------------------------------------- |
@@ -1977,29 +2254,30 @@ String uniqueId = "developer unique id";
 sendPurchaseByThirdPartySDK(string productId, string transactionId, string currency, double price, string store, string paymentId, string uniqueId);
 ```
 
-## When modifications are needed in the native environment
-> When using the Unity plugin package, io.gamepot.unity.plugin.GamePotSDKActivity must be set as MainActivity in Android environment to work.
-However, if you need to modify the native environment for the function of a specific advertising tool, you must inherit the above class and create and apply MainActivity to handle it separately.
+## Warning points when the Firebase Unity SDK is attached separately
+> Please turn off the PatchmainTemplate.gradle option in Asset > External Dependency Manager > Android Resolver > Settings and proceed with Resolve (you need to click the OK button after changing the settings).
 
-Inherited example bridge file: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/UnityGameActivityBridge_sample.zip)
-(Example based on GamePod SDK 3.2.0)
-
-Based on the example above, the explanation is as follows.
-
-1. Open the ../Assets/Plugins/Android/libs/gamepot-bridge.aar file in the project applied to the project.
-Replace the file in the ../app/libs path in the downloaded project (inherited example bridge file).
-
-2. After completing the work, build and put the generated arr (example: GameActivity-bridge.aar ) in the ../Assets/Plugins/Android/libs folder.
-ex)
-../Assets/Plugins/Android/libs/GameActivity-bridge.aar
-
-3. Modify the AndroidManifest.xml file to replace the main activity.
+During the Resolve course, the Firebase library will be repackaged with the package name entered in the Unity Editor, but if the package name is incorrect, the app will not be installed.
 
 ```csharp
-existing :
-        <activity android:theme="@style/UnityThemeSelector"
-            android:name="io.gamepot.unity.plugin.GamePotSDKActivity"
+To check reflections :
 
-Modify :
-            android:name="io.gamepot.unity.plugin.Game.GameActivity" //Based on example: Change to the activity inherited during build
+After Resolve operations, com.google.firebase.firebase-common-[Firebase Library Version].Within aar
+AndroidManifest.xml in android:authorities value is
+Package name format ([Package name].You can check if there is a firebaseinitprovider).
+
+<provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities=“[App Package Name].firebaseinitprovider"
+
+ex)When app package name is com.itsb.gamepot
+(com.itsb.gamepot is a gamepot sample package name and should not be the same package name as in the example.)
+
+<provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities=“com.itsb.gamepot.firebaseinitprovider"
+            .......
+
 ```

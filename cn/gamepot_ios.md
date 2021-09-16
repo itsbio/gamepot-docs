@@ -11,11 +11,7 @@ search:
 
 # iOS SDK
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
+
 
 ## 1. 入门
 
@@ -76,7 +72,8 @@ gamepot_elsa_projectid：GAMEPOT日志项目ID（可选）
 
 #### Step 6. 添加构建选项
 
-**Build Settings > Linking > Other Linker Flags** 将 -ObjC -lz -lstdc++ -lc++ 选项添加到该部分。
+
+**Build Settings > Linking > Other Linker Flags** 将-ObjC 选项添加到该部分。
 
 ![gamepot_ios_06](./images/gamepot_ios_06.png)
 
@@ -110,7 +107,8 @@ NSUserTrackingUsageDescription
 
 #### Step 8. Google Sign In 登录首选项
 
-参照每个服务的“依赖关系”表中的**登录>“Google 登录”**，添加框架和依赖关系。
+
+参照每个服务的“依赖关系”表中的 **登录 >[Google 登录]**，添加框架和依赖关系。
 
 通过在 GoogleService-Info.plist 文件中复制`REVERSED_CLIENT_ID`的值，然后在“信息”>**URL 类型**中添加一个条目，以在 URL 方案中输入值。
 
@@ -127,13 +125,14 @@ gamepot_google_url_schemes : GoogleService-Info.plist文件中的REVERSED_CLIENT
 
 #### Step 9. Facebook 登录首选项
 
-通过引用每个服务的“依赖关系”表中的“登录”>“ Facebook \*\*”来添加框架和依赖关系。
+
+通过引用每个服务的**依赖关系**表中的 **登录 > Facebook** ”来添加框架和依赖关系。
 
 将 Facebook App ID 作为 fb + Facebook App ID 添加到“信息> URL 类型”中。
 
 ![gamepot_ios_09](./images/gamepot_ios_09.png)
 
-将以下内容添加到**信息>iOS 目标属性中的** LSApplicationQueriesSchemes 中。
+将以下内容添加到 **信息 > iOS 目标属性**中的 LSApplicationQueriesSchemes 中。
 
 - fbapi
 - fb-messenger-share-api
@@ -153,6 +152,7 @@ gamepot_facebook_display_name : Facebook display name
 
 #### Step 10. LINE 登录首选项
 
+
 **GamePotConfig-Info.plist 设置**
 
 ```markup
@@ -161,6 +161,7 @@ gamepot_line_url_schemes : Line URL Scheme (line3rdp.{项目包ID})
 ```
 
 #### Step 11. Twitter 登录首选项
+
 
 **GamePotConfig-Info.plist 设置**
 
@@ -171,6 +172,7 @@ gamepot_twitter_consumersecret :  Twitter Consumer Secret
 
 #### Step12. Naver 登录首选项
 
+
 **GamePotConfig-Info.plist 设置**
 
 ```text
@@ -179,7 +181,7 @@ gamepot_naver_secretid : Naver Secret Id
 gamepot_naver_urlscheme : Naver Url Scheme
 ```
 
-将以下内容添加到**信息”>“ iOS 目标属性”中的“ LSApplicationQueriesSchemes**中。
+将以下内容添加到**信息”> iOS 目标属性** 中的 **LSApplicationQueriesSchemes**中。
 
 - naversearchapp
 - naversearchthirdlogin
@@ -276,6 +278,7 @@ AppDelegate 将以下部分添加到文件中。
 
 ## 3. 登录，注销，退出会员
 
+
 您可以集成和使用各种登录 SDK，例如 Google，Facebook 和 Naver。
 
 #### Step 1. 设置
@@ -346,7 +349,8 @@ AppDelegate 将以下部分添加到文件中。
 
 #### Step 2. 登录
 
-当您单击登录按钮时，它起作用。
+
+当您单击 **[登录]** 按钮时，它起作用。
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -435,11 +439,13 @@ else
 
 #### Step 6. 验证
 
+
 完成登录后，通过将登录信息从开发者服务器传递到 GAMEPOT 服务器来执行登录验证。
 
 有关更多信息，请参阅`服务器到服务器api`菜单中的`身份验证检查`项。
 
 ## 4.帐户关联
+
 
 此功能可以将多个社交帐户（Google/Facebook 等）连接断开与一个游戏帐户的连接。
 
@@ -530,6 +536,9 @@ NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 - (void)GamePotPurchaseSuccess:(GamePotPurchaseInfo *)_info
 {
     // 付款成功
+
+     //如果您使用广告作为代码将付款事件引发到广告平台，请确保！ 请插入。
+    [[GamePotAd getInstance] tracking:BILLING obj:_info];
 }
 
 - (void)GamePotPurchaseFail:(NSError *)_error
@@ -583,6 +592,7 @@ CASE 3 : 当您想提供通过Webhook付款时处理的收据编号/服务器ID 
 
 #### Step 3. **获取付款项目清单**
 
+
 您可以获取商店提供的应用内商品的列表。
 
 ```text
@@ -594,6 +604,7 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 
 #### Step 4. 付款项目付款
 
+
 非法付款是不可能的，因为 GAMEPOT 在通过服务器到服务器 api 验证了付款存储区中的收据后，要求向开发者的服务器付款。
 
 为此，请参考“服务器到服务器 api”菜单中的“购买”项并进行处理。
@@ -602,7 +613,8 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 
 ### SDK 支持登录 UI
 
-SDK 中自行提供（完成形式的）Login UI。
+
+SDK中自行提供（完成形式的）Login UI。
 
 ```c++
 #import <GamePot/GamePot.h>
@@ -612,43 +624,31 @@ NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER
 GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
-[[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {
-    // 登录完成。 请根据游戏逻辑处理。
-            
-} update:^(GamePotAppStatus *appStatus) {
-    // TODO: 需要强制更新时。 如果您调用下面的API，则SDK本身可以弹出。
-     // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
-    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
-        setCloseHandler:^{
-        // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
-         // TODO：请注意终止过程。
-    } setNextHandler:^(NSObject* resultPayload) {
-        // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
-         //当用户选择按钮时调用。
-         // TODO：使用resultPayload信息以与登录完成时相同的方式对其进行处理。
-        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
-
-    }];
-} maintenance:^(GamePotAppStatus *appStatus) {
-    // TODO: 如果您正在检查。 如果您调用下面的API，则SDK本身可以弹出。
-     // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
-    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
-        setCloseHandler:^{
-        // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
-         // TODO：请注意终止过程。
-    }];
-} exit:^{
-    // 单击 X 按钮时的处理
-}];
+ [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
+    // 登录成功
+    } cancel:^{
+    // 登录取消
+    } fail:^(NSError *error) {
+    // 登录失败
+    } update:^(GamePotAppStatus *appStatus) {
+    // 更新
+    } maintenance:^(GamePotAppStatus *appStatus) {
+    // 维护
+    } exit:^{
+    // showLoginWithUI终止
+    }
+];
 ```
 
 #### 设置登录 UI 镜像标志
 
-登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
+
+登录UI上方显示的镜像标志在SDK内部中以默认镜像显示，也可以直接添加。
 
 **亲自添加镜像标志**
 
 > 镜像标志在 GamePot.bundle 中，以 ic_stat_gamepot_logo.png 文件格式存在。
+
 
 将镜像文件名变更为`ic_stat_gamepot_login_logo.png`后更换。
 
@@ -677,6 +677,7 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 ```
 
 #### 物品付款
+
 
 如果优惠券成功使用，则要求开发者服务器通过服务器到服务器 api 支付商品。
 
@@ -711,28 +712,28 @@ GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:orde
 ```
 
 ### Image Push
-iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 확장 프로그램을 추가해야 합니다.
+在iOS 应用程序中接收并处理通知图像需要添加通知服务扩展程序 。
 
-- Notification Service Extension 프로젝트에 추가하기
-    1. Xcode -> File -> New -> Target.. 메뉴 클릭
-    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
-    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
+- Notification Service Extension 添加到工程中
+    1. Xcode -> File -> New -> Target.. 点击菜单
+    2. 点击Target在输出画面中选择Notification Service Extension后点击Next
+    3. 指定之后要添加的 Target( Notification Service Extension) 的 Project Name， 点击 Finish -> Notification Service Extension 模块 。
 
-- 알림 서비스 확장 프로그램 추가하기
-    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
+- 添加通知服务扩展程序
+    1. 创建的 Notification Service Extension 模块中的 Notification Service.h 文件修改如下
 
         ```text
         // GamePot/GamePotNotificationServiceExtension.h를 Import
         // #import <UserNotifications/UserNotifications.h>
         #import <GamePot/GamePotNotificationServiceExtension.h>
 
-        // UNNotificationServiceExtension 대신 GamePotNotificationServiceExtension를 상속
+        // 同时,继承UNNotificationServiceExtension GamePotNotificationServiceExtension
         // @interface NotificationService : UNNotificationServiceExtension
         @interface NotificationService : GamePotNotificationServiceExtension
         @end
         ```
 
-    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
+    2. 创建的 Notification Service Extension 模块中的 Notification Service.m 文件修改如下
         ```text
         ...
         - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
@@ -747,7 +748,7 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 
         }
         ...
         ```
-    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+    3. 生成的 Notification Service Extension 模块的 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 添加
 
 
 ### 公告
@@ -755,6 +756,7 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 
 DashBoard - 在公告栏所上传图像显示的功能。
 
 #### 调用
+
 
 ```text
 [[GamePot getInstance] showNotice:/*viewController*/ setSchemeHandler:^(NSString *scheme) {
@@ -764,9 +766,11 @@ DashBoard - 在公告栏所上传图像显示的功能。
 
 ### 公告(按类别致电)
 
+
 仪表板-此功能仅显示公告中上载并设置为分类的图像。
 
 #### 调用
+
 
 ```text
 [[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
@@ -782,6 +786,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 #### 通话
 
+
 ```text
 [[GamePot getInstance] showHelpWebView:(UIViewController *)];
 ```
@@ -789,6 +794,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 未登录的客户可以通过支持外部链接来注册查询。
 
 #### 通话
+
 
 ```text
 // showWebView Type
@@ -800,11 +806,13 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 ### 本地推送通知
 
+
 此功能可在不通过推送服务器的情况下从终端公开推送本身。
 
 #### 通话
 
 #### 推送注册
+
 
 这是在给定时间公开本地推送的方法。
 
@@ -821,6 +829,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 #### 取消注册推送
 
+
 您可以根据推送注册过程中获得的推送 ID 取消先前注册的推送。
 
 ```text
@@ -829,9 +838,11 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
 
 ### 检查，强制更新
 
+
 如果需要检查或强制更新功能，则在仪表板操作中激活该功能时将激活该功能。
 
 #### 通话
+
 
 可以在下面应用的 API 中使用它。
 
@@ -853,7 +864,7 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
             // TODO：调用showAppStatusPopup API时，需要关闭应用程序时调用它。
              // TODO：请注意终止过程。
         } setNextHandler:^(NSObject* resultPayload) {
-            // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
+            // TODO : 在仪表板更新设置中，建议时将显示[下一步]按钮。
              //当用户选择按钮时调用。
              // TODO：使用resultPayload信息以与登录完成时相同的方式对其进行处理。
             // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
@@ -870,23 +881,30 @@ DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗�
     }];
 ```
 
-### 약관 동의 (GDPR 포함)
+### 接受条款 (GDPR 涵盖)<a name="接受条款"></a>
 
-'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
+提供了 UI，以便用户可以轻松接受**使用条款**和**个人信息收集和使用指南**。
 
-#### 약관 동의 호출 (자동)
-`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
 
-로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+#### 条款及细则电话 (自动)<a name="条款及细则电话"></a>
+从`GAMEPOT SDKV3.3.0`开始, **登录时自动显示条款同意的弹窗**。
+
+登录前，您可以通过标志值更改此信息 
+
+:::(Info) (参考)
+ 开发者同意公开适合该游戏的弹出窗口。
+
+ 单击 **[查看]** 按钮时显示的内容可以在仪表板中应用和修改。
+:::
 ```
-// Default Value는 YES
-// 자동 팝업 시, MATERIAL_BLUE 테마로 적용
-// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+// Default Value YES
+// 自动弹出时， 应用于 MATERIAL_BLUE 主题 设置为
+// false时，登录时不显示条款同意的弹出式。
 [[GamePot getInstance] setAutoAgree:YES];
 
-// MATERIAL_ORANGE 테마로 커스텀 적용 시
+// MATERIAL_使用ORANGE主题定制时
 GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
 [[GamePot getInstance] setAgreeBuilder:options];
 
@@ -907,13 +925,15 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
 ...
 ```
 
-#### 약관 동의 호출 (수동)
+#### 调用条款(手动)<a name="调用条款 手动"></a>
+
+
 
 ```text
-// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
-// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+// 蓝色主题[[GamePotAgreeOption alloc] init:BLUE];
+// 绿色主题[[GamePotAgreeOption alloc] init:GREEN];
 
-// 개선테마
+// 改善主题  
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -926,36 +946,33 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
 ```
-> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
->
-> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
 
 Request:
 
 ```
-GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
-   // [result agree] : 필수 약관을 모두 동의한 경우 true
-   // [result agreeNight] : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
-   // agreeNight 값은 로그인 완료 후 [[GamePot getInstance] setNightPushEnable]; api를
-   // 통해 전달하세요.
+   // [result agree] : 如果所有必需条款均已达成，则为true
+    // [result acceptNight]：如果选中了每晚广告收据协议，则为true，否则为false
+    //同意值的值为[[GamePot getInstance] setNightPushEnable]; api
+    //通过。
 }];
 ```
 
 #### Customizing
 
-테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
+更改颜色以匹配游戏而不使用主题。
 
-약관 동의를 호출하기 전에 `GamePotAgreeOption`에서 각 영역별로 색을 지정할 수 있습니다.
-
-##### 약관 자동 호출 Customizing 설정
-약관 자동 호출 시 팝업을 아래와 같이 Customizing 설정이 가능합니다.
+您可以在调用条款协议之前在`GamePotAgreeOption`中为每个区域指定颜色。
+##### 配置条款自动调用Customizing
+自动呼叫条款时，可设置弹窗如下Customizing。
 ```
 GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 [[GamePot getInstance] setAgreeBuilder:options];
 ```
-##### Customizing 세부 설정
+##### Customizing 细节设置
+
 ```text
  GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
@@ -971,41 +988,39 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 [option setFooterButtonOutlineColor:0xFF0b171a];
 [option setFooterTitleColor:0xFFFFFFD5];
 
-// 문구 변경
-[option setAllMessage:@"모두 동의"];
-[option setTermMessage:@"필수) 이용약관"];
-[option setPrivacyMessage:@"필수) 개인정보 취급 방침"];
-[option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
-[option setNightPushMessage:@"선택) 야간 푸쉬 수신 동의"];
-[option setFooterTitle:@"게임 시작하기"];
+// 词组变化
+[option setAllMessage:@"全部同意"];
+[option setTermMessage:@"必要) 使用条款"];
+[option setPrivacyMessage:@"必要) 隐私政策"];
+[option setPushMessage:@"可选）同意接受常规推送"];
+[option setNightPushMessage:@"选拔) 同意稍微推动"];
+[option setFooterTitle:@"开始游戏"];
 
-// 광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+// 确认广告性收信同意（一般/夜间）后，游戏开始时是否暴露Toast信息（同意时间）
 [option setShowToastPushStatus:YES];
 
-// 광고성 수신동의(일반/야간) 메세지 수정
+// 修改广告性收信同意（一般/夜间）信息
 [option setPushToastMsg:@"Push on"];
 [option setNightPushToastMsg:@"Night Push on"];
+// 不用时设置为@“”
+[option setHeaderTitle:@"接受条款"];
 
-// 미사용시 @""로 설정
-[option setHeaderTitle:@"약관 동의"];
-
-// 일반 광고성 수신동의 버튼 노출 여부
+// 是否显示一般广告同意按钮
 [option setShowPush:YES];
 
-// 야간 광고성 수신동의 버튼 노출 여부
+// 是否公开用于接收夜间广告的按钮
 [option setShowNightPush:YES];
 
-// 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+// 常规广告同意链接按钮设置（不使用时无法输入）
 [option setPushDetailURL:@"https://..."];
 
-// 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+// 设置链接按钮，同意接受夜间广告（不使用时请勿输入）
 [option setNightPushDetailURL:@"https://..."];
-
 ```
 
-각각의 변수는 아래 영역에 적용됩니다.
+每个变量都适用于以下区域。
 
-> contentIconDrawable의 이미지는 IOS에는 노출 되지 않습니다.
+contentIconDrawable 的图像未暴露给 IOS。
 
 ![gamepot_ios_14](./images/gamepot_ios_14.png)
 ![gamepot_ios_14_1](./images/gamepot_ios_14_1.png)
@@ -1037,9 +1052,11 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 ### 退款政策
 
+
 调用退款规则用户界面。
 
 > 控制台-客户支持-在退款政策设置项中输入详细信息。
+
 
 ```java
 #import <GamePot/GamePot.h>
@@ -1048,6 +1065,7 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 ```
 
 ### 远程配置
+
 
 获取在客户端的仪表板上注册的参数值。
 
@@ -1067,17 +1085,19 @@ NSArray *json_value = [[GamePot getInstance] getConfigs];
 
 ### 游戏日志转移
 
+
 如果使用游戏中使用的信息进行调用，则可以在`仪表板`-`游戏`中进行搜索。
 
 以下是可用保留字定义的表。
 
-| 保留字                            | 必要 | 类型   | 说明      | 最長長度 |
-| :-------------------------------- | :--- | :----- | :-------- | -------- |
-| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名称  | 128      |
-| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 级别      | 128      |
-| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID | 128      |
-| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   | 128      |
-| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       | 128      |
+| 预约语|必需|类型|说明|最大长度 |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | 必需| String|角色名     | 128       |
+| GamePotSendLogCharacter.LEVEL     | 选择| String|等级         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | 选择| String|服务器ID   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | 选择| String|角色创意 | 128       |
+| GamePotSendLogCharacter.USERDATA  | 选择 | String | ETC          | 128       |
+
 
 ```java
 #import <GamePot/GamePotSendLog.h>
@@ -1100,7 +1120,7 @@ BOOL result = [GamePotSendLog characterInfo:info];
 
 ### GDPR 条款选项列表
 
-将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
+将在仪表盘中激活的GDPR条款项目以列表形式导出。
 
 ```c++
 (NSArray*) [[GamePot getInstance] getGDPRCheckedList];
@@ -1115,7 +1135,34 @@ gdpr_adapp_custom：同意接收个人精准广告投放（GDPR实施国家）
 gdpr_adapp_nocustom：同意接收精准投放以外的一般广告（GDPR实施国家）
 ```
 
-## 7. 下载
+### AppStatus 确认
+
+您可以查看当前客户端中的 AppStatus 。
+
+```c++
+#import <GamePot/GamePot.h>
+
+[[GamePot getInstance] checkAppStatus:^{
+    
+    //Login Success
+
+} setFailHandler:^(NSError *error) {
+
+    //Failed
+
+} setUpdateHandler:^(GamePotAppStatus *status) {
+
+    //NeedUpdate
+
+} setMaintenanceHandler:^(GamePotAppStatus *status) {
+
+    //OnMaintenance
+
+}];
+```
+
+## 7. 下载<a name="7下载"></a>
+
 
 您可以从 GAMEPOT 仪表板上的**SDK 下载**菜单下载 SDK。
 
@@ -1159,7 +1206,7 @@ NSString userid = @"memberid of 3rd party sdk";
         // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
          // TODO：请注意终止过程。
     } setNextHandler:^(NSObject* resultPayload) {
-        // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
+        // TODO : 在仪表板更新设置中，建议时将显示[下一步]按钮。
          //当用户选择按钮时调用。
          // TODO：使用resultPayload信息以与登录完成时相同的方式对其进行处理。
         // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;

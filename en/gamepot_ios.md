@@ -1,32 +1,24 @@
----
-search:
-  keyword:
-    - gamepot
----
+## 1. Get started<a name="1Getstarted"></a>
 
-#### **We provide the <a href="https://guide.ncloud-docs.com/docs/en/home" target="_blank">[Manual]</a>and <a href="https://api.ncloud-docs.com/docs/en/home" target="_blank">[API Reference]</a>separately to offer more detailed information on how to use the NAVER CLOUD PLATFORM and help maximize the use of the API.**
 
-<a href="https://api.ncloud-docs.com/docs/en/game-gamepot" target="_blank">Go to Gamepot API Reference >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/en/game-gamepotconsole" target="_blank">Go to Gamepot Manual >></a>
+### Step 1. Development environment setup<a name="Step1Developmentenvironmentsetup"></a>
 
-# iOS SDK
-
-## 1. Get started
-
-#### Step 1. Development environment setup
 
 Install a development tool \(Xcode\) for developing iOS applications. A system environment for using GAMEPOT in iOS is as follows.
 
 - OS: iOS 10.0 or later
 - Development environment: Xcode
 
-#### Step 2. Add frameworks
+### Step 2. Add frameworks<a name="Step2Addframeworks"></a>
 
-![gamepot_ios_01](./images/gamepot_ios_01.png)
+
+
+![gamepot_ios_01_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_01_en.png)
 
 Add the downloaded iOS SDK to TARGETS of your Xcode project folder.
 
-#### Step 3. Add dependencies
+### Step 3. Add dependencies<a name="Step3Adddependencies"></a>
+
 
 Required dependencies depend on the service you want to use.
 
@@ -41,19 +33,24 @@ Dependencies for each service
 | GameCenter | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
 | AppleID    | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
-![gamepot_ios_02](./images/gamepot_ios_02.png)
 
-#### Step 4. Add bundle resources
+![gamepot_ios_02_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_02_en.png)
+
+### Step 4. Add bundle resources<a name="Step4Addbundleresources"></a>
+
 
 In accordance with the service you wish to use, you should add a bundle resource file.
 
 Add bundle resources by referring to “Dependencies for each service” above.
 
-![gamepot_ios_03](./images/gamepot_ios_03.png)
 
-#### Step 5. Add InfoPlist
+![gamepot_ios_03_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_03_en.png)
 
-![gamepot_ios_04](./images/gamepot_ios_04.png)
+### Step 5. Add InfoPlist<a name="Step5AddInfoPlist"></a>
+
+
+
+![gamepot_ios_04_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_04_en.png)
 
 The GAMEPOT SDK uses Google Firebase. Therefore, add GoogleService-Info.plist created by setting Google Firebase to your project.
 
@@ -61,20 +58,24 @@ Also, add GamePotConfig-Info.plist containing default settings of the GAMEPOT SD
 
 **Configure GamePotConfig-Info.plist**
 
-![gamepot_ios_05](./images/gamepot_ios_05.png)
+
+![gamepot_ios_05_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_05_en.png)
 
 ```markup
 gamepot_project_id: GAMEPOT Project ID
 gamepot_elsa_projectid: GAMEPOT log project ID (optional)
 ```
 
-#### Step 6. Add build options
+### Step 6. Add build options<a name="Step6Addbuildoptions"></a>
 
-Add -ObjC -lz -lstdc++ -lc++ to **Build Settings &gt; Linking &gt; Other Linker Flags**.
 
-![gamepot_ios_06](./images/gamepot_ios_06.png)
+Add -ObjC to **Build Settings &gt; Linking &gt; Other Linker Flags**.
 
-#### Step 7. Edit InfoPlist
+
+![gamepot_ios_06_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_06_en.png)
+
+### Step 7. Edit InfoPlist<a name="Step7EditInfoPlist"></a>
+
 
 Add user rights options to get user roles shown below in Targets &gt;&gt; Info &gt;&gt; Custom iOS Target Properties.
 
@@ -94,38 +95,47 @@ It has been changed to enable acquisition of IDFA values.
 Therefore, if you use a pop-up that obtains authority to the user when obtaining the IDFA value,
 In Targets >> Info >> Custom iOS Target Properties, please add the user rights acquisition option below.
 
-> 2020.09.11<br/>
-> When Apple acquires IDFA value, the mandatory application of pop-up to acquire permission to user has been postponed until early 2021.<br/>
-> Please refer to the link below.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+ >2020.09.11
+
+ >When Apple acquires IDFA value, the mandatory application of pop-up to acquire permission to user has been postponed until early 2021.
+
+ >Please refer to the link below.<br/> > https://developer.apple.com/news/?id=hx9s63c5
+
+
 
 ```text
 NSUserTrackingUsageDescription
 ```
 
-#### Step 8. Set up Google Sign In environment
+### Step 8. Set up Google Sign In environment<a name="Step8SetupGoogleSignInenvironment"></a>
+
 
 Add frameworks and dependencies by referring to **Login &gt; Google Sign In** in Dependencies for each service.
 
 Copy `REVERSED_CLIENT_ID` in GoogleService-Info.plist and paste it into URL Schemes in **Info &gt; URL Types**.
 
-![gamepot_ios_07](./images/gamepot_ios_07.png)
+
+![gamepot_ios_07_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_07_en.png)
 
 **Configure GamePotConfig-Info.plist**
 
-![gamepot_ios_08](./images/gamepot_ios_08.png)
+
+![gamepot_ios_08_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_08_en.png)
 
 ```markup
 gamepot_google_app_id: CLIENT_ID in GoogleService-Info.plist
 gamepot_google_url_schemes: REVERSED_CLIENT_ID in GoogleService-Info.plist
 ```
 
-#### Step 9. Set up Facebook login environment
+### Step 9. Set up Facebook login environment<a name="Step9SetupFacebookloginenvironment"></a>
+
 
 Add frameworks and dependencies by referring to **Login &gt; Facebook** in “Dependencies for each service.”
 
 Add your Facebook App ID to **Info &gt; URL Types**, in the form of fb+Facebook App ID.
 
-![gamepot_ios_09](./images/gamepot_ios_09.png)
+
+![gamepot_ios_09_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_09_en.png)
 
 Add the following to **LSApplicationQueriesSchemes** in **Info &gt; iOS Target Property**.
 
@@ -134,18 +144,20 @@ Add the following to **LSApplicationQueriesSchemes** in **Info &gt; iOS Target P
 - fbauth2
 - fbshareextension
 
-![gamepot_ios_10](./images/gamepot_ios_10.png)
+
+![gamepot_ios_10_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_10_en.png)
 
 **Configure GamePotConfig-Info.plist**
 
-![gamepot_ios_11](./images/gamepot_ios_11.png)
+
+![gamepot_ios_11_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_11_en.png)
 
 ```markup
 gamepot_facebook_app_id : Facebook App ID
 gamepot_facebook_display_name : Facebook display name
 ```
 
-#### Step 10. Set up LINE login environment
+### Step 10. Set up LINE login environment<a name="Step10SetupLINEloginenvironment"></a>
 
 **Configure GamePotConfig-Info.plist**
 
@@ -154,7 +166,8 @@ gamepot_line_channelid : Line Channel ID
 gamepot_line_url_schemes : Line URL Scheme (line3rdp.{Project bundle ID})
 ```
 
-#### Step 11. Set up Twitter login environment
+### Step 11. Set up Twitter login environment<a name="Step11SetupTwitterloginenvironment"></a>
+
 
 **Configure GamePotConfig-Info.plist**
 
@@ -163,7 +176,8 @@ gamepot_twitter_consumerkey : Twitter Consumer Key
 gamepot_twitter_consumersecret :  Twitter Consumer Secret
 ```
 
-#### Step 12. Set up Naver login environment
+### Step 12. Set up Naver login environment<a name="Step12SetupNaverloginenvironment"></a>
+
 
 **Configure GamePotConfig-Info.plist**
 
@@ -181,11 +195,13 @@ Add the following to **LSApplicationQueriesSchemes** in **Info &gt; iOS Target P
 
 Add the value entered in gamepot_naver_urlscheme in **Info &gt; URL Types.**
 
-#### Step 13. Set up AppleID login environment
+### Step 13. Set up AppleID login environment<a name="Step13SetupAppleIDloginenvironment"></a>
+
 
 **Xcode &gt; TARGETS &gt; Signing & Capabilities &gt; + Capability &gt; Add Sign In with Apple**
 
-## 2. Initialization
+## 2. Initialization<a name="2Initialization"></a>
+
 
 Add the following code to the AppDelegate file.
 
@@ -269,11 +285,13 @@ Add the following code to the AppDelegate file.
 }
 ```
 
-## 3. Login, Logout, Delete Member
+## 3. Login, Logout, Delete Member<a name="3LoginLogoutDeleteMember"></a>
+
 
 Use various login SDKs, such as Google, Facebook, and NAVER.
 
-#### Step 1. Settings
+### Step 1. Settings<a name="Step1Settings1"></a>
+
 
 ```text
 // AppDelegate.m
@@ -339,9 +357,10 @@ Use various login SDKs, such as Google, Facebook, and NAVER.
 }
 ```
 
-#### Step 2. Login
+### Step 2. Login<a name="Step2Login"></a>
 
-Click the login button to link.
+
+Click the **[login]** button to link.
 
 ```text
 #import <GamePotChannel/GamePotChannel.h>
@@ -366,7 +385,8 @@ Click the login button to link.
 }];
 ```
 
-#### Step 3. Auto login
+### Step 3. Auto login<a name="Step3Autologin"></a>
+
 
 GAMEPOT supports auto login.
 
@@ -396,7 +416,8 @@ else
 }
 ```
 
-#### Step 4. Logout
+### Step 4. Logout<a name="Step4Logout"></a>
+
 
 Logs out of the current user account.
 
@@ -412,7 +433,8 @@ Logs out of the current user account.
 }];
 ```
 
-#### Step 5. Delete member
+### Step 5. Delete member<a name="Step5Deletemember"></a>
+
 
 Deletes the current member account.
 
@@ -428,19 +450,22 @@ Deletes the current member account.
 }];
 ```
 
-#### Step 6. Authentication check
+### Step 6. Authentication check<a name="Step6Authenticationcheck"></a>
+
 
 After the login is complete, the login information is passed from the developer server to the GAMEPOT server to perform authentication checks.
 
 For more information, refer to `Authentication check` under `Server to server api.`
 
-## 4. Connect/Disconnect Accounts
+## 4. Connect/Disconnect Accounts<a name="4ConnectDisconnectAccounts"></a>
+
 
 It connects or disconnects a game account to or from multiple social media accounts \(including Google/Facebook\).\(At least one social media account should be connected.\)
 
 Implement the connection UI in the game and call the following code when the connect button is clicked.
 
-#### Step 1. Connect/Disconnect accounts
+### Step 1. Connect/Disconnect accounts<a name="Step1ConnectDisconnectaccounts"></a>
+
 
 Connect user accounts with social media accounts including Google and Facebook.
 
@@ -465,7 +490,7 @@ Connect user accounts with social media accounts including Google and Facebook.
 }];
 ```
 
-#### Step 2. List of connected accounts
+### Step 2. List of connected accounts<a name="Step2Listofconnectedaccounts"></a>
 
 Check whether an account has been connected using social media accounts.
 
@@ -487,7 +512,8 @@ BOOL isGoogleLinked = [[GamePotChannel getInstance] isLinked:GOOGLE];
 NSString* linkedList = [[GamePotChannel getInstance] getLinkedListJsonString];
 ```
 
-#### Step 3. Disconnect accounts
+### Step 3. Disconnect accounts<a name="Step3Disconnectaccounts"></a>
+
 
 Disconnect user accounts from their social media accounts.
 
@@ -502,9 +528,11 @@ Disconnect user accounts from their social media accounts.
 }];
 ```
 
-## 5. Payment
+## 5. Payment<a name="5Payment"></a>
 
-#### Step 1. Settings
+
+### Step 1. Settings<a name="Step1Settings2"></a>
+
 
 Payment results are implemented as a delegate. Add a delegate as in the example below.
 
@@ -525,6 +553,9 @@ Payment results are implemented as a delegate. Add a delegate as in the example 
 - (void)GamePotPurchaseSuccess:(GamePotPurchaseInfo *)_info
 {
     // Payment succeeded.
+
+    // Must add this code snippet to pass the payment event to the ad platform! Add it.
+    [[GamePotAd getInstance] tracking:BILLING obj:_info];
 }
 
 - (void)GamePotPurchaseFail:(NSError *)_error
@@ -542,7 +573,8 @@ Payment results are implemented as a delegate. Add a delegate as in the example 
 @end
 ```
 
-#### Step 2. Payment attempt
+### Step 2. Payment attempt<a name="Step2Paymentattempt"></a>
+
 
 ```text
 Case 1: General payment
@@ -576,7 +608,8 @@ Case 3: Sending receipt numbers/server ID/character ID/further information proce
 [[GamePot getInstance] purchase:productid uniqueId:uniqueid serverId:serverid playerId:playerid etc:etc]];
 ```
 
-#### Step 3. **Get purchased items list**
+### Step 3. Get purchased items list<a name="Step3Getpurchaseditemslist"></a>
+
 
 Get in-app item list transferred from stores.
 
@@ -587,15 +620,18 @@ NSArray<SKProduct*>* itemList = [[GamePot getInstance] getDetails];
 [[GamePot getInstance] getLocalizePrice:[product productIdentifier]];
 ```
 
-#### Step 4. Provide purchased items
+### Step 4. Provide purchased items<a name="Step4Providepurchaseditems"></a>
+
 
 GAMEPOT requests items from the developer server after checking receipts from the store by using the Server to server api, thereby preventing illegal payments.
 
 Refer to `Purchase` in `Server to server api` to implement this.
 
-## 6. Other APIs
+## 6. Other APIs<a name="6OtherAPIs"></a>
 
-### Login UI supported by SDK
+
+### Login UI supported by SDK<a name="LoginUIsupportedbySDK"></a>
+
 
 SDK provides an independent, complete Login UI.
 
@@ -607,53 +643,44 @@ NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER
 GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
-[[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {
-    // Login Complete. Handle this according to the game logic.
-           
-} update:^(GamePotAppStatus *appStatus) {
-    // TODO: When you need force update. Call the following API to enable the SDK to display pop-ups by itself.
-    // TODO: You can also customize the function without calling this API.
-    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
-        setCloseHandler:^{
-        // TODO: This API is called to close the app if the showAppStatusPopup API is called.
-        // TODO: Handle the shutdown process.
-    } setNextHandler:^(NSObject* resultPayload) {
-        // TODO : When you set the dashboard update as recommended, the "Do next time" button will appear.
-        // Called when the user selects that button.
-        // TODO : Use the resultPayload information to process it in the same way as when login has been completed.
-        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
-
-    }];
-} maintenance:^(GamePotAppStatus *appStatus) {
-    // TODO: When a maintenance check is in progress. Call the following API to enable the SDK to display pop-ups by itself.
-    // TODO: You can also customize the function without calling this API.
-    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
-        setCloseHandler:^{
-        // TODO: This API is called to close the app if the showAppStatusPopup API is called.
-        // TODO: Handle the shutdown process.
-    }];
-} exit:^{
-    // Process when X button is clicked
-}];
+ [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
+    // Login succeeded
+    } cancel:^{
+    // Cancel login
+    } fail:^(NSError *error) {
+    // Login failed
+    } update:^(GamePotAppStatus *appStatus) {
+    // Update
+    } maintenance:^(GamePotAppStatus *appStatus) {
+    // Check
+    } exit:^{
+    // Close showLoginWithUI
+    }
+];
 ```
 
-#### Setting Login UI image logo
+#### Setting Login UI image logo<a name="SettingLoginUIimagelogo"></a>
 
 The image logo at the top of the login UI shows the default image within the SDK, and this can be replaced by users.
 
 **Customizing Image Logo**
 
-> The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
+>The image logo is the ic_stat_gamepot_logo.png file in GamePot.bundle.
+
+
 
 Rename the image file to `ic_stat_gamepot_login_logo.png` and replace it.
 
 (Recommended image size: 310x220)
 
-### Coupon
+### Coupon<a name="Coupon"></a>
+
 
 Call the following code to use a coupon entered by a user.
 
-> The developer must implement the screen UI to get coupons.
+>The developer must implement the screen UI to get coupons.
+
+
 
 ```text
 #import <GamePot/GamePot.h>
@@ -671,13 +698,15 @@ Call the following code to use a coupon entered by a user.
 }];
 ```
 
-#### Provide items
+#### Provide items<a name="Provideitems"></a>
+
 
 When a coupon is used successfully, request an item from the developer server by using the Server to server api.
 
 Refer to `Item` in `Server to server api` to implement this.
 
-### Push
+### Push<a name="Push"></a>
+
 
 ```text
 #import <GamePot/GamePot.h>
@@ -706,15 +735,15 @@ Refer to `Item` in `Server to server api` to implement this.
 ```
 
 ### Image Push
-iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 확장 프로그램을 추가해야 합니다.
+To receive and process notification images in iOS apps, you must add notification service extensions.
 
-- Notification Service Extension 프로젝트에 추가하기
-    1. Xcode -> File -> New -> Target.. 메뉴 클릭
-    2. Target을 클릭하여 출력되는 화면에서 Notification Service Extension을 선택 후 Next를 클릭
-    3. 이후 추가될 Target(Notification Service Extension)의 Project Name을 지정 후 Finish를 클릭 -> Notification Service Extension 모듈이 추가된것을 확인
+- Adding to a Notification Service Extension project
+1. Xcode -> File -> New -> Target.. Click Menu
+2. Click Target to select Notification Service Extension from the output screen and click Next.
+3. Specify the Project Name of the Target (Notification Service Extension) to be added in the future, then click Finish -> Notification Service Extension Module is added
 
-- 알림 서비스 확장 프로그램 추가하기
-    1. 생성된 Notification Service Extension 모듈의 NotificationService.h 파일을 아래와 같이 수정
+- To add a notification service extension
+1. Modify the Notification Service.h file in the generated Notification Service Extension module as shown below.
 
         ```text
         // GamePot/GamePotNotificationServiceExtension.h를 Import
@@ -727,7 +756,7 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 
         @end
         ```
 
-    2. 생성된 Notification Service Extension 모듈의 NotificationService.m 파일을 아래와 같이 수정
+    2. Modify the Notification Service.m file in the generated Notification Service Extension module as shown below.
         ```text
         ...
         - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
@@ -742,14 +771,15 @@ iOS 앱에서 알림 이미지를 수신하고 처리하려면 알림 서비스 
         }
         ...
         ```
-    3. 생성된 Notification Service Extension 모듈의 Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework 추가
+    3. Generated Notification Service Extension Modules Targets >> Build Phases >> Link Binary With Libraries에 GamePot.framework Add
 
+### Notices<a name="Notices"></a>
 
-### Notices
 
 This feature displays images uploaded in Dashboard > Notice.
 
-#### Call
+#### Call<a name="Call1"></a>
+
 
 ```text
 [[GamePot getInstance] showNotice:/*viewController*/ setSchemeHandler:^(NSString *scheme) {
@@ -757,11 +787,13 @@ This feature displays images uploaded in Dashboard > Notice.
 }];
 ```
 
-### Notice (Call by classification)
+### Notice (Call by classification)<a name="NoticeCallbyclassification"></a>
+
 
 Dashboard - This feature displays the classified image from the images uploaded in Notice.
 
-#### Call
+#### Call<a name="Call2"></a>
+
 
 ```text
 [[GamePot getInstance] showEvent:/*viewController*/ setType:/*Type*/ setSchemeHandler:^(NSString *scheme) {
@@ -769,13 +801,15 @@ Dashboard - This feature displays the classified image from the images uploaded 
 }];
 ```
 
-### Customer service
+### Customer service<a name="Customerservice"></a>
+
 
 This is a communication channel between users and administrators, which is connected with Dashboard > Customer support.
 
 UI for Inquiries changes according to the device's language. It supports Korean, English, Japanese, Chinese (Simplified, Traditional). English is applied for other languages.
 
-#### Call
+#### Call<a name="Call3"></a>
+
 
 ```text
 [[GamePot getInstance] showHelpWebView:(UIViewController *)];
@@ -783,7 +817,8 @@ UI for Inquiries changes according to the device's language. It supports Korean,
 
 It supports external links so that customers who haven't logged in can register inquiries.
 
-#### Call
+#### Call<a name="Call4"></a>
+
 
 ```text
 // showWebView Type
@@ -793,17 +828,22 @@ It supports external links so that customers who haven't logged in can register 
     [[GamePot getInstance] showWebView:/*Current ViewController*/ setType:/*Type*/ setURL:/*external inquiry access URL*/];
 ```
 
-### \(Local Push notification\)
+### \(Local Push notification\)<a name="LocalPushnotification"></a>
+
 
 This feature enables devices to display push notifications independently, not via the push server.
 
-#### Call
+#### Call<a name="Call5"></a>
 
-#### Add push
+
+#### Add push<a name="Addpush"></a>
+
 
 Refer to the following code to display local push notifications at a specified time.
 
-> The pushid passed as a return value must be managed by the developer.
+>The pushid passed as a return value must be managed by the developer.
+
+
 
 ```text
  NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
@@ -814,7 +854,8 @@ Refer to the following code to display local push notifications at a specified t
  int pushId  = [[GamePot getInstance] sendLocalPush:@"Title" setMessage:@"Message" setDateString:strDate];
 ```
 
-#### Cancel push
+#### Cancel push<a name="Cancelpush"></a>
+
 
 You can cancel previously added push notifications using the pushid you get when adding push.
 
@@ -822,15 +863,17 @@ You can cancel previously added push notifications using the pushid you get when
 [[GamePot getInstance] cancelLocalPush:(int)pushId];
 ```
 
-### Maintenance check and force update
+### Maintenance check and force update<a name="Maintenancecheckandforceupdate"></a>
+
 
 If you need maintenance checks or force updates, you can enable this feature in Dashboard > Operation.
 
-#### Call
+#### Call<a name="Call6"></a>
 
 Modify the previously applied APIs as described below.
 
-#### 1. Login API
+#### 1. Login API<a name="1LoginAPI"></a>
+
 
 ```text
 [[GamePotChannel getInstance] Login:GAMECENTER viewController:self
@@ -865,23 +908,32 @@ Modify the previously applied APIs as described below.
     }];
 ```
 
-### 약관 동의 (GDPR 포함)
+### Agree to terms and conditions<a name="Agreetotermsandconditions"></a>
 
-'GDPR' 및 '이용약관', '개인정보 수집 및 이용안내' 동의를 쉽게 받을 수 있도록 UI를 제공합니다.
 
-`BLUE` 테마와 `GREEN` 테마 두 가지의 `기본테마` 이외에도, 새롭게 추가된 11 종류의 `개선테마`를 제공합니다.
+Provides UI to easily obtain agreement to "Terms of service" and "Collection and use of personal information".
 
-#### 약관 동의 호출 (자동)
-`GAMEPOT SDK V3.3.0` 부터, **로그인 시 자동으로 약관 동의 팝업이 노출** 됩니다.
+11 types of new, `improved themes` are provided in addition to two `basic themes`, `BLUE` and `GREEN`.
 
-로그인 전, 플래그 값을 통해 이를 변경할 수 있습니다.
+ Each area can be customized.
+
+#### Call Agree to terms and conditions<a name="CallAgreetotermsandconditions"></a>
+Starting with `GAMEPOT SDK V3.3.0`, **When logging in, the terms and conditions popup is automatically exposed**.
+
+Before logging in, you can change this through the flag value.
+
+
+ >Handle Agree to Terms and Conditions pop-up according to games.
+
+> When you click the **[View]** button, you can apply and edit the content in the dashboard.
+
 ```
 // Default Value는 YES
-// 자동 팝업 시, MATERIAL_BLUE 테마로 적용
-// false로 셋팅 시, 로그인 할 때 약관 동의 팝업이 노출되지 않습니다.
+// On automatic pop-up, apply as MATERIAL_BLUE theme
+// When setting to false, the terms and conditions popup is not exposed when logging in.
 [[GamePot getInstance] setAutoAgree:YES];
 
-// MATERIAL_ORANGE 테마로 커스텀 적용 시
+// MATERIAL_ORANGE When customizing as a theme
 GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
 [[GamePot getInstance] setAgreeBuilder:options];
 
@@ -902,13 +954,13 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
 ...
 ```
 
-#### 약관 동의 호출 (수동)
+#### Terms and Conditions Agreement Invocation (Manual)<a name="Terms and Conditions Agreement Invocation Manual"></a>
 
 ```text
-// 블루테마 [[GamePotAgreeOption alloc] init:BLUE];
-// 그린테마 [[GamePotAgreeOption alloc] init:GREEN];
+// BLUE theme [[GamePotAgreeOption alloc] init:BLUE];
+// GREEN theme [[GamePotAgreeOption alloc] init:GREEN];
 
-// 개선테마
+// Improved themes  
 //  [[GamePotAgreeOption alloc] init:MATERIAL_RED];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_CYAN];
@@ -921,36 +973,34 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_ORANGE];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_GREEN];
 //  [[GamePotAgreeOption alloc] init:MATERIAL_PEACH];
 ```
-> 약관 동의 팝업 노출 여부는 개발사에서 게임에 맞게 처리해주세요.
->
-> '보기'버튼을 클릭 시 보여지는 내용은 대시보드에서 적용 및 수정이 가능합니다.
 
 Request:
 
 ```
-GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
+GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:BLUE];
 [[GamePot getInstance] showAgreeView:self option:option handler:^(GamePotAgreeInfo *result) {
-   // [result agree] : 필수 약관을 모두 동의한 경우 true
-   // [result agreeNight] : 야간 광고성 수신 동의를 체크한 경우 true, 그렇지 않으면 false
-   // agreeNight 값은 로그인 완료 후 [[GamePot getInstance] setNightPushEnable]; api를
-   // 통해 전달하세요.
+   // [result agree]: It is true if all required terms and conditions have been agreed to
+   // [result agreeNight]: It is true if agree to receive night ad push has been agreed to, false if it has not.
+   // Pass agreeNight value via [[GamePot getInstance] setNightPushEnable]; api
+   // after logging in.
 }];
 ```
 
-#### Customizing
+#### Customization<a name="Customization"></a>
 
-테마를 사용하지 않고 게임에 맞게 색을 변경합니다.
 
-약관 동의를 호출하기 전에 `GamePotAgreeOption`에서 각 영역별로 색을 지정할 수 있습니다.
+Change the color to suit the game without using the theme.
 
-##### 약관 자동 호출 Customizing 설정
-약관 자동 호출 시 팝업을 아래와 같이 Customizing 설정이 가능합니다.
+'GamePotAgreeOption' allows you to color each area before invoking the terms and conditions agreement.
+
+#### Automatic Terms and Conditions Call Customizing
+Customizing can be set as below when automatically calling the terms and conditions.
 ```
 GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 [[GamePot getInstance] setAgreeBuilder:options];
 ```
-##### Customizing 세부 설정
+#### Customizing Detailed Settings
 ```text
  GamePotAgreeOption* option = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
@@ -966,51 +1016,61 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 [option setFooterButtonOutlineColor:0xFF0b171a];
 [option setFooterTitleColor:0xFFFFFFD5];
 
-// 문구 변경
-[option setAllMessage:@"모두 동의"];
-[option setTermMessage:@"필수) 이용약관"];
-[option setPrivacyMessage:@"필수) 개인정보 취급 방침"];
-[option setPushMessage:@"선택) 일반 푸쉬 수신 동의"];
-[option setNightPushMessage:@"선택) 야간 푸쉬 수신 동의"];
-[option setFooterTitle:@"게임 시작하기"];
+// Change description
+[option setAllMessage:@"Agree to all"];
+[option setTermMessage:@"Required) Terms of service"];
+[option setPrivacyMessage:@"Required) Terms and conditions of the privacy policy"];
+[option setPushMessage:@"Optional) agree to receive regular pushes"];
+[option setNightPushMessage:@"Optional) Agree to receive night push"];
+[option setFooterTitle:@"Start game"];
 
-// 광고성 수신동의(일반/야간) 체크 후, 게임 시작 시 Toast 메시지(동의 시간) 노출 여부
+// Whether to expose Toast messages at game startup after checking Advertisement Agree (Normal/Night)
 [option setShowToastPushStatus:YES];
 
-// 광고성 수신동의(일반/야간) 메세지 수정
+// Modify Advertisement Agree (Normal/Night) Messages
 [option setPushToastMsg:@"Push on"];
 [option setNightPushToastMsg:@"Night Push on"];
+// Set to @"" if not used
+[option setHeaderTitle:@"Agree to Terms and Conditions"];
 
-// 미사용시 @""로 설정
-[option setHeaderTitle:@"약관 동의"];
-
-// 일반 광고성 수신동의 버튼 노출 여부
+// Whether to show the general ad consent button
 [option setShowPush:YES];
 
-// 야간 광고성 수신동의 버튼 노출 여부
+// Whether to show Agree to Receive Night Ad push button
 [option setShowNightPush:YES];
 
-// 일반 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+// General advertisement consent link button setting (cannot be entered when not used)
 [option setPushDetailURL:@"https://..."];
 
-// 야간 광고성 수신동의 링크 설정 (미사용 시, 설정 안함)
+// Link button setting to consent to night advertisement reception (cannot be entered when not in use)
 [option setNightPushDetailURL:@"https://..."];
-
 ```
 
-각각의 변수는 아래 영역에 적용됩니다.
+Each parameter applies to the following area:
 
-> contentIconDrawable의 이미지는 IOS에는 노출 되지 않습니다.
+ >contentIconDrawable's image does not appear in iOS.
 
-![gamepot_ios_14](./images/gamepot_ios_14.png)
-![gamepot_ios_14_1](./images/gamepot_ios_14_1.png)
-![gamepot_ios_14_2](./images/gamepot_ios_14_2.png)
 
-### Terms of service
+- AgeView
+
+![gamepot_ios_14_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_en%281%29.png)
+
+- EmailView
+
+![gamepot_ios_14_1_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_1_en.png)
+
+- AgreeView
+
+![gamepot_ios_14_2_en](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_2_en.png)
+
+### Terms of service<a name="Termsofservice"></a>
+
 
 Call terms of service UI.
 
-> Enter contents in Dashboard > Customer support > Set terms of service first.
+ >Enter contents in Dashboard > Customer support > Set terms of service first.
+
+
 
 ```java
 #import <GamePot/GamePot.h>
@@ -1018,11 +1078,14 @@ Call terms of service UI.
 [[GamePot getInstance] showTerms:/*ViewController*/];
 ```
 
-### Terms and conditions of the privacy policy
+### Terms and conditions of the privacy policy<a name="Termsandconditionsoftheprivacypolicy"></a>
+
 
 Call terms and conditions of the privacy policy UI.
 
-> Enter contents in Dashboard > Customer support > Set terms and conditions of the privacy policy first.
+ >Enter contents in Dashboard > Customer support > Set terms and conditions of the privacy policy first.
+
+
 
 ```java
 #import <GamePot/GamePot.h>
@@ -1030,11 +1093,14 @@ Call terms and conditions of the privacy policy UI.
 [[GamePot getInstance] showPrivacy:/*ViewController*/];
 ```
 
-### Refund policy
+### Refund policy<a name="Refundpolicy"></a>
+
 
 Call refund policy UI.
 
-> Enter contents in Dashboard > Customer support > Set refund policy first.
+>Enter contents in Dashboard > Customer support > Set refund policy first.
+
+
 
 ```java
 #import <GamePot/GamePot.h>
@@ -1042,11 +1108,13 @@ Call refund policy UI.
 [[GamePot getInstance] showRefund:/*ViewController*/];
 ```
 
-### Remote configuration
+### Remote configuration<a name="Remoteconfiguration"></a>
 
 Import parameter values registered with the dashboard from the client.
 
-> Add parameters first in Dashboard > Settings > Remote configuration screen.
+>Add parameters first in Dashboard > Settings > Remote configuration screen.
+
+
 
 The parameters added are loaded at login. You can call them after they have been loaded.
 
@@ -1060,19 +1128,20 @@ NSString *str_value = [[GamePot getInstance] getConfig:(NSString*)key];
 NSArray *json_value = [[GamePot getInstance] getConfigs];
 ```
 
-### Transfer game logs
+### Transfer game logs<a name="Transfergamelogs"></a>
+
 
 You can call the logs that contain in-game information and view them in `Dashboard` > `Game.`
 
 Check reserved words from the table below:
 
-| Reserved Words                    | Required | Type   | Description    |
-| :-------------------------------- | :------- | :----- | :------------- |
-| GamePotSendLogCharacter.NAME      | Required | String | Character Name |
-| GamePotSendLogCharacter.LEVEL     | Select   | String | Level          |
-| GamePotSendLogCharacter.SERVER_ID | Select   | String | Server ID      |
-| GamePotSendLogCharacter.PLAYER_ID | Select   | String | Character ID   |
-| GamePotSendLogCharacter.USERDATA  | Select   | String | ETC            |
+| Reservation Word | Required | Type | Description | Maximum Length |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | Required | String | Character Name     | 128       |
+| GamePotSendLogCharacter.LEVEL     | Select | String | Level         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | Select | String | Server ID   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | Selection | String | Character ID | 128       |
+| GamePotSendLogCharacter.USERDATA  | Selection | String | ETC          | 128       |
 
 ```java
 #import <GamePot/GamePotSendLog.h>
@@ -1093,7 +1162,8 @@ BOOL result = [GamePotSendLog characterInfo:info];
 
 ```
 
-### GDPR Terms and Conditions Checklist
+### GDPR Terms and Conditions Checklist<a name="GDPRTermsandConditionsChecklist"></a>
+
 
 Shows the list of GDPR terms and conditions items activated from Dashboard.
 
@@ -1110,23 +1180,52 @@ gdpr_adapp_custom: Consent to personalized advertisement (for countries where GD
 gdpr_adapp_nocustom: Consent to non-personalized advertisement (for countries where GDPR is applicable)
 ```
 
-## 7. Download
+### AppStatus Check.
+
+You can check the AppStatus of the current client.
+
+```c++
+#import <GamePot/GamePot.h>
+
+[[GamePot getInstance] checkAppStatus:^{
+    
+    //Login Success
+
+} setFailHandler:^(NSError *error) {
+
+    //Failed
+
+} setUpdateHandler:^(GamePotAppStatus *status) {
+
+    //NeedUpdate
+
+} setMaintenanceHandler:^(GamePotAppStatus *status) {
+
+    //OnMaintenance
+
+}];
+```
+
+## 7. Download<a name="7Download"></a>
 
 You can download the SDK from GAMEPOT Dashboard's **Download SDK.**
 
-# Appendix
+## Appendix<a name="Appendix"></a>
 
-### It supports third-party SDK connection
 
-TODO : Description
+### It supports third-party SDK connection<a name="ItsupportsthirdpartySDKconnection"></a>
 
-## Login
 
 TODO : Description
 
-> It does not support auto login. Call is required every time.
+## Login<a name="Login"></a>
 
-> Userid value must not contain :(colon).
+
+TODO : Description
+
+>It does not support auto login. Call is required every time.
+
+
 
 | Parameter Name | Required | Type             | Description                     |
 | :------------- | :------- | :--------------- | :------------------------------ |
@@ -1171,11 +1270,14 @@ NSString userid = @"memberid of 3rd party sdk";
 }];
 ```
 
-## Payment
+## Payment<a name="Payment"></a>
+
 
 TODO : Description
 
-> Purchased items must be registered in GAMEPOT dashboard.
+>Purchased items must be registered in GAMEPOT dashboard.
+
+
 
 | Parameter Name | Required | Type                 | Description                             |
 | :------------- | :------- | :------------------- | :-------------------------------------- |

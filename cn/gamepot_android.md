@@ -10,12 +10,6 @@ search:
 
 # Android SDK
 
-> ### 这是机器翻译的文档，可能在词汇，语法或语法上有错误。 我们很快会为您提供由专业翻译人员翻译的文档。
->
-> #### 如有任何疑问，请[联系我们](https://www.ncloud.com/support/question)。
->
-> 我们将尽一切努力进一步改善我们的服务。
-
 ## 1. 入门
 
 ### 配置开发环境
@@ -26,7 +20,7 @@ search:
 
 \[ 系统环境 \]
 
-- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 3.3.3 或 gradle 3.4.3 或更高
+- 最低配置: API 17 \(Jelly Bean, 4.2\)以上, gradle 3.3.3 以上
 - 开发环境: Android Studio
 
 #### 创建项目
@@ -115,43 +109,42 @@ repositories {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
+    compile 'com.android.support:multidex:1.0.1'
 
     // GamePot common [START]
-    implementation(name: 'gamepot-common', ext: 'aar')
-    implementation('io.socket:socket.io-client:1.0.0') {
+    compile(name: 'gamepot-common', ext: 'aar')
+    compile('io.socket:socket.io-client:1.0.0') {
         exclude group: 'org.json', module: 'json'
     }
-    implementation('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
+    compile('com.github.ihsanbal:LoggingInterceptor:3.0.0') {
         exclude group: 'org.json', module: 'json'
     }
-    implementation "com.github.nisrulz:easydeviceinfo:2.4.1"
-    implementation 'pub.devrel:easypermissions:1.3.0'
-    implementation 'com.android.installreferrer:installreferrer:1.0'
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.jakewharton.timber:timber:4.7.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
-    implementation 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    implementation 'com.android.billingclient:billing:3.0.3'
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
-    implementation 'androidx.sqlite:sqlite-framework:2.0.1'
-    implementation 'com.cookpad.puree:puree:4.1.6'
-    implementation 'com.google.firebase:firebase-core:18.0.1'
-    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    compile "com.github.nisrulz:easydeviceinfo:2.4.1"
+    compile 'com.android.installreferrer:installreferrer:1.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.jakewharton.timber:timber:4.7.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
+    compile 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
+    compile 'com.android.billingclient:billing:1.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.romandanylyk:pageindicatorview:1.0.3'
+    compile 'com.google.firebase:firebase-core:16.0.6'
+    compile 'com.google.firebase:firebase-messaging:17.3.4'
+    compile 'androidx.sqlite:sqlite-framework:2.0.1'
+    compile 'com.cookpad.puree:puree:4.1.6'
     // GamePot common [END]
 
-    implementation(name: 'gamepot-channel-base', ext: 'aar')
+    compile(name: 'gamepot-channel-base', ext: 'aar')
     // GamePot facebook [START]
-    implementation(name: 'gamepot-channel-facebook', ext: 'aar')
-    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+    compile(name: 'gamepot-channel-facebook', ext: 'aar')
+    compile 'com.facebook.android:facebook-android-sdk:5.2.0'
     // GamePot facebook [END]
 
     // GamePot google sigin [START]
-    implementation(name: 'gamepot-channel-google-signin', ext: 'aar')
-    implementation "com.google.android.gms:play-services-auth:19.0.0"
+    compile(name: 'gamepot-channel-google-signin', ext: 'aar')
+    compile "com.google.android.gms:play-services-base:16.0.1"
+    compile "com.google.android.gms:play-services-auth:16.0.1"
     // GamePot google sigin [END]
 }
 
@@ -194,7 +187,7 @@ apply plugin: 'com.google.gms.google-services'
 
     <!--allowBackup务必要设置为false。(为了防止重新安装游戏的时候自动恢复shared preference值。)-->
     <application
-        android:name="androidx.multidex.MultiDexApplication"
+        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="false"
         tools:replace="android:allowBackup">
 
@@ -292,9 +285,11 @@ protected void onDestroy() {
 
 ## 3. 登录，退出，注销
 
+
 可以集成使用各种登录 SDK。如 Google，FaceBook，Naver 等。
 
 ### 设置 Google\(Firebase\) Console
+
 
 编译 APK 时所使用的 Keystore 的 SHA-1 值添加到 Firebase console。
 
@@ -353,7 +348,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### 登录
 
-登录 UI 需要由开发公司来支持实现，将点击登录按钮时调用登录相关代码。
+登录 UI 需要由开发公司来支持实现，将点击 **[登录]** 按钮时调用登录相关代码。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -368,7 +363,7 @@ import io.gamepot.common.GamePotError;
 // GamePotChannelType.NAVER: Naver
 // GamePotChannelType.LINE: LINE
 // GamePotChannelType.TWITTER: Twitter
-// GamePotChannelType.APPLE: Apple
+// GamePotChannelType.APPLE: Apple 
 // GamePotChannelType.GUEST: 游客
 
 // 点击Google登录按钮的时候调用
@@ -583,13 +578,6 @@ GamePotChannel.getInstance().deleteLinking(this, GamePotChannelType.GOOGLE, new 
 
 ## 5. 支付
 
-> Gamepot支付仅支持消耗型应用内商品类型，One Store应用内SDK仅支持V17版本。
-
-> 包含 OneStore 应用内 SDK：gamepot-billing-onestore.aar
-
-> 包含 Galaxy Store 应用内 SDK：gamepot-billing-galaxystore.aar
-
-> 包含 MyCard In-App SDK：gamepot-billing-mycard.aar（请不要将其包含在 Google Store 版本中。）
 
 支付的结果值以 Listener 形式来实现。
 
@@ -632,6 +620,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### 尝试支付
 
+
 可以使用一个支付 API 来支付 GooglePlay, OneStore
 
 > 请确保您在付款尝试〜付款完成/失败过程中浮动游戏中使用的加载屏幕，以确保您不会进行重复呼叫。
@@ -670,6 +659,7 @@ GamePot.getInstance().purchase("product id","uniqueId","serverId","playerId","et
 
 ### 获取付款项目清单
 
+
 您可以获取商店提供的应用内商品的列表。
 
 ```java
@@ -680,11 +670,13 @@ GamePotPurchaseDetailList details = GamePot.getInstance（）。GetPurchaseDetai
 
 ### 付款項目付款
 
+
 GAMEPOT 無法非法支付，因為它通過服務器到服務器 api 完成對支付商店收據的驗證後向開發者服務器發出支付請求。
 
 要執行此操作，請參閱“服務器”中的“購買”項目到服務器 api 菜單。
 
 ## 6. 外部付款
+
 
 一個商店接受第三個支付模塊而不是基本商店支付模塊。
 
@@ -696,6 +688,7 @@ GAMEPOT 無法非法支付，因為它通過服務器到服務器 api 完成對�
 
 ### 付款嘗試
 
+
 ```java
 import io.gamepot.common.GamePot;
 
@@ -705,6 +698,7 @@ GamePot.getInstance().PurchaseThirdPayments(活動,產品ID);
 ```
 
 ### 獲取付款項目清單
+
 
 ```java
 import io.gamepot.common.GamePot;
@@ -716,7 +710,7 @@ GamePotPurchaseDetailList thirdPaymentsDetailList = GamePot.getInstance().getPur
 
 ### SDK 支持登录 UI
 
-SDK 中自行提供（完成形式的）Login UI。
+SDK中自行提供（完成形式的）Login UI。
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -727,81 +721,40 @@ import io.gamepot.channel.GamePotChannelLoginBuilder;
 import io.gamepot.channel.GamePotUserInfo;
 import io.gamepot.common.GamePotError;
 
-ArrayList<GamePotChannelType> channelList = new ArrayList<>( Arrays.asList(GamePotChannelType.GOOGLE, GamePotChannelType.FACEBOOK,GamePotChannelType.NAVER, GamePotChannelType.TWITTER, GamePotChannelType.LINE, GamePotChannelType.APPLE, GamePotChannelType.GUEST) );
-
+String[] channelList = {"google", "facebook", "naver", "line", "twitter", "apple", "guest"};
 GamePotChannelLoginBuilder builder = new GamePotChannelLoginBuilder(channelList);
 
 // 点击Google登录按钮时调用
-GamePotChannel.getInstance().showLoginWithUI(MainActivity.this, builder, new GamePotAppStatusChannelLoginDialogListener<GamePotUserInfo>() {
-
-    @Override
-    public void onExit() {
-        // 单击 X 按钮时的处理
-    }
-
-    @Override
-    public void onNeedUpdate(GamePotAppStatus status) {
-        // TODO: 需要强制更新时。 如果您调用下面的API，则SDK本身可以弹出。
-        // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO: 调用showAppStatusPopup API时，需要关闭应用程序时调用该API。
-                // TODO：请注意终止过程。
-                MainActivity.this.finish();
-            }
-
-            @Override
-            public void onNext(Object obj) {
-                // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
-                //当用户选择按钮时调用。
-                // TODO：使用obj信息来进行与登录时相同的处理。
-                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
-            }
-        });
-    }
-
-    @Override
-    public void onMainternance(GamePotAppStatus status) {
-        // TODO: 如果您正在检查。 如果您调用下面的API，则SDK本身可以弹出。
-        // TODO：如果要自定义，请不要调用下面的API，而是要自定义。
-        GamePot.getInstance().showAppStatusPopup(MainActivity.this, status, new GamePotAppCloseListener() {
-            @Override
-            public void onClose() {
-                // TODO：调用showAppStatusPopup API时，需要关闭应用程序时调用。
-                // TODO：请注意终止过程。
-                MainActivity.this.finish();
-            }
-        });
-    }
-
+GamePotChannel.getInstance().showLoginWithUI(this, builder, new GamePotAppStatusChannelListener<GamePotUserInfo>() {
     @Override
     public void onCancel() {
-        // 用户取消登录的情况。
+        // 用户已取消登录。
     }
 
     @Override
     public void onSuccess(GamePotUserInfo userinfo) {
         // 登录完成。 请根据游戏逻辑处理。
+        // userinfo.getMemberid()：会员固有ID
     }
 
     @Override
     public void onFailure(GamePotError error) {
-        // 登录失败。 使用error.getMessage（）显示错误消息。
+        // 登录失败，请通过error.getMessage()显示错误消息。
     }
 });
 ```
 
 #### 设置登录 UI 镜像标志
 
-登录 UI 上方显示的镜像标志在 SDK 内部中以默认镜像显示，也可以直接添加。
+
+登录UI上方显示的镜像标志在SDK内部中以默认镜像显示，也可以直接添加。
 
 **亲自添加镜像标志**
 
 > 使用[Android Asset Studio](http://romannurik.github.io/AndroidAssetStudio/icons-notification.html#source.type=clipart&source.clipart=ac_unit&source.space.trim=1&source.space.pad=0&name=ic_stat_gamepot_login_logo)制作图标时，会自动按照文件夹数量创建，只需直接放入各文件夹即可。
 
-1. 如下创建 res/drawable 相关文件夹
 
+1. 如下创建res/drawable相关文件夹
    - res/drawable-mdpi/
    - res/drawable-hdpi/
    - res/drawable-xhdpi/
@@ -809,7 +762,6 @@ GamePotChannel.getInstance().showLoginWithUI(MainActivity.this, builder, new Gam
    - res/drawable-xxxhdpi/
 
 2. 按如下大小制作镜像
-
    - 78x55
    - 116x82
    - 155x110
@@ -818,13 +770,13 @@ GamePotChannel.getInstance().showLoginWithUI(MainActivity.this, builder, new Gam
 
 3. 如下所示，为每个文件夹添加大小合适的镜像。
 
-| 文件夹名称            | 大小    |
-| :-------------------- | :------ |
-| res/drawable-mdpi/    | 78x55   |
+| 文件夹名称                | 大小 |
+| :-------------------- | :----- |
+| res/drawable-mdpi/    | 78x55  |
 | res/drawable-hdpi/    | 116x82  |
-| res/drawable-xhdpi/   | 155x110 |
-| res/drawable-xxhdpi/  | 232x165 |
-| res/drawable-xxxhdpi/ | 310x220 |
+| res/drawable-xhdpi/   | 155x110  |
+| res/drawable-xxhdpi/  | 232x165  |
+| res/drawable-xxxhdpi/ | 310x220  |
 
 - 镜像文件名变更为`ic_stat_gamepot_login_logo.png`
 
@@ -1026,11 +978,13 @@ GamePot.getInstance().coupon(/*用户所输入的优惠卷*/, new GamePotListene
 
 #### 項目付款
 
+
 如果成功使用優惠券，則要求開發者服務器通過服務器向服務器 api 支付該項目。
 
 要執行此操作，請參閱`服務器到服務器api`菜單中的`項目`項。
 
 ### Push on/off
+
 
 全体推送，夜间推送和广告推送的这 3 种类型的推送可以各个设置开关。
 
@@ -1094,8 +1048,9 @@ DashBoard - 在公告栏所上传图像显示的功能。
 
 #### 调用
 
+
 ```java
-/* showTodayButton : 是否显示“今天不看”按钮。 如果为假，则无条件暴露 */
+/* showTodayButton : 是否显示[今天不看]按钮。 如果为假，则无条件暴露 */
 boolean showTodayButton = true;
 
 GamePot.getInstance().showNotice(/*当前活动*/, showTodayButton, new GamePotNoticeDialog.onSchemeListener() {
@@ -1107,6 +1062,7 @@ GamePot.getInstance().showNotice(/*当前活动*/, showTodayButton, new GamePotN
 ```
 
 ### 公告(按类别致电)
+
 
 仪表板-此功能仅显示公告中上载并设置为分类的图像。
 
@@ -1126,11 +1082,13 @@ GamePot.getInstance().showEvent(/*现在 Activity*/, type, new GamePotNoticeDial
 
 ### 客户中心
 
+
 DashBoard - 连接客户中心的功能。用户与运营商之间的沟通窗口。
 
 与我们联系 UI 会根据设备语言进行更改。 它支持韩文，英文，日文和中文（简体和繁体），其他语言以英文显示。
 
 #### 呼叫
+
 
 ```java
 GamePot.getInstance().showCSWebView(/*当前活动*/);
@@ -1140,8 +1098,9 @@ GamePot.getInstance().showCSWebView(/*当前活动*/);
 
 #### 呼叫
 
+
 ```java
-String url = "GamePod发行的外部客户支持URL";
+String url = "GAMEPOT发行的外部客户支持URL";
 
 GamePot.getInstance().showWebView(/*当前活动*/, url, true);
 ```
@@ -1187,6 +1146,7 @@ GamePot.getInstance().cancelLocalPush(/*目前Activity*/, /*注册推送时获�
 
 ### 维护，强制更行
 
+
 需要维护或者强制更新功能的时候， DashBoard - 运营中操作激活功能就可以使用。
 
 #### 调用
@@ -1213,7 +1173,7 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
             @Override
             public void onNext（Object obj）{
-                // TODO：“仪表板更新设置”中的“推荐”设置显示“下一步”按钮。
+                // TODO：“仪表板更新设置”中的“推荐”设置显示[下一步]按钮。
                 //当用户选择它时，将调用此按钮。
                 // TODO：请使用obj信息处理与登录完成相同的信息。
                 // GamePotUserInfo userInfo =（GamePotUserInfo）obj;
@@ -1254,11 +1214,35 @@ GamePotChannel.getInstance().login(this, GamePotChannelType.GOOGLE, new GamePotA
 
 ### 接受条款
 
+
 我们提供用户界面，以便轻松获取“使用条款”和“收集和使用个人信息指南”。
 
-除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供 11 种新添加的`改善主题`。
+除了`BLUE`主题与`GREEN`主题两种`默认主题`以外，还提供11种新添加的`改善主题`。 
 
-#### 协议协议调用
+#### 协议协议调用<a name="协议协议调用"></a>
+从`GAMEPOT SDKV3.3.0`开始, **登录时自动显示条款同意的弹窗**。
+
+登录前，您可以通过标志值更改此信息 。
+
+```java
+// Default Value true
+// 自动弹窗时，应用为 MATERIAL_BLUE 主题
+设置为// false时，登录时不显示条款同意的弹出式。
+GamePot.getInstance().setAutoAgree(true);
+
+// MATERIAL_使用ORANGE主题定制时
+GamePotAgreeBuilder bulider = new GamePotAgreeBuilder(GamePotAgreeBuilder.THEME.MATERIAL_ORANGE);
+GamePot.getInstance().setAutoAgreeBuilder(bulider);
+
+...
+
+GamePotChannel.getInstance().login(GamePotChannelType);
+
+...
+```
+
+#### 调用条款( 手动)
+
 
 ```java
 // 基本主题
@@ -1338,23 +1322,31 @@ agreeBuilder.setFooterButtonOutlineColor(0xFFFF171A);
 agreeBuilder.setFooterTitleColor(0xFFFF00D5);
 agreeBuilder.setFooterTitle("开始游戏");
 
-//일반 광고성 수신동의 버튼 노출 여부
+
+//确认广告性收信同意（一般/夜间）后，游戏开始时是否暴露Toast信息（同意时间）
+agreeBuilder.setShowToastPushStatus(true);
+
+// 修改广告性收信同意（一般/夜间）信息
+agreeBuilder.setPushToastMsg("Push on");
+agreeBuilder.setNightPushToastMsg("Night Push on");
+
+// 是否显示一般广告同意按钮
 agreeBuilder.setShowPush(true);
 
 // 是否暴露用于接收夜间广告的按钮
 agreeBuilder.setShowNightPush(true);
 
-// 일반 광고성 수신동의 링크 버튼 설정(미사용 시, 입력 안함)
+// 常规广告同意链接按钮设置（不使用时无法输入）
 agreeBuilder.setPushDetailURL("https://...");
 
-// 야간 광고성 수신동의 링크 버튼 설정 (미사용 시, 입력 안함)
+// 设置链接按钮，同意接受夜间广告（不使用时请勿输入）
 agreeBuilder.setNightPushDetailURL("https://...");
 
 // 更改词组
 agreeBuilder.setAllMessage("同意全部");
 agreeBuilder.setTermMessage("必填)使用条款");
 agreeBuilder.setPrivacyMessage("必填)隐私政策");
-agreeBuilder.setPushMessage("선택) 일반 푸시 수신 동의");
+agreeBuilder.setPushMessage("可选）同意接受常规推送");
 agreeBuilder.setNightPushMessage("optional)同意接收夜间推送");
 
 GamePot.getInstance().showAgreeDialog(/*activity*/, agreeBuilder, new GamePotListener<GamePotAgreeInfo>() {
@@ -1383,9 +1375,11 @@ GamePot.getInstance().showTerms(activity);
 
 ### 隐私声明
 
+
 调用隐私策略用户界面。
 
 > 仪表板-客户支持-首先在“隐私策略设置”部分中输入详细信息。
+
 
 ```java
 import io.gamepot.common.GamePot;
@@ -1395,6 +1389,7 @@ GamePot.getInstance().showPrivacy(activity);
 ```
 
 ### 退款政策
+
 
 调用退款规则用户界面。
 
@@ -1408,6 +1403,7 @@ GamePot.getInstance().showRefund(activity);
 ```
 
 ### 远程配置
+
 
 获取在客户端的仪表板上注册的参数值。
 
@@ -1427,17 +1423,18 @@ String json_value = GamePot.getInstance().getConfigs();
 
 ### 游戏日志转移
 
+
 如果使用游戏中使用的信息进行调用，则可以在`仪表板`-`游戏`中进行搜索。
 
 以下是可用保留字定义的表。
 
-| 保留字                            | 必填 | 类型   | 描述      | 最長長度 |
-| :-------------------------------- | :--- | :----- | :-------- | -------- |
-| GamePotSendLogCharacter.NAME      | 必要 | String | 角色名字  | 128      |
-| GamePotSendLogCharacter.LEVEL     | 选拔 | String | 水平      | 128      |
-| GamePotSendLogCharacter.SERVER_ID | 选拔 | String | 服务器 ID | 128      |
-| GamePotSendLogCharacter.PLAYER_ID | 选拔 | String | 角色 ID   | 128      |
-| GamePotSendLogCharacter.USERDATA  | 选拔 | String | ETC       | 128      |
+| 预约语|必需|类型|说明|最大长度 |
+| :-------------------------------- | :--- | :----- | :----------- | --------- |
+| GamePotSendLogCharacter.NAME      | 必需| String|角色名     | 128       |
+| GamePotSendLogCharacter.LEVEL     | 选择| String|等级         | 128       |
+| GamePotSendLogCharacter.SERVER_ID | 选择| String|服务器ID   | 128       |
+| GamePotSendLogCharacter.PLAYER_ID | 选择| String|角色创意 | 128       |
+| GamePotSendLogCharacter.USERDATA  | 选择 | String | ETC          | 128       |
 
 ```java
 import android.text.TextUtils;
@@ -1469,7 +1466,7 @@ boolean result = GamePotSendLog.characterInfo(obj);
 
 ### GDPR 条款选项列表
 
-将在仪表盘中激活的 GDPR 条款项目以列表形式导出。
+将在仪表盘中激活的GDPR条款项目以列表形式导出。
 
 ```java
 import io.gamepot.common.GamePot;
@@ -1486,9 +1483,37 @@ gdpr_adapp_custom：同意接收个人精准广告投放（GDPR实施国家）
 gdpr_adapp_nocustom：同意接收精准投放以外的一般广告（GDPR实施国家）
 ```
 
-# 附录
+### AppStatus 确认
 
-### 第三方 SDK 集成支持
+您可以查看当前客户端中的 AppStatus 。
+
+```java
+import io.gamepot.common.GamePot;
+
+GamePot.getInstance().checkAppStatus(new GamePotAppStatusResultListener() {
+    @Override
+    public void onSuccess(){
+   
+    }
+    @Override
+    public void onFailure(GamePotError error){
+
+    }
+    @Override
+    public void onNeedUpdate(GamePotAppStatus status){
+
+    }
+    @Override
+    public void onMainternance(GamePotAppStatus status){
+
+    }
+});
+```
+
+## 附录<a name="附录"></a>
+
+### 第三方 SDK 集成支持<a name="第三方SDK集成支持"></a>
+
 
 TODO : 说明
 
@@ -1524,7 +1549,7 @@ GamePotChannel.getInstance().loginByThirdPartySDK(getActivity(), memberId, new G
 
             @Override
             public void onNext(Object obj) {
-                // TODO : 在仪表板更新设置中，建议时将显示“下一步”按钮。
+                // TODO : 在仪表板更新设置中，建议时将显示[下一步]按钮。
                 //当用户选择按钮时调用。
                 // TODO：使用obj信息来进行与登录时相同的处理。
                 // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
