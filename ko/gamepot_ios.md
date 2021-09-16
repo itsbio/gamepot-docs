@@ -42,7 +42,7 @@ iOS용 애플리케이션 개발을 위해서는 개발 툴\(Xcode\)을 설치�
 | GameCenter      | GamePotGameCenter.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                   |                                          |
 | AppleID         | GamePotApple.framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                   |                                          |
 
-![gamepot_ios_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_02%284%29.png){height="" width=""}
+![gamepot_ios_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_02%284%29.png)
 
 
 #### Step 4. Bundle Resource 추가
@@ -1013,15 +1013,15 @@ GamePotAgreeOption* options = [[GamePotAgreeOption alloc] init:MATERIAL_BLUE];
 
 - AgeView
 
-![gamepot_ios_14.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14%287%29.png){height="" width=""}
+![gamepot_ios_14.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14%287%29.png)
 
 - EmailView
 
-![gamepot_ios_14_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_1.png){height="" width=""}
+![gamepot_ios_14_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_1.png)
 
 - AgreeView
 
-![gamepot_ios_14_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_2.png){height="" width=""}
+![gamepot_ios_14_2.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_ios_14_2.png)
 
 ### 이용약관
 

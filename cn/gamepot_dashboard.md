@@ -2,6 +2,7 @@
 
 ## GAMEPOT 仪表板介绍<a name="GAMEPOT仪表板介绍"></a>
 
+
 **问 什么是仪表板**
 
 您可以通过仪表板来操作和管理游戏。
@@ -12,19 +13,24 @@
 
 ## GAMEPOT 仪表板入门<a name="GAMEPOT仪表板入门"></a>
 
+
 ### 登录<a name="登录"></a>
 
+
 #### Step 1. 访问仪表板<a name="Step1访问仪表板"></a>
+
 
 通过单击 NAVER Cloud Platform 控制台中的仪表板 URL，访问仪表板。
 
 ![gamepot_dashboard_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_01%2815%29.png)
+
 
 #### STEP 2. 注册<a name="STEP2注册"></a>
 
 创建项目时，密码重置电子邮件将发送到注册的管理员帐户。
 
 #### STEP 3. 登录<a name="STEP3登录"></a>
+
 
 管理员帐户将成为完全控制仪表板管理的主帐户。
 
@@ -36,9 +42,16 @@
 
 ③ 选择要在仪表板上显示的时区。
 
+[用语说明]
+
+新用户 : GAMEPOT 用户名生成数
+
+单日登录者:生成的 GAMEPOT 用户名登录成功数
+
 ## 使用仪表板菜单<a name="使用仪表板菜单"></a>
 
 ### 仪表板<a name="仪表板"></a>
+
 
 在仪表板上，您可以快速查看游戏的整体操作，例如订阅状态，销售，访问和统计信息。
 
@@ -48,7 +61,9 @@
 
 ## 统计<a name="统计1"></a>
 
+
 ### 用户指示器<a name="用户指示器"></a>
+
 
 绘制指定时期内的各种用户指标图。
 
@@ -68,9 +83,13 @@
 
 ![gamepot_dashboard_98.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_98%2810%29.png)
 
+
 您可以检查保留数据。注册后，指示符上将显示[Retention D + 0]，第二天，访问的成员将显示[Retention D + 1]。
 
+Retention 张标的New User是指在该天生成游戏Pods用户名后用户登录的情况
+
 ### 销售指标<a name="销售指标"></a>
+
 
 绘制指定时间段内的各种销售指标图。
 
@@ -84,17 +103,21 @@
 
 ![gamepot_dashboard_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_07%2817%29.png)
 
+
 ① 您可以以 CSV 文件的形式下载当前显示图形的 RAW 数据。
 
 运作
 
 ### 成员<a name="成员"></a>
 
+
 #### - 清单<a name="清单"></a>
+
 
 显示注册会员列表。
 
 ![gamepot_dashboard_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_08%2818%29.png)
+
 
 ① 可以指定用户注册日期、国家、商店、用户 ID、设备 ID、ADID 或者 IP 等，查询特定会员。
 
@@ -128,6 +151,7 @@
 
 ![gamepot_dashboard_95.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_95%2816%29.png)
 
+
 ① 指定要发送的推送消息的默认语言。
 
 ② 输入要发送的信息。
@@ -156,6 +180,7 @@
 
 #### - 每日访客<a name="每日访客"></a>
 
+
 绘制指定时间段内每日访问者的数量。
 
 基本上，它输出同一天 30 天的每日访问者数量，您可以通过指定时间段来自由选择期间搜索每日访问者数量。
@@ -167,6 +192,7 @@
 ② 您可以检查上次更新的时间。
 
 #### - 新的用户<a name="新的用户"></a>
+
 
 绘制指定时间段内每天注册游戏的新订户数量。
 
@@ -180,9 +206,11 @@
 
 #### - 并发用户<a name="并发用户"></a>
 
+
 您可以同时最多 3 天以 1 分钟为单位查看访问游戏的成员数量。
 
 ![gamepot_dashboard_12.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_12%2816%29.png)
+
 
 ① 默认指定日期，前一天和前一天，您最多可以选择（更改）3 天进行搜索。您可以使用 **[重置]** 按钮返回到默认日期。
 
@@ -191,6 +219,7 @@
 ③ 您可以检查上次更新的时间。
 
 #### - 停止使用<a name="停止使用"></a>
+
 
 对于某些成员，我们不允许您在指定时期内访问游戏。
 
@@ -213,11 +242,14 @@
 
 ### 付款<a name="付款"></a>
 
+
 #### 付款清单<a name="付款清单"></a>
+
 
 您可以在 Google Play 商店，APPSTORE，ONE 商店或 Galaxy 商店中查看会员尝试付款的历史记录。
 
 ![gamepot_dashboard_14.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_14%2816%29.png)
+
 
 ① 对于失败的付款，请在复选框内多重选择后，点击 **[重新支付]** 按钮后重新支付。
 
@@ -237,21 +269,22 @@
 
 #### - IAP<a name="IAP"></a>
 
-在应用内购买时，此功能可管理产品信息。Google Play，App Store，One Store 和 Galaxy Store 等产品必须全部注册。
+购买In App时管理商品信息的功能。 谷歌Play、App Store、One Store、Galaxy Store等商品都需要登记。
 
-![gamepot_dashboard_16.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_16%2817%29.png)
+点击 **添加 In-App 项目** 按钮即可输入商店、商品名称、商品ID生成付费项目。
 
-① 如果单击 **[添加应用内商品]** 按钮，则可以通过输入商店，商品名称和商品 ID 来创建付费商品。
+点击 **大量输入** 按钮即可一次性登录In App 商品至 CSV 文件。
 
-② 如果单击 **[大输入]** 按钮，则可以立即将应用内商品注册为 CSV 文件。
-
-③ 您可以通过选择多个复选框并单击 **[删除]** 按钮来删除每个产品项。
+选择多个商品项目的格子盒子后，点击 **删除** 按钮即可删除。
 
 #### - 统计<a name="统计2"></a>
+
 
 该功能可以每天绘制支付金额数据的图形。
 
 ![gamepot_dashboard_17.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_17%2817%29.png)
+
+
 
 ① 您可以通过指定商店来查看图形。
 
@@ -260,6 +293,7 @@
 ③ 您可以检查上次更新的时间。
 
 #### - 取消付款<a name="取消付款"></a>
+
 
 与商店中收款收据的状态相比，您可以暂停使用随意取消付款的会员的游戏权限。如果被暂停的会员重新付款，则该暂停将被停用。Google Play 商店和 Apple App Store 支持收据验证。
 
@@ -291,11 +325,13 @@
 
 ### 注意<a name="注意"></a>
 
+
 在仪表板上注册的通知图像会暴露给访问游戏的成员。如果您指定要公开的日程表和商店，则公告将根据条件公开，并且在日程表结束后不会公开。
 
 要使用公告功能，需要 NAVER Cloud Platform 的 API 身份验证密钥和对象存储服务。使用通告功能时，对象存储成本是单独产生的。
 
 #### Step 0. 创建子帐户并授予使用对象存储服务的权限<a name="Step0创建子帐户并授予使用对象存储服务的权限"></a>
+
 
 ① 在接收到 API 认证密钥之前，建议创建一个子帐户来授予对象存储权限，然后通过该帐户发布 API 认证密钥。
 
@@ -313,15 +349,17 @@
 
 ① 要创建 API 身份验证密钥，请点击**创建新的 API 身份验证密钥**。
 
--每个帐户最多可以创建两个 API 身份验证密钥。
+- 每个帐户最多可以创建两个 API 身份验证密钥。
 
 #### Step 2. 仪表板和 API 身份验证密钥的集成<a name="Step2仪表板和API身份验证密钥的集成"></a>
+
 
 您需要将发布的身份验证密钥与仪表板互锁，以创建对象存储桶并使用公告功能。转到信息中心上的**项目设置 > Ncloud**菜单，然后连接 API 身份验证密钥。
 
 连接 API 身份验证密钥后，将自动创建对象存储桶。公告中使用的所有图像均存储在存储桶中。
 
 #### 步骤 3. 添加公告<a name="步骤3添加公告"></a>
+
 
 为添加公告事项，跳转至**公告事项**菜单。
 
@@ -337,15 +375,17 @@
 
 如果指定国家/地区，只对相应国家/地区的设备显示图像。
 
-用户点击显示的公告事项图像时，根据点击操作的类型 URL 会跳转到外部浏览器，SCHEME 则会使用回调函数返回数值。
+用户点击显示的公告事项图像时，根据点击操作的类型URL会跳转到外部浏览器，SCHEME则会使用回调函数返回数值。
 
 可以按照语言设置补充添加要显示的图像。
 
 ### 检查更新<a name="检查更新"></a>
 
+
 通过使用检查和更新功能，您可以更轻松，方便地管理游戏。
 
 #### - 检查<a name="检查"></a>
+
 
 在游戏检查期间，游戏会自动显示一条检查消息，以阻止游戏。
 
@@ -367,6 +407,7 @@
 
 #### - 更新<a name="更新1"></a>
 
+
 如果不是最新版本，它将显示更新说明，并转到商店（例如 Google Play 或 Apple Store）的更新屏幕。
 
 ![gamepot_dashboard_26.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_26%2815%29.png)
@@ -386,6 +427,7 @@
 
 ### 消息<a name="消息"></a>
 
+
 它是一项服务，可以通过 SMS，PUSH 等实现消息通知功能，而无需构建单独的消息服务器。要使用此功能，您必须申请 NAVER Cloud Plaform 的简易通知服务（SENS）。
 
 ① 建议创建子账户并申请 SENS 服务。通过参考文本中的**注意 > Step 0**创建子帐户。（与**Step 0**一样，请从子帐户获取 API 身份验证密钥。）
@@ -400,25 +442,25 @@
 
 ![gamepot_dashboard_28.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_28%2814%29.png)
 
+
 #### - 推送消息<a name="推送消息"></a>
+
 
 **消息 > 推送消息**单击菜单以显示列表屏幕，您可以在其中检查装运状态，预订时间和交货时间。
 
 ![gamepot_dashboard_29.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_29%2816%29.png)
 
-如果单击**推送消息**菜单中的 **[添加消息]** 按钮，将显示以下弹出窗口。您可以通过相应的弹出菜单发送消息。
+点击 **Push 信息** 菜单中 **+ 添加信息**  按钮， 就会出现以下弹出提示。 可通过相应弹窗菜单发送信息。
 
-![gamepot_dashboard_30.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_30%2815%29.png)
+您可以指定 Push 信件的传输日程 。 \(全球当地时间\)
 
-① 您可以指定推送消息的传输时间表。（立即交付/预约交付/预约交付（全球当地时间））
+指定平台，只有指定平台用户才能获得push。
 
-② 通过指定平台，只有指定的平台用户才能接收推送。
+根据设备语言设置， 指定要发送的 Push 信件中的默认语言 。
 
-③ 根据设备的语言设置，在要发送的推送消息中指定默认语言。
+您可以根据需要输入标题 。 未输入时，应用程序名称会显示为标题。
 
-④ 您可以根据需要输入标题。如果未输入，则将应用名称显示为标题。
-
-⑤ 根据设备的语言设置，可以注册不同的推送消息。
+根据设备语言设置， 您可以添加其它推送信息 。 注册映像文件时，图片也会发送。
 
 您可以通过上传 CSV 文件来发送大量推送消息。
 
@@ -428,6 +470,7 @@
 - 大量输入不支持立即推送。
 
 #### - 文字按摩<a name="文字按摩"></a>
+
 
 您可以使用诸如发送 SMS / LMS，查询历史记录和结果之类的功能。要发送 SMS / LMS，首先，在 NAVER Cloud Platform 的 SENS 中需要发布服务密钥和呼叫号码。
 
@@ -461,23 +504,25 @@
 
 #### - 普通优惠券<a name="普通优惠券"></a>
 
+
 常规优惠券为一般代码形式的优惠券。
 
 利用此功能可以轻松创建并管理游戏中要使用的优惠券。
 
 点击列表前方的图标，可以添加优惠券数量或确认使用统计。
 
-点击**+创建优惠券**，即可创建优惠券。
+点击 **+创建优惠券**，即可创建优惠券。
 
-如果已指定 Prefix（前缀）、Suffix（后缀），生成优惠券号码时，将添加指定的语句。
+如果已指定Prefix（前缀）、Suffix（后缀），生成优惠券号码时，将添加指定的语句。
 
-优惠券最多可以创建 10 万个，创建后可以继续增加。最多可创建 50 万个优惠券。
+优惠券最多可以创建10万个，创建后可以继续增加。最多可创建50万个优惠券。
 
 输入标题和内容，即可在游戏中显示优惠券标题和优惠券内容。
 
 可以指定使用优惠券时发放的道具和道具的数量。点击 **[+]** 按钮可以发放多个道具。
 
 #### - 关键字优惠券<a name="关键字优惠券"></a>
+
 
 此功能可以创建指定的关键字，例如“圣诞节”，“公开活动”和“新年”，并在优惠券窗口中输入关键字时付款。由于最近复杂的优惠券代码输入，经常使用关键字优惠券来方便游戏用户。
 
@@ -493,15 +538,18 @@
 
 #### - 使用记录<a name="使用记录"></a>
 
-可以用时间、优惠券号码、用户 ID 等搜索已发行的全部优惠券。
+
+可以用时间、优惠券号码、用户ID等搜索已发行的全部优惠券。
 
 点击 **[查询失败记录]** 按钮，可以只查询失败记录。
 
 ### 客户支持<a name="客户支持"></a>
 
+
 当客户在游戏中进行查询时，可以查看并回答此功能。如果您可以在游戏内客户支持窗口中输入基本信息，则还可以在 GAMEPOT 中检查该信息。
 
 #### 客户查询<a name="客户查询"></a>
+
 
 可以查看客户的咨询内容。
 
@@ -541,13 +589,16 @@
 
 选择在咨询时是否显示收集项目。
 
-被激活的项目将在客户咨询 UI 上显示为输入项目。
+被激活的项目将在客户咨询UI上显示为输入项目。
 
 **[分类设置]**
 
 该功能是预先设置客户查询模板。
 
 ![gamepot_dashboard_43.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_43%284%29.png)
+
+
+
 
 点击**分类设置**。
 
@@ -557,7 +608,7 @@
 
 可以根据设备语言设置，指定不同的分类名和模板。
 
-如果设置事件条款，则在 SDK 中选择相应分类时显示条款画面。
+如果设置事件条款，则在SDK中选择相应分类时显示条款画面。
 
 **\[Web 咨询地址\]**
 
@@ -583,7 +634,18 @@
 
 ④ 输入要适用于所选语言的回复模板内容。
 
+**\[一揽子答复\]**
+
+可选择答复模板或直接输入答复，统一登记答复或变更咨询状态。
+
+**\[删除个人信息\]**
+
+您可以删除客服咨询的电子邮件或电话号码。
+
+外部咨询时删除电子邮件时无法登记答复，敬请注意。
+
 #### - FAQ<a name="FAQ"></a>
+
 
 常见问题可以进行注册和检查。
 
@@ -627,9 +689,11 @@
 
 #### - 使用条款<a name="使用条款"></a>
 
+
 您可以输入内部条款和条件。可以通过 SDK 向用户公开这些内容。
 
 ![gamepot_dashboard_53.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_53%2816%29.png)
+
 
 ① 根据使用条款指定默认语言，根据使用的设备语言设置，默认语言会有所不同。
 
@@ -640,6 +704,7 @@
 ④ 输入指定语言的使用条款。
 
 #### - 隐私权政策设定<a name="隐私权政策设定"></a>
+
 
 您可以输入公司的个人信息处理政策的内容。可以通过 SDK 向用户公开这些内容。
 
@@ -655,6 +720,7 @@
 
 #### - 退款政策设定<a name="退款政策设定"></a>
 
+
 您可以输入内部退款政策。可以通过 SDK 向用户公开这些内容。
 
 ![gamepot_dashboard_93.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_93%288%29.png)
@@ -669,11 +735,13 @@
 
 #### - 统计<a name="统计3"></a>
 
+
 您可以查看一段时间内的客户查询统计信息。
 
 答复满意度将在咨询结束后，客户选择满意度时才会显示。
 
 #### - 按负责人统计<a name="按负责人统计"></a>
+
 
 选择负责人可以按负责人查看统计结果。
 
@@ -681,13 +749,15 @@
 
 可以按日期查看客户咨询统计。
 
-最长可查询 90 天。
+最长可查询90天。
 
 #### - 页<a name="页"></a>
+
 
 此功能创建一个 Web 文档并提供一个连接地址。
 
 ![gamepot_dashboard_87.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_87%284%29.png)
+
 
 ① 您可以创建和编辑网页。
 
@@ -695,9 +765,11 @@
 
 #### - GDPR<a name="GDPR"></a>
 
+
 以客户端访问 IP 为基准，当被判断为 GDPR 对象国家时，显示 GDPR 条款画面替代原先条款画面。
 
 ![gamepot_dashboard_105.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_105%2815%29.png)
+
 
 ① 可以进行 GDPR 相关设置。
 
@@ -719,15 +791,29 @@
 
 ④ 可以选择是否激活广告、应用等。[同意接收个人精准广告投放]、[同意接收精准投放以外的一般广告]等条款将在选择后显示。
 
+#### -Google评论
+
+可在公告板上查询Google评价数据并登记答复。
+
+使用 Google 评论功能必须输入 Google API Key 和 App ID 。
+
+评论每20分钟更新一次，仅更新一周内的评论。
+
 ## 游戏<a name="游戏"></a>
 
+
 ### 播放器<a name="播放器"></a>
+
 
 游戏中角色信息可以通过 SDK 传输并在仪表板上检查。
 
 ![gamepot_dashboard_94.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_94%288%29.png)
 
+
+
+
 ### 礼品<a name="礼品"></a>
+
 
 ```java
 为了网络安全，建议在Webhook地址上应用防火墙。
@@ -780,11 +866,17 @@
 
 #### - 项目<a name="项目"></a>
 
+
 在项目菜单中，您可以创建可以通过优惠券获得的优惠券项目。您可以通过单击 **[添加项目]** 按钮添加项目。
 
 ![gamepot_dashboard_39.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_39%2815%29.png)
 
+
 ① 您可以添加项目。
+
+- 输入项目名称和ID。 单品ID需要每个单品都固有的。
+
+- 您可以指定最大数量来防止显示板用户出错 。
 
 ② 单击 **[大输入]** 按钮立即将项目注册为 CSV 文件。
 
@@ -796,9 +888,12 @@
 
 ### 提前预订<a name="提前预订"></a>
 
+
 预先预约功能是通过预先预约网页显示注册用户的统计的功能。
 
 ![gamepot_dashboard_57.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_57%2815%29.png)
+
+
 
 ① 可以添加预定。保留名称用作统计信息计算的 ID。
 
@@ -814,6 +909,7 @@
 
 ### 远程配置<a name="远程配置"></a>
 
+
 远程配置功能允许您更改应用程序的行为和外观，而无需更新应用程序。您可以将参数添加到服务器并从 GAMEPOT SDK 加载值以供使用。因此，如果要控制服务器上游戏中的功能，则可以使用此功能轻松地应用和控制它们。
 
 ![gamepot_dashboard_60.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_60%2816%29.png)
@@ -821,6 +917,8 @@
 点击 **[添加]** 按钮。显示以下弹出窗口时，输入参数和值。
 
 ![gamepot_dashboard_61.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_61%2811%29.png)
+
+
 
 反映相应参数和值的时间由运行新应用程序的用户反映。
 
@@ -836,9 +934,14 @@
 
 ## 设置<a name="设置"></a>
 
+
+
+
 ### 项目设置<a name="项目设置"></a>
 
+
 #### - 正常<a name="正常"></a>
+
 
 您可以设置应用程序的整体环境并输入各种键值来操作应用程序。
 
@@ -866,6 +969,7 @@
 
 ![gamepot_dashboard_63.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_63%2810%29.png)
 
+
 此项设置为链接到 Google Store 和 One Store。
 
 ① 输入 Google Store 公钥值。
@@ -879,6 +983,7 @@
 **Google API Key**
 
 ![gamepot_dashboard_64.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_64%2811%29.png)
+
 
 Google API 集成（Google Store 付款取消者列表检查和最新版本的付款收据验证）需要此设置。
 
@@ -958,15 +1063,15 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 付款道具需要输入付款成功时请求发放道具的地址。
 
-优惠券道具需要输入通过 SDK 成功使用优惠券时，SDK 服务器向开发商服务器请求作出成功处理（发放道具）的地址。
+优惠券道具需要输入通过SDK成功使用优惠券时，SDK服务器向开发商服务器请求作出成功处理（发放道具）的地址。
 
 提供用于实际服务的地址（服务）和服务中需要测试环境时的地址（测试用户）。如要使用测试用户地址进行操作，需要将其添加到“项目设置 > 测试用户”中。
 
-点击 **[WebHook Test]** 按钮，即可简单测试 WebHook 应用情况。
+点击 **[WebHook Test]** 按钮，即可简单测试WebHook应用情况。
 
-点击 **[White IP]** 按钮可以查看通过 Webhook 调用游戏服务器时要允许的 IP 列表。
+点击 **[White IP]** 按钮可以查看通过Webhook调用游戏服务器时要允许的IP列表。
 
-激活**测试付款时阻止发送**开关时，可以在测试付款时阻止 Webhook 的发送。
+激活**测试付款时阻止发送**开关时，可以在测试付款时阻止Webhook的发送。
 
 > 激活时：测试付款时，处理为付款失败
 >
@@ -974,15 +1079,18 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 #### - Ncloud<a name="Ncloud"></a>
 
+
 您还可以更改与 Naver Cloud 平台互通的键值。有关详细用法，请参阅各项的用户指南。
 
 ![gamepot_dashboard_69.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_69%2811%29.png)
 
 #### - CDN<a name="CDN"></a>
 
+
 如果您想使用 CDN，请在下面输入 CDN 地址。
 
 ![gamepot_dashboard_70.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_70%2811%29.png)
+
 
 **输入 CDN 地址时的注意事项**
 
@@ -990,6 +1098,7 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 - 如果没有输入 CDN，或者 URL 不正确或原始设置不正确，则上传的图像将无法在游戏中正常显示。
 
 #### - 外部付款<a name="外部付款"></a>
+
 
 对于“一个商店”，允许使用第三方付款模块，而不是默认商店付款模块。
 
@@ -1003,6 +1112,7 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 #### - 白色用户<a name="白色用户"></a>
 
+
 使用注册的 IP 连接时，将根据指定的类型激活以下功能。
 
 - 开发：SDK 日志已激活，并且日志已公开。
@@ -1014,6 +1124,7 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 点击 **[添加]** 按钮，输入参数和值。
 
 #### - 块连接<a name="块连接"></a>
+
 
 防止用户访问已注册的 IP 和设备 ID 国家/地区代码。
 
@@ -1041,11 +1152,14 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 ### 管理员<a name="管理员"></a>
 
+
 #### 审核<a name="审核"></a>
+
 
 使用超级管理员账户，即可查看仪表盘用户的活动记录。
 
 ### Job 管理<a name="Job管理"></a>
+
 
 您可以从每个菜单下载为一个月导出到 csv 的结果。
 
@@ -1053,25 +1167,32 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 ## 其他<a name="其他"></a>
 
-### 下载 SDK<a name="下载SDK"></a>
 
-可以下载 Android、iOS、Unity SDK。
+### 下载SDK<a name="下载SDK"></a>
+
+
+可以下载Android、iOS、Unity SDK。
 
 > 可以在仪表盘的右上方查看 GAMEPOT 相关信息。
 
-### GAMEPOT 公告事项<a name="GAMEPOT公告事项"></a>
+### GAMEPOT公告事项<a name="GAMEPOT公告事项"></a>
 
-可以查看 GAMEPOT 的公告事项。
+
+
+可以查看GAMEPOT的公告事项。
 
 ### 用户指南<a name="用户指南"></a>
 
-跳转到 GAMEPOT 仪表盘使用指南页面。
+
+跳转到GAMEPOT仪表盘使用指南页面。
 
 ### 变更语言<a name="变更语言"></a>
+
 
 可将仪表盘上的各菜单变更为所选语言。
 
 ### 修改会员信息<a name="修改会员信息"></a>
+
 
 可以变更仪表盘使用账户的姓名和密码。
 
@@ -1103,15 +1224,18 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 ### 优先<a name="优先"></a>
 
+
 用户管理，角色管理和用于 Gamepot 仪表板管理的更新功能。
 
 ![gamepot_dashboard_81.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_81%287%29.png)
+
 
 #### - 用户<a name="用户"></a>
 
 您可以通过菜单添加/删除用户，以管理可以使用仪表板的用户。
 
 ![gamepot_dashboard_82.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_82%2811%29.png)
+
 
 ① 检查状态将激活用户。
 
@@ -1133,9 +1257,12 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 
 #### - 角色<a name="角色"></a>
 
+
 此功能用于管理可以按组使用仪表板的用户，并且可以为每个角色赋予不同的特权。
 
 ![gamepot_dashboard_84.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_dashboard_84%2810%29.png)
+
+
 
 点击 **[齿轮]** 按钮。在下面的屏幕中，您可以设置角色。
 
@@ -1148,6 +1275,7 @@ Google API 集成（Google Store 付款取消者列表检查和最新版本的�
 ③ 选择该角色允许的功能。
 
 #### - 更新<a name="更新2"></a>
+
 
 您可以检查游戏吊舱系统的更新历史记录。
 
