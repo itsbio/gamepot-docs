@@ -89,10 +89,12 @@ IDFA 値獲得が可能なように変更されました。
 したがって IDFA 値獲得時にユーザーに権限獲得するポップアップを使用している場合
 Targets>> Info>> Custom iOS Target Properties 内の下のユーザーの権限獲得オプションを追加お願いします。
 
-> 2020.09.11<br/>
+<Blockquote>
+2020.09.11<br/>
  Apple の IDFA 値獲得時にユーザーに権限獲得するポップアップ必須適用は 2021 年初めまで延期された。<br/>
  下のリンク参照してお願いします。
 [https://developer.apple.com/news/?id=hx9s63c5](https://developer.apple.com/news/?id=hx9s63c5)
+</Blockquote>
 
 
 
