@@ -125,7 +125,9 @@ gamepot_google_url_schemes：GoogleService-Info.plistファイルのREVERSED_CLI
 Facebookコンソールからアプリ作成の際のアプリタイプ : なし、またはユーザー、またはインスタンスゲーム選択後にアプリ作成
 
 
->ライブ展開が可能なアプリチェック > 権限および機能 > public_profile / email 権限が必要です。 
+<Blockquote>
+ライブ展開が可能なアプリチェック > 権限および機能 > public_profile / email 権限が必要です。<br>
+</Blockquote>
 
 
 サービス別 Dependencies 表の**Login > Facebook**を参考にして Framework と Dependencies を追加します。
