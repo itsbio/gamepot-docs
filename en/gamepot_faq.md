@@ -1,8 +1,8 @@
 # FAQ
 
-> ### This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
+> This is a machine-translated document that may have errors in vocabulary, syntax, or grammar. We will soon provide you with the document translated by a professional translator.
 >
-> #### If you have any questions, please [contact us](https://www.ncloud.com/support/question).
+> If you have any questions, please [contact us](https://www.ncloud.com/support/question).
 >
 > We will make every effort to further enhance our services.
 
@@ -396,7 +396,7 @@ After creating an account on the first day, users who access the next day are co
     When a user ID is added to the suspension list and the status is inactive, the list is not automatically reactivated even if a Google refund is made.
     Also, account access is not blocked for disabled user IDs.
 
-###-ETC.
+### ETC.
 
 #### 1. When extracting google-service.json from Firebase Console
 
@@ -813,7 +813,7 @@ Change: <application android:icon="@drawable/app_icon"
     Delete the ../Assets/Sample folder and files
 
 
-####  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
+###  Ver Unity 2.1.1 To Ver Unity 2.1.2 Or New Version
 
     Depending on the Unity engine version, the Unity plugin package was branched and corrected.
      Firebase and Google Resolver version updated from 1.2.116.0 to 1.2.155 .
