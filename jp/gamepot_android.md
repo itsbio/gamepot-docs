@@ -133,7 +133,7 @@ dependencies {
     implementation(name: 'gamepot-channel-base', ext: 'aar')
     // GamePot facebook [START]
     implementation(name: 'gamepot-channel-facebook', ext: 'aar')
-    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+    implementation 'com.facebook.android:facebook-android-sdk:8.2.0'
     // GamePot facebook [END]
 
     // GamePot google sigin [START]
