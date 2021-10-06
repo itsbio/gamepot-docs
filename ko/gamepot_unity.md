@@ -38,7 +38,7 @@ minSdkVersion : API 17 (Jelly Bean, 4.2)
 **Gradle 환경 설정 방법**
 
 /Assets/Plugin/Android/mainTemplate.gradle 파일을 에디터로 엽니다.
-(Unity 2019.4.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
+(Unity 2019.3.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
 
    페이스북 로그인을 사용하지 않는 고객님들은 facebook_app_id / fb_login_protocol_scheme 값을 아래와 같이 임의 설정을 하거나 /Assets/Plugins/Android/libs/gamepot-channel-facebook.aar 파일이 빌드시 포함이 안되도록 설정 필요합니다.
 
