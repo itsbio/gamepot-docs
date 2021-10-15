@@ -1009,7 +1009,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 1. 대시보드 >> 결제 >> IAP의 Google 항목의 상품에 아래와 같이 가격이 추가 되어 있는지 확인 합니다. 
 
-![gamepot_unity_29.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_29.png)
+![gamepot_unity_29](./images/gamepot_unity_29.png)
 
 2. 대시보드 >> 프로젝트 설정 >> 외부결제 항목에 MyCard를 추가하고 해당 FacService ID / Sign Key 가 정상적으로 입력되어 있는지 확인해주세요.
 
@@ -1022,11 +1022,11 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 4.  ../Assets/Plugins/Android/AndroidManifest.xml 파일에 <application> 레벨에 name을 제거 합니다.
 
-![gamepot_unity_29_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_29_1.png)
+![gamepot_unity_29](./images/gamepot_unity_29_1.png)
 
 5.  ../Assets/Plugins/Android/mainTemplate.gradle 파일에 아래와 같이 설정 합니다.
 (Unity 2019.3.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
-  
+
   ``` java
   resValue "string", "gamepot_store", "google"
   resValue "string", "gamepot_payment", "mycard" // 스토어가 google인 경우만 동작합니다.
