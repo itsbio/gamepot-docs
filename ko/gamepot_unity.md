@@ -1032,6 +1032,8 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
   resValue "string", "gamepot_payment", "mycard" // 스토어가 google인 경우만 동작합니다.
   ```
 
+6. ../Assets/Plugins/Android/libs 폴더 내에 gamepot-billing-mycard.aar 이 포함 되어 있는지 확인 합니다. 
+
 ### 외부결제
 
 외부결제를 허용하는 스토어 및 공식 스토어가 아닌 곳에서 결제를 사용할 수 있는 기능입니다.
