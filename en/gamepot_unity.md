@@ -24,7 +24,7 @@ Select and import the plugin files, then the plugin will be added to your projec
 
 
 ```d
-minSdkVersion : API 17 (Jelly Bean, 4.2)
+minSdkVersion : API 17 (Jelly Bean, 4.2) or later
 ```
 
 **How to configure Gradle**
@@ -39,6 +39,7 @@ android {
         ...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_store", "google" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
         resValue "string", "facebook_app_id", "0" // optional (facebook)
@@ -59,6 +60,7 @@ resValue "string", "[key]", "[value]"
 | :--------------------------- | :----------------------------------------------------------------------------------------------- |
 | gamepot_project_id           | Enter a project ID issued from GAMEPOT.                                                          |
 | gamepot_store                | Store value\(`google`, `one`, or `galaxy`\)                                                      |
+| gamepot_payment              | Payment method value \(Only applicable if it's Google Play Store. Currently supports `mycard`\)  |
 | gamepot_app_title            | App title \(FCM\)                                                                                |
 | gamepot_push_default_channel | Default channel name registered \(Default\) - DO NOT change.                                     |
 | facebook_app_id              | App ID issued from Facebook                                                                      |

@@ -32,7 +32,7 @@ search:
 #### 기본 환경 설정
 
 ```d
-minSdkVersion : API 17 (Jelly Bean, 4.2)
+minSdkVersion : API 17 (Jelly Bean, 4.2) 이상
 ```
 
 **Gradle 환경 설정 방법**
@@ -51,6 +51,7 @@ android {
         ...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_store", "google" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
         resValue "string", "facebook_app_id", "0" // optional (facebook)
@@ -71,6 +72,7 @@ resValue "string", "[key]", "[value]"
 | :--------------------------- | :--------------------------------------------------------------------------------------------- |
 | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
 | gamepot_store                | 스토어값\(`google` 또는 `one` 또는 `galaxy`\)                                                  |
+| gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
 | gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
 | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
 | facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
@@ -1000,6 +1002,35 @@ public class NPurchaseInfo
 GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증까지 모두 마친 후 개발사 서버에 지급 요청을 하기 때문에 불법 결제가 불가능합니다.
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase Webhook` 항목을 참고하여 처리하셔야 합니다.
+
+### Mycard 결제
+
+마이카드 와 연동하기 위한 FacServiceID /  KEY  값은 마이카드 측을 통해 확인 후 대시보드에 설정 해주세요. 
+
+1. 대시보드 >> 결제 >> IAP의 Google 항목의 상품에 아래와 같이 가격이 추가 되어 있는지 확인 합니다. 
+
+![gamepot_unity_29.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_29.png)
+
+2. 대시보드 >> 프로젝트 설정 >> 외부결제 항목에 MyCard를 추가하고 해당 FacService ID / Sign Key 가 정상적으로 입력되어 있는지 확인해주세요.
+
+3. 결제는 SDK의 아래 코드를 호출 합니다. 
+
+   Unity : GamePot.purchase(string productId);
+
+   * MyCard 사용 중 결제 아이템 호출 형태는 기존 GamePot.getPurchaseItems(); 호출 시 에러발생 됩니다. 
+     이를 대체하여 GamePot.getPurchaseThirdPaymentsItems();을 호출 해주세요.
+
+4.  ../Assets/Plugins/Android/AndroidManifest.xml 파일에 <application> 레벨에 name을 제거 합니다.
+
+![gamepot_unity_29_1.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_unity_29_1.png)
+
+5.  ../Assets/Plugins/Android/mainTemplate.gradle 파일에 아래와 같이 설정 합니다.
+(Unity 2019.3.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
+  
+  ``` java
+  resValue "string", "gamepot_store", "google"
+  resValue "string", "gamepot_payment", "mycard" // 스토어가 google인 경우만 동작합니다.
+  ```
 
 ### 외부결제
 
