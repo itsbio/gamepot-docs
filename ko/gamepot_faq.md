@@ -574,7 +574,7 @@ GamePot 사전예약 페이지의 Category Id : 저장한 명칭을 선택 후 �
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/phone/request
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/request
 Header : 'content-type: application/json'
 data:
 {
@@ -615,7 +615,7 @@ data:
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/phone/verify
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/verify
 Header : 'content-type: application/json'
 data:
 {
@@ -657,7 +657,7 @@ data:
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/phone/join
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/join
 Header : 'content-type: application/json'
 data:
 {

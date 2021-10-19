@@ -1431,27 +1431,33 @@ DATA   : '{
 ###Request
 
  - Method : POST
- - URI : /v1/registration/join
+ - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/join
 
 ```text
 POST
-url : https://dashboard-api.gamepot.ntruss.com/v1/registration/join
-Header : 'accept-language: ko'
-Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/join
+Header : 'content-type: application/json'
+data:
+{
+	"projectId":"ab2775b4-cf09-4794-9480-XXXXXXXXXXXX",
+	"categoryId":"b062a3f3-0a37-44d1-9e8f-XXXXXXXXXXXX",
+	"code":"6137",
+   	"from":"02XXXXXXXX",
+	"to":"010XXXXXXX",
+	"store":"google",
+    	"tag":""
+}
 ```
-| Header    | Type   | Required | Description                  |
-| :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :-------------------------------------- |
-| projectId        | String | GamePot SDK의 projectId                  |
-| categoryId        | String | 사전예약 분류 ID                        |
-| store          | String | 스토어 아이디 (google,one,apple,galaxy,pc)   |
-| to          | String | 인증받은 핸드폰 번호   |
-| code          | String | 인증번호 (인증번호가 없을 경우 체크하지 않음 )   |
-
-> code 값이 비어 있을 경우 인증번호를 확인하지 않습니다. 문자 인증을 받는 경우에는 꼭 code 값을 포함해서 보내주셔야 합니다. 
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | -        | GamePot SDK의 projectId  |
+| categoryId    | String | -        | GamePot 사전예약 페이지의 categoryId    |
+| code          | String | -        | 수신 받은 인증번호                |
+| from          | String | -        | 승인 받은 발신번호                 |
+| to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
+| store         | String | -        | 스토어 ( google, one, apple )  |
+| tag           | String | -        | 기타정보 ( 유입 경로 같은 정보  )   |
 
 ###Response
 
@@ -1490,25 +1496,31 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ###Request
 
  - Method : POST
- - URI : /v1/registration/request
+ - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/request
 
 ```text
 POST
-url : https://dashboard-api.gamepot.ntruss.com/v1/registration/request
-Header : 'accept-language: ko'
-Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/request
+Header : 'content-type: application/json'
+data:
+{
+	"projectId":"ab2775b4-cf09-4794-9480-XXXXXXXXXXXX",
+	"categoryId":"b062a3f3-0a37-44d1-9e8f-XXXXXXXXXXXX",
+	"from":"XXXXXXX",
+	"to":"010XXXXXXX",
+	"store":"google"
+}
 ```
-| Header    | Type   | Required | Description                  |
-| :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :-------------------------------------- |
-| projectId        | String | GamePot SDK의 projectId                  |
-| categoryId        | String | 사전예약 분류 ID                        |
-| store          | String | 스토어 아이디 (google,one,apple,galaxy,pc)   |
-| to | String | 받는 사람 핸드폰 번호 |
-| from | String | 보내는 사람 핸드폰 번호 ( 등록 필수 ) |
+
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | -        | GamePot SDK의 projectId  |
+| categoryId    | String | -        | GamePot 사전예약 페이지의 categoryId    |
+| from          | String | -        | 승인 받은 발신번호                |
+| to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
+| store         | String | -        | 스토어 ( google, one, apple )  |
+
 ###Response
 
 성공
@@ -1546,25 +1558,31 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 ###Request
 
  - Method : POST
- - URI : /v1/registration/verify
+ - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/verify
 
 ```text
 POST
-url : https://dashboard-api.gamepot.ntruss.com/v1/registration/verify
-Header : 'accept-language: ko'
-Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/verify
+Header : 'content-type: application/json'
+data:
+{
+	"projectId":"ab2775b4-cf09-4794-9480-XXXXXXXXXXXX",
+	"categoryId":"b062a3f3-0a37-44d1-9e8f-XXXXXXXXXXXX",
+	"code":"6137",
+	"to":"010XXXXXXX",
+	"store":"google"
+}
 ```
-| Header    | Type   | Required | Description                  |
-| :-------- | :----- | :------- | :--------------------------- |
-| x-api-key | String | O        | GamePot에서 발급하는 인증 키      |
 
-| Attribute        | Type   | Description                             |
-| :--------------- | :----- | :-------------------------------------- |
-| projectId        | String | GamePot SDK의 projectId                  |
-| categoryId        | String | 사전예약 분류 ID                        |
-| store          | String | 스토어 아이디 (google,one,apple,galaxy,pc)   |
-| to | String | 받는 사람 핸드폰 번호 |
-| code | String | 인증번호 |
+
+| Attribute     | Type   | Required | Description             |
+| :------------ | :----- | :------- | :---------------------- |
+| projectId     | String | -        | GamePot SDK의 projectId  |
+| categoryId    | String | -        | GamePot 사전예약 페이지의 categoryId    |
+| code          | String | -        | 수신 받은 인증번호                |
+| to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
+| store         | String | -        | 스토어 ( google, one, apple )  |
+
 ###Response
 
 성공
