@@ -1555,7 +1555,7 @@ data:
 
 사전예약자에게 발송된 인증번호와 입력된 인증번호가 일치하는지 확인하는 API
 
-###Request
+### Request
 
  - Method : POST
  - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/verify
