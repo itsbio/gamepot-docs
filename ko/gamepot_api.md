@@ -1388,7 +1388,7 @@ DATA   : '{
 | agree_type       | Boolean |          | 선택 약관 동의 ( 분류에 설정한 이벤트 약관 동의 여부)        |
 | file             | String  |          | 업로드한 파일의 주소                                         |
 
-###Response
+### Response
 
 성공
 
@@ -1424,11 +1424,11 @@ DATA   : '{
 | -6   | 프로젝트 아이디 정보 오류 |
 | -9   | 필수 파라미터 미 입력     |
 
-##사전예약 참여하기 API
+## 사전예약 참여하기 API
 
 사전예약 참여 완료시에 등록하는 API
 
-###Request
+### Request
 
  - Method : POST
  - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/join
@@ -1459,7 +1459,7 @@ data:
 | store         | String | -        | 스토어 ( google, one, apple )  |
 | tag           | String | -        | 기타정보 ( 유입 경로 같은 정보  )   |
 
-###Response
+### Response
 
 성공
 
@@ -1489,11 +1489,11 @@ data:
 | code    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
 | error   | String | 오류 내용                                         |
 
-##사전예약 인증번호 발송 API 
+## 사전예약 인증번호 발송 API 
 
 사전예약자에게 인증번호를 생성하여 문자 메시지를 발송한다.
 
-###Request
+### Request
 
  - Method : POST
  - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/phone/request
@@ -1521,7 +1521,7 @@ data:
 | to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
 | store         | String | -        | 스토어 ( google, one, apple )  |
 
-###Response
+### Response
 
 성공
 
@@ -1551,7 +1551,7 @@ data:
 | code    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)        |
 | error   | String | 오류 내용                                         |
 
-##사전예약 인증번호 확인 API 
+## 사전예약 인증번호 확인 API 
 
 사전예약자에게 발송된 인증번호와 입력된 인증번호가 일치하는지 확인하는 API
 
@@ -1583,7 +1583,7 @@ data:
 | to            | String | -        | SMS 인증 번호를 수신 받는 연락처     |
 | store         | String | -        | 스토어 ( google, one, apple )  |
 
-###Response
+### Response
 
 성공
 
