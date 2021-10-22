@@ -688,9 +688,9 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 ### Mycard 결제
 
-마이카드 와 연동하기 위한 FacServiceID /  KEY  값은 마이카드 측을 통해 확인 후 대시보드에 설정 해주세요. 
+> 마이카드와 연동하기 위한 FacServiceID / KEY 값은 마이카드 측을 통해 확인해주세요.
 
-1. 대시보드 >> 결제 >> IAP의 Google 항목의 상품에 아래와 같이 가격이 추가 되어 있는지 확인 합니다. 
+1. 대시보드 >> 결제 >> IAP의 Google 항목의 인앱 상품 >> 가격추가 >> 가격정보 기입합니다. 
 
 ![gamepot_android_29](./images/gamepot_unity_29.png)
 
@@ -703,12 +703,11 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
    * MyCard 사용 중 결제 아이템 호출 형태는 기존 GamePot.getInstance().getPurchaseDetailList(); 호출 시 에러발생 됩니다. 
      이를 대체하여 GamePot.getInstance().getPurchaseThirdPaymentsDetailList();을 호출 해주세요.
 
-4.  ../Assets/Plugins/Android/AndroidManifest.xml 파일에 <application> 레벨에 name을 제거 합니다.
+4.  ../AndroidManifest.xml 파일에 <application> 레벨에 name을 제거 합니다.
 
 ![gamepot_android_29](./images/gamepot_unity_29_1.png)
 
-5.  ../Assets/Plugins/Android/mainTemplate.gradle 파일에 아래와 같이 설정 합니다.
-(Unity 2019.3.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
+5.  build.gradle 파일에 아래와 같이 설정 합니다.
 
   ``` java
   resValue "string", "gamepot_store", "google"

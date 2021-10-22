@@ -10,6 +10,17 @@ search:
 
 # Unity SDK
 
+## 요구 사양
+Unity용 GAMEPOT SDK를 사용하기 위한 요구 사양은 다음과 같습니다.
+
+* 최소 사양: 2018.4.0 이상
+( 하위 버전의 Unity 지원이 필요하면 <a href="(https://www.ncloud.com/support/question" target="_blank">[문의채널]</a>로 문의해 주시기 바랍니다. )
+* v.3.1.0 이하 버전에서 최신 버전으로 업데이트를 진행하려는 경우 
+<a href="(https://docs.gamepot.io/undefined/gamepot_faq#migration" target="_blank">[Migration 가이드]</a>를 참고하여 Migration 작업을 수행해 주십시오.
+* 2019.3.X 이상 버전을 사용할 경우
+<a href="(https://docs.gamepot.io/undefined/gamepot_faq#ver-unity-2.1.1-to-ver-unity-2.1.2-or-new-version" target="_blank"> [GAMEPOT FAQ]</a>에서 설명하는 추가 설정 사항을 반드시 참조해 주십시오. 
+*  2019.4.X / 2020.3.X / 2021.1.X 버전의 유니티 에디터 사용자 분들은  2019.4.29f1 이상 / 2020.3.15f2 이상 / 2021.1.16f1 이상 버전을 사용 부탁드립니다. ( AAB 버전 빌드시 유니티 에디터 버그 수정 버전)
+
 ## 1. 시작하기
 
 ### Step 1. GAMEPOT 플러그인 가져오기
@@ -1005,9 +1016,9 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 ### Mycard 결제
 
-마이카드 와 연동하기 위한 FacServiceID /  KEY  값은 마이카드 측을 통해 확인 후 대시보드에 설정 해주세요. 
+> 마이카드와 연동하기 위한 FacServiceID / KEY 값은 마이카드 측을 통해 확인해주세요.
 
-1. 대시보드 >> 결제 >> IAP의 Google 항목의 상품에 아래와 같이 가격이 추가 되어 있는지 확인 합니다. 
+1. 대시보드 >> 결제 >> IAP의 Google 항목의 인앱 상품 >> 가격추가 >> 가격정보 기입합니다. 
 
 ![gamepot_unity_29](./images/gamepot_unity_29.png)
 
