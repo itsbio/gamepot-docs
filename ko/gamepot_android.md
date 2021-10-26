@@ -141,7 +141,7 @@ dependencies {
     implementation(name: 'gamepot-channel-base', ext: 'aar')
     // GamePot facebook [START]
     implementation(name: 'gamepot-channel-facebook', ext: 'aar')
-    implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+    implementation 'com.facebook.android:facebook-android-sdk:8.2.0'
     // GamePot facebook [END]
 
     // GamePot google sigin [START]
@@ -684,6 +684,41 @@ GamePotPurchaseDetailList details = GamePot.getInstance().getPurchaseDetailList(
 GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증까지 모두 마친 후 개발사 서버에 지급 요청을 하기 때문에 불법 결제가 불가능합니다.
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase` 항목을 참고하여 처리하셔야 합니다.
+
+
+### Mycard 결제
+
+> 마이카드와 연동하기 위한 FacServiceID / KEY 값은 마이카드 측을 통해 확인해주세요.
+
+1. 대시보드 >> 결제 >> IAP의 Google 항목의 인앱 상품 >> 가격추가 >> 가격정보 기입합니다. 
+
+![gamepot_android_29](./images/gamepot_unity_29.png)
+
+2. 대시보드 >> 프로젝트 설정 >> 외부결제 항목에 MyCard를 추가하고 해당 FacService ID / Sign Key 가 정상적으로 입력되어 있는지 확인해주세요.
+
+3. 결제는 SDK의 아래 코드를 호출 합니다. 
+
+   GamePot.getInstance().purchase("product id");
+
+   * MyCard 사용 중 결제 아이템 호출 형태는 기존 GamePot.getInstance().getPurchaseDetailList(); 호출 시 에러발생 됩니다. 
+     이를 대체하여 GamePot.getInstance().getPurchaseThirdPaymentsDetailList();을 호출 해주세요.
+
+4.  ../AndroidManifest.xml 파일에 <application> 레벨에 name을 제거 합니다.
+
+![gamepot_android_29](./images/gamepot_unity_29_1.png)
+
+5.  build.gradle 파일에 아래와 같이 설정 합니다.
+
+  ``` java
+  resValue "string", "gamepot_store", "google"
+  resValue "string", "gamepot_payment", "mycard" // 스토어가 google인 경우만 동작합니다.
+  ```
+
+6. ../libs 폴더 내에 gamepot-billing-mycard.aar 이 포함 되어 있는지 확인 합니다. 
+
+7. build.gradle 파일 내에 빌드시 라이브러리가 포함될 수 있도록 설정되어 있는지 확인 합니다. 
+
+ex) implementation(name: 'gamepot-billing-mycard', ext: 'aar') 이 포함 되어 있는지 확인 합니다. 
 
 ## 6. 외부결제
 

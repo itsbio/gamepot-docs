@@ -10,6 +10,17 @@ search:
 
 # Unity SDK
 
+## 요구 사양
+Unity용 GAMEPOT SDK를 사용하기 위한 요구 사양은 다음과 같습니다.
+
+* 최소 사양: 2018.4.0 이상
+( 하위 버전의 Unity 지원이 필요하면 <a href="(https://www.ncloud.com/support/question" target="_blank">[문의채널]</a>로 문의해 주시기 바랍니다. )
+* v.3.1.0 이하 버전에서 최신 버전으로 업데이트를 진행하려는 경우 
+<a href="(https://docs.gamepot.io/undefined/gamepot_faq#migration" target="_blank">[Migration 가이드]</a>를 참고하여 Migration 작업을 수행해 주십시오.
+* 2019.3.X 이상 버전을 사용할 경우
+<a href="(https://docs.gamepot.io/undefined/gamepot_faq#ver-unity-2.1.1-to-ver-unity-2.1.2-or-new-version" target="_blank"> [GAMEPOT FAQ]</a>에서 설명하는 추가 설정 사항을 반드시 참조해 주십시오. 
+*  2019.4.X / 2020.3.X / 2021.1.X 버전의 유니티 에디터 사용자 분들은  2019.4.29f1 이상 / 2020.3.15f2 이상 / 2021.1.16f1 이상 버전을 사용 부탁드립니다. ( AAB 버전 빌드시 유니티 에디터 버그 수정 버전)
+
 ## 1. 시작하기
 
 ### Step 1. GAMEPOT 플러그인 가져오기
@@ -32,12 +43,16 @@ search:
 #### 기본 환경 설정
 
 ```d
-minSdkVersion : API 17 (Jelly Bean, 4.2)
+minSdkVersion : API 17 (Jelly Bean, 4.2) 이상
 ```
 
 **Gradle 환경 설정 방법**
 
 /Assets/Plugin/Android/mainTemplate.gradle 파일을 에디터로 엽니다.
+(Unity 2019.3.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
+
+   페이스북 로그인을 사용하지 않는 고객님들은 facebook_app_id / fb_login_protocol_scheme 값을 아래와 같이 임의 설정을 하거나 /Assets/Plugins/Android/libs/gamepot-channel-facebook.aar 파일이 빌드시 포함이 안되도록 설정 필요합니다.
+
 
 ```java
 ...
@@ -47,6 +62,7 @@ android {
         ...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_store", "google" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
         resValue "string", "facebook_app_id", "0" // optional (facebook)
@@ -67,6 +83,7 @@ resValue "string", "[key]", "[value]"
 | :--------------------------- | :--------------------------------------------------------------------------------------------- |
 | gamepot_project_id           | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요.                                          |
 | gamepot_store                | 스토어값\(`google` 또는 `one` 또는 `galaxy`\)                                                  |
+| gamepot_payment              | 결제수단값 \(스토어가 google인 경우에만 해당되며 현재는 `mycard`지원\)                         |
 | gamepot_app_title            | 앱 제목 \(FCM\)                                                                                |
 | gamepot_push_default_channel | 등록된 기본 채널 이름 \(Default\) - 변경하지 마세요.                                           |
 | facebook_app_id              | 페이스북 발급 받은 앱ID                                                                        |
@@ -996,6 +1013,37 @@ public class NPurchaseInfo
 GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증까지 모두 마친 후 개발사 서버에 지급 요청을 하기 때문에 불법 결제가 불가능합니다.
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase Webhook` 항목을 참고하여 처리하셔야 합니다.
+
+### Mycard 결제
+
+> 마이카드와 연동하기 위한 FacServiceID / KEY 값은 마이카드 측을 통해 확인해주세요.
+
+1. 대시보드 >> 결제 >> IAP의 Google 항목의 인앱 상품 >> 가격추가 >> 가격정보 기입합니다. 
+
+![gamepot_unity_29](./images/gamepot_unity_29.png)
+
+2. 대시보드 >> 프로젝트 설정 >> 외부결제 항목에 MyCard를 추가하고 해당 FacService ID / Sign Key 가 정상적으로 입력되어 있는지 확인해주세요.
+
+3. 결제는 SDK의 아래 코드를 호출 합니다. 
+
+   Unity : GamePot.purchase(string productId);
+
+   * MyCard 사용 중 결제 아이템 호출 형태는 기존 GamePot.getPurchaseItems(); 호출 시 에러발생 됩니다. 
+     이를 대체하여 GamePot.getPurchaseThirdPaymentsItems();을 호출 해주세요.
+
+4.  ../Assets/Plugins/Android/AndroidManifest.xml 파일에 <application> 레벨에 name을 제거 합니다.
+
+![gamepot_unity_29](./images/gamepot_unity_29_1.png)
+
+5.  ../Assets/Plugins/Android/mainTemplate.gradle 파일에 아래와 같이 설정 합니다.
+(Unity 2019.3.X 이후 버전부터는 launcherTemplate.gradle 파일 수정)
+
+  ``` java
+  resValue "string", "gamepot_store", "google"
+  resValue "string", "gamepot_payment", "mycard" // 스토어가 google인 경우만 동작합니다.
+  ```
+
+6. ../Assets/Plugins/Android/libs 폴더 내에 gamepot-billing-mycard.aar 이 포함 되어 있는지 확인 합니다. 
 
 ### 외부결제
 

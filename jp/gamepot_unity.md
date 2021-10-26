@@ -24,7 +24,7 @@
 
 
 ```d
-minSdkVersion : API 17 (Jelly Bean, 4.2)
+minSdkVersion : API 17 (Jelly Bean, 4.2) 以上
 ```
 
 **Gradle 環境の設定方法**
@@ -39,6 +39,7 @@ android {
         ...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_store", "google" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
         resValue "string", "facebook_app_id", "0" // optional (facebook)
@@ -59,6 +60,7 @@ resValue "string", "[key]", "[value]"
 | :--------------------------- | :----------------------------------------------------------- |
 | gamepot_project_id           | GAMEPOT から発行されたプロジェクト ID を入力してください。   |
 | gamepot_store                | ストア値 （`Google`または`One`または`Galaxy`）               |
+| gamepot_payment              | 決済方法値 \(ストアがgoogleである場合のみ該当し、現在は `mycard`に対応\) |
 | gamepot_app_title            | アプリのタイトル （FCM）                                     |
 | gamepot_push_default_channel | 登録された基本チャンネル名 （Default） - 変更しないでください。 |
 | facebook_app_id              | Facebook で発行されたアプリ ID                               |

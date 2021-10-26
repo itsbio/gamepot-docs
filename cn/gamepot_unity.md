@@ -33,7 +33,7 @@ search:
 #### 默认首选项
 
 ```d
-minSdkVersion : API 17 (Jelly Bean, 4.2)
+minSdkVersion : API 17 (Jelly Bean, 4.2) 以上
 ```
 
 **Gradle 如何设置环境**
@@ -48,6 +48,7 @@ android {
         ...
         resValue "string", "gamepot_project_id", "" // required
         resValue "string", "gamepot_store", "google" // required
+        resValue "string", "gamepot_payment", "[storeId]" // optional
         resValue "string", "gamepot_app_title","@string/app_name" // required (fcm)
         resValue "string", "gamepot_push_default_channel","Default" // required (fcm)
         resValue "string", "facebook_app_id", "0" // optional (facebook)
@@ -68,6 +69,7 @@ resValue "string", "[key]", "[value]"
 | :--------------------------- | :---------------------------------------------------------------------------------------- |
 |gamepot_project_id           |请输入 GAMEPOT 发布的项目 ID。|
 |gamepot_store                |储值\（`Google`或`ONE`或`Galaxy`）|
+| gamepot_payment              | 付款方式值（仅在商店为 google 时适用，当前支持`mycard` ）                                 |
 |gamepot_app_title            |应用标题 (FCM)|
 |gamepot_push_default_channel |注册的默认频道名称 (Default) - 不要换。|
 |facebook_app_id              |Facebook 应用程序 ID|
