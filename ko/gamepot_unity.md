@@ -159,8 +159,8 @@ Main Activity에 screenOrientation을 추가 후 게임에 맞게 `sensorLandsca
 | gamepot_project_id            | GAMEPOT에서 발급받은 프로젝트 아이디를 입력해 주세요. |
 | gamepot_facebook_app_id       | 페이스북 발급 받은 앱ID                               |
 | gamepot_facebook_display_name | 페이스북에 보여지는 이름                              |
-| gamepot_google_app_id         | GoogleService-Info 파일의 CLIENT_ID 값                |
-| gamepot_google_url_schemes    | GoogleService-Info 파일의 REVERSED_CLIENT_ID 값       |
+| gamepot_google_app_id         | GoogleService-Info.plist 파일의 CLIENT_ID 값                |
+| gamepot_google_url_schemes    | GoogleService-Info.plist 파일의 REVERSED_CLIENT_ID 값       |
 | gamepot_elsa_projectid        | NCLOUD ELSA 사용시 프로젝트ID                         |
 
 scenes를 추가한 후에 **File &gt; Build Settings &gt; Build And Run**을 실행하면 완료됩니다.
@@ -1018,7 +1018,7 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 > 마이카드와 연동하기 위한 FacServiceID / KEY 값은 마이카드 측을 통해 확인해주세요.
 
-1. 대시보드 >> 결제 >> IAP의 Google 항목의 인앱 상품 >> 가격추가 >> 가격정보 기입합니다. 
+1. 대시보드 >> 결제 >> IAP의 스토어 타입:Google 항목 > 가격추가 > 통화(ex. TWD)/가격 정보를 기입후 저장해주세요. 
 
 ![gamepot_unity_29](./images/gamepot_unity_29.png)
 

@@ -68,7 +68,7 @@ resValue "string", "[key]", "[value]"
 |价值|描述|
 | :--------------------------- | :---------------------------------------------------------------------------------------- |
 |gamepot_project_id           |请输入 GAMEPOT 发布的项目 ID。|
-|gamepot_store                |储值\（`Google`或`ONE`或`Galaxy`）|
+|gamepot_store                |储值\（`google`或`one`或`galaxy`）|
 | gamepot_payment              | 付款方式值（仅在商店为 google 时适用，当前支持`mycard` ）                                 |
 |gamepot_app_title            |应用标题 (FCM)|
 |gamepot_push_default_channel |注册的默认频道名称 (Default) - 不要换。|
@@ -146,8 +146,8 @@ resValue "string", "[key]", "[value]"
 |gamepot_project_id            |请输入 GAMEPOT 发布的项目 ID。|
 |gamepot_facebook_app_id       |Facebook 应用程序 ID|
 |gamepot_facebook_display_name |Facebook 上显示的名称|
-|gamepot_google_app_id         |GoogleService-Info 文件中的 CLIENT_ID 值|
-|gamepot_google_url_schemes    |RoogleService-Info 文件中的 REVERSED_CLIENT_ID 值|
+|gamepot_google_app_id         |GoogleService-Info.plist 文件中的 CLIENT_ID 值|
+|gamepot_google_url_schemes    |GoogleService-Info.plist 文件中的 REVERSED_CLIENT_ID 值|
 |gamepot_elsa_projectid        |使用 NCLOUD ELSA 时的项目 ID|
 
 添加场景后，运行“文件”>“构建设置”>“构建并运行”，操作就完成了。

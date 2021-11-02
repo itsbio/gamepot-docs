@@ -986,6 +986,62 @@ GAMEPOT은 Server to server api를 통해 결제 스토어에 영수증 검증�
 
 이를 위해선 `Server to server api` 메뉴에 `Purchase Webhook` 항목을 참고하여 처리하셔야 합니다.
 
+
+###  Mycard 결제
+
+> 마이카드 와 연동하기 위한 FacServiceID /  KEY  값은 마이카드 측을 통해 확인 후 대시보드에 설정 해주세요. 
+
+1. 대시보드 >> 결제 >> IAP의 스토어 타입:Google 항목 > 가격추가 > 통화(ex. TWD)/가격 정보를 기입후 저장해주세요. 
+
+2. 대시보드 >> 프로젝트 설정 >> 외부결제 항목에 MyCard를 추가하고 해당 FacService ID / Sign Key 가 정상적으로 입력되어 있는지 확인해주세요.
+
+3. 결제는 SDK의 아래 코드를 호출 합니다. 
+
+```c++
+// productId : 스토어에 등록된 상품ID를 입력해 주시면 됩니다.
+// uniqueId  : 별도로 관리하는 영수증 번호를 넣으시면 됩니다.
+// serverId  : 결제를 진행한 캐릭터의 서버아이디를 입력해 주시면 됩니다.
+// playerId  : 결제를 진행한 캐릭터의 캐릭터 아이디를 입력해 주시면 됩니다.
+// etc       : 결제를 진행한 캐릭터 기타 정보를 넣으시면 됩니다.
+
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    FGamePotSDKPluginModule::GetSharedGamePotSdk()->purchase(FString productId, FString uniqueId, FString serverId, FString playerId, FString etc);
+
+```
+
+   * MyCard 사용 중 결제 아이템 호출 형태는 아래의 API를 사용해주세요. 
+   
+   ```c++
+if (FGamePotSDKPluginModule::IsGamePotSdkAvailable())
+    TArray<FNPurchaseItem> itemList = FGamePotSDKPluginModule::GetSharedGamePotSdk()->getPurchaseThirdPaymentsItems();
+```
+
+4.   $S(PluginDir)/GamePot_Android_UPL.xml 파일을 에디터로 엽니다.
+
+  ``` c++
+  
+  ...
+      <resourceCopies>
+      ...
+      <copyFile src="$S(PluginDir)/ThirdParty/Android/libs/gamepot-billing-mycard.aar" dst="$S(BuildDir)/libs/gamepot-billing-mycard.aar" />
+      ....
+      
+    <buildGradleAdditions>
+    ...
+         dependencies {
+        ...
+        implementation(name: 'gamepot-billing-mycard', ext: 'aar')
+        ...
+        
+        defaultConfig {
+        ...
+        resValue "string", "gamepot_store", "google"
+        resValue "string", "gamepot_payment", "mycard" // 스토어가 google인 경우만 동작합니다.
+  ```
+
+5 ../ThirdParty/Android/libs/gamepot-billing-mycard.aar 폴더 내에 gamepot-billing-mycard.aar 이 포함 되어 있는지 확인 합니다. 
+
+
 ### 외부결제
 
 외부결제를 허용하는 스토어 및 공식 스토어가 아닌 곳에서 결제를 사용할 수 있는 기능입니다.

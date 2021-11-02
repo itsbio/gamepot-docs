@@ -59,7 +59,7 @@ resValue "string", "[key]", "[value]"
 | 値                           | 説明                                                         |
 | :--------------------------- | :----------------------------------------------------------- |
 | gamepot_project_id           | GAMEPOT から発行されたプロジェクト ID を入力してください。   |
-| gamepot_store                | ストア値 （`Google`または`One`または`Galaxy`）               |
+| gamepot_store                | ストア値 （`google`または`one`または`galaxy`）               |
 | gamepot_payment              | 決済方法値 \(ストアがgoogleである場合のみ該当し、現在は `mycard`に対応\) |
 | gamepot_app_title            | アプリのタイトル （FCM）                                     |
 | gamepot_push_default_channel | 登録された基本チャンネル名 （Default） - 変更しないでください。 |
@@ -143,8 +143,8 @@ Google Firebase からダウンロードした`GoogleService-Info.plist`ファ�
 | gamepot_project_id            | GAMEPOT から発行されたプロジェクト ID を入力してください。 |
 | gamepot_facebook_app_id       | Facebook で発行されたアプリ ID                             |
 | gamepot_facebook_display_name | Facebook に表示される名前                                  |
-| gamepot_google_app_id         | GoogleService-Info ファイルの CLIENT_ID 値                 |
-| gamepot_google_url_schemes    | GoogleService-Info ファイルの REVERSED_CLIENT_ID 値        |
+| gamepot_google_app_id         | GoogleService-Info.plist ファイルの CLIENT_ID 値                 |
+| gamepot_google_url_schemes    | GoogleService-Info.plist ファイルの REVERSED_CLIENT_ID 値        |
 | gamepot_elsa_projectid        | NCLOUD ELSA 利用時のプロジェクト ID                        |
 
 scenes を追加してから**File > Build Settings > Build And Run**を実行すると完了します。
