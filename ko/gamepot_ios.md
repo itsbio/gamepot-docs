@@ -613,7 +613,7 @@ SDK 내에서, 자체적으로 (완성된 형태의) Login UI를 제공합니다
 #import <GamePotChannel/GamePotChannel.h>
 
 NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
-GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+GamePotChannelLoginOption* options = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
 [[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {

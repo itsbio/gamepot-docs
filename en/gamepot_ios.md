@@ -640,23 +640,36 @@ SDK provides an independent, complete Login UI.
 #import <GamePotChannel/GamePotChannel.h>
 
 NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
-GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+GamePotChannelLoginOption* options = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
- [[GamePotChannel getInstance] showLoginWithUI:self option:option success:^(GamePotUserInfo *userInfo) {
-    // Login succeeded
-    } cancel:^{
-    // Cancel login
-    } fail:^(NSError *error) {
-    // Login failed
-    } update:^(GamePotAppStatus *appStatus) {
-    // Update
+[[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {
+    // Login Complete. Handle this according to the game logic.
+            
+} update:^(GamePotAppStatus *appStatus) {
+    // TODO: When you need force update. Call the following API to enable the SDK to display pop-ups by itself.
+    // TODO: You can also customize the function without calling this API.
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: This API is called to close the app if the showAppStatusPopup API is called.
+        // TODO: Handle the shutdown process.
+    } setNextHandler:^(NSObject* resultPayload) {
+        // TODO : When you set the dashboard update as recommended, the "Do next time" button will appear.
+        // Called when the user selects that button.
+        // TODO : Use the resultPayload information to process it in the same way as when login has been completed.
+        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+    }];
     } maintenance:^(GamePotAppStatus *appStatus) {
-    // Check
+        // TODO: When a maintenance check is in progress. Call the following API to enable the SDK to display pop-ups by itself.
+    // TODO: You can also customize the function without calling this API.
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: This API is called to close the app if the showAppStatusPopup API is called.
+        // TODO: Handle the shutdown process.
+    }];
     } exit:^{
-    // Close showLoginWithUI
-    }
-];
+    // Handling when the X button is clicked
+}];
 ```
 
 #### Setting Login UI image logo<a name="SettingLoginUIimagelogo"></a>

@@ -350,36 +350,35 @@ SDK内で、独自に(完成した形の) Login UIを提供します。
 #import <GamePotChannel/GamePotChannel.h>
 
 NSArray* order = @[@(GOOGLE), @(FACEBOOK), @(APPLE),@(NAVER), @(LINE), @(TWITTER), @(GUEST)];
-GamePotChannelLoginOption* option = [[GamePotChannelLoginOption alloc] init:order];
+GamePotChannelLoginOption* options = [[GamePotChannelLoginOption alloc] init:order];
 [option setShowLogo:YES];
 
 [[GamePotChannel getInstance] showLoginWithUI:self option:options success:^(GamePotUserInfo *userInfo) {
-    // 로그인 완료. 게임 로직에 맞게 처리해주세요.
+    // ログイン完了。ゲームのロジックに合わせて処理してください。
             
 } update:^(GamePotAppStatus *appStatus) {
-        // TODO: 강제 업데이트가 필요한 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
-        // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
-        [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
-         setCloseHandler:^{
-            // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
-            // TODO: 종료 프로세스를 처리해주세요.
-        } setNextHandler:^(NSObject* resultPayload) {
-            // TODO : Dashboard 업데이트 설정에서 권장 설정 시 "다음에 하기" 버튼이 노출 됩니다.
-            // 해당 버튼을 사용자가 선택 시 호출 됩니다.
-            // TODO : resultPayload 정보를 이용하여 로그인 완료 시와 동일하게 처리해주세요.
-            // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
-
-        }];
+        // TODO: 強制アップデートが必要な場合。以下のAPIを呼び出すと、SDK自体でポップアップを表示できます。
+    // TODO: カスタマイズしたい場合は、以下のAPIを呼び出さずにカスタマイズしてください。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // TODO: showAppStatusPopup APIを呼び出した場合、アプリを終了しなければならない状況で呼び出されます。
+        // TODO: 終了プロセスを処理してください。
+    } setNextHandler:^(NSObject* resultPayload) {
+        // TODO : Dashboardアップデートの設定で推奨を選択すると、｢後でする｣ボタンが表示されます。
+        // このボタンをユーザーが選択すると呼び出されます。
+        // TODO : resultPayload情報を用いてログイン完了時と同様に処理してください。
+        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+    }];
     } maintenance:^(GamePotAppStatus *appStatus) {
-          // TODO: 점검 중인 경우. 아래 API를 호출하면 SDK 자체에서 팝업을 띄울 수 있습니다.
-        // TODO: Customizing을 하고자 하는 경우 아래 API를 호출하지 말고 Customizing을 하면 됩니다.
+         // TODO: メンテナンス中の場合。以下のAPIを呼び出すと、SDK自体でポップアップを表示できます。
+        // TODO: カスタマイズしたい場合は、以下のAPIを呼び出さずにカスタマイズしてください。
         [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
-         setCloseHandler:^{
-            // TODO: showAppStatusPopup API를 호출하신 경우 앱을 종료해야 하는 상황에 호출됩니다.
-            // TODO: 종료 프로세스를 처리해주세요.
+            setCloseHandler:^{
+            // TODO: showAppStatusPopup APIを呼び出した場合、アプリを終了しなければならない状況で呼び出されます。
+            // TODO: 終了プロセスを処理してください。
         }];
     } exit:^{
-    // X 버튼 클릭시 처리
+    // X ボタンをクリックすると処理
 }];
 ```
 
