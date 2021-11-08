@@ -104,10 +104,11 @@ search:
 GP.login(GP.ChannelType.FACEBOOK, {
   onSuccess: function (userInfo) {
     console.log(
-      'ログインに成功. memberid: ' +
-        userInfo.memberid +
-        ', userid: ' +
-        userInfo.userid
+      // user.id == gamepot member_id
+      // user.token == token
+      // user.email == email
+      'ログインに成功. ' +
+      user.id + ',' + user.token + ',' + user.email
     );
   },
   onCancel: function () {

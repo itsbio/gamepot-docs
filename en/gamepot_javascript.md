@@ -104,10 +104,12 @@ The login UI is implemented by the developer and works when clicking the login b
 GP.login(GP.ChannelType.FACEBOOK, {
   onSuccess: function (userInfo) {
     console.log(
-      'Login success. memberid: ' +
-        userInfo.memberid +
-        ', userid: ' +
-        userInfo.userid
+      // user.id == gamepot member_id
+      // user.token == token
+      // user.email == email
+
+      'Login success.' +
+        user.id + ',' + user.token + ',' + user.email
     );
   },
   onCancel: function () {

@@ -234,10 +234,10 @@ if (lastLoginType !== GP.ChannelType.NONE) {
   GP.login(lastLoginType, {
     onSuccess: function (gameUserInfo) {
       console.log(
-        '自动登录 - 成功.memberid: ' +
-          gameUserInfo.memberid +
-          ',userid: ' +
-          gameUserInfo.userid
+        // user.id == gamepot member_id
+        // user.token == token
+        // user.email == email
+        '自动登录 - 成功.' + user.id + ',' + user.token + ',' + user.email
       );
     },
 

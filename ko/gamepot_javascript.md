@@ -91,7 +91,10 @@ GP.login(GP.ChannelType.FACEBOOK, function (user, error) {
   } else {
     // 정상 로그인 완료
     console.log(
-      user.getMemberId() + ',' + user.getToken() + ',' + user.getEmail()
+        // user.id == gamepot member_id
+        // user.token == token
+        // user.email == email
+        user.id + ',' + user.token + ',' + user.email
     );
   }
 });
