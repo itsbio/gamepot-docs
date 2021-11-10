@@ -970,7 +970,7 @@ Header : 'x-api-key: {GamePotダッシュボードから発行されたAPI Key}'
 | Attribute | Type   | Description                             |
 | :-------- | :----- | :-------------------------------------- |
 | status    | Int    | 結果\(1：成功、失敗は Error code 参考\) |
-| id        | String | ユーザー ID                             |
+| id        | String | ユーザー ID / 無視してください。                           |
 | player_id | String | プレイヤー名                            |
 | server_id | String | サーバー名                              |
 | name      | String | プレイヤー名                            |

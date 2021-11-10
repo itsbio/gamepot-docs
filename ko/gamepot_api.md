@@ -964,7 +964,7 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 | Attribute | Type   | Description                                |
 | :-------- | :----- | :----------------------------------------- |
 | status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
-| id        | String | 사용자 ID                                  |
+| id        | String | 사용자 ID / 게임팟 내부 고유값 무시해주세요.      |
 | player_id | String | 플레이어 아이디                            |
 | server_id | String | 서버 아이디                                |
 | name      | String | 플레이어 명                                |

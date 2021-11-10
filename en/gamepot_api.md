@@ -970,7 +970,7 @@ success
 | Attribute | Type   | Description                                                     |
 | :-------- | :----- | :-------------------------------------------------------------- |
 | status    | Int    | Result value \(1: Refer to Error code for success and failure\) |
-| id        | String | User ID                                                         |
+| id        | String | User ID  / Please ignore it.                                                       |
 | player_id | String | Player ID                                                       |
 | server_id | String | Server ID                                                       |
 | name      | String | Player name                                                     |
