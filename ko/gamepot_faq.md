@@ -25,7 +25,7 @@
 
 2. 유니티 환경인 경우 
 
-    - 로그인 관련 게임팟 라이브러리가 빌드시 탑재가 되어 있는지 확인 ( 예시 : android 기준 /Assets/Plugins/Android/libs 폴더에 gamepot-channel-apple-signin.aar 파일이 탑재되어 있어야 합니다. )
+    - 로그인 관련 게임팟 라이브러리가 빌드시 탑재가 되어 있는지 확인 ( 예시 : android 기준 애플 로그인시 /Assets/Plugins/Android/libs 폴더에 gamepot-channel-apple-signin.aar 파일이 탑재되어 있어야 합니다. )
 
     - 로그인 타입에 맞는 설정 값이 들어가 있는지 확인합니다. 
     ( 예시 :  Unity 2019.02.XX 이전 버전 : mainTemplate.gradle / Unity 2019.03.XX 이후 버전  : launcherTemplate.gradle 내에 설정 값 세팅 및 기타 설정 진행 )
@@ -244,7 +244,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 2. 콘솔에 앱이 `출시됨` 상태인지 확인
 
-   > `프로덕션` 트랙이 아닌 `비공개`/`내부 테스트` 트랙에 올리시면 됩니다.
+   > `프로덕션` 트랙이 아닌 `비공개`/`내부 테스트` 트랙에 올리시면 됩니다. ( 내부 테스트 트랙에 올리시는 것을 추천드립니다.)
 
 ![gamepot_faq_15](./images/gamepot_faq_15.png)
 
