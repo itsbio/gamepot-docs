@@ -1474,7 +1474,8 @@ ex)
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
 
 
-    5. Unity 2020.X 버전을 사용하시는 경우 추가 수정사항
+
+5. Unity 2020.X 버전을 사용하시는 경우 추가 수정사항
 
 Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
 
@@ -1509,9 +1510,21 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
         ...
     	implementation project('GamePotResources.androidlib')
     	implementation project('FirebaseApp.androidlib')
+        ...
     
+    aaptOptions {
+        noCompress = ['.ress', '.resource', '.obb'] + unityStreamingAssets.tokenize(', ') // add
+        ...
+
+    - launcherTemplate.gradle 수정     
+
+    aaptOptions {
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb'**STREAMING_ASSETS**]+ unityStreamingAssets.tokenize(', ') //add
+        ...
+
     - 유니티 에디터 상에서  ../Assets/Plugins/Android/nativeLibs 폴더내 모든 라이브러리가 Android 빌드시 포함되지 않도록 설정합니다.
-    참조 이미지 : 
+
+참조 이미지 : 
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
 
 

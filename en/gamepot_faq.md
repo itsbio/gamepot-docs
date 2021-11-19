@@ -870,7 +870,7 @@ The following actions are required.
     Environment variables like gamepot_project_id are defined in launcherTemplate.gradle, so you can delete them.
 
 
-    5. Additional fixes if you are using the Unity 2020.X version
+5. Additional fixes if you are using the Unity 2020.X version
 
 Patch for Unity 2020.X version: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
 
@@ -905,9 +905,20 @@ Patch for Unity 2020.X version: [Download](https://xyuditqzezxs1008973.cdn.ntrus
         ...
     	implementation project('GamePotResources.androidlib')
     	implementation project('FirebaseApp.androidlib')
-    
+
+    aaptOptions {
+        noCompress = ['.ress', '.resource', '.obb'] + unityStreamingAssets.tokenize(', ') // add
+        ...
+
+    - Modify launcherTemplate.gradle      
+
+    aaptOptions {
+        noCompress = ['.unity3d', '.ress', '.resource', '.obb'**STREAMING_ASSETS**]+ unityStreamingAssets.tokenize(', ') //add
+        ...
+
     - Set not to include all libraries in the ../Assets/Plugins/Android/nativeLibs folder in the Unity editor when building Android.
-     Reference image:
+
+Reference image:
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
 
 
