@@ -85,6 +85,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 | title     | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 제목 에 넣은 값                                                |
 | content   | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 설명 에 넣은 값                                                |
 | target    | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 대상 값 - 전체 : all / 사용자ID : user                         |
+| expireMs  | String | -          | 게임팟 대시보드 > 게임 > 선물하기 > 만료일 값의 Timestamp ( GMT+9)                                                     |
 | userData  | String | -          | coupon api 호출 시 두 번째 파라미터에 넣은 값                                                      |
 | itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 |     |   |           | item_id : 게임팟 > 게임 > 게임팟에서 생성한 아이템 항목의 고유아이디 / store_item_id : 아이템을 지급하고자 하는 아이템 아이디 / count : 지급할 아이템 수 |

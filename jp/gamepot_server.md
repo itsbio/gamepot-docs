@@ -104,6 +104,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 |title     |String |-          |GAMEPOTダッシュボード > ゲーム > プレゼントする > 件名に入力した値|
 |content   |String |-          |GAMEPOTダッシュボード > ゲーム > プレゼントする > 説明に入力した値|
 |target    |String |-          |GAMEPOTダッシュボード > ゲーム > プレゼントする > 対象値 - 全体：all / ユーザーID：user |
+|expireMs  | String | -        |GAMEPOTダッシュボード > ゲーム > プレゼントする > 有効期限  Timestamp ( GMT+9)                                                     |
 |userData  |String |-          |Coupon API呼び出しの際に、二番目のパラメータに入力した値|
 |itemId    |Array  |-          |itemData Array - itemData（JSON） {"item_id" : String, "store_item_id" : String, "count" : Number} |
 

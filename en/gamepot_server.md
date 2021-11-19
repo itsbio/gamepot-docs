@@ -108,6 +108,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 | title     | String | -          | The value in GAMEPOT Dashboard > Game > Present > Title                                                       |
 | content   | String | -          | The value in GAMEPOT Dashboard > Game > Present > Description                                                       |
 | target    | String | -          | GAMEPOT Dashboard > Game > Present > Target value - all: all/User ID: user                                                       |
+|expireMs  | String | -        | GAMEPOT Dashboard > Game > Present > Expiry date value  Timestamp ( GMT+9)  | 
 | userData  | String | -          | The value in the second parameter when the coupon API is called                                                      |
 | itemId    | Array  | -          | itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 |     |   |           | item_id: Go to GAMEPOT> Game > Unique ID. ID of the item created in the GAMEPOT. store_item_id : ID of the item to be provided. count: Number of items to be provided|

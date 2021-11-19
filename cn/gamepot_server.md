@@ -92,6 +92,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 |title     |String |-          |GAMEPOT仪表盘 > 游戏 > 送礼 > 标题中放入的值|
 |content   |String |-          |GAMEPOT仪表盘 > 游戏 > 送礼 > 描述中放入的值|
 |target    |String |-          |GAMEPOT仪表盘 > 游戏 > 送礼 > 对象值 - 全部：all / 用户ID：user|
+|expireMs  |String | -        | GAMEPOT仪表盘 > 游戏 > 送礼 > 到期日  Timestamp ( GMT+9)  | 
 |userData  |String |-          |调用COUPON API时第二个参数中放入的值|
 |itemId    |Array  |-          |itemData Array - itemData\(JSON\) {"item_id" : String, "store_item_id" : String, "count" : Number} |
 |     |   |           | item_id : GAMEPOT > GAME > 在游戏锅中创建的物品的唯一 ID/ store_item_id : 您要向其付款的商品 ID / count : 要支付的项目数 |
