@@ -7,5 +7,5 @@ search:
 
 <a href="https://api.ncloud-docs.com/docs/en/game-gamepot" target="_blank">Go to Gamepot API Reference >></a><br />
 <a href="https://guide.ncloud-docs.com/docs/en/game-gamepotconsole" target="_blank">Go to Gamepot documentation >></a><br />
-<a href="https://guide.ncloud-docs.com/docs/en/game-gamepotdashboard" target="_blank">Go to Gamepot Dashboard documentation >></a>
+<a href="https://guide.ncloud-docs.com/docs/en/game-gamepot-gamemgmt" target="_blank">Go to Gamepot Dashboard documentation >></a>
 
