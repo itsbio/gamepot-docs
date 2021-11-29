@@ -1269,8 +1269,8 @@ Header : 'x-api-key: {GamePot 대시보드에서 발급받은 API Key}'
 POST
 url : https://dashboard-api.gamepot.ntruss.com/v2/api/ticket/category
 Header : 'language: ko'
-Header : 'X-API-KEY: 2c5752cdafc95da63de7d906335ec7c4e71b4f1f56a9a277'
-Header : 'X-PROJECT-ID: 6936eef9-7e32-4a1b-9ace-7206c33a07a8'
+Header : 'X-API-KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+Header : 'X-PROJECT-ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 
 | Header       | Type   | Required | Description                                         |
@@ -1353,19 +1353,19 @@ POST
 url : https://dashboard-api.gamepot.ntruss.com/v2/api/ticket
 Header : 'application/json'
 Header : 'language: ko'
-Header : 'X-PROJECT-ID: 6936eef9-7e32-4a1b-9ace-7206c33a07a8'
-Header : 'X-API-KEY: 2c5752cdafc95da63de7d906335ec7c4e71b4f1f56a9a277'
+Header : 'X-PROJECT-ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+Header : 'X-API-KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 DATA   : '{
 "type": "3246bc09-52d5-4e73-a265-41b0a08f2b7b",
 "subject": "title",
 "body": "한국어",
-"email": "leesb86@gmail.com",
+"email": "email address",
 "phone": "11234",
 "serverName":"serverName",
 "character": "character",
 "agree_termsofuse": false,
 "agree_type": false,
-"file": ["https://kr.object.ncloudstorage.com/gamepot-cazu8gdl/cs/437800aa-b903-4398-b909-d7c94ac51bf4.mp4"]
+"file": ["uploded url address", ...]
 }'
 ```
 
