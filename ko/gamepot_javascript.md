@@ -11,6 +11,17 @@ search:
 
 # Javascript SDK
 
+참고 URL : https://lx4fc.csb.app
+
+소셜 로그인 관련 콘솔 내 설정 가이드 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/JavascriptSDK%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%87%E1%85%A1%E1%86%BC%E1%84%89%E1%85%B5%E1%86%A8%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%89%E1%85%B5%E1%84%8F%E1%85%A9%E1%86%AB%E1%84%89%E1%85%A9%E1%86%AF%E1%84%89%E1%85%A6%E1%86%BA%E1%84%90%E1%85%B5%E1%86%BC%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3.pdf)
+
+사용 가능 로그인 : 구글 / 페이스북 / 애플 로그인
+
+애플 로그인의 경우 게임팟 대시보드 > 프로젝트 설정 > 일반 > Apple ID Login 항목이 기입이 되어야 합니다.
+
+로그인하는 도메인의 주소를 게임팟 대시보드 > 프로젝트 설정 > 일반 > WEB- 허용도메인에 정보가 기입되어야 합나다.
+
+
 ## 1. 시작하기
 
 ### 개발 환경 구성
@@ -100,63 +111,6 @@ GP.login(GP.ChannelType.FACEBOOK, function (user, error) {
 });
 ```
 
-#### 이메일 로그인
-
-```javascript
-// <input>태그 등에서 사용자로 부터 입력
-var email_id = $('#input-email-id').val();
-var email_password = $('#input-email-password').val();
-
-$('#email-result-status').html('');
-
-GP.signin(
-  GP.ChannelType.EMAIL,
-  email_id,
-  email_password,
-  function (user, error) {
-    if (error) {
-      alert(error); // 오류 메세지
-    } else {
-      // 정상 로그인 완료
-      console.log(
-        user.getMemberId() + ',' + user.getToken() + ',' + user.getEmail()
-      );
-    }
-  }
-);
-```
-
-#### 이메일 가입
-
-```javascript
-// <input>태그 등에서 사용자로 부터 입력
-var new_email_id = $('#input-email-new-id').val();
-var new_email_password = $('#input-email-new-password').val();
-
-GP.signup(
-  GP.ChannelType.EMAIL,
-  new_email_id,
-  new_email_password,
-  function (user, error) {
-    if (error) {
-      alert(error); // 오류 메세지
-    } else {
-      // 정상 가입 완료
-      console.log(
-        user.getMemberId() + ',' + user.getToken() + ',' + user.getEmail()
-      );
-    }
-  }
-);
-```
-
-#### 회원 정보 가져오기
-
-```javascript
-const user = GP.getUser();
-console.log(user.getMemberId());
-```
-
 ### 로그아웃
 
 현재 회원 계정을 로그아웃합니다.
@@ -172,116 +126,3 @@ GP.logout(function (user, error) {
 });
 ```
 
-### 이메일 비밀번호 변경
-
-현재 입력된 이메일로 비밀번호로 변경 안내 메일이 발송 됩니다.
-
-```javascript
-GP.forgot('email', function (error) {
-  if (error) {
-    // 이메일 찾기 실패
-    alert(error); // 오류 메세지
-  } else {
-    // 이메일 찾기 성공
-    alert('메일 찾기 성공');
-  }
-});
-```
-
-### 회원 탈퇴
-
-현재 회원 계정을 탈퇴시킵니다.
-
-```javascript
-GP.unsignup({
-  onSuccess: function () {
-    console.log('회원탈퇴 성공. 초기화면으로 이동해주세요.');
-  },
-  onFailure: function (error) {
-    // 회원탈퇴 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
-    console.log(error.getMessage());
-  },
-});
-```
-
-## 4. 계정 연동
-
-하나의 게임 계정에 복수 개의 소셜 계정\(구글, 페이스북 등\)을 연결/해제할 수 있는 기능입니다.\(최소 연동 소셜 계정은 1가지입니다.\)
-
-> 연동화면 UI는 개발사에서 구현해주세요.
-
-### 소셜 계정 연동
-
-Google, Facebook 등의 아이디로 계정을 연동할 수 있습니다.
-
-```javascript
-// 구글 계정에 연동
-// GP.ChannelType.GOOGLE
-// 페이스북 계정에 연동
-// GP.ChannelType.FACEBOOK
-// 이메일 계정에 연동
-// GP.ChannelType.EMAIL
-
-GP.createLinking(GP.ChannelType.GOOGLE, {
-  onSuccess: function (userInfo) {
-    // 연동 완료. 연동 결과에 대한 문구를 노출시켜 주세요.(예: 계정 연동에 성공했습니다.)
-  },
-
-  onCancel: function () {
-    // 사용자가 취소한 경우
-  },
-
-  onFailure: function (error) {
-    // 연동 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
-  },
-});
-```
-
-### 이메일 계정 연동
-
-소셜계정으로 연동된 계정에 이메일 아이디로 추가 연동할 수 있습니다.
-
-```javascript
-GP.createEmailLinking('some@example.com', 'some_my_password', {
-  onSuccess: function (userInfo) {
-    // 연동 완료. 연동 결과에 대한 문구를 노출시켜 주세요.(예: 계정 연동에 성공했습니다.)
-  },
-
-  onFailure: function (error) {
-    // 연동 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
-  },
-});
-```
-
-### 연동된 리스트
-
-해당 API를 통해 계정에 대해 연동 여부를 확인하실 수 있습니다.
-
-```javascript
-// 타입 정의
-// GP.ChannelType.GOOGLE
-// GP.ChannelType.FACEBOOK
-// GP.ChannelType.EMAIL
-// 타입에 따른 연동 결과를 반환합니다.
-var isLinked = GP.isLinked(GP.ChannelType.GOOGLE);
-
-// 연동되어 있는 모든 타입에 대해 json object로 반환합니다.
-// 만약 GOOGLE과 FACEBOOK에 연동된 경우 아래와 같이 반환됩니다.
-// [{“provider”:”google”},{“provider”:”facebook”}]
-var linking = GP.getLinkedList();
-```
-
-### 연동 해제
-
-기존에 연동되어 있는 계정을 해제합니다.
-
-```javascript
-GP.deleteLinking(GP.ChannelType.GOOGLE, {
-  onSuccess: function () {
-    // 연동 해제 완료. 연동 결과에 대한 문구를 노출시켜 주세요. (예: 계정 연동을 해지했습니다.)
-  },
-  onFailure: function (error) {
-    // 연동 해제 실패. error.getMessage()를 이용해서 오류 메시지를 보여주세요.
-  },
-});
-```
