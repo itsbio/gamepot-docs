@@ -339,3 +339,243 @@ GamePot.characterInfo(characterLog, (success, error) => {
     }
 });
 ```
+
+# 부록
+
+### 3rd party SDK 연동 지원
+
+
+## 3rd party SDK 로그인
+
+> userid 값에 :(colon) 이 들어가면 안됩니다.
+
+```csharp
+String memberId = "memberid of 3rd party sdk";
+GamePot.loginByThirdPartySDK(memberId);
+```
+
+Response:
+
+```csharp
+// 로그인 성공
+public void onLoginSuccess(NUserInfo userInfo)
+{
+}
+
+// 로그인 실패
+public void onLoginFailure(NError error)
+{
+    // 로그인을 실패하는 경우
+    // error.message를 팝업 등으로 유저에게 알려주세요.
+}
+
+// 점검(대시보드에 점검이 활성화되어 있는 경우 호출)
+public void onMainternance(NAppStatus status)
+{
+    // TODO: 파라미터로 넘어온 status 정보를 토대로 팝업을 만들어 사용자에게 알려줘야 합니다.
+    // ex) 인게임 팝업을 통해 개발사에서 직접 UI 구현
+}
+
+```
+
+
+## 3rdParty_Purchase API 
+
+3자 SDK를 통해 발생한 결제 이력을 게임팟 대시보드이 이력을 남기기 위한 기능 
+
+x-api-key는 게임팟에 문의 부탁드립니다.
+
+#### Request
+
+ - Method : POST
+ - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/thirdparty/purchase
+
+```text
+PUT
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/thirdparty/purchase
+Header : 'Content-Type: application/json'
+Header : 'x-api-key: XXXXXXXX'
+data:
+{
+     "projectId": "XXXXXXXX",
+     "store": "pc",
+     "productId": "XXXXX",
+     "transactionId": "XXXXXXX",
+     "memberId":"XXXXXXX",
+     "currency": "KRW",
+     "price":1000,
+     "paymentId": "XXXX",
+     "uniqueId": ""
+
+}
+```
+| Attribute    | Type   | Required | Description                  |
+| :-------- | :----- | :------- | :--------------------------- |
+| projectId  | String | O        |   GamePot SDK의 projectId   |
+| store  | String | O        |   결제 스토어   |
+| productId  | String | O        |   결제 아이템 아이디   |
+| transactionId  | String | O        |   결제 고유 아이디   |
+| memberId  | String | O        |   GamePot SDK의 memberId   |
+| currency  | String | X        |   결제 통화   |
+| price  | String | X        |   결제 금액   |
+| paymentId  | String | X        |   결제 수단   |
+| uniqueId  | String | X        |   게임내 결제 고유 아이디   |
+
+
+
+#### Response
+
+성공
+
+```javascript
+{
+  "status": 1,
+  "message" : ""
+}
+```
+
+| Attribute       | Type    | Description                                     |
+| :---------------| :------ | :---------------------------------------------- |
+| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)            |
+| message        | String  | 오류 내용    |
+
+
+실패
+```javascript
+{
+  "status": -5,
+  "message": "The order id already exist"
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패시 Error code 참고\)            |
+| message   | String | 오류 내용                                         |
+
+
+
+#### Error code
+
+| Code | Description                                                       |
+| :--- | :---------------------------------------------------------------- |
+| -1  | Body에 누락된 데이터가 있는 경우 projectId, transactionId, productId, store, memberId을 모두 었는지 확인하세요.                    |
+| -2  | price 값이 number타입이 아닌 경우 number타입으로 넣으세요.        |
+| -3  | projectId가 없는 경우 입력한 projectId를 다시 확인하세요.         |
+| -4  | 프로젝트가 해당 api를 지원하지 않는 경우 GAMEPOT에 문의해주세요.         |
+| -5  | transactionId가 이미 존재하는 경우         |
+| -6  | DB오류. GAMEPOT에 문의해주세요.        |
+| -99  | x-api-key 권한 오류         |
+
+
+### 사용자 토큰 확인 API
+
+사용자 토큰 확인 API
+
+#### Request
+
+ - Method : POST
+ - URI : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/auth/token
+
+```text
+POST
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/auth/token
+Header : 'accept-language: ko'
+Header : 'Content-Type: application/json'
+body : 
+{
+	"memberId":"XXXXXX",
+	"token":"{GamePot SDK의 login token }"
+}
+
+
+```
+
+| Attribute | Type   | Description                             |
+| :-------- | :----- | :---------------------------------------|
+| projectId | String | GamePot SDK의 projectId                  |
+
+| body | Type   | Description                             |
+| :-------- | :----- | :---------------------------------------|
+| memberId | String | 사용자 아이디                  |
+| token | String | 로그인 이후 획득한 토큰                  |
+
+
+
+
+
+#### Response
+
+성공
+
+```javascript
+{
+    "status": 1,
+    "decoded": {
+        "agree": {
+            "termsofuse": "N",
+            "privacypolicy": "N"
+        },
+        "verify": {
+            "key": "XXXXXXX",
+            "updatedAt": "20XX-09-22T05:13:53.721Z"
+        },
+        "gdpr": {
+            "status": 0,
+            "checked_story_category_ids": [],
+            "checked_category_ids": []
+        },
+        "local": {
+            "status": 2,
+            "email_cert_expired_at": null,
+            "email_cert_key": null
+        },
+        "push": true,
+        "night": false,
+        "ad": true,
+        "deleted": false,
+        "manager": false,
+        "sandbox": false,
+        "username": "",
+        "password": "$2b$04$kDY9HijwxPd5qHVCbkCJXexS8IpcsNmrKIfXH1gXnwWEtcQNOKvDy",
+        "project_id": "{GamePot SDK의 projectId }",
+        "store_id": "pc",
+        "id": "XXXXX",
+        "remoteip": "220.76.XX.XX",
+        "loginedAt": "20XX-09-22T08:29:29.003Z",
+        "country": "KR",
+        "createdAt": "20XX-09-22T05:11:54.617Z",
+        "updatedAt": "20XX-09-22T08:29:29.003Z",
+        "iat": 1615186937,
+        "exp": 1622962937
+    }
+}
+```
+
+| Attribute       | Type    | Description                                     |
+| :---------------| :------ | :---------------------------------------------- |
+| status          | Int     | 결과값 \(1: 성공, 실패는 Error code 참고\)            |
+| agree           | String | 약관동의    (termsofuse/privacypolicy 값은 동일한 값 - Y : 동의 / N : 미동의)   |
+| verify          | String | 본인인증     (해당 항목이 있는 경우 본인인증을 진행한 케이스)      |
+| id              | String | 사용자 아이디           |
+| project_id      | String | 프로젝트 아이디           |
+
+실패
+```javascript
+{
+    "status": -2,
+    "message": "Token authentication failed."
+}
+```
+
+| Attribute | Type   | Description                                     |
+| :-------- | :----- | :---------------------------------------------- |
+| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\)        |
+| message   | String | 오류 내용                                         |
+
+#### Error code
+
+| Code | Description                                                       |
+| :--- | :---------------------------------------------------------------- |
+| -1   | 토큰 정보가 올바르지 않을 때                              |
+| -2   | 토큰 정보가 올바르지 않을 때                              |
