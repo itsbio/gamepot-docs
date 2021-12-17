@@ -210,6 +210,8 @@ GamePotChat.stop();    //disconnect
 
 - ref. 현재 유니티 엔진 상에서, **웹뷰에 대한 Event 수신 / 한글 유니코드 입력이 불가한 이슈** 가 있습니다. 이에 따라, 아직 (공식적으로) 고객지원 메뉴에 대한 Native API는 제공되지 않는 상태입니다.
 
+Case 1 ) 사용자 아이디로 고객문의 UI를 연동할때 
+
 ​```csharp
 //대시보드 주소 및 각 파라메터 값을, 생성한 GamePot 대시보드에 대한 값으로 수정하여 접근이 가능합니다.
 
@@ -217,22 +219,44 @@ GamePotChat.stop();    //disconnect
 "https://{domain}/cs/question?projectid={projectid}&store={store}&memberid={memberid}&device={device}&sdkversion={sdkversion}&language={language}"
 
 /* Example
-https://gsrpkjibrmls4086645.gcdn.ntruss.com/demo/cs/question?projectid=ab2775b4-cf09-4794-9480-decd607a7f8a&store=google&memberid=4e125b06-462f-4c9f-8dbe-b1447bc9e370&device=android&sdkversion=2.1.2&language=ko
+https://dashboard.gamepot.ntruss.com/demo/cs/question?projectid=XXXXXXXXX&store=XX&memberid=XXXXXXX&device=android&sdkversion=3.4.0&language=ko
 */
 
 ```
 
 | ID         | desc                        | example                                  |
 | :--------- | :-------------------------- | :--------------------------------------- |
-| domain     | 게임팟 대시보드 domain 주소 | gsrpkjibrmls4086645.gcdn.ntruss.com/demo |
-| projectid  | 게임팟 Project ID           | ab2775b4-cf09-4794-9480-decd607a7f8a     |
-| store      | 스토어 명                   | google                                   |
-| memberid   | 게임팟 Member ID            | 4e125b06-462f-4c9f-8dbe-b1447bc9e370     |
-| device     | 플랫폼                      | android                                  |
-| sdkversion | 게임팟 SDK Version          | 2.1.2                                    |
-| language   | 언어                        | ko                                       |
+| domain     | 게임팟 대시보드 domain 주소 | https://dashboard.gamepot.ntruss.com/demo  |
+| projectid  | 게임팟 Project ID           | XXXXXXX     |
+| store      | 스토어 명                   | android ,ios , one , pc                                  |
+| memberid   | 게임팟 Member ID            | XXXXXXXXX     |
+| device     | 플랫폼                      | android ,ios , one , pc                        |
+| sdkversion | 게임팟 SDK Version          | 3.4.0                                    |
+| language   | 언어                        | (ISO 639-1코드) ex) ko                                       |
 
 |
+
+Case 2 ) 로그인 성공 후 발생하는 토큰으로 고객문의 UI를 연동할때 
+
+​```csharp
+파라미터  정의:
+projectid : 게임팟 프로젝트 아이디 (ex. 807db37b-99dd-4628-9b63-1077ded8155d
+store : pc 
+language : 문의자 언어 (ex. 한국어 - ko ) 
+token : 로그인 후 획득한 토큰 
+sdkversion : 3.4.0 ( 고정 값 )
+
+정보가 맞지 않는 경우 400 에러 화면으로 이동합니다.
+sdkversion 정보가 없는 경우 파일 업로드 메뉴가 보이지 않습니다.
+
+
+[url]
+"https://{domain}/cs/question?projectid={projectid}&store={store}&sdkversion={sdkversion}&language={language}&token={로그인 성공 후 토큰}"
+
+https://dashboard.gamepot.ntruss.com/demo/cs/question?projectid=XXXXXX&sdkversion=3.4.0&store=pc&language=ko&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ3JlZSI6eyJ0ZXJtc29mdXNlIjoiTiIsInByaXZhY3lwb2xpY3kiOiJOIn0sImdkcHIiOnsic3RhdHVzIjowLCJjaGVja2VkX3N0b3J5X2NhdGVnb3J5X2lkcyI6W119LCJsb2NhbCI6eyJzdGF0dXMiOjB9LCJwdXNoIjp0cnVlLCJuaWdodCI6ZmFsc2UsImFkIjp0cnVlLCJkZWxldGVkIjpmYWxzZSwibWFuYWdlciI6ZmFsc2UsInNhbmRib3giOmZhbHNlLCJfaWQiOiI2MWJjMWE1NjU0ZjliMTY3MThjNWM4NDIiLCJ1c2VybmFtZSI6IiIsInBhc3N3b3JkIjoiJDJiJDA0JEhzbXFELi5KMEdDZmtIa0hhdE5XYXVMRHhFNGRPamZBUW9rT3ZLOFJWNmt6cDNYNVZYYS5hIiwicHJvamVjdF9pZCI6IjgwN2RiMzdiLTk5ZGQtNDYyOC05YjYzLTEwNzdkZWQ4MTU1ZCIsInN0b3JlX2lkIjoiZ29vZ2xlIiwiaWQiOiIyNTJjZGQ5Ni1hYjkwLTQ1ODItOTIwYy1iZmU5YjJhNzMzNGYiLCJyZW1vdGVpcCI6IjYxLjQzLjU0LjMiLCJsb2dpbmVkQXQiOiIyMDIxLTEyLTE3VDA1OjA0OjIyLjIzOVoiLCJjb3VudHJ5IjoiS1IiLCJjcmVhdGVkQXQiOiIyMDIxLTEyLTE3VDA1OjA0OjIyLjI1MVoiLCJ1cGRhdGVkQXQiOiIyMDIxLTEyLTE3VDA1OjA0OjIyLjI1MVoiLCJfX3YiOjAsImlhdCI6MTYzOTcxNzQ2MiwiZXhwIjoxNjQ3NDkzNDYyfQ.__fyXqmw567Ilf2_blMhLJo_g6FwsWnRtWUI_Iiab6Y
+
+```
+
 
 ### 4-2. 쿠폰
 
@@ -381,7 +405,7 @@ public void onMainternance(NAppStatus status)
 
 ## 3rdParty_Purchase API 
 
-3자 SDK를 통해 발생한 결제 이력을 게임팟 대시보드이 이력을 남기기 위한 기능 
+3자 SDK를 통해 발생한 결제 이력을 게임팟 대시보드이 이력을 남기기 위한 기능 ( 보안상 서버에서 발송하는 방식으로 진행을 권장합니다.)
 
 x-api-key는 게임팟에 문의 부탁드립니다.
 

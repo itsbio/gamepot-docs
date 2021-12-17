@@ -14,7 +14,7 @@
 
 ```text
 POST 
-url :'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/signup/local' 
+url :'https://gamepot.apigw.ntruss.com/gpapps/v2/signup/local' 
 --header 'language: ko' 
 --header 'Content-Type: application/x-www-form-urlencoded' 
 --data-urlencode 'projectId=XXXX' 
@@ -46,7 +46,7 @@ url :'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/signup/local'
 {
     "status": 1,
     "message": "이메일을 발송 했습니다. 인증을 진행하세요.",
-    "id": "2a210dfb-2ec8-471a-836d-8a9e63bffd31",
+    "id": "2a210dfb-2ec8-471a-XXXXXXXX",
     "projectId": "XXXXXXXXXXXXX",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ3JlZSI6eyJ0ZXJtc29mdXNlIjoiTiIsInByaXZhY3lwb2xpY3kiOiJOIn0sImdkcHIiOnsic3RhdHVzIjowLCJjaGVja2VkX3N0b3J5X2NhdGVnb3J5X2lkcyI6W119LCJsb2NhbCI6eyJzdGF0dXMiOjB9LCJwdXNoIjp0cnVlLCJuaWdodCI6ZmFsc2UsImFkIjp0cnVlLCJkZWxldGVkIjpmYWxzZSwibWFuYWdlciI6ZmFsc2UsInNhbmRib3giOmZhbHNlLCJfaWQiOiI2MWE1ZDYyNDcxZGFmZGRlMGE2YTJmMzIiLCJ1c2VybmFtZSI6IiIsInBhc3N3b3JkIjoiJDJiJDA0JFZXVVBoZ0JIaXRZM01heGVTZFJkRE85RjNlZ3B3V2FTNXJBejBSRS5HZmdEb1BxdFZTNEZDIiwicHJvamVjdF9pZCI6ImJmNTU2YzM5LTg5YjAtNDIxZi05YjliLTBjNTcyMTMyNmZkOSIsInN0b3JlX2lkIjoicGMiLCJpZCI6IjJhMjEwZGZiLTJlYzgtNDcxYS04MzZkLThhOWU2M2JmZmQzMSIsInJlbW90ZWlwIjoiMTE2LjEyNC41MC4xMzAiLCJsb2dpbmVkQXQiOiIyMDIxLTExLTMwVDA3OjQzOjMyLjU2MloiLCJjb3VudHJ5IjoiS1IiLCJjcmVhdGVkQXQiOiIyMDIxLTExLTMwVDA3OjQzOjMyLjU2NVoiLCJ1cGRhdGVkQXQiOiIyMDIxLTExLTMwVDA3OjQzOjMyLjU2NVoiLCJfX3YiOjAsImlhdCI6MTYzODI1ODIxMiwiZXhwIjoxNjQ2MDM0MjEyfQ.0Ar6vhmTIhgDfBA5sE21DoO4C2zfEjVmuXNIWGE9fd4"
 }
@@ -106,7 +106,7 @@ url :'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/signup/local'
 
 ```text
 POST 
-url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/resend/mail/local' \
+url : 'https://gamepot.apigw.ntruss.com/gpapps/v2/resend/mail/local' \
 --header 'language: ko' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'projectId=XXXX' \
@@ -182,7 +182,7 @@ url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/resend/mail/local' \
 
 ```text
 POST 
-url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/login/local' 
+url : 'https://gamepot.apigw.ntruss.com/gpapps/v2/login/local' 
 --header 'language: ko' 
 --header 'Content-Type: application/x-www-form-urlencoded' 
 --data-urlencode 'projectId=XXXXXXX' \
@@ -208,7 +208,7 @@ url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/login/local'
 
 ```javascript
 {
-    "id": "09d04b1c-69b7-48af-bbd3-b934be276fd5",
+    "id": "09d04b1c-69b7-48af-XXXXXXXXXX",
     "projectId": "XXXXXXXX",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ3JlZSI6eyJ0ZXJtc29mdXNlIjoiTiIsInByaXZhY3lwb2xpY3kiOiJOIn0sImdkcHIiOnsic3RhdHVzIjowLCJjaGVja2VkX3N0b3J5X2NhdGVnb3J5X2lkcyI6W119LCJsb2NhbCI6eyJzdGF0dXMiOjIsImVtYWlsX2NlcnRfZXhwaXJlZF9hdCI6bnVsbCwiZW1haWxfY2VydF9rZXkiOm51bGx9LCJwdXNoIjp0cnVlLCJuaWdodCI6ZmFsc2UsImFkIjp0cnVlLCJkZWxldGVkIjpmYWxzZSwibWFuYWdlciI6ZmFsc2UsInNhbmRib3giOmZhbHNlLCJfaWQiOiI2MWE1ZDcxNzI1YWQ1NTQwMzIxMzA5NTEiLCJ1c2VybmFtZSI6IiIsInBhc3N3b3JkIjoiJDJiJDA0JGJOY2xjVEZrQndrLndkWWNCTndNY09mNEhoTGdxdWNOMW5TWFF6cG10ZC5veEdyenFEM0dLIiwicHJvamVjdF9pZCI6ImJmNTU2YzM5LTg5YjAtNDIxZi05YjliLTBjNTcyMTMyNmZkOSIsInN0b3JlX2lkIjoicGMiLCJpZCI6IjA5ZDA0YjFjLTY5YjctNDhhZi1iYmQzLWI5MzRiZTI3NmZkNSIsInJlbW90ZWlwIjoiMTE2LjEyNC41MC4xMzAiLCJsb2dpbmVkQXQiOiIyMDIxLTExLTMwVDA3OjQ3OjM1LjUyN1oiLCJjb3VudHJ5IjoiS1IiLCJjcmVhdGVkQXQiOiIyMDIxLTExLTMwVDA3OjQ3OjM1LjQ5NFoiLCJ1cGRhdGVkQXQiOiIyMDIxLTExLTMwVDA3OjQ3OjQ2LjI3N1oiLCJfX3YiOjAsIm5pY2tuYW1lIjoiMnMyczNzMnMiLCJpYXQiOjE2MzgyNjA5NzgsImV4cCI6MTY0NjAzNjk3OH0.ywuWjI24F5lvWeUkiIbjo9hOOclp57i-uExCJcBb_z4",
     "email": "XXXXXXXX",
@@ -276,7 +276,7 @@ url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/login/local'
 
 ```text
 PUT
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectId}/store/pc/user
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectId}/store/pc/user
 Header : 'accept-language: ko'
 Header : 'Content-Type: application/json'
 Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 획득한 토큰으로 교체
@@ -435,7 +435,7 @@ Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 �
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/auth/token
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/auth/token
 Header : 'accept-language: ko'
 Header : 'Content-Type: application/json'
 body : 
@@ -473,7 +473,7 @@ body :
             "privacypolicy": "N"
         },
         "verify": {
-            "key": "wn+Kxh4SLzy8lEf7RM+iYEQdSrqCiADlOj418P1Plk4xUxs5ppoOe4vShvGqWGw9fAQjmgc4dzmntXFdwzpO/g==",
+            "key": "wn+Kxh4SLzy8lEf7RM+iYEQdSrqCiADlXXXXXXXXX",
             "updatedAt": "2020-09-22T05:13:53.721Z"
         },
         "gdpr": {
@@ -496,12 +496,12 @@ body :
         "password": "$2b$04$kDY9HijwxPd5qHVCbkCJXexS8IpcsNmrKIfXH1gXnwWEtcQNOKvDy",
         "project_id": "{GamePot SDK의 projectId }",
         "store_id": "pc",
-        "id": "7aece54e-07e6-4690-8479-565b07b15d25",
-        "remoteip": "220.76.52.163",
-        "loginedAt": "2020-09-22T08:29:29.003Z",
+        "id": "7aece54e-07e6-4690-XXXXX-XXXX5",
+        "remoteip": "2XX.XX.XX.163",
+        "loginedAt": "20XX-09-22T08:29:29.003Z",
         "country": "KR",
-        "createdAt": "2020-09-22T05:11:54.617Z",
-        "updatedAt": "2020-09-22T08:29:29.003Z",
+        "createdAt": "20xX-09-22T05:11:54.617Z",
+        "updatedAt": "20XX-09-22T08:29:29.003Z",
         "iat": 1615186937,
         "exp": 1622962937
     }
@@ -551,7 +551,7 @@ body :
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/user/terms
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/user/terms
 Header : 'accept-language: ko'
 Header : 'Content-Type: application/json'
 body : 
@@ -597,7 +597,7 @@ body :
     "error": 
     {
         "status": -1,
-        "message": "데이터가 부족합니다. request body is '{\"memberId\":\"7aece54e-07e6-4690-8479-565b07b15d25\",\"agree\":\"\"}'"
+        "message": "데이터가 부족합니다. request body is '{\"memberId\":\"XXX-XXXX-XXXX\",\"agree\":\"\"}'"
     }
 }
 ```
@@ -656,7 +656,7 @@ body :
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/store/pc/notice
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/store/pc/notice
 Header : 'accept-language: ko'
 ```
 
@@ -683,12 +683,12 @@ Header : 'accept-language: ko'
   "result":
   [
     {
-      "image":"https://kr.object.ncloudstorage.com/gamepot-vamt8obe/notices/8b862325-4c90-4fb8-94af-681eb40d417d.png",
-      "url":"https://rob.gnjoy.com/Community/BoardDetail/298",
+      "image":"다운로드 경로/notices/8b862325-4c90-4fb8-94af-681eb40d417d.png",
+      "url":"링크 주소",
       "scheme":""
     },
     {
-      "image":"https://kr.object.ncloudstorage.com/gamepot-vamt8obe/notices/5e3f2a68-c6f9-44e1-9071-4fc2ba7148a9.png",
+      "image":"다운로드 경로/notices/5e3f2a68-c6f9-44e1-9071-4fc2ba7148a9.png",
       "url":"",
       "scheme":"https://www.daum.net/"
     }
@@ -719,7 +719,7 @@ Header : 'accept-language: ko'
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/changepassword/local
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/changepassword/local
 Header : 'accept-language: ko'
 Header : 'Content-Type: application/x-www-form-urlencoded'
 Header : 'token: {token}'
@@ -791,36 +791,37 @@ data-urlencode 'currentPassword=Gamepot123!@'
 
 ### 이용약관 동의 여부 API
 
-이용약관동의
+이용약관동의 여부 설정
 
 #### Request
 
  - Method : PUT
- - URI : /v1/api/project/{GamePot SDK의 projectId }/user/terms
+ - URI : /v1/api/project/{projectId}/user/terms
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/changepassword/local
+url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/75d18134-9e49-4be2-b614-7cc5ad2901dc/user/terms
 Header : 'accept-language: ko'
-Header : 'Content-Type: application/x-www-form-urlencoded'
-Header : 'token: {token}'
-data-urlencode 'projectId={GamePot SDK의 projectId }' \
-data-urlencode 'id=74f178cf-1409-4b6b-9845-ae75db5dd0fc' \
-data-urlencode 'newPassword=Gamepot123!@' \
-data-urlencode 'currentPassword=Gamepot123!@'
+Header : 'Content-Type: application/json'
+
+data-raw  :
+{    
+  "memberId":"게임팟 사용자 아이디",
+  "agree":"Y" 
+}
+
 ```
 
-| Header | Type   | Required | Description             |
-| :----- | :----- | :------- | :---------------------- |
-| token  | String | O        | 로그인 이후 획득한 토큰 |
+| Attribute | Type   | Description                             |
+| :-------- | :----- | :---------------------------------------|
+| projectId | String | GamePot SDK의 projectId                  |
 
 
 | data            | Type   | Description     |
 | :-------------- | :----- | :-------------- |
-| projectId       | String | 프로젝트 아이디 |
-| id              | String | 이메일 계정     |
-| newPassword     | String | 신규 패스워드   |
-| currentPassword | String | 기존 패스워드   |
+| memberId       | String | 게임팟 사용자 아이디 |
+| agree          | String | 동의 Y / 미동의 N    |
+
 
 
 
@@ -834,7 +835,7 @@ data-urlencode 'currentPassword=Gamepot123!@'
 ```javascript
 {
     "status": 1,
-    "message": "비밀번호가 정상적으로 변경되었습니다."
+    "message": "success"
 }
 ```
 
@@ -846,8 +847,10 @@ data-urlencode 'currentPassword=Gamepot123!@'
 
 ```javascript
 {
-    "status": -6,
-    "message": "사용할 수 없는 비밀번호 입니다."
+    "error": {
+        "status": -3,
+        "message": "회원 정보를 찾을 수 없습니다."
+    }
 }
 ```
 
@@ -861,8 +864,7 @@ data-urlencode 'currentPassword=Gamepot123!@'
 | Code | Description              |
 | :--- | :----------------------- |
 | -1   | 파라미터 누락            |
-| -3   | 토큰 인증 실패           |
-| -5   | 비밀번호가 일치하지 않음 |
-| -6   | 사용할 수 없는 비밀번호  |
+| -2   | agree 인자 타입 오류         |
+| -3   | 사용자 아이디 오류          |
 
 
