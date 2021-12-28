@@ -10,7 +10,7 @@
 ```text
 POST
 url : https://itoxi-api.gamepot.io/v1/forgetpassword/local
-Header : 'accept-language: ko'
+Header : 'language: ko'
 Header : 'Content-Type: application/x-www-form-urlencoded'
 data-urlencode 'projectId=XXXXXXX' \
 data-urlencode 'id=XXXXXXXXXXXXX' \

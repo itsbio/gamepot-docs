@@ -14,7 +14,7 @@
 
 ```text
 POST 
-url :'https://gamepot.apigw.ntruss.com/gpapps/v2/signup/local' 
+url :'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/signup/local' 
 --header 'language: ko' 
 --header 'Content-Type: application/x-www-form-urlencoded' 
 --data-urlencode 'projectId=XXXX' 
@@ -106,7 +106,7 @@ url :'https://gamepot.apigw.ntruss.com/gpapps/v2/signup/local'
 
 ```text
 POST 
-url : 'https://gamepot.apigw.ntruss.com/gpapps/v2/resend/mail/local' \
+url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/resend/mail/local' \
 --header 'language: ko' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'projectId=XXXX' \
@@ -182,7 +182,7 @@ url : 'https://gamepot.apigw.ntruss.com/gpapps/v2/resend/mail/local' \
 
 ```text
 POST 
-url : 'https://gamepot.apigw.ntruss.com/gpapps/v2/login/local' 
+url : 'https://gamepot.apigw.ntruss.com/gpapps/v1/v1/login/local' 
 --header 'language: ko' 
 --header 'Content-Type: application/x-www-form-urlencoded' 
 --data-urlencode 'projectId=XXXXXXX' \
@@ -276,7 +276,7 @@ url : 'https://gamepot.apigw.ntruss.com/gpapps/v2/login/local'
 
 ```text
 PUT
-url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectId}/store/pc/user
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectId}/store/pc/user
 Header : 'accept-language: ko'
 Header : 'Content-Type: application/json'
 Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 획득한 토큰으로 교체
@@ -435,12 +435,12 @@ Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 �
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/auth/token
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/auth/token
 Header : 'accept-language: ko'
 Header : 'Content-Type: application/json'
 body : 
 {
-	"memberId":"7aece54e-07e6-4690-8479-565b07b15d25",
+	"memberId":"7aece54e-07e6-XXXX-XXXX-XXXXXXX",
 	"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ3JlZSI6eyJ0ZXJtc29mdXNlIjoiTiIsInByaXZhY3lwb2xpY3kiOiJOIn0sInZlcmlmeSI6eyJrZXkiOiJ3bitLeGg0U0x6eThsRWY3Uk0raVlFUWRTcnFDaUFEbE9qNDE4UDFQbGs0eFV4czVwcG9PZTR2U2h2R3FXR3c5ZkFRam1nYzRkem1udFhGZHd6cE8vZz09IiwidXBkYXRlZEF0IjoiMjAyMC0wOS0yMlQwNToxMzo1My43MjFaIn0sImdkcHIiOnsic3RhdHVzIjowLCJjaGVja2VkX3N0b3J5X2NhdGVnb3J5X2lkcyI6W10sImNoZWNrZWRfY2F0ZWdvcnlfaWRzIjpbXX0sImxvY2FsIjp7InN0YXR1cyI6MiwiZW1haWxfY2VydF9leHBpcmVkX2F0IjpudWxsLCJlbWFpbF9jZXJ0X2tleSI6bnVsbH0sInB1c2giOnRydWUsIm5pZ2h0IjpmYWxzZSwiYWQiOnRydWUsImRlbGV0ZWQiOmZhbHNlLCJtYW5hZ2VyIjpmYWxzZSwic2FuZGJveCI6ZmFsc2UsIl9pZCI6IjVmNjk4NzlhY2NhNGYzMDVhMWZiNmM3ZCIsInVzZXJuYW1lIjoiIiwicGFzc3dvcmQiOiIkMmIkMDQka0RZOUhpand4UGQ1cUhWQ2JrQ0pYZXhTOElwY3NObXJLSWZYSDFnWG53V0V0Y1FOT0t2RHkiLCJwcm9qZWN0X2lkIjoiNzVkMTgxMzQtOWU0OS00YmUyLWI2MTQtN2NjNWFkMjkwMWRjIiwic3RvcmVfaWQiOiJwYyIsImlkIjoiN2FlY2U1NGUtMDdlNi00NjkwLTg0NzktNTY1YjA3YjE1ZDI1IiwicmVtb3RlaXAiOiIyMjAuNzYuNTIuMTYzIiwibG9naW5lZEF0IjoiMjAyMC0wOS0yMlQwODoyOToyOS4wMDNaIiwiY291bnRyeSI6IktSIiwiY3JlYXRlZEF0IjoiMjAyMC0wOS0yMlQwNToxMTo1NC42MTdaIiwidXBkYXRlZEF0IjoiMjAyMC0wOS0yMlQwODoyOToyOS4wMDNaIiwiX192IjoxLCJpYXQiOjE2MTUxODY5MzcsImV4cCI6MTYyMjk2MjkzN30.NBsaTwDJ94mMYPscQayRXFuVA2RVezegqj75midpYBM"
 }
 
@@ -551,8 +551,8 @@ body :
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/user/terms
-Header : 'accept-language: ko'
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/user/terms
+Header : 'language: ko'
 Header : 'Content-Type: application/json'
 body : 
 {
@@ -652,11 +652,11 @@ body :
 #### Request
 
  - Method : GET
- - URI : /v1/api/project/{projectid}/store/pc/notice
+ - URI : /v1/api/project/{projectid}/store/pc/notice/posting
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v2/api/project/{projectid}/store/pc/notice
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/store/pc/notice
 Header : 'accept-language: ko'
 ```
 
@@ -719,8 +719,8 @@ Header : 'accept-language: ko'
 
 ```text
 POST
-url : https://gamepot.apigw.ntruss.com/gpapps/v2/changepassword/local
-Header : 'accept-language: ko'
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/changepassword/local
+Header : 'language: ko'
 Header : 'Content-Type: application/x-www-form-urlencoded'
 Header : 'token: {token}'
 data-urlencode 'projectId={GamePot SDK의 projectId }' \
