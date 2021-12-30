@@ -25,7 +25,7 @@ body : { "nickname":"{닉네임}" }
 | :-------- | :----- | :---------------------------------------|
 | projectId | String | GamePot SDK의 projectId                  |
 
-| Header    | Type   | Required | Description                  |
+| body    | Type   | Required | Description                  |
 | :-------- | :----- | :------- | :--------------------------- |
 | nickname  | String | O        |   닉네임   |
 
@@ -383,7 +383,7 @@ body :
             "privacypolicy": "N"
         },
         "verify": {
-            "key": "wn+Kxh4SLzy8lEf7RM+iYEQdSrqCiADlOj418P1Plk4xUxs5ppoOe4vShvGqWGw9fAQjmgc4dzmntXFdwzpO/g==",
+            "key": "wn+Kxh4SLzy8lEf7RM+iYEQdSrqCiADlXXXXXXXXX",
             "updatedAt": "2020-09-22T05:13:53.721Z"
         },
         "gdpr": {
@@ -404,14 +404,14 @@ body :
         "sandbox": false,
         "username": "",
         "password": "$2b$04$kDY9HijwxPd5qHVCbkCJXexS8IpcsNmrKIfXH1gXnwWEtcQNOKvDy",
-        "project_id": "75d18134-9e49-4be2-b614-7cc5ad2901dc",
+        "project_id": "{GamePot SDK의 projectId }",
         "store_id": "pc",
-        "id": "7aece54e-07e6-4690-8479-565b07b15d25",
-        "remoteip": "220.76.52.163",
-        "loginedAt": "2020-09-22T08:29:29.003Z",
+        "id": "7aece54e-07e6-4690-XXXXX-XXXX5",
+        "remoteip": "2XX.XX.XX.163",
+        "loginedAt": "20XX-09-22T08:29:29.003Z",
         "country": "KR",
-        "createdAt": "2020-09-22T05:11:54.617Z",
-        "updatedAt": "2020-09-22T08:29:29.003Z",
+        "createdAt": "20xX-09-22T05:11:54.617Z",
+        "updatedAt": "20XX-09-22T08:29:29.003Z",
         "iat": 1615186937,
         "exp": 1622962937
     }
@@ -461,8 +461,8 @@ body :
 
 ```text
 POST
-url : https://gravity-api.gamepot.io/v1/api/project/{projectid}/user/terms
-Header : 'accept-language: ko'
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/v1/api/project/{projectid}/user/terms
+Header : 'language: ko'
 Header : 'Content-Type: application/json'
 body : 
 {
@@ -507,7 +507,7 @@ body :
     "error": 
     {
         "status": -1,
-        "message": "데이터가 부족합니다. request body is '{\"memberId\":\"7aece54e-07e6-4690-8479-565b07b15d25\",\"agree\":\"\"}'"
+        "message": "데이터가 부족합니다. request body is '{\"memberId\":\"XXX-XXXX-XXXX\",\"agree\":\"\"}'"
     }
 }
 ```
@@ -597,7 +597,7 @@ data-raw :
 #### Request
 
  - Method : GET
- - URI : /v1/api/project/{projectid}/store/pc/notice
+ - URI : /v1/api/project/{projectid}/store/pc/notice/posting
 
 ```text
 POST
@@ -628,12 +628,12 @@ Header : 'accept-language: ko'
   "result":
   [
     {
-      "image":"https://kr.object.ncloudstorage.com/gamepot-vamt8obe/notices/8b862325-4c90-4fb8-94af-681eb40d417d.png",
-      "url":"https://rob.gnjoy.com/Community/BoardDetail/298",
+      "image":"다운로드 경로/notices/8b862325-4c90-4fb8-94af-681eb40d417d.png",
+      "url":"링크 주소",
       "scheme":""
     },
     {
-      "image":"https://kr.object.ncloudstorage.com/gamepot-vamt8obe/notices/5e3f2a68-c6f9-44e1-9071-4fc2ba7148a9.png",
+      "image":"다운로드 경로/notices/5e3f2a68-c6f9-44e1-9071-4fc2ba7148a9.png",
       "url":"",
       "scheme":"https://www.daum.net/"
     }
@@ -723,7 +723,9 @@ data-urlencode 'newPassword=abcd1'
 | Code | Description                                                       |
 | :--- | :---------------------------------------------------------------- |
 | -1   | 파라미터 누락                                |
-| -4   | 본인인증 CI 값 오류                           |
+| -2   | 프로젝트 아이디 없는 경우                       |
+| -3   | 존재하지 않는 회원인 경우                       |
+| -4   | 본인인증 키가 올바르지 않은 경우                           |
 | -6   | 사용할 수 없는 비밀번호 / 회원정보 확인 불가        |
 
 
@@ -801,6 +803,8 @@ Header : 'Content-Type: application/x-www-form-urlencoded'
 | :--- | :---------------------------------------------------------------- |
 | -1   | 파라미터 누락                                |
 | -2   | 본인인증을 하지 않은 회원                        |
+| -4   | 존재하지 않는 회원인 경우                        |
+| -5   | 연동된 이메일이 없는 경우                        |
 
 
 
@@ -818,10 +822,10 @@ Header : 'Content-Type: application/x-www-form-urlencoded'
 ```text
 POST
 url : https://gravity-api.gamepot.io/v1/changepassword/local
-Header : 'accept-language: ko'
+Header : 'language: ko'
 Header : 'Content-Type: application/x-www-form-urlencoded'
 Header : 'token: {token}'
-data-urlencode 'projectId=75d18134-9e49-4be2-b614-7cc5ad2901dc' \
+data-urlencode 'projectId={GamePot SDK의 projectId }' \
 data-urlencode 'id=74f178cf-1409-4b6b-9845-ae75db5dd0fc' \
 data-urlencode 'newPassword=Gamepot123!@' \
 data-urlencode 'currentPassword=Gamepot123!@'
@@ -877,94 +881,13 @@ data-urlencode 'currentPassword=Gamepot123!@'
 | Code | Description                                                       |
 | :--- | :---------------------------------------------------------------- |
 | -1   | 파라미터 누락                             |
+| -2   | 토큰 디코딩 실패                     |
 | -3   | 토큰 인증 실패                     |
-| -5   | 비밀번호가 일치하지 않음                     |
-| -6   | 사용할 수 없는 비밀번호                     |
-
+| -4   | 존재하지 않는 회원인 경우.                     |
+| -5   | 현재 비밀번호가 일치하지 않은 경우                     |
+| -6   | 올바르지 않은 비밀번호인 경우                     |
+| -7   | 계정 연동 정보가 없는 경우                     |
+| -8   | 이메일 인증을 완료하지 않은 상태                     |
 
 
 ----------------------------
-
-
-
-### 이용약관 동의 여부 API
-
-이용약관동의
-
-#### Request
-
- - Method : PUT
- - URI : /v1/api/project/75d18134-9e49-4be2-b614-7cc5ad2901dc/user/terms
-
-```text
-POST
-url : https://gravity-api.gamepot.io/v1/changepassword/local
-Header : 'accept-language: ko'
-Header : 'Content-Type: application/x-www-form-urlencoded'
-Header : 'token: {token}'
-data-urlencode 'projectId=75d18134-9e49-4be2-b614-7cc5ad2901dc' \
-data-urlencode 'id=74f178cf-1409-4b6b-9845-ae75db5dd0fc' \
-data-urlencode 'newPassword=Gamepot123!@' \
-data-urlencode 'currentPassword=Gamepot123!@'
-```
-
-| Header | Type   | Required | Description             |
-| :----- | :----- | :------- | :---------------------- |
-| token  | String | O        | 로그인 이후 획득한 토큰 |
-
-
-| data            | Type   | Description     |
-| :-------------- | :----- | :-------------- |
-| projectId       | String | 프로젝트 아이디 |
-| id              | String | 이메일 계정     |
-| newPassword     | String | 신규 패스워드   |
-| currentPassword | String | 기존 패스워드   |
-
-
-
-
-
-
-#### Response
-
-성공
-
-```javascript
-{
-    "status": 1,
-    "message": "비밀번호가 정상적으로 변경되었습니다."
-}
-```
-
-| Attribute | Type | Description                                |
-| :-------- | :--- | :----------------------------------------- |
-| status    | Int  | 결과값 \(1: 성공, 실패는 Error code 참고\) |
-
-실패
-
-```javascript
-{
-    "status": -6,
-    "message": "사용할 수 없는 비밀번호 입니다."
-}
-```
-
-| Attribute | Type   | Description                                |
-| :-------- | :----- | :----------------------------------------- |
-| status    | Int    | 결과값 \(1: 성공, 실패는 Error code 참고\) |
-| message   | String | 오류 내용                                  |
-
-#### Error code
-
-| Code | Description              |
-| :--- | :----------------------- |
-| -1   | 파라미터 누락            |
-| -3   | 토큰 인증 실패           |
-| -5   | 비밀번호가 일치하지 않음 |
-| -6   | 사용할 수 없는 비밀번호  |
-
-
-
-
-
- 관련 프로토콜 공유드립니다. memberId : 사용자 아이디  agree :  동의 여부 설정 값 curl -L -X PUT 'https://alpha-gamepot-api.gnjoy.com/v1/api/project/75d18134-9e49-4be2-b614-7cc5ad2901dc/user/terms' \ -H 'language: ko' \ -H 'Content-Type: application/json' \ --data-raw '{    "memberId":"3db931e5-ffa9-47d5-b9de-86a5f4c18b99",    "agree":"Y" }'
