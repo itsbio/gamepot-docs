@@ -701,12 +701,54 @@ data:
 
 ## GooglePlayGames API
 
+> 구글 로그인과 다르게 구글 플레이 게임 서비스 로그인은 이종간 로그인을 지원하지 않습니다. 
+> 
+> 따라서 게임팟에서는 구글 플레이 게임 서비스 로그인을 메인 로그인 방식으로 사용하지 않을 것을 권장합니다.
+> 
+> 게임팟에서는 기본적으로 구글 플레이 게임 서비스 라이브러리(gamepot-channel-google-playgame.aar)가 있는 경우 
+> 구글 업적 및 리더보드 연결을 위한 동작으로 판단하여 기본 로그인 이후 구글 플레이 로그인 되도록 되어 있습니다.
+
+    # Q. 다른 로그인을 시도하지만 구글 플레이 로그인을 시도합니다. 관련 팝업이 안 뜨게 할려면 어떻게 하나요? 
+    # A. 게임팟에서는 구글 업적 및 리더보드 연결을 위한 동작으로 판단하여 기본 로그인 이후 구글 플레이 로그인 되도록 되어 있습니다. 
+    
+
+구글 플레이 게임 서비스 로그인은 사용하지만 구글 업적 / 리더 보드를 사용하지 않는다면 로그인 API 전에 아래와 같이 설정을 해주세요.
+
+### Android
+```java
+
+        GamePotChannel.getInstance().enableGPG(false);
+```
+
+### Unity
+```java
+        GamePot.enableGPG(false)
+```
+
+### Google Play Game API - 구글 업적, 구글 리더보드
+
     # Q. GAMEPOT SDK를 통해, GooglePlayGames API를 사용할 수 있나요?
     # A. GAMEPOT SDK에서 자체적으로 지원하는 GooglePlayGames API가 존재합니다. (업적, 리더보드) (Android, Unity, Unreal)
 
 플랫폼 별, GooglePlayGames API 사용방법은 다음과 같습니다.
 
 ### Android
+
+> 빌드 시, gamepot-channel-google-playgame.aar을 포함하여 빌드 해주세요.
+
+- ../app/build.gradle에 gamepot_gpg_id 값을 넣어주세요.
+
+```java
+...
+android {
+    ...
+    defaultConfig {
+        ...
+        resValue "string", "gamepot_gpg_id", ""
+    }
+    ...
+}
+```
 
 ```java
 import io.gamepot.channel.GamePotChannel;
@@ -826,7 +868,7 @@ GamePot_Android_UPL.xml 수정
 
         defaultConfig {
             ...
-            resValue "string", "gamepot_gpg_id","xxx" //insert gpg App ID
+            resValue "string", "gamepot_gpg_id","xxx" //insert gpg App ID
             ...
         }
 
