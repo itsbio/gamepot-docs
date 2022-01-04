@@ -78,7 +78,7 @@ GP.login(GP.ChannelType.EMAIL, function (user, error) { if(error) { // 로그인
 실패 alert(error); // 실패 메시지 } else { // 로그인 성공 alert(user); } });
 ```
 
-## 3. 로그인, 로그아웃, 회원 탈퇴
+## 3. 로그인, 로그아웃
 
 구글, 페이스북, 네이버, 애플ID, 라인, 트위터, 이메일 등 다양한 로그인 SDK를 통합하여 사용할 수 있습니다. 대시보드 환경설정에서 설정해 주시기 바랍니다.
 
