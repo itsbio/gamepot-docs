@@ -851,12 +851,12 @@ IOS设置方法如下。
 更改：implementation 'com.android.billingclient:billing:3.0.3'
 ``
 
-2-2) Facebook SDK 8.1.0
+2-2) Facebook SDK 8.2.0
 
 ```text
 现有：implementation 'com.facebook.android:facebook-android-sdk:5.2.0'
 
-更改：implementation 'com.facebook.android:facebook-android-sdk:8.1.0'
+更改：implementation 'com.facebook.android:facebook-android-sdk:8.2.0'
 ``
 
 
