@@ -481,6 +481,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
 [Firebase SDK를 별도로 탑재하여 사용중인 경우]
 - ../Assets/Plugins/Android/AndroidManifest.xml 내 하기 코드가 적용되어 있는지 확인
 
+```text
         ....
         </activity>
     
@@ -499,8 +500,7 @@ Xcode에서 build 시 Capability에 Push Notification이 포함되어야 합니�
     
         ...
         <meta-data android:name="android.max_aspect" android:value="2.1" />
-
-
+```
 
 ## 구글 앱 서명 사용시 주의점
 
