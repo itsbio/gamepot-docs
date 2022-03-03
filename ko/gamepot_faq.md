@@ -1570,6 +1570,14 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
 
 
+
+6. GAMEPOT_UNITY_SDK_20220217.unitypackage 적용 후 로그인 API 결과가 실패아며 문구가 "초기화에 실패 했습니다. 현상이 지속할 경우 앱을 재실행해 주세요" 일떄 
+ 
+   라이브러리를 교체 후 다시 확인 부탁드립니다.  [gamepot-bridge.aar 라이브러리 수정 파일 ](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-bridge.aar_fixed_220302.zip)
+
+   기존에 설치된 앱은 삭제 후 확인 부탁드립니다.  
+
+
 ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
