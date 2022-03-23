@@ -23,6 +23,7 @@
 ![FacebookforDevelopers](./image/FacebookforDevelopers.png)
 
 
+   4. Facebook 로그인 > 설정 > JavaScript SDK에 허용된 도메인 항목에 호출하는 도메인 정보를 입력 후 저장
 
 ## 3. 애플 콘솔에서 설정 
 
