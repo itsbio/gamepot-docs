@@ -9,22 +9,6 @@ GAMEPOT SDK 이외에 적용하는 3rd-party SDK를 빌드에러 없이 게임 �
 
 > 각 SDK의 가이드를 기준으로 기술하며, API를 적용하는 방법은 각 SDK의 가이드를 참고하세요.
 
-## Naver cafe SDK
-
-### Android
-
-> 준비중입니다.
-
-### iOS
-
-> 준비중입니다.
-
-### Unity \([Link](https://github.com/naver/cafe-sdk-unity)\)
-
-⒈ Unity Package를 import할 때 아래와 같이 몇몇 파일은 제외해주세요.
-
-![gamepot-3rdparty-01](./images/gamepot-3rdparty-01.png)
-
 ## Adjust
 
 ### Android \([Link](https://github.com/adjust/android_sdk/blob/master/doc/korean/README.md#qs-getting-started)\)

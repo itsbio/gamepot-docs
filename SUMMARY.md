@@ -11,7 +11,7 @@
 - [Android SDK](ko/gamepot_android.md)
 - [iOS SDK](ko/gamepot_ios.md)
 - [Javascript SDK](ko/gamepot_javascript.md)
-- [3rd-party SDK](ko/gamepot_3rdparty.md)
+
 - [Server API](ko/gamepot_server.md)
 - [Open API](ko/gamepot_api.md)
 - [Troubleshooting](ko/gamepot_troubleshooting.md)
@@ -27,7 +27,7 @@
 - [Android SDK](en/gamepot_android.md)
 - [iOS SDK](en/gamepot_ios.md)
 - [Javascript SDK](en/gamepot_javascript.md)
-- [3rd-party SDK](en/gamepot_3rdparty.md)
+
 - [Server API](en/gamepot_server.md)
 - [Open API](en/gamepot_api.md)
 - [Troubleshooting](en/gamepot_troubleshooting.md)
@@ -43,7 +43,7 @@
 - [Android SDK](jp/gamepot_android.md)
 - [iOS SDK](jp/gamepot_ios.md)
 - [Javascript SDK](jp/gamepot_javascript.md)
-- [3rd-party SDK](jp/gamepot_3rdparty.md)
+
 - [Server API](jp/gamepot_server.md)
 - [Open API](jp/gamepot_api.md)
 - [Troubleshooting](jp/gamepot_troubleshooting.md)
@@ -59,7 +59,7 @@
 - [Android SDK](cn/gamepot_android.md)
 - [iOS SDK](cn/gamepot_ios.md)
 - [Javascript SDK](cn/gamepot_javascript.md)
-- [3rd-party SDK](cn/gamepot_3rdparty.md)
+
 - [Server API](cn/gamepot_server.md)
 - [Open API](cn/gamepot_api.md)
 - [Troubleshooting](cn/gamepot_troubleshooting.md)
