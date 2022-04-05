@@ -343,3 +343,108 @@ appsflyer 나 Singular 같은 광고툴의 경우 해당 라이브러리도 Unit
 
 예시)
 [appsflyer-v6.3.2 기준 패치](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/fixed_appsflyer632.zip)
+
+
+
+## (Unity) Firebase SDK 별도로 적용할 때 ( Firebase Unity 8.7.0 기준 설명)
+
+GAMEPOT 유니티 플러그인 패키지에는 일부 Firebase SDK가 있어 별도의 Firebase SDK를 탑재시 라이브러리 중복에 의한 오류가 발생합니다.
+
+Firebase Unity SDK(FirebaseAnalytics.unitypackage / FirebaseMessaging.unitypackage + 추가하고자하는 Firebase SDK)를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다.
+
+Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴 중
+Use Jetifier / Enable Auto-Resolution 선택해 주십시오.
+Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 항목은 선택 해제한 상태에서 Resolver를 진행 해주세요.
+
+1. 중복되는 라이브러리 파일 삭제 필요: 
+```text
+../Assets/Plugins/Android/libs/viewpager-1.0.0.aar 
+../Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar 
+../Assets/Plugins/Android/libs/transport-runtime-2.2.5.aar 
+../Assets/Plugins/Android/libs/transport-backend-cct-2.3.3.aar 
+../Assets/Plugins/Android/libs/transport-api-2.2.1.aar 
+../Assets/Plugins/Android/libs/swiperefreshlayout-1.0.0.aar 
+../Assets/Plugins/Android/libs/slidingpanelayout-1.0.0.aar 
+../Assets/Plugins/Android/libs/print-1.0.0.aar 
+../Assets/Plugins/Android/libs/play-services-tasks-17.2.0.aar 
+../Assets/Plugins/Android/libs/play-services-stats-17.0.0.aar 
+../Assets/Plugins/Android/libs/play-services-measurement-sdk-api-18.0.1.aar 
+../Assets/Plugins/Android/libs/play-services-measurement-sdk-18.0.1.aar 
+../Assets/Plugins/Android/libs/play-services-measurement-impl-18.0.1.aar 
+../Assets/Plugins/Android/libs/play-services-measurement-base-18.0.1.aar 
+../Assets/Plugins/Android/libs/play-services-measurement-api-18.0.1.aar 
+../Assets/Plugins/Android/libs/play-services-measurement-18.0.1.aar 
+../Assets/Plugins/Android/libs/play-services-cloud-messaging-16.0.0.aar 
+../Assets/Plugins/Android/libs/play-services-basement-17.5.0.aar 
+../Assets/Plugins/Android/libs/play-services-base-17.5.0.aar 
+../Assets/Plugins/Android/libs/play-services-ads-identifier-17.0.0.aar 
+../Assets/Plugins/Android/libs/localbroadcastmanager-1.0.0.aar 
+../Assets/Plugins/Android/libs/loader-1.0.0.aar 
+../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar 
+../Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar 
+../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar 
+../Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar 
+../Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar 
+../Assets/Plugins/Android/libs/legacy-support-core-utils-1.0.0.aar 
+../Assets/Plugins/Android/libs/legacy-support-core-ui-1.0.0.aar 
+../Assets/Plugins/Android/libs/javax.inject-1.jar 
+../Assets/Plugins/Android/libs/interpolator-1.0.0.aar 
+../Assets/Plugins/Android/libs/fragment-1.1.0.aar 
+../Assets/Plugins/Android/libs/firebase-messaging-21.0.1.aar 
+../Assets/Plugins/Android/libs/firebase-measurement-connector-18.0.0.aar 
+../Assets/Plugins/Android/libs/firebase-installations-interop-16.0.1.aar 
+../Assets/Plugins/Android/libs/firebase-installations-16.3.5.aar 
+../Assets/Plugins/Android/libs/firebase-iid-interop-17.0.0.aar 
+../Assets/Plugins/Android/libs/firebase-iid-21.0.1.aar 
+../Assets/Plugins/Android/libs/firebase-encoders-json-17.1.0.aar 
+../Assets/Plugins/Android/libs/firebase-encoders-16.1.0.jar 
+../Assets/Plugins/Android/libs/firebase-datatransport-17.0.10.aar 
+../Assets/Plugins/Android/libs/firebase-core-18.0.1.aar 
+../Assets/Plugins/Android/libs/firebase-components-16.1.0.aar 
+../Assets/Plugins/Android/libs/firebase-common-19.5.0.aar 
+../Assets/Plugins/Android/libs/firebase-annotations-16.0.0.jar 
+../Assets/Plugins/Android/libs/firebase-analytics-18.0.1.aar 
+../Assets/Plugins/Android/libs/drawerlayout-1.0.0.aar 
+../Assets/Plugins/Android/libs/documentfile-1.0.0.aar 
+../Assets/Plugins/Android/libs/customview-1.0.0.aar 
+../Assets/Plugins/Android/libs/cursoradapter-1.0.0.aar 
+../Assets/Plugins/Android/libs/core-runtime-2.0.0.aar 
+../Assets/Plugins/Android/libs/core-common-2.1.0.jar 
+../Assets/Plugins/Android/libs/core-1.3.0.aar 
+../Assets/Plugins/Android/libs/coordinatorlayout-1.0.0.aar
+../Assets/Plugins/Android/libs/collection-1.1.0.jar 
+../Assets/Plugins/Android/libs/asynclayoutinflater-1.0.0.aar 
+../Assets/Plugins/Android/libs/annotation-1.1.0.jar
+../Assets/Plugins/IOS/Frameworks/nanopb.framework 
+../Assets/Plugins/IOS/Frameworks/FirebaseNanoPB.framework 
+../Assets/Plugins/IOS/Frameworks/FirebaseMessaging.framework 
+../Assets/Plugins/IOS/Frameworks/FirebaseInstanceID.framework 
+../Assets/Plugins/IOS/Frameworks/FirebaseCoreDiagnostics.framework 
+../Assets/Plugins/IOS/Frameworks/FirebaseCore.framework 
+../Assets/Plugins/IOS/Frameworks/FirebaseAnalytics.framework
+```
+
+
+2. ../Assets/Plugins/Android/AndroidManifest.xml 내 FCM 관련 코드가 적용되어 있는지 확인
+
+```text
+....
+</activity>
+
+<!-- FCM [start]-->
+<service android:name="io.gamepot.common.GamePotFCMIDService">
+<intent-filter>
+    <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+</intent-filter>
+</service>
+<service android:name="io.gamepot.common.GamePotFCMService">
+<intent-filter>
+    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+</intent-filter>
+</service>
+<!-- FCM [End]-->
+
+...
+<meta-data android:name="android.max_aspect" android:value="2.1" />
+
+```text
