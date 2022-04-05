@@ -234,3 +234,72 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/viewpager-1.0.0.aar
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
+
+## (Unity) 应用 GoogleMobileAds SDK（基于 GoogleMobileAds-v6.1.2 的描述）
+
+如果是 AdMob SDK (Unity)，需要在导入 Unity 包后使用 Unity Play Services Resolver 功能。
+
+在 Unity 中，转到 Assets > Play Services Resolver > Android Resolver > Settings 菜单。
+选择使用 Jetifier / 启用自动解决。
+请在未选中 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 项目的情况下继续使用解析器。
+
+之后，如果出现重复库错误，您可以删除两个库之一。
+
+重复库文件列表：
+```text
+..Assets/Plugins/Android/libs/annotation-1.1.0.jar
+..Assets/Plugins/Android/libs/browser-1.0.0.aar
+..Assets/Plugins/Android/libs/core-common-2.1.0.jar
+..Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+..Assets/Plugins/Android/libs/core-1.3.0.aar
+..Assets/Plugins/Android/libs/coordinatorlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/collection-1.1.0.jar
+..Assets/Plugins/Android/libs/asynclayoutinflater-1.0.0.aar
+..Assets/Plugins/Android/libs/fragment-1.1.0.aar
+..Assets/Plugins/Android/libs/drawerlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/documentfile-1.0.0.aar
+..Assets/Plugins/Android/libs/customview-1.0.0.aar
+..Assets/Plugins/Android/libs/cursoradapter-1.0.0.aar
+..Assets/Plugins/Android/libs/loader-1.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+..Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+..Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+..Assets/Plugins/Android/libs/legacy-support-core-utils-1.0.0.aar
+..Assets/Plugins/Android/libs/legacy-support-core-ui-1.0.0.aar
+..Assets/Plugins/Android/libs/interpolator-1.0.0.aar
+..Assets/Plugins/Android/libs/viewpager-1.0.0.aar
+..Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar
+..Assets/Plugins/Android/libs/swiperefreshlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/sqlite-framework-2.0.1.aar
+..Assets/Plugins/Android/libs/sqlite-2.0.1.aar
+..Assets/Plugins/Android/libs/slidingpanelayout-1.0.0.aar
+..Assets/Plugins/Android/libs/print-1.0.0.aar
+..Assets/Plugins/Android/libs/localbroadcastmanager-1.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+..Assets/Plugins/Android/libs/play-services-basement-17.5.0.aar
+..Assets/Plugins/Android/libs/play-services-ads-identifier-17.0.0.aar
+..Assets/Plugins/Android/libs/play-services-measurement-sdk-api-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-impl-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-base-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-tasks-17.2.0.aar
+..Assets/Plugins/Android/libs/play-services-measurement-18.0.1.aar
+
+..Assets/Plugins/Android/libs/play-services-measurement-sdk-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-api-18.0.1.aar
+
+..Assets/Plugins/IOS/Frameworks/nanopb.framework
+```
+
+## (Unity) 应用appsflyer SDK (基于appsflyer-v6.3.2)
+
+其他 SDK 相同，但 UnityAppController 类应仅从要构建的项目中的一个文件继承。
+
+当你挂载 GAMEPOT 的 Unity 插件包时，它默认继承自 GamePotAppDelegate.h。
+
+对于appsflyer或Singular等广告工具，该库也继承了UnityAppController，因此GAMEPOT SDK可能无法工作。
+
+您需要对其进行修改，使其仅从一个文件继承并使用它。
+
+例子）
+[appsflyer-v6.3.2 기준 패치](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/fixed_appsflyer632.zip)

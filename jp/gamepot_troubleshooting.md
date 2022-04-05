@@ -236,3 +236,73 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/viewpager-1.0.0.aar
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
+
+## (Unity) GoogleMobileAds SDK の適用(GoogleMobileAds-v6.1.2 基準の説明)
+
+AdMob Unity（SDK）の場合は、Unityパッケージをインポートした後にUnity Play Services Resolver機能を使用する必要があります。
+
+Unity で Assets > Play Services Resolver > Android Resolver > Settings メニュー中
+Use Jetifier / Enable Auto-Resolutionを選択してください。
+Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties項目は、選択解除した状態でResolverを進めてください。
+
+その後、冗長ライブラリエラーの場合は、どちらか一方のライブラリを削除してください。
+
+重複するライブラリファイルのリスト:
+
+```text
+..Assets/Plugins/Android/libs/annotation-1.1.0.jar
+..Assets/Plugins/Android/libs/browser-1.0.0.aar
+..Assets/Plugins/Android/libs/core-common-2.1.0.jar
+..Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+..Assets/Plugins/Android/libs/core-1.3.0.aar
+..Assets/Plugins/Android/libs/coordinatorlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/collection-1.1.0.jar
+..Assets/Plugins/Android/libs/asynclayoutinflater-1.0.0.aar
+..Assets/Plugins/Android/libs/fragment-1.1.0.aar
+..Assets/Plugins/Android/libs/drawerlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/documentfile-1.0.0.aar
+..Assets/Plugins/Android/libs/customview-1.0.0.aar
+..Assets/Plugins/Android/libs/cursoradapter-1.0.0.aar
+..Assets/Plugins/Android/libs/loader-1.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+..Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+..Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+..Assets/Plugins/Android/libs/legacy-support-core-utils-1.0.0.aar
+..Assets/Plugins/Android/libs/legacy-support-core-ui-1.0.0.aar
+..Assets/Plugins/Android/libs/interpolator-1.0.0.aar
+..Assets/Plugins/Android/libs/viewpager-1.0.0.aar
+..Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar
+..Assets/Plugins/Android/libs/swiperefreshlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/sqlite-framework-2.0.1.aar
+..Assets/Plugins/Android/libs/sqlite-2.0.1.aar
+..Assets/Plugins/Android/libs/slidingpanelayout-1.0.0.aar
+..Assets/Plugins/Android/libs/print-1.0.0.aar
+..Assets/Plugins/Android/libs/localbroadcastmanager-1.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+..Assets/Plugins/Android/libs/play-services-basement-17.5.0.aar
+..Assets/Plugins/Android/libs/play-services-ads-identifier-17.0.0.aar
+..Assets/Plugins/Android/libs/play-services-measurement-sdk-api-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-impl-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-base-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-tasks-17.2.0.aar
+..Assets/Plugins/Android/libs/play-services-measurement-18.0.1.aar
+
+..Assets/Plugins/Android/libs/play-services-measurement-sdk-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-api-18.0.1.aar
+
+..Assets/Plugins/IOS/Frameworks/nanopb.framework
+```
+
+## （Unity）appsflyer SDKを適用します（appsflyer-v6.3.2に基づく）
+
+他のSDKも同じですが、UnityAppControllerクラスは、ビルドするプロジェクト内の1つのファイルからのみ継承する必要があります。
+
+GAMEPOT用のUnityプラグインパッケージをマウントする場合、デフォルトでGamePotAppDelegate.hから継承しています。
+
+appflyerやSingularなどの広告ツールの場合、ライブラリはUnityAppControllerも継承するため、GAMEPOT SDKが機能しない可能性があります。
+
+1つのファイルからのみ継承されるように変更して使用する必要があります。
+
+예시)
+[appsflyer-v6.3.2 기준 패치](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/fixed_appsflyer632.zip)

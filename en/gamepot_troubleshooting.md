@@ -237,3 +237,72 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/viewpager-1.0.0.aar
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
+
+## (Unity) Apply GoogleMobileAds SDK (Description based on GoogleMobileAds-v6.1.2)
+
+In the case of AdMob SDK (Unity), you need to use the Unity Play Services Resolver function after importing the Unity package.
+
+In Unity, go to Assets > Play Services Resolver > Android Resolver > Settings menu.
+Select Use Jetifier / Enable Auto-Resolution.
+Please proceed with Resolver with the Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties items unchecked.
+
+After that, in case of a duplicate library error, you can remove one of the two libraries.
+
+List of duplicate library files:
+```text
+..Assets/Plugins/Android/libs/annotation-1.1.0.jar
+..Assets/Plugins/Android/libs/browser-1.0.0.aar
+..Assets/Plugins/Android/libs/core-common-2.1.0.jar
+..Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+..Assets/Plugins/Android/libs/core-1.3.0.aar
+..Assets/Plugins/Android/libs/coordinatorlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/collection-1.1.0.jar
+..Assets/Plugins/Android/libs/asynclayoutinflater-1.0.0.aar
+..Assets/Plugins/Android/libs/fragment-1.1.0.aar
+..Assets/Plugins/Android/libs/drawerlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/documentfile-1.0.0.aar
+..Assets/Plugins/Android/libs/customview-1.0.0.aar
+..Assets/Plugins/Android/libs/cursoradapter-1.0.0.aar
+..Assets/Plugins/Android/libs/loader-1.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+..Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+..Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+..Assets/Plugins/Android/libs/legacy-support-core-utils-1.0.0.aar
+..Assets/Plugins/Android/libs/legacy-support-core-ui-1.0.0.aar
+..Assets/Plugins/Android/libs/interpolator-1.0.0.aar
+..Assets/Plugins/Android/libs/viewpager-1.0.0.aar
+..Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar
+..Assets/Plugins/Android/libs/swiperefreshlayout-1.0.0.aar
+..Assets/Plugins/Android/libs/sqlite-framework-2.0.1.aar
+..Assets/Plugins/Android/libs/sqlite-2.0.1.aar
+..Assets/Plugins/Android/libs/slidingpanelayout-1.0.0.aar
+..Assets/Plugins/Android/libs/print-1.0.0.aar
+..Assets/Plugins/Android/libs/localbroadcastmanager-1.0.0.aar
+..Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+..Assets/Plugins/Android/libs/play-services-basement-17.5.0.aar
+..Assets/Plugins/Android/libs/play-services-ads-identifier-17.0.0.aar
+..Assets/Plugins/Android/libs/play-services-measurement-sdk-api-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-impl-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-base-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-tasks-17.2.0.aar
+..Assets/Plugins/Android/libs/play-services-measurement-18.0.1.aar
+
+..Assets/Plugins/Android/libs/play-services-measurement-sdk-18.0.1.aar
+..Assets/Plugins/Android/libs/play-services-measurement-api-18.0.1.aar
+
+..Assets/Plugins/IOS/Frameworks/nanopb.framework
+```
+
+## (Unity) apply appsflyer SDK (based on appsflyer-v6.3.2)
+
+Other SDKs are the same, but UnityAppController class should be inherited from only one file in the project to be built.
+
+If you import the Unity GAMEPOT plugin package , you are inheriting from GamePotAppDelegate.h by default.
+
+In the case of advertising tools such as appsflyer or Singular, the library also inherits UnityAppController, so the GAMEPOT SDK may not work.
+
+You need to modify it so that it is inherited from only one file and use it.
+
+Ex)
+[appsflyer-v6.3.2 기준 패치](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/fixed_appsflyer632.zip)
