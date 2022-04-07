@@ -353,7 +353,9 @@ GAMEPOT 유니티 플러그인 패키지에는 일부 Firebase SDK가 있어 별
 Firebase Unity SDK(FirebaseAnalytics.unitypackage / FirebaseMessaging.unitypackage + 추가하고자하는 Firebase SDK)를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다.
 
 Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴 중
+
 Use Jetifier / Enable Auto-Resolution 선택해 주십시오.
+
 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 항목은 선택 해제한 상태에서 Resolver를 진행 해주세요.
 
 1. 중복되는 라이브러리 파일 삭제 필요: 

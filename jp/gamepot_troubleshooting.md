@@ -242,7 +242,9 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 AdMob Unity（SDK）の場合は、Unityパッケージをインポートした後にUnity Play Services Resolver機能を使用する必要があります。
 
 Unity で Assets > Play Services Resolver > Android Resolver > Settings メニュー中
+
 Use Jetifier / Enable Auto-Resolutionを選択してください。
+
 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties項目は、選択解除した状態でResolverを進めてください。
 
 その後、冗長ライブラリエラーの場合は、どちらか一方のライブラリを削除してください。

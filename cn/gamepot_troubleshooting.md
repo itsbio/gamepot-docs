@@ -240,7 +240,9 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 如果是 AdMob SDK (Unity)，需要在导入 Unity 包后使用 Unity Play Services Resolver 功能。
 
 在 Unity 中，转到 Assets > Play Services Resolver > Android Resolver > Settings 菜单。
+
 选择使用 Jetifier / 启用自动解决。
+
 请在未选中 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 项目的情况下继续使用解析器。
 
 之后，如果出现重复库错误，您可以删除两个库之一。
