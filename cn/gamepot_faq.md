@@ -1052,7 +1052,7 @@ ex)
     1. 添加baseProjectTemplate.gradle。
     
     通常，您可以通过重命名来使用以下文件。
-    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    baseProjectTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => baseProjectTemplate.gradle
     
     2.删除settingsTemplate.gradle。
@@ -1061,10 +1061,10 @@ ex)
     3.在launcherTemplate.gradle中定义mainTemplate.gradle文件中定义的gamepot_project_id等环境变量。
     
     一般情况下，重命名以下文件后，定义gamepot环境变量值。
-    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    launcherTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => launcherTemplate.gradle
     
-    4. 参考mainTemplate_GAMEPOT_UNITY2019_3.gradle文件设置mainTemplate.gradle。
+    4. 参考mainTemplate_GAMEPOT_UNITY_2019_3_Over.gradle文件设置mainTemplate.gradle。
     gamepot_project_id 等环境变量定义在 launcherTemplate.gradle 中，因此您可以删除它们。
 
 

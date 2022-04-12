@@ -854,7 +854,7 @@ The following actions are required.
     1. Add baseProjectTemplate.gradle.
     
     In general, you can use the following file by renaming it.
-    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    baseProjectTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => baseProjectTemplate.gradle
     
     2. Delete settingsTemplate.gradle.
@@ -863,10 +863,10 @@ The following actions are required.
     3. Define environment variables such as gamepot_project_id defined in mainTemplate.gradle file in launcherTemplate.gradle.
     
     In general, after renaming the following file, define the gamepot environment variable value.
-    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    launcherTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => launcherTemplate.gradle
     
-    4. Refer to the mainTemplate_GAMEPOT_UNITY2019_3.gradle file and set mainTemplate.gradle.
+    4. Refer to the mainTemplate_GAMEPOT_UNITY_2019_3_Over.gradle file and set mainTemplate.gradle.
     Environment variables like gamepot_project_id are defined in launcherTemplate.gradle, so you can delete them.
 
 

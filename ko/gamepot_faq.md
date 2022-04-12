@@ -1522,7 +1522,7 @@ ex)
     1. baseProjectTemplate.gradle을 추가합니다.
     
     일반적으로 하기 파일을 rename 해서 사용하시면 됩니다.
-    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    baseProjectTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => baseProjectTemplate.gradle 
     
     2. settingsTemplate.gradle 삭제 합니다.
@@ -1531,10 +1531,10 @@ ex)
     3. mainTemplate.gradle 파일에 정의 했던 gamepot_project_id 같은 환경 변수 정의를 launcherTemplate.gradle에 정의합니다.
     
     일반적으로 하기 파일을 rename한 후 게임팟 환경 변수 값을 정의 합니다.
-    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    launcherTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => launcherTemplate.gradle 
     
-    4. mainTemplate_GAMEPOT_UNITY2019_3.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
+    4. mainTemplate_GAMEPOT_UNITY_2019_3_Over.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
 
 

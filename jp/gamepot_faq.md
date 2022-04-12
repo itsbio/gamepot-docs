@@ -851,7 +851,7 @@ ex)
     1. baseProjectTemplate.gradleを追加します。
     
     一般的にするファイルをrenameして使用ください。
-    baseProjectTemplate_GAMEPOT_UNITY2019_3.gradle
+    baseProjectTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => baseProjectTemplate.gradle
     
     2. settingsTemplate.gradle削除します。
@@ -860,10 +860,10 @@ ex)
     3. mainTemplate.gradleファイルに定義したgamepot_project_idなどの環境変数の定義をlauncherTemplate.gradleに定義します。
     
     一般的にするファイルをrenameした後、ゲームパッド、環境変数の値を定義します。
-    launcherTemplate_GAMEPOT_UNITY2019_3.gradle
+    launcherTemplate_GAMEPOT_UNITY_2019_3_Over.gradle
     => launcherTemplate.gradle
     
-    4. mainTemplate_GAMEPOT_UNITY2019_3.gradleファイルを参照してmainTemplate.gradle設定します。
+    4. mainTemplate_GAMEPOT_UNITY_2019_3_Over.gradleファイルを参照してmainTemplate.gradle設定します。
     gamepot_project_idなどの環境変数は、launcherTemplate.gradleに定義されたので削除するとされます。
 
 
