@@ -59,7 +59,15 @@ search:
         // 프로젝트 ID는 게임팟 대시보드에서 확인할 수 있습니다.
         var project_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxx';
         var gamepotConfig = {
-          // 옵션
+          // 공통
+          api_url: "https://gpapps.gamepot.ntruss.com",
+          // Google 로그인을 사용하는 경우 아래와 같이 Google API 클라이언트 ID를 입력합니다.
+          google_signin_client_id:"XXXXXXXXXX-XXXXXXXXXXX.apps.googleusercontent.com",
+          // 페이스북 로그인을 사용하는 경우 아래와 같이 Facebook 앱 ID를 입력합니다.
+          facebook_app_id: "XXXXXXXXXX",
+          // 애플 로그인을 사용하는 경우 아래와 같이 애플 콘솔의 Services ID 및 로그인을 시도하는 도메인 주소를 입력합니다.
+          apple_client_id: "XXXXXXXXXX",
+          apple_redirect_uri: "https://XXXXXXXXXX"
         };
         GP.initialize(project_id, gamepotConfig);
       };
@@ -68,6 +76,16 @@ search:
   </body>
 </html>
 ```
+
+
+| Attribute | Description                                                                                                              |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| project_id              | 게임팟 대시보드 프로젝트 아이디 |
+| api_url                 | 게임팟 대시보드에 연관된 URL (기본적으로 https://gpapps.gamepot.ntruss.com 이나  매니지드 상품 고객의 경우 해당 주소가 다르기 때문에 게임팟에 문의 필요 ) |
+| google_signin_client_id | 구글 콘솔 내 웹 애플리케이션 아이디 |
+| facebook_app_id         | 페이스북 앱 아이디 |
+| apple_client_id         | 애플 콘솔에 생성한 Services ID |
+| apple_redirect_uri      | 로그인 시도하는 도메인 주소 |
 
 ### 오류 처리
 

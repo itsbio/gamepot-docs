@@ -64,6 +64,16 @@ search:
 </html>
 ```
 
+| Attribute | Description                                                                                                              |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| project_id              | 게임팟 대시보드 프로젝트 아이디 |
+| api_url                 | 게임팟 대시보드에 연관된 URL (기본적으로 https://gpapps.gamepot.ntruss.com 이나  매니지드 상품 고객의 경우 해당 주소가 다르기 때문에 게임팟에 문의 필요 ) |
+| google_signin_client_id | 구글 콘솔 내 웹 애플리케이션 아이디 |
+| facebook_app_id         | 페이스북 앱 아이디 |
+| apple_client_id         | 애플 콘솔에 생성한 Services ID |
+| apple_redirect_uri      | 로그인 시도하는 도메인 주소 |
+
+
 ## 3. 登录、退出登录、注销会员
 
 可以综合使用 Google、Facebook、邮箱等各种登录 SDK。
