@@ -1117,7 +1117,14 @@ Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/
     - 设置为在构建 Android 时不包括 Unity 编辑器中 ../Assets/Plugins/Android/nativeLibs 文件夹中的所有库。
 
 参考图片：
+
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
+
+6.  When "Please fix your Bundle ID" pop-up appears, check the package name and click the Apply button.
+
+     After recognizing google-services.json or GoogleService-Info.plist from the google android resolver library, you must accept it with a pop-up confirming whether to parse it, so that Google-related actions are performed normally.
+
+    ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
 
 #### Ver Unity Tools 1.0.0 到 Ver Unity Unity Tools 1.0.1

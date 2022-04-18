@@ -1601,6 +1601,13 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
    기존에 설치된 앱은 삭제 후 확인 부탁드립니다.  
 
 
+7. Please fix your Bundle ID 팝업이 뜨면 해당 패키지명을 확인 후 Apply 버튼을 클릭해주세요. 
+
+    google android resolver 라이브러리에서 google-services.json 또는 GoogleService-Info.plist 을 인지한 후 파싱할 것인지 확인하는 팝업으로 수락을 해야 구글 관련 동작이 정상적으로 수행됩니다. 
+
+    ![gamepot_faq_58](./images/gamepot_faq_58.png)
+
+
 ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 

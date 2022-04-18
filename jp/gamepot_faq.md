@@ -917,7 +917,14 @@ Unity 2020.Xバージョンのためのパッチ： [Download](https://xyuditqze
     - ユニティエディタ上で../Assets/Plugins/Android/nativeLibsフォルダ内のすべてのライブラリがAndroidのビルド時に含まれていないように設定します。
 
 参照画像：
+
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
+
+6.  When "Please fix your Bundle ID" pop-up appears, check the package name and click the Apply button.
+
+     After recognizing google-services.json or GoogleService-Info.plist from the google android resolver library, you must accept it with a pop-up confirming whether to parse it, so that Google-related actions are performed normally.
+
+    ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
 
 #### Ver Unity Tools1.0.0 To Ver Unity Unity Tools1.0.1
