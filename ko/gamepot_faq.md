@@ -68,7 +68,7 @@
 
 - https://console.cloud.google.com 사이트 접속
   
-- 프로젝트 선택 후 >  왼쪽 상단 메뉴 > API 및 서비스 > 사용자 인증 정보 > OAuth 2.0 클라이언트 ID 유형에 Android/ IOS 정보가 있는지 확인
+- 프로젝트 선택 후 >  왼쪽 상단 메뉴 > API 및 서비스 > 사용자 인증 정보 > OAuth 2.0 클라이언트 ID 유형에 Android/ IOS / 앱 애플리케이션 정보가 있는지 확인
 
 ![gamepot_faq_55](./images/gamepot_faq_55.png) 
 

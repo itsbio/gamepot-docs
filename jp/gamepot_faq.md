@@ -42,6 +42,18 @@
 
    > 断続的に最初のサポートメール設定時正常に動作している場合が発生しています。この場合、別のメールに変更すると、上記の問題がすべて解決されました。
 
+If items 1 to 4 are performed, but onCancel is processed when trying to log in
+
+- Access to site https://console.cloud.google.com
+  
+- After selecting a project > Top left menu > APIs and Services > User authentication information > Check if Android/IOS/App application information is in OAuth 2.0 client ID type
+
+![gamepot_faq_55](./images/gamepot_faq_55.png) 
+
+- After selecting a project > Top left menu > APIs and Services > OAuth consent screen > Check that Publish Status is Production and User Type is External
+
+![gamepot_faq_56](./images/gamepot_faq_56.png) 
+
 #### 1-2)
 
     ＃ Q. APKを直接インストールする時はログインがされるが、ストアに上げアプリをダウンロードしてログインする時はログインされていません。（AOS）
