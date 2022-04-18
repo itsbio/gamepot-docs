@@ -44,18 +44,17 @@
    > Intermittently, when setting the first support email, it sometimes works properly. In this case, changing to a different email fixed all of the above issues.
 
 
-1~4번 항목까지 진행했지만 로그인 시도시 onCancel 처리가 되는 경우 
+If items 1 to 4 are performed, but onCancel is processed when trying to log in
 
-- https://console.cloud.google.com 사이트 접속
+- Access to site https://console.cloud.google.com
   
-- 프로젝트 선택 후 >  왼쪽 상단 메뉴 > API 및 서비스 > 사용자 인증 정보 > OAuth 2.0 클라이언트 ID 유형에 Android/ IOS / 앱 애플리케이션 정보가 있는지 확인
+- After selecting a project > Top left menu > APIs and Services > User authentication information > Check if Android/IOS/App application information is in OAuth 2.0 client ID type
 
 ![gamepot_faq_55](./images/gamepot_faq_55.png) 
 
-- 프로젝트 선택 후 >  왼쪽 상단 메뉴 > API 및 서비스 > OAuth 동의 화면 > 게시 상태가 프로덕션이며 사용자 유형이 외부인지 확인
+- After selecting a project > Top left menu > APIs and Services > OAuth consent screen > Check that Publish Status is Production and User Type is External
 
 ![gamepot_faq_56](./images/gamepot_faq_56.png) 
-
 
 
 
