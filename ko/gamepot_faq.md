@@ -1608,6 +1608,24 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
     ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
 
+
+
+참고사항 : (macOS Monterey 12.3 기준) Unity 빌드시 아래와 같은 오류가 발생한다면 하기 내용을 참고하여 ./Assets/Firebase/Editor 내 파일을 교체하시면 됩니다. 
+
+https://github.com/techyworm10/firebase-unity-sdk-editor-python-fix
+
+```text
+[오류문구]
+
+Unable to find command line tool python required for Firebase Android resource generation.
+python is required to generate the Firebase Android resource file google-services.xml from Assets/Plugins/Android/google-services.json. Without Firebase Android resources, your app will fail to initialize.
+python was distributed with each Firebase Unity SDK plugin, was it deleted?
+
+System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
+```
+
+
+
 ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
