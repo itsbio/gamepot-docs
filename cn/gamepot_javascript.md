@@ -38,40 +38,45 @@ search:
 
 ```html
 <html>
-  <head></head>
+  <head>
+    <title>Gamepot Javscript</title>
+  </head>
   <body>
     <!-- YOUR WEB HTML CODES -->
-
     <script>
       window.onload = function () {
-        // 可在GAMEPOT仪表盘中确认项目ID。
-        var project_id = 'f2c4f50b-2546-280e-913b-a7cea5548384';
-
+        // Your project ID can be found on your GAMEPOT Dashboard.
+        var project_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxx';
         var gamepotConfig = {
-          // 使用Google登录时，输入Google API客户端ID，具体如下
-          google_signin_client_id:
-            '403241810604-fv81........apps.googleusercontent.com',
-          // 使用Facebook登录时，输入Facebook App ID，具体如下
-          facebook_app_id: '149535310821467',
+          // common
+          api_url: "https://gpapps.gamepot.ntruss.com",
+          api_key: "XXXXXXXXXXXXX",
+          // If you are using Google Sign-In, enter your Google API Client ID as shown below.
+          google_signin_client_id:"XXXXXXXXXX-XXXXXXXXXXX.apps.googleusercontent.com",
+          // If you are using Facebook login, enter your Facebook App ID as shown below.
+          facebook_app_id: "XXXXXXXXXX",
+          // If you are using Apple Login, enter the Services ID of the Apple Console and the domain address you are trying to log in to as shown below.(Set as empty value when not in use)
+          apple_client_id: "XXXXXXXXXX",
+          apple_redirect_uri: "https://XXXXXXXXXX"
         };
-        // GAMEPOT初始化
-        GP.setup(project_id, gamepotConfig);
+        GP.initialize(project_id, gamepotConfig);
       };
     </script>
-
     <!-- YOUR WEB HTML CODES -->
   </body>
 </html>
 ```
 
+
 | Attribute | Description                                                                                                              |
 | :---------------------- | :----------------------------------------------------------------------------------------------------------------------- |
-| project_id              | 게임팟 대시보드 프로젝트 아이디 |
-| api_url                 | 게임팟 대시보드에 연관된 URL (기본적으로 https://gpapps.gamepot.ntruss.com 이나  매니지드 상품 고객의 경우 해당 주소가 다르기 때문에 게임팟에 문의 필요 ) |
-| google_signin_client_id | 구글 콘솔 내 웹 애플리케이션 아이디 |
-| facebook_app_id         | 페이스북 앱 아이디 |
-| apple_client_id         | 애플 콘솔에 생성한 Services ID |
-| apple_redirect_uri      | 로그인 시도하는 도메인 주소 |
+| project_id              | GAMEPOT Dashboard Project ID|
+| api_url                 | The URL associated with the Gamepot dashboard (by default, https://gpapps.gamepot.ntruss.com, but for managed product customers, the address is different, so you need to contact Gamepot)|
+| api_key | Authentication key issued by GamePot ( Dashboard > Project Settings > API Key) |
+| google_signin_client_id | Web Application ID in Google Console |
+| facebook_app_id         | facebook app id |
+| apple_client_id         | Services ID created in Apple console |
+| apple_redirect_uri      | The domain address you are trying to log in to.|
 
 
 ## 3. 登录、退出登录、注销会员
