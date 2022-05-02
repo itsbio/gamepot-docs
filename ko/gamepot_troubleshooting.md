@@ -348,7 +348,39 @@ appsflyer 나 Singular 같은 광고툴의 경우 해당 라이브러리도 Unit
 
 ## (Unity) Firebase SDK 별도로 적용할 때 ( Firebase Unity 8.7.0 기준 설명)
 
-GAMEPOT 유니티 플러그인 패키지에는 일부 Firebase SDK가 있어 별도의 Firebase SDK를 탑재시 라이브러리 중복에 의한 오류가 발생합니다.
+- 유니티 에디터 버전이 2019.X 미만 버전의 사용하시는 경우 하기 패치 우선 진행 후 진행합니다.
+
+  패치 다운로드 : [패치 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+
+    [폴더 및 파일 교체]
+
+    ../Assets/ExternalDependencyManager
+
+    ../Assets/Firebase
+
+    - Firebase 라이브러리 교체에 따른 폴더가 변경 수정 
+    
+    기존 :  ../Assets/Plugins/Android/Firebase
+    
+    수정 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+
+    - mainTemplate.gradle 수정 (폴더명 변경됨에 따른 수정)
+    
+    기존 : 
+    
+    dependencies {
+        ...
+    	implementation project('Firebase')
+    
+    수정 :
+    
+    dependencies {
+        ...
+    	implementation project('FirebaseApp.androidlib')
+        ...
+
+
+- GAMEPOT 유니티 플러그인 패키지에는 일부 Firebase SDK가 있어 별도의 Firebase SDK를 탑재시 라이브러리 중복에 의한 오류가 발생합니다.
 
 Firebase Unity SDK(FirebaseAnalytics.unitypackage / FirebaseMessaging.unitypackage + 추가하고자하는 Firebase SDK)를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다.
 
