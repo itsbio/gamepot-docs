@@ -11,6 +11,26 @@ search:
 
 # Javascript SDK
 
+Reference URL : https://lx4fc.csb.app
+
+The basic setup method for using the JavaScript SDK is as follows.
+1. Download [gamepot-sdk-javascript-lastest.min.js](https://cdn.gamepot.io/release/gamepot-sdk-javascript-lastest.min.js) please give it to me.
+2. Add the downloaded file gamepot-sdk-javascript-lastest.min.js between the head and the head.
+     ```javascript
+     <head><script src="gamepot-sdk-javascript-latest.min.js"></script></head>
+     ```
+
+The GamePot Javascript SDK is provided as an npm package and is also available through yarn .
+```javascript
+# using npm
+npm install gamepot
+
+# using yarn
+yarn add gamepot
+```
+
+
+
 > ###これは機械翻訳されたドキュメントで、語彙、構文、または文法に誤りがある可能性があります。 プロの翻訳者が翻訳したドキュメントをすぐに提供します。
 >
 > ####ご不明な点がございましたら、[お問い合わせ](https://www.ncloud.com/support/question)でお問い合わせください。

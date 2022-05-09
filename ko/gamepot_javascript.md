@@ -13,6 +13,24 @@ search:
 
 참고 URL : https://lx4fc.csb.app
 
+
+JavaScript SDK를 사용하기 위한 기본 설정 방법은 다음과 같습니다. 
+1. [gamepot-sdk-javascript-lastest.min.js](https://cdn.gamepot.io/release/gamepot-sdk-javascript-lastest.min.js)을 다운로드해 주십시오. 
+2. 다운받은 파일을 gamepot-sdk-javascript-lastest.min.js를 head와 head 사이에 추가해 주십시오. 
+    ```javascript
+    <head><script src="gamepot-sdk-javascript-latest.min.js"></script></head>
+    ```
+
+GamePot  Javascript SDK 는 npm 패키지로 제공되며 yarn 을 통해서도 사용할 수 있습니다.
+```javascript
+# using npm
+npm install gamepot
+
+# using yarn
+yarn add gamepot
+```
+
+
 소셜 로그인 관련 콘솔 내 설정 가이드 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/JavascriptSDK%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%87%E1%85%A1%E1%86%BC%E1%84%89%E1%85%B5%E1%86%A8%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%89%E1%85%B5%E1%84%8F%E1%85%A9%E1%86%AB%E1%84%89%E1%85%A9%E1%86%AF%E1%84%89%E1%85%A6%E1%86%BA%E1%84%90%E1%85%B5%E1%86%BC%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3.pdf)
 
 사용 가능 로그인 : 구글 / 페이스북 / 애플 로그인
@@ -34,13 +52,14 @@ search:
 
 #### 자바스크립트 추가
 
+
 다운로드한 Javascript SDK 파일을 `<header>`블록 또는 `<body>` 블록 내에 추가합니다.
 
 > `GP` global variable을 통해 기능을 사용할 수 있습니다\
 > 게임팟 스크립트 로드 후 동일한 변수명으로 재 선언되지 않도록 주의해주세요.
 
 ```html
-<script src="https://cdn.gamepot.io/v1/release/gamepot-sdk.min.js"></script>
+<script src="https://cdn.gamepot.io/release/gamepot-sdk-javascript-lastest.min.js"></script>
 ```
 
 ## 2. 초기화

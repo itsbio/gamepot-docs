@@ -23,6 +23,25 @@ search:
 
 #### 添加 JAVA 脚本
 
+Reference URL : https://lx4fc.csb.app
+
+The basic setup method for using the JavaScript SDK is as follows.
+1. Download [gamepot-sdk-javascript-lastest.min.js](https://cdn.gamepot.io/release/gamepot-sdk-javascript-lastest.min.js) please give it to me.
+2. Add the downloaded file gamepot-sdk-javascript-lastest.min.js between the head and the head.
+     ```javascript
+     <head><script src="gamepot-sdk-javascript-latest.min.js"></script></head>
+     ```
+
+The GamePot Javascript SDK is provided as an npm package and is also available through yarn .
+```javascript
+# using npm
+npm install gamepot
+
+# using yarn
+yarn add gamepot
+```
+
+
 在`<header>`块或`<body>`块中添加已下载的 Javascript SDK 文件。
 
 > 可通过`GP`全局变量使用功能\
