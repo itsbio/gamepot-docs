@@ -1138,10 +1138,70 @@ Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/
 
     ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
+Note :
 
-#### Ver Unity Tools 1.0.0 到 Ver Unity Unity Tools 1.0.1
+- If the following error occurs in the Android version build environment in Unity Editor 202X.X or lower version,
+
+```text
+[error phrase]
+
+System.TypeLoadException: Could not resolve type with token 01000074 (from typeref, class/assembly Google.EditorInitializer, Google.VersionHandlerImpl, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:138)
+```
+
+[Patch Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip) Please check after modifying as follows.
+
+
+     [Replace Folders and Files]
+     ../Assets/ExternalDependencyManager
+     ../Assets/Firebase
+
+
+     - Modify folder name
+    
+     Existing: ../Assets/Plugins/Android/Firebase
+    
+     EDIT: ../Assets/Plugins/Android/FirebaseApp.androidlib
+
+    
+     - Edit mainTemplate.gradle (modified according to folder name change)
+
+     existing :
+    
+     dependencies {
+         ...
+     implementation project('Firebase')
+    
+     Modify :
+    
+     dependencies {
+         ...
+     implementation project('FirebaseApp.androidlib')
+         ...
+
+
+- (Based on macOS Monterey 12.3) If the following error occurs when building Unity, refer to the following and replace the file in ./Assets/Firebase/Editor.
+
+https://github.com/techyworm10/firebase-unity-sdk-editor-python-fix
+
+[Patch Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/Fixed_Firebase.Editor.zip)
+
+Download the patch file, unzip it, and put it in the /Assets/Firebase/Editor folder (replace the Firebase.Editor.dll file).
+
+
+```text
+[Error phrase]
+
+Unable to find command line tool python required for Firebase Android resource generation.
+python is required to generate the Firebase Android resource file google-services.xml from Assets/Plugins/Android/google-services.json. Without Firebase Android resources, your app will fail to initialize.
+python was distributed with each Firebase Unity SDK plugin, was it deleted?
+
+System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
+```
+
+<!-- #### Ver Unity Tools 1.0.0 到 Ver Unity Unity Tools 1.0.1
 
      Unity Tools 版本不兼容，需要新的工作。
     
      空项目 > 安装最新的 Unity 工具 1.0.1 > 运行 Unity 工具
-     > 点击Download SDK ver2.1.2按钮安装Unity插件包并继续操作。
+     > 点击Download SDK ver2.1.2按钮安装Unity插件包并继续操作。 -->

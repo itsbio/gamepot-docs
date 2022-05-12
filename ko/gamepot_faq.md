@@ -1610,9 +1610,55 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 
 
 
-참고사항 : (macOS Monterey 12.3 기준) Unity 빌드시 아래와 같은 오류가 발생한다면 하기 내용을 참고하여 ./Assets/Firebase/Editor 내 파일을 교체하시면 됩니다. 
+참고사항 :
+
+- 유니티 에디터 202X.X 이하 버전에서 안드로이드 버전 빌드 환경상에서 아래와 같은 오류가 발생하신다면 
+
+```text
+[오류문구]
+
+System.TypeLoadException: Could not resolve type with token 01000074 (from typeref, class/assembly Google.EditorInitializer, Google.VersionHandlerImpl, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:138)
+```
+
+[패치 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip) 을 다운로드 후 아래와 같이 수정 진행 후 확인 부탁드립니다.
+
+    [폴더 및 파일 교체]
+    ../Assets/ExternalDependencyManager
+    ../Assets/Firebase
+
+
+    - 폴더명 수정 
+    
+    기존 :  ../Assets/Plugins/Android/Firebase
+    
+    수정 :  ../Assets/Plugins/Android/FirebaseApp.androidlib
+
+    
+    - mainTemplate.gradle 수정 (폴더명 변경됨에 따른 수정)
+
+    기존 : 
+    
+    dependencies {
+        ...
+    	implementation project('Firebase')
+    
+    수정 :
+    
+    dependencies {
+        ...
+    	implementation project('FirebaseApp.androidlib')
+        ...
+
+
+- (macOS Monterey 12.3 기준) Unity 빌드시 아래와 같은 오류가 발생한다면 하기 내용을 참고하여 ./Assets/Firebase/Editor 내 파일을 교체하시면 됩니다. 
 
 https://github.com/techyworm10/firebase-unity-sdk-editor-python-fix
+
+[패치 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/Fixed_Firebase.Editor.zip)
+
+패치 파일을 다운로드 받아 압축을 푼 후 /Assets/Firebase/Editor 폴더에 넣어 파일를 넣어주세요 (Firebase.Editor.dll 파일를 교체하시면 됩니다.) 
+
 
 ```text
 [오류문구]
@@ -1624,11 +1670,9 @@ python was distributed with each Firebase Unity SDK plugin, was it deleted?
 System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 ```
 
-
-
-####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
+<!-- ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
     
     빈 프로젝트 > 최신 Unity Tools 1.0.1 설치 > Unity Unity Tools 실행 
-    > 다운로드 SDK ver2.1.2 버튼을 클릭하여 유니티 플러그인 패키지를 설치 후 작업을 진행이 필요합니다.
+    > 다운로드 SDK ver2.1.2 버튼을 클릭하여 유니티 플러그인 패키지를 설치 후 작업을 진행이 필요합니다. -->
