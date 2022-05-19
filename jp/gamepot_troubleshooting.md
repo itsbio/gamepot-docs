@@ -243,7 +243,7 @@ AdMob Unity（SDK）の場合は、Unityパッケージをインポートした�
 
 Unity で Assets > Play Services Resolver > Android Resolver > Settings メニュー中
 
-Use Jetifier / Enable Auto-Resolutionを選択してください。
+Use Jetifier を選択してください。
 
 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties項目は、選択解除した状態でResolverを進めてください。
 

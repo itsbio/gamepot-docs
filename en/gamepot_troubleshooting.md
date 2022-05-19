@@ -244,7 +244,7 @@ In the case of AdMob SDK (Unity), you need to use the Unity Play Services Resolv
 
 In Unity, go to Assets > Play Services Resolver > Android Resolver > Settings menu.
 
-Select Use Jetifier / Enable Auto-Resolution.
+Select Use Jetifier
 
 Please proceed with Resolver with the Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties items unchecked.
 
