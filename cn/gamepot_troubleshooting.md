@@ -245,6 +245,10 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 
 请在未选中 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 项目的情况下继续使用解析器。
 
+在 Unity 中，转到 Assets > Play Services Resolver > IOS Resolver > Settings 菜单。
+
+添加 use_frameworks！ To podfile / 始终将主要目标添加到 Podfile 未选中并继续 IOS 构建。
+
 之后，如果出现重复库错误，您可以删除两个库之一。
 
 重复库文件列表：

@@ -279,9 +279,15 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 
 AdMob SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다.
 
-Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴 중
-Use Jetifier 선택해 주십시오.
-Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 항목은 선택 해제한 상태에서 Resolver를 진행 해주세요.
+- Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴 중
+
+    Use Jetifier 선택해 주십시오.
+
+    Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 항목은 선택 해제한 상태에서 Resolver를 진행 해주세요.
+
+- Unity에서 Assets > Play Services Resolver > IOS Resolver > Settings 메뉴 중
+
+    Add use_frameworks! to podfile / Always add the main target to Podfile 항목은 선택 해제한 상태에서 IOS 빌드를 진행 해주세요.
 
 이후 중복 라이브러리 오류의 경우 둘 중에 한곳의 라이브러리를 제거하시면 되십니다. 
 
@@ -389,6 +395,11 @@ Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴
 Use Jetifier 선택해 주십시오.
 
 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 항목은 선택 해제한 상태에서 Resolver를 진행 해주세요.
+
+Unity에서 Assets > Play Services Resolver > IOS Resolver > Settings 메뉴 중
+
+Add use_frameworks! to podfile / Always add the main target to Podfile 항목은 선택 해제한 상태에서 IOS 빌드를 진행 해주세요.
+
 
 1. 중복되는 라이브러리 파일 삭제 필요: 
 ```text

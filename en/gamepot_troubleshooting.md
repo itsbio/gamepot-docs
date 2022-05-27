@@ -248,6 +248,11 @@ Select Use Jetifier
 
 Please proceed with Resolver with the Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties items unchecked.
 
+In Unity, go to Assets > Play Services Resolver > IOS Resolver > Settings menu.
+
+Add use_frameworks! To podfile / Always add the main target to Podfile is unchecked and proceed with the iOS build.
+
+
 After that, in case of a duplicate library error, you can remove one of the two libraries.
 
 List of duplicate library files:

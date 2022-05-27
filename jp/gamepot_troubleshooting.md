@@ -247,6 +247,10 @@ Use Jetifier を選択してください。
 
 Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties項目は、選択解除した状態でResolverを進めてください。
 
+Unity で Assets > Play Services Resolver > IOS Resolver > Settings メニュー中
+
+Add use_frameworks! to podfile / Always add the main target to Podfile 項目は選択解除した状態で IOS ビルドを進めてください。
+
 その後、冗長ライブラリエラーの場合は、どちらか一方のライブラリを削除してください。
 
 重複するライブラリファイルのリスト:
