@@ -15,10 +15,12 @@ search:
 
 
 JavaScript SDK를 사용하기 위한 기본 설정 방법은 다음과 같습니다. 
-1. [gamepot-sdk-javascript-lastest.min.js](https://cdn.gamepot.io/release/gamepot-sdk-javascript-lastest.min.js)을 다운로드해 주십시오. 
+1. [gamepot-sdk-javascript-lastest.min.js](https://gamepot.gcdn.ntruss.com/gamepot-sdk-javascript-lastest.min.js)을 다운로드해 주십시오. 
 2. 다운받은 파일을 gamepot-sdk-javascript-lastest.min.js를 head와 head 사이에 추가해 주십시오. 
     ```javascript
-    <head><script src="gamepot-sdk-javascript-latest.min.js"></script></head>
+    <head><script src="gamepot-sdk-javascript-lastest.min.js"></script></head>
+    // 혹은 CDN 링크를 바로 사용하셔도 됩니다. (추천)    
+     <head><script src="https://gamepot.gcdn.ntruss.com/gamepot-sdk-javascript-lastest.min.js"></script></head>
     ```
 
 GamePot  Javascript SDK 는 npm 패키지로 제공되며 yarn 을 통해서도 사용할 수 있습니다.
@@ -132,30 +134,36 @@ GP.login(GP.ChannelType.EMAIL, function (user, error) { if(error) { // 로그인
 // GP.ChannelType.GOOGLE: 구글
 // GP.ChannelType.FACEBOOK: 페이스북
 // GP.ChannelType.APPLE: 애플ID
-// GP.ChannelType.NAVER: 네이버
+
 
 // 페이스북 로그인 버튼을 눌렀을 때 호출
 GP.login(GP.ChannelType.FACEBOOK, function (user, error) {
   if (error) {
     alert(error); // 오류 메세지
-  } else {
-    // 정상 로그인 완료
-    console.log(
-        // user.id == gamepot member_id
-        // user.token == token
-        // user.email == email
-        user.id + ',' + user.token + ',' + user.email
-    );
+    return;
   }
+    // 로그인 완료
+    alert(user);
 });
 ```
+
+USER Data Class 
+| ID         | type   | desc               |
+| :--------- | :----- | :----------------- |
+| id | string | 회원 아이디      |
+| token    | string | 로그인 토큰(JWT)  |
+| nickname | string | 닉네임 |
+| provider | string | 소셜 로그인 종류 |
+| providerId | string | 소셜 로그인 ID |
+| verify | string | 인증여부 |
+| agree | string | 약관 동의 여부 |
 
 ### 로그아웃
 
 현재 회원 계정을 로그아웃합니다.
 
 ```javascript
-GP.logout(function (user, error) {
+GP.logout(function (result, error) {
   if (error) {
     // 로그아웃 실패
     alert(error); // 오류 메세지
@@ -164,4 +172,77 @@ GP.logout(function (user, error) {
   }
 });
 ```
+### 소셜 계정으로 회원 여부 확인
+로그인을 한 후에 해당 소셜 계정으로 게임팟내 회원 중에 연동되어 있는지를 확인 합니다. 
+```javascript
+GP.linkingByUser(channeltype, function( user, error) {
+    if(error) {
+        alert(`${error.code}-${error.message}`); // 오류 메세지
+        return false;
+    }
+    if(user == null)
+        alert('계정 미존재')
+   else if(user.member_id.id)
+        alert(user.member_id.id);       // 아이디 리턴
+});
+```
+
+USER Data Class 
+| ID         | type   | desc               |
+| :--------- | :----- | :----------------- |
+| member_id.id    | string | 게임팟 회원 아이디  |
+| username | string | 소셜 아이디 |
+
+## 4. 플러그인
+게임팟 기본 기능 이외에 다양한 외부 모듈고의 연동 기능 등을 지원합니다.
+지원 가능 모듈 
+- 본인 인증(다날)
+- 해외 PG(엑솔라)
+- 국내 PG(다날)
+- 블록체인(준비 중)
+
+
+### 본인 확인
+휴대폰 본인인증 서비스란 본인 명의로 휴대폰을 이용하여 인증 절차를 거쳐 본인 여부와 확인하는 기능입니다. (한국만 가능)
+```javascript
+ GP.Identity('[본인 확인 코드]',{},function(resp) {
+  if(resp.success) {
+    alert(resp.orderId); 
+  } else {
+    alert(resp.error);
+  }
+});
+```
+### 외부 결제
+엑솔라 혹은 다날과 같은 외부PG 를 사용할때 결제창을 보여주는 함수입니다.
+
+```javascript
+function Payment(key) {
+    GP.Payment(key,
+      {
+        userId: "[USERID]",
+        productId : "[ITEMID]",
+        name: "[ITEMNAME]",
+        buyer_name: "[구매자명]",
+        buyer_email: "[구매자EMAIL]",
+    },function(resp) {
+        if(resp.success) {
+          alert(resp.orderId);
+        } else {
+          alert(resp.error);
+        }
+      })
+  }
+```
+
+| Attribute | Description                                                                                                              |
+| :---------------------- | :------------------------------------------------------------------------------------ |
+| userId              | 게임팟 회원 아이디 |
+| productId                 |  상품 코드 |
+| name | 아이템명 |
+| buyer_name | 구매자명 (option) |
+| buyer_email         | 구매자 이메일 (option) |
+| playerId  | 플레이어 ID (option) |
+| serverId         | 서버 ID (option) |
+| userdata      | 사용자 데이터 (option) |
 
