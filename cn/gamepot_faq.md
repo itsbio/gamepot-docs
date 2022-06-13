@@ -1082,11 +1082,15 @@ ex)
 
 5. 使用 Unity 2020.X 版本时的其他修复
 
-Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
     [替换文件夹和文件]
     ../Assets/ExternalDependencyManager
     ../Assets/Firebase
+
+    [Add Folders and Files]
+     ../Assets/Parse
+     (optional) ../Assets/GooglePlayPlugins //com.google.android.appbundle-1.7.0.unitypackage
 
 
     - 修改文件夹名称
@@ -1138,9 +1142,18 @@ Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/
 
     ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
+- In the Unity Editor 2021.X version, manually enter the package name in the Build Settings > Player Settings > Other Settings menu for Android / IOS, and then build after Switch Platform with the OS you want to build.
+
+
+    If the above operation is not done in advance, please fix your Bundle ID popup due to a bug inside the google resolver library > Ambiguous match found error occurs when clicking the Apply button and does not work
+
+    Related: https://github.com/googlesamples/unity-jar-resolver/issues/523#issuecomment-1147499484
+
+- Sample scene file replacement in Unity Editor 2021.X version: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/GamePotSampleSin_unity_2021.zip)
+
 Note :
 
-- If the following error occurs in the Android version build environment in Unity Editor 202X.X or lower version,
+- If the following error occurs in the Android version build environment in Unity Editor 2019.X or lower version,
 
 ```text
 [error phrase]
@@ -1149,7 +1162,7 @@ System.TypeLoadException: Could not resolve type with token 01000074 (from typer
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:138)
 ```
 
-[Patch Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip) Please check after modifying as follows.
+[Patch Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip) Please check after modifying as follows.
 
 
      [Replace Folders and Files]

@@ -1541,11 +1541,16 @@ ex)
 
 5. Unity 2020.X 버전을 사용하시는 경우 추가 수정사항
 
-Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
     [폴더 및 파일 교체]
     ../Assets/ExternalDependencyManager
     ../Assets/Firebase
+
+    [폴더 및 파일 추가]
+    ../Assets/Parse
+    (선택) ../Assets/GooglePlayPlugins   //com.google.android.appbundle-1.7.0.unitypackage 
+    
 
 
     - 폴더명 수정 
@@ -1608,11 +1613,20 @@ Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
     ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
 
+- 유니티 에디터 2021.X 버전에서는 안드로이드 / IOS 관련 하여 Build Settings > Player Settings > Other Settings 메뉴에서 패키지 네임을 수동으로 기입 후 빌드하고자 하는 OS로 Switch Platform 후 빌드해주세요. 
+
+
+    위 작업을 선행으로 안했을 경우 google resolver 라이브러리 내부 버그로 인한 Please fix your Bundle ID 팝업 > Apply 버튼 클릭시 Ambiguous match found 오류가 발생하며 동작하지 않음
+
+    관련 내용 : https://github.com/googlesamples/unity-jar-resolver/issues/523#issuecomment-1147499484
+
+- 유니티 에디터 2021.X 버전에서는 샘플 씬 파일 교체 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/GamePotSampleSin_unity_2021.zip)
+
 
 
 참고사항 :
 
-- 유니티 에디터 202X.X 이하 버전에서 안드로이드 버전 빌드 환경상에서 아래와 같은 오류가 발생하신다면 
+- 유니티 에디터 2019.X 이하 버전에서 안드로이드 버전 빌드 환경상에서 아래와 같은 오류가 발생하신다면 
 
 ```text
 [오류문구]
@@ -1621,7 +1635,7 @@ System.TypeLoadException: Could not resolve type with token 01000074 (from typer
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:138)
 ```
 
-[패치 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip) 을 다운로드 후 아래와 같이 수정 진행 후 확인 부탁드립니다.
+[패치 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip) 을 다운로드 후 아래와 같이 수정 진행 후 확인 부탁드립니다.
 
     [폴더 및 파일 교체]
     ../Assets/ExternalDependencyManager

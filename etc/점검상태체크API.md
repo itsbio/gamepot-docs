@@ -5,6 +5,43 @@
 #### Request
 
 
+ - Method : POST
+ - URI : https://gamepot.apigw.ntruss.com/gpapps/v1/graphql
+
+```text
+PUT
+url : https://gamepot.apigw.ntruss.com/gpapps/v1/graphql
+Header : 'language: ko'
+Header : 'Accept: application/json'
+Header : 'Content-Type: application/json'
+Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 획득한 토큰으로 교체
+body : 
+{   
+    "query": "query maintenanceAppV2($projectId: String!, $storeId: String!) {
+    maintenanceAppV2(projectId: $projectId, storeId: $storeId) {
+        store {
+                google
+                one
+                galaxy
+                pc
+            }
+            message {
+                default
+                lang
+                value
+            }
+            url
+            startedAt
+            endedAt
+        }
+    }",
+    "variables":
+    {
+        "projectId": "{게임팟 프로젝트 아이디}",
+        "storeId": "pc"
+    }
+```
+
 ```text
 예시)
 
@@ -12,8 +49,9 @@ curl --location --request POST 'https://gamepot.apigw.ntruss.com/gpapps/v1/graph
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'language: ko' \
---header 'Authorization: Bearer {로그인 성공 후 토큰}' \
---data-raw '{"query":"query maintenanceAppV2($projectId: String!, $storeId: String!) {\n    maintenanceAppV2(projectId: $projectId, storeId: $storeId) {\n        store {\n                google\n                one\n                galaxy\n                pc\n            }\n            message {\n                default\n                lang\n                value\n            }\n            url\n            startedAt\n            endedAt\n        }\n    }","variables":{"projectId":"{게임팟 대시보드 프로젝트 아이디}","storeId":"pc"}}'
+--header 'Authorization: Bearer eyJhbXXXXXXXXXXXXXXXXXXXXXXXX' \
+--data-raw '{"query":"query maintenanceAppV2($projectId: String!, $storeId: String!) {\n    maintenanceAppV2(projectId: $projectId, storeId: $storeId) {\n        store {\n                google\n                one\n                galaxy\n                pc\n            }\n            message {\n                default\n                lang\n                value\n            }\n            url\n            startedAt\n            endedAt\n        }\n    }",
+"variables":{"projectId":"XXXXXX-XXXXX-XXXX-XXXXX","storeId":"pc"}}'
 
 
 
