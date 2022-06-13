@@ -1080,9 +1080,9 @@ ex)
     gamepot_project_id 等环境变量定义在 launcherTemplate.gradle 中，因此您可以删除它们。
 
 
-5. 使用 Unity 2020.X 版本时的其他修复
+5. 使用 Unity 202X.X 版本时的其他修复
 
-Unity 2020.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
+Unity 202X.X 版本补丁：[下载](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
     [替换文件夹和文件]
     ../Assets/ExternalDependencyManager

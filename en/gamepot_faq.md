@@ -884,9 +884,9 @@ The following actions are required.
     Environment variables like gamepot_project_id are defined in launcherTemplate.gradle, so you can delete them.
 
 
-5. Additional fixes if you are using the Unity 2020.X version
+5. Additional fixes if you are using the Unity 202X.X version
 
-Patch for Unity 2020.X version: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
+Patch for Unity 202X.X version: [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
     [Replace Folders and Files]
     ../Assets/ExternalDependencyManager

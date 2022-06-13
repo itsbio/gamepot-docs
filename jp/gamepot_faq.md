@@ -879,9 +879,9 @@ ex)
     gamepot_project_idなどの環境変数は、launcherTemplate.gradleに定義されたので削除するとされます。
 
 
-5. Unity 2020.Xバージョンをご使用の場合は、追加の変更
+5. Unity 202X.Xバージョンをご使用の場合は、追加の変更
 
-Unity 2020.Xバージョンのためのパッチ： [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
+Unity 202X.Xバージョンのためのパッチ： [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
     [フォルダとファイル交換]
     ../Assets/ExternalDependencyManager

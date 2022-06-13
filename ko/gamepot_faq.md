@@ -1539,9 +1539,9 @@ ex)
 
 
 
-5. Unity 2020.X 버전을 사용하시는 경우 추가 수정사항
+5. Unity 202X.X 버전을 사용하시는 경우 추가 수정사항
 
-Unity 2020.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
+Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
     [폴더 및 파일 교체]
     ../Assets/ExternalDependencyManager
