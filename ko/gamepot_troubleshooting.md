@@ -275,6 +275,41 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
 
+- IOS 앱 실행시 아래와 같은 크래시 로그가 보이는 경우
+
+하기 네이버 게임 SDK 가이드를 참고하여 진행 
+
+https://navergame.gitbook.io/naver-game/naver-game-sdk-faq-1#unity-ios-sdk-ios-unity-framework-.
+
+Xcode > Unity-iPhone Targets > General > Frameworks, Libraries, and Embedded Content 항목에 추가되어 있는 UnityFramework.framework 를 지웠다가 다시 추가
+
+가이드에는 없지만 build setting > Build Optoins > Enable Bitcode 값을 No로 변경후 정상 동작 확인하였습니다.
+
+
+```text
+[Ceash Log]
+
+Thread 0 name:   Dispatch queue: com.apple.main-thread
+Thread 0 Crashed:
+0   libsystem_kernel.dylib        	       0x1b8659178 __ulock_wait + 8
+1   libdispatch.dylib             	       0x18157a41c _dlock_wait + 56
+2   libdispatch.dylib             	       0x18157a34c _dispatch_once_wait + 112
+3   UIKitCore                     	       0x18420737c -[_UIApplicationConfigurationLoader _loadInitializationContext] + 152
+4   UIKitCore                     	       0x18431248c -[_UIApplicationConfigurationLoader applicationInitializationContext] + 32
+5   UIKitCore                     	       0x1843302d4 -[_UIScreenInitialDisplayConfigurationLoader initialDisplayContext] + 180
+6   UIKitCore                     	       0x1840a29c0 +[UIScreen initialize] + 128
+7   libobjc.A.dylib               	       0x19a574e8c CALLING_SOME_+initialize_METHOD + 24
+8   libobjc.A.dylib               	       0x19a56a490 initializeNonMetaClass + 608
+9   libobjc.A.dylib               	       0x19a56eb9c initializeAndMaybeRelock(objc_class*, objc_object*, mutex_tt<false>&, bool) + 184
+10  libobjc.A.dylib               	       0x19a567c68 lookUpImpOrForward + 912
+11  libobjc.A.dylib               	       0x19a563384 _objc_msgSend_uncached + 68
+12  UIKitCore                     	       0x183e87b80 _UIGetCurrentFallbackTraitCollection + 100
+13  UIKitCore                     	       0x183f36dd0 -[UIViewController _populateInitialTraitCollection] + 52
+14  UIKitCore                     	       0x183e98f68 -[UIViewController initWithNibName:bundle:] + 164
+15  UnityFramework                	       0x10290dcec _GLOBAL__sub_I_NCSDKUnityManager.mm + 44
+16  dyld                          	       0x1008f4910 invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const + 164
+```
+
 ## (Unity) GoogleMobileAds SDK 적용 ( GoogleMobileAds-v6.1.2 기준 설명)
 
 AdMob SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Services Resolver 기능을 사용해야 합니다.
