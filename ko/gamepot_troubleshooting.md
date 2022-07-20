@@ -372,6 +372,28 @@ AdMob SDK(Unity)의 경우, 유니티 패키지를 import 후 Unity Play Service
 ..Assets/Plugins/IOS/Frameworks/nanopb.framework
 ```
 
+
+- GoogleMobileAds - Facebook Audience Network SDK 를 추가로 붙이는 경우 
+
+1. Assets/GamePot/Editor/GamePotDependencies.xml 파일 생성 및 추가 
+
+[파일 내용] 
+
+```text
+<dependencies>
+    <iosPods>
+        <iosPod name="FBSDKLoginKit" version=”8.2.0" /> 
+        <iosPod name="FBSDKCoreKit" version=”8.2.0" />
+    </iosPods> 
+</dependencies>
+
+```
+
+2. ../Assets/Plugins/IOS/Frameworks/ 경로에서 다음 파일 삭제 
+• FBSDKCoreKit.framework
+• FBSDKLoginKit.framework
+
+
 ## (Unity) appsflyer SDK 적용 ( appsflyer-v6.3.2 기준 설명)
 
 다른 SDK도 동일합니다만 UnityAppController class는 빌드하는 프로젝트에서 하나의 파일에서만 상속을 받아야 합니다. 
