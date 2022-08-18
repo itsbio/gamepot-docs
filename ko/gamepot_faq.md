@@ -1598,15 +1598,15 @@ Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
 
 
-
+<!-->
 6. GAMEPOT_UNITY_SDK_20220217.unitypackage 적용 후 로그인 API 결과가 실패아며 문구가 "초기화에 실패 했습니다. 현상이 지속할 경우 앱을 재실행해 주세요" 일떄 
  
    라이브러리를 교체 후 다시 확인 부탁드립니다.  [gamepot-bridge.aar 라이브러리 수정 파일 ](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-bridge.aar_fixed_220302.zip)
 
    기존에 설치된 앱은 삭제 후 확인 부탁드립니다.  
+-->
 
-
-7. Please fix your Bundle ID 팝업이 뜨면 해당 패키지명을 확인 후 Apply 버튼을 클릭해주세요. 
+6. Please fix your Bundle ID 팝업이 뜨면 해당 패키지명을 확인 후 Apply 버튼을 클릭해주세요. 
 
     google android resolver 라이브러리에서 google-services.json 또는 GoogleService-Info.plist 을 인지한 후 파싱할 것인지 확인하는 팝업으로 수락을 해야 구글 관련 동작이 정상적으로 수행됩니다. 
 
@@ -1683,6 +1683,43 @@ python was distributed with each Firebase Unity SDK plugin, was it deleted?
 
 System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 ```
+
+### android, targetsdkversion을 31로 올렸을 때
+
+- 푸시(로컬 푸시) 동작이 정상적으로 되지 않음에 따른 수정사항 (게임팟 SDK 3.4.2 버전 base이기에 해당 버전의 다른 라이브러리 파일도 업데이트는 하셔야 합니다.)
+  라이브러리를 교체  [ggamepot-common.aar 라이브러리 수정 파일 ](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-common-343-0812.zip)
+
+
+- AndroidManifest.xml 내 android:exported 정의를 해야 합니다. 
+하기 문구 추가 필요합니다 / ( 하기 외적으로 activty / service / receiver 를 사용하는 것이 있다먄 해당 부분에도 관련용도에 맞게 정의를 해야 합니다.)
+
+예시)
+
+```text
+       <service
+            android:exported="false"
+            android:name="io.gamepot.common.GamePotFCMIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:exported="false"
+            android:name="io.gamepot.common.GamePotFCMService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        
+        <!-- ELSA 서비스를 사용하지 않는 다면 하기 문구는 삭제 / gamepot-logger.aar가 빌드시 포함 안되게 진행 [start]-->
+        <receiver
+            android:exported="false"
+            android:name="com.navercorp.nelo2.android.util.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+                <!-- ELSA 서비스를 사용하지 않는 다면 하기 문구는 삭제 / gamepot-logger.aar가 빌드시 포함 안되게 진행 [end]-->
 
 <!-- ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
