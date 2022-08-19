@@ -1015,10 +1015,12 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 ### android, targetsdkversion을 31로 올렸을 때
 
 - 푸시(로컬 푸시) 동작이 정상적으로 되지 않음에 따른 수정사항 (게임팟 SDK 3.4.2 버전 base이기에 해당 버전의 다른 라이브러리 파일도 업데이트는 하셔야 합니다.)
+- 
   gamepot-common.aar 라이브러리를 교체  [gamepot-common.aar 라이브러리 수정 파일 ](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-common-343-0812.zip)
 
 
 - AndroidManifest.xml 내 android:exported 정의를 해야 합니다. 
+- 
 하기 문구 추가 필요합니다 / ( 하기 외적으로 activty / service / receiver 를 사용하는 것이 있다먄 해당 부분에도 관련용도에 맞게 정의를 해야 합니다.)
 
 예시)
@@ -1047,7 +1049,8 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
-                <!-- ELSA 서비스를 사용하지 않는 다면 하기 문구는 삭제 / gamepot-logger.aar가 빌드시 포함 안되게 진행 [end]-->
+        <!-- ELSA 서비스를 사용하지 않는 다면 하기 문구는 삭제 / gamepot-logger.aar가 빌드시 포함 안되게 진행 [end]-->
+```
 
 <!-- #### Ver Unity Tools1.0.0 To Ver Unity Unity Tools1.0.1
 
