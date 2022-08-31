@@ -1724,6 +1724,85 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
         <!-- ELSA 서비스를 사용하지 않는 다면 하기 문구는 삭제 / gamepot-logger.aar가 빌드시 포함 안되게 진행 [end]-->
 ```
 
+- 페이스북 로그인을 사용하는데 Pending Intent 오류가 발생할 경우
+
+  V3.4.2 버전으로 SDK 업그레이드 이후 아래 중복되는 라이브러리 파일을 교체 및 삭제를 부탁드립니다.
+  
+  (이는 사용하시는 버전에 따라 다를 수 있습니다.)
+
+   gradle 내 설정해야하는 환경변수의 차이가 있어서 추가로 공유드립니다.
+
+    resValue "string", "facebook_client_token", "" // 페이스북 콘솔 > 앱 >  설정 > 고급 설정 > 클라이언트 토큰 optional (facebook)
+
+    해당 내용을 꼭 추가로 입력하셔야 합니다.
+
+   관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/android_targetSDK31_facebook_13.2.0.zip)
+
+  
+  ```text
+  
+    삭제 :
+
+        ../Assets/Plugins/Android/libs/activity-1.0.0.aar
+        ../Assets/Plugins/Android/libs/core-1.3.0.aar
+        ../Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+        ../Assets/Plugins/Android/libs/facebook-android-sdk-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-applinks-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-common-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-core-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-gamingservices-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-login-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-messenger-8.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-share-8.1.0.aar
+        ../Assets/Plugins/Android/libs/kotlin-reflect-1.5.0.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-1.5.0.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-jdk8-1.5.0.jar
+        ../Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+        ../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+        ../Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+        ../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+        ../Assets/Plugins/Android/libs/nelo2-android-sdk-common-0.10.2.jar
+        ../Assets/Plugins/Android/libs/nelo2-android-sdk-https-0.10.2.jar
+        ../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
+        ../Assets/Plugins/Android/libs/okio-1.14.0.jar
+        ../Assets/Plugins/Android/libs/pageindicatorview-1.0.3.aar
+        ../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
+
+    추가 및 교체 :
+
+        ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
+        ../Assets/Plugins/Android/libs/gamepot-common.aar
+        ../Assets/Plugins/Android/libs/activity-1.2.0.aar
+        ../Assets/Plugins/Android/libs/annotation-experimental-1.0.0.aar
+        ../Assets/Plugins/Android/libs/converter-gson-2.5.0.jar
+        ../Assets/Plugins/Android/libs/core-1.3.2.aar
+        ../Assets/Plugins/Android/libs/core-ktx-1.3.2.aar
+        ../Assets/Plugins/Android/libs/core-runtime-2.1.0.aar
+        ../Assets/Plugins/Android/libs/facebook-android-sdk-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-applinks-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-bolts-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-common-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-core-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-gamingservices-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-login-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-messenger-13.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-share-13.2.0.aar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-1.5.10.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-common-1.5.10.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-jdk7-1.5.10.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-jdk8-1.5.10.jar
+        ../Assets/Plugins/Android/libs/lifecycle-common-2.3.0.jar
+        ../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.3.0.aar
+        ../Assets/Plugins/Android/libs/lifecycle-runtime-2.3.0.aar
+        ../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.3.0.aar
+        ../Assets/Plugins/Android/libs/lifecycle-viewmodel-savedstate-2.3.0.aar
+        ../Assets/Plugins/Android/libs/okhttp-4.9.1.jar
+        ../Assets/Plugins/Android/libs/okio-2.8.0.jar
+        ../Assets/Plugins/Android/libs/pageindicatorview-1.0.0.aar
+        ../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
+        ../Assets/Plugins/Android/libs/savedstate-1.1.0.aar
+        ../Assets/Plugins/Android/libs/tracing-1.0.0.aar
+  ```
 <!-- ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
