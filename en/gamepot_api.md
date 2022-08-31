@@ -62,6 +62,9 @@ Common error code that occurs when requesting Open API.
 | -5   | Key expired                                                      |
 | -6   | If no project ID                                                 |
 
+
+<!--
+
 ### User Lookup API
 
 Look up a user by user UID.
@@ -1261,3 +1264,5 @@ failure
 | :-------- | :----- | :-------------------------------------------------------------------- |
 | status    | Int    | Result value \(1: Refer to Error code in case of success or failure\) |
 | message   | String | Error content                                                         |
+
+-->
