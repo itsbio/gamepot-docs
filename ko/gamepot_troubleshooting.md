@@ -549,4 +549,47 @@ Add use_frameworks! to podfile / Always add the main target to Podfile 항목은
 ...
 <meta-data android:name="android.max_aspect" android:value="2.1" />
 
+```
+
+
+3.  Firebase Unity 9.4.0 적용시 IOS 빌드시 추가 변경 작업
+
+- 유니티 에디터에서 ios 빌드후 나온 결과에서 Podfile 파일을 찾아 아래와 같은 형태로 수정 ( 다른 라이브러리가 있는 경우 , :modular_headers => true 부분을 추가 )
+
+  Firebase / FirebaseCore / GoogleUtilities 는 예시와 같이 추가 해야 합니다. 
+
+
+예시 )
+
 ```text
+
+[기존]
+
+...
+target 'UnityFramework' do
+  pod 'Firebase/Analytics', '9.4.0'
+  pod 'Firebase/Core', '9.4.0'
+  pod 'Firebase/Messaging', '9.4.0'
+end
+
+[수정]
+
+target 'UnityFramework' do
+  pod 'Firebase/Analytics', '9.4.0' , :modular_headers => true
+  pod 'Firebase/Core', '9.4.0' , :modular_headers => true
+  pod 'Firebase/Messaging', '9.4.0' , :modular_headers => true
+
+  pod 'Firebase', :modular_headers => true
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'GoogleUtilities', :modular_headers => true
+end
+
+```
+
+- 터미널 오픈 후 Podfile 파일이 있는 경로로 진입하여 pod install  명령어 수행 후 Unity-iPhone.xcworkspace  파일이 생기면 해당 프로젝트로 빌드 진행
+
+```text
+
+$ pod install
+
+```
