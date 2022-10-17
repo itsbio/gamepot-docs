@@ -534,16 +534,20 @@ Add use_frameworks! to podfile / Always add the main target to Podfile 항목은
 </activity>
 
 <!-- FCM [start]-->
-<service android:name="io.gamepot.common.GamePotFCMIDService">
-<intent-filter>
-    <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-</intent-filter>
-</service>
-<service android:name="io.gamepot.common.GamePotFCMService">
-<intent-filter>
-    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-</intent-filter>
-</service>
+       <service
+            android:exported="false"
+            android:name="io.gamepot.common.GamePotFCMIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:exported="false"
+            android:name="io.gamepot.common.GamePotFCMService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
 <!-- FCM [End]-->
 
 ...

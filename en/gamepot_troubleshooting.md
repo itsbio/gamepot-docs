@@ -313,3 +313,181 @@ You need to modify it so that it is inherited from only one file and use it.
 
 Ex)
 [appsflyer-v6.3.2 기준 패치](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/fixed_appsflyer632.zip)
+
+
+## (Unity) Applying Firebase SDK separately (guide for Firebase Unity 8.7.0)
+
+- If you are using a Unity editor older than 2019.X, please proceed with the patch below first.
+
+Download patch : [Download patch](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity_2020_X.zip)
+
+[Replace folders and files]
+
+../Assets/ExternalDependencyManager
+
+../Assets/Firebase
+
+- Change the folder name for the replaced Firebase library
+Previous : ../Assets/Plugins/Android/Firebase
+New : ../Assets/Plugins/Android/FirebaseApp.androidlib
+
+- Edit mainTemplate.gradle (due to the change in the folder name)
+Previous :
+dependencies {
+...
+implementation project('Firebase')
+New :
+dependencies {
+...
+implementation project('FirebaseApp.androidlib')
+...
+
+
+- GAMEPOT's Unity plugin package contains some Firebase SDK, so using another Firebase SDK will cause an error due to the duplicate libraries.
+
+Firebase Unity SDK(FirebaseAnalytics.unitypackage / FirebaseMessaging.unitypackage + Firebase SDK you wish to add) needs to be imported first to use the Unity Play Services Resolver.
+
+On Unity, go to Assets > Play Services Resolver > Android Resolver > Settings and
+
+select Use Jetifier.
+
+Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties need to be deselected to proceed with Resolver.
+
+On Unity, go to Assets > Play Services Resolver > IOS Resolver > Settings and
+
+deselect Add use_frameworks! to podfile / Always add the main target to Podfile to start the IOS build.
+
+
+1. Must delete duplicate library files:
+```text
+../Assets/Plugins/Android/libs/viewpager-1.0.0.aar
+../Assets/Plugins/Android/libs/versionedparcelable-1.1.0.aar
+../Assets/Plugins/Android/libs/transport-runtime-2.2.5.aar
+../Assets/Plugins/Android/libs/transport-backend-cct-2.3.3.aar
+../Assets/Plugins/Android/libs/transport-api-2.2.1.aar
+../Assets/Plugins/Android/libs/swiperefreshlayout-1.0.0.aar
+../Assets/Plugins/Android/libs/slidingpanelayout-1.0.0.aar
+../Assets/Plugins/Android/libs/print-1.0.0.aar
+../Assets/Plugins/Android/libs/play-services-tasks-17.2.0.aar
+../Assets/Plugins/Android/libs/play-services-stats-17.0.0.aar
+../Assets/Plugins/Android/libs/play-services-measurement-sdk-api-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-measurement-sdk-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-measurement-impl-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-measurement-base-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-measurement-api-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-measurement-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-cloud-messaging-16.0.0.aar
+../Assets/Plugins/Android/libs/play-services-basement-17.5.0.aar
+../Assets/Plugins/Android/libs/play-services-base-17.5.0.aar
+../Assets/Plugins/Android/libs/play-services-ads-identifier-17.0.0.aar
+../Assets/Plugins/Android/libs/localbroadcastmanager-1.0.0.aar
+../Assets/Plugins/Android/libs/loader-1.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
+../Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
+../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-livedata-2.0.0.aar
+../Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
+../Assets/Plugins/Android/libs/legacy-support-core-utils-1.0.0.aar
+../Assets/Plugins/Android/libs/legacy-support-core-ui-1.0.0.aar
+../Assets/Plugins/Android/libs/javax.inject-1.jar
+../Assets/Plugins/Android/libs/interpolator-1.0.0.aar
+../Assets/Plugins/Android/libs/fragment-1.1.0.aar
+../Assets/Plugins/Android/libs/firebase-messaging-21.0.1.aar
+../Assets/Plugins/Android/libs/firebase-measurement-connector-18.0.0.aar
+../Assets/Plugins/Android/libs/firebase-installations-interop-16.0.1.aar
+../Assets/Plugins/Android/libs/firebase-installations-16.3.5.aar
+../Assets/Plugins/Android/libs/firebase-iid-interop-17.0.0.aar
+../Assets/Plugins/Android/libs/firebase-iid-21.0.1.aar
+../Assets/Plugins/Android/libs/firebase-encoders-json-17.1.0.aar
+../Assets/Plugins/Android/libs/firebase-encoders-16.1.0.jar
+../Assets/Plugins/Android/libs/firebase-datatransport-17.0.10.aar
+../Assets/Plugins/Android/libs/firebase-core-18.0.1.aar
+../Assets/Plugins/Android/libs/firebase-components-16.1.0.aar
+../Assets/Plugins/Android/libs/firebase-common-19.5.0.aar
+../Assets/Plugins/Android/libs/firebase-annotations-16.0.0.jar
+../Assets/Plugins/Android/libs/firebase-analytics-18.0.1.aar
+../Assets/Plugins/Android/libs/drawerlayout-1.0.0.aar
+../Assets/Plugins/Android/libs/documentfile-1.0.0.aar
+../Assets/Plugins/Android/libs/customview-1.0.0.aar
+../Assets/Plugins/Android/libs/cursoradapter-1.0.0.aar
+../Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
+../Assets/Plugins/Android/libs/core-common-2.1.0.jar
+../Assets/Plugins/Android/libs/core-1.3.0.aar
+../Assets/Plugins/Android/libs/coordinatorlayout-1.0.0.aar
+../Assets/Plugins/Android/libs/collection-1.1.0.jar
+../Assets/Plugins/Android/libs/asynclayoutinflater-1.0.0.aar
+../Assets/Plugins/Android/libs/annotation-1.1.0.jar
+../Assets/Plugins/IOS/Frameworks/nanopb.framework
+../Assets/Plugins/IOS/Frameworks/FirebaseNanoPB.framework
+../Assets/Plugins/IOS/Frameworks/FirebaseMessaging.framework
+../Assets/Plugins/IOS/Frameworks/FirebaseInstanceID.framework
+../Assets/Plugins/IOS/Frameworks/FirebaseCoreDiagnostics.framework
+../Assets/Plugins/IOS/Frameworks/FirebaseCore.framework
+../Assets/Plugins/IOS/Frameworks/FirebaseAnalytics.framework
+```
+
+
+2. ../Assets/Plugins/Android/AndroidManifest.xml Confirm that your FCM-related codes are applied
+
+```text
+....
+</activity>
+
+<!-- FCM [start]-->
+       <service
+            android:exported="false"
+            android:name="io.gamepot.common.GamePotFCMIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:exported="false"
+            android:name="io.gamepot.common.GamePotFCMService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+<!-- FCM [End]-->
+
+...
+<meta-data android:name="android.max_aspect" android:value="2.1" />
+
+```
+
+
+3. Additional steps for IOS build with Firebase Unity 9.4.0
+
+- In the result of the IOS build on the Unity editor, search for Podfile and edit it as follows. ( if another library exists, add :modular_headers => true )
+
+Firebase / FirebaseCore / GoogleUtilities need to be added as shown on the examples below.
+
+
+example )
+
+```text
+
+[Previous]
+
+...
+target 'UnityFramework' do
+pod 'Firebase/Analytics', '9.4.0'
+pod 'Firebase/Core', '9.4.0'
+pod 'Firebase/Messaging', '9.4.0'
+end
+
+[New]
+
+target 'UnityFramework' do
+pod 'Firebase/Analytics', '9.4.0' , :modular_headers => true
+pod 'Firebase/Core', '9.4.0' , :modular_headers => true
+pod 'Firebase/Messaging', '9.4.0' , :modular_headers => true
+
+pod 'Firebase', :modular_headers => true
+pod 'FirebaseCore', :modular_headers => true
+pod 'GoogleUtilities', :modular_headers => true
+end
+
+```
+
+- On terminal, navigate to the location of the Podfile, run pod install, and proceed with this project's build after the file Unity-iPhone.xcworkspace is created
