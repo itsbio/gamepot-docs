@@ -10,7 +10,7 @@
 
 | 기능           | 세부기능                                                     | Essential | Pro  | 비고                                         |
 | :------------- | ------------------------------------------------------------ | :-------- | ---- | -------------------------------------------- |
-| 회원           | Google/Apple/Naver/Facebook/<br />Twitter/LINE/WEIXIN/WEIBO/<br />QQ/MOBSMS/Guest 로그인 등 | O         | O    |                                              |
+| 회원           | Google/Apple/Naver/Facebook/<br />LINE/Guest 로그인 등 | O         | O    |                                              |
 |                | 회원 정지                                                    | O         | O    |                                              |
 |                | 동시 접속자                                                  | O         | O    |                                              |
 |                | 로그인 UI 제공                                               | O         | O    |                                              |
