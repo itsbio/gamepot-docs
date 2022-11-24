@@ -1,0 +1,69 @@
+[사용자 정보 조회]
+curl --request GET \
+  --url https://sandbox-dashboard-api.gamepot.io/v1/api/project/8020a722-af4e-4eaf-a850-c72434e94e03/user/deae6e8b-0315-4ca2-93fa-8fc709128f19 \
+  --header 'Accept-Language: ko' \
+  --header 'x-api-key: 60a7abee09b6650ba20c6a3301f84d4cbdbc6692c869cd32'
+
+[curl트 세팅 블로그]
+https://shaeod.tistory.com/527
+
+[curl예제 사이트]
+https://curl.haxx.se/libcurl/c/postinmemory.html
+
+
+- API 명세
+init
+
+[initializeV2 - 초기화]
+
+GET /project/:projectId/store/:storeId/initialize
+
+curl --request GET \
+ --url https://sandbox-api.gamepot.io/v1/api/project/8020a722-af4e-4eaf-a850-c72434e94e03/store/web/initialize \
+ --header 'language: ko'
+
+
+member
+
+[createMember - 멤버 생성]
+
+POST /project/:projectId/store/:storeId/user?password=password
+
+curl --request POST \
+ --url 'https://sandbox-api.gamepot.io/v1/api/project/8020a722-af4e-4eaf-a850-c72434e94e03/store/web/user?password=dlrjsgh' \
+
+ --header 'language: ko'
+
+[signInV2 - 로그인]
+
+GET /project/:projectId/store/:storeId/user/:memberId?password=password
+
+curl --request GET \
+ --url 'https://sandbox-api.gamepot.io/v1/api/project/8020a722-af4e-4eaf-a850-c72434e94e03/store/web/user/7a6ff98e-90eb-4565-9e47-dd033b1a6c00?password=dlrjsgh' \
+ --header 'language: ko'
+
+​
+[signOut - 로그아웃]
+
+GET /project/:projectId/store/:storeId/user/:memberid/signout
+curl --request GET \
+
+  --url https://sandbox-api.gamepot.io/v1/api/project/8020a722-af4e-4eaf-a850-c72434e94e03/store/web/user/7a6ff98e-90eb-4565-9e47-dd033b1a6c00/signout \
+
+  --header 'accept: ko' \
+
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdXNoIjp0cnVlLCJuaWdodCI6ZmFsc2UsImFkIjp0cnVlLCJkZWxldGVkIjpmYWxzZSwibWFuYWdlciI6ZmFsc2UsInNhbmRib3giOmZhbHNlLCJfaWQiOiI1ZWU3NjE2NTAyNDNjMDMwYzU2NTVmZDIiLCJwYXNzd29yZCI6IiQyYiQxMCR6MFp3eWIyaWpKQ2tQZTNlNDU4bGhlOHJYMm5FaEU3VGg3Y09udlN1LjdFTDRFSkw5ekxIeSIsInByb2plY3RfaWQiOiJhYjI3NzViNC1jZjA5LTQ3OTQtOTQ4MC1kZWNkNjA3YTdmOGEiLCJzdG9yZV9pZCI6IndlYiIsImlkIjoiZDMyZGRiMjEtZTEzOC00ZjEwLWFiNTEtNDkxMmM0NzlmNmE1IiwiY291bnRyeSI6IktSIiwicmVtb3RlaXAiOiIxMjcuMC4wLjEiLCJsb2dpbmVkQXQiOiIyMDIwLTA2LTE4VDEyOjE2OjIzLjEzMVoiLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE1VDExOjU0OjEzLjU2OFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE4VDEyOjE2OjIzLjEzMVoiLCJfX3YiOjAsImlhdCI6MTU5Mjc5NDgxOSwiZXhwIjoxNjAwNTcwODE5fQ.3hHI7GKs_F_-0HHoaAd7gEB6Zx1nCFky23CtazPDwYo' \
+
+  --cookie sid=s%253AB-y30sjm6yf2vlCKFe9inRDif2kot5p3.GlB2R7DWuToZnCn1HWTCeSnOruIsOl2HLITh2Da5ZG8
+
+​
+[deleteMember - 멤버 탈퇴]
+
+DELETE /project/:projectId/store/:storeId/user/:memberid
+
+curl --request DELETE \
+  --url https://sandbox-api.gamepot.io/v1/api/project/8020a722-af4e-4eaf-a850-c72434e94e03/user/7a6ff98e-90eb-4565-9e47-dd033b1a6c00 \
+  --header 'accept: ko' \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdXNoIjp0cnVlLCJuaWdodCI6ZmFsc2UsImFkIjp0cnVlLCJkZWxldGVkIjpmYWxzZSwibWFuYWdlciI6ZmFsc2UsInNhbmRib3giOmZhbHNlLCJfaWQiOiI1ZWU3NjE2NTAyNDNjMDMwYzU2NTVmZDIiLCJwYXNzd29yZCI6IiQyYiQxMCR6MFp3eWIyaWpKQ2tQZTNlNDU4bGhlOHJYMm5FaEU3VGg3Y09udlN1LjdFTDRFSkw5ekxIeSIsInByb2plY3RfaWQiOiJhYjI3NzViNC1jZjA5LTQ3OTQtOTQ4MC1kZWNkNjA3YTdmOGEiLCJzdG9yZV9pZCI6IndlYiIsImlkIjoiZDMyZGRiMjEtZTEzOC00ZjEwLWFiNTEtNDkxMmM0NzlmNmE1IiwiY291bnRyeSI6IktSIiwicmVtb3RlaXAiOiIxMjcuMC4wLjEiLCJsb2dpbmVkQXQiOiIyMDIwLTA2LTE4VDEyOjE2OjIzLjEzMVoiLCJjcmVhdGVkQXQiOiIyMDIwLTA2LTE1VDExOjU0OjEzLjU2OFoiLCJ1cGRhdGVkQXQiOiIyMDIwLTA2LTE4VDEyOjE2OjIzLjEzMVoiLCJfX3YiOjAsImlhdCI6MTU5Mjc5NDgxOSwiZXhwIjoxNjAwNTcwODE5fQ.3hHI7GKs_F_-0HHoaAd7gEB6Zx1nCFky23CtazPDwYo' \
+  --cookie sid=s%253AB-y30sjm6yf2vlCKFe9inRDif2kot5p3.GlB2R7DWuToZnCn1HWTCeSnOruIsOl2HLITh2Da5ZG8
+
