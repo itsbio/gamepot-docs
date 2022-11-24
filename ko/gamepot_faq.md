@@ -346,6 +346,9 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
     
         <application
 
+#### 3-5)
+
+
 ### 3. Galaxy Store
 
 #### 3-1)
@@ -1740,31 +1743,28 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
   
   ```text
   
-    삭제 :
+    삭제 : 게임팟 SDK 3.4.2 기준 패치사항 사항 ( 게임팟 적용 시점에 따라 별도로 중복 라이브러리를 추가로 삭제해야 할 수도 있습니다. )
 
         ../Assets/Plugins/Android/libs/activity-1.0.0.aar
         ../Assets/Plugins/Android/libs/core-1.3.0.aar
         ../Assets/Plugins/Android/libs/core-runtime-2.0.0.aar
-        ../Assets/Plugins/Android/libs/facebook-android-sdk-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-applinks-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-common-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-core-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-gamingservices-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-login-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-messenger-8.1.0.aar
-        ../Assets/Plugins/Android/libs/facebook-share-8.1.0.aar
-        ../Assets/Plugins/Android/libs/kotlin-reflect-1.5.0.jar
-        ../Assets/Plugins/Android/libs/kotlin-stdlib-1.5.0.jar
-        ../Assets/Plugins/Android/libs/kotlin-stdlib-jdk8-1.5.0.jar
+        ../Assets/Plugins/Android/libs/facebook-android-sdk-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-applinks-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-common-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-core-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-gamingservices-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-login-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-messenger-8.2.0.aar
+        ../Assets/Plugins/Android/libs/facebook-share-8.2.0.aar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-common-1.3.31.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-1.3.31.jar
+        ../Assets/Plugins/Android/libs/kotlin-stdlib-jdk7-1.3.31.jar
         ../Assets/Plugins/Android/libs/lifecycle-common-2.1.0.jar
         ../Assets/Plugins/Android/libs/lifecycle-livedata-core-2.0.0.aar
         ../Assets/Plugins/Android/libs/lifecycle-runtime-2.1.0.aar
         ../Assets/Plugins/Android/libs/lifecycle-viewmodel-2.1.0.aar
-        ../Assets/Plugins/Android/libs/nelo2-android-sdk-common-0.10.2.jar
-        ../Assets/Plugins/Android/libs/nelo2-android-sdk-https-0.10.2.jar
         ../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
         ../Assets/Plugins/Android/libs/okio-1.14.0.jar
-        ../Assets/Plugins/Android/libs/pageindicatorview-1.0.3.aar
         ../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
 
     추가 및 교체 :
