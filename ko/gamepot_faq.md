@@ -1724,6 +1724,17 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
             </intent-filter>
         </receiver>
         <!-- ELSA 서비스를 사용하지 않는 다면 하기 문구는 삭제 / gamepot-logger.aar가 빌드시 포함 안되게 진행 [end]-->
+
+        <!-- 네이버 로그인을 사용하지 않는 다면 하기 문구는 삭제  [start]-->
+        <activity android:exported="true" android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="authorize" android:path="/" android:scheme="naver3rdpartylogin"/>
+            </intent-filter>
+        </activity>
+        <!-- 네이버 로그인을 사용하지 않는 다면 하기 문구는 삭제  [end]-->
 ```
 
 - 페이스북 로그인을 사용하는데 Pending Intent 오류가 발생할 경우
