@@ -1749,6 +1749,8 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 
     해당 내용을 꼭 추가로 입력하셔야 합니다.
 
+   [unity 패치]
+   
    관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/android_targetSDK31_facebook_13.2.0.zip)
 
   
@@ -1813,6 +1815,47 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
         ../Assets/Plugins/Android/libs/savedstate-1.1.0.aar
         ../Assets/Plugins/Android/libs/tracing-1.0.0.aar
   ```
+
+    [Unreal 패치]
+
+    관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/AOS_facebook_13_2_0.zip)
+
+    ```text
+
+    1. 수정 패치 파일 (gamepot-channel-facebook.aar) 교체 
+
+    2. GamePot_Android_UPL.xml 파일 내 facebook 관련 버전 수정
+    …
+    <insertValue value="com.facebook.android,facebook-android-sdk,13.2.0"/>
+    …
+    implementation 'com.facebook.android:facebook-android-sdk:13.2.0'
+    …
+    resValue "string", "facebook_client_token", "" // 페이스북 콘솔 > 앱 >  설정 > 고급 설정 > 클라이언트 토큰 optional (facebook)
+    
+    ```
+
+    [Android Native 패치]
+
+    관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/AOS_facebook_13_2_0.zip)
+
+    ```text
+
+    1. 수정 패치 파일 (gamepot-channel-facebook.aar) 교체     
+
+    2.  build.gradle 내 facebook 관련 버전 수정 및 환경변수 추가
+
+    dependencies {
+        ...
+        implementation 'com.facebook.android:facebook-android-sdk:13.2.0'
+
+    
+    defaultConfig {
+        ....
+        resValue "string", "facebook_client_token", "" // 페이스북 콘솔 > 앱 >  설정 > 고급 설정 > 클라이언트 토큰 optional (facebook)
+
+    해당 내용을 꼭 추가로 입력하셔야 합니다.
+    
+    ```
 <!-- ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
