@@ -293,7 +293,7 @@ Please enter the key referring to the contents in'View Help'.
 
     [AndroidManifest.xml ファイル内にフレーズを追加する必要]
 
-        <!-- Additional code for OneStore version when building with targetSdkVersion 30 [Start] -->
+        <!-- Additional code for OneStore version when building with targetSdkVersion 30 or higher [Start] -->
         <queries>
             <intent>
                 <action android:name="com.onestore.ipc.iap.IapService.ACTION" />

@@ -289,7 +289,7 @@ Twitter Developer Console の設定が正しいことを確認してください
 
     [AndroidManifest.xml ファイル内にフレーズを追加する必要]
 
-        <!-- targetSdkVersion30でビルドする場合のOneStoreバージョンの追加コード [Start] -->
+        <!-- targetSdkVersion 30 以上でビルドする場合の OneStore バージョンの追加コード [Start] -->
         <queries>
             <intent>
                 <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
@@ -299,7 +299,7 @@ Twitter Developer Console の設定が正しいことを確認してください
                 <data android:scheme="onestore" />
             </intent>
         </queries>
-        <!-- targetSdkVersion30でビルドする場合のOneStoreバージョンの追加コード [End] -->
+        <!-- targetSdkVersion 30 以上でビルドする場合の OneStore バージョンの追加コード [End] -->
         
         <application
 

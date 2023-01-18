@@ -332,7 +332,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
     [AndroidManifest.xml 파일 내 하기 문구 추가 필요]
 
-        <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [Start] -->
+        <!-- targetSdkVersion 30 이상 일때 원스토어 관련 패치 [Start] -->
         <queries>
             <intent>
                 <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
@@ -342,7 +342,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
                 <data android:scheme="onestore" />
             </intent>
         </queries>
-        <!-- targetSdkVersion 30 일때 원스토어 관련 패치 [End] -->
+        <!-- targetSdkVersion 30 이상 일때 원스토어 관련 패치 [End] -->
     
         <application
 

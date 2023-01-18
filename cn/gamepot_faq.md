@@ -286,7 +286,7 @@ If items 1 to 4 are performed, but onCancel is processed when trying to log in
 
     [AndroidManifest.xml 需要在文件中添加以下短語]
 
-        <!-- 使用targetSdkVersion 30構建時的OneStore版本的附加代碼 [Start] -->
+        <!-- 使用 targetSdkVersion 30 或更高版本构建时 OneStore 版本的附加代码 [Start] -->
         <queries>
             <intent>
                 <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
@@ -296,7 +296,7 @@ If items 1 to 4 are performed, but onCancel is processed when trying to log in
                 <data android:scheme="onestore" />
             </intent>
         </queries>
-        <!-- 使用targetSdkVersion 30構建時的OneStore版本的附加代碼 [End] -->
+        <!-- 使用 targetSdkVersion 30 或更高版本构建时 OneStore 版本的附加代码 [End] -->
 
         <application
 
