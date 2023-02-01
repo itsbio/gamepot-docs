@@ -57,7 +57,14 @@
 
 ![gamepot_faq_02](./images/gamepot_faq_02.png)
 
-    * (AOS) Google Console에서 `앱 서명`을 사용하는 경우, Console에서 만들어진 SHA-1 값도 추가로 넣어주셔야 합니다.
+
+
+구글 개발자 콘솔에 `설정` -> `앱 무결성` 메뉴에 아래와 같은 화면이 보여집니다.
+
+(AOS) Google Console에서 `앱 서명`을 사용하는 경우, Console에서 만들어진 SHA-1 값도 추가로 넣어주셔야 합니다.
+
+![gamepot_faq_33](./images/gamepot_faq_33.png)
+
 
 4. 위 체크 항목을 모두 확인했음에도 불구하고 여전하다면, 지원 이메일을 다른 이메일로 변경해보세요.
 
