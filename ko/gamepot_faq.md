@@ -1863,6 +1863,23 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
     해당 내용을 꼭 추가로 입력하셔야 합니다.
     
     ```
+
+
+### Android OS 13기기에서 푸시 설정 못 받는 경우
+
+안드로이드 OS 13부터는 푸시 알림을 표기하기위해서는 “android.permission.POST_NOTIFICATIONS” 퍼미션 권한이 획득이 필요합니다.
+
+Targetsdk 31인 버전으로 빌드 된경우 푸시 수신 받았을때  OS 내부적으로 1회 한번 권한 획득에 대한 팝업을 띄우고 있으며 
+
+유저가 거절한경우 앱 설정에서 수동으로 알림 권한을 다시 활성하지 않는다면 푸시 설정과 상관없이 표기가 되지 않습니다.
+
+android.permission.POST_NOTIFICATIONS 퍼미션 권한 획득하는 기능을 게임팟에서는 지원하지 않습니다. 
+
+관련 기능은 개발사에서 별도로 약관 동의하는 시점에 android.permission.POST_NOTIFICATIONS 권한을 받도록 유도하도록 개발을 하셔야 하십니다.
+
+
+
+
 <!-- ####  Ver Unity Tools 1.0.0 To Ver Unity Unity Tools 1.0.1
 
     Unity Tools 버전간 호환이 되지 않아 신규로 작업이 필요합니다. 
