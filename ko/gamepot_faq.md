@@ -566,7 +566,7 @@ ex) 6번 항목 예시
 
 ## 대시보드 사전예약 페이지 연동 방법
 
-### 1. 발신번호 신청 [[SMS 발신번호 신청 가이드](https://guide.ncloud-docs.com/docs/sens-sens-1-3#%EB%B0%9C%EC%8B%A0%EB%B2%88%ED%98%B8-%EB%93%B1%EB%A1%9D%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)]
+### 1. 발신번호 신청 [[SMS 발신번호 신청 가이드](https://guide.ncloud-docs.com/docs/sens-callingno)]
 
 > 발신번호 신청 및 해당 번호의 승인이 된 이후에 문자를 발송 할 수 있습니다.
 

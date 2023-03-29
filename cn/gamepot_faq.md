@@ -425,7 +425,7 @@ Google Developer Console中`设置` -> `应用完整性`菜单中将显示以下
 
 ## 仪表盘提前预约页面关联方法
 
-### 1. 申请发送号码[[SMS发送号码申请指南](https://docs.ncloud.com/ko/sens/sens-1-3.html#%EB%B0%9C%EC%8B%A0%EB%B2%88%ED%98%B8-%EB%93%B1%EB%A1%9D%EC%A1%B0%ED%9A%8C%ED%95%98%EA%B8%B0)]
+### 1. 申请发送号码[[SMS发送号码申请指南](https://guide.ncloud-docs.com/docs/zh/sens-callingno)]
 
 > 申请发送号码并完成相应号码的审批后可以发送短信。
 

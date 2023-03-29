@@ -456,7 +456,8 @@ Delete the hash, or enter the correct hash and check.
     (When transferring a Google service account) Even though a new key was issued and applied, a bug report on the Google console side where the payment API failed was introduced. (2020.02.13)
     In this case, randomly create an in-app product in the Google Console, and check if the problem is solved.
 
-#### 7. Problems receiving IOS Push message \[[IOS APNS certificate registration guide](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1 %85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1 %85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1 %84%89%E1%85%A5.docx)\]
+#### 7. Problems receiving IOS Push message \[[IOS APNS certificate registration guide](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
+
 
     1. Please check if the authentication key and certificate are registered in the certification in the SENS setting.
 
