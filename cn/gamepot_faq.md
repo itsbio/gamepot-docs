@@ -780,7 +780,7 @@ IOS设置方法如下。
 
 ### Migration
 
-#### Ver 3.5.1 변경점 
+#### Ver 3.5.1 Changes
 
 With the GAMEPOT SDK 3.5.1 version released, guest login process has changed. 
 
@@ -809,36 +809,6 @@ gamepot-common.aar / GamePot.framework
 You can simply replace the library files. 
 
 Patch for the changes: [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
-
-#### Ver 3.5.1 변경점 
-
-With the GAMEPOT SDK 3.5.1 version released, guest login process has changed. 
-
-[Previous]
-
-For GAMEPOT SDK’s version lower than 3.5.0, a new GAMEPOT user ID was provided each time the users, who had logged in as guest before, attempted logging in as guest again – after deleting the app or the data within the app.
-
-[New]
-
-For GAMEPOT SDK’s version higher than 3.5.1, 
-
-the same GAMEPOT user IDs and its associated information will be provided when users attempt logging in as guest again after deleting the app or the data within the app.  
-
-In case users delete their guest accounts or attempt logging in as guest after logging in using their SNS accounts, new GAMEPOT user IDs will be provided – the same way as before.
-
-For the users who have been using guest accounts since the GAMEPOT SDK 3.5.0 or lower, the user IDs and its associated information will remain the same even after the GAMEPOT SDK’s update to 3.5.1. However, if users, who had logged in as guest before, log in as guest again after deleting the app or the data within the app, new GAMEPOT user IDs (new guest login information) will be provided to you.  
-
-(Guest account information from the previous versions won’t be retrievable when the app or the data within the app is deleted.)
-
-After that, when users log in as guest after deleting the app or the data within the app, new user IDs that were created most recently will be provided.
-
--	For the GAMEPOT SDK 3.5.0, changes on library are as in the following:
-
-gamepot-common.aar / GamePot.framework 
-
-You can simply replace the library files. 
-
-    관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
 
 #### Ver 3.2.0 Migration
 

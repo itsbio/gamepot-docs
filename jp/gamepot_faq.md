@@ -580,7 +580,7 @@ IOS の設定は、以下のように進行します。
 
 ### Migration
 
-#### Ver 3.5.1 변경점 
+#### Ver 3.5.1 Changes
 
 With the GAMEPOT SDK 3.5.1 version released, guest login process has changed. 
 

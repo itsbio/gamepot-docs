@@ -585,7 +585,7 @@ Here's what the Gamepod SDK collects:
 
 ### Migration
 
-#### Ver 3.5.1 변경점 
+#### Ver 3.5.1 Changes
 
 With the GAMEPOT SDK 3.5.1 version released, guest login process has changed. 
 
