@@ -1274,13 +1274,13 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 ( 구 버전의 게스트 사용자 아아디는 앱 삭제 또는 앱 내 데이터 삭제시 유지 되지 않습니다.)
 
-위 케이스 이후 앱 삭제 또는 앱 내 데이터 삭제 후 게스트 로그인 시도시 이전 사용자 아이디(신규 게스트 로그인 사용자 아이디)를 제공드립니다. 
+위 케이스 이후 앱 삭제 또는 앱 내 데이터 삭제 후 게스트 로그인 시도시 이전 사용자 아이디(마지막으로 받은 신규 게스트 로그인 사용자 아이디)를 제공드립니다. 
 
 - 게임팟 SDK 3.5.0 기준으로 라이브러리 변경사항은 아래와 같습니다.
 
     gamepot-common.aar / GamePot.framework 라이브러리 파일을 교체 하시면 되십니다.
 
-    관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
+관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
 
 
 #### Ver 3.2.0 Migration
