@@ -780,8 +780,6 @@ IOS设置方法如下。
 
 ### Migration
 
-<!--
-
 #### Ver 3.5.1 Changes
 
 With the GAMEPOT SDK 3.5.1 version released, guest login process has changed. 
@@ -811,8 +809,6 @@ gamepot-common.aar / GamePot.framework
 You can simply replace the library files. 
 
 Patch for the changes: [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
-
--->
 
 #### Ver 3.2.0 Migration
 

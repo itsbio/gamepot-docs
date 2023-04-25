@@ -1250,7 +1250,6 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 ### Migration
 
-<!--
 #### Ver 3.5.1 변경점 
 
 게임팟 SDK 3.5.1 버전부터 게스트 로그인 방식 처리 방식이 변경되었습니다. 
@@ -1279,7 +1278,6 @@ IOS 설정은 아래와 같이 진행을 합니다.
 
 관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
 
--->
 
 #### Ver 3.2.0 Migration
 
