@@ -569,6 +569,12 @@ data:
 
 ## 案例集
 
+### - Check Gamepot API Latency
+
+https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com 
+
+![gamepot_faq_59](./images/gamepot_faq_59.png)
+
 ### - 仪表盘
 
 #### 1. 无法接收推送消息时
