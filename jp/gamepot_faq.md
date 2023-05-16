@@ -380,6 +380,12 @@ Xcode で build 時 Capability に Push Notification を含める必要があり
 
 ## Casebook
 
+### - Check Gamepot API Latency
+
+https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com 
+
+![gamepot_faq_59](./images/gamepot_faq_59.png)
+
 ### - Dashboard
 
 #### 1. Push メッセージが受信されない場合

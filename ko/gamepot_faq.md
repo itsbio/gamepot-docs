@@ -925,6 +925,13 @@ FGamePotSDKPluginModule::GetSharedGamePotSdk()->submitScoreLeaderboard(FString l
 
 ## Casebook
 
+### - 게임팟 API 지연 속도 확인 
+
+https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com 
+
+![gamepot_faq_59](./images/gamepot_faq_59.png)
+
+
 ### - Dashboard
 
 #### 1. Push 메시지가 수신되지 않을 때
@@ -1578,9 +1585,14 @@ ex)
     4. mainTemplate_GAMEPOT_UNITY_2019_3_Over.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
 
+[ Unity 2022.X 이상]
+
+    Unity Editer Ver 2022.X  baseProjectTemplate.gradle / launcherTemplate.gradle / mainTemplate.gradle 파일 내 형태가 변경됨에 따라 패치 파일 기준으로 적용 후 빌드를 진행하면 됩니다.
+
+2022.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/2022.x_gradle_files.zip)
 
 
-5. Unity 202X.X 버전을 사용하시는 경우 추가 수정사항
+5. Unity 2020.X, 2021.X 버전을 사용하시는 경우 추가 수정사항 ( 게임팟 SDK 3.4.X 이하 버전 대상)
 
 Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
@@ -1638,7 +1650,6 @@ Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
 
-
 <!-->
 6. GAMEPOT_UNITY_SDK_20220217.unitypackage 적용 후 로그인 API 결과가 실패아며 문구가 "초기화에 실패 했습니다. 현상이 지속할 경우 앱을 재실행해 주세요" 일떄 
  
@@ -1654,7 +1665,7 @@ Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
     ![gamepot_faq_58](./images/gamepot_faq_58.png)
 
 
-- 유니티 에디터 2021.X 버전에서는 안드로이드 / IOS 관련 하여 Build Settings > Player Settings > Other Settings 메뉴에서 패키지 네임을 수동으로 기입 후 빌드하고자 하는 OS로 Switch Platform 후 빌드해주세요. 
+- 유니티 에디터 2021.X 이상 버전에서는 안드로이드 / IOS 관련 하여 Build Settings > Player Settings > Other Settings 메뉴에서 패키지 네임을 수동으로 기입 후 빌드하고자 하는 OS로 Switch Platform 후 빌드해주세요. 
 
 
     위 작업을 선행으로 안했을 경우 google resolver 라이브러리 내부 버그로 인한 Please fix your Bundle ID 팝업 > Apply 버튼 클릭시 Ambiguous match found 오류가 발생하며 동작하지 않음

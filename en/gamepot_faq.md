@@ -383,7 +383,14 @@ If you are using Facebook login, add `keyhash` of the above `SHA-1` value to the
 
 ## Casebook
 
-###-Dashboard
+### - Check Gamepot API Latency
+
+https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com 
+
+![gamepot_faq_59](./images/gamepot_faq_59.png)
+
+
+### -Dashboard
 
 #### 1. When push message is not received
 
