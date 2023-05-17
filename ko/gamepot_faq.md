@@ -1585,14 +1585,14 @@ ex)
     4. mainTemplate_GAMEPOT_UNITY_2019_3_Over.gradle 파일을 참고하여 mainTemplate.gradle 설정합니다.
     gamepot_project_id 같은 환경 변수들은 launcherTemplate.gradle에 정의되었으므로 지우시면 됩니다.
 
-[ Unity 2022.X 이상]
+[ Unity 2022.2.X 이상]
 
     Unity Editer Ver 2022.X  baseProjectTemplate.gradle / launcherTemplate.gradle / mainTemplate.gradle 파일 내 형태가 변경됨에 따라 패치 파일 기준으로 적용 후 빌드를 진행하면 됩니다.
 
-2022.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/2022.x_gradle_files.zip)
+2022.2.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/2022.x_gradle_files.zip)
 
 
-5. Unity 2020.X, 2021.X 버전을 사용하시는 경우 추가 수정사항 ( 게임팟 SDK 3.4.X 이하 버전 대상)
+5. Unity 2020.X, 2021.X , 2022.1.X 버전을 사용하시는 경우 추가 수정사항 ( 게임팟 SDK 3.4.X 이하 버전 대상)
 
 Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/patch_for_unity_202X_X.zip)
 
