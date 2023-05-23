@@ -186,8 +186,8 @@ Line Developer Console의 설정이 올바른지 확인해주세요.
 
 ![gamepot_faq_11](./images/gamepot_faq_11.png)
 
-### 6. Twitter 로그인
-
+### 6. Twitter 로그인 ( 미지원 )
+<!--
     # Q. 트위터 로그인 시 오류 \(Error Code - 1011\)가 발생 합니다. (AOS, iOS)
     # A. Twitter Developers Console의 환경설정이 올바르지 않아 문제가 발생할 수 있습니다.
 
@@ -200,6 +200,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
    - 둘째줄 (iOS 사용) : twitterkit-{twitter_consumerkey}://
 
 ![gamepot_faq_12](./images/gamepot_faq_12.png)
+-->
 
 ### 7. Apple 로그인 ( Android )
 
@@ -333,7 +334,11 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
 #### 3-4)
-- 원스토어 SDK 인앱 버전 SDK v17, API v5 만 지원합니다.
+- 원스토어 SDK 인앱 버전 SDK은 게임팟 SDK 버전에 따라 지원 범위가 다릅니다. 
+  
+    GAMEPOT SDK V 3.5.0 : api21 , V7 지원
+
+    GAMEPOT SDK V 3.4.2  api17 , V5 지원
 
 - Android 빌드시 targetSdkVersion 30(Android 11) 이상으로 빌드한 경우 Android 11 OS기기에 원스토어 APK가 설치되었음에도 찾지 못합니다.
 
