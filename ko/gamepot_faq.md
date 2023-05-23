@@ -157,7 +157,7 @@ NAVER Developers Application 설정과 빌드 설정이 일치하는 지 확인�
 
 ![gamepot_faq_48](./images/gamepot_faq_48.png)
 
-1. 해당 링크의 패치를 다운받아 주세요. \([Download](https://kr.object.ncloudstorage.com/itsb/patch/Patch_GamePotNaverLogin_20200508.zip)\)
+1. 해당 링크의 패치를 다운받아 주세요. \([Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/Patch_GamePotNaverLogin_20200508.zip)\)
 
 2. 기존에 프로젝트 내 존재하는 2개의 framework를 삭제해주세요.
 
@@ -714,7 +714,7 @@ data:
 
 #### 사전예약 사이트 관련  PHP 소스 기반 소스
 
-다운로드 : [Download](https://kr.object.ncloudstorage.com/itsb/patch/pre_php_v1.tgz)
+다운로드 : [Download](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/pre_php_v1.tgz)
 
 ## GooglePlayGames API
 
@@ -1018,7 +1018,7 @@ https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com
     구글 콘솔에서 임의로 인앱상품을 하나 생성한 다음, 문제가 해결되는지 확인해보세요.
 
 
-#### 7. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://kr.object.ncloudstorage.com/itsb/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
+#### 7. IOS Push 메시지 수신 문제 \[[IOS APNS 인증서 등록 가이드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/IOS%20APNS%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%89%E1%85%A5%20%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5.docx)\]
 
     1. SENS 설정에 Certification에 인증키 및 인증서가 등록되어 있는지 확인 부탁드립니다.
     
@@ -1658,7 +1658,7 @@ Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 <!-->
 6. GAMEPOT_UNITY_SDK_20220217.unitypackage 적용 후 로그인 API 결과가 실패아며 문구가 "초기화에 실패 했습니다. 현상이 지속할 경우 앱을 재실행해 주세요" 일떄 
  
-   라이브러리를 교체 후 다시 확인 부탁드립니다.  [gamepot-bridge.aar 라이브러리 수정 파일 ](https://kr.object.ncloudstorage.com/itsb/patch/gamepot-bridge.aar_fixed_220302.zip)
+   라이브러리를 교체 후 다시 확인 부탁드립니다.  [gamepot-bridge.aar 라이브러리 수정 파일 ](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/gamepot-bridge.aar_fixed_220302.zip)
 
    기존에 설치된 앱은 삭제 후 확인 부탁드립니다.  
 -->
@@ -1803,7 +1803,7 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 
    [unity 패치]
    
-   관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/android_targetSDK31_facebook_13.2.0.zip)
+   관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/android_targetSDK31_facebook_13.2.0.zip)
 
   
   ```text
@@ -1870,7 +1870,7 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 
     [Unreal 패치]
 
-    관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/AOS_facebook_13_2_0.zip)
+    관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/AOS_facebook_13_2_0.zip)
 
     ```text
 
@@ -1888,7 +1888,7 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
 
     [Android Native 패치]
 
-    관련 수정 패치 : [다운로드](https://kr.object.ncloudstorage.com/itsb/patch/AOS_facebook_13_2_0.zip)
+    관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/AOS_facebook_13_2_0.zip)
 
     ```text
 
@@ -1908,6 +1908,62 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
     해당 내용을 꼭 추가로 입력하셔야 합니다.
     
     ```
+
+- Unity firebase Message Intent 오류가 발생할 경우
+
+
+관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/firebase_message_sdk_23_0_8_1207.zip)
+
+```text
+
+[삭제]
+
+../Assets/Plugins/Android/libs/firebase-annotations-16.0.0.jar
+../Assets/Plugins/Android/libs/firebase-common-19.5.0.aar
+../Assets/Plugins/Android/libs/firebase-components-16.1.0.aar
+../Assets/Plugins/Android/libs/firebase-datatransport-17.0.10.aar
+../Assets/Plugins/Android/libs/firebase-encoders-16.1.0.jar
+../Assets/Plugins/Android/libs/firebase-encoders-json-17.1.0.aar
+../Assets/Plugins/Android/libs/firebase-iid-21.0.1.aar
+../Assets/Plugins/Android/libs/firebase-iid-interop-17.0.0.aar
+../Assets/Plugins/Android/libs/firebase-installations-16.3.5.aar
+../Assets/Plugins/Android/libs/firebase-installations-interop-16.0.1.aar
+../Assets/Plugins/Android/libs/firebase-measurement-connector-18.0.0.aar
+../Assets/Plugins/Android/libs/firebase-messaging-21.0.1.aar
+../Assets/Plugins/Android/libs/play-services-base-17.5.0.aar
+../Assets/Plugins/Android/libs/play-services-basement-17.5.0.aar
+../Assets/Plugins/Android/libs/play-services-stats-17.0.0.aar
+../Assets/Plugins/Android/libs/play-services-tasks-17.2.0.aar
+../Assets/Plugins/Android/libs/transport-api-2.2.1.aar
+../Assets/Plugins/Android/libs/transport-backend-cct-2.3.3.aar
+../Assets/Plugins/Android/libs/transport-runtime-2.2.5.aar
+
+
+[추가]
+
+../Assets/Plugins/Android/libs/firebase-annotations-16.1.0.jar
+../Assets/Plugins/Android/libs/firebase-common-20.1.2.aar
+../Assets/Plugins/Android/libs/firebase-components-17.0.1.aar
+../Assets/Plugins/Android/libs/firebase-datatransport-18.1.6.aar
+../Assets/Plugins/Android/libs/firebase-encoders-17.0.0.jar
+../Assets/Plugins/Android/libs/firebase-encoders-json-18.0.0.aar
+../Assets/Plugins/Android/libs/firebase-encoders-proto-16.0.0.jar
+../Assets/Plugins/Android/libs/firebase-iid-21.1.0.aar
+../Assets/Plugins/Android/libs/firebase-iid-interop-17.1.0.aar
+../Assets/Plugins/Android/libs/firebase-installations-17.0.2.aar
+../Assets/Plugins/Android/libs/firebase-installations-interop-17.0.2.aar
+../Assets/Plugins/Android/libs/firebase-measurement-connector-19.0.0.aar
+../Assets/Plugins/Android/libs/firebase-messaging-23.0.8.aar
+../Assets/Plugins/Android/libs/play-services-base-18.0.1.aar
+../Assets/Plugins/Android/libs/play-services-basement-18.1.0.aar
+../Assets/Plugins/Android/libs/play-services-stats-17.0.2.aar
+../Assets/Plugins/Android/libs/play-services-tasks-18.0.1.aar
+../Assets/Plugins/Android/libs/transport-api-3.0.0.aar
+../Assets/Plugins/Android/libs/transport-backend-cct-3.1.7.aar
+../Assets/Plugins/Android/libs/transport-runtime-3.1.7.aar
+
+
+```
 
 
 ### Android OS 13기기에서 푸시 설정 못 받는 경우
