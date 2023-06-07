@@ -1792,6 +1792,34 @@ System.ComponentModel.Win32Exception (0x80004005): ApplicationName='python',
         <!-- 네이버 로그인을 사용하지 않는 다면 하기 문구는 삭제  [end]-->
 ```
 
+unreal 의 경우 Engine/Source/Programs/UnrealBuildTool/Platform/Android/UEDeployAndroid.cs 내 GenerateManifest() 함수에서 Manifest를 만드는 문맥을 파악 후 하기 코드 추가 
+
+```text
+
+        ........
+
+        // 게임팟 관련 태그 추가 [start]
+
+        Text.AppendLine("\t\t<service android:exported=\"false\" android:name=\"io.gamepot.common.GamePotFCMIDService\">");
+        Text.AppendLine("\t\t    <intent-filter>");
+        Text.AppendLine("\t\t        <action android:name=\"com.google.firebase.INSTANCE_ID_EVENT\"/>");
+        Text.AppendLine("\t\t    </intent-filter>");
+        Text.AppendLine("\t\t</service>");
+        Text.AppendLine("\t\t<service android:exported=\"false\" android:name=\"io.gamepot.common.GamePotFCMService\">");
+        Text.AppendLine("\t\t    <intent-filter>");
+        Text.AppendLine("\t\t        <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>");
+        Text.AppendLine("\t\t    </intent-filter>");
+        Text.AppendLine("\t\t</service>");
+
+        // 게임팟 관련 태그 추가 [end]
+
+		.......
+        // Required for OBB download support
+
+
+
+```
+
 - 페이스북 로그인을 사용하는데 Pending Intent 오류가 발생할 경우
 
   V3.4.2 버전으로 SDK 업그레이드 이후 아래 중복되는 라이브러리 파일을 교체 및 삭제를 부탁드립니다.
