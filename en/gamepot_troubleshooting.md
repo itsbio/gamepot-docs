@@ -238,6 +238,60 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
 
+- From NaverSDK version 1.2.X, the NAVER login feature is not available due to a library crash with the GAMEPOT SDK NAVER login.
+
+- When reflecting the NaverSDK version 1.3.2 
+
+ Delete duplicated libraries in ../Assets/Plugins/Android/libs folder (deletion list): Depending on the environment, you may need to delete duplicate libraries in your build for the item. 
+
+```text
+../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
+../Assets/Plugins/Android/libs/vectordrawable-animated-1.1.0.aar
+../Assets/Plugins/Android/libs/vectordrawable-1.1.0.aar
+../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
+../Assets/Plugins/Android/libs/media-1.0.0.aar
+../Assets/Plugins/Android/libs/browser-1.0.0.aar
+../Assets/Plugins/Android/libs/appcompat-resources-1.2.0.aar
+../Assets/Plugins/Android/libs/appcompat-1.2.0.aar
+../Assets/Plugins/Android/libs/activity-1.0.0.aar
+../Assets/Plugins/Android/libs/okio-1.14.0.jar
+../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
+```
+
+Change location of NAVER Lounge SDK library
+
+```text
+Existing
+Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1.3.2.aar 
+->
+Change location 
+/Assets/Plugins/Android/navergame-sdk-gradle-1.3.2.aar
+```
+After creating the NaverGameDependencies.xml file in the following path (see the following content for the file content), 
+
+select the Use Jetifier item from the Assets > Play Services Resolver > Android Resolver > Settings menu in Unity.
+
+Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties items must be deselected before running Resolver.
+
+/Assets/Firebase/Editor/NaverGameDependencies.xml
+
+```text
+<dependencies>
+  
+  <androidPackages>  
+    <androidPackage spec="com.naver.nid:naveridlogin-android-sdk:4.2.6">
+    </androidPackage>
+    <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
+    </androidPackage>
+    <androidPackage spec="androidx.viewpager2:viewpager2:1.0.0">
+    </androidPackage>
+
+  </androidPackages>
+</dependencies>
+```
+
+
+
 ## (Unity) Apply GoogleMobileAds SDK (Description based on GoogleMobileAds-v6.1.2)
 
 In the case of AdMob SDK (Unity), you need to use the Unity Play Services Resolver function after importing the Unity package.

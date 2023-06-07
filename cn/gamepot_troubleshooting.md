@@ -235,6 +235,58 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
 
+- 从NaverSDK Ver 1.2.X版本开始，由于库与GAMEPOT SDK NAVER登录冲突，无法使用NAVER登录功能。
+
+- 反映NaverSDK Ver 1.3.2版本时 
+
+ 删除../Assets/Plugins/Android/libs文件夹中重复的库（删除列表）：根据相应项目应用的环境，可能需要在构建时删除重复的库。
+
+```text
+../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
+../Assets/Plugins/Android/libs/vectordrawable-animated-1.1.0.aar
+../Assets/Plugins/Android/libs/vectordrawable-1.1.0.aar
+../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
+../Assets/Plugins/Android/libs/media-1.0.0.aar
+../Assets/Plugins/Android/libs/browser-1.0.0.aar
+../Assets/Plugins/Android/libs/appcompat-resources-1.2.0.aar
+../Assets/Plugins/Android/libs/appcompat-1.2.0.aar
+../Assets/Plugins/Android/libs/activity-1.0.0.aar
+../Assets/Plugins/Android/libs/okio-1.14.0.jar
+../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
+```
+
+变更NAVER Lounge SDK库的位置
+
+```text
+现有
+Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1.3.2.aar 
+->
+变更位置 
+/Assets/Plugins/Android/navergame-sdk-gradle-1.3.2.aar
+```
+在以下路径中创建NaverGameDependencies.xml文件（文件内容参考下方）后 
+
+请在Unity的Assets > Play Services Resolver > Android Resolver > Settings菜单中选择Use Jetifier项目。
+
+请在取消选择的状态下，对Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties项目进行Resolver。
+
+/Assets/Firebase/Editor/NaverGameDependencies.xml
+
+```text
+<dependencies>
+  
+  <androidPackages>  
+    <androidPackage spec="com.naver.nid:naveridlogin-android-sdk:4.2.6">
+    </androidPackage>
+    <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
+    </androidPackage>
+    <androidPackage spec="androidx.viewpager2:viewpager2:1.0.0">
+    </androidPackage>
+
+  </androidPackages>
+</dependencies>
+```
+
 ## (Unity) 应用 GoogleMobileAds SDK（基于 GoogleMobileAds-v6.1.2 的描述）
 
 如果是 AdMob SDK (Unity)，需要在导入 Unity 包后使用 Unity Play Services Resolver 功能。

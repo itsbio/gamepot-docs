@@ -275,6 +275,61 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.aar
 ```
 
+
+- NaverSDK Ver 1.2.X 버전 부터는 게임팟 SDK 네이버 로그인과 라이브러리 충돌로 네이버 로그인 기능 사용불가 합니다.
+
+- NaverSDK Ver 1.3.2 버전 반영시 
+
+ ../Assets/Plugins/Android/libs 폴더에 중복된 라이브러리 삭제 (삭제 리스트) : 해당 항목은 적용하는 환경에 따라 빌드시 중복되는 라이브러리를 삭제해야 할 수도 있습니다. 
+
+```text
+../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
+../Assets/Plugins/Android/libs/vectordrawable-animated-1.1.0.aar
+../Assets/Plugins/Android/libs/vectordrawable-1.1.0.aar
+../Assets/Plugins/Android/libs/savedstate-1.0.0.aar
+../Assets/Plugins/Android/libs/media-1.0.0.aar
+../Assets/Plugins/Android/libs/browser-1.0.0.aar
+../Assets/Plugins/Android/libs/appcompat-resources-1.2.0.aar
+../Assets/Plugins/Android/libs/appcompat-1.2.0.aar
+../Assets/Plugins/Android/libs/activity-1.0.0.aar
+../Assets/Plugins/Android/libs/okio-1.14.0.jar
+../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
+```
+
+네이버 라운지 SDK 라이브러리 위치 변경
+
+```text
+기존
+Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1.3.2.aar 
+->
+위치 변경 
+/Assets/Plugins/Android/navergame-sdk-gradle-1.3.2.aar
+```
+
+하기 경로에 NaverGameDependencies.xml 파일을 생성 ( 파일 내용을 하기 내용 참고) 후 
+
+Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴 중 Use Jetifier 항목을 선택해 주십시오.
+
+Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.properties 항목은 선택 해제한 상태에서 Resolver를 진행해 주십시오.
+
+/Assets/Firebase/Editor/NaverGameDependencies.xml
+
+```text
+<dependencies>
+  
+  <androidPackages>  
+    <androidPackage spec="com.naver.nid:naveridlogin-android-sdk:4.2.6">
+    </androidPackage>
+    <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
+    </androidPackage>
+    <androidPackage spec="androidx.viewpager2:viewpager2:1.0.0">
+    </androidPackage>
+
+  </androidPackages>
+</dependencies>
+```
+
+
 - IOS 앱 실행시 아래와 같은 크래시 로그가 보이는 경우
 
 하기 네이버 게임 SDK 가이드를 참고하여 진행 
