@@ -278,9 +278,9 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 
 - NaverSDK Ver 1.2.X 버전 부터는 게임팟 SDK 네이버 로그인과 라이브러리 충돌로 네이버 로그인 기능 사용불가 합니다.
 
-- NaverSDK Ver 1.3.2 버전 기준 반영시
+- NaverSDK Ver 1.3.2 버전 반영시 
 
- ../Assets/Plugins/Android/libs 폴더에 중복된 라이브러리 삭제 (삭제 리스트) : 해당 항목은 적용하는 환경에 따라 빌드시 중복되는 라이브러리를 삭제해야 할 수도 있습니다. 
+1.  ../Assets/Plugins/Android/libs 폴더에 중복된 라이브러리 삭제 (삭제 리스트) : 해당 항목은 적용하는 환경에 따라 빌드시 중복되는 라이브러리를 삭제해야 할 수도 있습니다. 
 
 ```text
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
@@ -296,7 +296,7 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
 ```
 
-네이버 라운지 SDK 라이브러리 위치 변경
+2. 네이버 라운지 SDK 라이브러리 위치 변경
 
 ```text
 기존
@@ -306,7 +306,7 @@ Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1
 /Assets/Plugins/Android/navergame-sdk-gradle-1.3.2.aar
 ```
 
-하기 경로에 NaverGameDependencies.xml 파일을 생성 ( 파일 내용을 하기 내용 참고) 후 
+3. 하기 경로에 NaverGameDependencies.xml 파일을 생성 ( 파일 내용을 하기 내용 참고) 후 
 
 Unity에서 Assets > Play Services Resolver > Android Resolver > Settings 메뉴 중 Use Jetifier 항목을 선택해 주십시오.
 
@@ -327,12 +327,37 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
 </dependencies>
 ```
 
-com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 파일을 하기 경로에 넣어 빌드시 포함되도록 해주십시오 
+4. com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 파일을 하기 경로에 넣어 빌드시 포함되도록 해주십시오 
 
 /Assets/Plugins/Android/libs/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar
 
-첨부파일 : [com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar)
+다운로드 : [com.naver.nid.naveridlogin-android-sdk-4.2.6.aar](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar)
 
+5. /Assets/NGSDK/Plugins/iOS/NCSDKUnityManager.mm 파일 수정
+
+```text
+기존 :
+
+(NSString *)getAuthSettingDescription {
+    return NNGSDKManager.shared.authSettingDescription;
+}
+
+수정 : 
+
+- (NSString *)getAuthSettingDescription {
+    return NNGSDKManager.shared.authSettingDescription;
+}
+
+```
+
+6. launcherTemplate.gradle 내에  하기 부분 추가
+
+```text
+    packagingOptions {
+	…..
+	// 20230322Add cause More than one file was found with OS independent path 'META-INF/kotlin-stdlib-common.kotlin_module'.
+	exclude("META-INF/*.kotlin_module") //-> 추가
+```    
 
 
 - IOS 앱 실행시 아래와 같은 크래시 로그가 보이는 경우

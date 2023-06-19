@@ -239,7 +239,7 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 
 - 反映NaverSDK Ver 1.3.2版本时 
 
- 删除../Assets/Plugins/Android/libs文件夹中重复的库（删除列表）：根据相应项目应用的环境，可能需要在构建时删除重复的库。
+1.  删除../Assets/Plugins/Android/libs文件夹中重复的库（删除列表）：根据相应项目应用的环境，可能需要在构建时删除重复的库。 
 
 ```text
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
@@ -255,7 +255,7 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
 ```
 
-变更NAVER Lounge SDK库的位置
+2. 变更NAVER Lounge SDK库的位置
 
 ```text
 现有
@@ -264,7 +264,8 @@ Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1
 变更位置 
 /Assets/Plugins/Android/navergame-sdk-gradle-1.3.2.aar
 ```
-在以下路径中创建NaverGameDependencies.xml文件（文件内容参考下方）后 
+
+3. 在以下路径中创建NaverGameDependencies.xml文件（文件内容参考下方）后 
 
 请在Unity的Assets > Play Services Resolver > Android Resolver > Settings菜单中选择Use Jetifier项目。
 
@@ -285,11 +286,37 @@ Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1
 </dependencies>
 ```
 
-Put the com.naver.nid.naveridlogin-android-sdk-4.2.6.aar file in the path below so that it is included when building.
+4. com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 파일을 하기 경로에 넣어 빌드시 포함되도록 해주십시오 
 
 /Assets/Plugins/Android/libs/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar
 
-Attached file: [download com.naver.nid.naveridlogin-android-sdk-4.2.6.aar](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk- 4.2.6.aar)
+Download : [com.naver.nid.naveridlogin-android-sdk-4.2.6.aar](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar)
+
+5. /Assets/NGSDK/Plugins/iOS/NCSDKUnityManager.mm 파일 수정
+
+```text
+기존 :
+
+(NSString *)getAuthSettingDescription {
+    return NNGSDKManager.shared.authSettingDescription;
+}
+
+수정 : 
+
+- (NSString *)getAuthSettingDescription {
+    return NNGSDKManager.shared.authSettingDescription;
+}
+
+```
+
+6. launcherTemplate.gradle 내에  하기 부분 추가
+
+```text
+    packagingOptions {
+	…..
+	// 20230322Add cause More than one file was found with OS independent path 'META-INF/kotlin-stdlib-common.kotlin_module'.
+	exclude("META-INF/*.kotlin_module") //-> 추가
+```    
 
 ## (Unity) 应用 GoogleMobileAds SDK（基于 GoogleMobileAds-v6.1.2 的描述）
 

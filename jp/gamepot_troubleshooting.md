@@ -241,7 +241,7 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 
 - NaverSDK Ver 1.3.2バージョン適用時 
 
- ../Assets/Plugins/Android/libsフォルダで重複したライブラリを削除(削除リスト): この項目は、適用する環境によってビルド時に重複したライブラリを削除しなければならない場合があります。
+1.  ../Assets/Plugins/Android/libsフォルダで重複したライブラリを削除(削除リスト): この項目は、適用する環境によってビルド時に重複したライブラリを削除しなければならない場合があります。 
 
 ```text
 ../Assets/Plugins/Android/libs/retrofit-2.5.0.jar
@@ -257,7 +257,7 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 ../Assets/Plugins/Android/libs/okhttp-3.10.0.jar
 ```
 
-NAVERラウンジ SDKライブラリの位置変更
+2. NAVERラウンジ SDKライブラリの位置変更
 
 ```text
 従来
@@ -266,7 +266,8 @@ Assets/NGSDK/Plugins/Android/navergamesdk.androidlib/libs/navergame-sdk-gradle-1
 位置変更 
 /Assets/Plugins/Android/navergame-sdk-gradle-1.3.2.aar
 ```
-下記のパスに NaverGameDependencies.xmlファイルを作成(ファイル内容は下記の内容を参照)し、 
+
+3. 下記のパスに NaverGameDependencies.xmlファイルを作成(ファイル内容は下記の内容を参照)し、 
 
 Unityの Assets > Play Services Resolver > Android Resolver > Settingsメニューのうち Use Jetifier項目を選択します。
 
@@ -278,7 +279,7 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
 <dependencies>
   
   <androidPackages>  
-     <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
+    <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
     </androidPackage>
     <androidPackage spec="androidx.viewpager2:viewpager2:1.0.0">
     </androidPackage>
@@ -287,11 +288,37 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
 </dependencies>
 ```
 
-Put the com.naver.nid.naveridlogin-android-sdk-4.2.6.aar file in the path below so that it is included when building.
+4. com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 파일을 하기 경로에 넣어 빌드시 포함되도록 해주십시오 
 
 /Assets/Plugins/Android/libs/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar
 
-Attached file: [download com.naver.nid.naveridlogin-android-sdk-4.2.6.aar](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk- 4.2.6.aar)
+Download : [com.naver.nid.naveridlogin-android-sdk-4.2.6.aar](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar)
+
+5. /Assets/NGSDK/Plugins/iOS/NCSDKUnityManager.mm 파일 수정
+
+```text
+기존 :
+
+(NSString *)getAuthSettingDescription {
+    return NNGSDKManager.shared.authSettingDescription;
+}
+
+수정 : 
+
+- (NSString *)getAuthSettingDescription {
+    return NNGSDKManager.shared.authSettingDescription;
+}
+
+```
+
+6. launcherTemplate.gradle 내에  하기 부분 추가
+
+```text
+    packagingOptions {
+	…..
+	// 20230322Add cause More than one file was found with OS independent path 'META-INF/kotlin-stdlib-common.kotlin_module'.
+	exclude("META-INF/*.kotlin_module") //-> 추가
+```    
 
 
 ## (Unity) GoogleMobileAds SDK の適用(GoogleMobileAds-v6.1.2 基準の説明)
