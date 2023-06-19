@@ -279,8 +279,6 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
 <dependencies>
   
   <androidPackages>  
-    <androidPackage spec="com.naver.nid:naveridlogin-android-sdk:4.2.6">
-    </androidPackage>
     <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
     </androidPackage>
     <androidPackage spec="androidx.viewpager2:viewpager2:1.0.0">
@@ -289,6 +287,11 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
   </androidPackages>
 </dependencies>
 ```
+Put the com.naver.nid.naveridlogin-android-sdk-4.2.6.aar file in the path below so that it is included when building.
+
+/Assets/Plugins/Android/libs/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar
+
+Attached file: [download com.naver.nid.naveridlogin-android-sdk-4.2.6.aar](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk- 4.2.6.aar)
 
 
 
