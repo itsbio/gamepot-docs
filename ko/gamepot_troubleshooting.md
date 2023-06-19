@@ -278,7 +278,7 @@ implementation "com.squareup.retrofit2:retrofit:2.6.4"
 
 - NaverSDK Ver 1.2.X 버전 부터는 게임팟 SDK 네이버 로그인과 라이브러리 충돌로 네이버 로그인 기능 사용불가 합니다.
 
-- NaverSDK Ver 1.3.2 버전 반영시 
+- NaverSDK Ver 1.3.2 버전 기준 반영시
 
  ../Assets/Plugins/Android/libs 폴더에 중복된 라이브러리 삭제 (삭제 리스트) : 해당 항목은 적용하는 환경에 따라 빌드시 중복되는 라이브러리를 삭제해야 할 수도 있습니다. 
 
@@ -318,8 +318,6 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
 <dependencies>
   
   <androidPackages>  
-    <androidPackage spec="com.naver.nid:naveridlogin-android-sdk:4.2.6">
-    </androidPackage>
     <androidPackage spec="com.squareup.retrofit2:retrofit:2.9.0">
     </androidPackage>
     <androidPackage spec="androidx.viewpager2:viewpager2:1.0.0">
@@ -328,6 +326,13 @@ Enable Resolution On Build / Enable Auto-Resolution / Patch gradle Template.prop
   </androidPackages>
 </dependencies>
 ```
+
+com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 파일을 하기 경로에 넣어 빌드시 포함되도록 해주십시오 
+
+/Assets/Plugins/Android/libs/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar
+
+첨부파일 : [com.naver.nid.naveridlogin-android-sdk-4.2.6.aar 다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/com.naver.nid.naveridlogin-android-sdk-4.2.6.aar)
+
 
 
 - IOS 앱 실행시 아래와 같은 크래시 로그가 보이는 경우
@@ -611,7 +616,7 @@ Add use_frameworks! to podfile / Always add the main target to Podfile 항목은
 ```
 
 
-3.  Firebase Unity 9.4.0 적용시 IOS 빌드시 추가 변경 작업
+3.  Firebase Unity 9.4.0 이후 버전 적용시 IOS 빌드시 추가 변경 작업
 
 - 유니티 에디터에서 ios 빌드후 나온 결과에서 Podfile 파일을 찾아 아래와 같은 형태로 수정 ( 다른 라이브러리가 있는 경우 , :modular_headers => true 부분을 추가 )
 
