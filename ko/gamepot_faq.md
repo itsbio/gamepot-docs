@@ -272,6 +272,7 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
 6. 단말기 -&gt; 설정 -&gt; 계정 메뉴에 테스트 참여한 계정만 남기고 모두 삭제 했는지 확인
 
+
 ### 3. ONEStore
 
 #### 3-1)
@@ -358,12 +359,10 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
     
         <application
 
-#### 3-5)
 
+### 4. Galaxy Store
 
-### 3. Galaxy Store
-
-#### 3-1)
+#### 4-1)
 
     # Q. 로그인시 '삼성 인앱결제  선택한 상품이 없어요' 문구 노출됩니다.
     # A. 앱이 배포가 안 된 경우 발생합니다.
@@ -371,6 +370,15 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
          대시보드 > 프로젝트 설정 > 화이트 유저 추가 (종류 : 개발 / 테스트 기기 IP) 설정을 합니다.
 
 ![gamepot_faq_49](./images/gamepot_faq_49.png)
+
+### 5. Apple Store
+
+- 결제를 진행하는 Sandbox 계정의 국가 정보가 애플 콘솔상에  앱 배포 국가 설정에 포함된 국가여야 합니다. 
+
+- Xcode Capability 항목에 in app purchase  항목 추가되어 있어야 합니다. 
+
+- 애플 콘솔상의 계약, 세금 및 금융거래 항목에 관련 정보에 이상이 있으면 안됩니다. ( 미처리된 부분이 있으면 인앱 정보를 애플 인앱 SDK에서 제공하지 않아 결제가 불가능합니다. )
+
 
 ## 인앱 아이템 리스트를 가져오지 못하는 경우
 
@@ -380,18 +388,55 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 
  - 구글 인앱 SDK    : 
 
-    (유니티) ../Assets/Plugins/Android/libs/billing-3.0.3.aar
+```text
 
-    (gradle) implementation 'com.android.billingclient:billing:3.0.3'
+    (유니티)
+    ../Assets/Plugins/Android/libs/billing-5.0.0.aar
+    ../Assets/Plugins/Android/libs/firebase-crashlytics-buildtools-2.9.1.jar
+    
+    (Native) 
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    implementation 'com.android.billingclient:billing:5.0.0'
 
- - 원스토어 인앱 SDK : gamepot-billing-onestore.aar
+```
 
- - 갤럭시 스토어 인앱 SDK :  gamepot-billing-galaxystore.aar
+ - 원스토어 인앱 SDK : 
+
+```text
+
+    (유니티)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-onestore.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-auth-1.0.2.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-base-1.0.3.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-iap-21.00.00.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-onestore', ext: 'aar')
+    implementation(name: 'sdk-auth-1.0.2', ext: 'aar')
+    implementation(name: 'sdk-base-1.0.3', ext: 'aar')
+    implementation(name: 'sdk-iap-21.00.00', ext: 'aar')
+```
+
+ - 갤럭시 스토어 인앱 SDK :
+  
+```text
+
+    (유니티)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-galaxystore.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-galaxystore', ext: 'aar')
+
+```  
 
 3. 결제 관련 셋팅이 되어 있어야 합니다. 참조:[# 결제가 안되요!](https://docs.gamepot.io/undefined/gamepot_faq#undefined-1)
 
 4. getPurchaseItems API를 이용하는 경우 로그인 이후 결제 모듈을 초기화 작업을 진행 후 비동기적으로 인앱 리스트를 받으며 받은 결과를 보여주는 API 입니다. 호출하는 타이밍상 정보가 없을 수가 있습니다.
-위와 같이 없는 경우 getPurchaseDetailListAsync API (동기식 인앱 리스트 항목 획득)를 사용하시는 것을 추천드립니다.
+
+위와 같이 없는 경우 getPurchaseDetailListAsync API (동기식 인앱 리스트 항목 획득)를 사용하시는 것을 추천드립니다. ( 구글의 경우 기기에 구글 계정이 미등록된 기기에서는 응답이 없을 수가 있습니다. )
+
+5. 각 스토어 인앱 결제를 위한 결제 계정이 기기에 로그인되어 있어야 하며 결제를 진행하는 계정의 국가 정보가 스토어 앱 배포 국가에 속한 계정이여야 합니다. 
+ 
 
 ## 인앱 영수증이 있는데 대시보드에는 영수증 정보가 없어요. / 결제 진행이 중단된 경우 복구 처리하는 로직이 있나요?
 
