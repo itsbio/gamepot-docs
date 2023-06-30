@@ -280,9 +280,13 @@ If items 1 to 4 are performed, but onCancel is processed when trying to log in
 
 
 #### 3-4)
-- OneStore SDK應用內版本SDK v17，僅API v5。
+- One Store SDK 的應用內版本具有不同的支持套件，具體取決於 GAMEPOT SDK 的版本。
+  
+GAMEPOT SDK V 3.5.0：支持 api21、V7
 
-- 如果在構建Android時使用targetSdkVersion 30（Android 11）構建，則Android 11 OS設備無法識別OneStore APK。
+GAMEPOT SDK V 3.4.2：支持 api 17、V5
+
+- 如果在 Android 構建過程中使用了 targetSdkVersion 30(Android 11)，則無法在運行 Android 11 操作系統的設備上搜索 One Store APK。
 
     [AndroidManifest.xml 需要在文件中添加以下短語]
 
@@ -301,10 +305,9 @@ If items 1 to 4 are performed, but onCancel is processed when trying to log in
         <application
 
 
+### 4. Galaxy Store
 
-### 3. Galaxy Store
-
-#### 3-1)
+#### 4-1)
 
     # Q. 登录时显示“不存在选择三星应用内支付的商品”语句。
     # A. 应用未发布时会出现这种问题。
@@ -312,6 +315,76 @@ If items 1 to 4 are performed, but onCancel is processed when trying to log in
          进行仪表盘 > 项目设置 > 添加白色玩家（种类：开发/测试设备IP）设置。
 
 ![gamepot_faq_49](./images/gamepot_faq_49.png)
+
+
+### 5.蘋果商店
+
+- 處理付款的沙盒帳戶的設置國家/地區需要來自 Apple 控制台可分發應用程序的可用國家/地區列表。
+
+- 需要在Xcode Capability中添加應用內購買功能。
+
+- 在 Apple 控制台上，合同、稅務和財務交易的任何部分都不得出現任何問題。
+（當有任何未解決的問題時，Apple應用內SDK將停止提供應用內信息，從而禁止應用內支付。）
+
+## 未收到應用內項目列表
+
+1. 通過GAMEPOT只能購買和處理應用內消耗品。
+
+2. 支付庫必須在構建時實現。
+
+- Google in-app SDK:
+
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/libs/billing-5.0.0.aar
+    ../Assets/Plugins/Android/libs/firebase-crashlytics-buildtools-2.9.1.jar
+    
+    (Native) 
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    implementation 'com.android.billingclient:billing:5.0.0'
+
+```
+
+- One Store in-app SDK:
+
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-onestore.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-auth-1.0.2.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-base-1.0.3.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-iap-21.00.00.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-onestore', ext: 'aar')
+    implementation(name: 'sdk-auth-1.0.2', ext: 'aar')
+    implementation(name: 'sdk-base-1.0.3', ext: 'aar')
+    implementation(name: 'sdk-iap-21.00.00', ext: 'aar')
+```
+
+- Galaxy Store in-app SDK:
+  
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-galaxystore.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-galaxystore', ext: 'aar')
+
+```  
+
+
+3. 必須正確完成支付功能的設置。 請參考：【#无法付款!】(https://docs.gamepot.io/zhong-wen/gamepot_faq#wu-fa-fu-kuan)
+
+
+4. 使用getPurchaseItems API時，登錄後初始化支付模塊，API異步接收應用內支付列表並顯示為響應。 因此，根據 API 調用的時間，有時可能不會返回任何信息。
+
+如果信息缺失，我們建議使用 getPurchaseDetailListAsync API，同步獲取應用內支付列表。 （對於Google，未註冊Google帳戶的設備可能沒有響應。）
+
+5. 設備上必須登錄專用支付賬戶才能啟用各商店的應用內支付功能，且處理支付的國家/地區必須來自商店應用程序的可用國家/地區列表。
+
 
 
 ## Adbrix Remaster

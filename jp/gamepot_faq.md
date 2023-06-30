@@ -283,13 +283,18 @@ Twitter Developer Console の設定が正しいことを確認してください
 ![gamepot_faq_28](./images/gamepot_faq_28.png)
 
 #### 3-4)
-- OneStore SDKアプリ内のバージョンSDK v17、API v5のみをサポートします。
+- One Store の SDK のアプリ内バージョンには、GAMEPOT SDK のバージョンに応じて異なるサポートスイートがあります。
+  
+GAMEPOT SDK V 3.5.0: api21、V7 をサポート
 
-- Androidビルド時targetSdkVersion30（Android11）にビルドした場合Android11 OS機器にOneStore APKを認知できない。
+GAMEPOT SDK V 3.4.2: API 17、V5 をサポート
 
-    [AndroidManifest.xml ファイル内にフレーズを追加する必要]
+- Android ビルド中に targetSdkVersion 30(Android 11) が使用された場合、Android 11 OS を実行しているデバイスでは One Store APK を検索できません。
 
-        <!-- targetSdkVersion 30 以上でビルドする場合の OneStore バージョンの追加コード [Start] -->
+[次のコード行を AndroidManifest.xml ファイルに追加する必要があります]
+
+        <!—Patch for One Store when targetSdkVersion is higher than 30 [Start] -->
+
         <queries>
             <intent>
                 <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
@@ -299,9 +304,90 @@ Twitter Developer Console の設定が正しいことを確認してください
                 <data android:scheme="onestore" />
             </intent>
         </queries>
-        <!-- targetSdkVersion 30 以上でビルドする場合の OneStore バージョンの追加コード [End] -->
-        
+        <!—Patch for One Store when targetSdkVersion is higher than 30 [End] -->
+
+    
         <application
+
+
+### 4. ギャラクシーストア
+
+#### 4-1)
+
+# Q. ログイン時に「Samsung アプリ内支払いに選択された製品がありません」というメッセージが表示されます。
+ 
+# A. アプリケーションが配布されていない場合にエラーメッセージが表示されます。
+配信前に以下の手順に従ってアプリ内決済のテストを行ってください。
+ダッシュボード > プロジェクト設定 > ホワイトユーザー > 「追加」をクリックします (タイプ: 開発 / IP: テストデバイスの IP アドレス)
+
+
+### 5. アップルストア
+
+- 支払いを処理するサンドボックス アカウントの設定国は、Apple コンソールからのアプリ配布に利用可能な国のリストから選択する必要があります。
+
+- アプリ内購入機能を Xcode 機能に追加する必要があります。
+
+- Apple コンソールでは、契約、税金、財務取引のどの部分にも問題が発生してはなりません。
+(未解決の問題がある場合、Apple アプリ内 SDK はアプリ内情報の提供を停止し、アプリ内支払いが禁止されます。)
+
+## アプリ内アイテムのリストを受信しない
+
+1. GAMEPOTを通じて購入および処理できるのは、消耗品のアプリ内アイテムのみです。
+
+
+2. 支払いライブラリはビルド時に実装する必要があります。
+
+- Google in-app SDK:
+
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/libs/billing-5.0.0.aar
+    ../Assets/Plugins/Android/libs/firebase-crashlytics-buildtools-2.9.1.jar
+    
+    (Native) 
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    implementation 'com.android.billingclient:billing:5.0.0'
+
+```
+
+- One Store in-app SDK:
+
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-onestore.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-auth-1.0.2.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-base-1.0.3.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-iap-21.00.00.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-onestore', ext: 'aar')
+    implementation(name: 'sdk-auth-1.0.2', ext: 'aar')
+    implementation(name: 'sdk-base-1.0.3', ext: 'aar')
+    implementation(name: 'sdk-iap-21.00.00', ext: 'aar')
+```
+
+- Galaxy Store in-app SDK:
+  
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-galaxystore.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-galaxystore', ext: 'aar')
+
+```  
+
+3. 決済機能の設定が正しく完了している必要があります。 参照してください: [#支払いしていない！] (https://docs.gamepot.io/ri-ben/gamepot_faq#ishiteinai)
+
+
+4. getPurchaseItems API を使用する場合、ログイン後に支払いモジュールが初期化され、API はアプリ内支払いのリストを非同期で受信して応答として表示します。 したがって、API 呼び出しのタイミングによっては、情報が返されない場合があります。
+
+情報が不足している場合は、getPurchaseDetailListAsync API を使用して、アプリ内支払いのリストを同期的に取得することをお勧めします。 （Googleの場合、Googleアカウントが登録されていない端末では応答しない場合があります。）
+
+5. 各ストアのアプリ内支払い機能を有効にするには、支払い専用のアカウントがデバイスにログインする必要があります。また、支払いを処理する国は、ストアのアプリの配布に利用可能な国のリストに含まれている必要があります。
 
 
 ## Adbrix Remaster

@@ -287,13 +287,18 @@ Please enter the key referring to the contents in'View Help'.
 
 
 #### 3-4)
-- OneStore SDK In-app version SDK v17, API v5 only.
+- The in-app version of the One Store’s SDK has a different suite of support, depending on the version of GAMEPOT SDK.  
+  
+GAMEPOT SDK V 3.5.0: api21, V7 supported
 
-- When Android is built, if the targetSdkVersion 30 (Android 11) is built, the OneStore APK is not recognized by the Android 11 OS device.
+GAMEPOT SDK V 3.4.2:  api 17, V5 supported
 
-    [AndroidManifest.xml ファイル内にフレーズを追加する必要]
+-If targetSdkVersion 30(Android 11) was used during Android build, the One Store APK can’t be searched on devices running Android 11 OS.
 
-        <!-- Additional code for OneStore version when building with targetSdkVersion 30 or higher [Start] -->
+[The following lines of code need to be added to the AndroidManifest.xml file]
+
+        <!—Patch for One Store when targetSdkVersion is higher than 30 [Start] -->
+
         <queries>
             <intent>
                 <action android:name="com.onestore.ipc.iap.IapService.ACTION" />
@@ -303,9 +308,92 @@ Please enter the key referring to the contents in'View Help'.
                 <data android:scheme="onestore" />
             </intent>
         </queries>
-        <!-- Additional code for OneStore version when building with targetSdkVersion 30 [End] -->
+        <!—Patch for One Store when targetSdkVersion is higher than 30 [End] -->
 
+    
         <application
+
+
+### 4. Galaxy Store
+
+#### 4-1)
+
+# Q. The message “There is no product selected for Samsung in-app payment” pops up when logged in.
+ 
+# A. The error message appears when the application is not distributed.
+Please follow the steps to run a test for in-app payment prior to the distribution.
+Dashboard > Project Settings > White User > Click “Add” (Type: Development / IP: IP address of the testing device)
+
+
+
+### 5. Apple Store
+
+- The set country of the Sandbox account that processes payments needs to from the list of available countries for app distribution from the Apple Console.   
+
+- The in-app purchase feature needs to be added to the Xcode Capability.  
+
+- On the Apple Console, there must be no issues appearing on any part of the contract, tax, and financial transaction.
+(When there is any unresolved issue, the Apple in-app SDK stops providing in-app information, which then prohibits in-app payment.)
+
+## Not receiving lists of in-app items
+
+1.	Only consumable in-app items can be purchased and processed through GAMEPOT.
+
+
+2.	Payment library must be implemented during build.
+
+- Google in-app SDK:
+
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/libs/billing-5.0.0.aar
+    ../Assets/Plugins/Android/libs/firebase-crashlytics-buildtools-2.9.1.jar
+    
+    (Native) 
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
+    implementation 'com.android.billingclient:billing:5.0.0'
+
+```
+
+- One Store in-app SDK:
+
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-onestore.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-auth-1.0.2.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-base-1.0.3.aar
+    ../Assets/Plugins/Android/nativeLibs/sdk-iap-21.00.00.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-onestore', ext: 'aar')
+    implementation(name: 'sdk-auth-1.0.2', ext: 'aar')
+    implementation(name: 'sdk-base-1.0.3', ext: 'aar')
+    implementation(name: 'sdk-iap-21.00.00', ext: 'aar')
+```
+
+- Galaxy Store in-app SDK:
+  
+```text
+
+    (Unity)
+    ../Assets/Plugins/Android/nativeLibs/gamepot-billing-galaxystore.aar
+
+    (Native) 
+    implementation(name: 'gamepot-billing-galaxystore', ext: 'aar')
+
+```  
+
+
+3. Settings for payment feature must be completed properly. Please refer to: [#Payment is not possible!] (https://docs.gamepot.io/english/gamepot_faq#payment-is-not-possible)
+
+
+4. When using the getPurchaseItems API, payment modules are initialized after logins, and the API receives the list of in-app payment asynchronously to show as a response. Thus, depending on the timing of the API calls made, there could be times where no information gets returned.  
+
+In case of missing information, we suggest using the getPurchaseDetailListAsync API, for obtaining lists of in-app payment synchronously. (For Google, there could be no response on devices that are not registered with Google accounts.) 
+
+5. A dedicated account for payment must be logged in on the devices to enable each store’s in-app payment feature, and the country that processes payments must be from the list of available countries for the distribution of the Store’s app.
 
 
 
