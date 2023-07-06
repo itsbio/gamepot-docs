@@ -23,15 +23,15 @@ GAMEPOT 采用的不是费用与游戏升级成比例增加的结构。当前国
 
 要使用服务，必须先创建项目。
 
-![gamepot_console_01.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_01%282%29.png)
+![gamepot_console_01.png](./images/gamepot_console_01.png)
 
 ① 在控制台中选择**Game > GAMEPOT**。
 
-![gamepot_console_02.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_02%282%29.png)
+![gamepot_console_02.png](./images/gamepot_console_02.png)
 
 ② 点击 **[+创建项目]** 按钮。
 
-![gamepot_console_03.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_03%282%29.png)
+![gamepot_console_03.png](./images/gamepot_console_03.png)
 
 ③ 输入游戏项目名称。
 
@@ -45,7 +45,7 @@ GAMEPOT 采用的不是费用与游戏升级成比例增加的结构。当前国
 
 ⑤ 选择产品。
 
-![gamepot_console_04.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_04%282%29.png)
+![gamepot_console_04.png](./images/gamepot_console_04.png)
 
 - 选择 Managed 产品时，会弹出一个服务申请向导窗口。
 
@@ -61,35 +61,33 @@ GAMEPOT 采用的不是费用与游戏升级成比例增加的结构。当前国
 
 项目创建成功后，可看到标注了游戏项目名和产品名的列表画面。
 
-![gamepot_console_06.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_06%282%29.png)
+![gamepot_console_06.png](./images/gamepot_console_06.png)
 
 ① 可以通过仪表盘 URL 进入可管理游戏功能的仪表盘。
 
 ② 勾选项目并点击 **[项目管理]** 按钮时，会显示简单的管理菜单。
 
-![gamepot_console_07.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_07%282%29.png)
+![gamepot_console_07.png](./images/gamepot_console_07.png)
 
 - 更改产品：更改正在使用的服务产品。可能会出现暂时无法访问仪表盘的情况。点击 **[更改产品]** 按钮时，会弹出如下弹窗。选择要更改的产品后点击 **[修改]** 按钮。
 
-![gamepot_console_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_08%282%29.png)
-
-![gamepot_console_08.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_08%283%29.png)
+![gamepot_console_08.png](./images/gamepot_console_08.png)
 
 - 更改账户：可以更改创建项目时输入的管理员 ID。完成更改申请后，向更改的账户邮箱地址发送认证邮件。
 
 - 密码初始化：仪表盘访问密码丢失或者需要初始化时使用。密码初始化之后访问仪表盘，可以重新设置密码。
 
-![gamepot_console_09.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_09%282%29.png)
+![gamepot_console_09.png](./images/gamepot_console_09.png)
 
 ### 第三步. 删除项目<a name="第三步删除项目"></a>
 
 GAMEPOT 从项目创建完成时开始按小时产生费用。因此，不需要时应删除项目，以免产生不必要的费用。
 
-![gamepot_console_10.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_10%282%29.png)
+![gamepot_console_10.png](./images/gamepot_console_10.png)
 
 ① 删除项目时，点击 **[删除项目]** 按钮。点击 **[删除项目]** 按钮时，会弹出如下弹窗。
 
-![gamepot_console_11.png](https://cdn.document360.io/6998976f-9d95-4df8-b847-d375892b92c2/Images/Documentation/gamepot_console_11%282%29.png)
+![gamepot_console_11.png](./images/gamepot_console_11.png)
 
 ② 为了完成删除，需要输入项目名称。
 

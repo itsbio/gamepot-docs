@@ -134,7 +134,7 @@ https://{domain}?itemId=\[{"item_id":"d0781c4e-df52-465b-ab93-0ee16fbf445d","sto
 ## ゲームサーバ > GAMEPOT サーバ<a name="ゲームサーバ>GAMEPOTサーバ"></a>
 
 
-### Token Authentication（optional）<a name="TokenAuthenticationoptional"></a>
+### Gamepot user ID verification（optional）<a name="TokenAuthenticationoptional"></a>
 
 
 ゲームログイン完了後に取得した情報を用いて、GAMEPOT サーバでログイン検証ができます。

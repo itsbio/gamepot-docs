@@ -873,6 +873,8 @@ For GAMEPOT SDK’s version higher than 3.5.1,
 
 the same GAMEPOT user IDs and its associated information will be provided when users attempt logging in as guest again after deleting the app or the data within the app.  
 
+(Create a user ID for GAMEPOT using the ANDROID_ID and UDID. In case there is any change made on those information, the user information of the account will also be altered.)
+
 In case users delete their guest accounts or attempt logging in as guest after logging in using their SNS accounts, new GAMEPOT user IDs will be provided – the same way as before.
 
 For the users who have been using guest accounts since the GAMEPOT SDK 3.5.0 or lower, the user IDs and its associated information will remain the same even after the GAMEPOT SDK’s update to 3.5.1. However, if users, who had logged in as guest before, log in as guest again after deleting the app or the data within the app, new GAMEPOT user IDs (new guest login information) will be provided to you.  

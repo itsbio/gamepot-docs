@@ -112,7 +112,7 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 
 ## 게임 서버 &gt; GAMEPOT 서버
 
-### Token Authentication\(optional\)
+### Gamepot user ID verification\(optional\)
 
 게임에서 로그인 완료 후 얻은 정보로 GAMEPOT 서버에 로그인 검증을 할 수 있습니다.
 

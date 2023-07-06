@@ -101,7 +101,7 @@
 
 
 
-## 登录验证请求（可选）<a name="로그인검증요청"></a>
+## Gamepot user ID verification\(optional\)<a name="로그인검증요청"></a>
 
 可以使用会员完成登录时获得的信息向GAMEPOT服务器请求登录验证。
 

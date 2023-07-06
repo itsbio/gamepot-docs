@@ -139,7 +139,7 @@ Return a response in the following format.
 ## Game server > GAMEPOT server<a name="Gameserver>GAMEPOTserver"></a>
 
 
-### Token Authentication\(optional\)<a name="TokenAuthenticationoptional"></a>
+### Gamepot user ID verification\(optional\)<a name="TokenAuthenticationoptional"></a>
 
 
 Using the information provided after login has been completed in your game, you can request the GAMEPOT server to verify the login.
