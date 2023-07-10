@@ -114,6 +114,8 @@ userId={userId}&projectId={projectId}&platform={platform}&store={store}&userData
 
 ### Gamepot user ID verification\(optional\)
 
+해당 Api는 로그인과는 상관없이 게임팟 사용자 아이디의 유효성 체크하는 과정입니다.
+
 게임에서 로그인 완료 후 얻은 정보로 GAMEPOT 서버에 로그인 검증을 할 수 있습니다.
 
 토큰 검증은 2 단계로 진행되며, 1단계 GAMEPOT 토큰 검증 후 2단계 소셜 토큰 검증이 진행됩니다.
