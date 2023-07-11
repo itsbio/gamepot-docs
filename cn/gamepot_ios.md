@@ -1142,10 +1142,30 @@ NSArray *json_value = [[GamePot getInstance] getConfigs];
 } setUpdateHandler:^(GamePotAppStatus *status) {
 
     //NeedUpdate
+    // 需强制更新。调用以下API，即可显示SDK自主弹窗。
+    // 需要自定义时，在没有调用以下API的状态下进行自定义。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // 调用showAppStatusPopup API时，在必须关闭应用的情况下调用。
+        // 请处理终止进程。
+    } setNextHandler:^(NSObject* resultPayload) {
+        // 将仪表盘的更新设置设为推荐时，会显示"下次进行"按钮。
+        // 用户选择该按钮时会调用。
+        // 请使用resultPayload信息，进行与登录成功时同样的处理。
+        // GamePotUserInfo* userInfo = (GamePotUserInfo*)resultPayload;
+
+    }];
 
 } setMaintenanceHandler:^(GamePotAppStatus *status) {
 
     //OnMaintenance
+    // 正在维护中。调用以下API，即可显示SDK自主弹窗。
+    // 需要自定义时，在没有调用以下API的状态下进行自定义。
+    [[GamePot getInstance] showAppStatusPopup:self setAppStatus:appStatus
+        setCloseHandler:^{
+        // 调用showAppStatusPopup API时，在必须关闭应用的情况下调用。
+        // 请处理终止进程。
+    }];
 
 }];
 ```

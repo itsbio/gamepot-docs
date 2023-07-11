@@ -1531,14 +1531,43 @@ GamePot.getInstance().checkAppStatus(new GamePotAppStatusResultListener() {
     }
     @Override
     public void onFailure(GamePotError error){
-
+        // 登录失败。请使用error.getMessage()显示错误消息。
     }
     @Override
     public void onNeedUpdate(GamePotAppStatus status){
 
+        // TODO: 需要强制更新时。调用下列API，可在SDK中直接弹出窗口。
+        // TODO: 需要Customizing时，无需调用下列API，直接进行定制即可。
+        GamePot.getInstance().showAppStatusPopup(this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: 调用showAppStatusPopup API时，在需要结束APP时调用。
+                // TODO: 请处理结束进程。
+                MainActivity.this.finish();
+            }
+
+            @Override
+            public void onNext(Object obj) {
+                // TODO：在Dashboard更新设置中建议设置时，显示"下次进行"按钮。
+                // 用户选择该按钮时调用。
+                // TODO：请与使用obj信息成功登录时做相同的处理。
+                // GamePotUserInfo userInfo = (GamePotUserInfo)obj;
+            }
+        });
+
     }
     @Override
     public void onMainternance(GamePotAppStatus status){
+        // TODO: 检查中时：调用下列API，可在SDK中直接弹出窗口。
+        // TODO: 需要Customizing时，无需调用下列API，直接进行定制即可。
+        GamePot.getInstance().showAppStatusPopup(this, status, new GamePotAppCloseListener() {
+            @Override
+            public void onClose() {
+                // TODO: 调用showAppStatusPopup API时，在需要结束APP时调用。
+                // TODO: 请处理结束进程。
+                MainActivity.this.finish();
+            }
+        });
 
     }
 });
