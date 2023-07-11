@@ -682,3 +682,49 @@ end
 $ pod install
 
 ```
+
+## (Unity) 유니티 에디터 옵션 중 minify를 사용하실 떄
+
+
+게임팟 측면에서 관련하여 
+
+Build Settings > Player Serttings > Player > Publishing Settings > Build 경로의
+
+Custom Proguard File 설정을 체크하시어 게임팟 관련 내용을 모두 예외 처리를 부탁드립니다.
+
+하기 내용 :
+
+```text
+
+-keep class io.gamepot.** { *; }
+-keep class com.google.* {*;}
+-keep class com.google.impl.* {*;}
+-keep class com.google.firebase.* {*;}
+-keep class com.google.googlesignin.** { *; }
+-keepnames class com.google.googlesignin.* { *; }
+-keep class com.google.gms.** {*;}
+-keep class com.google.android.gms.auth.** { *; }
+-keep class com.google.android.* {*;}
+-keep class com.google.unity.* {*;}
+
+```
+
+<!--
+
+## (Unity) (Android) 유니티 안드로이드 버전에서 Mutidex 문제로 앱 크래시가 발생시
+
+빌드 환경에 따라 설정 방식이 달라질 수 있으나 기본적으로 launcherTemplate.gradle 파일 내에 아래와 같이 수정을 진행 합니다. 
+
+```text
+
+dependencies {
+
+    implementation "androidx.multidex:multidex:2.0.1"
+}
+
+```
+
+위 설정이 있음에도 오류가 발생한다면 
+
+
+-->

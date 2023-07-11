@@ -15,7 +15,7 @@ search:
 
 使用Android操作系统用GAMEPOT SDK时所需的配置要求如下。
 
-* 最低配置：API 17 (Jelly Bean 4.2) 以上、gradle 3.3.3或3.4.3.以上
+* 最低配置：API 19 (Kitkat) 以上、gradle 3.3.3或3.4.3.以上
 * 开发环境： Android Studio
 
 ## 安装SDK和配置环境<a name="SDK설치및환경구성"></a>
@@ -129,13 +129,15 @@ search:
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     implementation 'com.apollographql.apollo:apollo-runtime:1.0.0-alpha2'
     implementation 'com.apollographql.apollo:apollo-android-support:1.0.0-alpha2'
-    implementation 'com.android.billingclient:billing:3.0.3'
+    implementation 'com.android.billingclient:billing:5.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.1'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.romandanylyk:pageindicatorview:1.0.3'
     implementation 'androidx.sqlite:sqlite-framework:2.0.1'
     implementation 'com.cookpad.puree:puree:4.1.6'
     implementation 'com.google.firebase:firebase-core:18.0.1'
-    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'com.google.firebase:firebase-iid:21.1.0'
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
     // GamePot common [END]
    
