@@ -212,7 +212,9 @@ GamePotChat.stop();    //disconnect
 
 Case 1 ) 사용자 아이디로 고객문의 UI를 연동할때 
 
-​```csharp
+
+```csharp
+
 //대시보드 주소 및 각 파라메터 값을, 생성한 GamePot 대시보드에 대한 값으로 수정하여 접근이 가능합니다.
 
 [url]
@@ -234,7 +236,11 @@ https://dashboard.gamepot.ntruss.com/demo/cs/question?projectid=XXXXXXXXX&store=
 | sdkversion | 게임팟 SDK Version          | 3.4.0                                    |
 | language   | 언어                        | (ISO 639-1코드) ex) ko                                       |
 
-|
+
+
+
+
+<!--
 
 Case 2 ) 로그인 성공 후 발생하는 토큰으로 고객문의 UI를 연동할때 
 
@@ -256,7 +262,7 @@ sdkversion 정보가 없는 경우 파일 업로드 메뉴가 보이지 않습�
 https://dashboard.gamepot.ntruss.com/demo/cs/question?projectid=XXXXXX&sdkversion=3.4.0&store=pc&language=ko&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ3JlZSI6eyJ0ZXJtc29mdXNlIjoiTiIsInByaXZhY3lwb2xpY3kiOiJOIn0sImdkcHIiOnsic3RhdHVzIjowLCJjaGVja2VkX3N0b3J5X2NhdGVnb3J5X2lkcyI6W119LCJsb2NhbCI6eyJzdGF0dXMiOjB9LCJwdXNoIjp0cnVlLCJuaWdodCI6ZmFsc2UsImFkIjp0cnVlLCJkZWxldGVkIjpmYWxzZSwibWFuYWdlciI6ZmFsc2UsInNhbmRib3giOmZhbHNlLCJfaWQiOiI2MWJjMWE1NjU0ZjliMTY3MThjNWM4NDIiLCJ1c2VybmFtZSI6IiIsInBhc3N3b3JkIjoiJDJiJDA0JEhzbXFELi5KMEdDZmtIa0hhdE5XYXVMRHhFNGRPamZBUW9rT3ZLOFJWNmt6cDNYNVZYYS5hIiwicHJvamVjdF9pZCI6IjgwN2RiMzdiLTk5ZGQtNDYyOC05YjYzLTEwNzdkZWQ4MTU1ZCIsInN0b3JlX2lkIjoiZ29vZ2xlIiwiaWQiOiIyNTJjZGQ5Ni1hYjkwLTQ1ODItOTIwYy1iZmU5YjJhNzMzNGYiLCJyZW1vdGVpcCI6IjYxLjQzLjU0LjMiLCJsb2dpbmVkQXQiOiIyMDIxLTEyLTE3VDA1OjA0OjIyLjIzOVoiLCJjb3VudHJ5IjoiS1IiLCJjcmVhdGVkQXQiOiIyMDIxLTEyLTE3VDA1OjA0OjIyLjI1MVoiLCJ1cGRhdGVkQXQiOiIyMDIxLTEyLTE3VDA1OjA0OjIyLjI1MVoiLCJfX3YiOjAsImlhdCI6MTYzOTcxNzQ2MiwiZXhwIjoxNjQ3NDkzNDYyfQ.__fyXqmw567Ilf2_blMhLJo_g6FwsWnRtWUI_Iiab6Y
 
 ```
-
+-->
 
 ### 4-2. 쿠폰
 
