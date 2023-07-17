@@ -678,7 +678,7 @@ Here's what the Gamepod SDK collects:
      In the case of [User Content], it corresponds to the case of using the Gamepot Customer Inquiry UI among customers using Gamepot PRO or higher products, and when using the object storage function, an image file can be uploaded as an attachment to customer inquiries.
 
 
-### Ver 3.5.1 Changes
+### Ver 3.5.1 Changes - Banned version
 
 #### Guest Login process has changed ( Ver 3.5.1 )
 
@@ -705,6 +705,8 @@ For the users who have been using guest accounts since the GAMEPOT SDK 3.5.0 or 
 
 After that, when users log in as guest after deleting the app or the data within the app, new user IDs that were created most recently will be provided.
 
+<!--
+
 -	For the GAMEPOT SDK 3.5.0, changes on library are as in the following:
 
 gamepot-common.aar / GamePot.framework 
@@ -713,6 +715,7 @@ You can simply replace the library files.
 
 Patch for the changes: [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/newGuestLogin_gamepot3.5.1_230423.zip)
 
+-->
 
 
 ### Migration
