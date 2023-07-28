@@ -1624,6 +1624,68 @@ ex)
 
 [ Unity 2019.3.7 이상 버전 또는 이후 버전 (신규로 작업하는 경우) ]
 
+- GAMEPOT SDK ver 3.5.1 버전 기준
+
+```text
+        mainTemplate.gradle / launcherTemplate.gradle / baseProjectTemplate.gradle 파일 변경시 참고사항
+
+        - [파일]_GAMEPOT_UNITY_[년도]_[중간]_[마이너버전 또는 이상 버전]
+        - UNITY_2019_3_Over :  UNITY 2019.3.XX 이상 버전일때 사용 
+        - UNITY_2020_XX_Over_2022_1_XX : UNITY_2020 이상 UNITY_2022.1.XX 이하 버전일때 사용
+        - UNITY_2022_2_XX_Over : 2022.2.XX 이상 버전일떄 사용
+```
+
+
+    1.  mainTemplate.gradle 파일 삭제 (기존 파일은 Unity 2018 기준 파일이기에 삭제 진행)
+   
+    2.  탑재하는 유니티 버전에 맞는 mainTemplate.gradle 파일을 찾아 이름 변경 후 사용 게임팟 환경변수는 launcherTemplate 파일에 정의하므로 mainTemplate 파일에 정의를 하지 않아도 됩니다. 추가로 넣는 라이브러리 정의시 사용합니다. 
+
+
+        case 1) 유니티 에디터 버전이 2019.4.40 버전일때 
+        
+        mainTemplate_GAMEPOT_UNITY_2019_3_Over 파일을 mainTemplate.gradle 로 파일명 변경
+        
+        case 2) 유니티 에디터 버전이 2021.3.13 버전일때 
+
+        mainTemplate_GAMEPOT_UNITY_2020_XX_Over_2022_1_XX.gradle 파일을 mainTemplate.gradle 로 파일명 변경
+
+        case 3)유니티 에디터 버전이 2022.3.00 버전일때 
+
+        mainTemplate_GAMEPOT_UNITY_2022_2_XX_Over 파일을 mainTemplate.gradle 로 파일명 변경
+
+    3. 탑재하는 유니티 버전에 맞는 launcherTemplate.gradle 파일을 찾아 이름 변경 후 사용 게임팟 환경변수를 정의합니다. 
+
+        case 1) 유니티 에디터 버전이 2019.4.40 버전일때 
+        
+        launcherTemplate_GAMEPOT_UNITY_2019_3_Over 파일을 launcherTemplate.gradle 로 파일명 변경
+        
+        case 2) 유니티 에디터 버전이 2021.3.13 버전일때 
+
+        launcherTemplate_GAMEPOT_UNITY_2020_XX_Over_2022_1_XX.gradle 파일을 launcherTemplate.gradle 로 파일명 변경
+
+        case 3)유니티 에디터 버전이 2022.3.00 버전일때 
+
+        launcherTemplate_GAMEPOT_UNITY_2022_2_XX_Over 파일을 launcherTemplate.gradle 로 파일명 변경
+   
+   
+    4. 탑재하는 유니티 버전에 맞는 baseProjectTemplate.gradle 파일을 찾아 이름 변경
+
+        case 1) 유니티 에디터 버전이 2019.4.40 버전일때 
+        
+        baseProjectTemplate_GAMEPOT_UNITY_2019_X_XX 파일을 baseProjectTemplate.gradle 로 파일명 변경
+        
+        case 2) 유니티 에디터 버전이 2021.3.13 버전일때 
+
+        baseProjectTemplate_GAMEPOT_UNITY_2020_X_Over_2022_1_XX.gradle 파일을 baseProjectTemplate.gradle 로 파일명 변경
+
+        case 3)유니티 에디터 버전이 2022.3.00 버전일때 
+
+        baseProjectTemplate_GAMEPOT_UNITY_2022_2_XX_Over 파일을 baseProjectTemplate.gradle 로 파일명 변경
+
+
+
+- GAMEPOT SDK ver 3.4.2 버전 기준
+
     1. baseProjectTemplate.gradle을 추가합니다.
     
     일반적으로 하기 파일을 rename 해서 사용하시면 됩니다.
@@ -1648,6 +1710,26 @@ ex)
 
 2022.2.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/2022.x_gradle_files.zip)
 
+
+[ Unity 2022.3.X ] 버전에서 multidex 관련 오류가 발생시 
+
+Unity Editer > Player Settings > Publishing Settings >  Custom Gradle Propreties Template 항목 체크 >
+
+../Assets/Plugins/Android/gradleTemplate.properties  파일 내 android.useAndroidX / android.enableJetifier 설정 추가 후 저장 
+
+
+```text
+
+org.gradle.jvmargs=-Xmx**JVM_HEAP_SIZE**M
+org.gradle.parallel=true
+unityStreamingAssets=**STREAMING_ASSETS**
+**ADDITIONAL_PROPERTIES**
+
+android.useAndroidX= true      // 추가
+android.enableJetifier=true    // 추가
+
+
+```
 
 5. Unity 2020.X, 2021.X , 2022.1.X 버전을 사용하시는 경우 추가 수정사항 ( 게임팟 SDK 3.4.X 이하 버전 대상)
 
@@ -1707,13 +1789,6 @@ Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 
 ![gamepot_faq_54](./images/gamepot_faq_54.png)
 
-<!-->
-6. GAMEPOT_UNITY_SDK_20220217.unitypackage 적용 후 로그인 API 결과가 실패아며 문구가 "초기화에 실패 했습니다. 현상이 지속할 경우 앱을 재실행해 주세요" 일떄 
- 
-   라이브러리를 교체 후 다시 확인 부탁드립니다.  [gamepot-bridge.aar 라이브러리 수정 파일 ](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/gamepot-bridge.aar_fixed_220302.zip)
-
-   기존에 설치된 앱은 삭제 후 확인 부탁드립니다.  
--->
 
 6. Please fix your Bundle ID 팝업이 뜨면 해당 패키지명을 확인 후 Apply 버튼을 클릭해주세요. 
 
@@ -1729,7 +1804,7 @@ Unity 202X.X 버전을 위한 패치 : [다운로드](https://xyuditqzezxs100897
 
     관련 내용 : https://github.com/googlesamples/unity-jar-resolver/issues/523#issuecomment-1147499484
 
-- 유니티 에디터 2021.X 버전에서는 샘플 씬 파일 교체 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/GamePotSampleSin_unity_2021.zip)
+- 유니티 에디터 202X.X 버전에서는 샘플 씬 파일 교체 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/GamePotSampleSin_unity_2021.zip)
 
 
 
