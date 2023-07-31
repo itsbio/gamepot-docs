@@ -1001,6 +1001,67 @@ The following actions are required.
 
 [ Unity 2019.3.7 or later version (if working new) ]
 
+- Applicable for GAMEPOT SDK ver 3.5.1
+
+```text
+mainTemplate.gradle / launcherTemplate.gradle / baseProjectTemplate.gradle 
+Note the followings to perform file replacement
+
+- [File]_GAMEPOT_UNITY_[Year]_[Mid]_[Minor version or higher]
+- UNITY_2019_3_Over :  Used for higher version than the UNITY 2019.3.XX
+- UNITY_2020_XX_Over_2022_1_XX : Used for higher version than the UNITY_2020 and lower than the UNITY_2022.1.XX
+- UNITY_2022_2_XX_Over : Used for higher version than 2022.2.XX
+```
+
+
+1.  Delete the file named mainTemplate.gradle (as the existing file is only applicable for the Unity 2018)
+   
+2.  Find and change the name of the mainTemplate.gradle that is compatible for the version of the Unity being developed on. GAMEPOT’s environment variable will be declared on launcherTemplate, so that is not required to be done on the mainTemplate file. Used when declaring additional libraries.  
+
+
+        case 1) For Unity editor version 2019.4.40 
+        
+        Change the file name from mainTemplate_GAMEPOT_UNITY_2019_3_Over to mainTemplate.gradle
+        
+        case 2) For Unity editor version 2021.3.13 
+
+        Change the file name from mainTemplate_GAMEPOT_UNITY_2020_XX_Over_2022_1_XX.gradle to mainTemplate.gradle
+
+        case 3) For Unity editor version 2022.3.00 
+
+        Change the file name from mainTemplate_GAMEPOT_UNITY_2022_2_XX_Over to mainTemplate.gradle
+
+3. Find and change the name of the file named launcherTemplate.gradle that is compatible for the version of the Unity being developed on. Then, declare the GAMEPOT environment variables.  
+
+        case 1) For Unity editor version 2019.4.40 
+        
+        Change the file name from launcherTemplate_GAMEPOT_UNITY_2019_3_Over to launcherTemplate.gradle
+        
+        case 2) For Unity editor version 2021.3.13
+
+        Change the file name from launcherTemplate_GAMEPOT_UNITY_2020_XX_Over_2022_1_XX.gradle to launcherTemplate.gradle
+
+        case 3) For Unity editor version 2022.3.00 
+
+        Change the file name from launcherTemplate_GAMEPOT_UNITY_2022_2_XX_Over to launcherTemplate.gradle 
+   
+4. Find and change the name of the file named baseProjectTemplate.gradle that is compatible for the version of the Unity being developed on.
+
+        case 1) For Unity editor version 2019.4.40 
+        
+       Change the file name from baseProjectTemplate_GAMEPOT_UNITY_2019_X_XX to baseProjectTemplate.gradle
+        
+        case 2) For Unity editor version 2021.3.13 
+
+        Change the file name from baseProjectTemplate_GAMEPOT_UNITY_2020_X_Over_2022_1_XX.gradle to baseProjectTemplate.gradle
+
+        case 3) For Unity editor version 2022.3.00 
+
+        Change the file name from baseProjectTemplate_GAMEPOT_UNITY_2022_2_XX_Over to baseProjectTemplate.gradle
+
+
+- Applicable for GAMEPOT SDK ver 3.4.2
+
     1. Add baseProjectTemplate.gradle.
     
     In general, you can use the following file by renaming it.
