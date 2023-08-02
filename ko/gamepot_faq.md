@@ -1636,9 +1636,9 @@ ex)
 ```
 
 
-    1.  mainTemplate.gradle 파일 삭제 (기존 파일은 Unity 2018 기준 파일이기에 삭제 진행)
+1.  mainTemplate.gradle 파일 삭제 (기존 파일은 Unity 2018 기준 파일이기에 삭제 진행)
    
-    2.  탑재하는 유니티 버전에 맞는 mainTemplate.gradle 파일을 찾아 이름 변경 후 사용 게임팟 환경변수는 launcherTemplate 파일에 정의하므로 mainTemplate 파일에 정의를 하지 않아도 됩니다. 추가로 넣는 라이브러리 정의시 사용합니다. 
+2.  탑재하는 유니티 버전에 맞는 mainTemplate.gradle 파일을 찾아 이름 변경 후 사용 게임팟 환경변수는 launcherTemplate 파일에 정의하므로 mainTemplate 파일에 정의를 하지 않아도 됩니다. 추가로 넣는 라이브러리 정의시 사용합니다. 
 
 
         case 1) 유니티 에디터 버전이 2019.4.40 버전일때 
@@ -1653,7 +1653,7 @@ ex)
 
         mainTemplate_GAMEPOT_UNITY_2022_2_XX_Over 파일을 mainTemplate.gradle 로 파일명 변경
 
-    3. 탑재하는 유니티 버전에 맞는 launcherTemplate.gradle 파일을 찾아 이름 변경 후 사용 게임팟 환경변수를 정의합니다. 
+3. 탑재하는 유니티 버전에 맞는 launcherTemplate.gradle 파일을 찾아 이름 변경 후 사용 게임팟 환경변수를 정의합니다. 
 
         case 1) 유니티 에디터 버전이 2019.4.40 버전일때 
         
@@ -1668,7 +1668,7 @@ ex)
         launcherTemplate_GAMEPOT_UNITY_2022_2_XX_Over 파일을 launcherTemplate.gradle 로 파일명 변경
    
    
-    4. 탑재하는 유니티 버전에 맞는 baseProjectTemplate.gradle 파일을 찾아 이름 변경
+4. 탑재하는 유니티 버전에 맞는 baseProjectTemplate.gradle 파일을 찾아 이름 변경
 
         case 1) 유니티 에디터 버전이 2019.4.40 버전일때 
         
@@ -1711,7 +1711,7 @@ ex)
 2022.2.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/2022.x_gradle_files.zip)
 
 
-[ Unity 2022.3.X ] 버전에서 multidex 관련 오류가 발생시 
+- [ Unity 2022.3.X ] 버전에서 multidex 관련 오류가 발생시 
 
 Unity Editer > Player Settings > Publishing Settings >  Custom Gradle Propreties Template 항목 체크 >
 
@@ -1958,7 +1958,7 @@ unreal 의 경우 Engine/Source/Programs/UnrealBuildTool/Platform/Android/UEDepl
 
    [unity 패치]
    
-   관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/android_targetSDK31_facebook_13.2.0.zip)
+   관련 수정 패치 : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/android_targetSDK31_facebook_13.2.0_230801.zip)
 
   
   ```text
@@ -1990,7 +1990,6 @@ unreal 의 경우 Engine/Source/Programs/UnrealBuildTool/Platform/Android/UEDepl
     추가 및 교체 :
 
         ../Assets/Plugins/Android/libs/gamepot-channel-facebook.aar
-        ../Assets/Plugins/Android/libs/gamepot-common.aar
         ../Assets/Plugins/Android/libs/activity-1.2.0.aar
         ../Assets/Plugins/Android/libs/annotation-experimental-1.0.0.aar
         ../Assets/Plugins/Android/libs/converter-gson-2.5.0.jar
