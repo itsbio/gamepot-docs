@@ -1706,13 +1706,13 @@ ex)
 
 [ Unity 2022.2.X 이상]
 
-    Unity Editer Ver 2022.2.X 이상 버전에서  baseProjectTemplate.gradle / launcherTemplate.gradle / mainTemplate.gradle 파일 내 형태가 변경됨에 따라 패치 파일 기준으로 적용 후 빌드를 진행하면 됩니다.
+Unity Editer Ver 2022.2.X 이상 버전에서  baseProjectTemplate.gradle / launcherTemplate.gradle / mainTemplate.gradle 파일 내 형태가 변경됨에 따라 패치 파일 기준으로 적용 후 빌드를 진행하면 됩니다.
 
 2022.2.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/2022.x_gradle_files.zip)
 
 [ Unity 2023.1.X 이상]
 
-    Unity Editer Ver 2023.1.X  baseProjectTemplate.gradle / launcherTemplate.gradle / mainTemplate.gradle 파일 내 형태가 변경됨에 따라 패치 파일 기준으로 적용 후 빌드를 진행하면 됩니다.
+Unity Editer Ver 2023.1.X  baseProjectTemplate.gradle / launcherTemplate.gradle / mainTemplate.gradle 파일 내 형태가 변경됨에 따라 패치 파일 기준으로 적용 후 빌드를 진행하면 됩니다.
 
 2023.1.X 용 gradle_files : [다운로드](https://xyuditqzezxs1008973.cdn.ntruss.com/patch/unity2023.1.X_gradle_files.zip)
 
