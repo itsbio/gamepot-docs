@@ -366,7 +366,7 @@ body : { "nickname":"{닉네임}" }
  - URI : /v1/api/project/{projectId}/user/{UserId}
 
 ```text
-POST
+DELETE
 url : https://gravity-api.gamepot.io/v1/api/project/{projectId}/user/{UserId}
 Header : 'accept-language: ko'
 Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 획득한 토큰으로 교체
@@ -460,7 +460,7 @@ status 값이 -409 일때 탈퇴 철회관련 로직을 진행해주세요.
  - URI : /v1/api/project/{projectId}/user/{UserId}/withdraw
 
 ```text
-POST
+PUT
 url : https://gravity-api.gamepot.io/v1/api/project/{projectId}/user/{UserId}/withdraw
 Header : 'accept-language: ko'
 Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 획득한 토큰으로 교체
@@ -534,7 +534,7 @@ Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 �
  - URI : /v1/api/project/{projectId}/store/pc/maintenance
 
 ```text
-POST
+GET
 url : https://gravity-api.gamepot.io/v1/api/project/{projectId}/store/pc/maintenance
 Header : 'accept-language: ko'
 Header : 'Authorization: Bearer {token}' // {token} 부분은 로그인 이후 획득한 토큰으로 교체
@@ -729,7 +729,7 @@ body :
  - URI : /v1/api/project/{projectid}/user/terms
 
 ```text
-POST
+PUT
 url : https://gravity-api.gamepot.io/v1/api/project/{projectid}/user/terms
 Header : 'language: ko'
 Header : 'Content-Type: application/json'
@@ -834,7 +834,7 @@ body :
  - URI : /v1/api/project/{projectid}/store/pc/notice/posting
 
 ```text
-POST
+GET
 url : https://gravity-api.gamepot.io/v1/api/project/{projectid}/store/pc/notice
 Header : 'accept-language: ko'
 ```

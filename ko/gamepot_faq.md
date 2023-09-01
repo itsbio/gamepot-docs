@@ -347,9 +347,14 @@ Twitter Developer Console의 설정이 올바른지 확인해주세요.
 #### 3-4)
 - 원스토어 SDK 인앱 버전 SDK은 게임팟 SDK 버전에 따라 지원 범위가 다릅니다. 
   
-    GAMEPOT SDK V 3.5.0 : api21 , V7 지원
+    GAMEPOT SDK V 3.5.0이상 : api21 , V7 지원
+    관련 라이브러리 파일 : gamepot-billing-onestore.aar ,gamepot-common.aar ,sdk-auth-1.0.2.aar ,sdk-base-1.0.3.aar ,sdk-iap-21.00.00.aar
+
+    GAMEPOT SDK V 3.4.3-oneV6 : api19 , V6 지원
+    관련 라이브러리 파일 : iap_sdk-v19.00.02.aar , gamepot-billing-onestoreV6.aar , gamepot-common_onestoreV6_only.aar
 
     GAMEPOT SDK V 3.4.2  api17 , V5 지원
+    관련 라이브러리 파일 : gamepot-billing-onestore.aar ,gamepot-common.aar 
 
 - Android 빌드시 targetSdkVersion 30(Android 11) 이상으로 빌드한 경우 Android 11 OS기기에 원스토어 APK가 설치되었음에도 찾지 못합니다.
 
