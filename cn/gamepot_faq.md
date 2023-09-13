@@ -690,7 +690,7 @@ https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com
     登录验证请求URL已设置为“https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth”时，请更改为https://cloud-api.gamepot.io/loginauth后再确认。
 
     Real Zone：https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
-    Beta Zone：https://cloud-api.gamepot.io/loginauth（计划结束服务）
+    Beta Zone：https://cloud-api.gamepot.io/loginauth（服務結束）
 
 #### 3. 运行构建时，弹出了“应用运行异常，请在商店中下载。”的消息弹窗
 

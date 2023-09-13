@@ -1046,7 +1046,7 @@ https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com
     로그인 검증 Request URL이 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth'로 설정되어 있으면, https://cloud-api.gamepot.io/loginauth 으로 변경하여 확인 부탁드립니다.
     
     리얼존 : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
-    베타존 : https://cloud-api.gamepot.io/loginauth ( 서비스 종료 예정 )
+    베타존 : https://cloud-api.gamepot.io/loginauth ( 서비스 종료 )
 
 #### 3. 빌드 실행 시, '비정상적으로 앱이 실행되었습니다. 스토어에서 다운로드 받으세요' 메시지 팝업이 발생
 

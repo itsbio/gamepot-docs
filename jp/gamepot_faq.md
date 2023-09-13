@@ -514,7 +514,7 @@ https://tools.bunny.net/latency-test?query=gamepot.apigw.ntruss.com
     ログイン検証Request URLが 'https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth 'に設定されていれば、https://cloud-api.gamepot.io/loginauthに変更してご確認お願いいたします。
     
     リアルジョン : https://gamepot.apigw.ntruss.com/gpapps/v1/loginauth
-    ベータジョン : https://cloud-api.gamepot.io/loginauth ( サービス終了予定 )
+    ベータジョン : https://cloud-api.gamepot.io/loginauth ( サービス終了 )
 
 #### 3. ビルドの実行時に、 '異常にアプリが実行されました。ストアからダウンロード 'メッセージのポップアップが発生
 
